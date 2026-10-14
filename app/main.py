@@ -12,7 +12,7 @@ from starlette.exceptions import HTTPException as StarletteHTTPException
 from . import config, db
 from .errores import ErrorUsuario
 from .registro import configurar_registro
-from .routers import busqueda, componentes, contenido, extras, materias, paginas, pdfs as rutas_pdfs, tablas
+from .routers import busqueda, componentes, contenido, diagnostico, extras, materias, paginas, pdfs as rutas_pdfs, tablas
 from .services import bloqueo, imagenes, importacion, ocr, pdfs  # noqa: F401 (registran sus fuentes de OCR)
 from .web import aviso, es_htmx, templates
 
@@ -90,6 +90,7 @@ def crear_app(ocr_activo: bool = True) -> FastAPI:
     app.include_router(rutas_pdfs.router)
     app.include_router(contenido.router)
     app.include_router(extras.router)
+    app.include_router(diagnostico.router)
     return app
 
 

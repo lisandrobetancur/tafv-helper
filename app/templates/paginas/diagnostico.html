@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% from "macros.html" import icono %}
+{% block titulo %}Diagnóstico{% endblock %}
+{% block contenido %}
+<div class="mx-auto max-w-6xl">
+  <header class="mb-5 flex flex-wrap items-start gap-4">
+    <span class="grid size-12 shrink-0 place-items-center rounded-2xl bg-marca-suave text-marca">{{ icono("stethoscope", "size-6") }}</span>
+    <div class="min-w-0 flex-1">
+      <h1 class="text-2xl font-bold tracking-tight sm:text-3xl">Diagnóstico por síntomas</h1>
+      <p class="mt-1 max-w-3xl text-tenue">Escribe los síntomas y la biblioteca buscará en todo tu material qué registros
+        (medicamentos, enfermedades…) los mencionan, cuántos cubre cada uno y dónde lo dice.</p>
+    </div>
+  </header>
+
+  <p class="mb-5 flex gap-2 rounded-xl border border-alerta/30 bg-alerta-suave px-4 py-2.5 text-sm">{{ icono("info", "size-5 shrink-0 text-alerta") }}
+    Es una herramienta de estudio: ordena lo que dice tu propio material, con su fuente. No reemplaza el juicio clínico.</p>
+
+  <form id="form-dx" class="tarjeta mb-6 flex flex-col gap-4 p-5"
+        hx-get="/diagnostico/resultado" hx-target="#resultado-dx" hx-trigger="cambio, change" hx-indicator="#resultado-dx"
+        x-data="diagnostico({{ sintomas|map(attribute='texto')|list|tojson|forceescape }}, {{ sintomas|selectattr('importante')|map(attribute='texto')|list|tojson|forceescape }})"
+        @submit.prevent>
+    <div>
+      <label class="etiqueta" for="dx-entrada">Síntomas</label>
+      <div class="relative">
+        <div class="campo flex min-h-12 flex-wrap items-center gap-1.5 py-1.5" @click="$refs.entrada.focus()">
+          <template x-for="(s, i) in sintomas" :key="s.texto">
+            <span class="inline-flex items-center gap-1 rounded-full border py-0.5 pl-2.5 pr-1 text-sm"
+                  :class="s.importante ? 'border-oro/50 bg-oro-suave text-texto' : 'border-borde bg-superficie-2'">
+              <input type="hidden" name="s" :value="s.texto">
+              <template x-if="s.importante"><input type="hidden" name="imp" :value="s.texto"></template>
+              <span x-text="s.texto"></span>
+              <button type="button" class="grid size-6 place-items-center rounded-full hover:bg-superficie-3"
+                      :class="s.importante ? 'text-oro' : 'text-tenue'" @click.stop="alternar(i)"
+                      :title="s.importante ? 'Quitar «importante»' : 'Marcar como importante (vale el doble)'">
+                <svg class="ic size-3.5" :class="s.importante && 'fill-current'"><use href="/static/vendor/lucide/sprite.svg#star"/></svg></button>
+              <button type="button" class="grid size-6 place-items-center rounded-full text-tenue hover:bg-superficie-3 hover:text-peligro"
+                      @click.stop="quitar(i)" title="Quitar">{{ icono("x", "size-3.5") }}</button>
+            </span>
+          </template>
+          <input id="dx-entrada" x-ref="entrada" x-model="texto" autocomplete="off" class="min-w-48 flex-1 bg-transparent px-1 py-1 outline-none"
+                 :placeholder="sintomas.length ? 'Otro síntoma…' : 'Ej.: miedo al fracaso, pies fríos…'"
+                 @input.debounce.150ms="sugerir()" @keydown.enter.prevent="agregar(activa >= 0 ? sugerencias[activa] : texto)"
+                 @keydown.arrow-down.prevent="mover(1)" @keydown.arrow-up.prevent="mover(-1)"
+                 @keydown.backspace="if (!texto && sintomas.length) quitar(sintomas.length - 1)" @keydown.escape="sugerencias = []"
+                 @blur="setTimeout(() => sugerencias = [], 150)">
+        </div>
+        <ul x-show="sugerencias.length" x-cloak class="ac-lista absolute left-0 right-0 top-full z-20 mt-1.5 max-h-72 overflow-auto rounded-xl border border-borde bg-superficie p-1.5 shadow-lg">
+          <template x-for="(s, i) in sugerencias" :key="s">
+            <li class="cursor-pointer rounded-lg px-3 py-2 text-sm hover:bg-marca-suave" :class="i === activa && 'bg-marca-suave'"
+                @mousedown.prevent="agregar(s)" x-text="s"></li>
+          </template>
+        </ul>
+      </div>
+      <p class="ayuda">Escribe y elige de la lista (sale de tu material) o pulsa Enter. La estrella marca un síntoma como importante: vale el doble.</p>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-2 text-sm">
+      <select name="materia" class="campo h-9 w-auto" aria-label="Materia">
+        <option value="">Todas las materias</option>
+        {% for m in materias %}<option value="{{ m.id }}" {{ "selected" if filtros.materia == m.id }}>{{ m.nombre }}</option>{% endfor %}
+      </select>
+      <select name="tabla" class="campo h-9 w-auto max-w-xs" aria-label="Tabla">
+        <option value="">Todas las tablas</option>
+        {% for t in tablas %}<option value="{{ t.id }}" {{ "selected" if tabla_id == t.id }}>{{ t.nombre }} ({{ t.materia }})</option>{% endfor %}
+      </select>
+      <label class="chip cursor-pointer py-1.5 has-[:checked]:border-marca has-[:checked]:bg-marca-suave has-[:checked]:text-marca"
+             title="Solo cuenta lo que esté en columnas cuyo nombre diga «síntoma», «signo», «característico»…">
+        <input type="checkbox" name="solo" value="1" class="sr-only" {{ "checked" if solo }}>Solo en columnas de síntomas</label>
+    </div>
+  </form>
+
+  <div id="resultado-dx" class="[&.htmx-request]:opacity-60 transition-opacity">
+    {% include "parciales/diagnostico_resultado.html" %}
+  </div>
+</div>
+{% endblock %}

@@ -38,7 +38,7 @@ app/
   routers/           rutas HTTP (páginas y fragmentos HTMX)
   services/          lógica: biblioteca, almacenamiento, papelera, hojas, importacion, tablas,
                      imagenes_fila, pdfs, ocr, imagenes, notas, etiquetas, busqueda, favoritos,
-                     repaso, respaldos, bloqueo, miniaturas
+                     repaso, respaldos, bloqueo, miniaturas, diagnostico
   templates/         base.html, macros.html, paginas/, parciales/
   static/            src/app.css (fuente Tailwind), css/app.css (compilado), js/app.js, vendor/, marca/
 data/                (no va en git) biblioteca.db, archivos/, papelera/, respaldos/, cache/, logs/
@@ -77,6 +77,12 @@ data/archivos/<materia>/<componente>/<subcomponente>/
   PDF e imágenes mueven su archivo. Vaciar borra sin dejar huérfanos.
 - **Respaldos:** ZIP con copia en caliente de la BD (API `backup` de SQLite) + `archivos/` + `papelera/`.
   Restaurar valida rutas (anti *zip slip*) e integridad, hace un respaldo automático previo y migra.
+- **Diagnóstico por síntomas:** repertorización determinista sobre las filas de las tablas. Cada síntoma
+  se busca con FTS5 (prefijos, sin tildes) y se verifica por columna (opcionalmente solo columnas cuyo
+  nombre contiene «síntoma/signo/característico…»); los candidatos se ordenan por síntomas cubiertos
+  (los «importantes» pesan el doble) con evidencia (columna + línea resaltada), síntomas faltantes,
+  «otros rasgos para confirmar», matriz comparativa y fuentes de apoyo (PDF, notas, imágenes). Sin IA:
+  todo sale del material y se muestra su origen.
 - **Seguridad de contenido:** todo el texto del Excel se escapa; el Markdown de las notas no admite HTML;
   las subidas se validan por contenido (Pillow/PyMuPDF), no por extensión.
 - **Mac Intel:** onnxruntime ≥ 1.24 no publica wheels x86_64 para macOS; `requirements.txt` fija la 1.23.2

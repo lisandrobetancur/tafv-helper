@@ -36,6 +36,19 @@ def fragmentos_resaltados(texto: str, termino: str) -> list[tuple[str, bool]]:
             for j in range(mapa[inicio], mapa[inicio + len(palabra) - 1] + 1):
                 marcas[j] = True
             inicio = plano_txt.find(palabra, inicio + len(palabra))
+    # Los espacios entre dos palabras resaltadas también se resaltan ("pies fríos" en un solo bloque)
+    i = 0
+    while i < len(texto):
+        if not marcas[i] and texto[i] in " \t" and i > 0 and marcas[i - 1]:
+            j = i
+            while j < len(texto) and texto[j] in " \t":
+                j += 1
+            if j < len(texto) and marcas[j]:
+                for k in range(i, j):
+                    marcas[k] = True
+            i = j
+        else:
+            i += 1
     trozos: list[tuple[str, bool]] = []
     for caracter, marcado in zip(texto, marcas):
         if trozos and trozos[-1][1] == marcado:

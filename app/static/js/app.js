@@ -219,6 +219,41 @@
       },
     }));
 
+    // ------------------------------------------------- diagnóstico por síntomas
+    // Síntomas como "chips" (con autocompletado desde el material); cada cambio recalcula el resultado.
+    Alpine.data("diagnostico", (iniciales = [], importantes = []) => ({
+      sintomas: iniciales.map((t) => ({ texto: t, importante: importantes.includes(t) })),
+      texto: "", sugerencias: [], activa: -1, seq: 0,
+      norm(t) { return t.normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim(); },
+      recalcular() { this.$nextTick(() => htmx.trigger(this.$root, "cambio")); },
+      agregar(t) {
+        t = (t || "").replace(/\s+/g, " ").trim();
+        this.texto = ""; this.sugerencias = []; this.activa = -1;
+        if (!t || this.sintomas.some((s) => this.norm(s.texto) === this.norm(t))) return;
+        this.sintomas.push({ texto: t, importante: false });
+        this.recalcular();
+      },
+      quitar(i) { this.sintomas.splice(i, 1); this.recalcular(); },
+      alternar(i) { this.sintomas[i].importante = !this.sintomas[i].importante; this.recalcular(); },
+      mover(d) {
+        if (!this.sugerencias.length) return;
+        this.activa = (this.activa + d + this.sugerencias.length) % this.sugerencias.length;
+      },
+      async sugerir() {
+        const q = this.texto.trim();
+        const mio = ++this.seq;
+        if (q.length < 2) { this.sugerencias = []; return; }
+        try {
+          const r = await fetch("/diagnostico/sugerencias?q=" + encodeURIComponent(q));
+          const lista = await r.json();
+          if (mio !== this.seq) return;
+          const ya = new Set(this.sintomas.map((s) => this.norm(s.texto)));
+          this.sugerencias = lista.filter((t) => !ya.has(this.norm(t)));
+          this.activa = -1;
+        } catch (e) { this.sugerencias = []; }
+      },
+    }));
+
     // ------------------------------------------------- modo repaso (flashcards)
     // Espacio: dar vuelta · →: lo sé · ←: repasar. Cada marca se guarda en el servidor.
     Alpine.data("repaso", (tarjetas) => ({
