@@ -1,4 +1,4 @@
-"""Módulo Diagnóstico: síntomas -> candidatos con evidencia, a partir del material de la biblioteca."""
+"""Módulo Diagnóstico: independiente de las materias, consulta toda la biblioteca y guarda sus propios casos."""
 from __future__ import annotations
 
 import sqlite3
@@ -8,11 +8,10 @@ from fastapi import APIRouter, Depends, Form, Request
 from fastapi.responses import JSONResponse
 
 from ..db import obtener_db
-from ..errores import ErrorUsuario
-from ..services import biblioteca as bib
-from ..services import busqueda as bus
+from ..services import casos as casos_srv
 from ..services import diagnostico as dx
 from ..services import notas as notas_srv
+from ..services import papelera as pap
 from ..web import pagina, parcial, redirigir
 
 router = APIRouter()
@@ -22,41 +21,35 @@ def _entero(valor: str | None) -> int | None:
     return int(valor) if valor and valor.isdigit() else None
 
 
-def _leer(params) -> tuple[list[dx.Sintoma], bus.Filtros, int | None, bool]:
-    sintomas = dx.preparar(params.getlist("s"), params.getlist("imp"))
-    filtros = bus.Filtros(materia=_entero(params.get("materia")))
-    return sintomas, filtros, _entero(params.get("tabla")), params.get("solo") == "1"
+def _leer(params) -> tuple[list[dx.Sintoma], bool]:
+    return dx.preparar(params.getlist("s"), params.getlist("imp")), params.get("solo") == "1"
 
 
-def _opciones(con: sqlite3.Connection) -> dict:
-    tablas = con.execute(
-        """SELECT t.id, t.nombre, m.nombre AS materia FROM tablas t JOIN componentes c ON c.id = t.componente_id
-           JOIN materias m ON m.id = c.materia_id
-           WHERE t.papelera_id IS NULL AND c.papelera_id IS NULL AND m.papelera_id IS NULL
-           ORDER BY m.orden, m.nombre, t.nombre""").fetchall()
-    destinos = []
-    for f in con.execute("""SELECT c.id FROM componentes c JOIN materias m ON m.id = c.materia_id
-                            WHERE c.papelera_id IS NULL AND m.papelera_id IS NULL AND c.tipos LIKE '%notas%'
-                            ORDER BY m.orden, c.orden"""):
-        comp = bib.obtener_componente(con, f["id"])
-        m = bib.obtener_materia(con, comp.materia_id)
-        destinos.append((comp.id, " › ".join([m.nombre, *(a.nombre for a in bib.ancestros(con, comp)), comp.nombre])))
-    return {"materias": bib.listar_materias(con, archivadas=None), "tablas": tablas, "destinos": destinos}
+def _caso_abierto(con: sqlite3.Connection, params) -> casos_srv.Caso | None:
+    caso_id = _entero(params.get("caso"))
+    if caso_id is None:
+        return None
+    try:
+        return casos_srv.obtener(con, caso_id)
+    except casos_srv.NoEncontrado:
+        return None
 
 
 @router.get("/diagnostico")
 def pagina_diagnostico(request: Request, con: sqlite3.Connection = Depends(obtener_db)):
-    sintomas, filtros, tabla_id, solo = _leer(request.query_params)
-    analisis = dx.analizar(con, sintomas, filtros, tabla_id, solo) if sintomas else None
-    return pagina(request, con, "paginas/diagnostico.html", analisis=analisis, sintomas=sintomas, filtros=filtros,
-                  tabla_id=tabla_id, solo=solo, migas=[{"texto": "Diagnóstico"}], **_opciones(con))
+    sintomas, solo = _leer(request.query_params)
+    analisis = dx.analizar(con, sintomas, solo_sintomas=solo) if sintomas else None
+    return pagina(request, con, "paginas/diagnostico.html", analisis=analisis, sintomas=sintomas, solo=solo,
+                  caso=_caso_abierto(con, request.query_params), casos=casos_srv.listar(con),
+                  migas=[{"texto": "Diagnóstico"}])
 
 
 @router.get("/diagnostico/resultado")
 def resultado(request: Request, con: sqlite3.Connection = Depends(obtener_db)):
-    sintomas, filtros, tabla_id, solo = _leer(request.query_params)
-    analisis = dx.analizar(con, sintomas, filtros, tabla_id, solo) if sintomas else None
-    respuesta = parcial(request, "parciales/diagnostico_resultado.html", analisis=analisis, **_opciones(con))
+    sintomas, solo = _leer(request.query_params)
+    analisis = dx.analizar(con, sintomas, solo_sintomas=solo) if sintomas else None
+    respuesta = parcial(request, "parciales/diagnostico_resultado.html", analisis=analisis,
+                        caso=_caso_abierto(con, request.query_params))
     # La dirección de la página refleja el caso, para poder volver a él o guardarlo en favoritos del navegador
     respuesta.headers["HX-Replace-Url"] = "/diagnostico?" + urlencode(list(request.query_params.multi_items()))
     return respuesta
@@ -67,17 +60,47 @@ def sugerencias(q: str = "", con: sqlite3.Connection = Depends(obtener_db)):
     return JSONResponse(dx.sugerencias(con, q))
 
 
-@router.post("/diagnostico/guardar")
-async def guardar(request: Request, con: sqlite3.Connection = Depends(obtener_db)):
+# ------------------------------------------------------------------ casos
+@router.post("/diagnostico/casos")
+async def crear_caso(request: Request, con: sqlite3.Connection = Depends(obtener_db)):
     form = await request.form()
-    sintomas, filtros, tabla_id, solo = _leer(form)
-    componente_id = _entero(str(form.get("componente_id") or ""))
-    if not sintomas:
-        raise ErrorUsuario("Agrega al menos un síntoma antes de guardar el caso.")
-    if not componente_id:
-        raise ErrorUsuario("Elige en qué componente guardar el caso.")
-    analisis = dx.analizar(con, sintomas, filtros, tabla_id, solo)
-    titulo = " ".join(str(form.get("titulo") or "").split()) or "Caso: " + ", ".join(s.texto for s in sintomas)[:100]
-    nota = notas_srv.crear(con, componente_id, titulo, dx.nota_markdown(analisis), "markdown", "caso, diagnóstico")
-    return redirigir(request, f"/notas/{nota.id}", "Caso guardado como nota.")
+    sintomas, solo = _leer(form)
+    caso = casos_srv.crear(con, str(form.get("titulo") or ""), sintomas, solo, str(form.get("conclusion") or ""))
+    return redirigir(request, f"/diagnostico/casos/{caso.id}", "Caso guardado en Diagnóstico.")
 
+
+@router.get("/diagnostico/casos/{caso_id}")
+def ver_caso(request: Request, caso_id: int, con: sqlite3.Connection = Depends(obtener_db)):
+    caso = casos_srv.obtener(con, caso_id)
+    analisis = dx.analizar(con, caso.lista_sintomas, solo_sintomas=caso.solo)
+    return pagina(request, con, "paginas/caso.html", caso=caso, analisis=analisis,
+                  resumen_html=notas_srv.renderizar(caso.resumen, "markdown"),
+                  migas=[{"texto": "Diagnóstico", "url": "/diagnostico"}, {"texto": caso.titulo}])
+
+
+@router.post("/diagnostico/casos/{caso_id}")
+def editar_caso(request: Request, caso_id: int, titulo: str = Form(""), conclusion: str = Form(""),
+                con: sqlite3.Connection = Depends(obtener_db)):
+    caso = casos_srv.editar(con, caso_id, titulo, conclusion)
+    return redirigir(request, f"/diagnostico/casos/{caso.id}", "Cambios guardados.")
+
+
+@router.post("/diagnostico/casos/{caso_id}/sintomas")
+async def actualizar_sintomas(request: Request, caso_id: int, con: sqlite3.Connection = Depends(obtener_db)):
+    sintomas, solo = _leer(await request.form())
+    caso = casos_srv.actualizar_sintomas(con, caso_id, sintomas, solo)
+    return redirigir(request, f"/diagnostico/casos/{caso.id}", "Síntomas del caso actualizados.")
+
+
+@router.get("/diagnostico/casos/{caso_id}/eliminar")
+def confirmar_eliminar_caso(request: Request, caso_id: int, con: sqlite3.Connection = Depends(obtener_db)):
+    caso = casos_srv.obtener(con, caso_id)
+    return parcial(request, "parciales/modal_confirmar.html", titulo=f"¿Enviar «{caso.titulo}» a la papelera?",
+                   detalle="Podrás restaurarlo desde la papelera mientras no la vacíes.",
+                   accion=f"/diagnostico/casos/{caso.id}/eliminar", boton="Enviar a la papelera")
+
+
+@router.post("/diagnostico/casos/{caso_id}/eliminar")
+def eliminar_caso(request: Request, caso_id: int, con: sqlite3.Connection = Depends(obtener_db)):
+    titulo = pap.enviar_caso(con, caso_id)
+    return redirigir(request, "/diagnostico", f"«{titulo}» se envió a la papelera.")

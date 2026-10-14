@@ -1,85 +1,110 @@
-{# Resultado del diagnóstico: candidatos con evidencia, matriz comparativa, fuentes de apoyo y guardar #}
+{# Resultado del diagnóstico: materias revisadas, ranking por materia con evidencia, comparación, apoyo y guardar #}
 {% from "macros.html" import icono, vacio %}
 {% macro resaltado(trozos) -%}
   {%- for texto, marcado in trozos %}{% if marcado %}<mark class="rounded bg-oro-suave px-0.5 text-texto">{{ texto }}</mark>{% else %}{{ texto }}{% endif %}{% endfor -%}
 {%- endmacro %}
 
-{% if not analisis %}
-  {% call vacio("stethoscope", "Agrega los síntomas", "Escribe uno o varios síntomas arriba. Verás qué registros de tu biblioteca los mencionan, ordenados por cuántos cubren, con la evidencia de cada uno.") %}{% endcall %}
-{% elif not analisis.candidatos %}
-  {% call vacio("search", "Ningún registro menciona estos síntomas",
-               "Prueba con otras palabras o con el comienzo de una palabra (por ejemplo «dolor abdom»)." ~
-               (" También puedes quitar «Solo en columnas de síntomas»." if analisis.solo_sintomas else "")) %}{% endcall %}
-{% else %}
-<div class="grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
-  {# ------------------------------------------------------------ candidatos #}
-  <section aria-labelledby="t-candidatos">
-    <div class="mb-3 flex flex-wrap items-baseline justify-between gap-2">
-      <h2 id="t-candidatos" class="titulo-seccion">Candidatos según tu material</h2>
-      <p class="text-xs text-tenue">{{ analisis.total_candidatos }} registro{{ "s" if analisis.total_candidatos != 1 }} mencionan al menos un síntoma
-        {%- if analisis.total_candidatos > analisis.candidatos|length %} · se muestran los {{ analisis.candidatos|length }} primeros{% endif %}</p>
-    </div>
-    {% if analisis.sin_columnas_de_sintomas %}
-    <p class="mb-3 text-xs text-tenue">Algunas tablas no tienen columnas con «síntoma» en el nombre: en ellas se buscó en todas las columnas.</p>
-    {% endif %}
-    <ol class="flex flex-col gap-3">
-      {% for c in analisis.candidatos %}
-      <li class="tarjeta overflow-hidden" x-data="{ abierto: {{ 'true' if loop.index <= 2 else 'false' }} }">
-        <button type="button" class="flex w-full items-center gap-4 px-5 py-4 text-left hover:bg-superficie-2/50" @click="abierto = !abierto" :aria-expanded="abierto">
-          <span class="grid size-9 shrink-0 place-items-center rounded-full text-sm font-bold
-                       {{ 'bg-marca text-sobre-marca' if loop.first else 'bg-superficie-2 text-tenue' }}">{{ loop.index }}</span>
-          <span class="min-w-0 flex-1">
-            <span class="block truncate text-lg font-semibold">{{ c.titulo }}</span>
-            <span class="flex items-center gap-1.5 truncate text-xs text-tenue"><span class="size-2 shrink-0 rounded-full" style="background: {{ c.color }}"></span>{{ c.tabla }} · {{ c.ubicacion }}</span>
-          </span>
-          <span class="w-28 shrink-0 text-right">
-            <span class="block text-sm font-semibold">{{ c.cubiertos|length }} de {{ analisis.sintomas|length }}</span>
-            <span class="mt-1 block h-1.5 overflow-hidden rounded-full bg-superficie-3"><span class="block h-full rounded-full bg-marca" style="width: {{ c.porcentaje }}%"></span></span>
-          </span>
-          <span class="text-tenue transition-transform" :class="abierto && 'rotate-90'">{{ icono("chevron-right") }}</span>
-        </button>
-        <div x-show="abierto" x-cloak class="border-t border-borde px-5 py-4">
-          <dl class="flex flex-col gap-2.5">
-            {% for e in c.evidencias %}
-            <div class="flex gap-2.5 text-sm">
-              <span class="mt-0.5 text-exito">{{ icono("circle-check", "size-4") }}</span>
-              <div class="min-w-0">
-                <dt class="font-medium">{{ e.sintoma }} <span class="font-normal text-tenue">· {{ e.columna }}</span></dt>
-                {% for frag in e.fragmentos %}<dd class="text-tenue [overflow-wrap:anywhere]">«{{ resaltado(frag) }}»</dd>{% endfor %}
-              </div>
-            </div>
-            {% endfor %}
-            {% for f in c.faltantes %}
-            <div class="flex gap-2.5 text-sm text-tenue"><span class="mt-0.5">{{ icono("circle-x", "size-4") }}</span><span>No menciona «{{ f }}»</span></div>
-            {% endfor %}
-          </dl>
-          {% if c.otros %}
-          <div class="mt-4 rounded-xl bg-superficie-2/70 p-3.5">
-            <p class="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-tenue">{{ icono("list", "size-3.5") }}Para confirmar o descartar, observa también</p>
-            <div class="grid gap-x-6 gap-y-2 sm:grid-cols-2">
-              {% for columna, lineas in c.otros %}
-              <div class="text-sm"><p class="text-xs font-medium text-tenue">{{ columna }}</p>
-                <ul class="list-inside list-disc">{% for ln in lineas %}<li class="[overflow-wrap:anywhere]">{{ ln }}</li>{% endfor %}</ul></div>
-              {% endfor %}
-            </div>
-          </div>
-          {% endif %}
-          <a href="/filas/{{ c.fila_id }}" class="mt-3 inline-flex items-center gap-1 text-sm font-medium text-marca hover:underline">Ver la ficha completa {{ icono("chevron-right", "size-3.5") }}</a>
+{% macro tarjeta_candidato(c, posicion, abierto) %}
+<li class="tarjeta overflow-hidden" x-data="{ abierto: {{ 'true' if abierto else 'false' }} }">
+  <button type="button" class="flex w-full items-center gap-4 px-5 py-4 text-left hover:bg-superficie-2/50" @click="abierto = !abierto" :aria-expanded="abierto">
+    <span class="grid size-9 shrink-0 place-items-center rounded-full text-sm font-bold
+                 {{ 'bg-marca text-sobre-marca' if posicion == 1 else 'bg-superficie-2 text-tenue' }}">{{ posicion }}</span>
+    <span class="min-w-0 flex-1">
+      <span class="block truncate text-lg font-semibold">{{ c.titulo }}</span>
+      <span class="block truncate text-xs text-tenue">{{ c.tabla }} · {{ c.ubicacion }}</span>
+    </span>
+    <span class="w-28 shrink-0 text-right">
+      <span class="block text-sm font-semibold">{{ c.cubiertos|length }} de {{ analisis.sintomas|length }}</span>
+      <span class="mt-1 block h-1.5 overflow-hidden rounded-full bg-superficie-3"><span class="block h-full rounded-full bg-marca" style="width: {{ c.porcentaje }}%"></span></span>
+    </span>
+    <span class="text-tenue transition-transform" :class="abierto && 'rotate-90'">{{ icono("chevron-right") }}</span>
+  </button>
+  <div x-show="abierto" x-cloak class="border-t border-borde px-5 py-4">
+    <dl class="flex flex-col gap-2.5">
+      {% for e in c.evidencias %}
+      <div class="flex gap-2.5 text-sm">
+        <span class="mt-0.5 text-exito">{{ icono("circle-check", "size-4") }}</span>
+        <div class="min-w-0">
+          <dt class="font-medium">{{ e.sintoma }} <span class="font-normal text-tenue">· {{ e.columna }}</span></dt>
+          {% for frag in e.fragmentos %}<dd class="text-tenue [overflow-wrap:anywhere]">«{{ resaltado(frag) }}»</dd>{% endfor %}
         </div>
-      </li>
+      </div>
       {% endfor %}
-    </ol>
-  </section>
+      {% for f in c.faltantes %}
+      <div class="flex gap-2.5 text-sm text-tenue"><span class="mt-0.5">{{ icono("circle-x", "size-4") }}</span><span>No menciona «{{ f }}»</span></div>
+      {% endfor %}
+    </dl>
+    {% if c.otros %}
+    <div class="mt-4 rounded-xl bg-superficie-2/70 p-3.5">
+      <p class="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-tenue">{{ icono("list", "size-3.5") }}Para confirmar o descartar, observa también</p>
+      <div class="grid gap-x-6 gap-y-2 sm:grid-cols-2">
+        {% for columna, lineas in c.otros %}
+        <div class="text-sm"><p class="text-xs font-medium text-tenue">{{ columna }}</p>
+          <ul class="list-inside list-disc">{% for ln in lineas %}<li class="[overflow-wrap:anywhere]">{{ ln }}</li>{% endfor %}</ul></div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+    <a href="/filas/{{ c.fila_id }}" class="mt-3 inline-flex items-center gap-1 text-sm font-medium text-marca hover:underline">Ver la ficha completa {{ icono("chevron-right", "size-3.5") }}</a>
+  </div>
+</li>
+{% endmacro %}
+
+{% if not analisis %}
+  {% call vacio("stethoscope", "Agrega los síntomas", "Escribe uno o varios síntomas arriba. Se revisan todas las materias y verás, por cada una, qué registros los mencionan, ordenados por cuántos cubren, con la evidencia.") %}{% endcall %}
+{% else %}
+{# ------------------------------------------------------------ materias revisadas #}
+<section class="mb-5 flex flex-wrap items-center gap-2 text-sm" aria-label="Materias revisadas">
+  <span class="mr-1 text-tenue">{{ analisis.materias_revisadas|length }} materia{{ "s" if analisis.materias_revisadas|length != 1 }} revisada{{ "s" if analisis.materias_revisadas|length != 1 }}:</span>
+  {% for g in analisis.por_materia %}
+  <a href="#dx-materia-{{ loop.index }}" class="chip gap-1.5 py-1 hover:border-marca">
+    <span class="size-2 rounded-full" style="background: {{ g.color }}"></span>{{ g.nombre or "Sin materia" }}
+    <span class="font-semibold">{{ g.total }}</span></a>
+  {% endfor %}
+  {% for nombre in analisis.materias_sin_coincidencias %}
+  <span class="chip py-1 text-tenue" title="Ningún registro de esta materia menciona estos síntomas">{{ nombre }} <span>0</span></span>
+  {% endfor %}
+</section>
+
+{% if not analisis.por_materia %}
+  {% call vacio("search", "Ningún registro menciona estos síntomas",
+               "Se revisaron todas las materias. Prueba con otras palabras o con el comienzo de una palabra (por ejemplo «dolor abdom»)." ~
+               (" También puedes quitar «Solo en columnas de síntomas»." if analisis.solo_sintomas else "")) %}{% endcall %}
+{% endif %}
+
+<div class="grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
+  {# ------------------------------------------------------ un ranking por materia #}
+  <div class="flex min-w-0 flex-col gap-8">
+    {% if analisis.sin_columnas_de_sintomas %}
+    <p class="-mb-4 text-xs text-tenue">Algunas tablas no tienen columnas con «síntoma» en el nombre: en ellas se buscó en todas las columnas.</p>
+    {% endif %}
+    {% for g in analisis.por_materia %}
+    {% set grupo = loop %}
+    <section id="dx-materia-{{ loop.index }}" class="scroll-mt-6" aria-labelledby="t-dx-materia-{{ loop.index }}">
+      <div class="mb-3 flex flex-wrap items-baseline justify-between gap-2">
+        <h2 id="t-dx-materia-{{ loop.index }}" class="flex items-center gap-2 text-lg font-semibold">
+          <span class="size-3 rounded-full" style="background: {{ g.color }}"></span>{{ g.nombre or "Sin materia" }}</h2>
+        <p class="text-xs text-tenue">{{ g.total }} registro{{ "s" if g.total != 1 }} con al menos un síntoma
+          {%- if g.total > g.candidatos|length %} · se muestran los {{ g.candidatos|length }} mejores{% endif %}</p>
+      </div>
+      <ol class="flex flex-col gap-3">
+        {% for c in g.candidatos %}{{ tarjeta_candidato(c, loop.index, grupo.first and loop.index <= 2 or not grupo.first and loop.first) }}{% endfor %}
+      </ol>
+    </section>
+    {% endfor %}
+  </div>
 
   {# ------------------------------------------------------- columna derecha #}
   <aside class="flex flex-col gap-6">
-    {% if analisis.candidatos|length > 1 %}
+    {% set destacados = analisis.destacados %}
+    {% if destacados|length > 1 %}
     <section class="tarjeta overflow-hidden" aria-labelledby="t-matriz">
       <h2 id="t-matriz" class="titulo-seccion px-4 pt-4">Comparación</h2>
       <div class="overflow-x-auto p-4 pt-3">
         <table class="w-full text-xs">
           <thead><tr><th class="pb-2 text-left font-medium text-tenue">Síntoma</th>
-            {% for c in analisis.candidatos[:6] %}<th class="max-w-16 px-1 pb-2 text-center font-semibold" title="{{ c.titulo }}">{{ loop.index }}</th>{% endfor %}</tr></thead>
+            {% for c in destacados %}<th class="px-1 pb-2 text-center font-semibold" title="{{ c.titulo }} ({{ c.materia }})">
+              <span class="inline-flex items-center gap-1"><span class="size-1.5 rounded-full" style="background: {{ c.color }}"></span>{{ "ABCDEF"[loop.index0] }}</span></th>{% endfor %}</tr></thead>
           <tbody class="divide-y divide-borde">
             {% for s, marcas in analisis.matriz %}
             <tr><td class="py-1.5 pr-2">{% if s.importante %}<span class="text-oro">★</span> {% endif %}{{ s.texto }}</td>
@@ -87,7 +112,10 @@
             {% endfor %}
           </tbody>
         </table>
-        <p class="mt-2 text-[11px] text-tenue">Los números son la posición en la lista. Un síntoma que solo tiene un candidato ayuda a diferenciarlo.</p>
+        <ul class="mt-3 flex flex-col gap-0.5 text-[11px] text-tenue">
+          {% for c in destacados %}<li class="truncate"><span class="font-semibold text-texto">{{ "ABCDEF"[loop.index0] }}</span> {{ c.titulo }} · {{ c.materia }}</li>{% endfor %}
+        </ul>
+        <p class="mt-2 text-[11px] text-tenue">Reúne los mejores de cada materia. Un síntoma que solo tiene un candidato ayuda a diferenciarlo.</p>
       </div>
     </section>
     {% endif %}
@@ -104,6 +132,7 @@
             <li><a href="{{ r.url }}" class="block rounded-lg px-2 py-1.5 text-sm hover:bg-superficie-2">
               <span class="flex items-center gap-1.5 font-medium">{{ icono(r.icono, "size-3.5 text-tenue") }}<span class="truncate">{{ r.titulo|striptags }}</span>
                 <span class="shrink-0 text-[11px] font-normal text-tenue">{{ r.detalle }}</span></span>
+              {% if r.ubicacion %}<span class="block truncate text-[11px] text-tenue">{{ r.ubicacion }}</span>{% endif %}
               <span class="line-clamp-2 text-xs text-tenue [&_mark]:rounded [&_mark]:bg-oro-suave [&_mark]:px-0.5 [&_mark]:text-texto">{{ r.fragmento }}</span></a></li>
             {% endfor %}
           </ul>
@@ -113,15 +142,14 @@
     </section>
     {% endif %}
 
-    {% if destinos %}
+    {% if not sin_guardar %}
     <section class="tarjeta p-4" aria-labelledby="t-guardar">
-      <h2 id="t-guardar" class="titulo-seccion mb-3">Guardar el caso</h2>
-      <form hx-post="/diagnostico/guardar" hx-include="#form-dx" class="flex flex-col gap-2">
+      <h2 id="t-guardar" class="titulo-seccion mb-1">Guardar el caso</h2>
+      <p class="mb-3 text-xs text-tenue">Queda en Diagnóstico › Casos guardados, con los síntomas, este análisis y tu conclusión.</p>
+      <form hx-post="/diagnostico/casos" hx-include="#form-dx" class="flex flex-col gap-2">
         <input name="titulo" class="campo h-9 text-sm" placeholder="Título (opcional)" maxlength="120" aria-label="Título del caso">
-        <select name="componente_id" class="campo h-9 text-sm" aria-label="Dónde guardarlo">
-          {% for id, ruta in destinos %}<option value="{{ id }}">{{ ruta }}</option>{% endfor %}
-        </select>
-        <button class="btn-secundario">{{ icono("sticky-note") }}Guardar como nota</button>
+        <textarea name="conclusion" rows="3" class="campo text-sm" placeholder="Tu conclusión o impresión diagnóstica (opcional)" aria-label="Conclusión"></textarea>
+        <button class="btn-secundario">{{ icono("save") }}{{ "Guardar como caso nuevo" if caso else "Guardar el caso" }}</button>
       </form>
     </section>
     {% endif %}

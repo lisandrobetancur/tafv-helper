@@ -23,7 +23,7 @@ log = logging.getLogger(__name__)
 
 NOMBRES_TIPO = {"materia": "Materia", "componente": "Componente", "tabla": "Tabla",
                 "imagen_fila": "Imagen de una ficha", "archivo": "Archivo", "pdf": "PDF",
-                "imagen": "Imagen", "nota": "Nota"}
+                "imagen": "Imagen", "nota": "Nota", "caso": "Caso de diagnóstico"}
 
 
 def listar(con: sqlite3.Connection) -> list[ElementoPapelera]:
@@ -136,6 +136,15 @@ def enviar_nota(con: sqlite3.Connection, nota_id: int) -> tuple[str, int]:
     return nota.titulo, nota.componente_id
 
 
+def enviar_caso(con: sqlite3.Connection, caso_id: int) -> str:
+    from . import casos
+    caso = casos.obtener(con, caso_id)
+    with transaccion(con):
+        pid = _registrar(con, "caso", caso.id, caso.titulo, "Diagnóstico")
+        con.execute("UPDATE casos SET papelera_id=? WHERE id=?", (pid, caso.id))
+    return caso.titulo
+
+
 def enviar_archivo(con: sqlite3.Connection, ruta: Path, nombre: str, componente_id: int) -> None:
     """Archivo suelto (ref_id = componente al que pertenecía)."""
     if not ruta.exists():
@@ -158,7 +167,7 @@ def restaurar(con: sqlite3.Connection, pid: int) -> str:
     f = _fila(con, pid)
     acciones = {"materia": _restaurar_materia, "componente": _restaurar_componente, "tabla": _restaurar_tabla,
                 "imagen_fila": _restaurar_imagen_fila, "archivo": _restaurar_archivo, "pdf": _restaurar_pdf,
-                "imagen": _restaurar_imagen, "nota": _restaurar_nota}
+                "imagen": _restaurar_imagen, "nota": _restaurar_nota, "caso": _restaurar_caso}
     if f["tipo"] not in acciones:
         raise ErrorUsuario("Este elemento no se puede restaurar.")
     return acciones[f["tipo"]](con, f)
@@ -296,6 +305,13 @@ def _restaurar_nota(con: sqlite3.Connection, f: sqlite3.Row) -> str:
     return f["nombre"]
 
 
+def _restaurar_caso(con: sqlite3.Connection, f: sqlite3.Row) -> str:
+    with transaccion(con):
+        con.execute("UPDATE casos SET papelera_id=NULL WHERE id=?", (f["ref_id"],))
+        con.execute("DELETE FROM papelera WHERE id=?", (f["id"],))
+    return f["nombre"]
+
+
 def _restaurar_archivo(con: sqlite3.Connection, f: sqlite3.Row) -> str:
     if not f["ruta_papelera"] or not rutas.absoluta(f["ruta_papelera"]).exists():
         raise ErrorUsuario("El archivo ya no está en la papelera.")
@@ -385,6 +401,8 @@ def eliminar_definitivo(con: sqlite3.Connection, pid: int) -> str:
             con.execute("DELETE FROM imagenes WHERE id=?", (f["ref_id"],))
         elif f["tipo"] == "nota":
             con.execute("DELETE FROM notas WHERE id=?", (f["ref_id"],))
+        elif f["tipo"] == "caso":
+            con.execute("DELETE FROM casos WHERE id=?", (f["ref_id"],))
         con.execute("DELETE FROM papelera WHERE id=?", (pid,))
         con.executemany("DELETE FROM papelera WHERE id=?", [(d["id"],) for d in dependientes])
     alm.borrar_definitivo(f["ruta_papelera"])

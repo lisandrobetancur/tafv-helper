@@ -231,6 +231,22 @@ MIGRACIONES: list[str] = [
         DELETE FROM etiquetas_elemento WHERE tipo = '{tipo}' AND ref_id = OLD.id;
     END;""" for tipo, tabla in (("tabla", "tablas"), ("fila", "filas"), ("pdf", "pdfs"), ("imagen", "imagenes"),
                                 ("nota", "notas"))) + indice_sql.recrear(),
+    # 7 — casos del módulo Diagnóstico (independiente de las materias)
+    """
+    CREATE TABLE casos (
+        id           INTEGER PRIMARY KEY,
+        titulo       TEXT    NOT NULL,
+        sintomas     TEXT    NOT NULL DEFAULT '[]',   -- JSON: lista de síntomas
+        importantes  TEXT    NOT NULL DEFAULT '[]',   -- JSON: los marcados con estrella
+        solo         INTEGER NOT NULL DEFAULT 0,      -- solo columnas de síntomas
+        conclusion   TEXT    NOT NULL DEFAULT '',     -- lo que concluye el estudiante
+        resumen      TEXT    NOT NULL DEFAULT '',     -- análisis en Markdown al guardar
+        papelera_id  INTEGER REFERENCES papelera(id) ON DELETE SET NULL,
+        creado       TEXT    NOT NULL,
+        actualizado  TEXT    NOT NULL
+    );
+    CREATE INDEX ix_casos_actualizado ON casos(actualizado DESC);
+    """,
 ]
 
 

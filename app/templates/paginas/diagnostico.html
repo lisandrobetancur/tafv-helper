@@ -7,18 +7,32 @@
     <span class="grid size-12 shrink-0 place-items-center rounded-2xl bg-marca-suave text-marca">{{ icono("stethoscope", "size-6") }}</span>
     <div class="min-w-0 flex-1">
       <h1 class="text-2xl font-bold tracking-tight sm:text-3xl">Diagnóstico por síntomas</h1>
-      <p class="mt-1 max-w-3xl text-tenue">Escribe los síntomas y la biblioteca buscará en todo tu material qué registros
-        (medicamentos, enfermedades…) los mencionan, cuántos cubre cada uno y dónde lo dice.</p>
+      <p class="mt-1 max-w-3xl text-tenue">Un módulo aparte que reúne todo tu material: escribe los síntomas y buscará en
+        <strong class="font-medium text-texto">todas las materias</strong> qué registros (medicamentos, enfermedades…) los mencionan,
+        cuántos cubre cada uno y dónde lo dice. Los casos que guardes quedan aquí, en Diagnóstico.</p>
     </div>
+    {% if casos %}
+    <a href="#casos" class="btn-secundario">{{ icono("folder-open") }}Casos guardados ({{ casos|length }})</a>
+    {% endif %}
   </header>
 
   <p class="mb-5 flex gap-2 rounded-xl border border-alerta/30 bg-alerta-suave px-4 py-2.5 text-sm">{{ icono("info", "size-5 shrink-0 text-alerta") }}
     Es una herramienta de estudio: ordena lo que dice tu propio material, con su fuente. No reemplaza el juicio clínico.</p>
 
+  {% if caso %}
+  <div class="mb-4 flex flex-wrap items-center gap-3 rounded-xl border border-marca/30 bg-marca-suave px-4 py-2.5 text-sm">
+    {{ icono("folder-open", "size-5 text-marca") }}
+    <span class="min-w-0 flex-1">Editando los síntomas del caso <a href="/diagnostico/casos/{{ caso.id }}" class="font-semibold hover:underline">{{ caso.titulo }}</a></span>
+    <button class="btn-primario h-9" hx-post="/diagnostico/casos/{{ caso.id }}/sintomas" hx-include="#form-dx">{{ icono("save") }}Guardar en el caso</button>
+    <a href="/diagnostico" class="btn-fantasma h-9">Empezar uno nuevo</a>
+  </div>
+  {% endif %}
+
   <form id="form-dx" class="tarjeta mb-6 flex flex-col gap-4 p-5"
         hx-get="/diagnostico/resultado" hx-target="#resultado-dx" hx-trigger="cambio, change" hx-indicator="#resultado-dx"
         x-data="diagnostico({{ sintomas|map(attribute='texto')|list|tojson|forceescape }}, {{ sintomas|selectattr('importante')|map(attribute='texto')|list|tojson|forceescape }})"
         @submit.prevent>
+    {% if caso %}<input type="hidden" name="caso" value="{{ caso.id }}">{% endif %}
     <div>
       <label class="etiqueta" for="dx-entrada">Síntomas</label>
       <div class="relative">
@@ -55,14 +69,8 @@
     </div>
 
     <div class="flex flex-wrap items-center gap-2 text-sm">
-      <select name="materia" class="campo h-9 w-auto" aria-label="Materia">
-        <option value="">Todas las materias</option>
-        {% for m in materias %}<option value="{{ m.id }}" {{ "selected" if filtros.materia == m.id }}>{{ m.nombre }}</option>{% endfor %}
-      </select>
-      <select name="tabla" class="campo h-9 w-auto max-w-xs" aria-label="Tabla">
-        <option value="">Todas las tablas</option>
-        {% for t in tablas %}<option value="{{ t.id }}" {{ "selected" if tabla_id == t.id }}>{{ t.nombre }} ({{ t.materia }})</option>{% endfor %}
-      </select>
+      <span class="flex items-center gap-1.5 text-tenue">{{ icono("library", "size-4") }}Consulta todas las materias, tablas, PDF, notas e imágenes</span>
+      <span class="flex-1"></span>
       <label class="chip cursor-pointer py-1.5 has-[:checked]:border-marca has-[:checked]:bg-marca-suave has-[:checked]:text-marca"
              title="Solo cuenta lo que esté en columnas cuyo nombre diga «síntoma», «signo», «característico»…">
         <input type="checkbox" name="solo" value="1" class="sr-only" {{ "checked" if solo }}>Solo en columnas de síntomas</label>
@@ -72,5 +80,26 @@
   <div id="resultado-dx" class="[&.htmx-request]:opacity-60 transition-opacity">
     {% include "parciales/diagnostico_resultado.html" %}
   </div>
+
+  <section id="casos" class="mt-10 scroll-mt-6" aria-labelledby="t-casos">
+    <h2 id="t-casos" class="titulo-seccion mb-3">Casos guardados</h2>
+    {% if casos %}
+    <ul class="tarjeta divide-y divide-borde">
+      {% for c in casos %}
+      <li><a href="/diagnostico/casos/{{ c.id }}" class="flex flex-wrap items-center gap-x-4 gap-y-1 px-5 py-3.5 hover:bg-superficie-2/50">
+        <span class="grid size-9 shrink-0 place-items-center rounded-xl bg-marca-suave text-marca">{{ icono("stethoscope", "size-4") }}</span>
+        <span class="min-w-0 flex-1">
+          <span class="block truncate font-medium">{{ c.titulo }}</span>
+          <span class="block truncate text-xs text-tenue">{{ c.sintomas|join(" · ") }}</span>
+        </span>
+        <span class="text-xs text-tenue">{{ c.actualizado[:10] }}</span>
+      </a></li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="rounded-xl border border-dashed border-borde px-5 py-6 text-center text-sm text-tenue">
+      Aún no hay casos. Cuando analices unos síntomas, usa «Guardar el caso» y quedará aquí con tu conclusión.</p>
+    {% endif %}
+  </section>
 </div>
 {% endblock %}

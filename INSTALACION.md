@@ -92,7 +92,7 @@ Consejos rápidos:
 - **Nombre descriptivo:** al subir un Excel, PDF o imagen, la biblioteca pide un nombre que diga qué es. Ese nombre es el que verás y el que tendrá el archivo en la carpeta.
 - **PDF escaneados:** su texto se lee solo, en segundo plano (arriba verás «Leyendo texto con OCR…»). Puedes seguir usando la biblioteca mientras tanto.
 - **Lo que elimines** va a la **Papelera** (menú de la izquierda) y se puede restaurar.
-- **Diagnóstico:** en el menú de la izquierda, escribe varios síntomas y verás qué registros de tu material (por ejemplo medicamentos) los mencionan, ordenados por cuántos cubren, con la frase exacta y la columna donde aparece cada síntoma. Marca con la estrella los síntomas más importantes (valen el doble) y guarda el caso como nota. Es una ayuda de estudio: ordena lo que dice tu material, no reemplaza el juicio clínico.
+- **Diagnóstico:** es un módulo aparte, en el menú de la izquierda, que reúne todas tus materias. Escribe varios síntomas y verás, materia por materia, qué registros (por ejemplo medicamentos o enfermedades) los mencionan, ordenados por cuántos cubren, con la frase exacta y la columna donde aparece cada síntoma. Marca con la estrella los síntomas más importantes (valen el doble). Los casos se guardan en el mismo módulo (Diagnóstico › Casos guardados) con tu conclusión, y al abrirlos se vuelven a analizar con todo lo que hayas agregado. Es una ayuda de estudio: ordena lo que dice tu material, no reemplaza el juicio clínico.
 
 ---
 

@@ -38,7 +38,7 @@ app/
   routers/           rutas HTTP (páginas y fragmentos HTMX)
   services/          lógica: biblioteca, almacenamiento, papelera, hojas, importacion, tablas,
                      imagenes_fila, pdfs, ocr, imagenes, notas, etiquetas, busqueda, favoritos,
-                     repaso, respaldos, bloqueo, miniaturas, diagnostico
+                     repaso, respaldos, bloqueo, miniaturas, diagnostico, casos
   templates/         base.html, macros.html, paginas/, parciales/
   static/            src/app.css (fuente Tailwind), css/app.css (compilado), js/app.js, vendor/, marca/
 data/                (no va en git) biblioteca.db, archivos/, papelera/, respaldos/, cache/, logs/
@@ -82,7 +82,9 @@ data/archivos/<materia>/<componente>/<subcomponente>/
   nombre contiene «síntoma/signo/característico…»); los candidatos se ordenan por síntomas cubiertos
   (los «importantes» pesan el doble) con evidencia (columna + línea resaltada), síntomas faltantes,
   «otros rasgos para confirmar», matriz comparativa y fuentes de apoyo (PDF, notas, imágenes). Sin IA:
-  todo sale del material y se muestra su origen.
+  todo sale del material y se muestra su origen. Es un módulo independiente de las materias: siempre
+  revisa todas, arma un ranking por materia (ninguna queda tapada por otra) y guarda sus propios casos
+  en la tabla `casos` (síntomas, conclusión y foto del análisis; van a la papelera como el resto).
 - **Seguridad de contenido:** todo el texto del Excel se escapa; el Markdown de las notas no admite HTML;
   las subidas se validan por contenido (Pillow/PyMuPDF), no por extensión.
 - **Mac Intel:** onnxruntime ≥ 1.24 no publica wheels x86_64 para macOS; `requirements.txt` fija la 1.23.2
