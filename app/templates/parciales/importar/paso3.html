@@ -1,0 +1,58 @@
+{% from "macros.html" import icono %}
+{% set varias = estado.seleccion|length > 1 %}
+{% set titulo_paso = "Paso 3 · ¿En qué fila están los nombres de las columnas?" ~ (" — Hoja " ~ (estado.actual + 1) ~ " de " ~ estado.seleccion|length ~ ": " ~ hoja.nombre if varias else "") %}
+{% include "parciales/importar/cabecera.html" %}
+<form hx-post="/importar/{{ estado.token }}/encabezado" hx-target="#asistente" class="flex min-h-0 flex-1 flex-col"
+      x-data="{ fila: {{ cfg.fila_encabezado }}, dos: {{ 'true' if cfg.dos_filas else 'false' }} }">
+  <div class="flex flex-col gap-4 overflow-y-auto px-6 py-5">
+    <p class="text-sm text-tenue">Haz clic en la fila que tiene los <strong class="text-texto">nombres de las columnas</strong>.
+      Las filas de encima no se importan. Ya marcamos la que parece correcta.</p>
+    <input type="hidden" name="fila_encabezado" :value="fila">
+
+    <div class="overflow-auto rounded-xl border border-borde">
+      <table class="w-full border-collapse text-xs">
+        <tbody>
+          {% for f in vista %}
+          {% set n = loop.index %}
+          <tr class="cursor-pointer transition" @click="fila = {{ n }}"
+              :class="{
+                'bg-marca-suave font-semibold text-texto': fila === {{ n }} || (dos && fila + 1 === {{ n }}),
+                'opacity-40': {{ n }} < fila,
+                'hover:bg-superficie-2': fila !== {{ n }}
+              }">
+            <td class="sticky left-0 w-10 border-b border-r border-borde bg-superficie px-2 py-1.5 text-center text-tenue">
+              <span x-show="fila === {{ n }}" x-cloak class="text-marca">{{ icono("chevron-right", "inline size-3.5") }}</span>
+              <span x-show="fila !== {{ n }}">{{ n }}</span>
+            </td>
+            {% for i in range(ancho_vista) %}
+            <td class="max-w-[200px] truncate border-b border-borde px-2.5 py-1.5" title="{{ f[i] if i < f|length else '' }}">{{ (f[i] if i < f|length else "")|truncate(40, True, "…") }}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% if hoja.num_columnas > ancho_vista or hoja.num_filas > vista|length %}
+    <p class="text-xs text-tenue">Vista previa de las primeras {{ vista|length }} filas{% if hoja.num_columnas > ancho_vista %} y {{ ancho_vista }} columnas{% endif %} (la hoja tiene {{ hoja.num_filas }} filas y {{ hoja.num_columnas }} columnas).</p>
+    {% endif %}
+
+    <label class="flex cursor-pointer items-start gap-3 rounded-xl border border-borde p-3.5 has-[:checked]:border-marca has-[:checked]:bg-marca-suave/50">
+      <input type="checkbox" name="dos_filas" value="true" class="mt-0.5 size-4 accent-[var(--marca)]" x-model="dos">
+      <span><span class="block text-sm font-medium">El encabezado ocupa dos filas</span>
+        <span class="block text-xs text-tenue">Úsalo si la fila de abajo también tiene nombres (se combinan, p. ej. «Notas · Característico»).</span></span>
+    </label>
+  </div>
+  <footer class="mt-auto flex items-center justify-between gap-2 border-t border-borde bg-superficie-2/50 px-6 py-4">
+    <div>
+      {% if estado.actual > 0 %}
+        <button type="button" class="btn-fantasma" hx-post="/importar/{{ estado.token }}/anterior" hx-target="#asistente">{{ icono("chevron-left") }}Atrás</button>
+      {% elif estado.hojas|selectattr("filas")|list|length > 1 %}
+        <button type="button" class="btn-fantasma" hx-get="/importar/{{ estado.token }}/paso/2" hx-target="#asistente">{{ icono("chevron-left") }}Atrás</button>
+      {% endif %}
+    </div>
+    <div class="flex gap-2">
+      <button type="button" class="btn-secundario" @click="$el.closest('dialog').close()">Cancelar</button>
+      <button type="submit" class="btn-primario">Siguiente{{ icono("chevron-right") }}</button>
+    </div>
+  </footer>
+</form>

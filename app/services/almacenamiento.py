@@ -56,6 +56,13 @@ def sanear_nombre_archivo(nombre: str, largo: int = 120) -> str:
     return f"{tronco}.{ext}" if ext else tronco
 
 
+def nombre_legible(texto: str, largo: int = 50) -> str:
+    """Texto libre (p. ej. un título) convertido en parte segura de un nombre de archivo."""
+    texto = _PROHIBIDOS.sub("_", " ".join((texto or "").split()))
+    texto = texto[:largo].strip(" ._")
+    return texto or "sin titulo"
+
+
 def ruta_libre(carpeta: Path, nombre: str) -> Path:
     """Si ya existe un archivo con ese nombre, agrega un sufijo: "atlas (2).pdf"."""
     destino = carpeta / nombre

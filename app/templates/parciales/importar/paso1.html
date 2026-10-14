@@ -1,0 +1,50 @@
+{% from "macros.html" import icono %}
+{% set titulo_paso = "Paso 1 · Elige el archivo y dale un nombre descriptivo" %}
+{% include "parciales/importar/cabecera.html" %}
+<form hx-post="/importar" hx-encoding="multipart/form-data" hx-target="#asistente" hx-disabled-elt="find button[type=submit]"
+      class="flex min-h-0 flex-1 flex-col"
+      x-data="{ nombre: {{ (nombre or (tabla.nombre if tabla else ''))|tojson|forceescape }}, tocado: {{ 'true' if (nombre or tabla) else 'false' }},
+                archivo: '', progreso: 0, arrastrando: false,
+                elegir(lista) { if (!lista || !lista.length) return; this.$refs.entrada.files = lista; this.archivo = lista[0].name;
+                  if (!this.tocado) this.nombre = this.archivo.replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim(); } }"
+      @htmx:xhr:progress="progreso = $event.detail.total ? Math.round($event.detail.loaded / $event.detail.total * 100) : 0">
+  <input type="hidden" name="componente_id" value="{{ componente.id }}">
+  {% if tabla %}<input type="hidden" name="tabla_id" value="{{ tabla.id }}">{% endif %}
+
+  <div class="flex flex-col gap-5 overflow-y-auto px-6 py-5">
+    {% if tabla %}
+    <p class="flex gap-2 rounded-lg border border-borde bg-superficie-2 px-3 py-2.5 text-sm text-tenue">{{ icono("info", "size-5 shrink-0") }}
+      Sube la versión nueva del Excel de «{{ tabla.nombre }}». Las filas se emparejan por su título o columna clave
+      y conservan sus imágenes.</p>
+    {% endif %}
+    <label class="flex cursor-pointer flex-col items-center gap-2 rounded-2xl border-2 border-dashed px-6 py-10 text-center transition"
+           :class="arrastrando ? 'border-marca bg-marca-suave' : 'border-borde-fuerte hover:border-marca hover:bg-superficie-2'"
+           @dragover.prevent="arrastrando = true" @dragleave.prevent="arrastrando = false"
+           @drop.prevent="arrastrando = false; elegir($event.dataTransfer.files)">
+      <span class="grid size-12 place-items-center rounded-xl bg-marca-suave text-marca">{{ icono("file-spreadsheet", "size-6") }}</span>
+      <span class="font-medium" x-text="archivo || 'Arrastra aquí tu archivo o haz clic para elegirlo'">Arrastra aquí tu archivo o haz clic para elegirlo</span>
+      <span class="text-sm text-tenue">Excel (.xlsx) o CSV · máximo 200 MB</span>
+      <input x-ref="entrada" type="file" name="archivo" accept=".xlsx,.xlsm,.csv,.tsv,.txt" class="sr-only"
+             @change="elegir($event.target.files)">
+    </label>
+
+    <div>
+      <label class="etiqueta" for="i-nombre">Nombre descriptivo</label>
+      <input id="i-nombre" name="nombre" class="campo" maxlength="80" required x-model="nombre" @input="tocado = true"
+             placeholder="Ej.: Atlas de huesos — miembro superior">
+      <p class="ayuda">Así se llamará la tabla en la biblioteca y el archivo guardado en tu carpeta.</p>
+    </div>
+
+    <div x-show="progreso > 0 && progreso < 100" x-cloak>
+      <div class="mb-1 flex justify-between text-xs text-tenue"><span>Subiendo…</span><span x-text="progreso + '%'"></span></div>
+      <div class="h-2 overflow-hidden rounded-full bg-superficie-3"><div class="h-full bg-marca transition-all" :style="`width:${progreso}%`"></div></div>
+    </div>
+  </div>
+
+  <footer class="mt-auto flex items-center justify-end gap-2 border-t border-borde bg-superficie-2/50 px-6 py-4">
+    <button type="button" class="btn-secundario" @click="$el.closest('dialog').close()">Cancelar</button>
+    <button type="submit" class="btn-primario" :disabled="!archivo || !nombre.trim()">
+      <span class="indicador">{{ icono("loader-circle", "size-4 animate-spin") }}</span>Siguiente{{ icono("chevron-right") }}
+    </button>
+  </footer>
+</form>

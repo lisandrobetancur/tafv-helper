@@ -1,0 +1,27 @@
+{% from "macros.html" import icono %}
+{% set titulo_paso = "Paso 2 · ¿Qué hoja quieres " ~ ("usar?" if estado.es_reemplazo else "importar? Puedes elegir varias.") %}
+{% include "parciales/importar/cabecera.html" %}
+<form hx-post="/importar/{{ estado.token }}/hojas" hx-target="#asistente" class="flex min-h-0 flex-1 flex-col">
+  <div class="flex flex-col gap-2 overflow-y-auto px-6 py-5">
+    <p class="mb-1 text-sm text-tenue">Archivo: <strong class="text-texto">{{ estado.archivo_original }}</strong>
+      {% if not estado.es_reemplazo %}· Cada hoja se convertirá en una tabla.{% endif %}</p>
+    {% for h in estado.hojas %}
+    <label class="flex items-center gap-3 rounded-xl border border-borde p-3.5 transition {{ 'opacity-50' if not h.filas else 'cursor-pointer hover:border-borde-fuerte has-[:checked]:border-marca has-[:checked]:bg-marca-suave/60' }}">
+      <input type="{{ 'radio' if estado.es_reemplazo else 'checkbox' }}" name="seleccion" value="{{ loop.index0 }}"
+             class="size-4 accent-[var(--marca)]" {{ "checked" if loop.index0 in estado.seleccion }} {{ "disabled" if not h.filas }}>
+      <span class="grid size-9 place-items-center rounded-lg bg-superficie-2 text-tenue">{{ icono("file-spreadsheet", "size-5") }}</span>
+      <span class="min-w-0 flex-1">
+        <span class="block font-medium">{{ h.nombre }}</span>
+        <span class="block text-sm text-tenue">{% if h.filas %}{{ h.filas }} filas · {{ h.columnas }} columnas{% else %}Hoja vacía{% endif %}</span>
+      </span>
+    </label>
+    {% endfor %}
+  </div>
+  <footer class="mt-auto flex items-center justify-between gap-2 border-t border-borde bg-superficie-2/50 px-6 py-4">
+    <span></span>
+    <div class="flex gap-2">
+      <button type="button" class="btn-secundario" @click="$el.closest('dialog').close()">Cancelar</button>
+      <button type="submit" class="btn-primario">Siguiente{{ icono("chevron-right") }}</button>
+    </div>
+  </footer>
+</form>

@@ -1,0 +1,67 @@
+{# Galería + carga de imágenes de una fila (se reemplaza completa tras subir, editar o eliminar) #}
+{% from "macros.html" import icono %}
+<div class="flex flex-col gap-4">
+  {# --- Carga: cada imagen elegida pide su nombre descriptivo antes de subir --- #}
+  <div x-data="cargaImagenes('/filas/{{ fila.id }}/imagenes')" class="tarjeta p-4">
+    <label class="flex cursor-pointer flex-col items-center gap-1.5 rounded-xl border-2 border-dashed px-4 py-6 text-center transition"
+           :class="arrastrando ? 'border-marca bg-marca-suave' : 'border-borde-fuerte hover:border-marca hover:bg-superficie-2'"
+           @dragover.prevent="arrastrando = true" @dragleave.prevent="arrastrando = false" @drop.prevent="arrastrando = false; agregar($event.dataTransfer.files)">
+      <span class="grid size-10 place-items-center rounded-xl bg-marca-suave text-marca">{{ icono("upload", "size-5") }}</span>
+      <span class="text-sm font-medium">Adjuntar imagen</span>
+      <span class="text-xs text-tenue">Arrastra una o varias, o haz clic · JPG, PNG, WEBP o GIF</span>
+      <input type="file" accept="image/jpeg,image/png,image/webp,image/gif" multiple class="sr-only" @change="agregar($event.target.files); $event.target.value = ''">
+    </label>
+
+    <template x-if="pendientes.length">
+      <form class="mt-4 flex flex-col gap-3" @submit.prevent="subir()">
+        <p class="text-sm font-medium">Ponle un nombre descriptivo a cada imagen</p>
+        <template x-for="(p, i) in pendientes" :key="p.id">
+          <div class="flex gap-3 rounded-xl border border-borde p-2.5">
+            <img :src="p.vista" alt="" class="size-16 shrink-0 rounded-lg object-cover">
+            <div class="flex min-w-0 flex-1 flex-col gap-1.5">
+              <input class="campo h-9" required maxlength="120" x-model="p.titulo" :aria-label="'Nombre descriptivo de ' + p.archivo.name" placeholder="Nombre descriptivo (obligatorio)">
+              <input class="campo h-9" maxlength="300" x-model="p.pie" :aria-label="'Pie de foto de ' + p.archivo.name" placeholder="Pie de foto (opcional)">
+              <span class="truncate text-[11px] text-tenue" x-text="p.archivo.name"></span>
+            </div>
+            <button type="button" class="btn-icono self-start" @click="quitar(i)" aria-label="Quitar">{{ icono("x") }}</button>
+          </div>
+        </template>
+        <div x-show="subiendo" class="h-2 overflow-hidden rounded-full bg-superficie-3"><div class="h-full bg-marca transition-all" :style="`width:${progreso}%`"></div></div>
+        <div class="flex justify-end gap-2">
+          <button type="button" class="btn-secundario" @click="limpiar()" :disabled="subiendo">Cancelar</button>
+          <button type="submit" class="btn-primario" :disabled="subiendo || pendientes.some(p => !p.titulo.trim())">
+            <span x-show="subiendo">{{ icono("loader-circle", "size-4 animate-spin") }}</span>
+            <span x-text="pendientes.length === 1 ? 'Subir imagen' : `Subir ${pendientes.length} imágenes`"></span></button>
+        </div>
+      </form>
+    </template>
+  </div>
+
+  {# --- Galería --- #}
+  {% if imagenes %}
+  <ul class="grid grid-cols-2 gap-3" x-data="ordenable" data-url="/filas/{{ fila.id }}/imagenes/orden">
+    {% for img in imagenes %}
+    <li data-id="{{ img.id }}" class="group relative overflow-hidden rounded-xl border border-borde bg-superficie"
+        data-img='{{ {"src": "/imagenes-fila/" ~ img.id ~ "/archivo", "titulo": img.titulo, "pie": img.pie}|tojson }}'>
+      <button type="button" class="block w-full overflow-hidden" title="Ver en grande"
+              @click="const lis = [...$el.closest('ul').children];
+                      $dispatch('abrir-visor', { imagenes: lis.map(li => JSON.parse(li.dataset.img)), indice: lis.indexOf($el.closest('li')) })">
+        <img src="/imagenes-fila/{{ img.id }}/miniatura" alt="{{ img.titulo }}" loading="lazy" class="aspect-[4/3] w-full bg-superficie-2 object-cover transition group-hover:scale-[1.03]">
+      </button>
+      <div class="flex items-start gap-1 p-2.5">
+        <span class="asa mt-0.5" title="Arrastra para ordenar">{{ icono("grip-vertical", "size-3.5") }}</span>
+        <div class="min-w-0 flex-1">
+          <p class="truncate text-sm font-medium" title="{{ img.titulo }}">{{ img.titulo }}</p>
+          {% if img.pie %}<p class="line-clamp-2 text-xs text-tenue">{{ img.pie }}</p>{% endif %}
+        </div>
+        <button type="button" class="btn-icono -m-1 p-1" title="Editar" hx-get="/imagenes-fila/{{ img.id }}/editar" hx-target="#modal">{{ icono("pencil", "size-3.5") }}</button>
+        <button type="button" class="btn-icono -m-1 p-1 hover:text-peligro" title="Enviar a la papelera"
+                hx-post="/imagenes-fila/{{ img.id }}/eliminar" hx-target="#galeria" hx-confirm="¿Enviar «{{ img.titulo }}» a la papelera?">{{ icono("trash-2", "size-3.5") }}</button>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="rounded-xl border border-dashed border-borde-fuerte px-4 py-6 text-center text-sm text-tenue">Esta ficha aún no tiene imágenes.</p>
+  {% endif %}
+</div>

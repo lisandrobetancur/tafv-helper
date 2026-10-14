@@ -33,6 +33,13 @@ def _version_estaticos() -> str:
 
 
 templates.env.globals["version_estaticos"] = _version_estaticos
+templates.env.globals["TIPOS_PAPELERA"] = {
+    "materia": {"nombre": "Materia", "icono": "graduation-cap"},
+    "componente": {"nombre": "Componente", "icono": "folder"},
+    "tabla": {"nombre": "Tabla", "icono": "file-spreadsheet"},
+    "imagen_fila": {"nombre": "Imagen de una ficha", "icono": "image"},
+    "archivo": {"nombre": "Archivo", "icono": "file-text"},
+}
 
 COOKIE_AVISO = "aviso"
 

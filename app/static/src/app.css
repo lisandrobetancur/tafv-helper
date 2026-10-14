@@ -135,6 +135,17 @@ dialog.modal[open] { animation: aparecer .16s ease-out; }
 dialog.modal::backdrop { background: rgb(15 10 8 / .5); backdrop-filter: blur(2px); }
 @keyframes aparecer { from { opacity: 0; transform: translateY(6px) scale(.985); } }
 
+/* Visor de imágenes a pantalla completa */
+dialog.visor {
+  @apply m-0 h-dvh max-h-none w-screen max-w-none border-0 bg-transparent p-0 text-white;
+}
+dialog.visor::backdrop { background: rgb(12 9 8 / .94); }
+dialog.visor[open] { display: flex; flex-direction: column; animation: aparecer .14s ease-out; }
+
+/* Indicadores de carga de HTMX: el ícono giratorio solo aparece mientras hay una petición */
+.indicador { display: none; }
+.htmx-request .indicador, .htmx-request.indicador { display: inline-flex; }
+
 /* ------------------------------------------------------- menú lateral plegable */
 .barra-lateral { width: 16.5rem; transition: width .2s ease; }
 @media (min-width: 1024px) {

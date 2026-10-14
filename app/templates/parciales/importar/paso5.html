@@ -1,0 +1,44 @@
+{% from "macros.html" import icono %}
+{% set titulo_paso = "Paso 5 · Revisa y confirma" %}
+{% include "parciales/importar/cabecera.html" %}
+<form hx-post="/importar/{{ estado.token }}/confirmar" hx-disabled-elt="find button" class="flex min-h-0 flex-1 flex-col">
+  <div class="flex flex-col gap-4 overflow-y-auto px-6 py-5">
+    {% if estado.duplicado_de %}
+    <p class="flex gap-2 rounded-lg border border-alerta/40 bg-alerta-suave px-3 py-2.5 text-sm" role="alert">{{ icono("triangle-alert", "size-5 shrink-0 text-alerta") }}
+      Este mismo archivo ya está importado en este componente como «{{ estado.duplicado_de }}». Puedes importarlo de nuevo si quieres.</p>
+    {% endif %}
+
+    <ul class="flex flex-col gap-2">
+      {% for r in resumen %}
+      <li class="flex items-center gap-3 rounded-xl border border-borde p-3.5">
+        <span class="grid size-10 place-items-center rounded-lg bg-marca-suave text-marca">{{ icono("file-spreadsheet", "size-5") }}</span>
+        <div class="min-w-0 flex-1">
+          <p class="font-medium">{{ r.nombre }}</p>
+          <p class="text-sm text-tenue">{{ r.filas }} filas · {{ r.columnas }} columnas · título: «{{ r.titulo }}»{% if resumen|length > 1 %} · hoja «{{ r.hoja }}»{% endif %}</p>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% if reemplazo %}
+    <div class="rounded-xl border border-borde p-4">
+      <p class="mb-3 text-sm font-medium">Qué pasará con las filas actuales</p>
+      <dl class="grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {% for valor, nombre, color in [(reemplazo.actualizadas, "se actualizan", "text-texto"), (reemplazo.nuevas, "nuevas", "text-exito"),
+                                       (reemplazo.conservadas, "se conservan por tener imágenes", "text-alerta"), (reemplazo.eliminadas, "se quitan", "text-peligro")] %}
+        <div class="rounded-lg bg-superficie-2 p-3"><dt class="text-xs text-tenue">{{ nombre|capitalize }}</dt><dd class="text-2xl font-bold {{ color }}">{{ valor }}</dd></div>
+        {% endfor %}
+      </dl>
+      <p class="ayuda mt-3">Las imágenes nunca se pierden: las filas emparejadas las conservan y las que ya no están en el Excel pero tienen imágenes quedan marcadas. El Excel anterior se guarda en la papelera.</p>
+    </div>
+    {% endif %}
+  </div>
+  <footer class="mt-auto flex items-center justify-between gap-2 border-t border-borde bg-superficie-2/50 px-6 py-4">
+    <button type="button" class="btn-fantasma" hx-get="/importar/{{ estado.token }}/paso/4" hx-target="#asistente">{{ icono("chevron-left") }}Atrás</button>
+    <div class="flex gap-2">
+      <button type="button" class="btn-secundario" @click="$el.closest('dialog').close()">Cancelar</button>
+      <button type="submit" class="btn-primario"><span class="indicador">{{ icono("loader-circle", "size-4 animate-spin") }}</span>
+        {{ "Actualizar tabla" if estado.es_reemplazo else "Importar" }}</button>
+    </div>
+  </footer>
+</form>

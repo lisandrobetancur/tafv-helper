@@ -1,2 +1,29 @@
-{% from "macros.html" import vacio %}
-{% call vacio("file-spreadsheet", "Muy pronto", "Aquí podrás importar archivos de Excel o CSV y consultarlos como tabla.") %}{% endcall %}
+{% from "macros.html" import icono, vacio, plural %}
+{% if tablas %}
+<div class="mb-4 flex flex-wrap items-center justify-between gap-3">
+  <p class="text-sm text-tenue">{{ plural(tablas|length, "tabla", "tablas") }}</p>
+  <button type="button" class="btn-primario" hx-get="/componentes/{{ componente.id }}/importar" hx-target="#modal">{{ icono("upload") }}Importar Excel o CSV</button>
+</div>
+<ul class="grid gap-3 lg:grid-cols-2">
+  {% for t in tablas %}
+  <li class="group relative flex items-start gap-3 rounded-xl border border-borde p-4 transition hover:border-borde-fuerte hover:bg-superficie-2/40">
+    <span class="grid size-10 shrink-0 place-items-center rounded-xl bg-exito-suave text-exito">{{ icono("file-spreadsheet", "size-5") }}</span>
+    <div class="min-w-0 flex-1">
+      <h3 class="font-semibold"><a href="/tablas/{{ t.id }}" class="after:absolute after:inset-0">{{ t.nombre }}</a></h3>
+      <p class="truncate text-xs text-tenue">{{ t.archivo.split("/")[-1] }}{% if t.hoja %} · hoja «{{ t.hoja }}»{% endif %}</p>
+      <div class="mt-2 flex flex-wrap gap-1.5">
+        <span class="chip">{{ plural(t.num_filas, "fila", "filas") }}</span>
+        <span class="chip">{{ plural(t.columnas|length, "columna", "columnas") }}</span>
+        {% if t.num_imagenes %}<span class="chip border-oro/30 bg-oro-suave text-oro">{{ icono("image", "size-3.5") }}{{ plural(t.num_imagenes, "imagen", "imágenes") }}</span>{% endif %}
+      </div>
+    </div>
+    <span class="text-tenue/70 group-hover:text-marca">{{ icono("chevron-right", "size-5") }}</span>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+  {% call vacio("file-spreadsheet", "Aún no hay tablas aquí",
+               "Importa un Excel o CSV: elegirás la hoja, la fila de encabezados y las columnas. Cada fila se convierte en una ficha a la que podrás adjuntar imágenes.") %}
+    <button type="button" class="btn-primario" hx-get="/componentes/{{ componente.id }}/importar" hx-target="#modal">{{ icono("upload") }}Importar Excel o CSV</button>
+  {% endcall %}
+{% endif %}

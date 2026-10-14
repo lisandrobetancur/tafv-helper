@@ -12,8 +12,8 @@ from starlette.exceptions import HTTPException as StarletteHTTPException
 from . import config, db
 from .errores import ErrorUsuario
 from .registro import configurar_registro
-from .routers import componentes, materias, paginas
-from .services import bloqueo
+from .routers import componentes, materias, paginas, tablas
+from .services import bloqueo, importacion
 from .web import aviso, es_htmx, templates
 
 log = logging.getLogger(__name__)
@@ -26,6 +26,7 @@ MENSAJE_INESPERADO = ("Ocurrió un problema inesperado. Intenta de nuevo; si se 
 async def ciclo_de_vida(app: FastAPI):
     configurar_registro()
     db.inicializar()
+    importacion.limpiar_viejas()
     app.state.bloqueo = bloqueo.adquirir()
     log.info("Biblioteca iniciada en %s", bloqueo.nombre_equipo())
     try:
@@ -80,6 +81,7 @@ def crear_app() -> FastAPI:
     app.include_router(paginas.router)
     app.include_router(materias.router)
     app.include_router(componentes.router)
+    app.include_router(tablas.router)
     return app
 
 

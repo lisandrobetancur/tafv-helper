@@ -16,12 +16,12 @@
 <ul class="tarjeta divide-y divide-borde">
   {% for e in elementos %}
   <li class="flex flex-wrap items-center gap-4 px-5 py-4">
-    <span class="grid size-10 place-items-center rounded-xl bg-superficie-2 text-tenue">
-      {{ icono("graduation-cap" if e.tipo == "materia" else "folder", "size-5") }}</span>
+    {% set tipo = TIPOS_PAPELERA.get(e.tipo, {"nombre": "Elemento", "icono": "folder"}) %}
+    <span class="grid size-10 place-items-center rounded-xl bg-superficie-2 text-tenue">{{ icono(tipo.icono, "size-5") }}</span>
     <div class="min-w-0 flex-1">
       <p class="truncate font-medium">{{ e.nombre }}</p>
       <p class="text-sm text-tenue">
-        {{ "Materia" if e.tipo == "materia" else "Componente" }}{% if e.ubicacion %} · en {{ e.ubicacion }}{% endif %}
+        {{ tipo.nombre }}{% if e.ubicacion %} · en {{ e.ubicacion }}{% endif %}
         · eliminado el {{ e.eliminado|replace("T", " a las ") }}
       </p>
     </div>
@@ -32,6 +32,6 @@
   {% endfor %}
 </ul>
 {% else %}
-  {% call vacio("trash-2", "La papelera está vacía", "Cuando envíes una materia o un componente a la papelera aparecerá aquí, y podrás restaurarlo.") %}{% endcall %}
+  {% call vacio("trash-2", "La papelera está vacía", "Lo que elimines (materias, componentes, tablas, imágenes o versiones anteriores de un Excel) aparecerá aquí y podrás restaurarlo.") %}{% endcall %}
 {% endif %}
 {% endblock %}

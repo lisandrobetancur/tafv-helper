@@ -1,0 +1,69 @@
+{% from "macros.html" import icono %}
+{% set varias = estado.seleccion|length > 1 %}
+{% set titulo_paso = "Paso 4 · ¿Qué columnas importas y cuál es el título de cada ficha?" ~ (" — " ~ hoja.nombre if varias else "") %}
+{% include "parciales/importar/cabecera.html" %}
+<form hx-post="/importar/{{ estado.token }}/columnas" hx-target="#asistente" class="flex min-h-0 flex-1 flex-col"
+      x-data="{ todas(v) { $root.querySelectorAll('input[name=columnas]').forEach(c => c.checked = v) } }">
+  <div class="flex flex-col gap-5 overflow-y-auto px-6 py-5">
+    <div>
+      <label class="etiqueta" for="i-tabla">Nombre descriptivo de la tabla</label>
+      <input id="i-tabla" name="nombre_tabla" class="campo" maxlength="80" required value="{{ cfg.nombre_tabla }}"
+             placeholder="Ej.: Atlas de huesos — miembro superior">
+    </div>
+
+    <div>
+      <div class="mb-2 flex flex-wrap items-center justify-between gap-2">
+        <span class="etiqueta mb-0">Columnas ({{ columnas|length }})</span>
+        <span class="flex gap-1 text-sm">
+          <button type="button" class="btn-fantasma px-2 py-1" @click="todas(true)">Marcar todas</button>
+          <button type="button" class="btn-fantasma px-2 py-1" @click="todas(false)">Ninguna</button>
+        </span>
+      </div>
+      <div class="overflow-hidden rounded-xl border border-borde">
+        <table class="w-full text-sm">
+          <thead class="bg-superficie-2 text-left text-xs text-tenue">
+            <tr>
+              <th class="w-12 px-3 py-2 font-semibold">Importar</th>
+              <th class="px-3 py-2 font-semibold">Columna</th>
+              <th class="hidden px-3 py-2 font-semibold md:table-cell">Ejemplos</th>
+              <th class="w-20 px-3 py-2 text-center font-semibold">Título</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-borde">
+            {% for c in columnas %}
+            <tr class="has-[input[name=columnas]:not(:checked)]:opacity-50">
+              <td class="px-3 py-2 text-center"><input type="checkbox" name="columnas" value="{{ c.indice }}" aria-label="Importar {{ c.nombre }}"
+                     class="size-4 accent-[var(--marca)]" {{ "checked" if c.indice in cfg.columnas }}></td>
+              <td class="px-3 py-2"><span class="font-medium">{{ c.nombre }}</span> <span class="text-xs text-tenue">· col. {{ c.letra }} · {{ c.llenas }} con datos</span></td>
+              <td class="hidden max-w-xs px-3 py-2 text-xs text-tenue md:table-cell"><span class="line-clamp-2">{{ c.ejemplos|join(" · ") or "—" }}</span></td>
+              <td class="px-3 py-2 text-center"><input type="radio" name="titulo" value="{{ c.indice }}" aria-label="{{ c.nombre }} es el título"
+                     class="size-4 accent-[var(--marca)]" {{ "checked" if c.indice == cfg.titulo }}></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <p class="ayuda">El <strong>título</strong> es lo que identifica cada ficha (por ejemplo el nombre del hueso o del medicamento).</p>
+    </div>
+
+    <details class="group rounded-xl border border-borde p-3.5" {{ "open" if estado.es_reemplazo or cfg.clave is not none }}>
+      <summary class="flex cursor-pointer list-none items-center gap-2 text-sm font-medium">
+        {{ icono("chevron-right", "size-4 transition-transform group-open:rotate-90") }}Columna clave para futuras actualizaciones <span class="font-normal text-tenue">(opcional)</span>
+      </summary>
+      <div class="mt-3 pl-6">
+        <select name="clave" class="campo max-w-md">
+          <option value="">La misma del título</option>
+          {% for c in columnas %}<option value="{{ c.indice }}" {{ "selected" if c.indice == cfg.clave }}>{{ c.nombre }}</option>{% endfor %}
+        </select>
+        <p class="ayuda">Cuando subas una versión nueva de este Excel, las filas se emparejarán con esta columna para conservar sus imágenes. Usa una que no se repita (un código o el nombre).</p>
+      </div>
+    </details>
+  </div>
+  <footer class="mt-auto flex items-center justify-between gap-2 border-t border-borde bg-superficie-2/50 px-6 py-4">
+    <button type="button" class="btn-fantasma" hx-get="/importar/{{ estado.token }}/paso/3" hx-target="#asistente">{{ icono("chevron-left") }}Atrás</button>
+    <div class="flex gap-2">
+      <button type="button" class="btn-secundario" @click="$el.closest('dialog').close()">Cancelar</button>
+      <button type="submit" class="btn-primario">Siguiente{{ icono("chevron-right") }}</button>
+    </div>
+  </footer>
+</form>

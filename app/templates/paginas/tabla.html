@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% from "macros.html" import icono, plural %}
+{% block titulo %}{{ tabla.nombre }}{% endblock %}
+{% block contenido %}
+<section class="mb-5 flex flex-wrap items-start gap-4">
+  <span class="grid size-12 shrink-0 place-items-center rounded-2xl bg-exito-suave text-exito">{{ icono("file-spreadsheet", "size-6") }}</span>
+  <div class="min-w-0 flex-1">
+    <h1 class="text-2xl font-bold tracking-tight">{{ tabla.nombre }}</h1>
+    <p class="mt-0.5 text-sm text-tenue">{{ plural(tabla.num_filas, "fila", "filas") }} · {{ plural(tabla.columnas|length, "columna", "columnas") }}
+      {% if tabla.num_imagenes %} · {{ plural(tabla.num_imagenes, "imagen", "imágenes") }}{% endif %}
+      · actualizada el {{ tabla.actualizado[:10] }}</p>
+  </div>
+  <div class="flex items-center gap-2">
+    <button class="btn-secundario" hx-get="/tablas/{{ tabla.id }}/actualizar" hx-target="#modal">{{ icono("refresh-cw") }}Actualizar desde Excel</button>
+    <div class="relative" x-data="desplegable" @click.outside="cerrar()" @keydown.escape="cerrar()">
+      <button type="button" class="btn-secundario px-2.5" @click="alternar()" aria-label="Más acciones" :aria-expanded="abierto">{{ icono("ellipsis-vertical") }}</button>
+      <div class="menu-flotante" x-show="abierto" x-cloak x-transition.origin.top.right @click="cerrar()">
+        <button class="menu-item" hx-get="/tablas/{{ tabla.id }}/renombrar" hx-target="#modal">{{ icono("pencil") }}Cambiar nombre</button>
+        <a class="menu-item" href="/tablas/{{ tabla.id }}/descargar" hx-boost="false">{{ icono("download") }}Descargar el Excel original</a>
+        {% if tabla.num_huerfanas %}
+        <button class="menu-item" hx-get="/tablas/{{ tabla.id }}/huerfanas/eliminar" hx-target="#modal">{{ icono("filter") }}Quitar filas que ya no están en el Excel</button>
+        {% endif %}
+        <div class="my-1 border-t border-borde"></div>
+        <button class="menu-item-peligro" hx-get="/tablas/{{ tabla.id }}/eliminar" hx-target="#modal">{{ icono("trash-2") }}Enviar a la papelera</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% if tabla.num_huerfanas %}
+<p class="mb-4 flex flex-wrap items-center gap-2 rounded-xl border border-alerta/40 bg-alerta-suave px-4 py-2.5 text-sm">{{ icono("triangle-alert", "size-5 text-alerta") }}
+  {{ plural(tabla.num_huerfanas, "fila ya no está", "filas ya no están") }} en el último Excel; se conservan porque tienen imágenes (aparecen al final, marcadas).</p>
+{% endif %}
+
+{# Barra de búsqueda y filtros: cualquier cambio vuelve a pedir solo la zona de resultados #}
+<form id="filtros-tabla" class="tarjeta mb-4 p-3" hx-get="/tablas/{{ tabla.id }}" hx-target="#region-tabla" hx-push-url="true"
+      hx-trigger="input changed delay:300ms from:input[type=search], change, submit" hx-indicator="#region-tabla"
+      x-data="{ porColumna: {{ 'true' if consulta.filtros else 'false' }} }" @submit.prevent>
+  <div class="flex flex-wrap items-center gap-2">
+    <div class="relative min-w-60 flex-1">
+      <span class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-tenue">{{ icono("search") }}</span>
+      <input type="search" name="q" value="{{ consulta.q }}" class="campo h-10 pl-10" placeholder="Buscar en todas las columnas…" aria-label="Buscar en la tabla">
+    </div>
+    <button type="button" class="btn-secundario" :class="porColumna && 'border-marca text-marca'" @click="porColumna = !porColumna" :aria-expanded="porColumna">{{ icono("filter") }}Filtrar por columna</button>
+    <label class="btn-secundario cursor-pointer has-[:checked]:border-oro has-[:checked]:text-oro">
+      <input type="checkbox" name="imgs" value="1" class="sr-only" {{ "checked" if consulta.solo_imagenes }}>{{ icono("image") }}Solo con imágenes</label>
+    <input type="hidden" name="orden" value="{{ consulta.orden }}">
+    <input type="hidden" name="desc" value="{{ '1' if consulta.desc else '' }}">
+  </div>
+  <div class="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" x-show="porColumna" x-cloak>
+    {% for c in columnas %}
+    <label class="block"><span class="mb-1 block truncate text-xs font-medium text-tenue">{{ c.nombre }}</span>
+      <input type="search" name="f_{{ c.clave }}" value="{{ (consulta.filtros or {}).get(c.clave, '') }}" class="campo h-9" placeholder="Contiene…"></label>
+    {% endfor %}
+  </div>
+</form>
+
+<div id="region-tabla" class="[&.htmx-request]:opacity-60 transition-opacity">
+  {% include "parciales/tabla_region.html" %}
+</div>
+{% endblock %}

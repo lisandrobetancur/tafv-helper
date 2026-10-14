@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% from "macros.html" import icono %}
+{% block titulo %}{{ fila.titulo }}{% endblock %}
+{% block contenido %}
+<section class="mb-6 flex flex-wrap items-start gap-4">
+  <div class="min-w-0 flex-1">
+    <p class="text-sm text-tenue">Ficha de <a href="/tablas/{{ tabla.id }}" class="font-medium hover:text-marca"
+       x-data :href="sessionStorage.getItem('ultima-tabla-{{ tabla.id }}') || '/tablas/{{ tabla.id }}'">{{ tabla.nombre }}</a>
+      {% if fila.fila_origen %}· fila {{ fila.fila_origen }} del Excel{% endif %}</p>
+    <h1 class="whitespace-pre-wrap text-2xl font-bold tracking-tight sm:text-3xl">{{ fila.titulo }}</h1>
+  </div>
+  <nav class="flex items-center gap-1" aria-label="Fichas vecinas">
+    <a {% if anterior %}href="/filas/{{ anterior }}"{% endif %} class="btn-secundario {{ 'pointer-events-none opacity-40' if not anterior }}" title="Ficha anterior">{{ icono("chevron-left") }}<span class="hidden sm:inline">Anterior</span></a>
+    <a {% if siguiente %}href="/filas/{{ siguiente }}"{% endif %} class="btn-secundario {{ 'pointer-events-none opacity-40' if not siguiente }}" title="Ficha siguiente"><span class="hidden sm:inline">Siguiente</span>{{ icono("chevron-right") }}</a>
+  </nav>
+</section>
+
+{% if fila.huerfana %}
+<p class="mb-5 flex gap-2 rounded-xl border border-alerta/40 bg-alerta-suave px-4 py-2.5 text-sm">{{ icono("triangle-alert", "size-5 shrink-0 text-alerta") }}
+  Esta fila ya no está en la última versión del Excel. Se conserva porque tiene imágenes.</p>
+{% endif %}
+
+<div class="grid gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(340px,440px)]">
+  {# Campos: los cortos en rejilla y los largos en bloques, en el orden del Excel #}
+  <section class="tarjeta p-5" aria-label="Datos de la ficha">
+    <div class="flex flex-col gap-4">
+      {% set ns = namespace(grupo=[]) %}
+      {% macro bloque_corto(grupo) %}
+        <dl class="grid gap-3 sm:grid-cols-2 2xl:grid-cols-3">
+          {% for c, v in grupo %}<div class="rounded-lg border border-borde bg-superficie-2/60 px-3.5 py-2.5">
+            <dt class="text-[11px] font-semibold uppercase tracking-wide text-tenue">{{ c.nombre }}</dt>
+            <dd class="mt-0.5 whitespace-pre-wrap [overflow-wrap:anywhere]">{{ v }}</dd></div>{% endfor %}
+        </dl>
+      {% endmacro %}
+      {% for c in tabla.columnas if c.clave != tabla.columna_titulo %}
+        {% set v = fila.valores.get(c.clave, '') %}
+        {% if v.strip() %}
+          {% if v|length <= 60 and "\n" not in v %}
+            {% set ns.grupo = ns.grupo + [(c, v)] %}
+          {% else %}
+            {% if ns.grupo %}{{ bloque_corto(ns.grupo) }}{% set ns.grupo = [] %}{% endif %}
+            <div class="border-l-[3px] border-marca-suave pl-4">
+              <h2 class="text-[11px] font-semibold uppercase tracking-wide text-marca">{{ c.nombre }}</h2>
+              <p class="mt-1 whitespace-pre-wrap [overflow-wrap:anywhere] leading-relaxed">{{ v }}</p>
+            </div>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      {% if ns.grupo %}{{ bloque_corto(ns.grupo) }}{% endif %}
+      {% set sin_datos = [] %}
+      {% for c in tabla.columnas if c.clave != tabla.columna_titulo and not fila.valores.get(c.clave, '').strip() %}{% set _ = sin_datos.append(c.nombre) %}{% endfor %}
+      {% if sin_datos %}<p class="text-xs text-tenue">Sin datos: {{ sin_datos|join(", ") }}.</p>{% endif %}
+    </div>
+  </section>
+
+  <section aria-labelledby="t-imagenes" class="xl:sticky xl:top-20 xl:self-start">
+    <h2 id="t-imagenes" class="titulo-seccion mb-3 flex items-center gap-2">{{ icono("images") }}Imágenes de esta ficha</h2>
+    <div id="galeria">{% include "parciales/galeria_fila.html" %}</div>
+  </section>
+</div>
+{% endblock %}

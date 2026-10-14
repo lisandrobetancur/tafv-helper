@@ -1,0 +1,18 @@
+{% from "macros.html" import icono %}
+<dialog class="modal !w-[min(480px,calc(100vw-2rem))]" x-data="modal" aria-labelledby="t-nombre">
+  <form hx-post="{{ accion }}" hx-target="closest dialog" hx-swap="outerHTML" class="flex flex-col">
+    <header class="flex items-center justify-between gap-4 border-b border-borde px-6 py-4">
+      <h2 id="t-nombre" class="text-lg font-semibold">{{ titulo }}</h2>
+      <button type="button" class="btn-icono -mr-2" @click="cerrar()" aria-label="Cerrar">{{ icono("x", "size-5") }}</button>
+    </header>
+    <div class="px-6 py-5">
+      {% if error %}<p class="mb-3 flex items-start gap-2 rounded-lg border border-peligro/30 bg-peligro-suave px-3 py-2.5 text-sm" role="alert">{{ icono("circle-x", "size-5 text-peligro") }}{{ error }}</p>{% endif %}
+      <label class="etiqueta" for="n-nombre">Nombre descriptivo</label>
+      <input id="n-nombre" name="nombre" class="campo" required maxlength="80" value="{{ valor }}" autofocus>
+    </div>
+    <footer class="flex justify-end gap-2 border-t border-borde bg-superficie-2/50 px-6 py-4">
+      <button type="button" class="btn-secundario" @click="cerrar()">Cancelar</button>
+      <button type="submit" class="btn-primario">Guardar</button>
+    </footer>
+  </form>
+</dialog>

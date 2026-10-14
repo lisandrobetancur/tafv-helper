@@ -1,0 +1,95 @@
+{# Resultados de la tabla (se reemplaza por HTMX al buscar, filtrar, ordenar o paginar) #}
+{% from "macros.html" import icono, vacio %}
+{% macro url() -%}
+  {%- set p = dict(request.query_params) -%}
+  {%- set _ = p.update(kwargs) -%}
+  {{ request.url.path }}?{{ p|urlencode }}
+{%- endmacro %}
+
+<div x-data="{ completo: (localStorage.getItem('texto-completo') ?? '1') === '1' }"
+     x-init="sessionStorage.setItem('ultima-tabla-{{ tabla.id }}', {{ (request.url.path ~ ('?' ~ request.url.query if request.url.query else ''))|tojson|forceescape }});
+             const f = document.getElementById('filtros-tabla');
+             if (f) { f.elements.orden.value = {{ consulta.orden|tojson|forceescape }}; f.elements.desc.value = {{ ('1' if consulta.desc else '')|tojson|forceescape }}; }">
+  <div class="mb-2 flex flex-wrap items-center justify-between gap-2 text-sm text-tenue">
+    <span>{% if total %}{{ (consulta.pagina - 1) * consulta.por_pagina + 1 }}–{{ [consulta.pagina * consulta.por_pagina, total]|min }} de {{ total }} fila{{ "s" if total != 1 }}{% if total != tabla.num_filas %} (de {{ tabla.num_filas }}){% endif %}{% else %}0 filas{% endif %}</span>
+    <label class="inline-flex cursor-pointer items-center gap-2">
+      <input type="checkbox" class="size-4 accent-[var(--marca)]" x-model="completo" @change="localStorage.setItem('texto-completo', completo ? '1' : '0')">
+      Mostrar textos completos</label>
+  </div>
+
+  {% if filas %}
+  <div class="tarjeta overflow-hidden">
+    <div class="max-h-[calc(100vh-300px)] min-h-72 overflow-auto">
+      <table class="w-full table-fixed border-separate border-spacing-0 text-sm" style="min-width: {{ columnas|sum(attribute='ancho') + 90 }}px">
+        <thead>
+          <tr>
+            {% for c in columnas %}
+            {% set activa = consulta.orden == c.clave %}
+            <th scope="col" style="width: {{ c.ancho }}px"
+                class="sticky top-0 z-10 border-b border-borde bg-superficie-2 px-3 py-2.5 text-left align-bottom text-xs font-semibold uppercase tracking-wide text-tenue {{ 'left-0 z-20 shadow-[1px_0_0_var(--borde)]' if loop.first }}">
+              <a href="{{ url(orden=c.clave, desc='1' if activa and not consulta.desc else '', pagina=1) }}" hx-get="{{ url(orden=c.clave, desc='1' if activa and not consulta.desc else '', pagina=1) }}"
+                 hx-target="#region-tabla" hx-push-url="true" class="inline-flex items-center gap-1 hover:text-texto {{ 'text-marca' if activa }}">
+                {{ c.nombre }}{% if activa %}{{ icono("arrow-down" if consulta.desc else "arrow-up", "size-3.5") }}{% endif %}</a>
+            </th>
+            {% endfor %}
+            <th scope="col" class="sticky top-0 z-10 w-[90px] border-b border-borde bg-superficie-2 px-3 py-2.5 text-center text-xs font-semibold uppercase tracking-wide text-tenue">
+              <a href="{{ url(orden='_imagenes', desc='' if consulta.orden == '_imagenes' and consulta.desc else '1', pagina=1) }}"
+                 hx-get="{{ url(orden='_imagenes', desc='' if consulta.orden == '_imagenes' and consulta.desc else '1', pagina=1) }}" hx-target="#region-tabla" hx-push-url="true"
+                 class="hover:text-texto" title="Ordenar por imágenes">{{ icono("image", "inline size-4") }}</a></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for f in filas %}
+          <tr class="group cursor-pointer {{ 'bg-alerta-suave/40' if f.huerfana }}"
+              @click="if (!$event.target.closest('a,button,input,select')) $el.querySelector('a.enlace-fila').click()">
+            {% for c in columnas %}
+            <td class="border-b border-borde px-3 py-2.5 align-top group-hover:bg-marca-suave/40 {{ 'sticky left-0 z-[1] bg-superficie font-semibold shadow-[1px_0_0_var(--borde)] group-hover:bg-[color-mix(in_srgb,var(--marca-suave)_40%,var(--superficie))]' if loop.first }}">
+              {% if loop.first %}
+                <a href="/filas/{{ f.id }}" class="enlace-fila whitespace-pre-wrap [overflow-wrap:anywhere] hover:text-marca">{{ f.valores.get(c.clave, '') or "(sin título)" }}</a>
+                {% if f.huerfana %}<span class="mt-1 block text-[11px] font-medium text-alerta">Ya no está en el Excel</span>{% endif %}
+              {% else %}
+                <div class="whitespace-pre-wrap [overflow-wrap:anywhere]" :class="!completo && 'line-clamp-3'">{{ f.valores.get(c.clave, '') }}</div>
+              {% endif %}
+            </td>
+            {% endfor %}
+            <td class="border-b border-borde px-3 py-2.5 text-center align-top group-hover:bg-marca-suave/40">
+              {% if f.num_imagenes %}<span class="inline-flex items-center gap-1 rounded-full bg-oro-suave px-2 py-0.5 text-xs font-semibold text-oro" title="{{ f.num_imagenes }} imagen(es)">{{ icono("image", "size-3.5") }}{{ f.num_imagenes }}</span>
+              {% else %}<span class="text-tenue/50">—</span>{% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="flex flex-wrap items-center justify-between gap-3 border-t border-borde px-4 py-2.5 text-sm">
+      <label class="flex items-center gap-2 text-tenue">Filas por página
+        <select class="campo h-8 w-auto py-0" name="por_pagina" form="filtros-tabla"
+                hx-get="{{ request.url.path }}" hx-include="#filtros-tabla" hx-target="#region-tabla" hx-push-url="true" hx-trigger="change">
+          {% for n in por_pagina_opciones %}<option {{ "selected" if n == consulta.por_pagina }}>{{ n }}</option>{% endfor %}
+        </select>
+      </label>
+      {% if paginas > 1 %}
+      <nav class="flex items-center gap-1" aria-label="Paginación">
+        {% set p = consulta.pagina %}
+        {% macro pag(n, texto=None, deshabilitado=False, actual=False, etiqueta="") -%}
+          {% if deshabilitado %}<span class="grid h-8 min-w-8 place-items-center rounded-lg px-2 text-tenue/40">{{ texto or n }}</span>
+          {% elif actual %}<span class="grid h-8 min-w-8 place-items-center rounded-lg bg-marca px-2 font-semibold text-sobre-marca" aria-current="page">{{ n }}</span>
+          {% else %}<a href="{{ url(pagina=n) }}" hx-get="{{ url(pagina=n) }}" hx-target="#region-tabla" hx-push-url="true" aria-label="{{ etiqueta or 'Página ' ~ n }}"
+                     class="grid h-8 min-w-8 place-items-center rounded-lg px-2 font-medium text-tenue hover:bg-superficie-2 hover:text-texto">{{ texto or n }}</a>{% endif %}
+        {%- endmacro %}
+        {{ pag(p - 1, icono("chevron-left"), p <= 1, etiqueta="Página anterior") }}
+        {% set mostrar = [1, paginas, p - 1, p, p + 1]|select(">=", 1)|select("<=", paginas)|unique|sort %}
+        {% for n in mostrar %}
+          {% if not loop.first and n - loop.previtem > 1 %}<span class="px-1 text-tenue">…</span>{% endif %}
+          {{ pag(n, actual=(n == p)) }}
+        {% endfor %}
+        {{ pag(p + 1, icono("chevron-right"), p >= paginas, etiqueta="Página siguiente") }}
+      </nav>
+      {% endif %}
+    </div>
+  </div>
+  {% else %}
+    {% call vacio("search", "No hay filas que coincidan", "Prueba con otras palabras o quita algún filtro. No importan las tildes ni las mayúsculas.") %}{% endcall %}
+  {% endif %}
+</div>

@@ -6,6 +6,7 @@ y abre el navegador cuando el servidor está listo.
 from __future__ import annotations
 
 import argparse
+import os
 import socket
 import threading
 import time
@@ -20,6 +21,10 @@ from .config import PUERTO_POR_DEFECTO
 def puerto_libre(preferido: int, intentos: int = 20) -> int:
     for puerto in range(preferido, preferido + intentos):
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            if os.name != "nt":
+                # Igual que Uvicorn: un puerto recién liberado (TIME_WAIT) se puede reutilizar.
+                # En Windows esta opción permitiría "robar" un puerto en uso, así que no se usa.
+                s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             try:
                 s.bind(("127.0.0.1", puerto))
                 return puerto

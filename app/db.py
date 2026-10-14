@@ -62,6 +62,61 @@ MIGRACIONES: list[str] = [
         eliminado      TEXT NOT NULL
     );
     """,
+    # 2 — tablas importadas de Excel/CSV (esquema dinámico) e imágenes por fila
+    """
+    CREATE TABLE tablas (
+        id                INTEGER PRIMARY KEY,
+        componente_id     INTEGER NOT NULL REFERENCES componentes(id) ON DELETE CASCADE,
+        nombre            TEXT    NOT NULL,
+        archivo           TEXT    NOT NULL,      -- relativo a la carpeta del componente: "excel/Atlas.xlsx"
+        archivo_original  TEXT    NOT NULL,
+        hoja              TEXT,                  -- NULL en CSV
+        fila_encabezado   INTEGER NOT NULL,
+        dos_filas         INTEGER NOT NULL DEFAULT 0,
+        columnas          TEXT    NOT NULL,      -- JSON [{"clave","nombre","origen","ancho"}]
+        columna_titulo    TEXT    NOT NULL,      -- clave de la columna título
+        columna_clave     TEXT,                  -- clave para emparejar al actualizar (NULL = la del título)
+        hash              TEXT    NOT NULL,
+        orden             INTEGER NOT NULL DEFAULT 0,
+        papelera_id       INTEGER,
+        creado            TEXT    NOT NULL,
+        actualizado       TEXT    NOT NULL
+    );
+    CREATE INDEX ix_tablas_componente ON tablas(componente_id);
+
+    CREATE TABLE filas (
+        id            INTEGER PRIMARY KEY,
+        tabla_id      INTEGER NOT NULL REFERENCES tablas(id) ON DELETE CASCADE,
+        posicion      INTEGER NOT NULL,          -- orden en el archivo
+        fila_origen   INTEGER,                   -- número de fila en el Excel
+        titulo        TEXT    NOT NULL,
+        clave_norm    TEXT    NOT NULL DEFAULT '', -- para emparejar al reemplazar el Excel
+        valores       TEXT    NOT NULL,          -- JSON {clave: texto tal cual}
+        valores_norm  TEXT    NOT NULL,          -- JSON {clave: texto sin tildes en minúsculas}
+        valores_orden TEXT    NOT NULL,          -- JSON {clave: clave de orden natural ("tema 9" antes que "tema 10")}
+        texto_norm    TEXT    NOT NULL,          -- todo junto, para la búsqueda rápida
+        huerfana      INTEGER NOT NULL DEFAULT 0 -- ya no está en el último Excel (se conserva por sus imágenes)
+    );
+    CREATE INDEX ix_filas_tabla ON filas(tabla_id, posicion);
+
+    CREATE TABLE imagenes_fila (
+        id               INTEGER PRIMARY KEY,
+        fila_id          INTEGER NOT NULL REFERENCES filas(id) ON DELETE CASCADE,
+        archivo          TEXT    NOT NULL,       -- relativo a la carpeta del componente: "imagenes-filas/…"
+        titulo           TEXT    NOT NULL,       -- nombre descriptivo que escribe la usuaria al subirla
+        nombre_original  TEXT    NOT NULL,
+        pie              TEXT    NOT NULL DEFAULT '',
+        orden            INTEGER NOT NULL DEFAULT 0,
+        hash             TEXT    NOT NULL,
+        ancho            INTEGER,
+        alto             INTEGER,
+        bytes            INTEGER,
+        papelera_id      INTEGER,
+        creado           TEXT    NOT NULL
+    );
+    CREATE INDEX ix_imagenes_fila ON imagenes_fila(fila_id, orden);
+    CREATE INDEX ix_imagenes_fila_hash ON imagenes_fila(hash);
+    """,
 ]
 
 

@@ -1,0 +1,23 @@
+{% from "macros.html" import icono %}
+{% set v = valores|default({"titulo": imagen.titulo, "pie": imagen.pie}) %}
+<dialog class="modal !w-[min(520px,calc(100vw-2rem))]" x-data="modal" @cerrar-modal.window="cerrar()" aria-labelledby="t-img">
+  <form hx-post="/imagenes-fila/{{ imagen.id }}" hx-target="#galeria" class="flex flex-col">
+    <header class="flex items-center justify-between gap-4 border-b border-borde px-6 py-4">
+      <h2 id="t-img" class="text-lg font-semibold">Editar imagen</h2>
+      <button type="button" class="btn-icono -mr-2" @click="cerrar()" aria-label="Cerrar">{{ icono("x", "size-5") }}</button>
+    </header>
+    <div class="flex flex-col gap-4 px-6 py-5">
+      {% if error %}<p class="flex items-start gap-2 rounded-lg border border-peligro/30 bg-peligro-suave px-3 py-2.5 text-sm" role="alert">{{ icono("circle-x", "size-5 text-peligro") }}{{ error }}</p>{% endif %}
+      <img src="/imagenes-fila/{{ imagen.id }}/miniatura" alt="" class="max-h-48 w-full rounded-xl bg-superficie-2 object-contain">
+      <div><label class="etiqueta" for="img-titulo">Nombre descriptivo</label>
+        <input id="img-titulo" name="titulo" class="campo" required maxlength="120" value="{{ v.titulo }}" autofocus></div>
+      <div><label class="etiqueta" for="img-pie">Pie de foto <span class="font-normal text-tenue">(opcional)</span></label>
+        <textarea id="img-pie" name="pie" class="campo" rows="2" maxlength="300">{{ v.pie }}</textarea></div>
+      <p class="text-xs text-tenue">Archivo original: {{ imagen.nombre_original }}{% if imagen.ancho %} · {{ imagen.ancho }}×{{ imagen.alto }} px{% endif %}</p>
+    </div>
+    <footer class="flex justify-end gap-2 border-t border-borde bg-superficie-2/50 px-6 py-4">
+      <button type="button" class="btn-secundario" @click="cerrar()">Cancelar</button>
+      <button type="submit" class="btn-primario">Guardar</button>
+    </footer>
+  </form>
+</dialog>
