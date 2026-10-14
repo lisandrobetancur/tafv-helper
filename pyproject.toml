@@ -1,0 +1,7 @@
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = [
+    # Avisos internos de PyMuPDF (SWIG) y de Starlette; no afectan a la app
+    "ignore:builtin type .* has no __module__ attribute:DeprecationWarning",
+    "ignore:Using `httpx` with `starlette.testclient` is deprecated",
+]

@@ -37,6 +37,16 @@ def test_sanear_nombre_archivo(entrada: str, esperado: str) -> None:
     assert alm.sanear_nombre_archivo(entrada) == esperado
 
 
+@pytest.mark.parametrize("entrada, esperado", [
+    ("Guía de práctica: riñón", "Guía de práctica - riñón"),
+    ("Parcial 1/2 ¿repaso?", "Parcial 1-2 ¿repaso"),
+    ('Huesos "largos" <fémur>', "Huesos 'largos' (fémur)"),
+    ("  ...  ", "sin titulo"),
+])
+def test_nombre_legible(entrada: str, esperado: str) -> None:
+    assert alm.nombre_legible(entrada) == esperado
+
+
 def test_ruta_libre_agrega_sufijo(tmp_path: Path) -> None:
     (tmp_path / "atlas.pdf").write_text("x")
     (tmp_path / "atlas (2).pdf").write_text("x")

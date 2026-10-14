@@ -1,0 +1,15 @@
+{# Estado del OCR de un PDF. Mientras haya páginas pendientes se actualiza solo cada 3 s. Requiere: pdf o d #}
+{% from "macros.html" import icono %}
+{% set p = pdf if pdf is defined else d %}
+{% if p.ocr_pendientes %}
+<div class="relative z-10 mt-auto" hx-get="/pdfs/{{ p.id }}/estado" hx-trigger="every 3s" hx-swap="outerHTML" title="Leyendo el texto de las páginas escaneadas">
+  <p class="mb-1 flex items-center gap-1.5 text-[11px] font-medium text-alerta">{{ icono("loader-circle", "size-3.5 animate-spin") }}Leyendo texto (OCR) {{ p.ocr_progreso }}%</p>
+  <div class="h-1.5 overflow-hidden rounded-full bg-superficie-3"><div class="h-full bg-alerta transition-all" style="width: {{ p.ocr_progreso }}%"></div></div>
+</div>
+{% elif p.ocr_errores %}
+<p class="relative z-10 mt-auto flex items-center gap-1.5 text-[11px] font-medium text-peligro">{{ icono("triangle-alert", "size-3.5") }}{{ p.ocr_errores }} pág. sin leer</p>
+{% elif p.ocr_hechas %}
+<p class="mt-auto flex items-center gap-1.5 text-[11px] text-exito">{{ icono("scan-text", "size-3.5") }}Texto reconocido (OCR)</p>
+{% else %}
+<p class="mt-auto flex items-center gap-1.5 text-[11px] text-tenue">{{ icono("circle-check", "size-3.5") }}Texto listo para buscar</p>
+{% endif %}

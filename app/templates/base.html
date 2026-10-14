@@ -41,6 +41,7 @@
             <kbd class="pointer-events-none absolute right-3 top-1/2 hidden -translate-y-1/2 rounded-md border border-borde bg-superficie-2 px-1.5 py-0.5 text-[11px] font-medium text-tenue sm:block"
                  x-data x-text="navigator.platform.toUpperCase().includes('MAC') ? '⌘ K' : 'Ctrl K'">Ctrl K</kbd>
           </form>
+          <span id="ocr-estado" hx-get="/ocr/estado" hx-trigger="load" hx-swap="outerHTML" class="ml-auto"></span>
           <div class="ml-auto flex items-center gap-1" x-data role="group" aria-label="Tema de color">
             {% for valor, nombre, ic in [("claro", "Modo claro", "sun"), ("sistema", "Según el sistema", "monitor"), ("oscuro", "Modo oscuro", "moon")] %}
             <button type="button" class="btn-icono" title="{{ nombre }}" aria-label="{{ nombre }}"

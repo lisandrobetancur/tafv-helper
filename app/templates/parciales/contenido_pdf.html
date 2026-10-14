@@ -1,2 +1,60 @@
-{% from "macros.html" import vacio %}
-{% call vacio("file-text", "Muy pronto", "Aquí podrás subir PDF (también escaneados) y buscar dentro de ellos.") %}{% endcall %}
+{# Pestaña PDF de un componente (se reemplaza completa tras subir) #}
+{% from "macros.html" import icono, plural %}
+<div id="contenido-pdf" class="flex flex-col gap-5">
+  <div x-data="carga('/componentes/{{ componente.id }}/pdfs', 'contenido-pdf', 'pdf')">
+    <label class="flex cursor-pointer flex-col items-center gap-1.5 rounded-xl border-2 border-dashed px-4 py-7 text-center transition"
+           :class="arrastrando ? 'border-marca bg-marca-suave' : 'border-borde-fuerte hover:border-marca hover:bg-superficie-2'"
+           @dragover.prevent="arrastrando = true" @dragleave.prevent="arrastrando = false" @drop.prevent="arrastrando = false; agregar($event.dataTransfer.files)">
+      <span class="grid size-11 place-items-center rounded-xl bg-marca-suave text-marca">{{ icono("upload", "size-5") }}</span>
+      <span class="font-medium">Subir PDF</span>
+      <span class="text-xs text-tenue">Arrastra uno o varios, o haz clic · también escaneados (se leen con OCR) · máx. 300 MB</span>
+      <input type="file" accept="application/pdf,.pdf" multiple class="sr-only" @change="agregar($event.target.files); $event.target.value = ''">
+    </label>
+
+    <template x-if="pendientes.length">
+      <form class="mt-4 flex flex-col gap-3" @submit.prevent="subir()">
+        <p class="text-sm font-medium">Ponle un nombre descriptivo a cada PDF</p>
+        <template x-for="(p, i) in pendientes" :key="p.id">
+          <div class="flex items-center gap-3 rounded-xl border border-borde p-2.5">
+            <span class="grid size-11 shrink-0 place-items-center rounded-lg bg-peligro-suave text-peligro">{{ icono("file-text", "size-5") }}</span>
+            <div class="flex min-w-0 flex-1 flex-col gap-1">
+              <input class="campo h-9" required maxlength="120" x-model="p.titulo" :aria-label="'Nombre descriptivo de ' + p.archivo.name"
+                     placeholder="Nombre descriptivo (obligatorio), p. ej. «Guía de práctica: riñón»">
+              <span class="truncate text-[11px] text-tenue" x-text="`${p.archivo.name} · ${(p.archivo.size / 1048576).toFixed(1)} MB`"></span>
+            </div>
+            <button type="button" class="btn-icono" @click="quitar(i)" aria-label="Quitar">{{ icono("x") }}</button>
+          </div>
+        </template>
+        <div x-show="subiendo" class="flex items-center gap-3">
+          <div class="h-2 flex-1 overflow-hidden rounded-full bg-superficie-3"><div class="h-full bg-marca transition-all" :style="`width:${progreso}%`"></div></div>
+          <span class="w-24 text-right text-xs text-tenue" x-text="progreso < 100 ? `Subiendo ${progreso}%` : 'Leyendo texto…'"></span>
+        </div>
+        <div class="flex justify-end gap-2">
+          <button type="button" class="btn-secundario" @click="limpiar()" :disabled="subiendo">Cancelar</button>
+          <button type="submit" class="btn-primario" :disabled="subiendo || pendientes.some(p => !p.titulo.trim())">
+            <span x-show="subiendo">{{ icono("loader-circle", "size-4 animate-spin") }}</span>
+            <span x-text="pendientes.length === 1 ? 'Subir PDF' : `Subir ${pendientes.length} PDF`"></span></button>
+        </div>
+      </form>
+    </template>
+  </div>
+
+  {% if pdfs %}
+  <ul class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6">
+    {% for d in pdfs %}
+    <li class="group relative flex flex-col overflow-hidden rounded-xl border border-borde bg-superficie transition hover:-translate-y-0.5 hover:border-borde-fuerte">
+      <div class="relative aspect-[3/4] overflow-hidden bg-superficie-2">
+        <img src="/pdfs/{{ d.id }}/miniatura" alt="" loading="lazy" class="size-full object-cover object-top">
+        <span class="absolute bottom-2 right-2 rounded-md bg-black/60 px-1.5 py-0.5 text-[11px] font-medium text-white">{{ plural(d.paginas, "pág.", "págs.") }}</span>
+      </div>
+      <div class="flex flex-1 flex-col gap-1.5 p-3">
+        <h3 class="line-clamp-2 text-sm font-semibold"><a href="/pdfs/{{ d.id }}" class="after:absolute after:inset-0">{{ d.titulo }}</a></h3>
+        {% include "parciales/pdf_estado.html" %}
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="rounded-xl border border-dashed border-borde-fuerte px-4 py-8 text-center text-sm text-tenue">Aún no hay PDF aquí. Los PDF escaneados también sirven: su texto se reconoce automáticamente para que puedas buscar en ellos.</p>
+  {% endif %}
+</div>

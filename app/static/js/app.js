@@ -111,30 +111,37 @@
       },
     }));
 
-    // ------------------------------------------- carga de imágenes con nombre
-    // Cada imagen elegida pide su nombre descriptivo (obligatorio) y un pie opcional antes de subir.
-    Alpine.data("cargaImagenes", (url) => ({
+    // ---------------------------------------- carga de archivos con nombre
+    // Cada archivo elegido pide su nombre descriptivo (obligatorio) antes de subir; las imágenes,
+    // además, un pie de foto opcional. tipo: "imagen" | "pdf". La respuesta reemplaza #destino.
+    Alpine.data("carga", (url, destino, tipo = "imagen") => ({
       pendientes: [], arrastrando: false, subiendo: false, progreso: 0,
       sugerido(nombre) {
         return nombre.replace(/\.[^.]+$/, "").replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
       },
+      valido(archivo) {
+        return tipo === "pdf" ? archivo.type === "application/pdf" || /\.pdf$/i.test(archivo.name)
+                              : archivo.type.startsWith("image/");
+      },
       agregar(lista) {
         for (const archivo of lista || []) {
-          if (!archivo.type.startsWith("image/")) { avisar(`«${archivo.name}» no es una imagen.`, "error"); continue; }
+          if (!this.valido(archivo)) {
+            avisar(`«${archivo.name}» no es ${tipo === "pdf" ? "un PDF" : "una imagen"}.`, "error"); continue;
+          }
           this.pendientes.push({ id: Math.random(), archivo, titulo: this.sugerido(archivo.name), pie: "",
-                                 vista: URL.createObjectURL(archivo) });
+                                 vista: tipo === "imagen" ? URL.createObjectURL(archivo) : "" });
         }
         this.$nextTick(() => { const c = this.$root.querySelector("form input"); if (c) { c.focus(); c.select(); } });
       },
-      quitar(i) { URL.revokeObjectURL(this.pendientes[i].vista); this.pendientes.splice(i, 1); },
-      limpiar() { this.pendientes.forEach((p) => URL.revokeObjectURL(p.vista)); this.pendientes = []; },
+      quitar(i) { if (this.pendientes[i].vista) URL.revokeObjectURL(this.pendientes[i].vista); this.pendientes.splice(i, 1); },
+      limpiar() { this.pendientes.forEach((p) => p.vista && URL.revokeObjectURL(p.vista)); this.pendientes = []; },
       subir() {
-        if (this.pendientes.some((p) => !p.titulo.trim())) { avisar("Escribe un nombre descriptivo para cada imagen.", "error"); return; }
+        if (this.pendientes.some((p) => !p.titulo.trim())) { avisar("Escribe un nombre descriptivo para cada archivo.", "error"); return; }
         const datos = new FormData();
         for (const p of this.pendientes) {
           datos.append("archivos", p.archivo);
           datos.append("titulos", p.titulo.trim());
-          datos.append("pies", p.pie.trim());
+          if (tipo === "imagen") datos.append("pies", p.pie.trim());
         }
         const xhr = new XMLHttpRequest();
         xhr.open("POST", url);
@@ -143,12 +150,18 @@
         xhr.onload = () => {
           this.subiendo = false;
           const disparo = xhr.getResponseHeader("HX-Trigger");
-          if (disparo) { try { const d = JSON.parse(disparo); if (d.aviso) avisar(d.aviso.mensaje, d.aviso.tipo); } catch (e) { /* nada */ } }
+          if (disparo) {
+            try {
+              const d = JSON.parse(disparo);
+              if (d.aviso) avisar(d.aviso.mensaje, d.aviso.tipo);
+              if (d["ocr-actualizado"]) document.body.dispatchEvent(new Event("ocr-actualizado"));
+            } catch (e) { /* nada */ }
+          }
           if (xhr.status >= 200 && xhr.status < 300 && xhr.responseText) {
             this.limpiar();
-            const galeria = document.getElementById("galeria");
-            galeria.innerHTML = xhr.responseText;
-            if (window.htmx) htmx.process(galeria);
+            const zona = document.getElementById(destino);
+            zona.innerHTML = xhr.responseText;
+            if (window.htmx) htmx.process(zona);
           }
         };
         xhr.onerror = () => { this.subiendo = false; avisar("No se pudo subir. ¿Sigue abierta la biblioteca?", "error"); };
@@ -188,6 +201,15 @@
         if (acciones[e.key]) { e.preventDefault(); acciones[e.key](); }
       },
     }));
+  });
+
+  // --------------------------------------------- visor de PDF (PDF.js en iframe)
+  // PDF.js avisa a la página que lo contiene antes de arrancar: se fija el español y el tema de la app.
+  document.addEventListener("webviewerloaded", (e) => {
+    const opciones = e.detail?.source?.PDFViewerApplicationOptions;
+    if (!opciones) return;
+    opciones.set("localeProperties", { lang: "es-ES" });
+    opciones.set("viewerCssTheme", document.documentElement.dataset.theme === "oscuro" ? 2 : 1);
   });
 
   // ----------------------------------------------------- atajos de teclado

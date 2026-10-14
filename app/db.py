@@ -117,6 +117,38 @@ MIGRACIONES: list[str] = [
     CREATE INDEX ix_imagenes_fila ON imagenes_fila(fila_id, orden);
     CREATE INDEX ix_imagenes_fila_hash ON imagenes_fila(hash);
     """,
+    # 3 — PDF con texto por página (extraído o por OCR)
+    """
+    CREATE TABLE pdfs (
+        id               INTEGER PRIMARY KEY,
+        componente_id    INTEGER NOT NULL REFERENCES componentes(id) ON DELETE CASCADE,
+        titulo           TEXT    NOT NULL,       -- nombre descriptivo que escribe la usuaria
+        archivo          TEXT    NOT NULL,       -- relativo a la carpeta del componente: "pdf/…"
+        nombre_original  TEXT    NOT NULL,
+        hash             TEXT    NOT NULL,
+        paginas          INTEGER NOT NULL,
+        bytes            INTEGER NOT NULL,
+        orden            INTEGER NOT NULL DEFAULT 0,
+        papelera_id      INTEGER,
+        creado           TEXT    NOT NULL,
+        actualizado      TEXT    NOT NULL
+    );
+    CREATE INDEX ix_pdfs_componente ON pdfs(componente_id);
+    CREATE INDEX ix_pdfs_hash ON pdfs(hash);
+
+    CREATE TABLE pdf_paginas (
+        id             INTEGER PRIMARY KEY,
+        pdf_id         INTEGER NOT NULL REFERENCES pdfs(id) ON DELETE CASCADE,
+        numero         INTEGER NOT NULL,          -- 1, 2, 3…
+        texto          TEXT    NOT NULL DEFAULT '',
+        texto_norm     TEXT    NOT NULL DEFAULT '',
+        origen         TEXT    NOT NULL DEFAULT 'texto',  -- texto | ocr
+        ocr_pendiente  INTEGER NOT NULL DEFAULT 0, -- 1 = espera OCR en segundo plano
+        ocr_error      TEXT,
+        UNIQUE (pdf_id, numero)
+    );
+    CREATE INDEX ix_paginas_ocr ON pdf_paginas(ocr_pendiente) WHERE ocr_pendiente = 1;
+    """,
 ]
 
 

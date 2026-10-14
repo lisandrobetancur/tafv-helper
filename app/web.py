@@ -39,6 +39,7 @@ templates.env.globals["TIPOS_PAPELERA"] = {
     "tabla": {"nombre": "Tabla", "icono": "file-spreadsheet"},
     "imagen_fila": {"nombre": "Imagen de una ficha", "icono": "image"},
     "archivo": {"nombre": "Archivo", "icono": "file-text"},
+    "pdf": {"nombre": "PDF", "icono": "file-text"},
 }
 
 COOKIE_AVISO = "aviso"

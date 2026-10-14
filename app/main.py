@@ -12,8 +12,8 @@ from starlette.exceptions import HTTPException as StarletteHTTPException
 from . import config, db
 from .errores import ErrorUsuario
 from .registro import configurar_registro
-from .routers import componentes, materias, paginas, tablas
-from .services import bloqueo, importacion
+from .routers import componentes, materias, paginas, pdfs as rutas_pdfs, tablas
+from .services import bloqueo, importacion, ocr, pdfs  # noqa: F401 (pdfs registra su fuente de OCR)
 from .web import aviso, es_htmx, templates
 
 log = logging.getLogger(__name__)
@@ -29,15 +29,19 @@ async def ciclo_de_vida(app: FastAPI):
     importacion.limpiar_viejas()
     app.state.bloqueo = bloqueo.adquirir()
     log.info("Biblioteca iniciada en %s", bloqueo.nombre_equipo())
+    if app.state.ocr_activo:
+        ocr.iniciar(db.conectar)  # reanuda el OCR pendiente en segundo plano
     try:
         yield
     finally:
+        ocr.detener()
         bloqueo.liberar()
         log.info("Biblioteca cerrada")
 
 
-def crear_app() -> FastAPI:
+def crear_app(ocr_activo: bool = True) -> FastAPI:
     app = FastAPI(title=config.NOMBRE_APP, lifespan=ciclo_de_vida, docs_url=None, redoc_url=None)
+    app.state.ocr_activo = ocr_activo
     app.mount("/static", StaticFiles(directory=config.STATIC_DIR), name="static")
 
     @app.middleware("http")
@@ -82,6 +86,7 @@ def crear_app() -> FastAPI:
     app.include_router(materias.router)
     app.include_router(componentes.router)
     app.include_router(tablas.router)
+    app.include_router(rutas_pdfs.router)
     return app
 
 

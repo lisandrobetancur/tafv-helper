@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% from "macros.html" import icono, plural %}
+{% block titulo %}{{ pdf.titulo }}{% endblock %}
+{% block contenido %}
+<section class="mb-4 flex flex-wrap items-start gap-4">
+  <span class="grid size-12 shrink-0 place-items-center rounded-2xl bg-peligro-suave text-peligro">{{ icono("file-text", "size-6") }}</span>
+  <div class="min-w-0 flex-1">
+    <h1 class="text-2xl font-bold tracking-tight">{{ pdf.titulo }}</h1>
+    <p class="mt-0.5 text-sm text-tenue">{{ plural(pdf.paginas, "página", "páginas") }} · {{ "%.1f"|format(pdf.bytes / 1048576) }} MB
+      · {{ pdf.archivo.split("/")[-1] }}{% if numero %} · abierto en la página {{ numero }}{% endif %}</p>
+    <div class="mt-2 flex max-w-xs">{% include "parciales/pdf_estado.html" %}</div>
+  </div>
+  <div class="flex items-center gap-2">
+    <a class="btn-secundario" href="/pdfs/{{ pdf.id }}/descargar" hx-boost="false">{{ icono("download") }}Descargar</a>
+    <div class="relative" x-data="desplegable" @click.outside="cerrar()" @keydown.escape="cerrar()">
+      <button type="button" class="btn-secundario px-2.5" @click="alternar()" aria-label="Más acciones" :aria-expanded="abierto">{{ icono("ellipsis-vertical") }}</button>
+      <div class="menu-flotante w-72" x-show="abierto" x-cloak x-transition.origin.top.right @click="cerrar()">
+        <button class="menu-item" hx-get="/pdfs/{{ pdf.id }}/renombrar" hx-target="#modal">{{ icono("pencil") }}Cambiar nombre</button>
+        <a class="menu-item" href="/static/vendor/pdfjs/web/viewer.html?file=/pdfs/{{ pdf.id }}/archivo" target="_blank" rel="noopener">{{ icono("external-link") }}Abrir en otra pestaña</a>
+        {% if pdf.ocr_errores %}
+        <form hx-post="/pdfs/{{ pdf.id }}/reintentar"><button class="menu-item">{{ icono("refresh-cw") }}Reintentar el OCR que falló</button></form>
+        {% endif %}
+        <form hx-post="/pdfs/{{ pdf.id }}/ocr" hx-confirm="Se volverán a leer todas las páginas con OCR. Úsalo si al buscar el texto de este PDF sale mal. ¿Continuar?">
+          <button class="menu-item">{{ icono("scan-text") }}Leer todas las páginas con OCR</button></form>
+        <div class="my-1 border-t border-borde"></div>
+        <button class="menu-item-peligro" hx-get="/pdfs/{{ pdf.id }}/eliminar" hx-target="#modal">{{ icono("trash-2") }}Enviar a la papelera</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% if texto_ocr is not none %}
+<details class="tarjeta mb-4 p-4" open>
+  <summary class="cursor-pointer text-sm font-medium">{{ icono("scan-text", "inline size-4 -mt-0.5 mr-1") }}Texto reconocido en la página {{ numero }}
+    <span class="font-normal text-tenue">(es una página escaneada: el visor no puede resaltar en ella)</span></summary>
+  <p class="mt-3 max-h-60 overflow-auto whitespace-pre-wrap rounded-lg bg-superficie-2 p-3 text-sm leading-relaxed">{% for trozo, marcado in texto_ocr %}{% if marcado %}<mark class="rounded bg-oro-suave px-0.5 text-texto ring-1 ring-oro/40">{{ trozo }}</mark>{% else %}{{ trozo }}{% endif %}{% endfor %}</p>
+</details>
+{% endif %}
+
+{# Visor PDF.js: abre en la página indicada y resalta el término buscado #}
+{% set hash = [] %}
+{% if numero %}{% set _ = hash.append("page=" ~ numero) %}{% endif %}
+{% if buscar %}{% set _ = hash.append("search=" ~ buscar|urlencode) %}{% endif %}
+<div class="tarjeta overflow-hidden">
+  <iframe title="Visor de {{ pdf.titulo }}" class="block h-[calc(100vh-230px)] min-h-[520px] w-full bg-superficie-2"
+          src="/static/vendor/pdfjs/web/viewer.html?file=/pdfs/{{ pdf.id }}/archivo{% if hash %}#{{ hash|join('&') }}{% endif %}"></iframe>
+</div>
+{% endblock %}

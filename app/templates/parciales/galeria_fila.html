@@ -2,7 +2,7 @@
 {% from "macros.html" import icono %}
 <div class="flex flex-col gap-4">
   {# --- Carga: cada imagen elegida pide su nombre descriptivo antes de subir --- #}
-  <div x-data="cargaImagenes('/filas/{{ fila.id }}/imagenes')" class="tarjeta p-4">
+  <div x-data="carga('/filas/{{ fila.id }}/imagenes', 'galeria', 'imagen')" class="tarjeta p-4">
     <label class="flex cursor-pointer flex-col items-center gap-1.5 rounded-xl border-2 border-dashed px-4 py-6 text-center transition"
            :class="arrastrando ? 'border-marca bg-marca-suave' : 'border-borde-fuerte hover:border-marca hover:bg-superficie-2'"
            @dragover.prevent="arrastrando = true" @dragleave.prevent="arrastrando = false" @drop.prevent="arrastrando = false; agregar($event.dataTransfer.files)">

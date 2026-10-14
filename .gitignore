@@ -11,3 +11,6 @@ data/*
 # Herramientas de desarrollo (binario de Tailwind e íconos sueltos); solo se versionan los scripts
 tools/tailwindcss*
 tools/lucide-svg/
+
+# Modelos de OCR (se descargan con `instalar`; viajan con la carpeta, no van en git)
+modelos/

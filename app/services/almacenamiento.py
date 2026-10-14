@@ -58,8 +58,13 @@ def sanear_nombre_archivo(nombre: str, largo: int = 120) -> str:
 
 def nombre_legible(texto: str, largo: int = 50) -> str:
     """Texto libre (p. ej. un título) convertido en parte segura de un nombre de archivo."""
-    texto = _PROHIBIDOS.sub("_", " ".join((texto or "").split()))
-    texto = texto[:largo].strip(" ._")
+    texto = " ".join((texto or "").split())
+    # Sustituciones naturales para los signos que Windows no admite en nombres de archivo
+    for signo, cambio in ((": ", " - "), (":", "-"), ("/", "-"), ("\\", "-"), ("|", "-"), ("?", ""), ("*", ""),
+                          ('"', "'"), ("<", "("), (">", ")")):
+        texto = texto.replace(signo, cambio)
+    texto = _PROHIBIDOS.sub("_", texto)
+    texto = " ".join(texto.split())[:largo].strip(" ._-")
     return texto or "sin titulo"
 
 

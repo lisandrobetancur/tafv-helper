@@ -30,5 +30,5 @@ def con(datos: Path) -> Iterator[sqlite3.Connection]:
 def cliente(datos: Path) -> Iterator[TestClient]:
     from app.main import crear_app
 
-    with TestClient(crear_app()) as c:
+    with TestClient(crear_app(ocr_activo=False)) as c:
         yield c
