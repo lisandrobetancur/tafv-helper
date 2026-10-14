@@ -125,7 +125,7 @@ ICONOS_MATERIA: list[dict[str, str]] = [
     {"id": "shield-plus", "nombre": "Inmunología"},
     {"id": "apple", "nombre": "Nutrición"},
     {"id": "globe", "nombre": "Salud pública"},
-    {"id": "leaf", "nombre": "Homeopatía"},
+    {"id": "leaf", "nombre": "Hoja"},
     {"id": "atom", "nombre": "Bioquímica"},
     {"id": "test-tube", "nombre": "Análisis"},
     {"id": "thermometer", "nombre": "Semiología"},
@@ -136,5 +136,18 @@ ICONOS_MATERIA: list[dict[str, str]] = [
     {"id": "ribbon", "nombre": "Oncología"},
     {"id": "venus", "nombre": "Ginecología"},
     {"id": "graduation-cap", "nombre": "General"},
+    # Medicinas alternativas y terapias
+    {"id": "sprout", "nombre": "Farmacología vegetal"},
+    {"id": "flower-2", "nombre": "Plantas medicinales"},
+    {"id": "pipette", "nombre": "Homeopatía"},
+    {"id": "droplets", "nombre": "Diluciones"},
+    {"id": "cylinder", "nombre": "Oxigenoterapia"},
+    {"id": "brain-circuit", "nombre": "Terapia neural"},
+    {"id": "zap", "nombre": "Impulso nervioso"},
+    {"id": "flame", "nombre": "Metabolismo"},
+    {"id": "orbit", "nombre": "Bioenergética"},
+    {"id": "waypoints", "nombre": "Acupuntura"},
+    {"id": "message-circle-heart", "nombre": "Psicoterapia"},
+    {"id": "hand-heart", "nombre": "Terapias manuales"},
 ]
 ICONOS_VALIDOS = {i["id"] for i in ICONOS_MATERIA}

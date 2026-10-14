@@ -56,7 +56,8 @@
         const primero = this.$el.querySelector("[autofocus], input:not([type=hidden]), textarea, button");
         if (primero) primero.focus();
       },
-      cerrar() { this.$el.close(); },
+      // Desde un botón, $el es el botón (no el <dialog>): se busca el diálogo que lo contiene.
+      cerrar() { this.$el.closest("dialog")?.close(); },
     }));
 
     // --------------------------------------------------------------- avisos
