@@ -1,10 +1,14 @@
 {# Indicador global del OCR en la barra superior. Solo consulta periódicamente mientras hay trabajo. #}
 {% from "macros.html" import icono %}
+{% set pendientes = paginas + imagenes %}
 {% if pendientes %}
 <span id="ocr-estado" hx-get="/ocr/estado" hx-trigger="every 4s, ocr-actualizado from:body" hx-swap="outerHTML"
       class="hidden items-center gap-2 rounded-full border border-alerta/30 bg-alerta-suave px-3 py-1 text-xs font-medium text-alerta sm:inline-flex"
       title="Las páginas escaneadas se leen en segundo plano. Puedes seguir usando la biblioteca.">
-  {{ icono("loader-circle", "size-3.5 animate-spin") }}Leyendo {{ pendientes }} página{{ "s" if pendientes != 1 }} con OCR
+  {{ icono("loader-circle", "size-3.5 animate-spin") }}Leyendo texto con OCR:
+  {%- if paginas %} {{ paginas }} página{{ "s" if paginas != 1 }}{% endif %}
+  {%- if paginas and imagenes %} y{% endif %}
+  {%- if imagenes %} {{ imagenes }} imagen{{ "es" if imagenes != 1 }}{% endif %}
 </span>
 {% else %}
 <span id="ocr-estado" hx-get="/ocr/estado" hx-trigger="ocr-actualizado from:body delay:500ms" hx-swap="outerHTML"></span>

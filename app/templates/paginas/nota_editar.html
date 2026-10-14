@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% from "macros.html" import icono %}
+{% block titulo %}{{ "Editar nota" if nota else "Nueva nota" }}{% endblock %}
+{% block contenido %}
+{% set accion = "/notas/" ~ nota.id if nota else "/componentes/" ~ componente.id ~ "/notas" %}
+<form method="post" action="{{ accion }}" class="mx-auto flex max-w-6xl flex-col gap-4"
+      x-data="{ cambios: false }" @input="cambios = true" @submit="cambios = false"
+      @keydown.window.ctrl.s.prevent="$el.requestSubmit()" @keydown.window.meta.s.prevent="$el.requestSubmit()">
+  <div class="flex flex-wrap items-center justify-between gap-3">
+    <h1 class="text-2xl font-bold tracking-tight">{{ "Editar nota" if nota else "Nueva nota" }}</h1>
+    <div class="flex items-center gap-2">
+      <span class="text-xs text-tenue" x-show="cambios" x-cloak>Cambios sin guardar · Ctrl/⌘+S para guardar</span>
+      <a href="{{ '/notas/' ~ nota.id if nota else '/componentes/' ~ componente.id ~ '#notas' }}" class="btn-secundario">Cancelar</a>
+      <button type="submit" class="btn-primario">{{ icono("circle-check") }}Guardar</button>
+    </div>
+  </div>
+
+  {% if error %}
+  <p class="flex items-start gap-2 rounded-lg border border-peligro/30 bg-peligro-suave px-3 py-2.5 text-sm" role="alert">{{ icono("circle-x", "size-5 text-peligro") }}{{ error }}</p>
+  {% endif %}
+
+  <div class="grid gap-3 md:grid-cols-[1fr_auto]">
+    <div><label class="etiqueta" for="n-titulo">Título</label>
+      <input id="n-titulo" name="titulo" class="campo text-base" required maxlength="120" value="{{ valores.titulo }}" autofocus
+             placeholder="Ej.: Resumen del ciclo cardíaco"></div>
+    <div><label class="etiqueta" for="n-formato">Formato</label>
+      <select id="n-formato" name="formato" class="campo" hx-post="/notas/vista-previa" hx-include="#n-contenido" hx-target="#vista-previa" hx-trigger="change">
+        {% for id, nombre in formatos.items() %}<option value="{{ id }}" {{ "selected" if valores.formato == id }}>{{ nombre }}</option>{% endfor %}
+      </select></div>
+  </div>
+  <div><label class="etiqueta" for="n-etq">Etiquetas <span class="font-normal text-tenue">(opcional, separadas por comas)</span></label>
+    <input id="n-etq" name="etiquetas" class="campo" maxlength="300" value="{{ valores.etiquetas }}" placeholder="examen, repaso"></div>
+
+  <div class="grid gap-4 lg:grid-cols-2">
+    <div class="flex flex-col">
+      <label class="etiqueta" for="n-contenido">Contenido</label>
+      <textarea id="n-contenido" name="contenido" class="campo min-h-[55vh] flex-1 resize-y font-mono text-[13px] leading-relaxed"
+                hx-post="/notas/vista-previa" hx-include="#n-formato" hx-target="#vista-previa" hx-trigger="input changed delay:400ms"
+                placeholder="# Título&#10;&#10;- Puntos clave&#10;- **Negrita** y *cursiva*&#10;&#10;| Fármaco | Dosis |&#10;|---|---|&#10;| Ibuprofeno | 400 mg |">{{ valores.contenido }}</textarea>
+      <p class="ayuda">Markdown: <code># Título</code>, <code>**negrita**</code>, <code>- lista</code>, <code>| tabla |</code>.</p>
+    </div>
+    <div class="flex flex-col">
+      <span class="etiqueta">Vista previa</span>
+      <div id="vista-previa" class="prose tarjeta min-h-[55vh] max-w-none flex-1 overflow-auto px-5 py-4">{{ vista_previa|safe if valores.contenido.strip() else '<p class="text-tenue">La vista previa aparecerá aquí.</p>'|safe }}</div>
+    </div>
+  </div>
+</form>
+{% endblock %}

@@ -113,7 +113,8 @@
 
     // ---------------------------------------- carga de archivos con nombre
     // Cada archivo elegido pide su nombre descriptivo (obligatorio) antes de subir; las imágenes,
-    // además, un pie de foto opcional. tipo: "imagen" | "pdf". La respuesta reemplaza #destino.
+    // además, un pie de foto opcional. tipo: "imagen" (ficha de fila) | "galeria" (imágenes sueltas:
+    // descripción y etiquetas) | "pdf". La respuesta reemplaza #destino.
     Alpine.data("carga", (url, destino, tipo = "imagen") => ({
       pendientes: [], arrastrando: false, subiendo: false, progreso: 0,
       sugerido(nombre) {
@@ -123,13 +124,15 @@
         return tipo === "pdf" ? archivo.type === "application/pdf" || /\.pdf$/i.test(archivo.name)
                               : archivo.type.startsWith("image/");
       },
+      get esImagen() { return tipo !== "pdf"; 
+      },
       agregar(lista) {
         for (const archivo of lista || []) {
           if (!this.valido(archivo)) {
             avisar(`«${archivo.name}» no es ${tipo === "pdf" ? "un PDF" : "una imagen"}.`, "error"); continue;
           }
-          this.pendientes.push({ id: Math.random(), archivo, titulo: this.sugerido(archivo.name), pie: "",
-                                 vista: tipo === "imagen" ? URL.createObjectURL(archivo) : "" });
+          this.pendientes.push({ id: Math.random(), archivo, titulo: this.sugerido(archivo.name), pie: "", etiquetas: "",
+                                 vista: tipo !== "pdf" ? URL.createObjectURL(archivo) : "" });
         }
         this.$nextTick(() => { const c = this.$root.querySelector("form input"); if (c) { c.focus(); c.select(); } });
       },
@@ -142,7 +145,10 @@
           datos.append("archivos", p.archivo);
           datos.append("titulos", p.titulo.trim());
           if (tipo === "imagen") datos.append("pies", p.pie.trim());
+          if (tipo === "galeria") { datos.append("descripciones", p.pie.trim()); datos.append("etiquetas", p.etiquetas.trim()); }
         }
+        const ocr = this.$root.querySelector("[name=extraer_texto]");
+        if (ocr && ocr.checked) datos.append("extraer_texto", "true");
         const xhr = new XMLHttpRequest();
         xhr.open("POST", url);
         xhr.setRequestHeader("HX-Request", "true");
@@ -159,9 +165,14 @@
           }
           if (xhr.status >= 200 && xhr.status < 300 && xhr.responseText) {
             this.limpiar();
+            // Si la respuesta trae el propio contenedor (#destino), lo reemplaza entero; si no, su contenido
             const zona = document.getElementById(destino);
-            zona.innerHTML = xhr.responseText;
-            if (window.htmx) htmx.process(zona);
+            const plantilla = document.createElement("template");
+            plantilla.innerHTML = xhr.responseText.trim();
+            const raiz = plantilla.content.firstElementChild;
+            if (raiz && raiz.id === destino && plantilla.content.childElementCount === 1) zona.replaceWith(raiz);
+            else zona.replaceChildren(plantilla.content);
+            if (window.htmx) htmx.process(document.getElementById(destino));
           }
         };
         xhr.onerror = () => { this.subiendo = false; avisar("No se pudo subir. ¿Sigue abierta la biblioteca?", "error"); };

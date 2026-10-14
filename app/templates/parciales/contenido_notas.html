@@ -1,2 +1,27 @@
-{% from "macros.html" import vacio %}
-{% call vacio("sticky-note", "Muy pronto", "Aquí podrás escribir notas de texto o Markdown.") %}{% endcall %}
+{# Pestaña Notas de un componente #}
+{% from "macros.html" import icono, vacio, plural %}
+{% if notas %}
+<div class="mb-4 flex flex-wrap items-center justify-between gap-3">
+  <p class="text-sm text-tenue">{{ plural(notas|length, "nota", "notas") }}</p>
+  <a href="/componentes/{{ componente.id }}/notas/nueva" class="btn-primario">{{ icono("plus") }}Nueva nota</a>
+</div>
+<ul class="grid gap-3 lg:grid-cols-2">
+  {% for n in notas %}
+  <li class="group relative flex gap-3 rounded-xl border border-borde p-4 transition hover:border-borde-fuerte hover:bg-superficie-2/40">
+    <span class="grid size-10 shrink-0 place-items-center rounded-xl bg-oro-suave text-oro">{{ icono("sticky-note", "size-5") }}</span>
+    <div class="min-w-0 flex-1">
+      <h3 class="font-semibold"><a href="/notas/{{ n.id }}" class="after:absolute after:inset-0">{{ n.titulo }}</a></h3>
+      <p class="mt-0.5 line-clamp-2 text-sm text-tenue">{{ n.extracto or "Nota vacía" }}</p>
+      <p class="mt-2 flex flex-wrap items-center gap-1.5 text-[11px] text-tenue">
+        Editada el {{ n.actualizado[:10] }}
+        {% for e in n.etiquetas %}<span class="rounded bg-superficie-2 px-1.5">{{ e }}</span>{% endfor %}
+      </p>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+  {% call vacio("sticky-note", "Aún no hay notas", "Escribe resúmenes, mnemotecnias o dudas para el profesor. Puedes usar Markdown (títulos, listas, negritas, tablas) y todo se podrá buscar.") %}
+    <a href="/componentes/{{ componente.id }}/notas/nueva" class="btn-primario">{{ icono("plus") }}Escribir la primera nota</a>
+  {% endcall %}
+{% endif %}

@@ -1,2 +1,88 @@
-{% from "macros.html" import vacio %}
-{% call vacio("images", "Muy pronto", "Aquí podrás subir imágenes en lote, con título, etiquetas y texto extraído.") %}{% endcall %}
+{# Pestaña Imágenes de un componente: carga en lote + galería con filtro por etiqueta #}
+{% from "macros.html" import icono %}
+<div id="contenido-imagenes" class="flex flex-col gap-5">
+  <div x-data="carga('/componentes/{{ componente.id }}/imagenes', 'contenido-imagenes', 'galeria')">
+    <label class="flex cursor-pointer flex-col items-center gap-1.5 rounded-xl border-2 border-dashed px-4 py-7 text-center transition"
+           :class="arrastrando ? 'border-marca bg-marca-suave' : 'border-borde-fuerte hover:border-marca hover:bg-superficie-2'"
+           @dragover.prevent="arrastrando = true" @dragleave.prevent="arrastrando = false" @drop.prevent="arrastrando = false; agregar($event.dataTransfer.files)">
+      <span class="grid size-11 place-items-center rounded-xl bg-marca-suave text-marca">{{ icono("upload", "size-5") }}</span>
+      <span class="font-medium">Subir imágenes</span>
+      <span class="text-xs text-tenue">Arrastra varias a la vez, o haz clic · JPG, PNG, WEBP o GIF</span>
+      <input type="file" accept="image/jpeg,image/png,image/webp,image/gif" multiple class="sr-only" @change="agregar($event.target.files); $event.target.value = ''">
+    </label>
+
+    <template x-if="pendientes.length">
+      <form class="mt-4 flex flex-col gap-3" @submit.prevent="subir()">
+        <p class="text-sm font-medium">Ponle un nombre descriptivo a cada imagen</p>
+        <template x-for="(p, i) in pendientes" :key="p.id">
+          <div class="flex gap-3 rounded-xl border border-borde p-2.5">
+            <img :src="p.vista" alt="" class="size-20 shrink-0 rounded-lg object-cover">
+            <div class="grid min-w-0 flex-1 gap-1.5 sm:grid-cols-2">
+              <input class="campo h-9 sm:col-span-2" required maxlength="120" x-model="p.titulo" :aria-label="'Nombre descriptivo de ' + p.archivo.name"
+                     placeholder="Nombre descriptivo (obligatorio), p. ej. «Corte sagital de rodilla»">
+              <input class="campo h-9" maxlength="2000" x-model="p.pie" :aria-label="'Descripción de ' + p.archivo.name" placeholder="Descripción (opcional)">
+              <input class="campo h-9" maxlength="300" x-model="p.etiquetas" :aria-label="'Etiquetas de ' + p.archivo.name" placeholder="Etiquetas separadas por comas">
+            </div>
+            <button type="button" class="btn-icono self-start" @click="quitar(i)" aria-label="Quitar">{{ icono("x") }}</button>
+          </div>
+        </template>
+        <label class="flex cursor-pointer items-start gap-3 rounded-xl border border-borde p-3 has-[:checked]:border-marca has-[:checked]:bg-marca-suave/50">
+          <input type="checkbox" name="extraer_texto" class="mt-0.5 size-4 accent-[var(--marca)]">
+          <span><span class="block text-sm font-medium">Extraer el texto de estas imágenes (OCR)</span>
+            <span class="block text-xs text-tenue">Útil para diapositivas, apuntes fotografiados o láminas con rótulos: su texto se podrá buscar. Se hace en segundo plano.</span></span>
+        </label>
+        <div x-show="subiendo" class="h-2 overflow-hidden rounded-full bg-superficie-3"><div class="h-full bg-marca transition-all" :style="`width:${progreso}%`"></div></div>
+        <div class="flex justify-end gap-2">
+          <button type="button" class="btn-secundario" @click="limpiar()" :disabled="subiendo">Cancelar</button>
+          <button type="submit" class="btn-primario" :disabled="subiendo || pendientes.some(p => !p.titulo.trim())">
+            <span x-show="subiendo">{{ icono("loader-circle", "size-4 animate-spin") }}</span>
+            <span x-text="pendientes.length === 1 ? 'Subir imagen' : `Subir ${pendientes.length} imágenes`"></span></button>
+        </div>
+      </form>
+    </template>
+  </div>
+
+  {% if etiquetas_usadas %}
+  <nav class="flex flex-wrap items-center gap-2" aria-label="Filtrar por etiqueta">
+    <span class="text-xs font-medium text-tenue">{{ icono("tag", "inline size-3.5") }} Etiquetas:</span>
+    <button type="button" hx-get="/componentes/{{ componente.id }}/imagenes" hx-target="#contenido-imagenes" hx-swap="outerHTML"
+            class="chip {{ 'border-marca bg-marca-suave text-marca' if not etiqueta_activa }}">Todas</button>
+    {% for nombre, n in etiquetas_usadas %}
+    <button type="button" hx-get="/componentes/{{ componente.id }}/imagenes?etiqueta={{ nombre|urlencode }}" hx-target="#contenido-imagenes" hx-swap="outerHTML"
+            class="chip {{ 'border-marca bg-marca-suave text-marca' if etiqueta_activa and etiqueta_activa|lower == nombre|lower }}">{{ nombre }} <span class="opacity-60">{{ n }}</span></button>
+    {% endfor %}
+  </nav>
+  {% endif %}
+
+  {% if imagenes %}
+  <ul class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6"
+      {% if not etiqueta_activa %}x-data="ordenable" data-url="/componentes/{{ componente.id }}/imagenes/orden"{% endif %}>
+    {% for img in imagenes %}
+    <li data-id="{{ img.id }}" class="group relative flex flex-col overflow-hidden rounded-xl border border-borde bg-superficie transition hover:border-borde-fuerte"
+        data-img='{{ {"src": "/imagenes/" ~ img.id ~ "/archivo", "titulo": img.titulo, "pie": img.descripcion}|tojson }}'>
+      <button type="button" class="block overflow-hidden" title="Ver en grande"
+              @click="const lis = [...$el.closest('ul').children];
+                      $dispatch('abrir-visor', { imagenes: lis.map(li => JSON.parse(li.dataset.img)), indice: lis.indexOf($el.closest('li')) })">
+        <img src="/imagenes/{{ img.id }}/miniatura" alt="{{ img.titulo }}" loading="lazy" class="aspect-square w-full bg-superficie-2 object-cover transition group-hover:scale-[1.03]">
+      </button>
+      <div class="flex items-start gap-1 p-2.5">
+        {% if not etiqueta_activa %}<span class="asa mt-0.5" title="Arrastra para ordenar">{{ icono("grip-vertical", "size-3.5") }}</span>{% endif %}
+        <div class="min-w-0 flex-1">
+          <a href="/imagenes/{{ img.id }}" class="block truncate text-sm font-medium hover:text-marca" title="{{ img.titulo }}">{{ img.titulo }}</a>
+          {% if img.etiquetas or img.ocr_estado != "no" %}
+          <p class="mt-1 flex flex-wrap gap-1">
+            {% for e in img.etiquetas[:3] %}<span class="rounded bg-superficie-2 px-1.5 text-[10px] text-tenue">{{ e }}</span>{% endfor %}
+            {% include "parciales/imagen_insignia.html" %}
+          </p>
+          {% endif %}
+        </div>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  {% elif etiqueta_activa %}
+  <p class="text-sm text-tenue">No hay imágenes con la etiqueta «{{ etiqueta_activa }}».</p>
+  {% else %}
+  <p class="rounded-xl border border-dashed border-borde-fuerte px-4 py-8 text-center text-sm text-tenue">Aún no hay imágenes aquí. Súbelas en lote y, si tienen texto (diapositivas, láminas con rótulos), marca «Extraer el texto» para poder buscarlo.</p>
+  {% endif %}
+</div>

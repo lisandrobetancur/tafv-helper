@@ -9,6 +9,8 @@ from ..db import obtener_db
 from ..errores import ErrorUsuario
 from ..services import biblioteca as bib
 from ..services import papelera as pap
+from ..services import imagenes as servicio_imagenes
+from ..services import notas as servicio_notas
 from ..services import pdfs as servicio_pdfs
 from ..services import tablas as tab
 from ..web import aviso, pagina, parcial, redirigir
@@ -64,7 +66,10 @@ def ver(request: Request, componente_id: int, con: sqlite3.Connection = Depends(
                   subcomponentes=bib.arbol(con, m.id, c.id, nivel + 1), nivel=nivel,
                   puede_anidar=nivel < PROFUNDIDAD_MAXIMA, migas=migas, materia_activa=m.id,
                   tablas=tab.listar(con, c.id) if "excel" in c.tipos else [],
-                  pdfs=servicio_pdfs.listar(con, c.id) if "pdf" in c.tipos else [])
+                  pdfs=servicio_pdfs.listar(con, c.id) if "pdf" in c.tipos else [],
+                  imagenes=servicio_imagenes.listar(con, c.id) if "imagenes" in c.tipos else [],
+                  etiquetas_usadas=servicio_imagenes.etiquetas_del_componente(con, c.id) if "imagenes" in c.tipos else [],
+                  notas=servicio_notas.listar(con, c.id) if "notas" in c.tipos else [])
 
 
 @router.get("/componentes/{componente_id}/editar")

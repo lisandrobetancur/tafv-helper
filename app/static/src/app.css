@@ -2,6 +2,7 @@
    tools/compilar_css.sh  (Mac)   ·   tools\compilar_css.bat  (Windows)
    El CSS compilado se versiona: los equipos de uso no necesitan Node ni Tailwind. */
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 @source "../../templates";
 @source "../js";
 
@@ -134,6 +135,17 @@ dialog.modal {
 dialog.modal[open] { animation: aparecer .16s ease-out; }
 dialog.modal::backdrop { background: rgb(15 10 8 / .5); backdrop-filter: blur(2px); }
 @keyframes aparecer { from { opacity: 0; transform: translateY(6px) scale(.985); } }
+
+/* Notas en Markdown: tipografía legible con los colores de la app (claro y oscuro) */
+.prose {
+  --tw-prose-body: var(--texto); --tw-prose-headings: var(--texto); --tw-prose-lead: var(--tenue);
+  --tw-prose-links: var(--marca); --tw-prose-bold: var(--texto); --tw-prose-counters: var(--tenue);
+  --tw-prose-bullets: var(--borde-fuerte); --tw-prose-hr: var(--borde); --tw-prose-quotes: var(--texto);
+  --tw-prose-quote-borders: var(--marca-suave); --tw-prose-captions: var(--tenue); --tw-prose-code: var(--texto);
+  --tw-prose-pre-code: var(--texto); --tw-prose-pre-bg: var(--superficie-2); --tw-prose-th-borders: var(--borde-fuerte);
+  --tw-prose-td-borders: var(--borde);
+}
+.prose mark { background: var(--oro-suave); color: var(--texto); border-radius: 3px; padding: 0 2px; }
 
 /* Visor de imágenes a pantalla completa */
 dialog.visor {

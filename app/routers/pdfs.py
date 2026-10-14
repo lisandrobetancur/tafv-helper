@@ -148,4 +148,6 @@ def eliminar(request: Request, pdf_id: int, con: sqlite3.Connection = Depends(ob
 
 @router.get("/ocr/estado")
 def estado_ocr(request: Request, con: sqlite3.Connection = Depends(obtener_db)):
-    return parcial(request, "parciales/ocr_estado.html", pendientes=pdfs.ocr_pendiente_total(con))
+    from ..services import imagenes
+    return parcial(request, "parciales/ocr_estado.html", paginas=pdfs.ocr_pendiente_total(con),
+                   imagenes=imagenes.ocr_pendientes(con))

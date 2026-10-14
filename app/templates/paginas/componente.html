@@ -36,16 +36,17 @@
 <section aria-labelledby="t-contenido">
   <h2 id="t-contenido" class="titulo-seccion mb-3">Contenido</h2>
   {% if componente.tipos %}
-  <div x-data="{ pestana: '{{ componente.tipos[0] }}' }" class="tarjeta overflow-hidden">
+  <div x-data="{ pestana: {{ componente.tipos|tojson|forceescape }}.includes(location.hash.slice(1)) ? location.hash.slice(1) : '{{ componente.tipos[0] }}' }"
+       class="tarjeta overflow-hidden">
     <div class="flex gap-1 overflow-x-auto border-b border-borde bg-superficie-2/60 px-2 pt-2" role="tablist">
       {% for t in componente.tipos_info %}
       <button type="button" role="tab" class="-mb-px inline-flex items-center gap-2 rounded-t-lg border border-transparent px-4 py-2.5 text-sm font-medium text-tenue hover:text-texto"
               :class="pestana === '{{ t.id }}' && 'border-borde !border-b-superficie bg-superficie !text-marca'"
-              :aria-selected="pestana === '{{ t.id }}'" @click="pestana = '{{ t.id }}'">{{ icono(t.icono) }}{{ t.nombre }}</button>
+              :aria-selected="pestana === '{{ t.id }}'" @click="pestana = '{{ t.id }}'; history.replaceState(null, '', '#{{ t.id }}')">{{ icono(t.icono) }}{{ t.nombre }}</button>
       {% endfor %}
     </div>
     {% for t in componente.tipos_info %}
-    <div class="p-6" x-show="pestana === '{{ t.id }}'" {% if not loop.first %}x-cloak{% endif %} role="tabpanel">
+    <div class="p-6" x-show="pestana === '{{ t.id }}'" x-cloak role="tabpanel">
       {% include "parciales/contenido_" ~ t.id ~ ".html" ignore missing %}
     </div>
     {% endfor %}

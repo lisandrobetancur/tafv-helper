@@ -22,7 +22,8 @@ from . import biblioteca as bib
 log = logging.getLogger(__name__)
 
 NOMBRES_TIPO = {"materia": "Materia", "componente": "Componente", "tabla": "Tabla",
-                "imagen_fila": "Imagen de una ficha", "archivo": "Archivo", "pdf": "PDF"}
+                "imagen_fila": "Imagen de una ficha", "archivo": "Archivo", "pdf": "PDF",
+                "imagen": "Imagen", "nota": "Nota"}
 
 
 def listar(con: sqlite3.Connection) -> list[ElementoPapelera]:
@@ -114,6 +115,27 @@ def enviar_pdf(con: sqlite3.Connection, pdf_id: int) -> tuple[str, int]:
     return pdf.titulo, pdf.componente_id
 
 
+def enviar_imagen(con: sqlite3.Connection, imagen_id: int) -> tuple[str, int]:
+    from . import imagenes
+    img = imagenes.obtener(con, imagen_id)
+    ruta = imagenes.ruta(con, img)
+    with transaccion(con):
+        pid = _registrar(con, "imagen", img.id, img.titulo, _ubicacion_componente(con, img.componente_id))
+        destino = alm.a_papelera(ruta, f"{pid}-{ruta.name}")
+        con.execute("UPDATE papelera SET ruta_original=?, ruta_papelera=? WHERE id=?", (img.archivo, destino, pid))
+        con.execute("UPDATE imagenes SET papelera_id=? WHERE id=?", (pid, img.id))
+    return img.titulo, img.componente_id
+
+
+def enviar_nota(con: sqlite3.Connection, nota_id: int) -> tuple[str, int]:
+    from . import notas
+    nota = notas.obtener(con, nota_id)
+    with transaccion(con):
+        pid = _registrar(con, "nota", nota.id, nota.titulo, _ubicacion_componente(con, nota.componente_id))
+        con.execute("UPDATE notas SET papelera_id=? WHERE id=?", (pid, nota.id))
+    return nota.titulo, nota.componente_id
+
+
 def enviar_archivo(con: sqlite3.Connection, ruta: Path, nombre: str, componente_id: int) -> None:
     """Archivo suelto (ref_id = componente al que pertenecía)."""
     if not ruta.exists():
@@ -135,7 +157,8 @@ def _fila(con: sqlite3.Connection, pid: int) -> sqlite3.Row:
 def restaurar(con: sqlite3.Connection, pid: int) -> str:
     f = _fila(con, pid)
     acciones = {"materia": _restaurar_materia, "componente": _restaurar_componente, "tabla": _restaurar_tabla,
-                "imagen_fila": _restaurar_imagen_fila, "archivo": _restaurar_archivo, "pdf": _restaurar_pdf}
+                "imagen_fila": _restaurar_imagen_fila, "archivo": _restaurar_archivo, "pdf": _restaurar_pdf,
+                "imagen": _restaurar_imagen, "nota": _restaurar_nota}
     if f["tipo"] not in acciones:
         raise ErrorUsuario("Este elemento no se puede restaurar.")
     return acciones[f["tipo"]](con, f)
@@ -244,6 +267,35 @@ def _restaurar_pdf(con: sqlite3.Connection, f: sqlite3.Row) -> str:
     return f["nombre"]
 
 
+def _restaurar_imagen(con: sqlite3.Connection, f: sqlite3.Row) -> str:
+    i = con.execute("SELECT componente_id, archivo FROM imagenes WHERE id=?", (f["ref_id"],)).fetchone()
+    if i is None:
+        raise NoEncontrado("La imagen")
+    if not _componente_activo(con, i["componente_id"]):
+        raise ErrorUsuario("Primero restaura el componente que contenía esta imagen.")
+    carpeta = bib.carpeta_componente(con, bib.obtener_componente(con, i["componente_id"])) / "imagenes"
+    carpeta.mkdir(parents=True, exist_ok=True)
+    destino = alm.ruta_libre(carpeta, Path(i["archivo"]).name)
+    with transaccion(con):
+        if f["ruta_papelera"] and rutas.absoluta(f["ruta_papelera"]).exists():
+            rutas.absoluta(f["ruta_papelera"]).rename(destino)
+        con.execute("UPDATE imagenes SET papelera_id=NULL, archivo=? WHERE id=?", (f"imagenes/{destino.name}", f["ref_id"]))
+        con.execute("DELETE FROM papelera WHERE id=?", (f["id"],))
+    return f["nombre"]
+
+
+def _restaurar_nota(con: sqlite3.Connection, f: sqlite3.Row) -> str:
+    n = con.execute("SELECT componente_id FROM notas WHERE id=?", (f["ref_id"],)).fetchone()
+    if n is None:
+        raise NoEncontrado("La nota")
+    if not _componente_activo(con, n["componente_id"]):
+        raise ErrorUsuario("Primero restaura el componente que contenía esta nota.")
+    with transaccion(con):
+        con.execute("UPDATE notas SET papelera_id=NULL WHERE id=?", (f["ref_id"],))
+        con.execute("DELETE FROM papelera WHERE id=?", (f["id"],))
+    return f["nombre"]
+
+
 def _restaurar_archivo(con: sqlite3.Connection, f: sqlite3.Row) -> str:
     if not f["ruta_papelera"] or not rutas.absoluta(f["ruta_papelera"]).exists():
         raise ErrorUsuario("El archivo ya no está en la papelera.")
@@ -282,7 +334,9 @@ def _dependientes(con: sqlite3.Connection, f: sqlite3.Row) -> list[sqlite3.Row]:
         marcas = ",".join("?" * len(comps))
         condiciones.append(f"(tipo IN ('componente','archivo') AND ref_id IN ({marcas}))")
         condiciones.append(f"(tipo='pdf' AND ref_id IN (SELECT id FROM pdfs WHERE componente_id IN ({marcas})))")
-        params += comps * 2
+        condiciones.append(f"(tipo='imagen' AND ref_id IN (SELECT id FROM imagenes WHERE componente_id IN ({marcas})))")
+        condiciones.append(f"(tipo='nota' AND ref_id IN (SELECT id FROM notas WHERE componente_id IN ({marcas})))")
+        params += comps * 4
     if tablas:
         marcas = ",".join("?" * len(tablas))
         condiciones.append(f"(tipo='tabla' AND ref_id IN ({marcas}))")
@@ -327,6 +381,10 @@ def eliminar_definitivo(con: sqlite3.Connection, pid: int) -> str:
             con.execute("DELETE FROM imagenes_fila WHERE id=?", (f["ref_id"],))
         elif f["tipo"] == "pdf":
             con.execute("DELETE FROM pdfs WHERE id=?", (f["ref_id"],))
+        elif f["tipo"] == "imagen":
+            con.execute("DELETE FROM imagenes WHERE id=?", (f["ref_id"],))
+        elif f["tipo"] == "nota":
+            con.execute("DELETE FROM notas WHERE id=?", (f["ref_id"],))
         con.execute("DELETE FROM papelera WHERE id=?", (pid,))
         con.executemany("DELETE FROM papelera WHERE id=?", [(d["id"],) for d in dependientes])
     alm.borrar_definitivo(f["ruta_papelera"])
@@ -334,6 +392,8 @@ def eliminar_definitivo(con: sqlite3.Connection, pid: int) -> str:
         alm.borrar_definitivo(d["ruta_papelera"])
     for ruta in archivos:
         ruta.unlink(missing_ok=True)
+    from . import etiquetas
+    etiquetas.limpiar_huerfanas(con)
     log.info("Eliminado definitivamente: %s (%s)", f["nombre"], f["tipo"])
     return f["nombre"]
 

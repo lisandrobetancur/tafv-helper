@@ -149,6 +149,58 @@ MIGRACIONES: list[str] = [
     );
     CREATE INDEX ix_paginas_ocr ON pdf_paginas(ocr_pendiente) WHERE ocr_pendiente = 1;
     """,
+    # 4 — imágenes sueltas (con OCR opcional), notas y etiquetas
+    """
+    CREATE TABLE imagenes (
+        id               INTEGER PRIMARY KEY,
+        componente_id    INTEGER NOT NULL REFERENCES componentes(id) ON DELETE CASCADE,
+        titulo           TEXT    NOT NULL,       -- nombre descriptivo
+        descripcion      TEXT    NOT NULL DEFAULT '',
+        archivo          TEXT    NOT NULL,       -- relativo a la carpeta del componente: "imagenes/…"
+        nombre_original  TEXT    NOT NULL,
+        hash             TEXT    NOT NULL,
+        ancho            INTEGER,
+        alto             INTEGER,
+        bytes            INTEGER,
+        texto_ocr        TEXT    NOT NULL DEFAULT '',
+        ocr_estado       TEXT    NOT NULL DEFAULT 'no',   -- no | pendiente | listo | error
+        ocr_error        TEXT,
+        orden            INTEGER NOT NULL DEFAULT 0,
+        papelera_id      INTEGER,
+        creado           TEXT    NOT NULL,
+        actualizado      TEXT    NOT NULL
+    );
+    CREATE INDEX ix_imagenes_componente ON imagenes(componente_id);
+    CREATE INDEX ix_imagenes_hash ON imagenes(hash);
+    CREATE INDEX ix_imagenes_ocr ON imagenes(ocr_estado) WHERE ocr_estado = 'pendiente';
+
+    CREATE TABLE notas (
+        id             INTEGER PRIMARY KEY,
+        componente_id  INTEGER NOT NULL REFERENCES componentes(id) ON DELETE CASCADE,
+        titulo         TEXT    NOT NULL,
+        contenido      TEXT    NOT NULL DEFAULT '',
+        formato        TEXT    NOT NULL DEFAULT 'markdown',  -- markdown | texto
+        orden          INTEGER NOT NULL DEFAULT 0,
+        papelera_id    INTEGER,
+        creado         TEXT    NOT NULL,
+        actualizado    TEXT    NOT NULL
+    );
+    CREATE INDEX ix_notas_componente ON notas(componente_id);
+
+    -- Etiquetas propias, para cualquier tipo de elemento (fila, pdf, imagen, nota)
+    CREATE TABLE etiquetas (
+        id      INTEGER PRIMARY KEY,
+        nombre  TEXT NOT NULL,
+        clave   TEXT NOT NULL UNIQUE      -- nombre sin tildes en minúsculas
+    );
+    CREATE TABLE etiquetas_elemento (
+        etiqueta_id  INTEGER NOT NULL REFERENCES etiquetas(id) ON DELETE CASCADE,
+        tipo         TEXT    NOT NULL,
+        ref_id       INTEGER NOT NULL,
+        PRIMARY KEY (etiqueta_id, tipo, ref_id)
+    );
+    CREATE INDEX ix_etiquetas_elemento ON etiquetas_elemento(tipo, ref_id);
+    """,
 ]
 
 

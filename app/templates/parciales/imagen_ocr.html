@@ -1,0 +1,25 @@
+{# Texto reconocido (OCR) de una imagen; mientras se lee, se actualiza solo #}
+{% from "macros.html" import icono %}
+<section id="imagen-ocr" class="tarjeta p-5" {% if imagen.ocr_estado == "pendiente" %}hx-get="/imagenes/{{ imagen.id }}/ocr" hx-trigger="every 2s" hx-swap="outerHTML"{% endif %}>
+  <div class="mb-3 flex items-center justify-between gap-3">
+    <h2 class="titulo-seccion flex items-center gap-2">{{ icono("scan-text") }}Texto de la imagen</h2>
+    {% if imagen.ocr_estado != "pendiente" %}
+    <button class="btn-secundario py-1.5 text-xs" hx-post="/imagenes/{{ imagen.id }}/ocr" hx-target="#imagen-ocr" hx-swap="outerHTML">
+      {{ icono("scan-text", "size-3.5") }}{{ "Volver a extraer" if imagen.ocr_estado in ("listo", "error") else "Extraer texto" }}</button>
+    {% endif %}
+  </div>
+  {% if imagen.ocr_estado == "pendiente" %}
+    <p class="flex items-center gap-2 text-sm text-alerta">{{ icono("loader-circle", "size-4 animate-spin") }}Leyendo el texto… puedes seguir usando la biblioteca.</p>
+  {% elif imagen.ocr_estado == "error" %}
+    <p class="text-sm text-peligro">No se pudo leer el texto de esta imagen. Puedes intentarlo de nuevo.</p>
+  {% elif imagen.ocr_estado == "listo" %}
+    {% if imagen.texto_ocr %}
+    <p class="max-h-72 overflow-auto whitespace-pre-wrap rounded-lg bg-superficie-2 p-3 text-sm leading-relaxed">{{ imagen.texto_ocr }}</p>
+    <p class="ayuda">Este texto se incluye en la búsqueda de la biblioteca.</p>
+    {% else %}
+    <p class="text-sm text-tenue">No se encontró texto en esta imagen.</p>
+    {% endif %}
+  {% else %}
+    <p class="text-sm text-tenue">Si la imagen tiene texto (una diapositiva, una lámina con rótulos, apuntes), pulsa «Extraer texto» para poder encontrarla al buscar.</p>
+  {% endif %}
+</section>
