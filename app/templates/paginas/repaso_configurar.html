@@ -41,7 +41,7 @@
     <div class="flex flex-wrap items-center justify-between gap-3 border-t border-borde pt-4">
       {% if resumen.lo_se or resumen.repasar %}
       <button type="button" class="btn-fantasma text-sm" hx-post="/tablas/{{ tabla.id }}/repaso/reiniciar"
-              hx-confirm="¿Borrar todas las marcas «lo sé» y «repasar» de esta tabla?">{{ icono("rotate-ccw") }}Empezar de cero</button>
+              data-confirmar-boton="Borrar marcas" data-confirmar-peligro hx-confirm="¿Borrar todas las marcas «lo sé» y «repasar» de esta tabla?">{{ icono("rotate-ccw") }}Empezar de cero</button>
       {% else %}<span></span>{% endif %}
       <button class="btn-primario">{{ icono("graduation-cap") }}Empezar a repasar</button>
     </div>

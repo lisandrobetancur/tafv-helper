@@ -7,7 +7,7 @@
   {% set titulo = "Nuevo subcomponente" if padre else "Nuevo componente" %}
 {% endif %}
 <dialog class="modal" x-data="modal" aria-labelledby="t-modal-comp">
-  <form hx-post="{{ accion }}" hx-target="closest dialog" hx-swap="outerHTML" class="flex max-h-[90vh] flex-col">
+  <form hx-post="{{ accion }}" hx-confirm="{{ '¿Guardar los cambios?' if componente else '¿Crear este ' ~ ('subcomponente' if padre else 'componente') ~ '?' }}" data-confirmar-boton="{{ 'Guardar' if componente else 'Crear' }}" hx-target="closest dialog" hx-swap="outerHTML" class="flex max-h-[90vh] flex-col">
     <header class="flex items-start justify-between gap-4 border-b border-borde px-6 py-4">
       <div>
         <h2 id="t-modal-comp" class="text-lg font-semibold">{{ titulo }}</h2>

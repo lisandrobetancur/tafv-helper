@@ -1,7 +1,7 @@
 {% from "macros.html" import icono %}
 {% set v = valores|default({"titulo": imagen.titulo, "pie": imagen.pie}) %}
-<dialog class="modal !w-[min(520px,calc(100vw-2rem))]" x-data="modal" @cerrar-modal.window="cerrar()" aria-labelledby="t-img">
-  <form hx-post="/imagenes-fila/{{ imagen.id }}" hx-target="#galeria" class="flex flex-col">
+<dialog class="modal !w-[min(520px,calc(100vw-2rem))]" x-data="modal" @cerrar-modal.window="cerrar(true)" aria-labelledby="t-img">
+  <form hx-post="/imagenes-fila/{{ imagen.id }}" hx-confirm="¿Guardar los cambios de la imagen?" data-confirmar-boton="Guardar" hx-target="#galeria" class="flex flex-col">
     <header class="flex items-center justify-between gap-4 border-b border-borde px-6 py-4">
       <h2 id="t-img" class="text-lg font-semibold">Editar imagen</h2>
       <button type="button" class="btn-icono -mr-2" @click="cerrar()" aria-label="Cerrar">{{ icono("x", "size-5") }}</button>

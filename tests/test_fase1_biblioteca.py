@@ -115,6 +115,8 @@ def test_archivar(con: sqlite3.Connection) -> None:
     bib.archivar_materia(con, mid, True)
     assert bib.listar_materias(con) == []
     assert [m.id for m in bib.listar_materias(con, archivadas=True)] == [mid]
+    with pytest.raises(ErrorUsuario, match="está archivada"):   # el nombre repetido avisa dónde está
+        bib.crear_materia(con, "a", "", "azul", "bone")
 
 
 # -------------------------------------------------------------------- papelera

@@ -15,6 +15,60 @@
       htmx.config.refreshOnHistoryMiss = true;
     }
   });
+  // ------------------------------------------------------------ confirmar
+  // Ventana de confirmación con el estilo de la app. Devuelve una promesa con true/false.
+  // Se usa en los botones que guardan, editan o eliminan (atributo hx-confirm o data-confirmar).
+  const confirmar = (pregunta, { boton = "Sí, continuar", peligro = false } = {}) => new Promise((resolver) => {
+    const dialogo = document.createElement("dialog");
+    dialogo.className = "modal !w-[min(440px,calc(100vw-2rem))]";
+    dialogo.setAttribute("role", "alertdialog");
+    dialogo.innerHTML = `
+      <div class="flex gap-4 px-6 pb-2 pt-6">
+        <span class="grid size-11 shrink-0 place-items-center rounded-full ${peligro ? "bg-peligro-suave text-peligro" : "bg-marca-suave text-marca"}">
+          <svg class="ic size-5"><use href="/static/vendor/lucide/sprite.svg#${peligro ? "triangle-alert" : "circle-help"}"/></svg></span>
+        <p class="pt-2.5 text-base font-medium" data-pregunta></p>
+      </div>
+      <footer class="mt-4 flex justify-end gap-2 border-t border-borde bg-superficie-2/50 px-6 py-4">
+        <button type="button" class="btn-secundario" data-no>Cancelar</button>
+        <button type="button" class="${peligro ? "btn-peligro" : "btn-primario"}" data-si></button>
+      </footer>`;
+    dialogo.querySelector("[data-pregunta]").textContent = pregunta;
+    dialogo.querySelector("[data-si]").textContent = boton;
+    let respuesta = false;
+    dialogo.querySelector("[data-si]").addEventListener("click", () => { respuesta = true; dialogo.close(); });
+    dialogo.querySelector("[data-no]").addEventListener("click", () => dialogo.close());
+    dialogo.addEventListener("close", () => { dialogo.remove(); resolver(respuesta); });
+    document.body.appendChild(dialogo);
+    dialogo.showModal();
+    dialogo.querySelector("[data-si]").focus();
+  });
+  window.confirmar = confirmar;
+
+  // Opciones desde atributos: data-confirmar-boton="Guardar" y data-confirmar-peligro
+  const opcionesDe = (el) => {
+    const origen = el.closest("[data-confirmar-boton], [data-confirmar-peligro]") || el;
+    return { boton: origen.dataset.confirmarBoton || "Sí, continuar", peligro: origen.hasAttribute("data-confirmar-peligro") };
+  };
+
+  // HTMX: hx-confirm usa esta ventana en lugar del confirm() del navegador.
+  document.addEventListener("htmx:confirm", (e) => {
+    if (!e.detail.question) return;
+    e.preventDefault();
+    confirmar(e.detail.question, opcionesDe(e.detail.elt)).then((si) => { if (si) e.detail.issueRequest(true); });
+  });
+
+  // Formularios normales (sin HTMX): <form data-confirmar="¿…?">
+  document.addEventListener("submit", (e) => {
+    const form = e.target;
+    if (!(form instanceof HTMLFormElement) || !form.dataset.confirmar || form.dataset.confirmado) return;
+    e.preventDefault();
+    confirmar(form.dataset.confirmar, opcionesDe(form)).then((si) => {
+      if (!si) return;
+      form.dataset.confirmado = "1";
+      form.requestSubmit(e.submitter || undefined);
+    });
+  });
+
   // Errores de red (servidor cerrado, etc.)
   document.addEventListener("htmx:sendError", () =>
     avisar("No hay conexión con la biblioteca. ¿Se cerró la ventana del servidor?", "error"));
@@ -49,15 +103,26 @@
     // ---------------------------------------------------------------- modal
     // Las respuestas de HTMX traen un <dialog x-data="modal">; se abre solo y se borra al cerrar.
     Alpine.data("modal", () => ({
+      // Un clic fuera del formulario NO lo cierra (se perdía lo escrito). Se cierra con la X,
+      // «Cancelar» o Esc; si ya escribiste algo, primero pregunta si quieres descartarlo.
       init() {
-        this.$el.showModal();
-        this.$el.addEventListener("close", () => this.$el.remove());
-        this.$el.addEventListener("click", (e) => { if (e.target === this.$el) this.$el.close(); });
-        const primero = this.$el.querySelector("[autofocus], input:not([type=hidden]), textarea, button");
+        const dialogo = this.$el;
+        dialogo.showModal();
+        dialogo.addEventListener("close", () => dialogo.remove());
+        dialogo.addEventListener("input", () => { dialogo.dataset.cambios = "1"; });
+        dialogo.addEventListener("change", () => { dialogo.dataset.cambios = "1"; });
+        dialogo.addEventListener("cancel", (e) => { e.preventDefault(); this.cerrar(); });   // tecla Esc
+        const primero = dialogo.querySelector("[autofocus], input:not([type=hidden]), textarea, button");
         if (primero) primero.focus();
       },
       // Desde un botón, $el es el botón (no el <dialog>): se busca el diálogo que lo contiene.
-      cerrar() { this.$el.closest("dialog")?.close(); },
+      async cerrar(forzar = false) {
+        const dialogo = this.$el.closest("dialog");
+        if (!dialogo) return;
+        if (!forzar && dialogo.dataset.cambios && !(await confirmar("¿Cerrar sin guardar? Se perderá lo que escribiste.",
+                                                         { boton: "Cerrar sin guardar", peligro: true }))) return;
+        dialogo.close();
+      },
     }));
 
     // --------------------------------------------------------------- avisos
@@ -139,8 +204,11 @@
       },
       quitar(i) { if (this.pendientes[i].vista) URL.revokeObjectURL(this.pendientes[i].vista); this.pendientes.splice(i, 1); },
       limpiar() { this.pendientes.forEach((p) => p.vista && URL.revokeObjectURL(p.vista)); this.pendientes = []; },
-      subir() {
+      async subir() {
         if (this.pendientes.some((p) => !p.titulo.trim())) { avisar("Escribe un nombre descriptivo para cada archivo.", "error"); return; }
+        const n = this.pendientes.length;
+        const que = tipo === "pdf" ? (n === 1 ? "este PDF" : `estos ${n} PDF`) : (n === 1 ? "esta imagen" : `estas ${n} imágenes`);
+        if (!(await confirmar(`¿Guardar ${que} en la biblioteca?`, { boton: "Guardar" }))) return;
         const datos = new FormData();
         for (const p of this.pendientes) {
           datos.append("archivos", p.archivo);

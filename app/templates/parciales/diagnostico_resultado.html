@@ -146,7 +146,7 @@
     <section class="tarjeta p-4" aria-labelledby="t-guardar">
       <h2 id="t-guardar" class="titulo-seccion mb-1">Guardar el caso</h2>
       <p class="mb-3 text-xs text-tenue">Queda en Diagnóstico › Casos guardados, con los síntomas, este análisis y tu conclusión.</p>
-      <form hx-post="/diagnostico/casos" hx-include="#form-dx" class="flex flex-col gap-2">
+      <form hx-post="/diagnostico/casos" hx-include="#form-dx" hx-confirm="¿Guardar este caso en Diagnóstico?" data-confirmar-boton="Guardar caso" class="flex flex-col gap-2">
         <input name="titulo" class="campo h-9 text-sm" placeholder="Título (opcional)" maxlength="120" aria-label="Título del caso">
         <textarea name="conclusion" rows="3" class="campo text-sm" placeholder="Tu conclusión o impresión diagnóstica (opcional)" aria-label="Conclusión"></textarea>
         <button class="btn-secundario">{{ icono("save") }}{{ "Guardar como caso nuevo" if caso else "Guardar el caso" }}</button>

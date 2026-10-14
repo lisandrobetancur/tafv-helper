@@ -25,7 +25,7 @@
         · eliminado el {{ e.eliminado|replace("T", " a las ") }}
       </p>
     </div>
-    <form hx-post="/papelera/{{ e.id }}/restaurar"><button class="btn-secundario">{{ icono("rotate-ccw") }}Restaurar</button></form>
+    <form hx-post="/papelera/{{ e.id }}/restaurar" hx-confirm="¿Restaurar «{{ e.nombre }}»?" data-confirmar-boton="Restaurar"><button class="btn-secundario">{{ icono("rotate-ccw") }}Restaurar</button></form>
     <button class="btn-fantasma text-peligro hover:bg-peligro-suave hover:text-peligro" hx-get="/papelera/{{ e.id }}/eliminar" hx-target="#modal"
             title="Eliminar para siempre">{{ icono("trash-2") }}<span class="sr-only">Eliminar para siempre</span></button>
   </li>

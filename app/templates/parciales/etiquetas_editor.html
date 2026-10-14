@@ -9,7 +9,7 @@
       {{ icono("tag" if not etiquetas else "pencil", "size-3") }}{{ "Agregar etiquetas" if not etiquetas else "Editar" }}</button>
   </div>
   <form class="flex w-full max-w-lg items-center gap-2" x-show="editando" x-cloak
-        hx-post="/etiquetas/{{ tipo }}/{{ ref_id }}" hx-target="closest div[x-data]" hx-swap="outerHTML">
+        hx-post="/etiquetas/{{ tipo }}/{{ ref_id }}" hx-confirm="¿Guardar las etiquetas?" data-confirmar-boton="Guardar" hx-target="closest div[x-data]" hx-swap="outerHTML">
     <input x-ref="campo" name="etiquetas" class="campo h-8 flex-1 text-sm" value="{{ etiquetas|join(', ') }}" placeholder="examen, repaso…"
            aria-label="Etiquetas separadas por comas" @keydown.escape="editando = false">
     <button class="btn-primario py-1 text-xs">Guardar</button>

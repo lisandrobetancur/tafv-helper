@@ -1,7 +1,7 @@
 {% from "macros.html" import icono %}
 {% set accion = "/materias/" ~ materia.id if materia else "/materias" %}
 <dialog class="modal" x-data="modal" aria-labelledby="t-modal-materia">
-  <form hx-post="{{ accion }}" hx-target="closest dialog" hx-swap="outerHTML" class="flex max-h-[90vh] flex-col">
+  <form hx-post="{{ accion }}" hx-confirm="{{ '¿Guardar los cambios de la materia?' if materia else '¿Crear esta materia?' }}" data-confirmar-boton="{{ 'Guardar' if materia else 'Crear materia' }}" hx-target="closest dialog" hx-swap="outerHTML" class="flex max-h-[90vh] flex-col">
     <header class="flex items-center justify-between gap-4 border-b border-borde px-6 py-4">
       <h2 id="t-modal-materia" class="text-lg font-semibold">{{ "Editar materia" if materia else "Nueva materia" }}</h2>
       <button type="button" class="btn-icono -mr-2" @click="cerrar()" aria-label="Cerrar">{{ icono("x", "size-5") }}</button>

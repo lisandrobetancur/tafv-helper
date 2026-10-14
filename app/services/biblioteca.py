@@ -75,9 +75,12 @@ def _validar_materia(con: sqlite3.Connection, nombre: str, color: str, icono: st
     if icono not in ICONOS_VALIDOS:
         raise ErrorUsuario("Elige un ícono de la lista.")
     otra = con.execute(
-        "SELECT id FROM materias WHERE nombre = ? COLLATE NOCASE AND papelera_id IS NULL AND id IS NOT ?",
+        "SELECT id, archivada FROM materias WHERE nombre = ? COLLATE NOCASE AND papelera_id IS NULL AND id IS NOT ?",
         (nombre, excluir),
     ).fetchone()
+    if otra and otra["archivada"]:
+        raise ErrorUsuario(f"Ya existe una materia llamada «{nombre}», pero está archivada. "
+                           "Búscala en «Archivadas», al final del inicio, y vuelve a activarla.")
     if otra:
         raise ErrorUsuario(f"Ya existe una materia llamada «{nombre}».")
 

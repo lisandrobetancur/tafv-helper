@@ -8,7 +8,7 @@
       <h2 id="t-asistente" class="text-lg font-semibold">{{ "Actualizar tabla desde un Excel" if es_reemplazo else "Importar Excel o CSV" }}</h2>
       <p class="text-sm text-tenue">{{ titulo_paso }}</p>
     </div>
-    <button type="button" class="btn-icono -mr-2" @click="$el.closest('dialog').close()" aria-label="Cerrar">{{ icono("x", "size-5") }}</button>
+    <button type="button" class="btn-icono -mr-2" @click="cerrar()" aria-label="Cerrar">{{ icono("x", "size-5") }}</button>
   </div>
   <ol class="mt-4 flex items-center gap-2 text-xs font-medium" aria-label="Pasos">
     {% for nombre in pasos %}

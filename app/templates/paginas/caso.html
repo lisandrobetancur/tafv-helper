@@ -32,7 +32,7 @@
 
     <section class="tarjeta p-5" aria-labelledby="t-conclusion">
       <h2 id="t-conclusion" class="titulo-seccion mb-3">Tu conclusión</h2>
-      <form hx-post="/diagnostico/casos/{{ caso.id }}" class="flex flex-col gap-2">
+      <form hx-post="/diagnostico/casos/{{ caso.id }}" hx-confirm="¿Guardar los cambios del caso?" data-confirmar-boton="Guardar" class="flex flex-col gap-2">
         <input name="titulo" value="{{ caso.titulo }}" class="campo h-9 text-sm" maxlength="120" aria-label="Título del caso" required>
         <textarea name="conclusion" rows="4" class="campo text-sm" placeholder="Impresión diagnóstica, diferenciales, qué falta preguntar…"
                   aria-label="Conclusión">{{ caso.conclusion }}</textarea>

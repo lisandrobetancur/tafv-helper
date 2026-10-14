@@ -6,7 +6,7 @@
 <div class="mb-5 flex flex-wrap items-center gap-3 rounded-xl border border-alerta/40 bg-alerta-suave px-4 py-3 text-sm">
   {{ icono("archive", "size-5 text-alerta") }}
   <span class="flex-1">Esta materia está archivada: no aparece en el menú lateral.</span>
-  <form hx-post="/materias/{{ materia.id }}/archivar"><input type="hidden" name="archivar" value="false">
+  <form hx-post="/materias/{{ materia.id }}/archivar" hx-confirm="¿Volver a activar «{{ materia.nombre }}»?" data-confirmar-boton="Activar"><input type="hidden" name="archivar" value="false">
     <button class="btn-secundario py-1.5">{{ icono("archive-restore") }}Volver a activar</button></form>
 </div>
 {% endif %}
@@ -26,7 +26,7 @@
         <div class="menu-flotante" x-show="abierto" x-cloak x-transition.origin.top.right @click="cerrar()">
           <button class="menu-item" hx-get="/materias/{{ materia.id }}/editar" hx-target="#modal">{{ icono("pencil") }}Editar materia</button>
           {% if not materia.archivada %}
-          <form hx-post="/materias/{{ materia.id }}/archivar"><input type="hidden" name="archivar" value="true">
+          <form hx-post="/materias/{{ materia.id }}/archivar" hx-confirm="¿Archivar «{{ materia.nombre }}»? Dejará de verse en el menú y quedará en «Archivadas», al final del inicio." data-confirmar-boton="Archivar"><input type="hidden" name="archivar" value="true">
             <button class="menu-item">{{ icono("archive") }}Archivar</button></form>
           {% endif %}
           <div class="my-1 border-t border-borde"></div>

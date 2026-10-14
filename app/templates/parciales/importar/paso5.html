@@ -1,7 +1,7 @@
 {% from "macros.html" import icono %}
 {% set titulo_paso = "Paso 5 · Revisa y confirma" %}
 {% include "parciales/importar/cabecera.html" %}
-<form hx-post="/importar/{{ estado.token }}/confirmar" hx-disabled-elt="find button" class="flex min-h-0 flex-1 flex-col">
+<form hx-post="/importar/{{ estado.token }}/confirmar" hx-confirm="{{ '¿Actualizar la tabla con el archivo nuevo?' if estado.es_reemplazo else '¿Importar la tabla con esta configuración?' }}" data-confirmar-boton="{{ 'Actualizar' if estado.es_reemplazo else 'Importar' }}" hx-disabled-elt="find button" class="flex min-h-0 flex-1 flex-col">
   <div class="flex flex-col gap-4 overflow-y-auto px-6 py-5">
     {% if estado.duplicado_de %}
     <p class="flex gap-2 rounded-lg border border-alerta/40 bg-alerta-suave px-3 py-2.5 text-sm" role="alert">{{ icono("triangle-alert", "size-5 shrink-0 text-alerta") }}
@@ -36,7 +36,7 @@
   <footer class="mt-auto flex items-center justify-between gap-2 border-t border-borde bg-superficie-2/50 px-6 py-4">
     <button type="button" class="btn-fantasma" hx-get="/importar/{{ estado.token }}/paso/4" hx-target="#asistente">{{ icono("chevron-left") }}Atrás</button>
     <div class="flex gap-2">
-      <button type="button" class="btn-secundario" @click="$el.closest('dialog').close()">Cancelar</button>
+      <button type="button" class="btn-secundario" @click="cerrar()">Cancelar</button>
       <button type="submit" class="btn-primario"><span class="indicador">{{ icono("loader-circle", "size-4 animate-spin") }}</span>
         {{ "Actualizar tabla" if estado.es_reemplazo else "Importar" }}</button>
     </div>

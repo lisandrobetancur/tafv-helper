@@ -23,7 +23,7 @@
   <div class="mb-4 flex flex-wrap items-center gap-3 rounded-xl border border-marca/30 bg-marca-suave px-4 py-2.5 text-sm">
     {{ icono("folder-open", "size-5 text-marca") }}
     <span class="min-w-0 flex-1">Editando los síntomas del caso <a href="/diagnostico/casos/{{ caso.id }}" class="font-semibold hover:underline">{{ caso.titulo }}</a></span>
-    <button class="btn-primario h-9" hx-post="/diagnostico/casos/{{ caso.id }}/sintomas" hx-include="#form-dx">{{ icono("save") }}Guardar en el caso</button>
+    <button class="btn-primario h-9" hx-post="/diagnostico/casos/{{ caso.id }}/sintomas" hx-include="#form-dx" hx-confirm="¿Reemplazar los síntomas guardados del caso por los que tienes ahora?" data-confirmar-boton="Guardar en el caso">{{ icono("save") }}Guardar en el caso</button>
     <a href="/diagnostico" class="btn-fantasma h-9">Empezar uno nuevo</a>
   </div>
   {% endif %}

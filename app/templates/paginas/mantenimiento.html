@@ -14,7 +14,7 @@
         <p class="mt-1 max-w-xl text-sm text-tenue">Un respaldo guarda en un solo archivo ZIP toda la biblioteca: la base de datos, los Excel, PDF,
           imágenes y la papelera. Se guardan en la carpeta <code class="rounded bg-superficie-2 px-1">data/respaldos</code>; también puedes descargarlos y copiarlos a un pendrive o a la nube.</p>
       </div>
-      <form hx-post="/respaldos" hx-disabled-elt="find button">
+      <form hx-post="/respaldos" hx-confirm="¿Crear un respaldo ahora?" data-confirmar-boton="Crear respaldo" hx-disabled-elt="find button">
         <button class="btn-primario"><span class="indicador">{{ icono("loader-circle", "size-4 animate-spin") }}</span>{{ icono("download") }}Crear respaldo ahora</button>
       </form>
     </div>
@@ -41,7 +41,7 @@
     <details class="mt-4">
       <summary class="cursor-pointer text-sm font-medium text-tenue hover:text-texto">Restaurar desde un archivo ZIP de otro lugar…</summary>
       <form class="mt-3 flex flex-wrap items-center gap-3" hx-post="/respaldos/subir" hx-encoding="multipart/form-data"
-            hx-confirm="La biblioteca actual se reemplazará por la del respaldo (antes se guardará un respaldo automático del estado actual). ¿Continuar?"
+            data-confirmar-boton="Restaurar" data-confirmar-peligro hx-confirm="La biblioteca actual se reemplazará por la del respaldo (antes se guardará un respaldo automático del estado actual). ¿Continuar?"
             hx-disabled-elt="find button">
         <input type="file" name="archivo" accept=".zip,application/zip" required class="text-sm file:mr-3 file:rounded-lg file:border file:border-borde file:bg-superficie file:px-3 file:py-1.5 file:text-sm">
         <button class="btn-secundario"><span class="indicador">{{ icono("loader-circle", "size-4 animate-spin") }}</span>{{ icono("upload") }}Restaurar</button>

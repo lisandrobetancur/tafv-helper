@@ -1,6 +1,6 @@
 {% from "macros.html" import icono %}
 <dialog class="modal !w-[min(480px,calc(100vw-2rem))]" x-data="modal" aria-labelledby="t-nombre">
-  <form hx-post="{{ accion }}" hx-target="closest dialog" hx-swap="outerHTML" class="flex flex-col">
+  <form hx-post="{{ accion }}" hx-confirm="¿Guardar el nuevo nombre?" data-confirmar-boton="Guardar" hx-target="closest dialog" hx-swap="outerHTML" class="flex flex-col">
     <header class="flex items-center justify-between gap-4 border-b border-borde px-6 py-4">
       <h2 id="t-nombre" class="text-lg font-semibold">{{ titulo }}</h2>
       <button type="button" class="btn-icono -mr-2" @click="cerrar()" aria-label="Cerrar">{{ icono("x", "size-5") }}</button>

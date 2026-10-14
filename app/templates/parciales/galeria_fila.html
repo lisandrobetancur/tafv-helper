@@ -56,7 +56,7 @@
         </div>
         <button type="button" class="btn-icono -m-1 p-1" title="Editar" hx-get="/imagenes-fila/{{ img.id }}/editar" hx-target="#modal">{{ icono("pencil", "size-3.5") }}</button>
         <button type="button" class="btn-icono -m-1 p-1 hover:text-peligro" title="Enviar a la papelera"
-                hx-post="/imagenes-fila/{{ img.id }}/eliminar" hx-target="#galeria" hx-confirm="¿Enviar «{{ img.titulo }}» a la papelera?">{{ icono("trash-2", "size-3.5") }}</button>
+                hx-post="/imagenes-fila/{{ img.id }}/eliminar" hx-target="#galeria" hx-confirm="¿Enviar «{{ img.titulo }}» a la papelera?" data-confirmar-boton="Enviar a la papelera" data-confirmar-peligro>{{ icono("trash-2", "size-3.5") }}</button>
       </div>
     </li>
     {% endfor %}
