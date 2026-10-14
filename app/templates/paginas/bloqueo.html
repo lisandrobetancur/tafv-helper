@@ -1,0 +1,12 @@
+{% extends "paginas/aislada.html" %}
+{% block titulo %}Biblioteca en uso{% endblock %}
+{% block contenido %}
+<h1 class="text-xl font-bold">La biblioteca parece abierta en «{{ equipo }}»</h1>
+<p class="mt-3 text-tenue">Se abrió allí {% if desde %}el {{ desde }}{% endif %}. Ciérrala en ese equipo antes de continuar:
+  si se usa en dos equipos a la vez, los cambios de uno pueden perderse.</p>
+<p class="mt-3 text-sm text-tenue">Si ese equipo se apagó sin cerrar la biblioteca, puedes abrirla aquí de todos modos.</p>
+<div class="mt-7 flex flex-col justify-center gap-2 sm:flex-row">
+  <a href="/bloqueo" class="btn-secundario">Ya la cerré, comprobar de nuevo</a>
+  <form method="post" action="/bloqueo/forzar"><button class="btn-primario w-full">Abrir aquí de todos modos</button></form>
+</div>
+{% endblock %}

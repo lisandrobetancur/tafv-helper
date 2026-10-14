@@ -1,0 +1,44 @@
+{# Macros reutilizables de la interfaz #}
+
+{% macro icono(nombre, clase="size-4") -%}
+<svg class="ic {{ clase }}" aria-hidden="true"><use href="/static/vendor/lucide/sprite.svg#{{ nombre }}"/></svg>
+{%- endmacro %}
+
+{% macro ficha_materia(m, clase="size-10", tam_icono="size-5") -%}
+<span class="grid {{ clase }} shrink-0 place-items-center rounded-xl text-white"
+      style="background: {{ m.color_hex }}">{{ icono(m.icono, tam_icono) }}</span>
+{%- endmacro %}
+
+{% macro migas(items) -%}
+{% if items %}
+<nav aria-label="Ruta" class="mb-4 flex flex-wrap items-center gap-1.5 text-sm text-tenue">
+  <a href="/" class="inline-flex items-center gap-1 rounded-md px-1 hover:text-texto">{{ icono("house", "size-3.5") }}Inicio</a>
+  {% for m in items %}
+    {{ icono("chevron-right", "size-3.5 opacity-60") }}
+    {% if m.url %}<a href="{{ m.url }}" class="rounded-md px-1 hover:text-texto">{{ m.texto }}</a>
+    {% else %}<span class="px-1 font-medium text-texto" aria-current="page">{{ m.texto }}</span>{% endif %}
+  {% endfor %}
+</nav>
+{% endif %}
+{%- endmacro %}
+
+{% macro vacio(nombre_icono, titulo, texto) -%}
+<div class="flex flex-col items-center gap-3 rounded-2xl border border-dashed border-borde-fuerte bg-superficie/60 px-6 py-14 text-center">
+  <span class="grid size-14 place-items-center rounded-2xl bg-marca-suave text-marca">{{ icono(nombre_icono, "size-7") }}</span>
+  <h3 class="text-base font-semibold">{{ titulo }}</h3>
+  <p class="max-w-md text-sm text-tenue">{{ texto }}</p>
+  {% if caller %}<div class="mt-2 flex flex-wrap justify-center gap-2">{{ caller() }}</div>{% endif %}
+</div>
+{%- endmacro %}
+
+{% macro boton_modal(url, texto, nombre_icono="plus", clase="btn-primario") -%}
+<button type="button" class="{{ clase }}" hx-get="{{ url }}" hx-target="#modal" hx-swap="innerHTML">
+  {{ icono(nombre_icono) }}{{ texto }}
+</button>
+{%- endmacro %}
+
+{% macro chips_tipos(componente) -%}
+{% for t in componente.tipos_info %}<span class="chip">{{ icono(t.icono, "size-3.5") }}{{ t.nombre }}</span>{% endfor %}
+{%- endmacro %}
+
+{% macro plural(n, singular, plural_) -%}{{ n }} {{ singular if n == 1 else plural_ }}{%- endmacro %}

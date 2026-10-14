@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% from "macros.html" import icono, vacio %}
+{% block titulo %}Papelera{% endblock %}
+{% block contenido %}
+<div class="mb-6 flex flex-wrap items-end justify-between gap-4">
+  <div>
+    <h1 class="text-2xl font-bold tracking-tight sm:text-3xl">Papelera</h1>
+    <p class="mt-1 text-tenue">Lo que elimines queda aquí, con sus archivos, hasta que vacíes la papelera.</p>
+  </div>
+  {% if elementos %}
+  <button class="btn-secundario text-peligro" hx-get="/papelera/vaciar" hx-target="#modal">{{ icono("trash-2") }}Vaciar papelera</button>
+  {% endif %}
+</div>
+
+{% if elementos %}
+<ul class="tarjeta divide-y divide-borde">
+  {% for e in elementos %}
+  <li class="flex flex-wrap items-center gap-4 px-5 py-4">
+    <span class="grid size-10 place-items-center rounded-xl bg-superficie-2 text-tenue">
+      {{ icono("graduation-cap" if e.tipo == "materia" else "folder", "size-5") }}</span>
+    <div class="min-w-0 flex-1">
+      <p class="truncate font-medium">{{ e.nombre }}</p>
+      <p class="text-sm text-tenue">
+        {{ "Materia" if e.tipo == "materia" else "Componente" }}{% if e.ubicacion %} · en {{ e.ubicacion }}{% endif %}
+        · eliminado el {{ e.eliminado|replace("T", " a las ") }}
+      </p>
+    </div>
+    <form hx-post="/papelera/{{ e.id }}/restaurar"><button class="btn-secundario">{{ icono("rotate-ccw") }}Restaurar</button></form>
+    <button class="btn-fantasma text-peligro hover:bg-peligro-suave hover:text-peligro" hx-get="/papelera/{{ e.id }}/eliminar" hx-target="#modal"
+            title="Eliminar para siempre">{{ icono("trash-2") }}<span class="sr-only">Eliminar para siempre</span></button>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+  {% call vacio("trash-2", "La papelera está vacía", "Cuando envíes una materia o un componente a la papelera aparecerá aquí, y podrás restaurarlo.") %}{% endcall %}
+{% endif %}
+{% endblock %}

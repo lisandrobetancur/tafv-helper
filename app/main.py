@@ -1,152 +1,86 @@
+"""Aplicación FastAPI: arranque, bloqueo entre equipos y manejo de errores."""
 from __future__ import annotations
 
-import os
+import logging
 from contextlib import asynccontextmanager
-from pathlib import Path
 
-from fastapi import FastAPI, File, HTTPException, Request, UploadFile
-from fastapi.responses import FileResponse
+from fastapi import FastAPI, Request
+from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse, Response
 from fastapi.staticfiles import StaticFiles
-from fastapi.templating import Jinja2Templates
+from starlette.exceptions import HTTPException as StarletteHTTPException
 
-from .attachments import MAX_BYTES, AttachmentStore
-from .excel_repo import DEFAULT_COLUMNS, ExcelRepo
+from . import config, db
+from .errores import ErrorUsuario
+from .registro import configurar_registro
+from .routers import componentes, materias, paginas
+from .services import bloqueo
+from .web import aviso, es_htmx, templates
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-DATA_DIR = BASE_DIR / "data"
-EXCEL_PATH = Path(os.environ.get("EXCEL_PATH", DATA_DIR / "excel" / "Estudio homeopatia.xlsx"))
+log = logging.getLogger(__name__)
 
-# Rango de columnas del Excel que se leen ("B:O", o "B:" para todas hasta la última con datos)
-EXCEL_COLUMNS = os.environ.get("EXCEL_COLUMNS", DEFAULT_COLUMNS)
+MENSAJE_INESPERADO = ("Ocurrió un problema inesperado. Intenta de nuevo; si se repite, "
+                      "cierra y vuelve a abrir la biblioteca.")
 
 
 @asynccontextmanager
-async def lifespan(app: FastAPI):
-    app.state.repo = ExcelRepo(EXCEL_PATH, EXCEL_COLUMNS)
-    app.state.store = AttachmentStore(DATA_DIR / "attachments", DATA_DIR / "attachments.db")
-    yield
-
-
-app = FastAPI(title="TAFV Helper", lifespan=lifespan)
-app.mount("/static", StaticFiles(directory=BASE_DIR / "app" / "static"), name="static")
-templates = Jinja2Templates(directory=BASE_DIR / "app" / "templates")
-templates.env.globals["excel_name"] = EXCEL_PATH.name
-
-
-def repo(request: Request) -> ExcelRepo:
-    return request.app.state.repo
-
-
-def store(request: Request) -> AttachmentStore:
-    return request.app.state.store
-
-
-def public(rec: dict, counts: dict[str, int]) -> dict:
-    out = {k: v for k, v in rec.items() if k != "_norm"}
-    out["adjuntos"] = counts.get(rec["id"], 0)
-    return out
-
-
-@app.get("/favicon.ico", include_in_schema=False)
-def favicon():
-    return FileResponse(BASE_DIR / "app" / "static" / "img" / "logo-corpas.png", media_type="image/png")
-
-
-# ------------------------------------------------------------------ páginas
-@app.get("/")
-def home(request: Request):
-    from fastapi.responses import RedirectResponse
-    return RedirectResponse("/estudio-homeopatia")
-
-
-@app.get("/estudio-homeopatia")
-def page_estudio(request: Request):
-    return templates.TemplateResponse(request, "estudio.html", {"active": "estudio"})
-
-
-@app.get("/formulacion")
-def page_formulacion(request: Request):
-    return templates.TemplateResponse(
-        request, "formulacion.html",
-        {"active": "formulacion", "table": repo(request).formulacion},
-    )
-
-
-# ---------------------------------------------------------------------- API
-@app.get("/api/meta")
-def api_meta(request: Request):
-    r = repo(request)
-    return {
-        "fields": [{k: f[k] for k in ("key", "label", "letter", "width", "hide_in_filters")} for f in r.fields],
-        "filters": [{k: f[k] for k in ("key", "label", "placeholder")} for f in r.filters],
-        "total": len(r.records),
-        "columns": r.columns,
-        "loaded_at": r.loaded_at.isoformat(timespec="seconds") if r.loaded_at else None,
-    }
-
-
-@app.get("/api/records")
-def api_records(request: Request):
-    """Sin parámetros devuelve todo; con parámetros filtra (el Excel no se toca)."""
-    params = request.query_params
-    found = repo(request).search(dict(params))
-    counts = store(request).counts()
-    return {"total": len(repo(request).records), "records": [public(r, counts) for r in found]}
-
-
-@app.get("/api/suggest")
-def api_suggest(request: Request, field: str, q: str = ""):
+async def ciclo_de_vida(app: FastAPI):
+    configurar_registro()
+    db.inicializar()
+    app.state.bloqueo = bloqueo.adquirir()
+    log.info("Biblioteca iniciada en %s", bloqueo.nombre_equipo())
     try:
-        return repo(request).suggest(field, q)
-    except KeyError:
-        raise HTTPException(400, "Campo no permitido")
+        yield
+    finally:
+        bloqueo.liberar()
+        log.info("Biblioteca cerrada")
 
 
-@app.post("/api/reload")
-def api_reload(request: Request):
-    repo(request).load()
-    return {"total": len(repo(request).records)}
+def crear_app() -> FastAPI:
+    app = FastAPI(title=config.NOMBRE_APP, lifespan=ciclo_de_vida, docs_url=None, redoc_url=None)
+    app.mount("/static", StaticFiles(directory=config.STATIC_DIR), name="static")
+
+    @app.middleware("http")
+    async def control_de_bloqueo(request: Request, call_next):
+        """Si la biblioteca está abierta en otro equipo, todo lleva al aviso de bloqueo."""
+        estado = getattr(request.app.state, "bloqueo", None)
+        ruta = request.url.path
+        if estado and not estado.libre and not ruta.startswith(("/static", "/bloqueo", "/favicon")):
+            if request.headers.get("HX-Request"):
+                return Response(headers={"HX-Redirect": "/bloqueo"})
+            return RedirectResponse("/bloqueo", status_code=303)
+        return await call_next(request)
+
+    @app.exception_handler(ErrorUsuario)
+    async def error_usuario(request: Request, exc: ErrorUsuario):
+        if es_htmx(request):
+            return aviso(exc.mensaje, "error", estado=exc.estado)
+        return templates.TemplateResponse(request, "paginas/error.html",
+                                          {"mensaje": exc.mensaje, "estado": exc.estado}, status_code=exc.estado)
+
+    @app.exception_handler(StarletteHTTPException)
+    async def error_http(request: Request, exc: StarletteHTTPException):
+        mensaje = "Esta página no existe." if exc.status_code == 404 else "No se pudo completar la acción."
+        if es_htmx(request):
+            return aviso(mensaje, "error", estado=exc.status_code)
+        return templates.TemplateResponse(request, "paginas/error.html",
+                                          {"mensaje": mensaje, "estado": exc.status_code}, status_code=exc.status_code)
+
+    @app.exception_handler(Exception)
+    async def error_inesperado(request: Request, exc: Exception):
+        log.exception("Error inesperado en %s %s", request.method, request.url.path)
+        if es_htmx(request):
+            return aviso(MENSAJE_INESPERADO, "error", estado=500)
+        return HTMLResponse(templates.get_template("paginas/error.html").render(
+            request=request, mensaje=MENSAJE_INESPERADO, estado=500), status_code=500)
+
+    @app.get("/favicon.ico", include_in_schema=False)
+    def favicon():
+        return FileResponse(config.STATIC_DIR / "marca" / "logo-corpas.png", media_type="image/png")
+
+    app.include_router(paginas.router)
+    app.include_router(materias.router)
+    app.include_router(componentes.router)
+    return app
 
 
-def _record_or_404(request: Request, record_id: str) -> dict:
-    rec = repo(request).by_id.get(record_id)
-    if rec is None:
-        raise HTTPException(404, "Registro no encontrado")
-    return rec
-
-
-@app.get("/api/records/{record_id}/attachments")
-def api_list_attachments(request: Request, record_id: str):
-    _record_or_404(request, record_id)
-    return store(request).list(record_id)
-
-
-@app.post("/api/records/{record_id}/attachments")
-async def api_add_attachments(request: Request, record_id: str, files: list[UploadFile] = File(...)):
-    _record_or_404(request, record_id)
-    added, errors = [], []
-    for f in files:
-        data = await f.read(MAX_BYTES + 1)
-        if len(data) > MAX_BYTES:
-            errors.append(f"{f.filename}: supera {MAX_BYTES // (1024 * 1024)} MB")
-            continue
-        try:
-            added.append(store(request).add(record_id, f.filename or "imagen", data))
-        except ValueError as e:
-            errors.append(f"{f.filename}: {e}")
-    return {"added": added, "errors": errors}
-
-
-@app.get("/api/attachments/{attachment_id}/file")
-def api_attachment_file(request: Request, attachment_id: str):
-    info = store(request).file_info(attachment_id)
-    if info is None or not info[0].exists():
-        raise HTTPException(404, "Archivo no encontrado")
-    return FileResponse(info[0], media_type=info[1], headers={"X-Content-Type-Options": "nosniff"})
-
-
-@app.delete("/api/attachments/{attachment_id}")
-def api_delete_attachment(request: Request, attachment_id: str):
-    if not store(request).delete(attachment_id):
-        raise HTTPException(404, "Archivo no encontrado")
-    return {"ok": True}
+app = crear_app()

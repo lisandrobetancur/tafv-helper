@@ -1,0 +1,18 @@
+{# Página sin menú lateral (bloqueo y errores graves): no depende de la base de datos #}
+<!doctype html>
+<html lang="es" data-theme="claro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block titulo %}{% endblock %} · {{ NOMBRE_APP }}</title>
+  <link rel="icon" type="image/png" href="/static/marca/logo-corpas.png">
+  <script>(function(){try{var t=localStorage.getItem("tema")||"sistema";var o=t==="oscuro"||(t==="sistema"&&matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.dataset.theme=o?"oscuro":"claro"}catch(e){}})()</script>
+  <link rel="stylesheet" href="/static/css/app.css?v={{ version_estaticos() }}">
+</head>
+<body class="grid min-h-screen place-items-center p-6">
+  <main class="tarjeta w-full max-w-lg p-8 text-center">
+    <img src="/static/marca/logo-corpas.png" alt="Escudo de la {{ INSTITUCION }}" class="mx-auto mb-5 size-16 object-contain">
+    {% block contenido %}{% endblock %}
+  </main>
+</body>
+</html>

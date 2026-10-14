@@ -1,0 +1,53 @@
+{% from "macros.html" import icono %}
+{% if componente %}
+  {% set accion = "/componentes/" ~ componente.id %}
+  {% set titulo = "Editar " ~ ("subcomponente" if componente.padre_id else "componente") %}
+{% else %}
+  {% set accion = "/materias/" ~ materia.id ~ "/componentes" %}
+  {% set titulo = "Nuevo subcomponente" if padre else "Nuevo componente" %}
+{% endif %}
+<dialog class="modal" x-data="modal" aria-labelledby="t-modal-comp">
+  <form hx-post="{{ accion }}" hx-target="closest dialog" hx-swap="outerHTML" class="flex max-h-[90vh] flex-col">
+    <header class="flex items-start justify-between gap-4 border-b border-borde px-6 py-4">
+      <div>
+        <h2 id="t-modal-comp" class="text-lg font-semibold">{{ titulo }}</h2>
+        <p class="text-sm text-tenue">En {{ materia.nombre }}{% if padre %} › {{ padre.nombre }}{% endif %}</p>
+      </div>
+      <button type="button" class="btn-icono -mr-2" @click="cerrar()" aria-label="Cerrar">{{ icono("x", "size-5") }}</button>
+    </header>
+
+    <div class="flex flex-col gap-5 overflow-y-auto px-6 py-5">
+      {% if error %}
+      <p class="flex items-start gap-2 rounded-lg border border-peligro/30 bg-peligro-suave px-3 py-2.5 text-sm" role="alert">{{ icono("circle-x", "size-5 text-peligro") }}{{ error }}</p>
+      {% endif %}
+      {% if padre %}<input type="hidden" name="padre_id" value="{{ padre.id }}">{% endif %}
+      <div>
+        <label class="etiqueta" for="c-nombre">Nombre</label>
+        <input id="c-nombre" name="nombre" class="campo" maxlength="80" required autofocus
+               value="{{ valores.nombre|default('') }}" placeholder="{{ 'Ej.: Miembro superior' if padre else 'Ej.: Parcial 1' }}">
+      </div>
+      <div>
+        <label class="etiqueta" for="c-desc">Descripción <span class="font-normal text-tenue">(opcional)</span></label>
+        <textarea id="c-desc" name="descripcion" class="campo min-h-20" maxlength="600" rows="3">{{ valores.descripcion|default('') }}</textarea>
+      </div>
+      <fieldset>
+        <legend class="etiqueta">¿Qué contenido vas a cargar aquí?</legend>
+        <p class="ayuda -mt-1 mb-3">Puedes elegir varios. Si no eliges ninguno, el componente solo servirá para agrupar subcomponentes.</p>
+        <div class="grid gap-2 sm:grid-cols-2">
+          {% for id, t in TIPOS.items() %}
+          <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-borde p-3 transition hover:border-borde-fuerte has-[:checked]:border-marca has-[:checked]:bg-marca-suave/60">
+            <input type="checkbox" name="tipos" value="{{ id }}" class="size-4 accent-[var(--marca)]" {{ "checked" if id in valores.tipos|default([]) }}>
+            <span class="grid size-9 place-items-center rounded-lg bg-superficie-2 text-tenue">{{ icono(t.icono, "size-5") }}</span>
+            <span class="text-sm font-medium">{{ t.nombre }}</span>
+          </label>
+          {% endfor %}
+        </div>
+      </fieldset>
+    </div>
+
+    <footer class="flex justify-end gap-2 border-t border-borde bg-superficie-2/50 px-6 py-4">
+      <button type="button" class="btn-secundario" @click="cerrar()">Cancelar</button>
+      <button type="submit" class="btn-primario">{{ "Guardar cambios" if componente else "Crear" }}</button>
+    </footer>
+  </form>
+</dialog>

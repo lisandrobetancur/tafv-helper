@@ -7,3 +7,7 @@ __pycache__/
 # Datos de la usuaria: viven en disco, no en git
 data/*
 !data/.gitkeep
+
+# Herramientas de desarrollo (binario de Tailwind e íconos sueltos); solo se versionan los scripts
+tools/tailwindcss*
+tools/lucide-svg/

@@ -1,0 +1,28 @@
+{# Lista ordenable de componentes de un nivel. Requiere: lista, materia, padre_id #}
+{% from "macros.html" import icono, chips_tipos, plural %}
+<ul class="flex flex-col gap-3" x-data="ordenable" data-url="/componentes/orden"
+    data-extra='{{ {"materia_id": materia.id, "padre_id": padre_id}|tojson }}'>
+  {% for c in lista %}
+  <li data-id="{{ c.id }}" class="tarjeta group relative flex items-start gap-3 p-4 transition hover:border-borde-fuerte">
+    <span class="asa relative z-10 mt-1.5 rounded p-0.5" title="Arrastra para ordenar">{{ icono("grip-vertical") }}</span>
+    <span class="grid size-10 shrink-0 place-items-center rounded-xl bg-superficie-2 text-tenue group-hover:text-marca">{{ icono("folder", "size-5") }}</span>
+    <div class="min-w-0 flex-1">
+      <h3 class="font-semibold"><a href="/componentes/{{ c.id }}" class="after:absolute after:inset-0">{{ c.nombre }}</a></h3>
+      {% if c.descripcion %}<p class="mt-0.5 line-clamp-2 text-sm text-tenue">{{ c.descripcion }}</p>{% endif %}
+      <div class="mt-2.5 flex flex-wrap gap-1.5">
+        {{ chips_tipos(c) }}
+        {% if c.hijos %}<span class="chip border-marca/20 bg-marca-suave text-marca">{{ icono("layers", "size-3.5") }}{{ plural(c.hijos|length, "subcomponente", "subcomponentes") }}</span>{% endif %}
+        {% if c.num_elementos %}<span class="chip">{{ plural(c.num_elementos, "elemento", "elementos") }}</span>{% endif %}
+      </div>
+      {% if c.hijos %}
+      <ul class="relative z-10 mt-3 flex flex-wrap gap-2">
+        {% for h in c.hijos %}
+        <li><a href="/componentes/{{ h.id }}" class="inline-flex items-center gap-1.5 rounded-lg border border-borde bg-superficie-2 px-2.5 py-1 text-xs font-medium hover:border-marca hover:text-marca">{{ icono("chevron-right", "size-3.5") }}{{ h.nombre }}</a></li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+    <span class="mt-2 text-tenue/70 group-hover:text-marca">{{ icono("chevron-right", "size-5") }}</span>
+  </li>
+  {% endfor %}
+</ul>

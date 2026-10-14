@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% from "macros.html" import icono, ficha_materia, vacio, boton_modal, plural %}
+{% block titulo %}{{ materia.nombre }}{% endblock %}
+{% block contenido %}
+{% if materia.archivada %}
+<div class="mb-5 flex flex-wrap items-center gap-3 rounded-xl border border-alerta/40 bg-alerta-suave px-4 py-3 text-sm">
+  {{ icono("archive", "size-5 text-alerta") }}
+  <span class="flex-1">Esta materia está archivada: no aparece en el menú lateral.</span>
+  <form hx-post="/materias/{{ materia.id }}/archivar"><input type="hidden" name="archivar" value="false">
+    <button class="btn-secundario py-1.5">{{ icono("archive-restore") }}Volver a activar</button></form>
+</div>
+{% endif %}
+
+<section class="tarjeta mb-8 overflow-hidden">
+  <div class="h-2" style="background: {{ materia.color_hex }}"></div>
+  <div class="flex flex-wrap items-start gap-5 p-6">
+    {{ ficha_materia(materia, "size-14", "size-7") }}
+    <div class="min-w-0 flex-1">
+      <h1 class="text-2xl font-bold tracking-tight sm:text-3xl">{{ materia.nombre }}</h1>
+      <p class="mt-1 max-w-3xl whitespace-pre-line text-tenue">{{ materia.descripcion or "Sin descripción." }}</p>
+    </div>
+    <div class="flex items-center gap-2">
+      {{ boton_modal("/materias/" ~ materia.id ~ "/componentes/nuevo", "Nuevo componente") }}
+      <div class="relative" x-data="desplegable" @click.outside="cerrar()" @keydown.escape="cerrar()">
+        <button type="button" class="btn-secundario px-2.5" @click="alternar()" aria-label="Más acciones" :aria-expanded="abierto">{{ icono("ellipsis-vertical") }}</button>
+        <div class="menu-flotante" x-show="abierto" x-cloak x-transition.origin.top.right @click="cerrar()">
+          <button class="menu-item" hx-get="/materias/{{ materia.id }}/editar" hx-target="#modal">{{ icono("pencil") }}Editar materia</button>
+          {% if not materia.archivada %}
+          <form hx-post="/materias/{{ materia.id }}/archivar"><input type="hidden" name="archivar" value="true">
+            <button class="menu-item">{{ icono("archive") }}Archivar</button></form>
+          {% endif %}
+          <div class="my-1 border-t border-borde"></div>
+          <button class="menu-item-peligro" hx-get="/materias/{{ materia.id }}/eliminar" hx-target="#modal">{{ icono("trash-2") }}Enviar a la papelera</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="mb-3 flex items-center justify-between">
+  <h2 class="titulo-seccion">Componentes</h2>
+  {% if componentes|length > 1 %}<p class="hidden text-xs text-tenue sm:block">Arrastra {{ icono("grip-vertical", "inline size-3.5 -mt-0.5") }} para cambiar el orden</p>{% endif %}
+</div>
+{% if componentes %}
+  {% with lista=componentes, padre_id=None %}{% include "parciales/lista_componentes.html" %}{% endwith %}
+{% else %}
+  {% call vacio("layers", "Esta materia aún no tiene componentes",
+               "Crea componentes para organizar el material, por ejemplo «Parcial 1», «Atlas» o «Guías de laboratorio». Dentro de cada uno podrás crear subcomponentes.") %}
+    {{ boton_modal("/materias/" ~ materia.id ~ "/componentes/nuevo", "Crear el primer componente") }}
+  {% endcall %}
+{% endif %}
+{% endblock %}

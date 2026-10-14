@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% from "macros.html" import icono, ficha_materia, vacio, boton_modal, plural %}
+{% block titulo %}Inicio{% endblock %}
+{% block contenido %}
+<div class="mb-8 flex flex-wrap items-end justify-between gap-4">
+  <div>
+    <h1 class="text-2xl font-bold tracking-tight sm:text-3xl">Tu biblioteca</h1>
+    <p class="mt-1 text-tenue">Organiza tu material de estudio por materias, componentes y subcomponentes.</p>
+  </div>
+  {% if materias %}{{ boton_modal("/materias/nueva", "Nueva materia") }}{% endif %}
+</div>
+
+{% if not materias and not archivadas %}
+  {% call vacio("graduation-cap", "Aún no hay materias. Crea la primera",
+               "Una materia agrupa todo lo de una asignatura (por ejemplo Anatomía o Farmacología). Dentro podrás crear componentes como «Parcial 1» o «Atlas» y cargar Excel, PDF, imágenes y notas.") %}
+    {{ boton_modal("/materias/nueva", "Crear la primera materia") }}
+  {% endcall %}
+{% else %}
+  <section aria-labelledby="t-materias">
+    <div class="mb-3 flex items-center justify-between">
+      <h2 id="t-materias" class="titulo-seccion">Materias</h2>
+      {% if materias|length > 1 %}<p class="hidden text-xs text-tenue sm:block">Arrastra {{ icono("grip-vertical", "inline size-3.5 -mt-0.5") }} para cambiar el orden</p>{% endif %}
+    </div>
+    {% if materias %}
+    <ul class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4" x-data="ordenable" data-url="/materias/orden">
+      {% for m in materias %}
+      <li data-id="{{ m.id }}" class="tarjeta group relative flex flex-col overflow-hidden transition hover:-translate-y-0.5 hover:border-borde-fuerte">
+        <span class="h-1.5 w-full" style="background: {{ m.color_hex }}"></span>
+        <div class="flex flex-1 flex-col gap-3 p-5">
+          <div class="flex items-start gap-3">
+            {{ ficha_materia(m) }}
+            <div class="min-w-0 flex-1">
+              <h3 class="truncate text-base font-semibold"><a href="/materias/{{ m.id }}" class="after:absolute after:inset-0">{{ m.nombre }}</a></h3>
+              <p class="line-clamp-2 text-sm text-tenue">{{ m.descripcion or "Sin descripción" }}</p>
+            </div>
+            <span class="asa relative z-10 -mr-2 rounded p-1 opacity-0 transition group-hover:opacity-100 focus:opacity-100" title="Arrastra para ordenar">{{ icono("grip-vertical") }}</span>
+          </div>
+          <div class="mt-auto flex flex-wrap gap-2 pt-1">
+            <span class="chip">{{ icono("layers", "size-3.5") }}{{ plural(m.num_componentes, "componente", "componentes") }}</span>
+            <span class="chip">{{ icono("folder", "size-3.5") }}{{ plural(m.num_elementos, "elemento", "elementos") }}</span>
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p class="rounded-xl border border-dashed border-borde-fuerte p-6 text-center text-sm text-tenue">Todas tus materias están archivadas.</p>
+    {% endif %}
+  </section>
+
+  {% if archivadas %}
+  <details class="group mt-10">
+    <summary class="flex cursor-pointer list-none items-center gap-2 text-sm font-medium text-tenue hover:text-texto">
+      {{ icono("chevron-right", "size-4 transition-transform group-open:rotate-90") }}{{ icono("archive", "size-4") }}
+      Archivadas ({{ archivadas|length }})
+    </summary>
+    <ul class="mt-3 grid gap-3 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+      {% for m in archivadas %}
+      <li><a href="/materias/{{ m.id }}" class="tarjeta flex items-center gap-3 p-4 opacity-80 hover:opacity-100">
+        {{ ficha_materia(m, "size-8", "size-4") }}<span class="truncate font-medium">{{ m.nombre }}</span>
+      </a></li>
+      {% endfor %}
+    </ul>
+  </details>
+  {% endif %}
+{% endif %}
+{% endblock %}

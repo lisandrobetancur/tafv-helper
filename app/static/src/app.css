@@ -1,0 +1,151 @@
+/* Fuente de estilos. Se compila a app/static/css/app.css con el binario standalone de Tailwind:
+   tools/compilar_css.sh  (Mac)   ·   tools\compilar_css.bat  (Windows)
+   El CSS compilado se versiona: los equipos de uso no necesitan Node ni Tailwind. */
+@import "tailwindcss";
+@source "../../templates";
+@source "../js";
+
+@custom-variant dark (&:where([data-theme=oscuro], [data-theme=oscuro] *));
+
+/* ------------------------------------------------------------------ tokens */
+@theme inline {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --color-fondo: var(--fondo);
+  --color-superficie: var(--superficie);
+  --color-superficie-2: var(--superficie-2);
+  --color-superficie-3: var(--superficie-3);
+  --color-borde: var(--borde);
+  --color-borde-fuerte: var(--borde-fuerte);
+  --color-texto: var(--texto);
+  --color-tenue: var(--tenue);
+  --color-marca: var(--marca);
+  --color-marca-fuerte: var(--marca-fuerte);
+  --color-marca-suave: var(--marca-suave);
+  --color-sobre-marca: var(--sobre-marca);
+  --color-oro: var(--oro);
+  --color-oro-suave: var(--oro-suave);
+  --color-exito: var(--exito);
+  --color-exito-suave: var(--exito-suave);
+  --color-peligro: var(--peligro);
+  --color-peligro-suave: var(--peligro-suave);
+  --color-alerta: var(--alerta);
+  --color-alerta-suave: var(--alerta-suave);
+}
+
+/* Paleta sobria a partir del escudo: vino tinto, dorado y neutros cálidos */
+:root {
+  color-scheme: light;
+  --fondo: #f7f6f4;
+  --superficie: #ffffff;
+  --superficie-2: #f3f1ee;
+  --superficie-3: #e9e6e1;
+  --borde: #e5e1db;
+  --borde-fuerte: #d2ccc3;
+  --texto: #1f1b17;
+  --tenue: #6b645c;
+  --marca: #8f1d2c;
+  --marca-fuerte: #721421;
+  --marca-suave: #f8eaec;
+  --sobre-marca: #ffffff;
+  --oro: #9c7716;
+  --oro-suave: #f7efda;
+  --exito: #1b7a4b;
+  --exito-suave: #e2f3e9;
+  --peligro: #b42318;
+  --peligro-suave: #fdecea;
+  --alerta: #8a5a00;
+  --alerta-suave: #fff3d6;
+  --sombra: 0 1px 2px rgb(31 27 23 / .05), 0 1px 3px rgb(31 27 23 / .06);
+  --sombra-alta: 0 24px 60px rgb(20 12 8 / .22);
+}
+[data-theme=oscuro] {
+  color-scheme: dark;
+  --fondo: #121110;
+  --superficie: #1a1917;
+  --superficie-2: #22201d;
+  --superficie-3: #2c2a26;
+  --borde: #302d29;
+  --borde-fuerte: #423e38;
+  --texto: #ede9e3;
+  --tenue: #a69f96;
+  --marca: #e07280;
+  --marca-fuerte: #f0949f;
+  --marca-suave: #3b1c22;
+  --sobre-marca: #1b0b0e;
+  --oro: #d8b45f;
+  --oro-suave: #3a2f17;
+  --exito: #63c795;
+  --exito-suave: #173826;
+  --peligro: #ff8a80;
+  --peligro-suave: #3d1d1b;
+  --alerta: #e9bd52;
+  --alerta-suave: #3a2e12;
+  --sombra: 0 1px 2px rgb(0 0 0 / .4);
+  --sombra-alta: 0 24px 60px rgb(0 0 0 / .6);
+}
+
+/* -------------------------------------------------------------------- base */
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body { @apply bg-fondo text-texto antialiased; font-feature-settings: "cv11", "ss01"; }
+  :focus-visible { outline: 2px solid var(--marca); outline-offset: 2px; border-radius: 6px; }
+  ::selection { background: var(--marca-suave); }
+  [x-cloak] { display: none !important; }
+}
+
+/* -------------------------------------------------------------- componentes */
+@layer components {
+  .ic { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+  .btn, .btn-primario, .btn-secundario, .btn-fantasma, .btn-peligro, .btn-icono {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border px-3.5 py-2 text-sm font-medium whitespace-nowrap
+           transition-colors duration-150 select-none cursor-pointer disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-primario { @apply border-transparent bg-marca text-sobre-marca hover:bg-marca-fuerte; box-shadow: var(--sombra); }
+  .btn-secundario { @apply border-borde bg-superficie text-texto hover:bg-superficie-2 hover:border-borde-fuerte; }
+  .btn-fantasma, .btn-icono { @apply border-transparent bg-transparent text-tenue hover:bg-superficie-2 hover:text-texto; }
+  .btn-peligro { @apply border-transparent bg-peligro text-white hover:opacity-90; }
+  .btn-icono { @apply px-2; }
+
+  .tarjeta { @apply rounded-xl border border-borde bg-superficie; box-shadow: var(--sombra); }
+  .etiqueta { @apply mb-1.5 block text-sm font-medium text-texto; }
+  .ayuda { @apply mt-1 text-xs text-tenue; }
+  .campo {
+    @apply block w-full rounded-lg border border-borde bg-superficie px-3 py-2 text-sm text-texto placeholder:text-tenue/80
+           transition-[border-color,box-shadow] focus:border-marca focus:outline-none;
+  }
+  .campo:focus { box-shadow: 0 0 0 3px var(--marca-suave); }
+  .chip { @apply inline-flex items-center gap-1.5 rounded-full border border-borde bg-superficie-2 px-2.5 py-0.5 text-xs font-medium text-tenue; }
+  .titulo-seccion { @apply text-xs font-semibold uppercase tracking-wider text-tenue; }
+  .menu-flotante {
+    @apply absolute right-0 z-30 mt-2 min-w-52 rounded-xl border border-borde bg-superficie p-1.5;
+    box-shadow: var(--sombra-alta);
+  }
+  .menu-item, .menu-item-peligro { @apply flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-left text-sm text-texto hover:bg-superficie-2; }
+  .menu-item-peligro { @apply text-peligro hover:bg-peligro-suave; }
+  .asa { @apply cursor-grab text-tenue/60 hover:text-tenue active:cursor-grabbing; }
+}
+
+/* ------------------------------------------------------------------ modales */
+dialog.modal {
+  @apply m-auto w-[min(640px,calc(100vw-2rem))] max-h-[90vh] rounded-2xl border border-borde bg-superficie p-0 text-texto;
+  box-shadow: var(--sombra-alta);
+}
+dialog.modal[open] { animation: aparecer .16s ease-out; }
+dialog.modal::backdrop { background: rgb(15 10 8 / .5); backdrop-filter: blur(2px); }
+@keyframes aparecer { from { opacity: 0; transform: translateY(6px) scale(.985); } }
+
+/* ------------------------------------------------------- menú lateral plegable */
+.barra-lateral { width: 16.5rem; transition: width .2s ease; }
+@media (min-width: 1024px) {
+  [data-menu=plegado] .barra-lateral { width: 4.75rem; }
+  [data-menu=plegado] .barra-lateral .solo-desplegado { display: none; }
+  [data-menu=plegado] .barra-lateral .item-menu { justify-content: center; padding-left: 0; padding-right: 0; }
+  [data-menu=plegado] .barra-lateral .boton-plegar svg { transform: rotate(180deg); }
+}
+
+/* Lista ordenable (SortableJS) */
+.sortable-ghost { opacity: .35; }
+.sortable-chosen { box-shadow: var(--sombra-alta); }
+
+@media (prefers-reduced-motion: reduce) { *, ::before, ::after { animation: none !important; transition: none !important; } }

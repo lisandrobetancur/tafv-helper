@@ -1,0 +1,59 @@
+{% from "macros.html" import icono %}
+{% set accion = "/materias/" ~ materia.id if materia else "/materias" %}
+<dialog class="modal" x-data="modal" aria-labelledby="t-modal-materia">
+  <form hx-post="{{ accion }}" hx-target="closest dialog" hx-swap="outerHTML" class="flex max-h-[90vh] flex-col">
+    <header class="flex items-center justify-between gap-4 border-b border-borde px-6 py-4">
+      <h2 id="t-modal-materia" class="text-lg font-semibold">{{ "Editar materia" if materia else "Nueva materia" }}</h2>
+      <button type="button" class="btn-icono -mr-2" @click="cerrar()" aria-label="Cerrar">{{ icono("x", "size-5") }}</button>
+    </header>
+
+    <div class="flex flex-col gap-5 overflow-y-auto px-6 py-5">
+      {% if error %}
+      <p class="flex items-start gap-2 rounded-lg border border-peligro/30 bg-peligro-suave px-3 py-2.5 text-sm" role="alert">{{ icono("circle-x", "size-5 text-peligro") }}{{ error }}</p>
+      {% endif %}
+      <div>
+        <label class="etiqueta" for="m-nombre">Nombre</label>
+        <input id="m-nombre" name="nombre" class="campo" maxlength="80" required autofocus
+               value="{{ valores.nombre|default('') }}" placeholder="Ej.: Anatomía">
+      </div>
+      <div>
+        <label class="etiqueta" for="m-desc">Descripción <span class="font-normal text-tenue">(opcional)</span></label>
+        <textarea id="m-desc" name="descripcion" class="campo min-h-20" maxlength="600" rows="3"
+                  placeholder="¿Qué vas a guardar aquí?">{{ valores.descripcion|default('') }}</textarea>
+      </div>
+
+      <fieldset>
+        <legend class="etiqueta">Color</legend>
+        <div class="flex flex-wrap gap-2.5">
+          {% for c in COLORES %}
+          <label class="relative cursor-pointer" title="{{ c.nombre }}">
+            <input type="radio" name="color" value="{{ c.id }}" class="peer sr-only" {{ "checked" if valores.color == c.id }}>
+            <span class="block size-8 rounded-full ring-offset-2 ring-offset-superficie transition peer-checked:ring-2 peer-checked:ring-texto peer-focus-visible:ring-2 peer-focus-visible:ring-marca"
+                  style="background: {{ c.hex }}"></span>
+            <span class="sr-only">{{ c.nombre }}</span>
+          </label>
+          {% endfor %}
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend class="etiqueta">Ícono</legend>
+        <div class="grid grid-cols-6 gap-2 sm:grid-cols-10">
+          {% for i in ICONOS %}
+          <label class="cursor-pointer" title="{{ i.nombre }}">
+            <input type="radio" name="icono" value="{{ i.id }}" class="peer sr-only" {{ "checked" if valores.icono == i.id }}>
+            <span class="grid aspect-square place-items-center rounded-lg border border-borde text-tenue transition hover:border-borde-fuerte hover:text-texto peer-checked:border-marca peer-checked:bg-marca-suave peer-checked:text-marca peer-focus-visible:ring-2 peer-focus-visible:ring-marca">
+              {{ icono(i.id, "size-5") }}</span>
+            <span class="sr-only">{{ i.nombre }}</span>
+          </label>
+          {% endfor %}
+        </div>
+      </fieldset>
+    </div>
+
+    <footer class="flex justify-end gap-2 border-t border-borde bg-superficie-2/50 px-6 py-4">
+      <button type="button" class="btn-secundario" @click="cerrar()">Cancelar</button>
+      <button type="submit" class="btn-primario">{{ "Guardar cambios" if materia else "Crear materia" }}</button>
+    </footer>
+  </form>
+</dialog>

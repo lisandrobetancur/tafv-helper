@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% from "macros.html" import icono, ficha_materia, vacio %}
+{% block titulo %}Búsqueda{% endblock %}
+{% block contenido %}
+<h1 class="mb-6 text-2xl font-bold tracking-tight">
+  {% if q %}Resultados para «{{ q }}»{% else %}Buscar{% endif %}</h1>
+
+{% if not q %}
+  {% call vacio("search", "Escribe qué quieres encontrar", "Usa el buscador de arriba (o Ctrl+K / ⌘K) para buscar en toda tu biblioteca.") %}{% endcall %}
+{% elif not materias and not componentes %}
+  {% call vacio("search", "No encontramos nada", "Prueba con otra palabra. No importan las tildes ni las mayúsculas.") %}{% endcall %}
+{% else %}
+  {% if materias %}
+  <h2 class="titulo-seccion mb-2">Materias</h2>
+  <ul class="mb-8 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+    {% for m in materias %}
+    <li><a href="/materias/{{ m.id }}" class="tarjeta flex items-center gap-3 p-4 hover:border-borde-fuerte">
+      {{ ficha_materia(m, "size-9", "size-4") }}
+      <span class="min-w-0"><span class="block truncate font-medium">{{ m.nombre }}</span>
+      <span class="block truncate text-sm text-tenue">{{ m.descripcion }}</span></span></a></li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  {% if componentes %}
+  <h2 class="titulo-seccion mb-2">Componentes</h2>
+  <ul class="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+    {% for c in componentes %}
+    <li><a href="/componentes/{{ c.id }}" class="tarjeta flex items-center gap-3 p-4 hover:border-borde-fuerte">
+      <span class="grid size-9 place-items-center rounded-lg bg-superficie-2 text-tenue">{{ icono("folder") }}</span>
+      <span class="min-w-0"><span class="block truncate font-medium">{{ c.nombre }}</span>
+      <span class="block truncate text-sm text-tenue"><span class="mr-1 inline-block size-2 rounded-full" style="background: {{ COLOR_POR_ID[c.color].hex }}"></span>{{ c.materia }}</span></span></a></li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+{% endif %}
+{% endblock %}
