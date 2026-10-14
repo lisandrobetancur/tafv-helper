@@ -1,0 +1,46 @@
+{# Resultados agrupados por materia › componente. compacto=True para la paleta Ctrl/⌘+K #}
+{% from "macros.html" import icono %}
+
+{% macro grupos(lista, compacto=False) -%}
+{% for g in lista %}
+<section class="{{ 'mb-3' if compacto else 'mb-6' }}">
+  <h3 class="mb-1.5 flex items-center gap-2 px-1 text-xs font-semibold text-tenue">
+    <span class="size-2.5 shrink-0 rounded-full" style="background: {{ g.color }}"></span>
+    <span class="truncate">{{ g.materia }}{% if g.ruta %} <span class="font-normal">›</span> {{ g.ruta }}{% endif %}</span>
+  </h3>
+  <ul class="{{ 'flex flex-col' if compacto else 'tarjeta divide-y divide-borde overflow-hidden' }}">
+    {% for r in g.resultados %}
+    <li>
+      <a href="{{ r.url }}" data-resultado
+         class="group flex items-start gap-3 {{ 'rounded-lg px-2.5 py-2 hover:bg-superficie-2 data-[activo]:bg-marca-suave' if compacto else 'px-4 py-3 hover:bg-superficie-2/70' }}">
+        <span class="mt-0.5 grid {{ 'size-7' if compacto else 'size-9' }} shrink-0 place-items-center rounded-lg
+                     {{ {'excel': 'bg-exito-suave text-exito', 'pdf': 'bg-peligro-suave text-peligro', 'imagenes': 'bg-oro-suave text-oro',
+                         'notas': 'bg-alerta-suave text-alerta', 'organizacion': 'bg-superficie-2 text-tenue'}[r.categoria] }}">
+          {{ icono(r.icono, "size-3.5" if compacto else "size-4") }}</span>
+        <span class="min-w-0 flex-1">
+          <span class="flex flex-wrap items-baseline gap-x-2">
+            <span class="font-medium group-hover:text-marca [&_mark]:bg-oro-suave [&_mark]:text-texto [&_mark]:rounded [&_mark]:px-0.5">{{ r.titulo }}</span>
+            <span class="text-[11px] text-tenue">{{ r.detalle }}</span>
+          </span>
+          {% if r.fragmento|string|trim %}
+          <span class="block text-sm text-tenue {{ 'line-clamp-1' if compacto else 'line-clamp-2' }} [&_mark]:bg-oro-suave [&_mark]:text-texto [&_mark]:rounded [&_mark]:px-0.5 [&_mark]:font-medium">{{ r.fragmento }}</span>
+          {% endif %}
+        </span>
+        {% if not compacto %}<span class="mt-1 text-tenue/60 group-hover:text-marca">{{ icono("chevron-right") }}</span>{% endif %}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endfor %}
+{%- endmacro %}
+
+{% macro cargar_mas(siguiente, request) -%}
+{% if siguiente %}
+{% set p = dict(request.query_params) %}{% set _ = p.update({"desde": siguiente}) %}
+<div id="cargar-mas" class="flex justify-center pt-2">
+  <button class="btn-secundario" hx-get="/buscar?{{ p|urlencode }}" hx-target="#cargar-mas" hx-swap="outerHTML">
+    <span class="indicador">{{ icono("loader-circle", "size-4 animate-spin") }}</span>Ver más resultados</button>
+</div>
+{% endif %}
+{%- endmacro %}

@@ -7,7 +7,7 @@
     <p class="text-sm text-tenue">Ficha de <a href="/tablas/{{ tabla.id }}" class="font-medium hover:text-marca"
        x-data :href="sessionStorage.getItem('ultima-tabla-{{ tabla.id }}') || '/tablas/{{ tabla.id }}'">{{ tabla.nombre }}</a>
       {% if fila.fila_origen %}· fila {{ fila.fila_origen }} del Excel{% endif %}</p>
-    <h1 class="whitespace-pre-wrap text-2xl font-bold tracking-tight sm:text-3xl">{{ fila.titulo }}</h1>
+    <h1 class="whitespace-pre-wrap text-2xl font-bold tracking-tight sm:text-3xl" data-resaltar="{{ request.query_params.get('buscar', '') }}">{{ fila.titulo }}</h1>
   </div>
   <nav class="flex items-center gap-1" aria-label="Fichas vecinas">
     <a {% if anterior %}href="/filas/{{ anterior }}"{% endif %} class="btn-secundario {{ 'pointer-events-none opacity-40' if not anterior }}" title="Ficha anterior">{{ icono("chevron-left") }}<span class="hidden sm:inline">Anterior</span></a>
@@ -22,7 +22,7 @@
 
 <div class="grid gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(340px,440px)]">
   {# Campos: los cortos en rejilla y los largos en bloques, en el orden del Excel #}
-  <section class="tarjeta p-5" aria-label="Datos de la ficha">
+  <section class="tarjeta p-5" aria-label="Datos de la ficha" data-resaltar="{{ request.query_params.get('buscar', '') }}">
     <div class="flex flex-col gap-4">
       {% set ns = namespace(grupo=[]) %}
       {% macro bloque_corto(grupo) %}
@@ -55,7 +55,8 @@
 
   <section aria-labelledby="t-imagenes" class="xl:sticky xl:top-20 xl:self-start">
     <h2 id="t-imagenes" class="titulo-seccion mb-3 flex items-center gap-2">{{ icono("images") }}Imágenes de esta ficha</h2>
-    <div id="galeria">{% include "parciales/galeria_fila.html" %}</div>
+    <div id="galeria" data-destacar="{{ request.query_params.get('imagen', '') }}"
+         data-resaltar="{{ request.query_params.get('buscar', '') }}">{% include "parciales/galeria_fila.html" %}</div>
   </section>
 </div>
 {% endblock %}

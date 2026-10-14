@@ -1,0 +1,11 @@
+{# Filtro por tipo de contenido con cuántos resultados hay de cada uno #}
+{% from "macros.html" import icono %}
+<div id="chips-categorias" class="mt-4 flex flex-wrap items-center gap-2" {% if oob %}hx-swap-oob="true"{% endif %}>
+  {% for id, c in categorias.items() %}
+  {% set n = respuesta.por_categoria.get(id, 0) %}
+  <label class="chip cursor-pointer py-1 has-[:checked]:border-marca has-[:checked]:bg-marca-suave has-[:checked]:text-marca {{ 'opacity-50' if q and not n }}">
+    <input type="checkbox" name="tipo" value="{{ id }}" class="sr-only" {{ "checked" if id in filtros.categorias }}>
+    {{ icono(c.icono, "size-3.5") }}{{ c.nombre }}{% if q %} <span class="opacity-70">{{ n }}</span>{% endif %}
+  </label>
+  {% endfor %}
+</div>

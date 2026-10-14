@@ -6,7 +6,7 @@
   <header class="mb-6 flex flex-wrap items-start gap-4">
     <div class="min-w-0 flex-1">
       <p class="text-sm text-tenue">Nota · editada el {{ nota.actualizado|replace("T", " a las ") }}</p>
-      <h1 class="text-2xl font-bold tracking-tight sm:text-3xl">{{ nota.titulo }}</h1>
+      <h1 class="text-2xl font-bold tracking-tight sm:text-3xl" data-resaltar="{{ request.query_params.get('buscar', '') }}">{{ nota.titulo }}</h1>
       {% if nota.etiquetas %}<p class="mt-2 flex flex-wrap gap-1.5">{% for e in nota.etiquetas %}<span class="chip">{{ icono("tag", "size-3") }}{{ e }}</span>{% endfor %}</p>{% endif %}
     </div>
     <div class="flex items-center gap-2">
@@ -16,7 +16,7 @@
   </header>
   <div class="tarjeta px-6 py-6 sm:px-10">
     {% if nota.contenido.strip() %}
-    <div class="prose max-w-none">{{ html|safe }}</div>
+    <div class="prose max-w-none" data-resaltar="{{ request.query_params.get('buscar', '') }}">{{ html|safe }}</div>
     {% else %}
     <p class="text-tenue">Esta nota está vacía. <a href="/notas/{{ nota.id }}/editar" class="text-marca underline">Escribe algo</a>.</p>
     {% endif %}

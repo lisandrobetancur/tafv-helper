@@ -6,7 +6,7 @@
   <div class="min-w-0 flex-1">
     <p class="text-sm text-tenue">Imagen de <a href="/componentes/{{ componente.id }}#imagenes" class="font-medium hover:text-marca">{{ componente.nombre }}</a>
       {% if imagen.ancho %}· {{ imagen.ancho }}×{{ imagen.alto }} px{% endif %} · {{ imagen.archivo.split("/")[-1] }}</p>
-    <h1 class="text-2xl font-bold tracking-tight sm:text-3xl">{{ imagen.titulo }}</h1>
+    <h1 class="text-2xl font-bold tracking-tight sm:text-3xl" data-resaltar="{{ request.query_params.get('buscar', '') }}">{{ imagen.titulo }}</h1>
   </div>
   <nav class="flex items-center gap-1" aria-label="Imágenes vecinas">
     <a {% if anterior %}href="/imagenes/{{ anterior }}"{% endif %} class="btn-secundario {{ 'pointer-events-none opacity-40' if not anterior }}" title="Imagen anterior">{{ icono("chevron-left") }}</a>
@@ -21,7 +21,7 @@
             @click="$dispatch('abrir-visor', { imagenes: [{{ {'src': '/imagenes/' ~ imagen.id ~ '/archivo', 'titulo': imagen.titulo, 'pie': imagen.descripcion}|tojson|forceescape }}], indice: 0 })">
       <img src="/imagenes/{{ imagen.id }}/archivo" alt="{{ imagen.titulo }}" class="mx-auto max-h-[70vh] w-auto object-contain">
     </button>
-    {% if imagen.descripcion %}<figcaption class="whitespace-pre-wrap border-t border-borde px-5 py-3 text-sm text-tenue">{{ imagen.descripcion }}</figcaption>{% endif %}
+    {% if imagen.descripcion %}<figcaption data-resaltar="{{ request.query_params.get('buscar', '') }}" class="whitespace-pre-wrap border-t border-borde px-5 py-3 text-sm text-tenue">{{ imagen.descripcion }}</figcaption>{% endif %}
   </figure>
 
   <div class="flex flex-col gap-6">

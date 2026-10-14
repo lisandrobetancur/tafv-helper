@@ -182,6 +182,43 @@
       },
     }));
 
+    // ------------------------------------------------ paleta de búsqueda (⌘K)
+    Alpine.data("paleta", () => ({
+      q: "", activo: -1,
+      abrir(texto = "") {
+        const d = this.$refs.dialogo;
+        if (!d.open) d.showModal();
+        if (texto) this.q = texto;
+        this.$nextTick(() => {
+          this.$refs.entrada.focus();
+          this.$refs.entrada.select();
+          htmx.trigger(this.$refs.entrada, "buscar");
+        });
+      },
+      cerrar() { this.$refs.dialogo.close(); },
+      enlaces() { return [...this.$root.querySelectorAll("#paleta-resultados [data-resultado]")]; },
+      marcar() {
+        this.enlaces().forEach((a, i) => {
+          a.toggleAttribute("data-activo", i === this.activo);
+          if (i === this.activo) a.scrollIntoView({ block: "nearest" });
+        });
+      },
+      teclas(e) {
+        const lista = this.enlaces();
+        if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+          e.preventDefault();
+          if (!lista.length) return;
+          this.activo = (this.activo + (e.key === "ArrowDown" ? 1 : -1) + lista.length) % lista.length;
+          this.marcar();
+        } else if (e.key === "Enter") {
+          e.preventDefault();
+          const destino = lista[this.activo] || lista[0];
+          if (destino) { this.cerrar(); destino.click(); }
+          else if (this.q.trim()) { this.cerrar(); window.location.href = "/buscar?q=" + encodeURIComponent(this.q); }
+        }
+      },
+    }));
+
     // ------------------------------------------------ visor con zoom (lightbox)
     // Se abre con: $dispatch('abrir-visor', { imagenes: [{src, titulo, pie}], indice })
     Alpine.data("visor", () => ({
@@ -227,8 +264,64 @@
   document.addEventListener("keydown", (e) => {
     if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
       e.preventDefault();
-      const buscador = document.getElementById("buscador-global");
-      if (buscador) { buscador.focus(); buscador.select(); }
+      window.dispatchEvent(new CustomEvent("abrir-paleta", { detail: { q: "" } }));
     }
   });
+
+  // ------------------------------- resaltar el término buscado al abrir un resultado
+  // Las páginas marcan con [data-resaltar] dónde buscar; el término llega en ?buscar=…
+  const sinTildes = (t) => t.normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  function resaltar(raiz, termino) {
+    const palabras = sinTildes(termino.replace(/"/g, " ")).split(/\s+/).filter((p) => p.length > 1);
+    if (!palabras.length) return 0;
+    let total = 0;
+    const recorrido = document.createTreeWalker(raiz, NodeFilter.SHOW_TEXT, {
+      acceptNode: (n) => (n.parentElement.closest("mark, script, style, textarea, input") ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT),
+    });
+    const nodos = [];
+    while (recorrido.nextNode()) nodos.push(recorrido.currentNode);
+    for (const nodo of nodos) {
+      const texto = nodo.nodeValue;
+      // texto sin tildes con el mismo largo (un carácter por carácter) para ubicar las coincidencias
+      const plano = [...texto].map((c) => sinTildes(c)[0] || c).join("");
+      const rangos = [];
+      for (const p of palabras) {
+        let i = plano.indexOf(p);
+        while (i !== -1) { rangos.push([i, i + p.length]); i = plano.indexOf(p, i + p.length); }
+      }
+      if (!rangos.length || plano.length !== texto.length) continue;
+      rangos.sort((a, b) => a[0] - b[0]);
+      const fragmento = document.createDocumentFragment();
+      let pos = 0;
+      for (const [a, b] of rangos) {
+        if (a < pos) continue;
+        fragmento.append(texto.slice(pos, a));
+        const marca = document.createElement("mark");
+        marca.className = "rounded bg-oro-suave px-0.5 text-texto ring-1 ring-oro/40";
+        marca.textContent = texto.slice(a, b);
+        fragmento.append(marca);
+        pos = b;
+        total++;
+      }
+      fragmento.append(texto.slice(pos));
+      nodo.replaceWith(fragmento);
+    }
+    return total;
+  }
+  // Zonas con data-resaltar="término" (lo pone el servidor desde ?buscar=) y galería con data-destacar="id"
+  function resaltarPendientes() {
+    let primera = null;
+    document.querySelectorAll("[data-resaltar]:not([data-resaltado])").forEach((zona) => {
+      zona.setAttribute("data-resaltado", "");
+      if (zona.dataset.resaltar && resaltar(zona, zona.dataset.resaltar)) primera = primera || zona.querySelector("mark");
+    });
+    if (primera) primera.scrollIntoView({ block: "center" });
+    document.querySelectorAll("[data-destacar]:not([data-destacado])").forEach((g) => {
+      g.setAttribute("data-destacado", "");
+      const tarjeta = g.querySelector(`li[data-id="${CSS.escape(g.dataset.destacar)}"]`);
+      if (tarjeta) { tarjeta.classList.add("ring-2", "ring-oro"); tarjeta.scrollIntoView({ block: "center" }); }
+    });
+  }
+  document.addEventListener("DOMContentLoaded", resaltarPendientes);
+  document.addEventListener("htmx:afterSettle", resaltarPendientes);
 })();

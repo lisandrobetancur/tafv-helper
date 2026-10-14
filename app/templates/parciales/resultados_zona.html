@@ -1,0 +1,18 @@
+{# Resultados de la página de búsqueda (se reemplaza al cambiar filtros) #}
+{% from "macros.html" import icono, vacio %}
+{% from "parciales/resultados_macros.html" import grupos, cargar_mas %}
+<div id="zona-resultados">
+  {% if not q.strip() %}
+    {% call vacio("search", "¿Qué quieres encontrar?",
+                 "Busca en todas tus materias: filas de Excel, texto de los PDF (también escaneados), imágenes y notas. No importan las tildes ni las mayúsculas. Usa comillas para una frase exacta.") %}{% endcall %}
+  {% elif not respuesta.total %}
+    {% call vacio("search", "No encontramos nada para «" ~ q ~ "»",
+                 "Prueba con menos palabras o con el comienzo de una palabra (por ejemplo «cardio» para «cardiología»)." ~ (" También puedes quitar los filtros." if filtros.activos else "")) %}{% endcall %}
+  {% else %}
+    <p class="mb-4 text-sm text-tenue">{{ respuesta.total }} resultado{{ "s" if respuesta.total != 1 }} para <strong class="text-texto">«{{ q }}»</strong>
+      <span class="text-xs">· {{ respuesta.milisegundos }} ms</span></p>
+    {{ grupos(respuesta.grupos) }}
+    {{ cargar_mas(siguiente, request) }}
+  {% endif %}
+</div>
+{% if oob %}{% include "parciales/chips_categorias.html" %}{% endif %}

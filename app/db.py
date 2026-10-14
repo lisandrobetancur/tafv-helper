@@ -11,6 +11,7 @@ from collections.abc import Iterator
 from contextlib import contextmanager
 from datetime import datetime
 
+from . import indice_sql
 from .config import rutas
 
 log = logging.getLogger(__name__)
@@ -201,6 +202,8 @@ MIGRACIONES: list[str] = [
     );
     CREATE INDEX ix_etiquetas_elemento ON etiquetas_elemento(tipo, ref_id);
     """,
+    # 5 — índice de búsqueda global (FTS5) sincronizado con triggers; se llena con lo existente
+    indice_sql.migracion(),
 ]
 
 

@@ -1,36 +1,39 @@
 {% extends "base.html" %}
-{% from "macros.html" import icono, ficha_materia, vacio %}
-{% block titulo %}Búsqueda{% endblock %}
+{% from "macros.html" import icono %}
+{% block titulo %}{{ "Búsqueda: " ~ q if q else "Búsqueda" }}{% endblock %}
 {% block contenido %}
-<h1 class="mb-6 text-2xl font-bold tracking-tight">
-  {% if q %}Resultados para «{{ q }}»{% else %}Buscar{% endif %}</h1>
+<form id="form-busqueda" action="/buscar" method="get" class="mb-6"
+      hx-get="/buscar" hx-target="#zona-resultados" hx-swap="outerHTML" hx-push-url="true"
+      hx-trigger="input changed delay:250ms from:#q-pagina, change">
+  <h1 class="mb-4 text-2xl font-bold tracking-tight">Buscar en la biblioteca</h1>
+  <div class="relative max-w-3xl">
+    <span class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-tenue">{{ icono("search", "size-5") }}</span>
+    <input id="q-pagina" name="q" type="search" value="{{ q }}" autocomplete="off" autofocus
+           class="campo h-12 pl-12 text-base" placeholder='Ej.: plexo braquial · cardio · "nervio radial"'>
+  </div>
 
-{% if not q %}
-  {% call vacio("search", "Escribe qué quieres encontrar", "Usa el buscador de arriba (o Ctrl+K / ⌘K) para buscar en toda tu biblioteca.") %}{% endcall %}
-{% elif not materias and not componentes %}
-  {% call vacio("search", "No encontramos nada", "Prueba con otra palabra. No importan las tildes ni las mayúsculas.") %}{% endcall %}
-{% else %}
-  {% if materias %}
-  <h2 class="titulo-seccion mb-2">Materias</h2>
-  <ul class="mb-8 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-    {% for m in materias %}
-    <li><a href="/materias/{{ m.id }}" class="tarjeta flex items-center gap-3 p-4 hover:border-borde-fuerte">
-      {{ ficha_materia(m, "size-9", "size-4") }}
-      <span class="min-w-0"><span class="block truncate font-medium">{{ m.nombre }}</span>
-      <span class="block truncate text-sm text-tenue">{{ m.descripcion }}</span></span></a></li>
-    {% endfor %}
-  </ul>
-  {% endif %}
-  {% if componentes %}
-  <h2 class="titulo-seccion mb-2">Componentes</h2>
-  <ul class="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-    {% for c in componentes %}
-    <li><a href="/componentes/{{ c.id }}" class="tarjeta flex items-center gap-3 p-4 hover:border-borde-fuerte">
-      <span class="grid size-9 place-items-center rounded-lg bg-superficie-2 text-tenue">{{ icono("folder") }}</span>
-      <span class="min-w-0"><span class="block truncate font-medium">{{ c.nombre }}</span>
-      <span class="block truncate text-sm text-tenue"><span class="mr-1 inline-block size-2 rounded-full" style="background: {{ COLOR_POR_ID[c.color].hex }}"></span>{{ c.materia }}</span></span></a></li>
-    {% endfor %}
-  </ul>
-  {% endif %}
-{% endif %}
+  {% include "parciales/chips_categorias.html" %}
+
+  <div class="mt-3 flex flex-wrap items-center gap-2 text-sm">
+    <select name="materia" class="campo h-9 w-auto" aria-label="Materia" onchange="document.getElementById('filtro-componente').value = ''"
+            hx-get="/buscar/componentes" hx-target="#filtro-componente" hx-swap="innerHTML" hx-trigger="change">
+      <option value="">Todas las materias</option>
+      {% for m in materias %}<option value="{{ m.id }}" {{ "selected" if filtros.materia == m.id }}>{{ m.nombre }}</option>{% endfor %}
+    </select>
+    <select id="filtro-componente" name="componente" class="campo h-9 w-auto max-w-xs" aria-label="Componente">
+      {% with elegido=filtros.componente %}{% include "parciales/opciones_componentes.html" %}{% endwith %}
+    </select>
+    {% if etiquetas %}
+    <select name="etiqueta" class="campo h-9 w-auto" aria-label="Etiqueta">
+      <option value="">Cualquier etiqueta</option>
+      {% for e in etiquetas %}<option {{ "selected" if filtros.etiqueta|lower == e|lower }}>{{ e }}</option>{% endfor %}
+    </select>
+    {% endif %}
+    {% if filtros.activos %}<a href="/buscar?q={{ q|urlencode }}" class="btn-fantasma py-1.5 text-sm">{{ icono("x", "size-3.5") }}Quitar filtros</a>{% endif %}
+  </div>
+</form>
+
+<div class="max-w-5xl [&.htmx-request]:opacity-60 transition-opacity">
+  {% include "parciales/resultados_zona.html" %}
+</div>
 {% endblock %}

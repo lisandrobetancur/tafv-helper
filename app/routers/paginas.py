@@ -8,7 +8,6 @@ from ..db import obtener_db
 from ..services import biblioteca as bib
 from ..services import bloqueo
 from ..services import papelera as pap
-from ..services.almacenamiento import sin_tildes
 from ..web import pagina, parcial, redirigir, templates
 
 router = APIRouter()
@@ -18,25 +17,6 @@ router = APIRouter()
 def inicio(request: Request, con: sqlite3.Connection = Depends(obtener_db)):
     return pagina(request, con, "paginas/inicio.html",
                   materias=bib.listar_materias(con), archivadas=bib.listar_materias(con, archivadas=True))
-
-
-@router.get("/buscar")
-def buscar(request: Request, q: str = "", con: sqlite3.Connection = Depends(obtener_db)):
-    """Búsqueda básica por nombre (se reemplaza por la búsqueda global con FTS5 en la fase 5)."""
-    termino = sin_tildes(q.strip()).lower()
-    materias, componentes = [], []
-    if termino:
-        for m in bib.listar_materias(con, archivadas=None):
-            if termino in sin_tildes(m.nombre + " " + m.descripcion).lower():
-                materias.append(m)
-        for f in con.execute(
-            """SELECT c.id, c.nombre, c.descripcion, m.nombre AS materia, m.color FROM componentes c
-               JOIN materias m ON m.id = c.materia_id WHERE c.papelera_id IS NULL AND m.papelera_id IS NULL"""
-        ):
-            if termino in sin_tildes(f["nombre"] + " " + f["descripcion"]).lower():
-                componentes.append(dict(f))
-    return pagina(request, con, "paginas/buscar.html", q=q, materias=materias, componentes=componentes,
-                  migas=[{"texto": "Búsqueda"}])
 
 
 # -------------------------------------------------------------------- papelera

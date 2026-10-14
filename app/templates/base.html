@@ -32,14 +32,17 @@
     <div class="flex min-w-0 flex-1 flex-col">
       <header class="sticky top-0 z-20 border-b border-borde bg-fondo/85 backdrop-blur">
         <div class="flex items-center gap-3 px-4 py-3 sm:px-6 lg:px-8">
-          <form action="/buscar" method="get" role="search" class="relative flex-1 max-w-2xl">
+          {# Buscador global: siempre visible; al usarlo se abre la paleta con resultados en vivo #}
+          <form action="/buscar" method="get" role="search" class="relative flex-1 max-w-2xl" x-data
+                @submit.prevent="$dispatch('abrir-paleta', { q: $refs.global.value })">
             <label for="buscador-global" class="sr-only">Buscar en toda la biblioteca</label>
             <span class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-tenue">{{ icono("search") }}</span>
-            <input id="buscador-global" name="q" type="search" value="{{ q|default('') }}" autocomplete="off"
+            <input id="buscador-global" x-ref="global" name="q" type="search" value="" autocomplete="off" readonly
                    placeholder="Buscar en toda la biblioteca…"
-                   class="campo h-10 pl-10 pr-16 bg-superficie">
+                   @focus="$dispatch('abrir-paleta', { q: '' }); $el.blur()" @click="$dispatch('abrir-paleta', { q: '' })"
+                   class="campo h-10 cursor-pointer pl-10 pr-16 bg-superficie">
             <kbd class="pointer-events-none absolute right-3 top-1/2 hidden -translate-y-1/2 rounded-md border border-borde bg-superficie-2 px-1.5 py-0.5 text-[11px] font-medium text-tenue sm:block"
-                 x-data x-text="navigator.platform.toUpperCase().includes('MAC') ? '⌘ K' : 'Ctrl K'">Ctrl K</kbd>
+                 x-text="navigator.platform.toUpperCase().includes('MAC') ? '⌘ K' : 'Ctrl K'">Ctrl K</kbd>
           </form>
           <span id="ocr-estado" hx-get="/ocr/estado" hx-trigger="load" hx-swap="outerHTML" class="ml-auto"></span>
           <div class="ml-auto flex items-center gap-1" x-data role="group" aria-label="Tema de color">
@@ -60,6 +63,28 @@
   </div>
 
   <div id="modal"></div>
+
+  {# Paleta de búsqueda tipo Spotlight (Ctrl/⌘+K): resultados en vivo, ↑ ↓ para moverse, Enter para abrir #}
+  <div x-data="paleta" @abrir-paleta.window="abrir($event.detail?.q || '')">
+    <dialog x-ref="dialogo" class="modal !w-[min(720px,calc(100vw-2rem))] self-start !mt-[10vh]" aria-label="Buscar en la biblioteca"
+            @keydown="teclas($event)" @click="if ($event.target === $refs.dialogo) cerrar()">
+      <div class="flex items-center gap-3 border-b border-borde px-4">
+        <span class="text-tenue">{{ icono("search", "size-5") }}</span>
+        <input x-ref="entrada" name="q" type="search" autocomplete="off" x-model="q"
+               class="h-14 flex-1 bg-transparent text-base outline-none placeholder:text-tenue"
+               placeholder="Buscar en filas, PDF, imágenes y notas…"
+               hx-get="/buscar/rapida" hx-trigger="input changed delay:180ms, buscar" hx-target="#paleta-resultados"
+               hx-indicator="#paleta-cargando" aria-controls="paleta-resultados">
+        <span id="paleta-cargando" class="indicador text-tenue">{{ icono("loader-circle", "size-4 animate-spin") }}</span>
+        <kbd class="rounded-md border border-borde bg-superficie-2 px-1.5 py-0.5 text-[11px] text-tenue">Esc</kbd>
+      </div>
+      <div id="paleta-resultados" class="max-h-[60vh] overflow-y-auto p-2" @htmx:after-swap="activo = -1"></div>
+      <footer class="flex items-center justify-between gap-3 border-t border-borde bg-superficie-2/50 px-4 py-2 text-[11px] text-tenue">
+        <span>↑ ↓ para moverte · Enter para abrir</span>
+        <a :href="'/buscar?q=' + encodeURIComponent(q)" class="font-medium text-marca hover:underline" @click="cerrar()">Búsqueda con filtros →</a>
+      </footer>
+    </dialog>
+  </div>
 
   {# Visor de imágenes con zoom: Esc cierra, flechas cambian de imagen, rueda o +/- hacen zoom #}
   <div x-data="visor" @abrir-visor.window="abrir($event.detail)">

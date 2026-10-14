@@ -1,0 +1,4 @@
+{# Siguiente tanda de resultados ("Ver más"): reemplaza el botón #}
+{% from "parciales/resultados_macros.html" import grupos, cargar_mas %}
+{{ grupos(respuesta.grupos) }}
+{{ cargar_mas(siguiente, request) }}
