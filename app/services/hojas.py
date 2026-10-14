@@ -231,10 +231,23 @@ def columnas(hoja: Hoja, fila_encabezado: int, dos_filas: bool = False) -> list[
     return resultado
 
 
+TITULOS_PREFERIDOS = ("nombre", "titulo", "medicamento", "termino", "concepto", "tema", "estructura", "farmaco",
+                      "planta", "enfermedad", "patologia")
+
+
 def columna_titulo_sugerida(cols: list[Columna]) -> int | None:
-    preferidas = ("nombre", "titulo", "medicamento", "termino", "concepto", "tema", "estructura", "farmaco")
+    """Columna que identifica cada fila. Se comparan palabras completas («Sistema» no es «tema»):
+    primero un encabezado exacto («Nombre»), luego uno que empiece por la palabra («Nombre común»),
+    luego uno que la contenga. Si no hay, la primera columna cuyos valores no se repiten
+    (una columna agrupadora con celdas combinadas, como «Sistema», repite el mismo valor)."""
+    palabras = {c.indice: _norm(c.nombre).split() for c in cols}
+    for regla in (lambda ps, p: ps == [p], lambda ps, p: ps[:1] == [p], lambda ps, p: p in ps):
+        for p in TITULOS_PREFERIDOS:
+            for c in cols:
+                if regla(palabras[c.indice], p):
+                    return c.indice
     for c in cols:
-        if any(p in _norm(c.nombre) for p in preferidas):
+        if len(c.ejemplos) > 1 and len(set(c.ejemplos)) == len(c.ejemplos):
             return c.indice
     return cols[0].indice if cols else None
 

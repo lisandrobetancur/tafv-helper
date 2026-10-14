@@ -295,3 +295,25 @@ def test_tabla_a_papelera_y_vaciar_borra_archivos(con, tmp_path: Path, datos: Pa
     pap.vaciar(con)
     assert not (carpeta / img.archivo).exists() and not (carpeta / "excel" / "Atlas de huesos.xlsx").exists()
     assert con.execute("SELECT COUNT(*) FROM filas").fetchone()[0] == 0
+
+
+def test_titulo_sugerido_con_columna_agrupadora(tmp_path: Path) -> None:
+    """«Sistema» (combinada, se repite) no es el título aunque contenga «tema»; «Nombre» sí."""
+    wb = Workbook()
+    ws = wb.active
+    ws.append([])
+    ws.append(["Sistema", "Grupo", "Nombre", "Nombre Cientifico", "Accion"])
+    ws.append(["Respiratorio", "Asma", "Totumo", "Crescentia cujete", "Broncodilatador"])
+    ws.append([None, "Asma", "Yarumo", "Cecropia peltata", "Broncodilatador\nAntiinflamatorio"])
+    ws.append([None, "Epoc", "Borraja", "Borago officinalis", "Mucolítico"])
+    ws.merge_cells("A3:A5")
+    wb.save(tmp_path / "fito.xlsx")
+    hoja = lector.leer_archivo(tmp_path / "fito.xlsx")[0]
+    fila = lector.detectar_encabezado(hoja)
+    cols = lector.columnas(hoja, fila)
+    assert lector.columna_titulo_sugerida(cols) == 2
+    filas = lector.registros(hoja, fila, False, [c.indice for c in cols])
+    assert [f[1][0] for f in filas] == ["Respiratorio"] * 3          # la combinada se repite en cada fila
+    assert filas[1][1][4] == "Broncodilatador\nAntiinflamatorio"     # saltos de línea intactos
+    sin_preferidas = [lector.Columna(0, "A", "Sistema", ["Resp", "Resp"], 2), lector.Columna(1, "B", "Columna B", ["a", "b"], 2)]
+    assert lector.columna_titulo_sugerida(sin_preferidas) == 1       # la primera sin valores repetidos
