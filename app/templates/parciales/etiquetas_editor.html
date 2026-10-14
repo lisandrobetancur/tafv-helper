@@ -1,0 +1,18 @@
+{# Etiquetas de una fila o un PDF, editables en el sitio. Requiere: tipo, ref_id, etiquetas.
+   Los dos estados se dibujan en el servidor (x-show, no x-if) para que HTMX procese el formulario. #}
+{% from "macros.html" import icono %}
+<div class="flex flex-wrap items-center gap-1.5" x-data="{ editando: false }">
+  <div class="flex flex-wrap items-center gap-1.5" x-show="!editando">
+    {% for e in etiquetas %}<span class="chip">{{ icono("tag", "size-3") }}{{ e }}</span>{% endfor %}
+    <button type="button" class="chip cursor-pointer border-dashed hover:border-marca hover:text-marca"
+            @click="editando = true; $nextTick(() => $refs.campo.focus())">
+      {{ icono("tag" if not etiquetas else "pencil", "size-3") }}{{ "Agregar etiquetas" if not etiquetas else "Editar" }}</button>
+  </div>
+  <form class="flex w-full max-w-lg items-center gap-2" x-show="editando" x-cloak
+        hx-post="/etiquetas/{{ tipo }}/{{ ref_id }}" hx-target="closest div[x-data]" hx-swap="outerHTML">
+    <input x-ref="campo" name="etiquetas" class="campo h-8 flex-1 text-sm" value="{{ etiquetas|join(', ') }}" placeholder="examen, repaso…"
+           aria-label="Etiquetas separadas por comas" @keydown.escape="editando = false">
+    <button class="btn-primario py-1 text-xs">Guardar</button>
+    <button type="button" class="btn-fantasma py-1 text-xs" @click="editando = false">Cancelar</button>
+  </form>
+</div>

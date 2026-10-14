@@ -71,7 +71,11 @@ def ver_pdf(request: Request, pdf_id: int, buscar: str = "",
     # En páginas escaneadas el visor no puede resaltar (no hay capa de texto): se muestra el texto reconocido
     texto_ocr = fragmentos_resaltados(pag["texto"], buscar) if pag is not None and pag["origen"] == "ocr" else None
     comp = bib.obtener_componente(con, pdf.componente_id)
-    return pagina(request, con, "paginas/pdf.html", pdf=pdf, numero=numero, buscar=buscar.strip(), texto_ocr=texto_ocr,
+    from ..services import etiquetas as etq
+    from ..services import favoritos as fav
+    fav.registrar_visita(con, "pdf", pdf.id)
+    return pagina(request, con, "paginas/pdf.html", pdf=pdf, favorito=fav.es_favorito(con, "pdf", pdf.id),
+                  etiquetas=etq.de(con, "pdf", pdf.id), numero=numero, buscar=buscar.strip(), texto_ocr=texto_ocr,
                   materia_activa=comp.materia_id, migas=_migas_componente(con, comp.id) + [{"texto": pdf.titulo}])
 
 

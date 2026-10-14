@@ -29,6 +29,8 @@
       {% for e in etiquetas %}<option {{ "selected" if filtros.etiqueta|lower == e|lower }}>{{ e }}</option>{% endfor %}
     </select>
     {% endif %}
+    <label class="chip cursor-pointer py-1.5 has-[:checked]:border-oro has-[:checked]:bg-oro-suave has-[:checked]:text-oro">
+      <input type="checkbox" name="favoritos" value="1" class="sr-only" {{ "checked" if filtros.favoritos }}>{{ icono("star", "size-3.5") }}Solo favoritos</label>
     {% if filtros.activos %}<a href="/buscar?q={{ q|urlencode }}" class="btn-fantasma py-1.5 text-sm">{{ icono("x", "size-3.5") }}Quitar filtros</a>{% endif %}
   </div>
 </form>

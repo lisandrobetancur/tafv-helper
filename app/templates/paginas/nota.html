@@ -10,6 +10,7 @@
       {% if nota.etiquetas %}<p class="mt-2 flex flex-wrap gap-1.5">{% for e in nota.etiquetas %}<span class="chip">{{ icono("tag", "size-3") }}{{ e }}</span>{% endfor %}</p>{% endif %}
     </div>
     <div class="flex items-center gap-2">
+      {% with tipo="nota", ref_id=nota.id, activo=favorito %}{% include "parciales/estrella.html" %}{% endwith %}
       <a href="/notas/{{ nota.id }}/editar" class="btn-primario">{{ icono("pencil") }}Editar</a>
       <button class="btn-secundario hover:text-peligro" hx-get="/notas/{{ nota.id }}/eliminar" hx-target="#modal" title="Enviar a la papelera">{{ icono("trash-2") }}</button>
     </div>

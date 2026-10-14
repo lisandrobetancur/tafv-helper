@@ -9,6 +9,7 @@
     <h1 class="text-2xl font-bold tracking-tight sm:text-3xl" data-resaltar="{{ request.query_params.get('buscar', '') }}">{{ imagen.titulo }}</h1>
   </div>
   <nav class="flex items-center gap-1" aria-label="Imágenes vecinas">
+    {% with tipo="imagen", ref_id=imagen.id, activo=favorito %}{% include "parciales/estrella.html" %}{% endwith %}
     <a {% if anterior %}href="/imagenes/{{ anterior }}"{% endif %} class="btn-secundario {{ 'pointer-events-none opacity-40' if not anterior }}" title="Imagen anterior">{{ icono("chevron-left") }}</a>
     <a {% if siguiente %}href="/imagenes/{{ siguiente }}"{% endif %} class="btn-secundario {{ 'pointer-events-none opacity-40' if not siguiente }}" title="Imagen siguiente">{{ icono("chevron-right") }}</a>
     <button class="btn-secundario hover:text-peligro" hx-get="/imagenes/{{ imagen.id }}/eliminar" hx-target="#modal" title="Enviar a la papelera">{{ icono("trash-2") }}</button>

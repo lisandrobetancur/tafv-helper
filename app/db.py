@@ -204,6 +204,33 @@ MIGRACIONES: list[str] = [
     """,
     # 5 — índice de búsqueda global (FTS5) sincronizado con triggers; se llena con lo existente
     indice_sql.migracion(),
+    # 6 — favoritos, recientes, modo repaso; el índice incluye las etiquetas de filas y PDF
+    """
+    CREATE TABLE favoritos (
+        tipo    TEXT    NOT NULL,      -- fila | pdf | imagen | nota
+        ref_id  INTEGER NOT NULL,
+        creado  TEXT    NOT NULL,
+        PRIMARY KEY (tipo, ref_id)
+    );
+    CREATE TABLE recientes (
+        tipo    TEXT    NOT NULL,      -- tabla | fila | pdf | imagen | nota
+        ref_id  INTEGER NOT NULL,
+        visto   TEXT    NOT NULL,
+        PRIMARY KEY (tipo, ref_id)
+    );
+    CREATE INDEX ix_recientes_visto ON recientes(visto DESC);
+    CREATE TABLE repaso (
+        fila_id      INTEGER PRIMARY KEY REFERENCES filas(id) ON DELETE CASCADE,
+        estado       TEXT    NOT NULL,  -- lo_se | repasar
+        actualizado  TEXT    NOT NULL
+    );
+    """ + "".join(f"""
+    CREATE TRIGGER limpiar_{tipo} AFTER DELETE ON {tabla} BEGIN
+        DELETE FROM favoritos WHERE tipo = '{tipo}' AND ref_id = OLD.id;
+        DELETE FROM recientes WHERE tipo = '{tipo}' AND ref_id = OLD.id;
+        DELETE FROM etiquetas_elemento WHERE tipo = '{tipo}' AND ref_id = OLD.id;
+    END;""" for tipo, tabla in (("tabla", "tablas"), ("fila", "filas"), ("pdf", "pdfs"), ("imagen", "imagenes"),
+                                ("nota", "notas"))) + indice_sql.recrear(),
 ]
 
 

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% from "macros.html" import icono %}
+{% block titulo %}Repaso · {{ tabla.nombre }}{% endblock %}
+{% block contenido %}
+<div class="mx-auto max-w-2xl">
+  <h1 class="text-2xl font-bold tracking-tight">Modo repaso</h1>
+  <p class="mt-1 text-tenue">Tarjetas a partir de «{{ tabla.nombre }}»: verás el frente, intentarás recordar y luego darás vuelta la tarjeta.</p>
+
+  <dl class="mt-5 grid grid-cols-3 gap-3">
+    {% for valor, nombre, color in [(resumen.lo_se, "Lo sé", "text-exito"), (resumen.repasar, "Para repasar", "text-alerta"), (resumen.sin_marcar, "Sin marcar", "text-tenue")] %}
+    <div class="tarjeta p-4 text-center"><dt class="text-xs text-tenue">{{ nombre }}</dt><dd class="text-2xl font-bold {{ color }}">{{ valor }}</dd></div>
+    {% endfor %}
+  </dl>
+
+  <form action="/tablas/{{ tabla.id }}/repaso/sesion" method="get" class="tarjeta mt-6 flex flex-col gap-5 p-6">
+    <div class="grid gap-4 sm:grid-cols-2">
+      <div><label class="etiqueta" for="r-frente">Frente (la pregunta)</label>
+        <select id="r-frente" name="frente" class="campo">
+          {% for c in tabla.columnas %}<option value="{{ c.clave }}" {{ "selected" if c.clave == frente }}>{{ c.nombre }}</option>{% endfor %}
+        </select></div>
+      <div><label class="etiqueta" for="r-reverso">Reverso (la respuesta)</label>
+        <select id="r-reverso" name="reverso" class="campo">
+          {% for c in tabla.columnas %}<option value="{{ c.clave }}" {{ "selected" if c.clave == reverso }}>{{ c.nombre }}</option>{% endfor %}
+        </select></div>
+    </div>
+    <fieldset>
+      <legend class="etiqueta">¿Qué tarjetas?</legend>
+      <div class="flex flex-col gap-2">
+        {% for id, nombre in cuales.items() %}
+        <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-borde p-3 text-sm has-[:checked]:border-marca has-[:checked]:bg-marca-suave/50">
+          <input type="radio" name="cuales" value="{{ id }}" class="size-4 accent-[var(--marca)]" {{ "checked" if loop.first }}>{{ nombre }}
+          <span class="ml-auto text-xs text-tenue">{{ resumen.total if id == "todas" else resumen.repasar if id == "repasar" else resumen.sin_marcar }}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </fieldset>
+    <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+      <label class="flex cursor-pointer items-center gap-2"><input type="checkbox" name="barajar" value="true" checked class="size-4 accent-[var(--marca)]">{{ icono("shuffle", "size-4") }}Barajar</label>
+      <label class="flex cursor-pointer items-center gap-2"><input type="checkbox" name="imagenes" value="true" checked class="size-4 accent-[var(--marca)]">{{ icono("image", "size-4") }}Mostrar imágenes de la ficha en el reverso</label>
+    </div>
+    <div class="flex flex-wrap items-center justify-between gap-3 border-t border-borde pt-4">
+      {% if resumen.lo_se or resumen.repasar %}
+      <button type="button" class="btn-fantasma text-sm" hx-post="/tablas/{{ tabla.id }}/repaso/reiniciar"
+              hx-confirm="¿Borrar todas las marcas «lo sé» y «repasar» de esta tabla?">{{ icono("rotate-ccw") }}Empezar de cero</button>
+      {% else %}<span></span>{% endif %}
+      <button class="btn-primario">{{ icono("graduation-cap") }}Empezar a repasar</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

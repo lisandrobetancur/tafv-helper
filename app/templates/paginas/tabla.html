@@ -10,7 +10,8 @@
       {% if tabla.num_imagenes %} · {{ plural(tabla.num_imagenes, "imagen", "imágenes") }}{% endif %}
       · actualizada el {{ tabla.actualizado[:10] }}</p>
   </div>
-  <div class="flex items-center gap-2">
+  <div class="flex flex-wrap items-center gap-2">
+    <a class="btn-primario" href="/tablas/{{ tabla.id }}/repaso">{{ icono("graduation-cap") }}Modo repaso</a>
     <button class="btn-secundario" hx-get="/tablas/{{ tabla.id }}/actualizar" hx-target="#modal">{{ icono("refresh-cw") }}Actualizar desde Excel</button>
     <div class="relative" x-data="desplegable" @click.outside="cerrar()" @keydown.escape="cerrar()">
       <button type="button" class="btn-secundario px-2.5" @click="alternar()" aria-label="Más acciones" :aria-expanded="abierto">{{ icono("ellipsis-vertical") }}</button>

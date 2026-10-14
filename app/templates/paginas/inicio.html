@@ -16,6 +16,16 @@
     {{ boton_modal("/materias/nueva", "Crear la primera materia") }}
   {% endcall %}
 {% else %}
+  {% if ocr_paginas or ocr_imagenes %}
+  <div class="mb-6 flex flex-wrap items-center gap-3 rounded-xl border border-alerta/40 bg-alerta-suave px-4 py-3 text-sm"
+       hx-get="/" hx-select="#estado-ocr-inicio" hx-target="this" hx-swap="outerHTML" hx-trigger="every 5s" id="estado-ocr-inicio">
+    {{ icono("loader-circle", "size-5 animate-spin text-alerta") }}
+    <span class="flex-1">Leyendo texto con OCR en segundo plano:
+      {% if ocr_paginas %}{{ plural(ocr_paginas, "página escaneada", "páginas escaneadas") }}{% endif %}{% if ocr_paginas and ocr_imagenes %} y {% endif %}
+      {%- if ocr_imagenes %}{{ plural(ocr_imagenes, "imagen", "imágenes") }}{% endif %} pendientes. Puedes seguir usando la biblioteca.</span>
+  </div>
+  {% else %}<div id="estado-ocr-inicio"></div>{% endif %}
+
   <section aria-labelledby="t-materias">
     <div class="mb-3 flex items-center justify-between">
       <h2 id="t-materias" class="titulo-seccion">Materias</h2>
@@ -47,6 +57,29 @@
       <p class="rounded-xl border border-dashed border-borde-fuerte p-6 text-center text-sm text-tenue">Todas tus materias están archivadas.</p>
     {% endif %}
   </section>
+
+  {% if recientes or favoritos %}
+  <div class="mt-10 grid gap-6 lg:grid-cols-2">
+    {% for titulo_seccion, ic, lista, vacio_txt in [("Abiertos recientemente", "clock", recientes, ""), ("Favoritos", "star", favoritos, "")] %}
+    {% if lista %}
+    <section>
+      <h2 class="titulo-seccion mb-3 flex items-center gap-2">{{ icono(ic, "size-3.5") }}{{ titulo_seccion }}</h2>
+      <ul class="tarjeta divide-y divide-borde overflow-hidden">
+        {% for e in lista %}
+        <li><a href="{{ e.url }}" class="flex items-center gap-3 px-4 py-2.5 hover:bg-superficie-2/70">
+          <span class="grid size-8 shrink-0 place-items-center rounded-lg bg-superficie-2 text-tenue">{{ icono(e.icono, "size-4") }}</span>
+          <span class="min-w-0 flex-1">
+            <span class="block truncate text-sm font-medium">{{ e.titulo }}</span>
+            <span class="flex items-center gap-1.5 truncate text-[11px] text-tenue"><span class="size-2 shrink-0 rounded-full" style="background: {{ e.color }}"></span>{{ e.nombre_tipo }} · {{ e.ubicacion }}</span>
+          </span>
+        </a></li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+    {% endfor %}
+  </div>
+  {% endif %}
 
   {% if archivadas %}
   <details class="group mt-10">

@@ -1,0 +1,8 @@
+{# Botón de favorito (estrella). Requiere: tipo, ref_id, activo #}
+{% from "macros.html" import icono %}
+<button type="button" class="btn-secundario px-2.5 {{ 'border-oro/50 bg-oro-suave text-oro hover:text-oro' if activo }}"
+        hx-post="/favoritos/{{ tipo }}/{{ ref_id }}" hx-swap="outerHTML"
+        title="{{ 'Quitar de favoritos' if activo else 'Agregar a favoritos' }}" aria-pressed="{{ 'true' if activo else 'false' }}"
+        aria-label="{{ 'Quitar de favoritos' if activo else 'Agregar a favoritos' }}">
+  <svg class="ic size-4 {{ 'fill-current' if activo }}" aria-hidden="true"><use href="/static/vendor/lucide/sprite.svg#star"/></svg>
+</button>

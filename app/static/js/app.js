@@ -219,6 +219,38 @@
       },
     }));
 
+    // ------------------------------------------------- modo repaso (flashcards)
+    // Espacio: dar vuelta · →: lo sé · ←: repasar. Cada marca se guarda en el servidor.
+    Alpine.data("repaso", (tarjetas) => ({
+      tarjetas, i: 0, volteada: false, terminado: false, resultados: {},
+      get actual() { return this.tarjetas[this.i] || { imagenes: [] }; },
+      get loSe() { return Object.values(this.resultados).filter((e) => e === "lo_se").length; },
+      get porRepasar() { return Object.values(this.resultados).filter((e) => e === "repasar").length; },
+      get progreso() { return Math.round((Object.keys(this.resultados).length / this.tarjetas.length) * 100); },
+      girar() { this.volteada = !this.volteada; },
+      async marcar(estado) {
+        const tarjeta = this.actual;
+        this.resultados[tarjeta.fila_id] = estado;
+        const datos = new FormData();
+        datos.append("estado", estado);
+        fetch(`/repaso/${tarjeta.fila_id}`, { method: "POST", body: datos })
+          .catch(() => avisar("No se pudo guardar la marca de esta tarjeta.", "error"));
+        if (this.i + 1 < this.tarjetas.length) { this.i++; this.volteada = false; }
+        else { this.terminado = true; }
+      },
+      repetirFalladas() {
+        this.tarjetas = this.tarjetas.filter((t) => this.resultados[t.fila_id] === "repasar");
+        this.resultados = {}; this.i = 0; this.volteada = false; this.terminado = false;
+      },
+      teclas(e) {
+        const enCampo = e.target instanceof Element && e.target.closest("input, textarea, select");
+        if (this.terminado || enCampo || document.querySelector("dialog[open]")) return;
+        if (e.key === " ") { e.preventDefault(); this.girar(); }
+        else if (this.volteada && e.key === "ArrowRight") { e.preventDefault(); this.marcar("lo_se"); }
+        else if (this.volteada && e.key === "ArrowLeft") { e.preventDefault(); this.marcar("repasar"); }
+      },
+    }));
+
     // ------------------------------------------------ visor con zoom (lightbox)
     // Se abre con: $dispatch('abrir-visor', { imagenes: [{src, titulo, pie}], indice })
     Alpine.data("visor", () => ({

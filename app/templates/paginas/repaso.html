@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% from "macros.html" import icono, vacio %}
+{% block titulo %}Repasando · {{ tabla.nombre }}{% endblock %}
+{% block contenido %}
+{% if not tarjetas %}
+  {% call vacio("graduation-cap", "No hay tarjetas para repasar", "Con esas opciones no queda ninguna tarjeta. Prueba con «Todas».") %}
+    <a href="/tablas/{{ tabla.id }}/repaso" class="btn-primario">{{ icono("chevron-left") }}Volver a las opciones</a>
+  {% endcall %}
+{% else %}
+<div class="mx-auto max-w-3xl" x-data="repaso({{ tarjetas|tojson|forceescape }})" @keydown.window="teclas($event)">
+  {# Progreso #}
+  <div class="mb-4 flex items-center gap-3 text-sm text-tenue">
+    <span x-text="terminado ? 'Terminado' : `Tarjeta ${i + 1} de ${tarjetas.length}`"></span>
+    <div class="h-2 flex-1 overflow-hidden rounded-full bg-superficie-3"><div class="h-full bg-marca transition-all" :style="`width:${progreso}%`"></div></div>
+    <span class="text-exito" x-text="`✓ ${loSe}`"></span><span class="text-alerta" x-text="`↺ ${porRepasar}`"></span>
+  </div>
+
+  <template x-if="!terminado">
+    <div>
+      <button type="button" class="tarjeta relative flex min-h-[340px] w-full flex-col items-center justify-center gap-4 p-8 text-center transition hover:border-borde-fuerte"
+              @click="girar()" :aria-label="volteada ? 'Ocultar la respuesta' : 'Mostrar la respuesta'">
+        <span class="absolute left-4 top-3 text-[11px] font-semibold uppercase tracking-wide text-tenue"
+              x-text="volteada ? {{ nombre_reverso|tojson|forceescape }} : {{ nombre_frente|tojson|forceescape }}"></span>
+        <p class="whitespace-pre-wrap text-2xl font-semibold leading-snug [overflow-wrap:anywhere]" x-show="!volteada" x-text="actual.frente || '(vacío)'"></p>
+        <div x-show="volteada" x-cloak class="flex w-full flex-col items-center gap-4">
+          <p class="text-sm text-tenue" x-text="actual.frente"></p>
+          <p class="whitespace-pre-wrap text-xl leading-relaxed [overflow-wrap:anywhere]" x-text="actual.reverso || '(vacío)'"></p>
+          <div class="flex flex-wrap justify-center gap-2" x-show="actual.imagenes.length">
+            <template x-for="(img, n) in actual.imagenes" :key="img.src">
+              <img :src="img.mini" :alt="img.titulo" class="h-28 cursor-zoom-in rounded-lg border border-borde object-cover"
+                   @click.stop="$dispatch('abrir-visor', { imagenes: actual.imagenes, indice: n })">
+            </template>
+          </div>
+        </div>
+        <span class="absolute bottom-3 text-xs text-tenue" x-show="!volteada">Haz clic o pulsa la barra espaciadora para ver la respuesta</span>
+      </button>
+
+      <div class="mt-5 flex justify-center gap-3" x-show="volteada" x-cloak>
+        <button type="button" class="btn-secundario min-w-40 border-alerta/50 text-alerta hover:bg-alerta-suave hover:text-alerta" @click="marcar('repasar')">
+          {{ icono("rotate-ccw") }}Repasar <kbd class="text-[10px] opacity-60">←</kbd></button>
+        <button type="button" class="btn-primario min-w-40 !bg-exito hover:opacity-90" @click="marcar('lo_se')">
+          {{ icono("circle-check") }}Lo sé <kbd class="text-[10px] opacity-70">→</kbd></button>
+      </div>
+      <p class="mt-4 text-center">
+        <a :href="'/filas/' + actual.fila_id" class="text-xs text-tenue hover:text-marca">Abrir la ficha completa</a></p>
+    </div>
+  </template>
+
+  <template x-if="terminado">
+    <div class="tarjeta flex flex-col items-center gap-3 p-10 text-center">
+      <span class="grid size-14 place-items-center rounded-2xl bg-exito-suave text-exito">{{ icono("circle-check", "size-7") }}</span>
+      <h2 class="text-xl font-semibold">¡Terminaste la sesión!</h2>
+      <p class="text-tenue" x-text="`Sabías ${loSe} de ${tarjetas.length}. Te quedan ${porRepasar} para repasar.`"></p>
+      <div class="mt-2 flex flex-wrap justify-center gap-2">
+        <button type="button" class="btn-primario" x-show="porRepasar" @click="repetirFalladas()">{{ icono("rotate-ccw") }}Repasar las que fallé</button>
+        <a href="/tablas/{{ tabla.id }}/repaso" class="btn-secundario">Nuevas opciones</a>
+        <a href="/tablas/{{ tabla.id }}" class="btn-fantasma">Volver a la tabla</a>
+      </div>
+    </div>
+  </template>
+</div>
+{% endif %}
+{% endblock %}

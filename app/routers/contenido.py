@@ -84,7 +84,10 @@ def ver_imagen(request: Request, imagen_id: int, con: sqlite3.Connection = Depen
     vecinas = img_srv.listar(con, comp.id)
     ids = [i.id for i in vecinas]
     pos = ids.index(img.id) if img.id in ids else 0
+    from ..services import favoritos as fav
+    fav.registrar_visita(con, "imagen", img.id)
     return pagina(request, con, "paginas/imagen.html", imagen=img, componente=comp, materia_activa=comp.materia_id,
+                  favorito=fav.es_favorito(con, "imagen", img.id),
                   anterior=ids[pos - 1] if pos > 0 else None, siguiente=ids[pos + 1] if pos + 1 < len(ids) else None,
                   migas=_migas_componente(con, comp.id) + [{"texto": img.titulo}])
 
@@ -185,7 +188,10 @@ def vista_previa(contenido: str = Form(""), formato: str = Form("markdown")):
 def ver_nota(request: Request, nota_id: int, con: sqlite3.Connection = Depends(obtener_db)):
     nota = notas_srv.obtener(con, nota_id)
     comp = bib.obtener_componente(con, nota.componente_id)
+    from ..services import favoritos as fav
+    fav.registrar_visita(con, "nota", nota.id)
     return pagina(request, con, "paginas/nota.html", nota=nota, html=notas_srv.renderizar(nota.contenido, nota.formato),
+                  favorito=fav.es_favorito(con, "nota", nota.id),
                   materia_activa=comp.materia_id, migas=_migas_componente(con, comp.id) + [{"texto": nota.titulo}])
 
 

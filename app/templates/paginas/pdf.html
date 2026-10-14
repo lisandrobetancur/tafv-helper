@@ -9,8 +9,10 @@
     <p class="mt-0.5 text-sm text-tenue">{{ plural(pdf.paginas, "página", "páginas") }} · {{ "%.1f"|format(pdf.bytes / 1048576) }} MB
       · {{ pdf.archivo.split("/")[-1] }}{% if numero %} · abierto en la página {{ numero }}{% endif %}</p>
     <div class="mt-2 flex max-w-xs">{% include "parciales/pdf_estado.html" %}</div>
+    <div class="mt-2">{% with tipo="pdf", ref_id=pdf.id %}{% include "parciales/etiquetas_editor.html" %}{% endwith %}</div>
   </div>
   <div class="flex items-center gap-2">
+    {% with tipo="pdf", ref_id=pdf.id, activo=favorito %}{% include "parciales/estrella.html" %}{% endwith %}
     <a class="btn-secundario" href="/pdfs/{{ pdf.id }}/descargar" hx-boost="false">{{ icono("download") }}Descargar</a>
     <div class="relative" x-data="desplegable" @click.outside="cerrar()" @keydown.escape="cerrar()">
       <button type="button" class="btn-secundario px-2.5" @click="alternar()" aria-label="Más acciones" :aria-expanded="abierto">{{ icono("ellipsis-vertical") }}</button>

@@ -259,6 +259,8 @@ def ver_tabla(request: Request, tabla_id: int, con: sqlite3.Connection = Depends
     if request.headers.get("HX-Target") == "region-tabla":
         return parcial(request, "parciales/tabla_region.html", **contexto)
     c = bib.obtener_componente(con, t.componente_id)
+    from ..services import favoritos as fav
+    fav.registrar_visita(con, "tabla", t.id)
     return pagina(request, con, "paginas/tabla.html", **contexto, componente=c,
                   migas=_migas_componente(con, c.id) + [{"texto": t.nombre}], materia_activa=c.materia_id)
 
@@ -326,7 +328,11 @@ def ver_fila(request: Request, fila_id: int, con: sqlite3.Connection = Depends(o
     t = tab.obtener(con, fila.tabla_id)
     c = bib.obtener_componente(con, t.componente_id)
     anterior, siguiente = tab.vecinas(con, fila)
+    from ..services import etiquetas as etq
+    from ..services import favoritos as fav
+    fav.registrar_visita(con, "fila", fila.id)
     return pagina(request, con, "paginas/fila.html", fila=fila, tabla=t, imagenes=imf.listar(con, fila.id),
+                  favorito=fav.es_favorito(con, "fila", fila.id), etiquetas=etq.de(con, "fila", fila.id),
                   anterior=anterior, siguiente=siguiente, materia_activa=c.materia_id,
                   migas=_migas_componente(con, c.id) + [{"texto": t.nombre, "url": f"/tablas/{t.id}"},
                                                         {"texto": fila.titulo}])

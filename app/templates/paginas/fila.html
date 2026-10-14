@@ -8,8 +8,10 @@
        x-data :href="sessionStorage.getItem('ultima-tabla-{{ tabla.id }}') || '/tablas/{{ tabla.id }}'">{{ tabla.nombre }}</a>
       {% if fila.fila_origen %}· fila {{ fila.fila_origen }} del Excel{% endif %}</p>
     <h1 class="whitespace-pre-wrap text-2xl font-bold tracking-tight sm:text-3xl" data-resaltar="{{ request.query_params.get('buscar', '') }}">{{ fila.titulo }}</h1>
+    <div class="mt-2">{% with tipo="fila", ref_id=fila.id %}{% include "parciales/etiquetas_editor.html" %}{% endwith %}</div>
   </div>
   <nav class="flex items-center gap-1" aria-label="Fichas vecinas">
+    {% with tipo="fila", ref_id=fila.id, activo=favorito %}{% include "parciales/estrella.html" %}{% endwith %}
     <a {% if anterior %}href="/filas/{{ anterior }}"{% endif %} class="btn-secundario {{ 'pointer-events-none opacity-40' if not anterior }}" title="Ficha anterior">{{ icono("chevron-left") }}<span class="hidden sm:inline">Anterior</span></a>
     <a {% if siguiente %}href="/filas/{{ siguiente }}"{% endif %} class="btn-secundario {{ 'pointer-events-none opacity-40' if not siguiente }}" title="Ficha siguiente"><span class="hidden sm:inline">Siguiente</span>{{ icono("chevron-right") }}</a>
   </nav>

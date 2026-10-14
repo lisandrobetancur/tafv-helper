@@ -15,8 +15,12 @@ router = APIRouter()
 
 @router.get("/")
 def inicio(request: Request, con: sqlite3.Connection = Depends(obtener_db)):
+    from ..services import favoritos as fav
+    from ..services import imagenes, pdfs
     return pagina(request, con, "paginas/inicio.html",
-                  materias=bib.listar_materias(con), archivadas=bib.listar_materias(con, archivadas=True))
+                  materias=bib.listar_materias(con), archivadas=bib.listar_materias(con, archivadas=True),
+                  recientes=fav.recientes(con, 8), favoritos=fav.favoritos(con, 12),
+                  ocr_paginas=pdfs.ocr_pendiente_total(con), ocr_imagenes=imagenes.ocr_pendientes(con))
 
 
 # -------------------------------------------------------------------- papelera

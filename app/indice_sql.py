@@ -27,12 +27,13 @@ TIPOS: dict[str, tuple[int, str, str, str]] = {
     "tabla": (3, "tablas", "nombre", """
         SELECT o.id, o.nombre, '', o.id, NULL, o.id, o.componente_id, c.materia_id
         FROM tablas o JOIN componentes c ON c.id = o.componente_id"""),
-    "fila": (4, "filas", "titulo, valores", """
-        SELECT o.id, o.titulo, (SELECT group_concat(value, ' · ') FROM json_each(o.valores)),
+    "fila": (4, "filas", "titulo, valores", f"""
+        SELECT o.id, o.titulo, (SELECT group_concat(value, ' · ') FROM json_each(o.valores))
+               || ' ' || COALESCE({_ETQ.format(tipo='fila', alias='o')}, ''),
                o.id, NULL, o.tabla_id, t.componente_id, c.materia_id
         FROM filas o JOIN tablas t ON t.id = o.tabla_id JOIN componentes c ON c.id = t.componente_id"""),
-    "pdf": (5, "pdfs", "titulo", """
-        SELECT o.id, o.titulo, '', o.id, NULL, o.id, o.componente_id, c.materia_id
+    "pdf": (5, "pdfs", "titulo", f"""
+        SELECT o.id, o.titulo, COALESCE({_ETQ.format(tipo='pdf', alias='o')}, ''), o.id, NULL, o.id, o.componente_id, c.materia_id
         FROM pdfs o JOIN componentes c ON c.id = o.componente_id"""),
     "pagina": (6, "pdf_paginas", "texto", """
         SELECT o.id, d.titulo, o.texto, d.id, o.numero, d.id, d.componente_id, c.materia_id
@@ -80,8 +81,8 @@ def migracion() -> str:
         DELETE FROM busqueda WHERE rowid = {codigo} * {BASE} + OLD.id;
         {_insertar(tipo, codigo, "WHERE fuente = NEW.id")}
     END;""")
-    # Al cambiar las etiquetas de una imagen o nota se rehace su documento
-    for tipo in ("imagen", "nota"):
+    # Al cambiar las etiquetas de un elemento se rehace su documento
+    for tipo in ("imagen", "nota", "fila", "pdf"):
         codigo = TIPOS[tipo][0]
         for evento, fila in (("INSERT", "NEW"), ("DELETE", "OLD")):
             partes.append(f"""
@@ -92,6 +93,20 @@ def migracion() -> str:
     END;""")
     partes.append(reconstruir())
     return "\n".join(partes)
+
+
+def recrear() -> str:
+    """Borra el índice, sus vistas y triggers y los vuelve a crear con las definiciones actuales
+    (para migraciones que cambian qué se indexa)."""
+    borrar = ["DROP TABLE IF EXISTS busqueda;"]
+    for tipo in TIPOS:
+        borrar.append(f"DROP VIEW IF EXISTS doc_{tipo};")
+        for evento in ("alta", "baja", "cambio"):
+            borrar.append(f"DROP TRIGGER IF EXISTS busqueda_{tipo}_{evento};")
+    for tipo in ("imagen", "nota", "fila", "pdf"):
+        for evento in ("insert", "delete"):
+            borrar.append(f"DROP TRIGGER IF EXISTS busqueda_etiquetas_{tipo}_{evento};")
+    return "\n".join(borrar) + "\n" + migracion()
 
 
 def reconstruir() -> str:
