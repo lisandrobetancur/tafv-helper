@@ -45,7 +45,7 @@
                  x-text="navigator.platform.toUpperCase().includes('MAC') ? '⌘ K' : 'Ctrl K'">Ctrl K</kbd>
           </form>
           <span id="ocr-estado" hx-get="/ocr/estado" hx-trigger="load" hx-swap="outerHTML" class="ml-auto"></span>
-          <div class="ml-auto flex items-center gap-1" x-data role="group" aria-label="Tema de color">
+          <div class="ml-auto hidden items-center gap-1 sm:flex" x-data role="group" aria-label="Tema de color">
             {% for valor, nombre, ic in [("claro", "Modo claro", "sun"), ("sistema", "Según el sistema", "monitor"), ("oscuro", "Modo oscuro", "moon")] %}
             <button type="button" class="btn-icono" title="{{ nombre }}" aria-label="{{ nombre }}"
                     :class="$store.tema.valor === '{{ valor }}' && 'bg-superficie-2 text-texto'"

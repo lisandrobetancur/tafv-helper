@@ -40,7 +40,7 @@
        class="tarjeta overflow-hidden">
     <div class="flex gap-1 overflow-x-auto border-b border-borde bg-superficie-2/60 px-2 pt-2" role="tablist">
       {% for t in componente.tipos_info %}
-      <button type="button" role="tab" class="-mb-px inline-flex items-center gap-2 rounded-t-lg border border-transparent px-4 py-2.5 text-sm font-medium text-tenue hover:text-texto"
+      <button type="button" role="tab" class="-mb-px inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-t-lg border border-transparent px-4 py-2.5 text-sm font-medium text-tenue hover:text-texto"
               :class="pestana === '{{ t.id }}' && 'border-borde !border-b-superficie bg-superficie !text-marca'"
               :aria-selected="pestana === '{{ t.id }}'" @click="pestana = '{{ t.id }}'; history.replaceState(null, '', '#{{ t.id }}')">{{ icono(t.icono) }}{{ t.nombre }}</button>
       {% endfor %}

@@ -54,8 +54,8 @@ def main() -> None:
     puerto = puerto_libre(args.puerto)
     url = f"http://127.0.0.1:{puerto}/"
     if puerto != args.puerto:
-        print(f"El puerto {args.puerto} está ocupado; se usa el {puerto}.")
-    print(f"\n  Biblioteca de Estudio abierta en {url}\n  Para cerrarla, cierra esta ventana o pulsa Ctrl+C.\n")
+        print(f"El puerto {args.puerto} está ocupado; se usa el {puerto}.", flush=True)
+    print(f"\n  Biblioteca de Estudio abierta en {url}\n  Para cerrarla, cierra esta ventana o pulsa Ctrl+C.\n", flush=True)
     if not args.sin_navegador:
         threading.Thread(target=abrir_cuando_este_listo, args=(url,), daemon=True).start()
     uvicorn.run("app.main:app", host="127.0.0.1", port=puerto, log_level="warning")
