@@ -317,3 +317,29 @@ def test_titulo_sugerido_con_columna_agrupadora(tmp_path: Path) -> None:
     assert filas[1][1][4] == "Broncodilatador\nAntiinflamatorio"     # saltos de línea intactos
     sin_preferidas = [lector.Columna(0, "A", "Sistema", ["Resp", "Resp"], 2), lector.Columna(1, "B", "Columna B", ["a", "b"], 2)]
     assert lector.columna_titulo_sugerida(sin_preferidas) == 1       # la primera sin valores repetidos
+
+
+def test_cambiar_columna_del_titulo(con, tmp_path: Path) -> None:
+    mid = bib.crear_materia(con, "Farmacología vegetal", "", "verde", "sprout")
+    cid = bib.crear_componente(con, mid, None, "Vademécum", "", ["excel"])
+    wb = Workbook()
+    ws = wb.active
+    ws.append(["Sistema", "Nombre", "Accion"])
+    ws.append(["Gastrointestinal\nLas plantas con acción sobre el sistema digestivo…", "Verbena", "Antidiarreico"])
+    ws.append([None, "Manzanilla", "Carminativo"])
+    ws.merge_cells("A2:A3")
+    wb.save(tmp_path / "v.xlsx")
+    estado = imp.crear(con, cid, "v.xlsx", tmp_path / "v.xlsx", "Vademécum")
+    cfg = imp.config_sugerida(estado, 0, imp.hojas(estado)[0])
+    cfg.titulo = 0                                                     # como quedó una importación vieja
+    estado.poner_config(0, cfg)
+    imp.guardar(estado)
+    [tid] = tab.importar(con, estado)
+    t = tab.obtener(con, tid)
+    with pytest.raises(ErrorUsuario):
+        tab.cambiar_titulo(con, tid, "zzz")
+    t = tab.cambiar_titulo(con, tid, t.claves[1])
+    filas = tab.consultar(con, t, tab.Consulta())[0]
+    assert [f.titulo for f in filas] == ["Verbena", "Manzanilla"] and t.columna_titulo == t.claves[1]
+    from app.services import busqueda as bus
+    assert bus.buscar(con, "manzanilla").resultados[0].titulo.striptags() == "Manzanilla"   # índice al día

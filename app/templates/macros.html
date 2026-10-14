@@ -15,8 +15,10 @@
   <a href="/" class="inline-flex items-center gap-1 rounded-md px-1 hover:text-texto">{{ icono("house", "size-3.5") }}Inicio</a>
   {% for m in items %}
     {{ icono("chevron-right", "size-3.5 opacity-60") }}
-    {% if m.url %}<a href="{{ m.url }}" class="rounded-md px-1 hover:text-texto">{{ m.texto }}</a>
-    {% else %}<span class="px-1 font-medium text-texto" aria-current="page">{{ m.texto }}</span>{% endif %}
+    {# Textos largos (p. ej. un título de fila con varias líneas) se recortan a una línea #}
+    {% set texto = m.texto.split("\n")[0]|truncate(60, true, "…") %}
+    {% if m.url %}<a href="{{ m.url }}" class="max-w-[24rem] truncate rounded-md px-1 hover:text-texto" title="{{ m.texto }}">{{ texto }}</a>
+    {% else %}<span class="max-w-[24rem] truncate px-1 font-medium text-texto" aria-current="page" title="{{ m.texto }}">{{ texto }}</span>{% endif %}
   {% endfor %}
 </nav>
 {% endif %}

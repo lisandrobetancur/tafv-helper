@@ -302,6 +302,25 @@ def _retirar_archivo_si_nadie_lo_usa(con: sqlite3.Connection, componente_id: int
 
 
 # --------------------------------------------------------------------- edición
+def cambiar_titulo(con: sqlite3.Connection, tabla_id: int, clave: str) -> Tabla:
+    """Elige otra columna como título de las fichas (sin volver a importar el Excel)."""
+    t = obtener(con, tabla_id)
+    if clave not in t.claves:
+        raise ErrorUsuario("Elige una de las columnas de la tabla.")
+    filas = con.execute("SELECT id, valores FROM filas WHERE tabla_id=?", (t.id,)).fetchall()
+    with transaccion(con):
+        con.execute("UPDATE tablas SET columna_titulo=?, actualizado=? WHERE id=?", (clave, ahora(), t.id))
+        for f in filas:
+            valores = json.loads(f["valores"])
+            titulo = (valores.get(clave) or "").strip() or "(sin título)"
+            if t.columna_clave:   # la clave para emparejar filas al actualizar el Excel no cambia
+                con.execute("UPDATE filas SET titulo=? WHERE id=?", (titulo, f["id"]))
+            else:                 # sin clave, las filas se emparejan por el título
+                con.execute("UPDATE filas SET titulo=?, clave_norm=? WHERE id=?",
+                            (titulo, normalizar(valores.get(clave, "")), f["id"]))
+    return obtener(con, t.id)
+
+
 def renombrar(con: sqlite3.Connection, tabla_id: int, nombre: str) -> None:
     obtener(con, tabla_id)
     nombre = " ".join((nombre or "").split())

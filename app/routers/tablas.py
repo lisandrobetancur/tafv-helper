@@ -291,6 +291,22 @@ def renombrar_tabla(request: Request, tabla_id: int, nombre: str = Form(""), con
     return redirigir(request, f"/tablas/{tabla_id}", "Nombre actualizado.")
 
 
+@router.get("/tablas/{tabla_id}/titulo")
+def formulario_titulo(request: Request, tabla_id: int, con: sqlite3.Connection = Depends(obtener_db)):
+    t = tab.obtener(con, tabla_id)
+    ejemplos = {c["clave"]: [r[0] for r in con.execute(
+        "SELECT json_extract(valores, '$.' || ?) FROM filas WHERE tabla_id=? ORDER BY posicion LIMIT 3", (c["clave"], t.id))]
+        for c in t.columnas}
+    return parcial(request, "parciales/modal_titulo.html", tabla=t, ejemplos=ejemplos)
+
+
+@router.post("/tablas/{tabla_id}/titulo")
+def cambiar_titulo(request: Request, tabla_id: int, clave: str = Form(""), con: sqlite3.Connection = Depends(obtener_db)):
+    t = tab.cambiar_titulo(con, tabla_id, clave)
+    nombre = next(c["nombre"] for c in t.columnas if c["clave"] == clave)
+    return redirigir(request, f"/tablas/{t.id}", f"Las fichas ahora se titulan con «{nombre}».")
+
+
 @router.get("/tablas/{tabla_id}/eliminar")
 def confirmar_eliminar_tabla(request: Request, tabla_id: int, con: sqlite3.Connection = Depends(obtener_db)):
     t = tab.obtener(con, tabla_id)

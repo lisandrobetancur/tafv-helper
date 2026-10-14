@@ -1,13 +1,27 @@
 {% extends "base.html" %}
 {% from "macros.html" import icono %}
-{% block titulo %}{{ fila.titulo }}{% endblock %}
+{% block titulo %}{{ fila.titulo.split("\n")[0]|truncate(80, true, "…") }}{% endblock %}
 {% block contenido %}
 <section class="mb-6 flex flex-wrap items-start gap-4">
   <div class="min-w-0 flex-1">
     <p class="text-sm text-tenue">Ficha de <a href="/tablas/{{ tabla.id }}" class="font-medium hover:text-marca"
        x-data :href="sessionStorage.getItem('ultima-tabla-{{ tabla.id }}') || '/tablas/{{ tabla.id }}'">{{ tabla.nombre }}</a>
       {% if fila.fila_origen %}· fila {{ fila.fila_origen }} del Excel{% endif %}</p>
-    <h1 class="whitespace-pre-wrap text-2xl font-bold tracking-tight sm:text-3xl" data-resaltar="{{ request.query_params.get('buscar', '') }}">{{ fila.titulo }}</h1>
+    {# Si la celda del título trae más texto (varias líneas o un párrafo), el título es la primera línea
+       y el resto se muestra aparte, en letra normal y recortado con «Ver todo» #}
+    {% set lineas_titulo = fila.titulo.strip().split("\n") %}
+    {% set principal = lineas_titulo[0] %}
+    {% set resto = lineas_titulo[1:]|join("\n") %}
+    {% if principal|length > 120 %}{% set resto = (principal[120:] ~ "\n" ~ resto).strip() %}{% set principal = principal[:120] ~ "…" %}{% endif %}
+    <h1 class="text-2xl font-bold tracking-tight [overflow-wrap:anywhere] sm:text-3xl" data-resaltar="{{ request.query_params.get('buscar', '') }}">{{ principal }}</h1>
+    {% if resto.strip() %}
+    <div x-data="{ todo: false }" class="mt-2 max-w-4xl">
+      <p class="whitespace-pre-wrap text-sm text-tenue [overflow-wrap:anywhere]" :class="todo || 'line-clamp-3'"
+         data-resaltar="{{ request.query_params.get('buscar', '') }}">{{ resto.strip() }}</p>
+      <button type="button" class="mt-1 text-xs font-medium text-marca hover:underline" @click="todo = !todo"
+              x-text="todo ? 'Ver menos' : 'Ver todo'"></button>
+    </div>
+    {% endif %}
     <div class="mt-2">{% with tipo="fila", ref_id=fila.id %}{% include "parciales/etiquetas_editor.html" %}{% endwith %}</div>
   </div>
   <nav class="flex items-center gap-1" aria-label="Fichas vecinas">

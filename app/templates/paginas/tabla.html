@@ -17,6 +17,7 @@
       <button type="button" class="btn-secundario px-2.5" @click="alternar()" aria-label="Más acciones" :aria-expanded="abierto">{{ icono("ellipsis-vertical") }}</button>
       <div class="menu-flotante" x-show="abierto" x-cloak x-transition.origin.top.right @click="cerrar()">
         <button class="menu-item" hx-get="/tablas/{{ tabla.id }}/renombrar" hx-target="#modal">{{ icono("pencil") }}Cambiar nombre</button>
+        <button class="menu-item" hx-get="/tablas/{{ tabla.id }}/titulo" hx-target="#modal">{{ icono("heading") }}Columna del título</button>
         <a class="menu-item" href="/tablas/{{ tabla.id }}/descargar" hx-boost="false">{{ icono("download") }}Descargar el Excel original</a>
         {% if tabla.num_huerfanas %}
         <button class="menu-item" hx-get="/tablas/{{ tabla.id }}/huerfanas/eliminar" hx-target="#modal">{{ icono("filter") }}Quitar filas que ya no están en el Excel</button>
