@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+
+# Datos de la usuaria: viven en disco, no en git
+data/*
+!data/.gitkeep

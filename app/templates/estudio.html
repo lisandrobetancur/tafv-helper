@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block title %}Estudio homeopatía · TAFV Helper{% endblock %}
+{% block content %}
+<header class="page-head">
+  <div>
+    <p class="eyebrow">Estudio homeopatía</p>
+    <h1>Estudio homeopatía</h1>
+    <p class="lead">Consulta los registros del estudio y adjunta imágenes a cada uno.</p>
+  </div>
+  <div class="head-actions">
+    <span id="loaded-at" class="chip" hidden></span>
+    <button id="btn-reload" class="btn" title="Vuelve a leer el Excel (no lo modifica)">
+      <svg class="ic"><use href="#i-refresh"/></svg>Recargar Excel
+    </button>
+  </div>
+</header>
+
+<div class="tabs" role="tablist" aria-label="Vistas">
+  <button class="tab active" data-tab="filters" role="tab" aria-selected="true">
+    <svg class="ic"><use href="#i-filter"/></svg>Filtros
+  </button>
+  <button class="tab" data-tab="all" role="tab" aria-selected="false">
+    <svg class="ic"><use href="#i-list"/></svg>Registros <span id="tab-count" class="count"></span>
+  </button>
+</div>
+
+<section id="tab-filters" class="card filters-card">
+  <form id="filter-form" autocomplete="off">
+    <div class="filter-grid" id="filter-fields"></div>
+    <div class="filter-foot">
+      <span id="result-chip" class="chip chip-accent"></span>
+      <button type="button" id="btn-clear" class="btn btn-ghost">Limpiar filtros</button>
+    </div>
+  </form>
+</section>
+
+<div class="card table-card">
+  <div class="table-scroll" id="table-scroll">
+    <table id="records-table" class="data-table" aria-busy="true">
+      <thead></thead>
+      <tbody></tbody>
+    </table>
+    <div id="empty" class="empty" hidden>
+      <svg class="ic ic-xl"><use href="#i-search"/></svg>
+      <strong>Sin resultados</strong>
+      <span class="muted">Prueba con otros términos o limpia los filtros.</span>
+    </div>
+  </div>
+  <div class="pager" id="pager">
+    <div class="pager-left">
+      <label class="small muted" for="page-size">Filas por página</label>
+      <select id="page-size"><option>10</option><option selected>25</option><option>50</option><option>100</option></select>
+      <span id="summary" class="small muted"></span>
+    </div>
+    <nav class="pager-nav" id="pager-nav" aria-label="Paginación"></nav>
+  </div>
+</div>
+
+<dialog id="detail">
+  <div class="dialog-head">
+    <div>
+      <h2 id="detail-title"></h2>
+      <p id="detail-sub" class="small muted"></p>
+    </div>
+    <button class="icon-only" id="detail-close" aria-label="Cerrar"><svg class="ic"><use href="#i-x"/></svg></button>
+  </div>
+  <div class="dialog-body">
+    <div id="detail-fields" class="detail-fields"></div>
+    <section class="detail-images">
+      <h3><svg class="ic"><use href="#i-image"/></svg>Imágenes adjuntas</h3>
+      <div id="edit-zone">
+        <div id="dropzone" class="dropzone">
+          <svg class="ic ic-lg"><use href="#i-upload"/></svg>
+          <div>Arrastra imágenes aquí o
+            <label class="link-btn">elige archivos<input id="file-input" type="file" accept="image/*" multiple hidden></label>
+          </div>
+          <div class="muted small">JPG, PNG, GIF o WEBP · máx. 10 MB cada una</div>
+        </div>
+        <div id="upload-msg" class="error small"></div>
+      </div>
+      <div id="gallery" class="gallery"></div>
+    </section>
+  </div>
+</dialog>
+
+<dialog id="viewer">
+  <div class="dialog-head">
+    <h2 id="viewer-title"></h2>
+    <button class="icon-only" id="viewer-close" aria-label="Cerrar"><svg class="ic"><use href="#i-x"/></svg></button>
+  </div>
+  <div class="viewer-body">
+    <button class="icon-only nav" id="viewer-prev" aria-label="Imagen anterior"><svg class="ic"><use href="#i-left"/></svg></button>
+    <img id="viewer-img" alt="">
+    <button class="icon-only nav" id="viewer-next" aria-label="Imagen siguiente"><svg class="ic"><use href="#i-right"/></svg></button>
+  </div>
+  <div id="viewer-caption" class="viewer-foot small muted"></div>
+</dialog>
+<input id="row-file-input" type="file" accept="image/*" multiple hidden>
+{% endblock %}
+{% block scripts %}<script src="/static/estudio.js"></script>{% endblock %}
