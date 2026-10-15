@@ -3,8 +3,12 @@
 {% block titulo %}{{ "Editar nota" if nota else "Nueva nota" }}{% endblock %}
 {% block contenido %}
 {% set accion = "/notas/" ~ nota.id if nota else "/componentes/" ~ componente.id ~ "/notas" %}
-<form method="post" action="{{ accion }}" class="mx-auto flex max-w-6xl flex-col gap-4"
+<form method="post" action="{{ accion }}" hx-confirm="{{ '¿Guardar los cambios de la nota?' if nota else '¿Guardar esta nota?' }}" data-confirmar-boton="Guardar" class="mx-auto flex max-w-6xl flex-col gap-4"
       x-data="{ cambios: false }" @input="cambios = true" @submit="cambios = false"
+      {# Enter en el título o las etiquetas no guarda (la nota se guarda solo con el botón): pasa al campo siguiente #}
+      @keydown.enter="if ($event.target.tagName === 'INPUT') { $event.preventDefault();
+        const campos = [...$el.querySelectorAll('input:not([type=hidden]), select, textarea')];
+        campos[campos.indexOf($event.target) + 1]?.focus(); }"
       @keydown.window.ctrl.s.prevent="$el.requestSubmit()" @keydown.window.meta.s.prevent="$el.requestSubmit()">
   <div class="flex flex-wrap items-center justify-between gap-3">
     <h1 class="text-2xl font-bold tracking-tight">{{ "Editar nota" if nota else "Nueva nota" }}</h1>
