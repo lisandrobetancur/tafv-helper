@@ -35,16 +35,6 @@
       <p class="ayuda">Así se llamará la tabla en la biblioteca y el archivo guardado en tu carpeta.</p>
     </div>
 
-    {% if not tabla %}
-    <div>
-      <label class="etiqueta" for="i-etiquetas">Etiquetas <span class="font-normal text-tenue">(opcional, separadas por comas)</span></label>
-      <input id="i-etiquetas" name="etiquetas" class="campo" maxlength="300" value="{{ etiquetas or '' }}"
-             placeholder="Ej.: esencias florales, psicoterapia">
-      <p class="ayuda">Clasifican la tabla y la relacionan con notas, PDF e imágenes que tengan la misma etiqueta.
-        También puedes agregarlas o cambiarlas después, en la página de la tabla.</p>
-    </div>
-    {% endif %}
-
     <div x-show="progreso > 0 && progreso < 100" x-cloak>
       <div class="mb-1 flex justify-between text-xs text-tenue"><span>Subiendo…</span><span x-text="progreso + '%'"></span></div>
       <div class="h-2 overflow-hidden rounded-full bg-superficie-3"><div class="h-full bg-marca transition-all" :style="`width:${progreso}%`"></div></div>

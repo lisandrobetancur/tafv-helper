@@ -112,7 +112,7 @@ def asistente_actualizar(request: Request, tabla_id: int, con: sqlite3.Connectio
 
 @router.post("/importar")
 async def asistente_subir(request: Request, componente_id: int = Form(...), tabla_id: int | None = Form(None),
-                          nombre: str = Form(""), etiquetas: str = Form(""), archivo: UploadFile | None = File(None),
+                          nombre: str = Form(""), archivo: UploadFile | None = File(None),
                           con: sqlite3.Connection = Depends(obtener_db)):
     c = bib.obtener_componente(con, componente_id)
     t = tab.obtener(con, tabla_id) if tabla_id else None
@@ -121,12 +121,12 @@ async def asistente_subir(request: Request, componente_id: int = Form(...), tabl
             raise ErrorUsuario("Elige un archivo de Excel o CSV.")
         tmp = await guardar_subida(archivo, MAX_EXCEL)
         try:
-            estado = imp.crear(con, componente_id, archivo.filename, tmp, nombre, tabla_id=tabla_id, etiquetas=etiquetas)
+            estado = imp.crear(con, componente_id, archivo.filename, tmp, nombre, tabla_id=tabla_id)
         finally:
             tmp.unlink(missing_ok=True)
     except ErrorUsuario as e:
         return parcial(request, "parciales/importar/paso1.html", componente=c, tabla=t, paso=1, estado=None,
-                       error=e.mensaje, nombre=nombre, etiquetas=etiquetas)
+                       error=e.mensaje, nombre=nombre)
     con_datos = [i for i, h in enumerate(estado.hojas) if h["filas"]]
     if estado.es_reemplazo or len(con_datos) == 1:
         if estado.es_reemplazo:  # por defecto, la hoja con el mismo nombre que la tabla tenía
@@ -232,10 +232,6 @@ def asistente_confirmar(request: Request, token: str, con: sqlite3.Connection = 
             partes.append(f"{r.conservadas} conservadas por tener imágenes")
         return redirigir(request, f"/tablas/{estado.tabla_id}", "Tabla actualizada: " + ", ".join(partes) + ".")
     ids = tab.importar(con, estado)
-    if estado.etiquetas:   # las etiquetas escritas al subir el archivo, para cada tabla creada
-        from ..services import etiquetas as etq
-        for tid in ids:
-            etq.asignar(con, "tabla", tid, estado.etiquetas)
     texto = "Tabla importada." if len(ids) == 1 else f"{len(ids)} tablas importadas."
     return redirigir(request, f"/tablas/{ids[0]}", texto)
 

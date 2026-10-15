@@ -46,7 +46,6 @@ class Estado:
     actual: int = 0                 # posición dentro de `seleccion` en los pasos 3 y 4
     config: dict[str, dict] = field(default_factory=dict)
     duplicado_de: str | None = None
-    etiquetas: str = ""             # etiquetas para las tablas nuevas (opcional, separadas por comas)
 
     @property
     def es_reemplazo(self) -> bool:
@@ -75,7 +74,7 @@ def nombre_sugerido(nombre_archivo: str) -> str:
 
 
 def crear(con: sqlite3.Connection, componente_id: int, nombre_original: str, datos_archivo: Path,
-          nombre_descriptivo: str, tabla_id: int | None = None, etiquetas: str = "") -> Estado:
+          nombre_descriptivo: str, tabla_id: int | None = None) -> Estado:
     """Guarda el archivo subido, lo lee y crea el estado del asistente."""
     descriptivo = " ".join((nombre_descriptivo or "").split())[:80]
     if not descriptivo:
@@ -102,8 +101,7 @@ def crear(con: sqlite3.Connection, componente_id: int, nombre_original: str, dat
     estado = Estado(token=token, componente_id=componente_id, tabla_id=tabla_id, archivo_original=nombre,
                     nombre=descriptivo, hash=hash_,
                     hojas=[{"nombre": h.nombre, "filas": h.num_filas, "columnas": h.num_columnas} for h in leidas],
-                    duplicado_de=duplicado["nombre"] if duplicado and not tabla_id else None,
-                    etiquetas=(etiquetas or "").strip()[:300])
+                    duplicado_de=duplicado["nombre"] if duplicado and not tabla_id else None)
     con_datos = [i for i, h in enumerate(leidas) if h.filas]
     estado.seleccion = con_datos[:1] if len(con_datos) > 1 else con_datos
     guardar(estado)
