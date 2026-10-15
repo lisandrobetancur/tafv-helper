@@ -34,10 +34,11 @@
   <div class="grid gap-4 lg:grid-cols-2">
     <div class="flex flex-col">
       <label class="etiqueta" for="n-contenido">Contenido</label>
-      <textarea id="n-contenido" name="contenido" class="campo min-h-[55vh] flex-1 resize-y font-mono text-[13px] leading-relaxed"
+      <textarea id="n-contenido" name="contenido" @paste="pegarTabla($event)" class="campo min-h-[55vh] flex-1 resize-y font-mono text-[13px] leading-relaxed"
                 hx-post="/notas/vista-previa" hx-include="#n-formato" hx-target="#vista-previa" hx-trigger="input changed delay:400ms"
                 placeholder="# Título&#10;&#10;- Puntos clave&#10;- **Negrita** y *cursiva*&#10;&#10;| Fármaco | Dosis |&#10;|---|---|&#10;| Ibuprofeno | 400 mg |">{{ valores.contenido }}</textarea>
-      <p class="ayuda">Markdown: <code># Título</code>, <code>**negrita**</code>, <code>- lista</code>, <code>| tabla |</code>.</p>
+      <p class="ayuda">Markdown: <code># Título</code>, <code>**negrita**</code>, <code>- lista</code>, <code>| tabla |</code>.
+        Puedes copiar celdas de Excel y pegarlas aquí: se convierten solas en tablas.</p>
     </div>
     <div class="flex flex-col">
       <span class="etiqueta">Vista previa</span>

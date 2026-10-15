@@ -8,6 +8,72 @@
     window.dispatchEvent(new CustomEvent("aviso", { detail: { mensaje, tipo } }));
   window.avisar = avisar;
 
+  // ------------------------------------------------ pegar tablas de Excel
+  // Excel copia las celdas como texto separado por tabuladores (las celdas con saltos de línea van
+  // entre comillas). Se convierten en tablas Markdown: cada bloque separado por una fila vacía es una
+  // tabla; una fila con una sola celda encima del bloque es su título; se quitan las columnas vacías.
+  const leerTSV = (texto) => {
+    const filas = [];
+    let fila = [], celda = "", comillas = false;
+    texto = texto.replace(/\r\n?/g, "\n");
+    for (let i = 0; i < texto.length; i++) {
+      const c = texto[i];
+      if (comillas) {
+        if (c === '"' && texto[i + 1] === '"') { celda += '"'; i++; }
+        else if (c === '"') comillas = false;
+        else celda += c;
+      } else if (c === '"' && celda === "") comillas = true;
+      else if (c === "\t") { fila.push(celda); celda = ""; }
+      else if (c === "\n") { fila.push(celda); filas.push(fila); fila = []; celda = ""; }
+      else celda += c;
+    }
+    if (celda !== "" || fila.length) { fila.push(celda); filas.push(fila); }
+    return filas;
+  };
+  const excelAMarkdown = (texto) => {
+    const limpia = (c) => (c || "").trim().replace(/\s*\n\s*/g, " / ").replace(/\|/g, "\\|");
+    const filas = leerTSV(texto).map((f) => f.map(limpia));
+    const bloques = [[]];
+    for (const f of filas) {
+      if (f.every((c) => !c)) { if (bloques[bloques.length - 1].length) bloques.push([]); }
+      else bloques[bloques.length - 1].push(f);
+    }
+    const partes = [];
+    for (let bloque of bloques.filter((b) => b.length)) {
+      const llenas = (f) => f.filter((c) => c);
+      if (bloque.length > 1 && llenas(bloque[0]).length === 1) {          // título del bloque
+        partes.push(`## ${llenas(bloque[0])[0]}`);
+        bloque = bloque.slice(1);
+      }
+      if (bloque.length === 1 && llenas(bloque[0]).length === 1) { partes.push(llenas(bloque[0])[0]); continue; }
+      const ancho = Math.max(...bloque.map((f) => f.length));
+      const usadas = [...Array(ancho).keys()].filter((j) => bloque.some((f) => f[j]));   // sin columnas vacías
+      const linea = (f) => `| ${usadas.map((j) => f[j] || " ").join(" | ")} |`;
+      partes.push([linea(bloque[0]), `|${usadas.map(() => "---").join("|")}|`, ...bloque.slice(1).map(linea)].join("\n"));
+    }
+    return partes.join("\n\n");
+  };
+  window.excelAMarkdown = excelAMarkdown;
+  // En el editor de notas (formato Markdown): <textarea @paste="pegarTabla($event)">
+  window.pegarTabla = (e) => {
+    const area = e.target;
+    const formato = document.getElementById("n-formato");
+    const texto = e.clipboardData?.getData("text/plain") || "";
+    if ((formato && formato.value !== "markdown") || !texto.includes("\t")) return;   // no es una tabla
+    e.preventDefault();
+    let md = excelAMarkdown(texto);
+    const antes = area.value.slice(0, area.selectionStart);
+    if (antes && !antes.endsWith("\n\n")) md = (antes.endsWith("\n") ? "\n" : "\n\n") + md;
+    md += "\n\n";
+    area.focus();
+    // insertText conserva el «deshacer» (Ctrl/⌘+Z) y dispara la vista previa
+    if (!document.execCommand("insertText", false, md)) {
+      area.setRangeText(md, area.selectionStart, area.selectionEnd, "end");
+      area.dispatchEvent(new Event("input", { bubbles: true }));
+    }
+    avisar("Tabla de Excel convertida a Markdown. Ctrl/⌘+Z para deshacer.");
+  };
+
   // HTMX: el botón "atrás" vuelve a pedir la página (evita estados viejos de Alpine en caché).
   document.addEventListener("DOMContentLoaded", () => {
     if (window.htmx) {
