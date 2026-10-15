@@ -62,10 +62,12 @@ def ver(request: Request, componente_id: int, con: sqlite3.Connection = Depends(
     migas = [{"texto": m.nombre, "url": f"/materias/{m.id}"}]
     migas += [{"texto": a.nombre, "url": _url(a)} for a in cadena]
     migas.append({"texto": c.nombre})
+    tablas = tab.listar(con, c.id) if "excel" in c.tipos else []
+    from ..services import etiquetas as etq
     return pagina(request, con, "paginas/componente.html", materia=m, componente=c, ancestros=cadena,
                   subcomponentes=bib.arbol(con, m.id, c.id, nivel + 1), nivel=nivel,
                   puede_anidar=nivel < PROFUNDIDAD_MAXIMA, migas=migas, materia_activa=m.id,
-                  tablas=tab.listar(con, c.id) if "excel" in c.tipos else [],
+                  tablas=tablas, etiquetas_tablas=etq.de_varios(con, "tabla", [t.id for t in tablas]),
                   pdfs=servicio_pdfs.listar(con, c.id) if "pdf" in c.tipos else [],
                   imagenes=servicio_imagenes.listar(con, c.id) if "imagenes" in c.tipos else [],
                   etiquetas_usadas=servicio_imagenes.etiquetas_del_componente(con, c.id) if "imagenes" in c.tipos else [],

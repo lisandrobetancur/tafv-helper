@@ -24,8 +24,8 @@ TIPOS: dict[str, tuple[int, str, str, str]] = {
     "componente": (2, "componentes", "nombre, descripcion", """
         SELECT o.id, o.nombre, o.descripcion, o.id, NULL, NULL, o.id, o.materia_id
         FROM componentes o"""),
-    "tabla": (3, "tablas", "nombre", """
-        SELECT o.id, o.nombre, '', o.id, NULL, o.id, o.componente_id, c.materia_id
+    "tabla": (3, "tablas", "nombre", f"""
+        SELECT o.id, o.nombre, COALESCE({_ETQ.format(tipo='tabla', alias='o')}, ''), o.id, NULL, o.id, o.componente_id, c.materia_id
         FROM tablas o JOIN componentes c ON c.id = o.componente_id"""),
     "fila": (4, "filas", "titulo, valores", f"""
         SELECT o.id, o.titulo, (SELECT group_concat(value, ' · ') FROM json_each(o.valores))
@@ -53,6 +53,9 @@ TIPOS: dict[str, tuple[int, str, str, str]] = {
 }
 
 COLUMNAS = "fuente, titulo, contenido, ref, sub, padre, componente, materia"
+
+# Tipos cuyas etiquetas forman parte del documento indexado
+CON_ETIQUETAS = ("imagen", "nota", "fila", "pdf", "tabla")
 
 
 def _insertar(tipo: str, codigo: int, condicion: str) -> str:
@@ -82,7 +85,7 @@ def migracion() -> str:
         {_insertar(tipo, codigo, "WHERE fuente = NEW.id")}
     END;""")
     # Al cambiar las etiquetas de un elemento se rehace su documento
-    for tipo in ("imagen", "nota", "fila", "pdf"):
+    for tipo in CON_ETIQUETAS:
         codigo = TIPOS[tipo][0]
         for evento, fila in (("INSERT", "NEW"), ("DELETE", "OLD")):
             partes.append(f"""
@@ -103,7 +106,7 @@ def recrear() -> str:
         borrar.append(f"DROP VIEW IF EXISTS doc_{tipo};")
         for evento in ("alta", "baja", "cambio"):
             borrar.append(f"DROP TRIGGER IF EXISTS busqueda_{tipo}_{evento};")
-    for tipo in ("imagen", "nota", "fila", "pdf"):
+    for tipo in CON_ETIQUETAS:
         for evento in ("insert", "delete"):
             borrar.append(f"DROP TRIGGER IF EXISTS busqueda_etiquetas_{tipo}_{evento};")
     return "\n".join(borrar) + "\n" + migracion()

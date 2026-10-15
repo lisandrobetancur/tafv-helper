@@ -94,6 +94,23 @@ def test_etiquetas_en_filas_y_pdf_buscables(con, base) -> None:
     assert bus.buscar(con, "aminoglucosido").total == 0
 
 
+def test_etiquetas_de_tabla(con, base) -> None:
+    """La etiqueta de una tabla la clasifica y vale para todas sus fichas al filtrar."""
+    etq.asignar(con, "tabla", base["tabla"], "infectología")
+    etq.asignar(con, "nota", base["nota"], "Infectologia")                  # misma etiqueta (sin importar tildes)
+    con_texto = bus.buscar(con, "inhibe", bus.Filtros(etiqueta="infectología"))
+    assert {r.titulo.striptags() for r in con_texto.resultados} == {"Amoxicilina", "Gentamicina", "Vancomicina"}
+    assert bus.buscar(con, "infectologia").resultados[0].tipo == "tabla"   # la etiqueta se busca como texto
+    relacionado = bus.buscar(con, "", bus.Filtros(etiqueta="Infectología"))  # sin texto: todo lo relacionado
+    assert relacionado.total == 5 and [r.tipo for r in relacionado.resultados][:2] == ["tabla", "fila"]
+    assert {r.tipo for r in relacionado.resultados} == {"tabla", "fila", "nota"}
+    assert bus.buscar(con, "", bus.Filtros()).total == 0                     # sin texto ni etiqueta: nada
+    pap.enviar_tabla(con, base["tabla"])
+    assert {r.tipo for r in bus.buscar(con, "", bus.Filtros(etiqueta="infectología")).resultados} == {"nota"}
+    pap.vaciar(con)
+    assert con.execute("SELECT COUNT(*) FROM etiquetas_elemento WHERE tipo='tabla'").fetchone()[0] == 0
+
+
 # ---------------------------------------------------------------- repaso
 def test_repaso(con, base, tmp_path: Path) -> None:
     t = tab.obtener(con, base["tabla"])
@@ -175,6 +192,11 @@ def test_web(cliente, base) -> None:
     assert "Abiertos recientemente" in inicio and "Favoritos" in inicio
     r = cliente.post(f"/etiquetas/fila/{amox}", data={"etiquetas": "penicilina"}, headers={"HX-Request": "true"})
     assert "penicilina" in r.text
+    r = cliente.post(f"/etiquetas/tabla/{base['tabla']}", data={"etiquetas": "antibióticos"}, headers={"HX-Request": "true"})
+    assert "antibióticos" in r.text and "/buscar?etiqueta=antibi" in r.text
+    assert "antibióticos" in cliente.get(f"/tablas/{base['tabla']}").text
+    assert "antibióticos" in cliente.get(f"/componentes/{base['comp']}").text
+    assert "con la etiqueta" in cliente.get("/buscar", params={"etiqueta": "antibióticos"}).text
     t = tab.obtener(db.conectar(), base["tabla"])
     sesion = cliente.get(f"/tablas/{t.id}/repaso/sesion", params={"frente": t.claves[0], "reverso": t.claves[1], "barajar": "true"})
     assert "Amoxicilina" in sesion.text and 'x-data="repaso(' in sesion.text

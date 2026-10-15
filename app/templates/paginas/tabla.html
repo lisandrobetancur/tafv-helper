@@ -4,11 +4,13 @@
 {% block contenido %}
 <section class="mb-5 flex flex-wrap items-start gap-4">
   <span class="grid size-12 shrink-0 place-items-center rounded-2xl bg-exito-suave text-exito">{{ icono("file-spreadsheet", "size-6") }}</span>
-  <div class="min-w-0 flex-1">
+  <div class="min-w-[min(100%,18rem)] flex-1">
     <h1 class="text-2xl font-bold tracking-tight">{{ tabla.nombre }}</h1>
     <p class="mt-0.5 text-sm text-tenue">{{ plural(tabla.num_filas, "fila", "filas") }} · {{ plural(tabla.columnas|length, "columna", "columnas") }}
       {% if tabla.num_imagenes %} · {{ plural(tabla.num_imagenes, "imagen", "imágenes") }}{% endif %}
       · actualizada el {{ tabla.actualizado[:10] }}</p>
+    {# Etiquetas de la tabla: clasifican el Excel y valen para todas sus fichas al filtrar la búsqueda #}
+    <div class="mt-2">{% with tipo="tabla", ref_id=tabla.id %}{% include "parciales/etiquetas_editor.html" %}{% endwith %}</div>
   </div>
   <div class="flex flex-wrap items-center gap-2">
     <a class="btn-primario" href="/tablas/{{ tabla.id }}/repaso">{{ icono("graduation-cap") }}Modo repaso</a>

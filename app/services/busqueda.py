@@ -87,10 +87,14 @@ def _condiciones(con: sqlite3.Connection, f: Filtros) -> tuple[str, list]:
         sql += f" AND componente IN ({','.join('?' * len(ids))})"
         params += ids
     if f.etiqueta:
-        sql += """ AND ((CASE WHEN tipo = 'pagina' THEN 'pdf' ELSE tipo END) || ':' || ref) IN
+        # La etiqueta de una tabla vale para todas sus fichas (y las imágenes de las fichas)
+        sql += """ AND (((CASE WHEN tipo = 'pagina' THEN 'pdf' ELSE tipo END) || ':' || ref) IN
                    (SELECT x.tipo || ':' || x.ref_id FROM etiquetas_elemento x JOIN etiquetas e ON e.id = x.etiqueta_id
-                    WHERE e.clave = ?)"""
-        params.append(normalizar(f.etiqueta))
+                    WHERE e.clave = ?)
+                   OR (tipo IN ('tabla', 'fila', 'imagen_fila') AND padre IN
+                   (SELECT x.ref_id FROM etiquetas_elemento x JOIN etiquetas e ON e.id = x.etiqueta_id
+                    WHERE x.tipo = 'tabla' AND e.clave = ?)))"""
+        params += [normalizar(f.etiqueta)] * 2
     if f.favoritos:
         existe = con.execute("SELECT 1 FROM sqlite_master WHERE name='favoritos'").fetchone()
         if existe:
@@ -159,9 +163,10 @@ def buscar(con: sqlite3.Connection, q: str, filtros: Filtros | None = None, limi
     inicio = time.perf_counter()
     respuesta = Respuesta(q=q)
     consulta = expresion(q)
-    if not consulta:
-        return respuesta
     filtros = filtros or Filtros()
+    if not consulta:
+        # Sin texto, pero con una etiqueta: se lista todo lo que la tiene (para ver lo relacionado)
+        return _por_etiqueta(con, respuesta, filtros, limite, desplazamiento, inicio) if filtros.etiqueta else respuesta
     extra, params = _condiciones(con, filtros)
     base = f"FROM busqueda WHERE busqueda MATCH ? {extra}"
     try:
@@ -188,6 +193,31 @@ def buscar(con: sqlite3.Connection, q: str, filtros: Filtros | None = None, limi
     respuesta.resultados = [Resultado(r["tipo"], r["ref"], r["sub"], r["padre"], r["componente"], r["materia"],
                                       _marcar(r["titulo"]), _marcar(r["fragmento"])) for r in filas]
     _completar(con, respuesta.resultados, q)
+    respuesta._grupos = _agrupar(con, respuesta.resultados)
+    respuesta.milisegundos = round((time.perf_counter() - inicio) * 1000, 1)
+    return respuesta
+
+
+def _por_etiqueta(con: sqlite3.Connection, respuesta: Respuesta, filtros: Filtros, limite: int,
+                  desplazamiento: int, inicio: float) -> Respuesta:
+    """Todo lo que tiene la etiqueta (y las fichas de las tablas que la tienen), sin texto de búsqueda."""
+    extra, params = _condiciones(con, filtros)
+    base = f"FROM busqueda WHERE 1 {extra}"
+    respuesta.total = con.execute(f"SELECT COUNT(*) {base}", params).fetchone()[0]
+    sin_categoria = Filtros(materia=filtros.materia, componente=filtros.componente, etiqueta=filtros.etiqueta,
+                            favoritos=filtros.favoritos)
+    extra2, params2 = _condiciones(con, sin_categoria)
+    for tipo, n in con.execute(f"SELECT tipo, COUNT(*) FROM busqueda WHERE 1 {extra2} GROUP BY tipo", params2):
+        cat = CATEGORIA_DE[tipo]
+        respuesta.por_categoria[cat] = respuesta.por_categoria.get(cat, 0) + n
+    orden = " ".join(f"WHEN '{t}' THEN {i}" for i, t in enumerate(ICONOS))
+    filas = con.execute(
+        f"""SELECT tipo, ref, sub, padre, componente, materia, titulo, substr(contenido, 1, 180) AS fragmento
+            {base} ORDER BY CASE tipo {orden} END, titulo COLLATE NOCASE LIMIT ? OFFSET ?""",
+        [*params, limite, desplazamiento]).fetchall()
+    respuesta.resultados = [Resultado(r["tipo"], r["ref"], r["sub"], r["padre"], r["componente"], r["materia"],
+                                      _marcar(r["titulo"]), _marcar(r["fragmento"])) for r in filas]
+    _completar(con, respuesta.resultados, "")
     respuesta._grupos = _agrupar(con, respuesta.resultados)
     respuesta.milisegundos = round((time.perf_counter() - inicio) * 1000, 1)
     return respuesta

@@ -261,7 +261,8 @@ def ver_tabla(request: Request, tabla_id: int, con: sqlite3.Connection = Depends
     c = bib.obtener_componente(con, t.componente_id)
     from ..services import favoritos as fav
     fav.registrar_visita(con, "tabla", t.id)
-    return pagina(request, con, "paginas/tabla.html", **contexto, componente=c,
+    from ..services import etiquetas as etq
+    return pagina(request, con, "paginas/tabla.html", **contexto, componente=c, etiquetas=etq.de(con, "tabla", t.id),
                   migas=_migas_componente(con, c.id) + [{"texto": t.nombre}], materia_activa=c.materia_id)
 
 

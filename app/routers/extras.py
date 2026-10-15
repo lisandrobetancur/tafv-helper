@@ -35,7 +35,7 @@ def alternar_favorito(request: Request, tipo: str, ref_id: int, con: sqlite3.Con
     return respuesta
 
 
-# ================================================== etiquetas de filas y PDF
+# ========================================== etiquetas de filas, PDF y tablas
 @router.post("/etiquetas/{tipo}/{ref_id}")
 def guardar_etiquetas(request: Request, tipo: str, ref_id: int, etiquetas: str = Form(""),
                       con: sqlite3.Connection = Depends(obtener_db)):
@@ -43,6 +43,8 @@ def guardar_etiquetas(request: Request, tipo: str, ref_id: int, etiquetas: str =
         tab.obtener_fila(con, ref_id)
     elif tipo == "pdf":
         pdfs.obtener(con, ref_id)
+    elif tipo == "tabla":
+        tab.obtener(con, ref_id)
     else:
         raise ErrorUsuario("Este elemento no admite etiquetas aquí.")
     nombres = etq.asignar(con, tipo, ref_id, etiquetas)

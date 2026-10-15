@@ -1,9 +1,9 @@
-{# Etiquetas de una fila o un PDF, editables en el sitio. Requiere: tipo, ref_id, etiquetas.
+{# Etiquetas de una fila, un PDF o una tabla, editables en el sitio. Requiere: tipo, ref_id, etiquetas.
    Los dos estados se dibujan en el servidor (x-show, no x-if) para que HTMX procese el formulario. #}
 {% from "macros.html" import icono %}
 <div class="flex flex-wrap items-center gap-1.5" x-data="{ editando: false }">
   <div class="flex flex-wrap items-center gap-1.5" x-show="!editando">
-    {% for e in etiquetas %}<span class="chip">{{ icono("tag", "size-3") }}{{ e }}</span>{% endfor %}
+    {% for e in etiquetas %}<a href="/buscar?etiqueta={{ e|urlencode }}" class="chip hover:border-marca hover:text-marca" title="Ver todo lo que tiene la etiqueta «{{ e }}»">{{ icono("tag", "size-3") }}{{ e }}</a>{% endfor %}
     <button type="button" class="chip cursor-pointer border-dashed hover:border-marca hover:text-marca"
             @click="editando = true; $nextTick(() => $refs.campo.focus())">
       {{ icono("tag" if not etiquetas else "pencil", "size-3") }}{{ "Agregar etiquetas" if not etiquetas else "Editar" }}</button>

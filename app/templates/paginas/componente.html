@@ -5,7 +5,7 @@
 {% set url_sub = "/materias/" ~ materia.id ~ "/componentes/nuevo?padre=" ~ componente.id %}
 <section class="mb-8 flex flex-wrap items-start gap-5">
   <span class="grid size-14 shrink-0 place-items-center rounded-2xl border border-borde bg-superficie text-marca" style="box-shadow: inset 0 -3px 0 {{ materia.color_hex }}">{{ icono("folder-open", "size-7") }}</span>
-  <div class="min-w-0 flex-1">
+  <div class="min-w-[min(100%,18rem)] flex-1">
     <p class="text-sm text-tenue">{{ "Subcomponente" if ancestros else "Componente" }} de <a href="/materias/{{ materia.id }}" class="font-medium hover:text-marca">{{ materia.nombre }}</a></p>
     <h1 class="text-2xl font-bold tracking-tight sm:text-3xl">{{ componente.nombre }}</h1>
     {% if componente.descripcion %}<p class="mt-1 max-w-3xl whitespace-pre-line text-tenue">{{ componente.descripcion }}</p>{% endif %}

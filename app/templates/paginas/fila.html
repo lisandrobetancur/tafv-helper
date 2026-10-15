@@ -3,7 +3,7 @@
 {% block titulo %}{{ fila.titulo.split("\n")[0]|truncate(80, true, "…") }}{% endblock %}
 {% block contenido %}
 <section class="mb-6 flex flex-wrap items-start gap-4">
-  <div class="min-w-0 flex-1">
+  <div class="min-w-[min(100%,18rem)] flex-1">
     <p class="text-sm text-tenue">Ficha de <a href="/tablas/{{ tabla.id }}" class="font-medium hover:text-marca"
        x-data :href="sessionStorage.getItem('ultima-tabla-{{ tabla.id }}') || '/tablas/{{ tabla.id }}'">{{ tabla.nombre }}</a>
       {% if fila.fila_origen %}· fila {{ fila.fila_origen }} del Excel{% endif %}</p>

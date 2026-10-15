@@ -9,7 +9,7 @@ import sqlite3
 
 from .texto import normalizar
 
-TIPOS = {"imagen": "imagenes", "nota": "notas", "fila": "filas", "pdf": "pdfs"}
+TIPOS = {"imagen": "imagenes", "nota": "notas", "fila": "filas", "pdf": "pdfs", "tabla": "tablas"}
 LARGO = 40
 
 

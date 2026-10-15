@@ -247,6 +247,8 @@ MIGRACIONES: list[str] = [
     );
     CREATE INDEX ix_casos_actualizado ON casos(actualizado DESC);
     """,
+    # 8 — las tablas admiten etiquetas (el índice de búsqueda las incluye)
+    indice_sql.recrear(),
 ]
 
 

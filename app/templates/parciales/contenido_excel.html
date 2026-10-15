@@ -15,6 +15,7 @@
         <span class="chip">{{ plural(t.num_filas, "fila", "filas") }}</span>
         <span class="chip">{{ plural(t.columnas|length, "columna", "columnas") }}</span>
         {% if t.num_imagenes %}<span class="chip border-oro/30 bg-oro-suave text-oro">{{ icono("image", "size-3.5") }}{{ plural(t.num_imagenes, "imagen", "imágenes") }}</span>{% endif %}
+        {% for e in (etiquetas_tablas|default({})).get(t.id, []) %}<a href="/buscar?etiqueta={{ e|urlencode }}" class="chip relative z-10 border-marca/30 bg-marca-suave text-marca hover:border-marca">{{ icono("tag", "size-3") }}{{ e }}</a>{% endfor %}
       </div>
     </div>
     <span class="text-tenue/70 group-hover:text-marca">{{ icono("chevron-right", "size-5") }}</span>
