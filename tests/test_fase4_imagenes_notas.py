@@ -141,6 +141,9 @@ def test_web_imagenes_y_notas(cliente, tmp_path: Path) -> None:
     r = cliente.post(f"/componentes/{cid}/notas", data={"titulo": "Resumen", "contenido": "**clave**", "formato": "markdown"},
                      follow_redirects=False)
     assert r.status_code == 303 and r.headers["location"] == "/notas/1"
+    r = cliente.post(f"/componentes/{cid}/notas", data={"titulo": "Otra", "contenido": "x", "formato": "markdown",
+                                                       "siguiente": "nueva"}, follow_redirects=False)
+    assert r.headers["location"] == f"/componentes/{cid}/notas/nueva"      # «Guardar y escribir otra»
     assert "<strong>clave</strong>" in cliente.get("/notas/1").text
     assert "<em>hola</em>" in cliente.post("/notas/vista-previa", data={"contenido": "*hola*", "formato": "markdown"}).text
     pagina = cliente.get(f"/componentes/{cid}").text

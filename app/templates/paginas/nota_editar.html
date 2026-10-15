@@ -3,7 +3,7 @@
 {% block titulo %}{{ "Editar nota" if nota else "Nueva nota" }}{% endblock %}
 {% block contenido %}
 {% set accion = "/notas/" ~ nota.id if nota else "/componentes/" ~ componente.id ~ "/notas" %}
-<form method="post" action="{{ accion }}" data-confirmar="{{ '¿Guardar los cambios de la nota?' if nota else '¿Guardar esta nota?' }}" data-confirmar-boton="Guardar" class="mx-auto flex max-w-6xl flex-col gap-4"
+<form method="post" action="{{ accion }}" hx-confirm="{{ '¿Guardar los cambios de la nota?' if nota else '¿Guardar esta nota?' }}" data-confirmar-boton="Guardar" class="mx-auto flex max-w-6xl flex-col gap-4"
       x-data="{ cambios: false }" @input="cambios = true" @submit="cambios = false"
       @keydown.window.ctrl.s.prevent="$el.requestSubmit()" @keydown.window.meta.s.prevent="$el.requestSubmit()">
   <div class="flex flex-wrap items-center justify-between gap-3">
@@ -11,6 +11,7 @@
     <div class="flex items-center gap-2">
       <span class="text-xs text-tenue" x-show="cambios" x-cloak>Cambios sin guardar · Ctrl/⌘+S para guardar</span>
       <a href="{{ '/notas/' ~ nota.id if nota else '/componentes/' ~ componente.id ~ '#notas' }}" class="btn-secundario">Cancelar</a>
+      {% if not nota %}<button type="submit" name="siguiente" value="nueva" class="btn-secundario">{{ icono("plus") }}Guardar y escribir otra</button>{% endif %}
       <button type="submit" class="btn-primario">{{ icono("circle-check") }}Guardar</button>
     </div>
   </div>

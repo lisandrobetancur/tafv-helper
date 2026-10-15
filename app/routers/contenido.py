@@ -169,12 +169,15 @@ def nueva_nota(request: Request, componente_id: int, con: sqlite3.Connection = D
 
 @router.post("/componentes/{componente_id}/notas")
 def crear_nota(request: Request, componente_id: int, titulo: str = Form(""), contenido: str = Form(""),
-               formato: str = Form("markdown"), etiquetas: str = Form(""), con: sqlite3.Connection = Depends(obtener_db)):
+               formato: str = Form("markdown"), etiquetas: str = Form(""), siguiente: str = Form(""),
+               con: sqlite3.Connection = Depends(obtener_db)):
     try:
         nota = notas_srv.crear(con, componente_id, titulo, contenido, formato, etiquetas)
     except ErrorUsuario as e:
         return _editor(request, con, componente_id, None,
                        {"titulo": titulo, "contenido": contenido, "formato": formato, "etiquetas": etiquetas}, e.mensaje)
+    if siguiente == "nueva":   # «Guardar y escribir otra»: vuelve al editor en blanco
+        return redirigir(request, f"/componentes/{componente_id}/notas/nueva", f"«{nota.titulo}» guardada. Escribe la siguiente.")
     return redirigir(request, f"/notas/{nota.id}", "Nota guardada.")
 
 

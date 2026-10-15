@@ -11,6 +11,7 @@
     </div>
     <div class="flex items-center gap-2">
       {% with tipo="nota", ref_id=nota.id, activo=favorito %}{% include "parciales/estrella.html" %}{% endwith %}
+      <a href="/componentes/{{ nota.componente_id }}/notas/nueva" class="btn-secundario" title="Escribir otra nota en el mismo componente">{{ icono("plus") }}Nueva nota</a>
       <a href="/notas/{{ nota.id }}/editar" class="btn-primario">{{ icono("pencil") }}Editar</a>
       <button class="btn-secundario hover:text-peligro" hx-get="/notas/{{ nota.id }}/eliminar" hx-target="#modal" title="Enviar a la papelera">{{ icono("trash-2") }}</button>
     </div>

@@ -11,7 +11,12 @@
     {% if componente.descripcion %}<p class="mt-1 max-w-3xl whitespace-pre-line text-tenue">{{ componente.descripcion }}</p>{% endif %}
     {% if componente.tipos %}<div class="mt-3 flex flex-wrap gap-1.5">{{ chips_tipos(componente) }}</div>{% endif %}
   </div>
-  <div class="flex items-center gap-2">
+  <div class="flex flex-wrap items-center gap-2">
+    {# Accesos rápidos para agregar material, según los tipos que acepta el componente #}
+    {% if "notas" in componente.tipos %}<a href="/componentes/{{ componente.id }}/notas/nueva" class="btn-primario">{{ icono("sticky-note") }}Nueva nota</a>{% endif %}
+    {% if "pdf" in componente.tipos %}<a href="#pdf" class="btn-secundario" x-data @click.prevent="history.replaceState(null, '', '#pdf'); window.dispatchEvent(new HashChangeEvent('hashchange'))">{{ icono("file-text") }}Subir PDF</a>{% endif %}
+    {% if "excel" in componente.tipos %}<button type="button" class="btn-secundario" hx-get="/componentes/{{ componente.id }}/importar" hx-target="#modal">{{ icono("file-spreadsheet") }}Importar Excel</button>{% endif %}
+    {% if "imagenes" in componente.tipos %}<a href="#imagenes" class="btn-secundario" x-data @click.prevent="history.replaceState(null, '', '#imagenes'); window.dispatchEvent(new HashChangeEvent('hashchange'))">{{ icono("image") }}Subir imágenes</a>{% endif %}
     {% if puede_anidar %}{{ boton_modal(url_sub, "Nuevo subcomponente", "folder-plus", "btn-secundario") }}{% endif %}
     <div class="relative" x-data="desplegable" @click.outside="cerrar()" @keydown.escape="cerrar()">
       <button type="button" class="btn-secundario px-2.5" @click="alternar()" aria-label="Más acciones" :aria-expanded="abierto">{{ icono("ellipsis-vertical") }}</button>
@@ -37,7 +42,9 @@
   <h2 id="t-contenido" class="titulo-seccion mb-3">Contenido</h2>
   {% if componente.tipos %}
   <div x-data="{ pestana: {{ componente.tipos|tojson|forceescape }}.includes(location.hash.slice(1)) ? location.hash.slice(1) : '{{ componente.tipos[0] }}' }"
-       class="tarjeta overflow-hidden">
+       @hashchange.window="const t = location.hash.slice(1); if ({{ componente.tipos|tojson|forceescape }}.includes(t)) { pestana = t; $nextTick(() => { $el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+         const zona = $el.querySelector('[role=tabpanel]:not([style*=none]) input[type=file]'); if (zona) zona.click(); }) }"
+       class="tarjeta scroll-mt-20 overflow-hidden">
     <div class="flex gap-1 overflow-x-auto border-b border-borde bg-superficie-2/60 px-2 pt-2" role="tablist">
       {% for t in componente.tipos_info %}
       <button type="button" role="tab" class="-mb-px inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-t-lg border border-transparent px-4 py-2.5 text-sm font-medium text-tenue hover:text-texto"

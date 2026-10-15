@@ -13,6 +13,7 @@
   </div>
   <div class="flex items-center gap-2">
     {% with tipo="pdf", ref_id=pdf.id, activo=favorito %}{% include "parciales/estrella.html" %}{% endwith %}
+    <a class="btn-secundario" href="/componentes/{{ pdf.componente_id }}#pdf" title="Subir otro PDF al mismo componente">{{ icono("plus") }}Subir otro PDF</a>
     <a class="btn-secundario" href="/pdfs/{{ pdf.id }}/descargar" hx-boost="false">{{ icono("download") }}Descargar</a>
     <div class="relative" x-data="desplegable" @click.outside="cerrar()" @keydown.escape="cerrar()">
       <button type="button" class="btn-secundario px-2.5" @click="alternar()" aria-label="Más acciones" :aria-expanded="abierto">{{ icono("ellipsis-vertical") }}</button>
