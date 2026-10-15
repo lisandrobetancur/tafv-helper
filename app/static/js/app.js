@@ -12,6 +12,7 @@
   // Excel copia las celdas como texto separado por tabuladores (las celdas con saltos de línea van
   // entre comillas). Se convierten en tablas Markdown: cada bloque separado por una fila vacía es una
   // tabla; una fila con una sola celda encima del bloque es su título; se quitan las columnas vacías.
+  // Si el bloque tiene una sola columna, la primera celda es el título y el resto una lista.
   const leerTSV = (texto) => {
     const filas = [];
     let fila = [], celda = "", comillas = false;
@@ -48,6 +49,10 @@
       if (bloque.length === 1 && llenas(bloque[0]).length === 1) { partes.push(llenas(bloque[0])[0]); continue; }
       const ancho = Math.max(...bloque.map((f) => f.length));
       const usadas = [...Array(ancho).keys()].filter((j) => bloque.some((f) => f[j]));   // sin columnas vacías
+      if (usadas.length === 1) {                       // una sola columna: lista con viñetas
+        partes.push(bloque.map((f) => `- ${f[usadas[0]]}`).join("\n"));
+        continue;
+      }
       const linea = (f) => `| ${usadas.map((j) => f[j] || " ").join(" | ")} |`;
       partes.push([linea(bloque[0]), `|${usadas.map(() => "---").join("|")}|`, ...bloque.slice(1).map(linea)].join("\n"));
     }
@@ -59,7 +64,10 @@
     const area = e.target;
     const formato = document.getElementById("n-formato");
     const texto = e.clipboardData?.getData("text/plain") || "";
-    if ((formato && formato.value !== "markdown") || !texto.includes("\t")) return;   // no es una tabla
+    // Viene de una hoja de cálculo si trae tabuladores o si el HTML copiado es una tabla
+    // (Excel y Google Sheets lo incluyen; así se reconoce también una lista de una sola columna)
+    const deHoja = texto.includes("\t") || /<table/i.test(e.clipboardData?.getData("text/html") || "");
+    if ((formato && formato.value !== "markdown") || !deHoja || !texto.trim()) return;
     e.preventDefault();
     let md = excelAMarkdown(texto);
     const antes = area.value.slice(0, area.selectionStart);
