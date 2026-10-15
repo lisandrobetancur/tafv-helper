@@ -145,6 +145,8 @@ dialog.modal::backdrop { background: rgb(15 10 8 / .5); backdrop-filter: blur(2p
   --tw-prose-pre-code: var(--texto); --tw-prose-pre-bg: var(--superficie-2); --tw-prose-th-borders: var(--borde-fuerte);
   --tw-prose-td-borders: var(--borde);
 }
+/* Tablas pegadas desde Excel sin fila de encabezado: el encabezado vacío no se muestra */
+.prose thead:not(:has(th:not(:empty))) { display: none; }
 .prose mark { background: var(--oro-suave); color: var(--texto); border-radius: 3px; padding: 0 2px; }
 
 /* Visor de imágenes a pantalla completa */

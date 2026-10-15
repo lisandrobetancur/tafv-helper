@@ -31,30 +31,72 @@
     if (celda !== "" || fila.length) { fila.push(celda); filas.push(fila); }
     return filas;
   };
-  const excelAMarkdown = (texto) => {
-    const limpia = (c) => (c || "").trim().replace(/\s*\n\s*/g, " / ").replace(/\|/g, "\\|");
-    const filas = leerTSV(texto).map((f) => f.map(limpia));
-    const bloques = [[]];
-    for (const f of filas) {
-      if (f.every((c) => !c)) { if (bloques[bloques.length - 1].length) bloques.push([]); }
-      else bloques[bloques.length - 1].push(f);
-    }
-    const partes = [];
-    for (let bloque of bloques.filter((b) => b.length)) {
-      const llenas = (f) => f.filter((c) => c);
-      if (bloque.length > 1 && llenas(bloque[0]).length === 1) {          // título del bloque
-        partes.push(`## ${llenas(bloque[0])[0]}`);
-        bloque = bloque.slice(1);
+  // Excel y Google Sheets también copian la tabla en HTML: ahí se ven las celdas combinadas y las
+  // negritas. Una celda combinada hacia abajo (rowspan) se repite en cada fila que abarca (como al
+  // importar); una combinada hacia el lado (colspan) queda solo en la primera columna.
+  const leerHTML = (html) => {
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    const tabla = doc.querySelector("table");
+    if (!tabla) return null;
+    const estilos = [...doc.querySelectorAll("style")].map((e) => e.textContent).join("\n");
+    const clasesNegrita = new Set([...estilos.matchAll(/\.([\w-]+)\s*\{[^}]*font-weight\s*:\s*(?:700|bold)/gi)].map((m) => m[1]));
+    const esNegrita = (td) => /font-weight\s*:\s*(?:700|bold)/i.test(td.getAttribute("style") || "") ||
+      [...td.classList].some((c) => clasesNegrita.has(c)) ||
+      (!!td.querySelector("b, strong") && td.textContent.trim() === (td.querySelector("b, strong")?.textContent || "").trim());
+    const filas = [], negritas = [], ocupadas = [];       // ocupadas[i][j] = valor que baja de una combinada
+    [...tabla.rows].forEach((tr, i) => {
+      filas[i] = filas[i] || []; negritas[i] = negritas[i] || [];
+      let j = 0;
+      for (const td of tr.cells) {
+        while (ocupadas[i]?.[j] !== undefined) { filas[i][j] = ocupadas[i][j]; negritas[i][j] = false; j++; }
+        td.querySelectorAll("br").forEach((br) => br.replaceWith("\n"));
+        const texto = td.textContent.replace(/[ \t\u00a0]+/g, " ").replace(/ *\n */g, "\n").trim();
+        const alto = Math.max(1, Number(td.rowSpan) || 1), ancho = Math.max(1, Number(td.colSpan) || 1);
+        for (let a = 0; a < ancho; a++) {
+          filas[i][j + a] = a === 0 ? texto : "";
+          negritas[i][j + a] = esNegrita(td);
+          for (let b = 1; b < alto; b++) {
+            ocupadas[i + b] = ocupadas[i + b] || [];
+            ocupadas[i + b][j + a] = a === 0 ? texto : "";
+          }
+        }
+        j += ancho;
       }
-      if (bloque.length === 1 && llenas(bloque[0]).length === 1) { partes.push(llenas(bloque[0])[0]); continue; }
-      const ancho = Math.max(...bloque.map((f) => f.length));
-      const usadas = [...Array(ancho).keys()].filter((j) => bloque.some((f) => f[j]));   // sin columnas vacías
+      while (ocupadas[i]?.[j] !== undefined) { filas[i][j] = ocupadas[i][j]; negritas[i][j] = false; j++; }
+    });
+    return { filas, negritas };
+  };
+  const excelAMarkdown = (texto, html = "") => {
+    const limpia = (c) => (c || "").trim().replace(/\s*\n\s*/g, " / ").replace(/\|/g, "\\|");
+    const deHTML = html ? leerHTML(html) : null;
+    const crudas = deHTML ? deHTML.filas : leerTSV(texto);
+    const filas = crudas.map((f) => [...f].map(limpia));
+    const bloques = [[]];
+    filas.forEach((f, i) => {
+      if (f.every((c) => !c)) { if (bloques[bloques.length - 1].length) bloques.push([]); }
+      else bloques[bloques.length - 1].push(i);
+    });
+    const partes = [];
+    for (let indices of bloques.filter((b) => b.length)) {
+      const llenas = (i) => filas[i].filter((c) => c);
+      if (indices.length > 1 && llenas(indices[0]).length === 1) {          // título del bloque
+        partes.push(`## ${llenas(indices[0])[0]}`);
+        indices = indices.slice(1);
+      }
+      if (indices.length === 1 && llenas(indices[0]).length === 1) { partes.push(llenas(indices[0])[0]); continue; }
+      const ancho = Math.max(...indices.map((i) => filas[i].length));
+      const usadas = [...Array(ancho).keys()].filter((j) => indices.some((i) => filas[i][j]));   // sin columnas vacías
       if (usadas.length === 1) {                       // una sola columna: lista con viñetas
-        partes.push(bloque.map((f) => `- ${f[usadas[0]]}`).join("\n"));
+        partes.push(indices.map((i) => `- ${filas[i][usadas[0]]}`).join("\n"));
         continue;
       }
-      const linea = (f) => `| ${usadas.map((j) => f[j] || " ").join(" | ")} |`;
-      partes.push([linea(bloque[0]), `|${usadas.map(() => "---").join("|")}|`, ...bloque.slice(1).map(linea)].join("\n"));
+      const linea = (i) => `| ${usadas.map((j) => filas[i][j] || " ").join(" | ")} |`;
+      // Encabezado: sin HTML se asume la primera fila; con HTML, solo si está en negrita (si no, la
+      // tabla va sin encabezado y todas las filas son datos)
+      const conEncabezado = !deHTML || usadas.every((j) => !filas[indices[0]][j] || deHTML.negritas[indices[0]][j]);
+      const encabezado = conEncabezado ? linea(indices[0]) : `|${usadas.map(() => " ").join("|")}|`;
+      const cuerpo = conEncabezado ? indices.slice(1) : indices;
+      partes.push([encabezado, `|${usadas.map(() => "---").join("|")}|`, ...cuerpo.map(linea)].join("\n"));
     }
     return partes.join("\n\n");
   };
@@ -69,7 +111,7 @@
     const deHoja = texto.includes("\t") || /<table/i.test(e.clipboardData?.getData("text/html") || "");
     if ((formato && formato.value !== "markdown") || !deHoja || !texto.trim()) return;
     e.preventDefault();
-    let md = excelAMarkdown(texto);
+    let md = excelAMarkdown(texto, e.clipboardData?.getData("text/html") || "");
     const antes = area.value.slice(0, area.selectionStart);
     if (antes && !antes.endsWith("\n\n")) md = (antes.endsWith("\n") ? "\n" : "\n\n") + md;
     md += "\n\n";
