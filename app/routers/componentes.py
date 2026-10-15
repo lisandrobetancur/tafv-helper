@@ -59,9 +59,9 @@ def ver(request: Request, componente_id: int, con: sqlite3.Connection = Depends(
     m = bib.obtener_materia(con, c.materia_id)
     cadena = bib.ancestros(con, c)
     nivel = len(cadena) + 1
-    migas = [{"texto": m.nombre, "url": f"/materias/{m.id}"}]
-    migas += [{"texto": a.nombre, "url": _url(a)} for a in cadena]
-    migas.append({"texto": c.nombre})
+    migas = [{"texto": m.nombre, "url": f"/materias/{m.id}", "icono": m.icono, "color": m.color_hex}]
+    migas += [{"texto": a.nombre, "url": _url(a), "icono": "folder"} for a in cadena]
+    migas.append({"texto": c.nombre, "icono": "folder-open"})
     tablas = tab.listar(con, c.id) if "excel" in c.tipos else []
     from ..services import etiquetas as etq
     return pagina(request, con, "paginas/componente.html", materia=m, componente=c, ancestros=cadena,

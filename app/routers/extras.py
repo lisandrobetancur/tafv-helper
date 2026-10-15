@@ -63,7 +63,8 @@ def configurar_repaso(request: Request, tabla_id: int, con: sqlite3.Connection =
     return pagina(request, con, "paginas/repaso_configurar.html", tabla=t, resumen=repaso.resumen(con, t.id),
                   cuales=repaso.CUALES, frente=t.columna_titulo, reverso=otras[0] if otras else "",
                   materia_activa=comp.materia_id,
-                  migas=_migas_componente(con, comp.id) + [{"texto": t.nombre, "url": f"/tablas/{t.id}"}, {"texto": "Repaso"}])
+                  migas=_migas_componente(con, comp.id, "excel") + [{"texto": t.nombre, "url": f"/tablas/{t.id}", "icono": "table"},
+                                                                    {"texto": "Repaso", "icono": "graduation-cap"}])
 
 
 @router.get("/tablas/{tabla_id}/repaso/sesion")
@@ -75,8 +76,9 @@ def sesion_repaso(request: Request, tabla_id: int, frente: str = "", reverso: st
     return pagina(request, con, "paginas/repaso.html", tabla=t, tarjetas=tarjetas,
                   nombre_frente=t.nombre_columna(frente), nombre_reverso=t.nombre_columna(reverso),
                   materia_activa=comp.materia_id,
-                  migas=_migas_componente(con, comp.id) + [{"texto": t.nombre, "url": f"/tablas/{t.id}"},
-                                                           {"texto": "Repaso", "url": f"/tablas/{t.id}/repaso"}, {"texto": "Sesión"}])
+                  migas=_migas_componente(con, comp.id, "excel") + [{"texto": t.nombre, "url": f"/tablas/{t.id}", "icono": "table"},
+                                                                    {"texto": "Repaso", "url": f"/tablas/{t.id}/repaso", "icono": "graduation-cap"},
+                                                                    {"texto": "Sesión"}])
 
 
 @router.post("/repaso/{fila_id}")
@@ -102,7 +104,7 @@ def mantenimiento(request: Request, con: sqlite3.Connection = Depends(obtener_db
                   tamano=respaldos.tamano_biblioteca(), documentos=documentos, equipo=nombre_equipo(),
                   carpeta=str(rutas.datos), errores_ocr=errores_ocr,
                   ocr_pendiente=pdfs.ocr_pendiente_total(con) + img_srv.ocr_pendientes(con),
-                  migas=[{"texto": "Mantenimiento"}])
+                  migas=[{"texto": "Mantenimiento", "icono": "settings"}])
 
 
 @router.post("/mantenimiento/indice")

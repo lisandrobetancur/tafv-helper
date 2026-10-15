@@ -46,12 +46,19 @@ async def guardar_subida(archivo: UploadFile, limite: int) -> Path:
     return tmp
 
 
-def _migas_componente(con: sqlite3.Connection, componente_id: int) -> list[dict]:
+def _migas_componente(con: sqlite3.Connection, componente_id: int, seccion: str | None = None) -> list[dict]:
+    """Ruta Materia › (subcomponentes) › Componente [› Sección]. La sección (excel, pdf, notas,
+    imagenes) enlaza a su pestaña del componente, para volver justo a la lista de donde se vino."""
+    from ..config import TIPOS_CONTENIDO
     c = bib.obtener_componente(con, componente_id)
     m = bib.obtener_materia(con, c.materia_id)
-    migas = [{"texto": m.nombre, "url": f"/materias/{m.id}"}]
-    migas += [{"texto": a.nombre, "url": f"/componentes/{a.id}"} for a in bib.ancestros(con, c)]
-    migas.append({"texto": c.nombre, "url": f"/componentes/{c.id}"})
+    migas = [{"texto": m.nombre, "url": f"/materias/{m.id}", "icono": m.icono, "color": m.color_hex}]
+    migas += [{"texto": a.nombre, "url": f"/componentes/{a.id}", "icono": "folder"} for a in bib.ancestros(con, c)]
+    migas.append({"texto": c.nombre, "url": f"/componentes/{c.id}", "icono": "folder-open"})
+    if seccion in TIPOS_CONTENIDO:
+        info = TIPOS_CONTENIDO[seccion]
+        migas.append({"texto": "Excel" if seccion == "excel" else info["nombre"],
+                      "url": f"/componentes/{c.id}#{seccion}", "icono": info["icono"]})
     return migas
 
 
@@ -263,7 +270,7 @@ def ver_tabla(request: Request, tabla_id: int, con: sqlite3.Connection = Depends
     fav.registrar_visita(con, "tabla", t.id)
     from ..services import etiquetas as etq
     return pagina(request, con, "paginas/tabla.html", **contexto, componente=c, etiquetas=etq.de(con, "tabla", t.id),
-                  migas=_migas_componente(con, c.id) + [{"texto": t.nombre}], materia_activa=c.materia_id)
+                  migas=_migas_componente(con, c.id, "excel") + [{"texto": t.nombre, "icono": "table"}], materia_activa=c.materia_id)
 
 
 @router.get("/tablas/{tabla_id}/descargar")
@@ -351,8 +358,9 @@ def ver_fila(request: Request, fila_id: int, con: sqlite3.Connection = Depends(o
     return pagina(request, con, "paginas/fila.html", fila=fila, tabla=t, imagenes=imf.listar(con, fila.id),
                   favorito=fav.es_favorito(con, "fila", fila.id), etiquetas=etq.de(con, "fila", fila.id),
                   anterior=anterior, siguiente=siguiente, materia_activa=c.materia_id,
-                  migas=_migas_componente(con, c.id) + [{"texto": t.nombre, "url": f"/tablas/{t.id}"},
-                                                        {"texto": fila.titulo}])
+                  migas=_migas_componente(con, c.id, "excel") + [{"texto": t.nombre, "url": f"/tablas/{t.id}", "icono": "table",
+                                                                  "tabla": t.id},
+                                                                 {"texto": fila.titulo, "icono": "list"}])
 
 
 def _galeria(request: Request, con: sqlite3.Connection, fila_id: int, mensaje: str | None = None, tipo: str = "exito"):

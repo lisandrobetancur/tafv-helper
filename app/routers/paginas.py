@@ -26,7 +26,7 @@ def inicio(request: Request, con: sqlite3.Connection = Depends(obtener_db)):
 # -------------------------------------------------------------------- papelera
 @router.get("/papelera")
 def papelera(request: Request, con: sqlite3.Connection = Depends(obtener_db)):
-    return pagina(request, con, "paginas/papelera.html", elementos=pap.listar(con), migas=[{"texto": "Papelera"}])
+    return pagina(request, con, "paginas/papelera.html", elementos=pap.listar(con), migas=[{"texto": "Papelera", "icono": "trash-2"}])
 
 
 @router.post("/papelera/{pid}/restaurar")

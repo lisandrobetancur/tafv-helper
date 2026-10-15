@@ -49,7 +49,7 @@ def buscar(request: Request, q: str = "", desde: int = 0, con: sqlite3.Connectio
     etiquetas = [r[0] for r in con.execute("SELECT nombre FROM etiquetas ORDER BY clave")]
     return pagina(request, con, "paginas/buscar.html", **contexto, materias=bib.listar_materias(con, archivadas=None),
                   componentes=_componentes_planos(con, filtros.materia) if filtros.materia else [],
-                  etiquetas=etiquetas, migas=[{"texto": "Búsqueda"}])
+                  etiquetas=etiquetas, migas=[{"texto": "Búsqueda", "icono": "search"}])
 
 
 @router.get("/buscar/rapida")

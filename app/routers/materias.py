@@ -39,7 +39,7 @@ def reordenar(ids: list[int] = Body(..., embed=True), con: sqlite3.Connection = 
 def ver(request: Request, materia_id: int, con: sqlite3.Connection = Depends(obtener_db)):
     m = bib.obtener_materia(con, materia_id)
     return pagina(request, con, "paginas/materia.html", materia=m, componentes=bib.arbol(con, m.id),
-                  migas=[{"texto": m.nombre}], materia_activa=m.id)
+                  migas=[{"texto": m.nombre, "icono": m.icono, "color": m.color_hex}], materia_activa=m.id)
 
 
 @router.get("/{materia_id}/editar")

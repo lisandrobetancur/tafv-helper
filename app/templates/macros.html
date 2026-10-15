@@ -10,16 +10,43 @@
 {%- endmacro %}
 
 {% macro migas(items) -%}
+{# Ruta de navegación. Cada paso: texto, url (opcional), icono (opcional), color (materia), tabla (id:
+   vuelve a la tabla con los últimos filtros usados). En pantallas chicas los pasos intermedios se
+   agrupan en «…», que se despliega al tocarlo. #}
 {% if items %}
-<nav aria-label="Ruta" class="mb-4 flex flex-wrap items-center gap-1.5 text-sm text-tenue">
-  <a href="/" class="inline-flex items-center gap-1 rounded-md px-1 hover:text-texto">{{ icono("house", "size-3.5") }}Inicio</a>
-  {% for m in items %}
-    {{ icono("chevron-right", "size-3.5 opacity-60") }}
-    {# Textos largos (p. ej. un título de fila con varias líneas) se recortan a una línea #}
+{% set total = items|length %}
+<nav aria-label="Ruta" class="mb-4 text-sm text-tenue" x-data="{ todo: false }">
+  <ol class="flex flex-wrap items-center gap-x-1 gap-y-1">
+    <li class="flex items-center">
+      <a href="/" class="inline-flex items-center gap-1.5 rounded-md px-1.5 py-0.5 hover:bg-superficie-2 hover:text-texto">{{ icono("house", "size-3.5") }}<span class="sr-only sm:not-sr-only">Inicio</span></a>
+    </li>
+    {% if total > 2 %}
+    <li class="flex items-center sm:hidden" x-show="!todo">
+      {{ icono("chevron-right", "size-3.5 opacity-50") }}
+      <button type="button" class="rounded-md px-1.5 py-0.5 hover:bg-superficie-2 hover:text-texto" @click="todo = true"
+              aria-label="Mostrar la ruta completa">{{ icono("ellipsis", "size-3.5") }}</button>
+    </li>
+    {% endif %}
+    {% for m in items %}
+    {% set intermedio = total > 2 and not loop.last and loop.index < total - 1 %}
     {% set texto = m.texto.split("\n")[0]|truncate(60, true, "…") %}
-    {% if m.url %}<a href="{{ m.url }}" class="max-w-[24rem] truncate rounded-md px-1 hover:text-texto" title="{{ m.texto }}">{{ texto }}</a>
-    {% else %}<span class="max-w-[24rem] truncate px-1 font-medium text-texto" aria-current="page" title="{{ m.texto }}">{{ texto }}</span>{% endif %}
-  {% endfor %}
+    <li class="{{ 'hidden sm:flex' if intermedio else 'flex' }} min-w-0 items-center" {% if intermedio %}:class="todo && '!flex'"{% endif %}>
+      {{ icono("chevron-right", "size-3.5 shrink-0 opacity-50") }}
+      {% set contenido %}
+        {% if m.icono %}<span class="shrink-0" {% if m.color %}style="color: {{ m.color }}"{% endif %}>{{ icono(m.icono, "size-3.5") }}</span>{% endif %}
+        <span class="truncate">{{ texto }}</span>
+      {% endset %}
+      {% if m.url %}
+      <a href="{{ m.url }}" title="{{ m.texto }}"
+         {% if m.tabla %}x-data :href="sessionStorage.getItem('ultima-tabla-{{ m.tabla }}') || '{{ m.url }}'"{% endif %}
+         class="inline-flex max-w-[16rem] items-center gap-1.5 rounded-md px-1.5 py-0.5 hover:bg-superficie-2 hover:text-texto">{{ contenido }}</a>
+      {% else %}
+      <span class="inline-flex max-w-[22rem] items-center gap-1.5 rounded-md bg-superficie-2 px-2 py-0.5 font-medium text-texto"
+            aria-current="page" title="{{ m.texto }}">{{ contenido }}</span>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ol>
 </nav>
 {% endif %}
 {%- endmacro %}

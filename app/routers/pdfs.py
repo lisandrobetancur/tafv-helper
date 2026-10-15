@@ -76,7 +76,7 @@ def ver_pdf(request: Request, pdf_id: int, buscar: str = "",
     fav.registrar_visita(con, "pdf", pdf.id)
     return pagina(request, con, "paginas/pdf.html", pdf=pdf, favorito=fav.es_favorito(con, "pdf", pdf.id),
                   etiquetas=etq.de(con, "pdf", pdf.id), numero=numero, buscar=buscar.strip(), texto_ocr=texto_ocr,
-                  materia_activa=comp.materia_id, migas=_migas_componente(con, comp.id) + [{"texto": pdf.titulo}])
+                  materia_activa=comp.materia_id, migas=_migas_componente(con, comp.id, "pdf") + [{"texto": pdf.titulo, "icono": "file-text"}])
 
 
 @router.get("/pdfs/{pdf_id}/archivo")

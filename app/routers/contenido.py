@@ -89,7 +89,7 @@ def ver_imagen(request: Request, imagen_id: int, con: sqlite3.Connection = Depen
     return pagina(request, con, "paginas/imagen.html", imagen=img, componente=comp, materia_activa=comp.materia_id,
                   favorito=fav.es_favorito(con, "imagen", img.id),
                   anterior=ids[pos - 1] if pos > 0 else None, siguiente=ids[pos + 1] if pos + 1 < len(ids) else None,
-                  migas=_migas_componente(con, comp.id) + [{"texto": img.titulo}])
+                  migas=_migas_componente(con, comp.id, "imagenes") + [{"texto": img.titulo, "icono": "image"}])
 
 
 @router.post("/imagenes/{imagen_id}")
@@ -155,8 +155,9 @@ def _editor(request: Request, con: sqlite3.Connection, componente_id: int, nota=
     valores = valores or ({"titulo": nota.titulo, "contenido": nota.contenido, "formato": nota.formato,
                            "etiquetas": ", ".join(nota.etiquetas)} if nota else
                           {"titulo": "", "contenido": "", "formato": "markdown", "etiquetas": ""})
-    migas = _migas_componente(con, comp.id) + ([{"texto": nota.titulo, "url": f"/notas/{nota.id}"}, {"texto": "Editar"}]
-                                               if nota else [{"texto": "Nueva nota"}])
+    migas = _migas_componente(con, comp.id, "notas") + (
+        [{"texto": nota.titulo, "url": f"/notas/{nota.id}", "icono": "sticky-note"}, {"texto": "Editar", "icono": "pencil"}]
+        if nota else [{"texto": "Nueva nota", "icono": "plus"}])
     return pagina(request, con, "paginas/nota_editar.html", componente=comp, nota=nota, valores=valores, error=error,
                   formatos=notas_srv.FORMATOS, vista_previa=notas_srv.renderizar(valores["contenido"], valores["formato"]),
                   materia_activa=comp.materia_id, migas=migas)
@@ -195,7 +196,7 @@ def ver_nota(request: Request, nota_id: int, con: sqlite3.Connection = Depends(o
     fav.registrar_visita(con, "nota", nota.id)
     return pagina(request, con, "paginas/nota.html", nota=nota, html=notas_srv.renderizar(nota.contenido, nota.formato),
                   favorito=fav.es_favorito(con, "nota", nota.id),
-                  materia_activa=comp.materia_id, migas=_migas_componente(con, comp.id) + [{"texto": nota.titulo}])
+                  materia_activa=comp.materia_id, migas=_migas_componente(con, comp.id, "notas") + [{"texto": nota.titulo, "icono": "sticky-note"}])
 
 
 @router.get("/notas/{nota_id}/editar")

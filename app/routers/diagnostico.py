@@ -41,7 +41,7 @@ def pagina_diagnostico(request: Request, con: sqlite3.Connection = Depends(obten
     analisis = dx.analizar(con, sintomas, solo_sintomas=solo) if sintomas else None
     return pagina(request, con, "paginas/diagnostico.html", analisis=analisis, sintomas=sintomas, solo=solo,
                   caso=_caso_abierto(con, request.query_params), casos=casos_srv.listar(con),
-                  migas=[{"texto": "Diagnóstico"}])
+                  migas=[{"texto": "Diagnóstico", "icono": "stethoscope"}])
 
 
 @router.get("/diagnostico/resultado")
@@ -75,7 +75,8 @@ def ver_caso(request: Request, caso_id: int, con: sqlite3.Connection = Depends(o
     analisis = dx.analizar(con, caso.lista_sintomas, solo_sintomas=caso.solo)
     return pagina(request, con, "paginas/caso.html", caso=caso, analisis=analisis,
                   resumen_html=notas_srv.renderizar(caso.resumen, "markdown"),
-                  migas=[{"texto": "Diagnóstico", "url": "/diagnostico"}, {"texto": caso.titulo}])
+                  migas=[{"texto": "Diagnóstico", "url": "/diagnostico", "icono": "stethoscope"},
+                         {"texto": "Casos", "url": "/diagnostico#casos", "icono": "folder-open"}, {"texto": caso.titulo}])
 
 
 @router.post("/diagnostico/casos/{caso_id}")
