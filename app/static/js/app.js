@@ -128,6 +128,9 @@
   document.addEventListener("htmx:confirm", (e) => {
     if (!e.detail.question) return;
     e.preventDefault();
+    // HTMX hereda hx-confirm a lo que está dentro del formulario (p. ej. la vista previa de una nota
+    // al escribir, o «Atrás» en un asistente): solo pregunta el elemento que lo declara él mismo.
+    if (!e.detail.elt.hasAttribute("hx-confirm")) { e.detail.issueRequest(true); return; }
     confirmar(e.detail.question, opcionesDe(e.detail.elt)).then((si) => { if (si) e.detail.issueRequest(true); });
   });
 
