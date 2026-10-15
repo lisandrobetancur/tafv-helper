@@ -111,6 +111,21 @@ def test_etiquetas_de_tabla(con, base) -> None:
     assert con.execute("SELECT COUNT(*) FROM etiquetas_elemento WHERE tipo='tabla'").fetchone()[0] == 0
 
 
+def test_etiquetas_al_importar(cliente, con, base, tmp_path: Path) -> None:
+    wb = Workbook()
+    wb.active.append(["Esencia", "Indicación"])
+    wb.active.append(["Rescate", "Crisis, pánico"])
+    wb.save(tmp_path / "flores.xlsx")
+    estado = imp.crear(con, base["comp"], "flores.xlsx", tmp_path / "flores.xlsx", "Esencias florales",
+                       etiquetas="esencias florales, psicoterapia")
+    estado.poner_config(0, imp.config_sugerida(estado, 0, imp.hojas(estado)[0]))
+    imp.guardar(estado)
+    assert imp.cargar(estado.token).etiquetas == "esencias florales, psicoterapia"
+    r = cliente.post(f"/importar/{estado.token}/confirmar", headers={"HX-Request": "true"})
+    tid = int(r.headers["HX-Redirect"].rsplit("/", 1)[1])
+    assert etq.de(con, "tabla", tid) == ["esencias florales", "psicoterapia"]
+
+
 # ---------------------------------------------------------------- repaso
 def test_repaso(con, base, tmp_path: Path) -> None:
     t = tab.obtener(con, base["tabla"])
