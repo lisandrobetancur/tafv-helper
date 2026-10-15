@@ -39,13 +39,19 @@
     const tabla = doc.querySelector("table");
     if (!tabla) return null;
     const estilos = [...doc.querySelectorAll("style")].map((e) => e.textContent).join("\n");
-    const clasesNegrita = new Set([...estilos.matchAll(/\.([\w-]+)\s*\{[^}]*font-weight\s*:\s*(?:700|bold)/gi)].map((m) => m[1]));
-    const esNegrita = (td) => /font-weight\s*:\s*(?:700|bold)/i.test(td.getAttribute("style") || "") ||
-      [...td.classList].some((c) => clasesNegrita.has(c)) ||
+    const reglas = {};                                    // clase CSS (Excel usa .xl65, .xl66…) -> declaraciones
+    for (const m of estilos.matchAll(/\.([\w-]+)\s*\{([^}]*)\}/g)) reglas[m[1]] = (reglas[m[1]] || "") + ";" + m[2];
+    const css = (td) => (td.getAttribute("style") || "") + ";" + [...td.classList].map((c) => reglas[c] || "").join(";");
+    const esNegrita = (td) => /font-weight\s*:\s*(?:700|bold)/i.test(css(td)) ||
       (!!td.querySelector("b, strong") && td.textContent.trim() === (td.querySelector("b, strong")?.textContent || "").trim());
-    const filas = [], negritas = [], ocupadas = [];       // ocupadas[i][j] = valor que baja de una combinada
+    const fondo = (td) => {                               // color de relleno ("" si es blanco o no tiene)
+      const m = css(td).match(/background(?:-color)?\s*:\s*([^;]+)/i);
+      const v = (m ? m[1] : td.getAttribute("bgcolor") || "").trim().toLowerCase();
+      return /^(#fff(fff)?|white|transparent|none|inherit|auto|)$/.test(v) || v.startsWith("rgb(255, 255, 255)") ? "" : v;
+    };
+    const filas = [], negritas = [], fondos = [], ocupadas = [];   // ocupadas[i][j] = valor que baja de una combinada
     [...tabla.rows].forEach((tr, i) => {
-      filas[i] = filas[i] || []; negritas[i] = negritas[i] || [];
+      filas[i] = filas[i] || []; negritas[i] = negritas[i] || []; fondos[i] = fondos[i] || [];
       let j = 0;
       for (const td of tr.cells) {
         while (ocupadas[i]?.[j] !== undefined) { filas[i][j] = ocupadas[i][j]; negritas[i][j] = false; j++; }
@@ -55,6 +61,7 @@
         for (let a = 0; a < ancho; a++) {
           filas[i][j + a] = a === 0 ? texto : "";
           negritas[i][j + a] = esNegrita(td);
+          fondos[i][j + a] = fondo(td);
           for (let b = 1; b < alto; b++) {
             ocupadas[i + b] = ocupadas[i + b] || [];
             ocupadas[i + b][j + a] = a === 0 ? texto : "";
@@ -64,7 +71,7 @@
       }
       while (ocupadas[i]?.[j] !== undefined) { filas[i][j] = ocupadas[i][j]; negritas[i][j] = false; j++; }
     });
-    return { filas, negritas };
+    return { filas, negritas, fondos };
   };
   const excelAMarkdown = (texto, html = "") => {
     const limpia = (c) => (c || "").trim().replace(/\s*\n\s*/g, " / ").replace(/\|/g, "\\|");
@@ -91,9 +98,12 @@
         continue;
       }
       const linea = (i) => `| ${usadas.map((j) => filas[i][j] || " ").join(" | ")} |`;
-      // Encabezado: sin HTML se asume la primera fila; con HTML, solo si está en negrita (si no, la
-      // tabla va sin encabezado y todas las filas son datos)
-      const conEncabezado = !deHTML || usadas.every((j) => !filas[indices[0]][j] || deHTML.negritas[indices[0]][j]);
+      // Encabezado: sin HTML se asume la primera fila; con HTML, solo si está destacada: en negrita o
+      // con un relleno de color distinto al de la fila siguiente (si no, todas las filas son datos)
+      const destacada = (i, j) => deHTML.negritas[i][j] ||
+        (deHTML.fondos[i][j] && (indices.length < 2 || deHTML.fondos[i][j] !== (deHTML.fondos[indices[1]] || [])[j]));
+      const conEncabezado = !deHTML || indices.length < 2 ||
+        usadas.every((j) => !filas[indices[0]][j] || destacada(indices[0], j));
       const encabezado = conEncabezado ? linea(indices[0]) : `|${usadas.map(() => " ").join("|")}|`;
       const cuerpo = conEncabezado ? indices.slice(1) : indices;
       partes.push([encabezado, `|${usadas.map(() => "---").join("|")}|`, ...cuerpo.map(linea)].join("\n"));
