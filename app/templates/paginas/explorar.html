@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+{% from "macros.html" import icono, vacio, carrusel, plural %}
+{% block titulo %}Explorar · {{ materia.nombre }}{% endblock %}
+{% block contenido %}
+{% with pestana="explorar" %}{% include "parciales/cabecera_materia.html" %}{% endwith %}
+
+{% if not entradas %}
+  {% call vacio("book-open", "Aún no hay nada para explorar",
+               "Cuando la materia tenga componentes con notas, tablas, imágenes o PDF, aquí podrás leerlos y recorrerlos.") %}
+    <a href="/materias/{{ materia.id }}" class="btn-primario">{{ icono("layers") }}Ir a componentes y carga</a>
+  {% endcall %}
+{% else %}
+{% set activo = lectura.entrada.componente.id if lectura else None %}
+<div class="grid gap-6 lg:grid-cols-[17rem_minmax(0,1fr)] lg:items-start">
+
+  {# ---------------- Índice de la materia ---------------- #}
+  <aside class="tarjeta overflow-hidden lg:sticky lg:top-20 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto"
+         x-data="{ abierto: false }" aria-label="Índice de {{ materia.nombre }}">
+    <button type="button" class="flex w-full items-center justify-between px-4 py-3 text-sm font-semibold lg:cursor-default"
+            @click="if (window.innerWidth < 1024) abierto = !abierto" :aria-expanded="abierto">
+      <span class="inline-flex items-center gap-2">{{ icono("list") }}Índice</span>
+      <span class="transition lg:hidden" :class="abierto && 'rotate-180'">{{ icono("chevron-down") }}</span>
+    </button>
+    <nav x-show="abierto" x-cloak class="lg:!block border-t border-borde px-2 py-2 text-sm">
+      <ul class="flex flex-col gap-0.5">
+        {% for e in entradas %}
+        {% set c = e.componente %}
+        <li style="padding-left: {{ (e.nivel - 1) * 0.9 }}rem">
+          <a href="/materias/{{ materia.id }}/explorar?c={{ c.id }}"
+             class="flex items-center gap-2 rounded-lg px-2 py-1.5 {{ 'bg-marca-suave font-semibold text-marca' if c.id == activo else 'hover:bg-superficie-2' }}"
+             {% if c.id == activo %}aria-current="page"{% endif %}>
+            {{ icono("folder-open" if c.id == activo else "folder", "size-4 shrink-0") }}
+            <span class="min-w-0 flex-1 truncate">{{ c.nombre }}</span>
+            {% if e.vacio %}<span class="text-[11px] text-tenue">vacío</span>{% endif %}
+          </a>
+          {% if c.id == activo and not e.vacio %}
+          <ul class="mb-1 ml-4 border-l border-borde pl-2 text-[13px]">
+            {% if e.num_imagenes %}<li><a href="#imagenes" class="flex items-center gap-1.5 rounded px-2 py-1 text-tenue hover:text-texto">{{ icono("images", "size-3.5 shrink-0") }}{{ plural(e.num_imagenes, "imagen", "imágenes") }}</a></li>{% endif %}
+            {% for id, titulo in e.notas %}<li><a href="#nota-{{ id }}" class="flex items-center gap-1.5 rounded px-2 py-1 text-tenue hover:text-texto" title="{{ titulo }}">{{ icono("sticky-note", "size-3.5 shrink-0") }}<span class="truncate">{{ titulo }}</span></a></li>{% endfor %}
+            {% for id, nombre in e.tablas %}<li><a href="#tabla-{{ id }}" class="flex items-center gap-1.5 rounded px-2 py-1 text-tenue hover:text-texto" title="{{ nombre }}">{{ icono("table", "size-3.5 shrink-0") }}<span class="truncate">{{ nombre }}</span></a></li>{% endfor %}
+            {% for id, titulo in e.pdfs %}<li><a href="#pdf-{{ id }}" class="flex items-center gap-1.5 rounded px-2 py-1 text-tenue hover:text-texto" title="{{ titulo }}">{{ icono("file-text", "size-3.5 shrink-0") }}<span class="truncate">{{ titulo }}</span></a></li>{% endfor %}
+          </ul>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </aside>
+
+  {# ---------------- Lectura del componente ---------------- #}
+  {% if lectura %}
+  {% set c = lectura.entrada.componente %}
+  <div class="flex min-w-0 flex-col gap-6">
+    <header class="flex flex-wrap items-start gap-4">
+      <div class="min-w-[min(100%,16rem)] flex-1">
+        {% if lectura.entrada.ruta %}<p class="text-sm text-tenue">{{ lectura.entrada.ruta|join(" › ") }}</p>{% endif %}
+        <h2 class="text-2xl font-bold tracking-tight">{{ c.nombre }}</h2>
+        {% if c.descripcion %}<p class="mt-1 max-w-3xl whitespace-pre-line text-tenue">{{ c.descripcion }}</p>{% endif %}
+      </div>
+      <a href="/componentes/{{ c.id }}" class="btn-secundario" title="Abrir el componente para agregar o editar material">{{ icono("pencil") }}Editar y cargar</a>
+    </header>
+
+    {% if lectura.imagenes %}
+    <section id="imagenes" class="tarjeta scroll-mt-20 p-4 sm:p-5" aria-label="Imágenes">
+      <h3 class="titulo-seccion mb-3 flex items-center gap-2">{{ icono("images") }}Imágenes</h3>
+      {{ carrusel(lectura.imagenes) }}
+    </section>
+    {% endif %}
+
+    {% for nota, html in lectura.notas %}
+    <article id="nota-{{ nota.id }}" class="tarjeta scroll-mt-20 px-5 py-5 sm:px-8">
+      <header class="mb-3 flex items-start gap-3">
+        <span class="mt-1 text-tenue">{{ icono("sticky-note") }}</span>
+        <h3 class="min-w-0 flex-1 text-lg font-semibold"><a href="/notas/{{ nota.id }}" class="hover:text-marca">{{ nota.titulo }}</a></h3>
+        <a href="/notas/{{ nota.id }}/editar" class="btn-icono" title="Editar la nota" aria-label="Editar la nota">{{ icono("pencil", "size-4") }}</a>
+      </header>
+      {% if nota.contenido.strip() %}<div class="prose max-w-none">{{ html|safe }}</div>
+      {% else %}<p class="text-sm text-tenue">Nota vacía.</p>{% endif %}
+    </article>
+    {% endfor %}
+
+    {% for t in lectura.tablas %}
+    <section id="tabla-{{ t.id }}" class="tarjeta scroll-mt-20 overflow-hidden" aria-label="{{ t.nombre }}">
+      <header class="flex flex-wrap items-center gap-3 px-5 py-4">
+        <span class="text-tenue">{{ icono("table") }}</span>
+        <h3 class="min-w-0 flex-1 text-lg font-semibold"><a href="/tablas/{{ t.id }}" class="hover:text-marca">{{ t.nombre }}</a></h3>
+        <span class="text-sm text-tenue">{{ plural(t.total, "fila", "filas") }}</span>
+        <a href="/tablas/{{ t.id }}" class="btn-secundario">{{ icono("filter") }}Abrir con filtros</a>
+      </header>
+      <div class="max-h-[32rem] overflow-auto border-t border-borde">
+        <table class="w-full text-left text-sm">
+          <thead class="sticky top-0 bg-superficie-2 text-xs uppercase tracking-wide text-tenue">
+            <tr>{% for col in t.columnas %}<th class="whitespace-nowrap px-3 py-2 font-semibold">{{ col.nombre }}</th>{% endfor %}</tr>
+          </thead>
+          <tbody>
+            {% for fid, titulo, valores in t.filas %}
+            <tr class="border-t border-borde align-top hover:bg-superficie-2/60">
+              {% for col in t.columnas %}
+              <td class="max-w-[28rem] whitespace-pre-line px-3 py-2">{% if loop.first %}<a href="/filas/{{ fid }}" class="font-medium hover:text-marca">{{ valores.get(col.clave, "") }}</a>{% else %}{{ valores.get(col.clave, "") }}{% endif %}</td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% if t.total > t.filas|length %}
+      <p class="border-t border-borde px-5 py-2.5 text-sm text-tenue">Se muestran las primeras {{ t.filas|length }} de {{ t.total }} filas.
+        <a href="/tablas/{{ t.id }}" class="font-medium text-marca hover:underline">Ver la tabla completa →</a></p>
+      {% endif %}
+    </section>
+    {% endfor %}
+
+    {% for p in lectura.pdfs %}
+    <a id="pdf-{{ p.id }}" href="/pdfs/{{ p.id }}" class="tarjeta flex scroll-mt-20 items-center gap-4 px-5 py-4 hover:border-borde-fuerte">
+      <span class="grid size-11 shrink-0 place-items-center rounded-xl bg-marca-suave text-marca">{{ icono("file-text", "size-5") }}</span>
+      <span class="min-w-0 flex-1"><span class="block truncate font-semibold">{{ p.titulo }}</span>
+        <span class="text-sm text-tenue">PDF · {{ plural(p.paginas, "página", "páginas") }}</span></span>
+      {{ icono("chevron-right", "size-5 text-tenue") }}
+    </a>
+    {% endfor %}
+
+    {% if lectura.subcomponentes %}
+    <section aria-label="Subcomponentes">
+      <h3 class="titulo-seccion mb-3">Subcomponentes</h3>
+      <div class="grid gap-3 sm:grid-cols-2">
+        {% for s in lectura.subcomponentes %}
+        <a href="/materias/{{ materia.id }}/explorar?c={{ s.componente.id }}" class="tarjeta flex items-center gap-3 px-4 py-3 hover:border-borde-fuerte">
+          {{ icono("folder", "size-5 text-tenue") }}<span class="min-w-0 flex-1 truncate font-medium">{{ s.componente.nombre }}</span>{{ icono("chevron-right", "size-4 text-tenue") }}
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    {% if lectura.entrada.vacio and not lectura.subcomponentes %}
+      {% call vacio("layers", "Este componente aún no tiene material", "Agrégalo desde «Editar y cargar».") %}{% endcall %}
+    {% endif %}
+
+    <nav class="grid gap-3 sm:grid-cols-2" aria-label="Componente anterior y siguiente">
+      {% if lectura.anterior %}
+      <a href="/materias/{{ materia.id }}/explorar?c={{ lectura.anterior.componente.id }}" class="tarjeta flex items-center gap-3 px-4 py-3 hover:border-borde-fuerte">
+        {{ icono("chevron-left", "size-5 text-tenue") }}<span class="min-w-0"><span class="block text-xs text-tenue">Anterior</span><span class="block truncate font-medium">{{ lectura.anterior.componente.nombre }}</span></span>
+      </a>
+      {% else %}<span></span>{% endif %}
+      {% if lectura.siguiente %}
+      <a href="/materias/{{ materia.id }}/explorar?c={{ lectura.siguiente.componente.id }}" class="tarjeta flex items-center justify-end gap-3 px-4 py-3 text-right hover:border-borde-fuerte">
+        <span class="min-w-0"><span class="block text-xs text-tenue">Siguiente</span><span class="block truncate font-medium">{{ lectura.siguiente.componente.nombre }}</span></span>{{ icono("chevron-right", "size-5 text-tenue") }}
+      </a>
+      {% endif %}
+    </nav>
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+{% endblock %}

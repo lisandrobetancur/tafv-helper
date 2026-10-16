@@ -1,5 +1,5 @@
 {# Galería + carga de imágenes de una fila (se reemplaza completa tras subir, editar o eliminar) #}
-{% from "macros.html" import icono %}
+{% from "macros.html" import icono, carrusel %}
 <div class="flex flex-col gap-4">
   {# --- Carga: cada imagen elegida pide su nombre descriptivo antes de subir --- #}
   <div x-data="carga('/filas/{{ fila.id }}/imagenes', 'galeria', 'imagen')" class="tarjeta p-4">
@@ -39,6 +39,14 @@
 
   {# --- Galería --- #}
   {% if imagenes %}
+  <div x-data="{ vista: (() => { try { return localStorage.getItem('vista-imagenes-fila') || 'carrusel' } catch { return 'carrusel' } })() }"
+       x-init="$watch('vista', v => { try { localStorage.setItem('vista-imagenes-fila', v) } catch {} })" class="flex flex-col gap-3">
+    <div class="flex justify-end gap-1" role="group" aria-label="Forma de ver las imágenes">
+      <button type="button" class="chip" :class="vista === 'carrusel' && 'border-marca bg-marca-suave text-marca'" @click="vista = 'carrusel'">{{ icono("images", "size-3.5") }}Carrusel</button>
+      <button type="button" class="chip" :class="vista === 'cuadricula' && 'border-marca bg-marca-suave text-marca'" @click="vista = 'cuadricula'" title="Para ordenar, editar o enviar a la papelera">{{ icono("layers", "size-3.5") }}Cuadrícula</button>
+    </div>
+    <div x-show="vista === 'carrusel'">{{ carrusel(imagenes_carrusel(imagenes, "imagenes-fila")) }}</div>
+    <div x-show="vista === 'cuadricula'" x-cloak>
   <ul class="grid grid-cols-2 gap-3" x-data="ordenable" data-url="/filas/{{ fila.id }}/imagenes/orden">
     {% for img in imagenes %}
     <li data-id="{{ img.id }}" class="group relative overflow-hidden rounded-xl border border-borde bg-superficie"
@@ -61,6 +69,8 @@
     </li>
     {% endfor %}
   </ul>
+    </div>
+  </div>
   {% else %}
   <p class="rounded-xl border border-dashed border-borde-fuerte px-4 py-6 text-center text-sm text-tenue">Esta ficha aún no tiene imágenes.</p>
   {% endif %}

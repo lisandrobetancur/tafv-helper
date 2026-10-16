@@ -1,0 +1,36 @@
+{# Cabecera de una materia con sus pestañas. Recibe `materia` y `pestana` ("componentes" | "explorar"). #}
+{% from "macros.html" import icono, ficha_materia, boton_modal %}
+<section class="tarjeta mb-6 overflow-hidden">
+  <div class="h-2" style="background: {{ materia.color_hex }}"></div>
+  <div class="flex flex-wrap items-start gap-5 p-6">
+    {{ ficha_materia(materia, "size-14", "size-7") }}
+    <div class="min-w-[min(100%,18rem)] flex-1">
+      <h1 class="text-2xl font-bold tracking-tight sm:text-3xl">{{ materia.nombre }}</h1>
+      <p class="mt-1 max-w-3xl whitespace-pre-line text-tenue">{{ materia.descripcion or "Sin descripción." }}</p>
+    </div>
+    <div class="flex items-center gap-2">
+      {{ boton_modal("/materias/" ~ materia.id ~ "/componentes/nuevo", "Nuevo componente") }}
+      <div class="relative" x-data="desplegable" @click.outside="cerrar()" @keydown.escape="cerrar()">
+        <button type="button" class="btn-secundario px-2.5" @click="alternar()" aria-label="Más acciones" :aria-expanded="abierto">{{ icono("ellipsis-vertical") }}</button>
+        <div class="menu-flotante" x-show="abierto" x-cloak x-transition.origin.top.right @click="cerrar()">
+          <button class="menu-item" hx-get="/materias/{{ materia.id }}/editar" hx-target="#modal">{{ icono("pencil") }}Editar materia</button>
+          {% if not materia.archivada %}
+          <form hx-post="/materias/{{ materia.id }}/archivar" hx-confirm="¿Archivar «{{ materia.nombre }}»? Dejará de verse en el menú y quedará en «Archivadas», al final del inicio." data-confirmar-boton="Archivar"><input type="hidden" name="archivar" value="true">
+            <button class="menu-item">{{ icono("archive") }}Archivar</button></form>
+          {% endif %}
+          <div class="my-1 border-t border-borde"></div>
+          <button class="menu-item-peligro" hx-get="/materias/{{ materia.id }}/eliminar" hx-target="#modal">{{ icono("trash-2") }}Enviar a la papelera</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {# Pestañas: «Componentes» organiza y carga el material; «Explorar» es solo para leerlo y navegarlo #}
+  <nav class="flex gap-1 border-t border-borde bg-superficie-2/60 px-4 pt-2" aria-label="Vistas de la materia">
+    {% for id, texto, ico, url in [("componentes", "Componentes y carga", "layers", "/materias/" ~ materia.id),
+                                   ("explorar", "Explorar", "book-open", "/materias/" ~ materia.id ~ "/explorar")] %}
+    <a href="{{ url }}" class="-mb-px inline-flex items-center gap-2 rounded-t-lg border px-4 py-2.5 text-sm font-medium
+       {{ 'border-borde border-b-superficie bg-superficie text-marca' if pestana == id else 'border-transparent text-tenue hover:text-texto' }}"
+       {% if pestana == id %}aria-current="page"{% endif %}>{{ icono(ico) }}{{ texto }}</a>
+    {% endfor %}
+  </nav>
+</section>

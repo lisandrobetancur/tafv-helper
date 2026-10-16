@@ -32,7 +32,17 @@ def _version_estaticos() -> str:
     return str(int(max((a.stat().st_mtime for a in archivos if a.exists()), default=0)))
 
 
+def _imagenes_carrusel(imagenes: list, tipo: str) -> list[dict[str, str]]:
+    """Datos para la macro `carrusel`: imágenes de un componente ("imagenes") o de una ficha ("imagenes-fila")."""
+    if tipo == "imagenes":
+        return [{"src": f"/imagenes/{i.id}/archivo", "miniatura": f"/imagenes/{i.id}/miniatura", "titulo": i.titulo,
+                 "pie": i.descripcion, "url": f"/imagenes/{i.id}"} for i in imagenes]
+    return [{"src": f"/imagenes-fila/{i.id}/archivo", "miniatura": f"/imagenes-fila/{i.id}/miniatura", "titulo": i.titulo,
+             "pie": i.pie} for i in imagenes]
+
+
 templates.env.globals["version_estaticos"] = _version_estaticos
+templates.env.globals["imagenes_carrusel"] = _imagenes_carrusel
 templates.env.globals["TIPOS_PAPELERA"] = {
     "materia": {"nombre": "Materia", "icono": "graduation-cap"},
     "componente": {"nombre": "Componente", "icono": "folder"},

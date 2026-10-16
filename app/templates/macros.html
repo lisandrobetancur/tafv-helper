@@ -71,3 +71,53 @@
 {%- endmacro %}
 
 {% macro plural(n, singular, plural_) -%}{{ n }} {{ singular if n == 1 else plural_ }}{%- endmacro %}
+
+{% macro carrusel(imagenes, alto="max-h-[min(65vh,36rem)]") -%}
+{# Carrusel de imágenes: flechas (o ← → con el foco), deslizar en pantallas táctiles, miniaturas y clic para
+   abrir el visor con zoom. `imagenes`: [{src, miniatura, titulo, pie, url (opcional)}] #}
+{% if imagenes %}
+<div x-data="carrusel({{ imagenes|tojson|forceescape }})" class="flex flex-col gap-3 outline-none" tabindex="0"
+     @keydown.left.prevent="pasar(-1)" @keydown.right.prevent="pasar(1)" aria-roledescription="carrusel" aria-label="Imágenes">
+  <div class="relative overflow-hidden rounded-xl border border-borde bg-superficie-2 select-none touch-pan-y"
+       @pointerdown="toqueInicio($event)" @pointerup="toqueFin($event)" @pointercancel="x0 = null">
+    <button type="button" class="flex min-h-64 w-full cursor-zoom-in items-center justify-center p-2" @click="ampliar()" title="Ver en grande con zoom">
+      <img :src="actual.src" :alt="actual.titulo" draggable="false" class="{{ alto }} w-auto max-w-full rounded object-contain">
+    </button>
+    <template x-if="imagenes.length > 1">
+      <div>
+        <button type="button" class="absolute left-2 top-1/2 grid size-10 -translate-y-1/2 place-items-center rounded-full bg-black/45 text-white hover:bg-black/65"
+                @click="pasar(-1)" aria-label="Imagen anterior">{{ icono("chevron-left", "size-5") }}</button>
+        <button type="button" class="absolute right-2 top-1/2 grid size-10 -translate-y-1/2 place-items-center rounded-full bg-black/45 text-white hover:bg-black/65"
+                @click="pasar(1)" aria-label="Imagen siguiente">{{ icono("chevron-right", "size-5") }}</button>
+        <span class="absolute right-3 top-3 rounded-full bg-black/55 px-2.5 py-0.5 text-xs font-medium text-white tabular-nums"
+              x-text="`${i + 1} / ${imagenes.length}`"></span>
+      </div>
+    </template>
+  </div>
+  <div class="min-w-0">
+    <p class="font-semibold">
+      <template x-if="actual.url"><a :href="actual.url" class="hover:text-marca" x-text="actual.titulo"></a></template>
+      <template x-if="!actual.url"><span x-text="actual.titulo"></span></template>
+    </p>
+    <template x-if="actual.pie">
+      <div>
+        <p class="mt-1 whitespace-pre-line text-sm text-tenue" :class="completo || 'line-clamp-3'" x-text="actual.pie"></p>
+        <button type="button" class="mt-1 text-xs font-medium text-marca hover:underline" x-show="actual.pie.length > 220"
+                @click="completo = !completo" x-text="completo ? 'Ver menos' : 'Ver todo el texto'"></button>
+      </div>
+    </template>
+  </div>
+  <template x-if="imagenes.length > 1">
+    <div class="flex gap-2 overflow-x-auto pb-1" x-ref="miniaturas" role="tablist" aria-label="Elegir imagen">
+      <template x-for="(img, k) in imagenes" :key="k">
+        <button type="button" role="tab" :aria-selected="k === i" :title="img.titulo" @click="ir(k)"
+                class="shrink-0 overflow-hidden rounded-lg border-2 transition"
+                :class="k === i ? 'border-marca' : 'border-transparent opacity-70 hover:opacity-100'">
+          <img :src="img.miniatura || img.src" :alt="img.titulo" loading="lazy" class="size-16 bg-superficie-2 object-cover">
+        </button>
+      </template>
+    </div>
+  </template>
+</div>
+{% endif %}
+{%- endmacro %}

@@ -36,6 +36,11 @@ class Rutas:
         return self.datos / "archivos"
 
     @property
+    def fuentes(self) -> Path:
+        """Archivos originales entregados para cargar (Excel, hojas separadas, imágenes extraídas)."""
+        return self.datos / "fuentes"
+
+    @property
     def cache(self) -> Path:
         return self.datos / "cache"
 

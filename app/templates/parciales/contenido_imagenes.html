@@ -1,5 +1,5 @@
 {# Pestaña Imágenes de un componente: carga en lote + galería con filtro por etiqueta #}
-{% from "macros.html" import icono %}
+{% from "macros.html" import icono, carrusel %}
 <div id="contenido-imagenes" class="flex flex-col gap-5">
   <div x-data="carga('/componentes/{{ componente.id }}/imagenes', 'contenido-imagenes', 'galeria')">
     <label class="flex cursor-pointer flex-col items-center gap-1.5 rounded-xl border-2 border-dashed px-4 py-7 text-center transition"
@@ -55,6 +55,14 @@
   {% endif %}
 
   {% if imagenes %}
+  <div x-data="{ vista: (() => { try { return localStorage.getItem('vista-imagenes') || 'carrusel' } catch { return 'carrusel' } })() }"
+       x-init="$watch('vista', v => { try { localStorage.setItem('vista-imagenes', v) } catch {} })" class="flex flex-col gap-3">
+    <div class="flex justify-end gap-1" role="group" aria-label="Forma de ver las imágenes">
+      <button type="button" class="chip" :class="vista === 'carrusel' && 'border-marca bg-marca-suave text-marca'" @click="vista = 'carrusel'">{{ icono("images", "size-3.5") }}Carrusel</button>
+      <button type="button" class="chip" :class="vista === 'cuadricula' && 'border-marca bg-marca-suave text-marca'" @click="vista = 'cuadricula'" title="Para ordenar, editar o enviar a la papelera">{{ icono("layers", "size-3.5") }}Cuadrícula</button>
+    </div>
+    <div x-show="vista === 'carrusel'">{{ carrusel(imagenes_carrusel(imagenes, "imagenes")) }}</div>
+    <div x-show="vista === 'cuadricula'" x-cloak>
   <ul class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6"
       {% if not etiqueta_activa %}x-data="ordenable" data-url="/componentes/{{ componente.id }}/imagenes/orden"{% endif %}>
     {% for img in imagenes %}
@@ -80,6 +88,8 @@
     </li>
     {% endfor %}
   </ul>
+    </div>
+  </div>
   {% elif etiqueta_activa %}
   <p class="text-sm text-tenue">No hay imágenes con la etiqueta «{{ etiqueta_activa }}».</p>
   {% else %}

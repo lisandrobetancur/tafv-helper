@@ -7,6 +7,7 @@ from fastapi import APIRouter, Body, Depends, Form, Request
 from ..db import obtener_db
 from ..errores import ErrorUsuario
 from ..services import biblioteca as bib
+from ..services import explorar as exp
 from ..services import papelera as pap
 from ..web import aviso, pagina, parcial, redirigir
 
@@ -40,6 +41,20 @@ def ver(request: Request, materia_id: int, con: sqlite3.Connection = Depends(obt
     m = bib.obtener_materia(con, materia_id)
     return pagina(request, con, "paginas/materia.html", materia=m, componentes=bib.arbol(con, m.id),
                   migas=[{"texto": m.nombre, "icono": m.icono, "color": m.color_hex}], materia_activa=m.id)
+
+
+@router.get("/{materia_id}/explorar")
+def explorar(request: Request, materia_id: int, c: int | None = None, con: sqlite3.Connection = Depends(obtener_db)):
+    """Pestaña para leer y navegar todo el material de la materia (sin las herramientas de carga)."""
+    m = bib.obtener_materia(con, materia_id)
+    entradas = exp.indice(con, m.id)
+    if c is None:  # por defecto, el primer componente con contenido
+        c = next((e.componente.id for e in entradas if not e.vacio), entradas[0].componente.id if entradas else None)
+    lectura = exp.leer(con, entradas, c) if c is not None else None
+    migas = [{"texto": m.nombre, "url": f"/materias/{m.id}", "icono": m.icono, "color": m.color_hex},
+             {"texto": "Explorar", "icono": "book-open"}]
+    return pagina(request, con, "paginas/explorar.html", materia=m, entradas=entradas, lectura=lectura,
+                  migas=migas, materia_activa=m.id)
 
 
 @router.get("/{materia_id}/editar")

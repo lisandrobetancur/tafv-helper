@@ -1,7 +1,7 @@
 """Respaldos de toda la biblioteca en un ZIP (data/respaldos/) y restauración desde un ZIP.
 
 El ZIP contiene la base de datos (copiada en caliente de forma consistente), los archivos
-(data/archivos) y la papelera. No incluye la caché (se regenera) ni los registros.
+(data/archivos), la papelera y las fuentes originales de la carga (data/fuentes). No incluye la caché (se regenera) ni los registros.
 Antes de restaurar se hace siempre un respaldo automático del estado actual.
 """
 from __future__ import annotations
@@ -22,7 +22,7 @@ from . import bloqueo
 
 log = logging.getLogger(__name__)
 
-CARPETAS = ("archivos", "papelera")
+CARPETAS = ("archivos", "papelera", "fuentes")  # fuentes: originales entregados para la carga
 MANIFIESTO = "respaldo.json"
 
 

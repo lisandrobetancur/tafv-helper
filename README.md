@@ -38,13 +38,17 @@ app/
   routers/           rutas HTTP (páginas y fragmentos HTMX)
   services/          lógica: biblioteca, almacenamiento, papelera, hojas, importacion, tablas,
                      imagenes_fila, pdfs, ocr, imagenes, notas, etiquetas, busqueda, favoritos,
-                     repaso, respaldos, bloqueo, miniaturas, diagnostico, casos
+                     repaso, respaldos, bloqueo, miniaturas, diagnostico, casos, explorar
   templates/         base.html, macros.html, paginas/, parciales/
   static/            src/app.css (fuente Tailwind), css/app.css (compilado), js/app.js, vendor/, marca/
-data/                (no va en git) biblioteca.db, archivos/, papelera/, respaldos/, cache/, logs/
+data/                (no va en git) biblioteca.db, archivos/, fuentes/, papelera/, respaldos/, cache/, logs/
 modelos/ocr/         (no va en git) modelos ONNX del OCR; los descarga `instalar`
 tests/               pytest, una suite por fase
 tools/               compilar_css.(sh|bat), construir_sprite.py (+ binario de Tailwind, no versionado)
+tools/carga/         carga fiel de material: preparar_fuentes, inspeccionar, extraer_rango, mejorar_imagen,
+                     cargar (plan.json) y auditar (fuentes vs. biblioteca)
+.claude/            skill «cargar-material» (reglas y formato del plan) y agentes extractor-material y
+                     verificador-carga, para Claude Code
 instalador.py        instalar/iniciar (solo biblioteca estándar); lo llaman los .command y .bat
 ```
 
@@ -77,6 +81,15 @@ data/archivos/<materia>/<componente>/<subcomponente>/
   PDF e imágenes mueven su archivo. Vaciar borra sin dejar huérfanos.
 - **Respaldos:** ZIP con copia en caliente de la BD (API `backup` de SQLite) + `archivos/` + `papelera/`.
   Restaurar valida rutas (anti *zip slip*) e integridad, hace un respaldo automático previo y migra.
+- **Explorar:** cada materia tiene dos pestañas: «Componentes y carga» (organizar y subir material) y
+  «Explorar» (solo lectura): índice de todos los componentes a la izquierda y, a la derecha, el componente
+  completo — carrusel de imágenes, notas desplegadas, tablas con sus primeras filas y PDF — con anterior/siguiente.
+  Las imágenes se ven en carrusel (también en la pestaña Imágenes y en las fichas, con opción de cuadrícula).
+- **Carga de material con Claude Code:** el skill `.claude/skills/cargar-material` define las reglas (texto literal,
+  solo ortografía declarada, nada unido, dividido ni rellenado; recuadros → una nota por encabezado; bloques
+  tabulares con encabezado → tabla de Excel; cada hoja → su propio archivo; imágenes con su texto transcrito).
+  Los originales quedan en `data/fuentes/<materia>/` (entran en los respaldos); `tools/carga/cargar.py` carga un
+  `plan.json` (con respaldo previo y modo `--prueba`) y `auditar.py` comprueba celda por celda que todo coincida.
 - **Diagnóstico por síntomas:** repertorización determinista sobre las filas de las tablas. Cada síntoma
   se busca con FTS5 (prefijos, sin tildes) y se verifica por columna (opcionalmente solo columnas cuyo
   nombre contiene «síntoma/signo/característico…»); los candidatos se ordenan por síntomas cubiertos

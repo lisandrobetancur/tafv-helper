@@ -18,6 +18,7 @@
     {% if "excel" in componente.tipos %}<button type="button" class="btn-secundario" hx-get="/componentes/{{ componente.id }}/importar" hx-target="#modal">{{ icono("file-spreadsheet") }}Importar Excel</button>{% endif %}
     {% if "imagenes" in componente.tipos %}<a href="#imagenes" class="btn-secundario" x-data @click.prevent="history.replaceState(null, '', '#imagenes'); window.dispatchEvent(new HashChangeEvent('hashchange'))">{{ icono("image") }}Subir imágenes</a>{% endif %}
     {% if puede_anidar %}{{ boton_modal(url_sub, "Nuevo subcomponente", "folder-plus", "btn-secundario") }}{% endif %}
+    <a href="/materias/{{ materia.id }}/explorar?c={{ componente.id }}" class="btn-secundario" title="Leer todo el material de este componente">{{ icono("book-open") }}Explorar</a>
     <div class="relative" x-data="desplegable" @click.outside="cerrar()" @keydown.escape="cerrar()">
       <button type="button" class="btn-secundario px-2.5" @click="alternar()" aria-label="Más acciones" :aria-expanded="abierto">{{ icono("ellipsis-vertical") }}</button>
       <div class="menu-flotante" x-show="abierto" x-cloak x-transition.origin.top.right @click="cerrar()">

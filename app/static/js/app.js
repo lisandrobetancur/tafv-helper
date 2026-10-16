@@ -506,6 +506,29 @@
       },
     }));
 
+    // ------------------------------------------------ carrusel de imágenes (macro `carrusel`)
+    Alpine.data("carrusel", (imagenes) => ({
+      imagenes, i: 0, completo: false, x0: null, deslizado: false,
+      get actual() { return this.imagenes[this.i] || {}; },
+      ir(k) {
+        this.i = k; this.completo = false;
+        this.$nextTick(() => this.$refs.miniaturas?.querySelectorAll("button")[k]
+          ?.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" }));
+      },
+      pasar(d) { const n = this.imagenes.length; if (n > 1) this.ir((this.i + d + n) % n); },
+      ampliar() {
+        if (this.deslizado) { this.deslizado = false; return; }  // fue un gesto, no un clic
+        this.$dispatch("abrir-visor", { imagenes: this.imagenes, indice: this.i });
+      },
+      toqueInicio(e) { this.x0 = e.clientX; this.deslizado = false; },
+      toqueFin(e) {
+        if (this.x0 === null) return;
+        const dx = e.clientX - this.x0;
+        this.x0 = null;
+        if (Math.abs(dx) > 50) { this.deslizado = true; this.pasar(dx < 0 ? 1 : -1); }
+      },
+    }));
+
     // ------------------------------------------------ visor con zoom (lightbox)
     // Se abre con: $dispatch('abrir-visor', { imagenes: [{src, titulo, pie}], indice })
     Alpine.data("visor", () => ({
