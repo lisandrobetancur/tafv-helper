@@ -14,6 +14,8 @@ Antes de empezar, lee:
 Te indican la carpeta `data/fuentes/<materia>/<componente>/`, la materia y el componente, y quizá
 decisiones de la usuaria. Trabaja solo dentro de esa carpeta; no modifiques `hojas/`, `imagenes/`, `pdf/`
 ni `_originales/` (son la referencia).
+Si necesitas scripts o archivos auxiliares, ponlos en `<carpeta>/.trabajo/` (nunca en una carpeta temporal
+compartida: puede haber otros extractores trabajando en paralelo).
 
 ## Pasos
 1. Lee `inspeccion-<hoja>.txt` de cada hoja (bloques, celdas con negrita/relleno/combinadas, comentarios,
