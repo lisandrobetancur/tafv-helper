@@ -80,6 +80,7 @@ class Candidato:
     color: str
     materia_id: int | None = None
     materia: str = ""
+    icono: str = "book-open"        # ícono de la materia
     puntaje: int = 0
     puntaje_maximo: int = 0
     cubiertos: list[str] = field(default_factory=list)
@@ -124,6 +125,22 @@ class Analisis:
             elegidos += [g.candidatos[ronda] for g in self.por_materia if ronda < len(g.candidatos)]
             ronda += 1
         return elegidos[:6]
+
+    @property
+    def rotulos(self) -> list[tuple[Candidato, int | None]]:
+        """Cada destacado con su número dentro de su materia (1, 2…) cuando hay más de uno de la misma materia;
+        en la comparación se identifican por el ícono de la materia más ese número."""
+        destacados = self.destacados
+        repetidas = {c.materia_id for c in destacados if sum(d.materia_id == c.materia_id for d in destacados) > 1}
+        vistos: dict[int | None, int] = {}
+        salida = []
+        for c in destacados:
+            if c.materia_id in repetidas:
+                vistos[c.materia_id] = vistos.get(c.materia_id, 0) + 1
+                salida.append((c, vistos[c.materia_id]))
+            else:
+                salida.append((c, None))
+        return salida
 
     @property
     def matriz(self) -> list[tuple[Sintoma, list[bool]]]:
@@ -204,7 +221,7 @@ def analizar(con: sqlite3.Connection, sintomas: list[Sintoma], filtros: bus.Filt
             analisis.sin_columnas_de_sintomas = True
         permitidas[tid] = de_sintomas if (solo_sintomas and de_sintomas) else columnas
 
-    ubicaciones: dict[int, tuple[str, str, int | None, str]] = {}
+    ubicaciones: dict[int, tuple[str, str, int | None, str, str]] = {}
     maximo = sum(s.peso for s in sintomas)
     candidatos = []
     for fid, f in filas.items():
@@ -242,10 +259,11 @@ def analizar(con: sqlite3.Connection, sintomas: list[Sintoma], filtros: bus.Filt
                 comp = bib.obtener_componente(con, comp_id)
                 m = bib.obtener_materia(con, comp.materia_id)
                 ruta = " › ".join([m.nombre, *(a.nombre for a in bib.ancestros(con, comp)), comp.nombre])
-                ubicaciones[comp_id] = (ruta, COLOR_POR_ID.get(m.color, COLOR_POR_ID["pizarra"])["hex"], m.id, m.nombre)
+                ubicaciones[comp_id] = (ruta, COLOR_POR_ID.get(m.color, COLOR_POR_ID["pizarra"])["hex"], m.id, m.nombre,
+                                        m.icono)
             except Exception:
-                ubicaciones[comp_id] = ("", COLOR_POR_ID["pizarra"]["hex"], None, "")
-        c.ubicacion, c.color, c.materia_id, c.materia = ubicaciones[comp_id]
+                ubicaciones[comp_id] = ("", COLOR_POR_ID["pizarra"]["hex"], None, "", "book-open")
+        c.ubicacion, c.color, c.materia_id, c.materia, c.icono = ubicaciones[comp_id]
         candidatos.append(c)
 
     candidatos.sort(key=lambda c: (-c.puntaje, -len(c.cubiertos), normalizar(c.titulo)))
