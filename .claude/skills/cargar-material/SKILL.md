@@ -55,6 +55,10 @@ Con `AskUserQuestion`, reúne las dudas en pocas preguntas:
 .venv/bin/python tools/carga/cargar.py data/fuentes/<materia>/<componente>/plan.json --prueba
 BIBLIOTECA_DATOS=<copia que indica> .venv/bin/python tools/carga/auditar.py <plan.json>
 ```
+Si hay tablas corregidas en `tablas/`, corre también `tools/carga/comparar_tabla.py <plan.json>`: compara palabra por
+palabra con la hoja original y marca reemplazos caídos dentro de otra palabra («demas» → «demás» que deja
+«demásiado») o correcciones sin declarar. Corrige con reemplazos de palabra completa, nunca de subcadenas.
+
 Si la auditoría de la prueba sale CORRECTO, carga de verdad (hace un respaldo antes y guarda en `cargas/` qué se creó):
 ```bash
 .venv/bin/python tools/carga/cargar.py data/fuentes/<materia>/<componente>/plan.json   # --reemplazar si la usuaria lo pidió
