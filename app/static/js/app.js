@@ -457,6 +457,11 @@
         this.recalcular();
       },
       quitar(i) { this.sintomas.splice(i, 1); this.recalcular(); },
+      limpiar() {
+        this.sintomas = []; this.texto = ""; this.sugerencias = []; this.activa = -1;
+        this.recalcular();
+        this.$refs.entrada?.focus();
+      },
       alternar(i) { this.sintomas[i].importante = !this.sintomas[i].importante; this.recalcular(); },
       mover(d) {
         if (!this.sugerencias.length) return;

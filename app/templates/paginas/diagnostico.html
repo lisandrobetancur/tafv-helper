@@ -9,9 +9,9 @@
       <h1 class="text-2xl font-bold tracking-tight sm:text-3xl">Acceso rápido por síntomas</h1>
       <p class="mt-1 max-w-3xl text-tenue">Un módulo aparte que reúne todo tu material: escribe los síntomas y buscará en
         <strong class="font-medium text-texto">todas las materias</strong> qué registros (medicamentos, enfermedades…) los mencionan,
-        cuántos cubre cada uno y dónde lo dice. Los casos que guardes quedan aquí, en Acceso rápido.</p>
+        cuántos cubre cada uno y dónde lo dice.{% if CASOS_ACTIVOS %} Los casos que guardes quedan aquí, en Acceso rápido.{% endif %}</p>
     </div>
-    {% if casos %}
+    {% if CASOS_ACTIVOS and casos %}
     <a href="#casos" class="btn-secundario">{{ icono("folder-open") }}Casos guardados ({{ casos|length }})</a>
     {% endif %}
   </header>
@@ -71,9 +71,8 @@
     <div class="flex flex-wrap items-center gap-2 text-sm">
       <span class="flex items-center gap-1.5 text-tenue">{{ icono("library", "size-4") }}Consulta todas las materias, tablas, PDF, notas e imágenes</span>
       <span class="flex-1"></span>
-      <label class="chip cursor-pointer py-1.5 has-[:checked]:border-marca has-[:checked]:bg-marca-suave has-[:checked]:text-marca"
-             title="Solo cuenta lo que esté en columnas cuyo nombre diga «síntoma», «signo», «característico»…">
-        <input type="checkbox" name="solo" value="1" class="sr-only" {{ "checked" if solo }}>Solo en columnas de síntomas</label>
+      <button type="button" class="btn-secundario py-1.5" x-show="sintomas.length" x-cloak @click="limpiar()"
+              title="Quitar todos los síntomas y empezar de nuevo">{{ icono("x") }}Limpiar todo</button>
     </div>
   </form>
 
@@ -81,6 +80,7 @@
     {% include "parciales/diagnostico_resultado.html" %}
   </div>
 
+  {% if CASOS_ACTIVOS %}
   <section id="casos" class="mt-10 scroll-mt-6" aria-labelledby="t-casos">
     <h2 id="t-casos" class="titulo-seccion mb-3">Casos guardados</h2>
     {% if casos %}
@@ -101,5 +101,6 @@
       Aún no hay casos. Cuando analices unos síntomas, usa «Guardar el caso» y quedará aquí con tu conclusión.</p>
     {% endif %}
   </section>
+  {% endif %}
 </div>
 {% endblock %}

@@ -24,7 +24,6 @@ class Caso:
     titulo: str
     sintomas: list[str] = field(default_factory=list)
     importantes: list[str] = field(default_factory=list)
-    solo: bool = False
     conclusion: str = ""
     resumen: str = ""
     creado: str = ""
@@ -32,7 +31,7 @@ class Caso:
 
     @classmethod
     def desde_fila(cls, f: sqlite3.Row) -> Caso:
-        return cls(f["id"], f["titulo"], json.loads(f["sintomas"]), json.loads(f["importantes"]), bool(f["solo"]),
+        return cls(f["id"], f["titulo"], json.loads(f["sintomas"]), json.loads(f["importantes"]),
                    f["conclusion"], f["resumen"], f["creado"], f["actualizado"])
 
     @property
@@ -43,8 +42,6 @@ class Caso:
     def consulta(self) -> str:
         """Parámetros para abrir el caso en el formulario de diagnóstico."""
         params = [("caso", self.id), *(("s", s) for s in self.sintomas), *(("imp", s) for s in self.importantes)]
-        if self.solo:
-            params.append(("solo", "1"))
         return urlencode(params)
 
 
@@ -58,16 +55,16 @@ def _datos(sintomas: list[dx.Sintoma]) -> tuple[str, str]:
             json.dumps([s.texto for s in sintomas if s.importante], ensure_ascii=False))
 
 
-def crear(con: sqlite3.Connection, titulo: str, sintomas: list[dx.Sintoma], solo: bool = False,
+def crear(con: sqlite3.Connection, titulo: str, sintomas: list[dx.Sintoma],
           conclusion: str = "") -> Caso:
     if not sintomas:
         raise ErrorUsuario("Agrega al menos un síntoma antes de guardar el caso.")
-    resumen = dx.nota_markdown(dx.analizar(con, sintomas, solo_sintomas=solo))
+    resumen = dx.nota_markdown(dx.analizar(con, sintomas))
     momento = ahora()
     cur = con.execute(
-        """INSERT INTO casos (titulo, sintomas, importantes, solo, conclusion, resumen, creado, actualizado)
-           VALUES (?,?,?,?,?,?,?,?)""",
-        (_titulo(titulo, sintomas), *_datos(sintomas), int(solo), conclusion.strip(), resumen, momento, momento))
+        """INSERT INTO casos (titulo, sintomas, importantes, conclusion, resumen, creado, actualizado)
+           VALUES (?,?,?,?,?,?,?)""",
+        (_titulo(titulo, sintomas), *_datos(sintomas), conclusion.strip(), resumen, momento, momento))
     return obtener(con, int(cur.lastrowid))
 
 
@@ -92,12 +89,12 @@ def editar(con: sqlite3.Connection, caso_id: int, titulo: str, conclusion: str) 
     return obtener(con, caso.id)
 
 
-def actualizar_sintomas(con: sqlite3.Connection, caso_id: int, sintomas: list[dx.Sintoma], solo: bool) -> Caso:
+def actualizar_sintomas(con: sqlite3.Connection, caso_id: int, sintomas: list[dx.Sintoma]) -> Caso:
     """Cambia los síntomas del caso y vuelve a guardar el análisis con la biblioteca actual."""
     caso = obtener(con, caso_id)
     if not sintomas:
         raise ErrorUsuario("El caso necesita al menos un síntoma.")
-    resumen = dx.nota_markdown(dx.analizar(con, sintomas, solo_sintomas=solo))
-    con.execute("UPDATE casos SET sintomas=?, importantes=?, solo=?, resumen=?, actualizado=? WHERE id=?",
-                (*_datos(sintomas), int(solo), resumen, ahora(), caso.id))
+    resumen = dx.nota_markdown(dx.analizar(con, sintomas))
+    con.execute("UPDATE casos SET sintomas=?, importantes=?, resumen=?, actualizado=? WHERE id=?",
+                (*_datos(sintomas), resumen, ahora(), caso.id))
     return obtener(con, caso.id)

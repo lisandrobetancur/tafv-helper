@@ -60,6 +60,7 @@ def _coincide(texto_norm: str, palabras: list[str]) -> bool:
 
 
 def es_columna_de_sintomas(nombre: str) -> bool:
+    """Columnas cuyo nombre habla de síntomas: sus renglones salen primero en las sugerencias."""
     return any(p in normalizar(nombre) for p in PALABRAS_SINTOMA)
 
 
@@ -129,8 +130,6 @@ class Analisis:
     total_candidatos: int = 0
     filas_evaluadas: int = 0
     apoyo: dict[str, list] = field(default_factory=dict)
-    solo_sintomas: bool = False
-    sin_columnas_de_sintomas: bool = False
 
     @property
     def destacados(self) -> list[Candidato]:
@@ -198,10 +197,10 @@ def _materias_en_alcance(con: sqlite3.Connection, filtros: bus.Filtros) -> list[
 
 
 def analizar(con: sqlite3.Connection, sintomas: list[Sintoma], filtros: bus.Filtros | None = None,
-             tabla_id: int | None = None, solo_sintomas: bool = False, limite: int = 12,
+             tabla_id: int | None = None, limite: int = 12,
              por_materia: int = 6) -> Analisis:
     """Busca en TODAS las materias (salvo que se filtre una) y arma un ranking por cada materia."""
-    analisis = Analisis(sintomas=sintomas, solo_sintomas=solo_sintomas)
+    analisis = Analisis(sintomas=sintomas)
     if not sintomas:
         return analisis
     filtros = filtros or bus.Filtros()
@@ -222,13 +221,8 @@ def analizar(con: sqlite3.Connection, sintomas: list[Sintoma], filtros: bus.Filt
             tablas.setdefault(f["tabla_id"], (f["nombre"], json.loads(f["columnas"]), f["componente_id"], f["columna_titulo"]))
     analisis.filas_evaluadas = len(filas)
 
-    # Columnas donde se considera "mencionado" (todas o solo las de síntomas)
-    permitidas: dict[int, list[dict]] = {}
-    for tid, (_, columnas, _, _) in tablas.items():
-        de_sintomas = [c for c in columnas if es_columna_de_sintomas(c["nombre"])]
-        if solo_sintomas and not de_sintomas:
-            analisis.sin_columnas_de_sintomas = True
-        permitidas[tid] = de_sintomas if (solo_sintomas and de_sintomas) else columnas
+    # Un síntoma cuenta en cualquier columna de la fila
+    permitidas: dict[int, list[dict]] = {tid: columnas for tid, (_, columnas, _, _) in tablas.items()}
 
     ubicaciones: dict[int, tuple[str, str, int | None, str, str]] = {}
     maximo = sum(s.peso for s in sintomas)
@@ -266,8 +260,8 @@ def analizar(con: sqlite3.Connection, sintomas: list[Sintoma], filtros: bus.Filt
         c.ubicacion, c.color, c.materia_id, c.materia, c.icono = _ubicacion(con, comp_id, ubicaciones)
         candidatos.append(c)
 
-    # Notas e imágenes no tienen columnas: entran salvo que se pida «solo columnas de síntomas» o una tabla
-    if tabla_id is None and not solo_sintomas:
+    # Notas e imágenes también son candidatas (salvo que se consulte una sola tabla)
+    if tabla_id is None:
         candidatos += _candidatos_de_texto(con, sintomas, filtros, maximo, ubicaciones)
     for c in candidatos:
         if c.tipo == "fila":

@@ -23,6 +23,7 @@ templates.env.globals.update(
     ICONOS=config.ICONOS_MATERIA,
     TIPOS=config.TIPOS_CONTENIDO,
     PROFUNDIDAD_MAXIMA=config.PROFUNDIDAD_MAXIMA,
+    CASOS_ACTIVOS=config.CASOS_ACTIVOS,
 )
 
 

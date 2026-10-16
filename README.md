@@ -93,9 +93,8 @@ data/archivos/<materia>/<componente>/<subcomponente>/
   `plan.json` (con respaldo previo y modo `--prueba`) y `auditar.py` comprueba celda por celda que todo coincida.
 - **Acceso rápido por síntomas** (en el código, módulo `diagnostico`; la interfaz no usa esa palabra):
   repertorización determinista. Son candidatos las filas de las tablas, las notas y las imágenes (descripción
-  y OCR). Cada síntoma se busca con FTS5 (prefijos, sin tildes) y se verifica por columna (opcionalmente solo
-  columnas cuyo nombre contiene «síntoma/signo/característico…», y entonces sin notas ni imágenes) o por
-  renglón y título en notas e imágenes. Se ordenan por síntomas cubiertos (los «importantes» pesan el doble;
+  y OCR). Cada síntoma se busca con FTS5 (prefijos, sin tildes) y se verifica en
+  cualquier columna de la fila, o por renglón y título en notas e imágenes (siempre se busca en todo). Se ordenan por síntomas cubiertos (los «importantes» pesan el doble;
   a igualdad, primero quien tiene el síntoma en su título) con evidencia (columna o renglón resaltado),
   síntomas faltantes, «otros rasgos para confirmar», comparación del mejor candidato de cada materia
   (identificado por el ícono de la materia) y lo que dicen los PDF. Sin IA: todo sale del material y se

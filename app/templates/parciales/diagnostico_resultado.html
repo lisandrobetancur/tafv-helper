@@ -73,16 +73,12 @@
 
 {% if not analisis.por_materia %}
   {% call vacio("search", "Ningún registro menciona estos síntomas",
-               "Se revisaron todas las materias. Prueba con otras palabras o con el comienzo de una palabra (por ejemplo «dolor abdom»)." ~
-               (" También puedes quitar «Solo en columnas de síntomas»." if analisis.solo_sintomas else "")) %}{% endcall %}
+               "Se revisaron todas las materias. Prueba con otras palabras o con el comienzo de una palabra (por ejemplo «dolor abdom»).") %}{% endcall %}
 {% endif %}
 
 <div class="grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
   {# ------------------------------------------------------ un ranking por materia #}
   <div class="flex min-w-0 flex-col gap-8">
-    {% if analisis.sin_columnas_de_sintomas %}
-    <p class="-mb-4 text-xs text-tenue">Algunas tablas no tienen columnas con «síntoma» en el nombre: en ellas se buscó en todas las columnas.</p>
-    {% endif %}
     {% for g in analisis.por_materia %}
     {% set grupo = loop %}
     <section id="dx-materia-{{ loop.index }}" class="scroll-mt-6" aria-labelledby="t-dx-materia-{{ loop.index }}">
@@ -93,7 +89,7 @@
           {%- if g.total > g.candidatos|length %} · se muestran los {{ g.candidatos|length }} mejores{% endif %}</p>
       </div>
       <ol class="flex flex-col gap-3">
-        {% for c in g.candidatos %}{{ tarjeta_candidato(c, loop.index, grupo.first and loop.index <= 2 or not grupo.first and loop.first) }}{% endfor %}
+        {% for c in g.candidatos %}{{ tarjeta_candidato(c, loop.index, false) }}{% endfor %}
       </ol>
     </section>
     {% endfor %}
@@ -147,7 +143,7 @@
     </section>
     {% endif %}
 
-    {% if not sin_guardar %}
+    {% if CASOS_ACTIVOS and not sin_guardar %}
     <section class="tarjeta p-4" aria-labelledby="t-guardar">
       <h2 id="t-guardar" class="titulo-seccion mb-1">Guardar el caso</h2>
       <p class="mb-3 text-xs text-tenue">Queda en Acceso rápido › Casos guardados, con los síntomas, este análisis y tu conclusión.</p>

@@ -78,12 +78,10 @@ def test_sintoma_importante_pesa_el_doble(con, materia_medica) -> None:
     assert titulos(con_peso)[0] == "Arsenicum album" and con_peso.candidatos[0].puntaje == 4
 
 
-def test_solo_columnas_de_sintomas(con, materia_medica) -> None:
+def test_busca_en_todas_las_columnas_notas_e_imagenes(con, materia_medica) -> None:
     todas = dx.analizar(con, dx.preparar(["distension abdominal"], []))
-    # Arsenicum lo dice en «Indicaciones»; la nota «Clase de repaso» también es candidata
+    # Arsenicum lo dice en «Indicaciones» (no es columna de síntomas); la nota «Clase de repaso» también cuenta
     assert set(titulos(todas)) == {"Lycopodium", "Arsenicum album", "Clase de repaso"}
-    solo = dx.analizar(con, dx.preparar(["distension abdominal"], []), solo_sintomas=True)
-    assert titulos(solo) == ["Lycopodium"]                                     # sin notas: no tienen columnas
 
 
 def test_fuentes_de_apoyo_y_filtros(con, materia_medica) -> None:
@@ -159,8 +157,8 @@ def test_casos_propios_del_modulo(con, materia_medica) -> None:
     assert "caso=1" in caso.consulta and "imp=pies+frios" in caso.consulta
     # no depende de ninguna materia: sigue vivo si la materia se va a la papelera
     caso = casos.editar(con, caso.id, "Paciente de 40 años", "Lycopodium vs Calcárea")
-    caso = casos.actualizar_sintomas(con, caso.id, dx.preparar(["ansiedad"], []), solo=True)
-    assert caso.sintomas == ["ansiedad"] and caso.solo and caso.titulo == "Paciente de 40 años"
+    caso = casos.actualizar_sintomas(con, caso.id, dx.preparar(["ansiedad"], []))
+    assert caso.sintomas == ["ansiedad"] and caso.titulo == "Paciente de 40 años"
     pap.enviar_materia(con, materia_medica["materia"])
     assert [c.titulo for c in casos.listar(con)] == ["Paciente de 40 años"]
     pap.enviar_caso(con, caso.id)
@@ -178,18 +176,26 @@ def test_web(cliente, materia_medica) -> None:
     pagina = cliente.get("/acceso-rapido").text
     assert "Acceso rápido por síntomas" in pagina and "herramienta de estudio" in pagina.lower()
     assert "iagn" not in pagina                                                    # la palabra no aparece
+    assert "Solo en columnas" not in pagina and "Limpiar todo" in pagina
     r = cliente.get("/diagnostico/casos/7?x=1", follow_redirects=False)               # direcciones de antes
     assert r.status_code == 301 and r.headers["location"] == "/acceso-rapido/casos/7?x=1"
     assert "Todas las materias" not in pagina and "Consulta todas las materias" in pagina
     r = cliente.get("/acceso-rapido/resultado", params=[("s", "miedo al fracaso"), ("s", "pies fríos"), ("imp", "pies fríos")])
     assert "Lycopodium" in r.text and "2 de 2" in r.text and "Síntomas generales" in r.text and "1 materia revisada" in r.text
+    assert "abierto: true" not in r.text and "Guardar el caso" not in r.text             # resultados cerrados; sin guardar
     assert "Miedo al fracaso" in cliente.get("/acceso-rapido/sugerencias", params={"q": "miedo"}).text
     r = cliente.post("/acceso-rapido/casos", data={"s": ["miedo al fracaso"], "titulo": "Caso de prueba", "conclusion": "Lyco"},
                      headers={"HX-Request": "true"})
     assert r.headers["HX-Redirect"] == "/acceso-rapido/casos/1"
     caso = cliente.get("/acceso-rapido/casos/1").text
     assert "Caso de prueba" in caso and "Lycopodium" in caso and "Análisis con la biblioteca actual" in caso
-    assert "Caso de prueba" in cliente.get("/acceso-rapido").text                       # aparece en Casos guardados
+    assert "Casos guardados" not in cliente.get("/acceso-rapido").text                   # casos deshabilitados en la interfaz
+    from app.web import templates
+    templates.env.globals["CASOS_ACTIVOS"] = True                                        # el código sigue funcionando
+    try:
+        assert "Caso de prueba" in cliente.get("/acceso-rapido").text                   # aparece en Casos guardados
+    finally:
+        templates.env.globals["CASOS_ACTIVOS"] = False
     assert "Editando los síntomas del caso" in cliente.get("/acceso-rapido?caso=1&s=ansiedad").text
     r = cliente.post("/acceso-rapido/casos/1/sintomas", data={"s": ["ansiedad", "ardor"]}, headers={"HX-Request": "true"})
     assert r.headers["HX-Redirect"] == "/acceso-rapido/casos/1"

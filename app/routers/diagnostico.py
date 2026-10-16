@@ -22,8 +22,8 @@ def _entero(valor: str | None) -> int | None:
     return int(valor) if valor and valor.isdigit() else None
 
 
-def _leer(params) -> tuple[list[dx.Sintoma], bool]:
-    return dx.preparar(params.getlist("s"), params.getlist("imp")), params.get("solo") == "1"
+def _leer(params) -> list[dx.Sintoma]:
+    return dx.preparar(params.getlist("s"), params.getlist("imp"))
 
 
 def _caso_abierto(con: sqlite3.Connection, params) -> casos_srv.Caso | None:
@@ -38,17 +38,17 @@ def _caso_abierto(con: sqlite3.Connection, params) -> casos_srv.Caso | None:
 
 @router.get("/acceso-rapido")
 def pagina_diagnostico(request: Request, con: sqlite3.Connection = Depends(obtener_db)):
-    sintomas, solo = _leer(request.query_params)
-    analisis = dx.analizar(con, sintomas, solo_sintomas=solo) if sintomas else None
-    return pagina(request, con, "paginas/diagnostico.html", analisis=analisis, sintomas=sintomas, solo=solo,
+    sintomas = _leer(request.query_params)
+    analisis = dx.analizar(con, sintomas) if sintomas else None
+    return pagina(request, con, "paginas/diagnostico.html", analisis=analisis, sintomas=sintomas,
                   caso=_caso_abierto(con, request.query_params), casos=casos_srv.listar(con),
                   migas=[{"texto": "Acceso rápido", "icono": "stethoscope"}])
 
 
 @router.get("/acceso-rapido/resultado")
 def resultado(request: Request, con: sqlite3.Connection = Depends(obtener_db)):
-    sintomas, solo = _leer(request.query_params)
-    analisis = dx.analizar(con, sintomas, solo_sintomas=solo) if sintomas else None
+    sintomas = _leer(request.query_params)
+    analisis = dx.analizar(con, sintomas) if sintomas else None
     respuesta = parcial(request, "parciales/diagnostico_resultado.html", analisis=analisis,
                         caso=_caso_abierto(con, request.query_params))
     # La dirección de la página refleja el caso, para poder volver a él o guardarlo en favoritos del navegador
@@ -65,15 +65,15 @@ def sugerencias(q: str = "", con: sqlite3.Connection = Depends(obtener_db)):
 @router.post("/acceso-rapido/casos")
 async def crear_caso(request: Request, con: sqlite3.Connection = Depends(obtener_db)):
     form = await request.form()
-    sintomas, solo = _leer(form)
-    caso = casos_srv.crear(con, str(form.get("titulo") or ""), sintomas, solo, str(form.get("conclusion") or ""))
+    sintomas = _leer(form)
+    caso = casos_srv.crear(con, str(form.get("titulo") or ""), sintomas, str(form.get("conclusion") or ""))
     return redirigir(request, f"/acceso-rapido/casos/{caso.id}", "Caso guardado en Acceso rápido.")
 
 
 @router.get("/acceso-rapido/casos/{caso_id}")
 def ver_caso(request: Request, caso_id: int, con: sqlite3.Connection = Depends(obtener_db)):
     caso = casos_srv.obtener(con, caso_id)
-    analisis = dx.analizar(con, caso.lista_sintomas, solo_sintomas=caso.solo)
+    analisis = dx.analizar(con, caso.lista_sintomas)
     return pagina(request, con, "paginas/caso.html", caso=caso, analisis=analisis,
                   resumen_html=notas_srv.renderizar(caso.resumen, "markdown"),
                   migas=[{"texto": "Acceso rápido", "url": "/acceso-rapido", "icono": "stethoscope"},
@@ -89,8 +89,8 @@ def editar_caso(request: Request, caso_id: int, titulo: str = Form(""), conclusi
 
 @router.post("/acceso-rapido/casos/{caso_id}/sintomas")
 async def actualizar_sintomas(request: Request, caso_id: int, con: sqlite3.Connection = Depends(obtener_db)):
-    sintomas, solo = _leer(await request.form())
-    caso = casos_srv.actualizar_sintomas(con, caso_id, sintomas, solo)
+    sintomas = _leer(await request.form())
+    caso = casos_srv.actualizar_sintomas(con, caso_id, sintomas)
     return redirigir(request, f"/acceso-rapido/casos/{caso.id}", "Síntomas del caso actualizados.")
 
 

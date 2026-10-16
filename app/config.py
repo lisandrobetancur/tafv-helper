@@ -19,6 +19,9 @@ NOMBRE_APP = "Biblioteca de Estudio"
 INSTITUCION = "Fundación Universitaria Juan N. Corpas"
 PUERTO_POR_DEFECTO = int(os.environ.get("BIBLIOTECA_PUERTO", "8765"))
 PROFUNDIDAD_MAXIMA = 4  # niveles de componentes bajo una materia (componente › subcomponente › …)
+# Casos guardados en Acceso rápido. Deshabilitado a pedido de la usuaria (2026-10-16): no se muestran «Guardar el caso»
+# ni la lista de casos. El código sigue completo: para volver a activarlo basta con poner True.
+CASOS_ACTIVOS = False
 
 
 @dataclass
