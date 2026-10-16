@@ -23,6 +23,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import shutil
 import sys
 import tempfile
@@ -85,6 +86,23 @@ def _asegurar_tipo(con, componente_id: int, tipo: str) -> None:
     c = bib.obtener_componente(con, componente_id)
     if tipo not in c.tipos:
         bib.editar_componente(con, c.id, c.nombre, c.descripcion, [*c.tipos, tipo])
+
+
+def _limpiar_version_anterior(con, tabla_id: int, nombre: str) -> None:
+    """Al recargar una tabla, la app deja el Excel anterior en la papelera y guarda el nuevo como «… (2).xlsx».
+    Ese Excel anterior es una copia generada por la carga (la fuente sigue en data/fuentes/): se elimina y el
+    nuevo recupera el nombre limpio."""
+    from app.services import papelera
+    for f in con.execute("SELECT id FROM papelera WHERE tipo='archivo' AND nombre LIKE ?",
+                         (f"%(versión anterior de «{nombre}»)",)).fetchall():
+        papelera.eliminar_definitivo(con, f["id"])
+    t = tablas.obtener(con, tabla_id)
+    carpeta = bib.carpeta_componente(con, bib.obtener_componente(con, t.componente_id))
+    actual = carpeta / t.archivo
+    limpio = actual.with_name(re.sub(r" \(\d+\)(?=\.\w+$)", "", actual.name))
+    if actual != limpio and not limpio.exists():
+        actual.rename(limpio)
+        con.execute("UPDATE tablas SET archivo=? WHERE id=?", (f"excel/{limpio.name}", tabla_id))
 
 
 def _contenido_nota(base: Path, n: dict) -> str:
@@ -167,6 +185,7 @@ def cargar(plan_ruta: Path, reemplazar: bool) -> dict:
         if previa:
             print(f"  tabla actualizada: {t['nombre']} {tablas.reemplazar(con, estado)}")
             ids = [previa["id"]]
+            _limpiar_version_anterior(con, previa["id"], t["nombre"])
         else:
             ids = tablas.importar(con, estado)
             print(f"  tabla importada: {t['nombre']}")
@@ -179,6 +198,15 @@ def cargar(plan_ruta: Path, reemplazar: bool) -> dict:
         _asegurar_tipo(con, cid, "pdf")
     for p in plan.get("pdfs", []):
         archivo = base / p["archivo"]
+        previo = con.execute("SELECT id, hash FROM pdfs WHERE componente_id=? AND titulo=? AND papelera_id IS NULL",
+                             (cid, p["titulo"])).fetchone()
+        if previo:
+            from app.services import almacenamiento as alm
+            if previo["hash"] == alm.hash_archivo(archivo):  # ya está cargado ese mismo PDF: no se duplica
+                hecho["pdfs"].append(previo["id"])
+                print(f"  pdf sin cambios: {p['titulo']}")
+                continue
+            raise SystemExit(f"Ya existe un PDF «{p['titulo']}» con otro contenido. Cámbialo en la app o usa otro título.")
         temporal = Path(tempfile.mkdtemp()) / archivo.name
         shutil.copy2(archivo, temporal)
         pdf, aviso = pdfs.agregar(con, cid, archivo.name, temporal, p["titulo"])

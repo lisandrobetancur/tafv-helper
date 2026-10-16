@@ -125,6 +125,21 @@ def test_preparar_cargar_y_auditar(con, datos: Path, tmp_path: Path) -> None:
     r = _correr(str(CARGA / "auditar.py"), str(carpeta / "plan.json"), datos=datos)
     assert r.returncode == 1 and "fiebre" in r.stdout
 
+    # Recargar con --reemplazar no duplica nada ni deja restos en la papelera, y la tabla conserva su archivo
+    pdf = tmp_path / "guia.pdf"
+    import pymupdf
+    doc = pymupdf.open(); doc.new_page().insert_text((72, 72), "Guia"); doc.save(pdf)
+    (carpeta / "pdf").mkdir(); (carpeta / "pdf" / "guia.pdf").write_bytes(pdf.read_bytes())
+    plan["pdfs"] = [{"archivo": "pdf/guia.pdf", "titulo": "Guía"}]
+    (carpeta / "plan.json").write_text(json.dumps(plan, ensure_ascii=False))
+    for _ in range(2):
+        r = _correr(str(CARGA / "cargar.py"), str(carpeta / "plan.json"), "--reemplazar", datos=datos)
+        assert r.returncode == 0, r.stdout + r.stderr
+    assert con.execute("SELECT COUNT(*) FROM pdfs WHERE papelera_id IS NULL").fetchone()[0] == 1
+    assert con.execute("SELECT COUNT(*) FROM notas WHERE papelera_id IS NULL").fetchone()[0] == 1
+    assert con.execute("SELECT COUNT(*) FROM papelera").fetchone()[0] == 0
+    assert con.execute("SELECT archivo FROM tablas").fetchone()[0] == "excel/Protocolo.xlsx"
+
     # Volver a cargar sin --reemplazar no duplica nada
     r = _correr(str(CARGA / "cargar.py"), str(carpeta / "plan.json"), datos=datos)
     assert r.returncode != 0 and "Ya existe" in (r.stdout + r.stderr)
