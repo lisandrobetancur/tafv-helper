@@ -21,10 +21,7 @@ carpeta. Lo escribe el agente extractor-material; lo leen `cargar.py` y `auditar
   "notas": [
     {"titulo": "Complicaciones - HBO", "archivo": "notas/Complicaciones - HBO.md", "celdas": ["F1:G6", "L1:M7"]}
   ],
-  "tablas": [
-    {"archivo": "tablas/Protocolo Corpas - HBO.xlsx", "nombre": "Protocolo Corpas - HBO",
-     "columna_titulo": "Seccion", "celdas": ["A2:C15"]}
-  ],
+  "tablas": [],
   "imagenes": [
     {"archivo": "imagenes/HBO - A36.png", "titulo": "Indicaciones ECHM tipo 1 - HBO", "celda": "A36",
      "descripcion": "INDICACIONES TIPO 1 – …\nCONDICIÓN | NIVEL EVIDENCIA | NIVEL CONSENSO\n…"},
@@ -44,6 +41,9 @@ Campos:
   o quitan tildes no hace falta declararlos.
 - `omitidos`: lo que no se carga, con motivo. `celda` admite rangos (`"HBO!A1:B3"`).
 - `notas[].celdas`, `tablas[].celdas`, `imagenes[].celda`: de dónde sale cada elemento (para la revisión).
+- `tablas`: solo bases de registros (ver reglas.md), p. ej. en Farmacología vegetal:
+  `{"archivo": "hojas/Farmacologia Vegetal.xlsx", "nombre": "Farmacologia Vegetal", "columna_titulo": "Nombre"}`.
+  En un mural de recuadros como Oxigenoterapia la lista queda vacía: todo va en notas e imágenes.
 - `tablas[].columna_titulo`: encabezado tal como está en el Excel de la tabla. `fila_encabezado` (1, 2…) si
   no es la primera fila con datos.
 - `imagenes[].fuente`: la original cuando se carga una versión mejorada (la auditoría compara el OCR con ella).

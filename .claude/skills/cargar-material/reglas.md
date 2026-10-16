@@ -23,18 +23,27 @@ interpretar información»). Ante la duda, pregunta; no decidas por ella.
    usuaria pidió convertir en notas) va en `omitidos` con su motivo.
 
 ## Qué forma toma cada cosa
-- **Tabla de Excel** (se carga como tabla en la app): un bloque de celdas y columnas completas con una fila de
-  encabezados y al menos 3 filas de datos, donde cada fila es un registro (p. ej. «Sección | Presión | Tiempo»,
-  un vademécum). Si toda la hoja es la tabla, se carga el archivo de la hoja; si es un bloque dentro de una
-  hoja de recuadros, se copia con `extraer_rango.py` a `tablas/<Nombre>.xlsx`. La columna título es la que
-  identifica la fila (Nombre, Condición, Sección…).
+- **Tabla de Excel** (se carga como tabla en la app): **solo cuando la fuente ya es una base de registros**,
+  como el vademécum de Farmacología vegetal (`data/archivos/farmacologia-vegetal/vademecum/excel/`): una fila
+  de encabezados (Sistema, Grupo, Nombre, Nombre científico, Acción, Dosis, Contraindicaciones…) y debajo
+  decenas de filas, **cada fila un registro** (una planta, un medicamento) con sus atributos en columnas; es el
+  contenido principal de la hoja. Rótulos de grupo combinados hacia abajo (como «Sistema») son normales.
+  Así son también «Estudio homeopatia» y «Macerados Florales». `inspeccionar.py` lo marca **TABLA**.
+  Si toda la hoja es la tabla, se carga el archivo de la hoja tal cual; la columna título es la que nombra el
+  registro (Nombre, Medicamento…).
+- **Nunca se fabrica una tabla de Excel** a partir de recuadros, listas o viñetas. Ejemplo de lo que NO se hace:
+  convertir los recuadros «I Grupo / II Grupo / Indicaciones Corpas» de Oxivenación en una tabla
+  «Condición | Grupo». Eso es reinterpretar el material: va en notas, como está.
+- **Tabla pequeña dentro de un mural** (p. ej. «Sección | Presión | Tiempo» o una tabla de dosis junto a otros
+  recuadros; `inspeccionar.py` la marca **TABLA PEQUEÑA**): va como tabla Markdown dentro de la nota de su
+  encabezado, no como Excel. Si dudas entre tabla de Excel y nota, pregunta.
 - **Notas** (recuadros sueltos, como un mural de diapositivas): **una nota por encabezado** (celda de color o
   en negrita que titula un recuadro), con todo lo que tiene debajo hasta el siguiente encabezado del mismo
   nivel, en el orden de la hoja (de arriba abajo, columna por columna de izquierda a derecha).
   - Título de la nota: el texto del encabezado + « - <Componente>» (p. ej. «Contraindicaciones - HBO»).
   - Subencabezados dentro del recuadro → `###`; listas con viñetas o números → listas Markdown;
     texto corrido → párrafos con sus saltos de línea.
-  - Una tabla pequeña **sin fila de encabezados** dentro de un recuadro → tabla Markdown en la nota.
+  - Una tabla pequeña dentro de un recuadro (con o sin fila de encabezados) → tabla Markdown en la nota.
 - **Imágenes**: todas se cargan, con
   - título descriptivo tomado de su propio encabezado o tema (+ « - <Componente>» si ayuda a distinguirla);
   - descripción = **transcripción literal de todo su texto** (incluidos rótulos de dibujos, fuentes y notas al

@@ -17,7 +17,8 @@ from pathlib import Path
 
 import comun  # noqa: F401  (agrega la raíz del proyecto al path)
 import openpyxl
-from openpyxl.utils import get_column_letter
+from openpyxl.utils import get_column_letter, range_boundaries
+from openpyxl.utils.cell import coordinate_from_string
 
 from comun import autor_comentario, texto_comentario
 
@@ -83,6 +84,44 @@ def imagenes_por_hoja(archivo: Path) -> dict[str, list[dict]]:
     return salida
 
 
+MIN_REGISTROS = 10       # filas de datos para considerar el bloque una base de registros (como un vademécum)
+PROPORCION_HOJA = 0.6    # y debe tener al menos esta parte de las celdas con contenido de la hoja
+
+
+def _ancho_combinada(x: dict) -> int:
+    if not x["combinada"]:
+        return 1
+    c0, _, c1, _ = range_boundaries(x["combinada"])
+    return c1 - c0 + 1
+
+
+def _clasificar(celdas: list[dict], c0: int, c1: int) -> tuple[str, int | None, int]:
+    """«tabla» solo si el bloque es una base de registros: una fila de encabezados (≥3 columnas, en negrita o
+    con relleno, sin combinar a lo ancho, cubriendo casi todo el ancho) y al menos MIN_REGISTROS filas debajo,
+    cada una un registro (como el vademécum de Farmacología vegetal). Se permiten combinadas verticales
+    (rótulos de grupo como «Sistema»). Una tabla chica dentro de un mural es «tabla pequeña» (va como tabla
+    Markdown dentro de su nota); todo lo demás son «recuadros» (notas)."""
+    ancho = c1 - c0 + 1
+    por_fila: dict[int, list[dict]] = {}
+    for x in celdas:
+        por_fila.setdefault(coordinate_from_string(x["celda"])[1], []).append(x)
+    for fila in sorted(por_fila)[:3]:
+        cab = por_fila[fila]
+        if len(cab) < 3 or len(cab) < 0.7 * ancho or any(_ancho_combinada(x) > 1 for x in cab) \
+                or not all(x["negrita"] or x["relleno"] for x in cab):
+            continue
+        datos = [f for f in por_fila if f > fila]
+        # Filas que ocupan casi todo el ancho con una sola celda son recuadros, no registros
+        anchas = sum(1 for f in datos for x in por_fila[f] if _ancho_combinada(x) >= max(2, ancho - 1))
+        if anchas > max(1, len(datos) // 10):
+            continue
+        if len(datos) >= MIN_REGISTROS:
+            return "tabla", fila, len(datos)
+        if len(datos) >= 2:
+            return "tabla pequeña", fila, len(datos)
+    return "recuadros", None, 0
+
+
 def bloques(ws) -> list[dict]:
     """Agrupa las celdas con contenido en bloques conectados (vecinas arriba/abajo/izquierda/derecha)."""
     ocupadas: dict[tuple[int, int], tuple[int, int]] = {}   # celda -> celda ancla (la de arriba a la izquierda)
@@ -122,14 +161,10 @@ def bloques(ws) -> list[dict]:
         filas = f1 - f0 + 1
         columnas = c1 - c0 + 1
         densidad = len(anclas) / (filas * columnas)
-        primera = [x for x in celdas if openpyxl.utils.cell.coordinate_from_string(x["celda"])[1] == f0]
-        encabezado = len(primera) >= 2 and all(x["negrita"] or x["relleno"] for x in primera)
-        con_combinadas = sum(1 for x in celdas if x["combinada"])
-        sugerencia = "tabla" if (columnas >= 2 and filas >= 3 and densidad >= 0.7 and encabezado
-                                 and con_combinadas <= max(1, len(primera) // 2)) else "recuadros"
+        sugerencia, encabezado, registros = _clasificar(celdas, c0, c1)
         salida.append({"rango": f"{get_column_letter(c0)}{f0}:{get_column_letter(c1)}{f1}", "filas": filas,
-                       "columnas": columnas, "densidad": round(densidad, 2), "encabezado_en_primera_fila": encabezado,
-                       "sugerencia": sugerencia, "celdas": celdas})
+                       "columnas": columnas, "densidad": round(densidad, 2), "fila_encabezado": encabezado,
+                       "registros": registros, "sugerencia": sugerencia, "celdas": celdas})
     return salida
 
 
@@ -140,7 +175,14 @@ def inspeccionar(archivo: Path) -> dict:
     for ws in wb.worksheets:
         comentarios = [{"celda": c.coordinate, "autor": autor_comentario(c.comment), "texto": texto_comentario(c.comment)}
                        for fila in ws.iter_rows() for c in fila if c.comment]
-        hojas.append({"hoja": ws.title, "dimension": ws.dimensions, "bloques": bloques(ws),
+        lista = bloques(ws)
+        # Una base de registros es el contenido principal de su hoja; una tabla dentro de un mural de
+        # recuadros (p. ej. una tabla de dosis junto a otros recuadros) va como tabla Markdown en su nota.
+        total = sum(len(b["celdas"]) for b in lista) or 1
+        for b in lista:
+            if b["sugerencia"] == "tabla" and len(b["celdas"]) / total < PROPORCION_HOJA:
+                b["sugerencia"] = "tabla pequeña"
+        hojas.append({"hoja": ws.title, "dimension": ws.dimensions, "bloques": lista,
                       "comentarios": comentarios, "imagenes": imagenes.get(ws.title, [])})
     return {"archivo": str(archivo), "hojas": hojas}
 
@@ -151,8 +193,9 @@ def resumen(info: dict) -> str:
         lineas.append(f"\n=== Hoja «{h['hoja']}» ({h['dimension']}) — {len(h['bloques'])} bloques, "
                       f"{len(h['comentarios'])} comentarios, {len(h['imagenes'])} imágenes")
         for b in h["bloques"]:
+            extra = f" · encabezados en la fila {b['fila_encabezado']}, {b['registros']} registros" if b["fila_encabezado"] else ""
             lineas.append(f"\n--- Bloque {b['rango']} · {b['filas']}×{b['columnas']} · densidad {b['densidad']} · "
-                          f"sugerencia: {b['sugerencia'].upper()}")
+                          f"sugerencia: {b['sugerencia'].upper()}{extra}")
             for c in b["celdas"]:
                 marcas = "".join(["N" if c["negrita"] else "", f" {c['relleno']}" if c["relleno"] else "",
                                   f" combinada {c['combinada']}" if c["combinada"] else ""])

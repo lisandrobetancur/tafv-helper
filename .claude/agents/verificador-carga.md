@@ -23,8 +23,9 @@ archivo ni la base de datos.
 4. Mira **cada imagen** (Read sobre el archivo de `imagenes/`) y compárala renglón por renglón con su
    descripción: falta texto, sobra texto, texto cambiado, valores de tabla mal asignados, flechas o rótulos
    inventados. Si se cargó una versión mejorada, compara con la original (`fuente`).
-5. Busca interpretaciones prohibidas: renglones unidos o divididos, condiciones reagrupadas, celdas
-   rellenadas, rótulos o referencias agregadas, resúmenes, traducciones, correcciones no declaradas.
+5. Busca interpretaciones prohibidas: tablas de Excel armadas con recuadros o listas (solo una base de
+   registros como el vademécum de Farmacología vegetal es tabla), renglones unidos o divididos, condiciones
+   reagrupadas, celdas rellenadas, rótulos o referencias agregadas, resúmenes, traducciones, correcciones no declaradas.
 6. Confirma que todo lo no cargado está en `omitidos` con un motivo razonable, y que el original está en
    `data/fuentes/<materia>/_originales/`.
 

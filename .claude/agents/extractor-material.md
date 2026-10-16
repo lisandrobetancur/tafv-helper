@@ -20,9 +20,12 @@ ni `_originales/` (son la referencia).
    imágenes con su celda ancla). Si falta, genéralo con
    `.venv/bin/python tools/carga/inspeccionar.py hojas/<hoja>.xlsx`.
 2. Decide la forma de cada bloque según reglas.md:
-   - bloque tabular con fila de encabezados → tabla: `.venv/bin/python tools/carga/extraer_rango.py hojas/<hoja>.xlsx --rango <rango> --salida tablas/<Nombre>.xlsx`
-     (o la hoja completa si toda ella es la tabla);
-   - recuadros → una nota por encabezado, en `notas/<Título>.md`.
+   - **TABLA** (base de registros como el vademécum de Farmacología vegetal) → tabla de Excel: la hoja
+     completa, o `.venv/bin/python tools/carga/extraer_rango.py hojas/<hoja>.xlsx --rango <rango> --salida tablas/<Nombre>.xlsx`
+     si la base ocupa solo parte de la hoja;
+   - **TABLA PEQUEÑA** → tabla Markdown dentro de la nota de su encabezado;
+   - **RECUADROS** → una nota por encabezado, en `notas/<Título>.md`.
+   Nunca armes una tabla de Excel con recuadros o listas (p. ej. «Condición | Grupo» a partir de viñetas).
 3. Mira **cada imagen** con Read. Escribe su título y la transcripción literal completa en `descripcion`.
    Si algo no se lee con seguridad, no lo adivines: anótala en `preguntas.md` (qué parte no se lee).
 4. Escribe `plan.json` con `fuentes`, `correcciones` (cada cambio de letras que hiciste), `omitidos` (con
