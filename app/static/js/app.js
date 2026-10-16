@@ -439,9 +439,9 @@
       },
     }));
 
-    // ------------------------------------------------- diagnóstico por síntomas
+    // ------------------------------------------------- acceso rápido por síntomas
     // Síntomas como "chips" (con autocompletado desde el material); cada cambio recalcula el resultado.
-    Alpine.data("diagnostico", (iniciales = [], importantes = []) => ({
+    Alpine.data("accesoRapido", (iniciales = [], importantes = []) => ({
       sintomas: iniciales.map((t) => ({ texto: t, importante: importantes.includes(t) })),
       texto: "", sugerencias: [], activa: -1, seq: 0,
       norm(t) { return t.normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim(); },
@@ -464,7 +464,7 @@
         const mio = ++this.seq;
         if (q.length < 2) { this.sugerencias = []; return; }
         try {
-          const r = await fetch("/diagnostico/sugerencias?q=" + encodeURIComponent(q));
+          const r = await fetch("/acceso-rapido/sugerencias?q=" + encodeURIComponent(q));
           const lista = await r.json();
           if (mio !== this.seq) return;
           const ya = new Set(this.sintomas.map((s) => this.norm(s.texto)));

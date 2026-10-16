@@ -23,7 +23,7 @@ log = logging.getLogger(__name__)
 
 NOMBRES_TIPO = {"materia": "Materia", "componente": "Componente", "tabla": "Tabla",
                 "imagen_fila": "Imagen de una ficha", "archivo": "Archivo", "pdf": "PDF",
-                "imagen": "Imagen", "nota": "Nota", "caso": "Caso de diagnóstico"}
+                "imagen": "Imagen", "nota": "Nota", "caso": "Caso de acceso rápido"}
 
 
 def listar(con: sqlite3.Connection) -> list[ElementoPapelera]:
@@ -140,7 +140,7 @@ def enviar_caso(con: sqlite3.Connection, caso_id: int) -> str:
     from . import casos
     caso = casos.obtener(con, caso_id)
     with transaccion(con):
-        pid = _registrar(con, "caso", caso.id, caso.titulo, "Diagnóstico")
+        pid = _registrar(con, "caso", caso.id, caso.titulo, "Acceso rápido")
         con.execute("UPDATE casos SET papelera_id=? WHERE id=?", (pid, caso.id))
     return caso.titulo
 

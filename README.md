@@ -91,14 +91,18 @@ data/archivos/<materia>/<componente>/<subcomponente>/
   tabulares con encabezado → tabla de Excel; cada hoja → su propio archivo; imágenes con su texto transcrito).
   Los originales quedan en `data/fuentes/<materia>/` (entran en los respaldos); `tools/carga/cargar.py` carga un
   `plan.json` (con respaldo previo y modo `--prueba`) y `auditar.py` comprueba celda por celda que todo coincida.
-- **Diagnóstico por síntomas:** repertorización determinista sobre las filas de las tablas. Cada síntoma
-  se busca con FTS5 (prefijos, sin tildes) y se verifica por columna (opcionalmente solo columnas cuyo
-  nombre contiene «síntoma/signo/característico…»); los candidatos se ordenan por síntomas cubiertos
-  (los «importantes» pesan el doble) con evidencia (columna + línea resaltada), síntomas faltantes,
-  «otros rasgos para confirmar», matriz comparativa y fuentes de apoyo (PDF, notas, imágenes). Sin IA:
-  todo sale del material y se muestra su origen. Es un módulo independiente de las materias: siempre
-  revisa todas, arma un ranking por materia (ninguna queda tapada por otra) y guarda sus propios casos
-  en la tabla `casos` (síntomas, conclusión y foto del análisis; van a la papelera como el resto).
+- **Acceso rápido por síntomas** (en el código, módulo `diagnostico`; la interfaz no usa esa palabra):
+  repertorización determinista. Son candidatos las filas de las tablas, las notas y las imágenes (descripción
+  y OCR). Cada síntoma se busca con FTS5 (prefijos, sin tildes) y se verifica por columna (opcionalmente solo
+  columnas cuyo nombre contiene «síntoma/signo/característico…», y entonces sin notas ni imágenes) o por
+  renglón y título en notas e imágenes. Se ordenan por síntomas cubiertos (los «importantes» pesan el doble;
+  a igualdad, primero quien tiene el síntoma en su título) con evidencia (columna o renglón resaltado),
+  síntomas faltantes, «otros rasgos para confirmar», comparación del mejor candidato de cada materia
+  (identificado por el ícono de la materia) y lo que dicen los PDF. Sin IA: todo sale del material y se
+  muestra su origen. Es independiente de las materias: siempre revisa todas, arma un ranking por materia
+  (ninguna queda tapada por otra) y guarda sus propios casos en la tabla `casos` (síntomas, conclusión y
+  foto del análisis; van a la papelera como el resto). Las direcciones son `/acceso-rapido…`; las antiguas
+  `/diagnostico…` redirigen.
 - **Seguridad de contenido:** todo el texto del Excel se escapa; el Markdown de las notas no admite HTML;
   las subidas se validan por contenido (Pillow/PyMuPDF), no por extensión.
 - **Mac Intel:** onnxruntime ≥ 1.24 no publica wheels x86_64 para macOS; `requirements.txt` fija la 1.23.2

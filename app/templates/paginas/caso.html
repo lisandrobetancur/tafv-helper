@@ -6,14 +6,14 @@
   <header class="mb-5 flex flex-wrap items-start gap-4">
     <span class="grid size-12 shrink-0 place-items-center rounded-2xl bg-marca-suave text-marca">{{ icono("stethoscope", "size-6") }}</span>
     <div class="min-w-0 flex-1">
-      <p class="text-xs font-medium uppercase tracking-wide text-tenue">Caso de diagnóstico</p>
+      <p class="text-xs font-medium uppercase tracking-wide text-tenue">Caso de acceso rápido</p>
       <h1 class="text-2xl font-bold tracking-tight [overflow-wrap:anywhere] sm:text-3xl">{{ caso.titulo }}</h1>
       <p class="mt-1 text-sm text-tenue">Creado el {{ caso.creado|replace("T", " a las ") }}
         {%- if caso.actualizado != caso.creado %} · actualizado el {{ caso.actualizado|replace("T", " a las ") }}{% endif %}</p>
     </div>
     <div class="flex flex-wrap gap-2">
-      <a href="/diagnostico?{{ caso.consulta }}" class="btn-secundario">{{ icono("pencil") }}Cambiar síntomas</a>
-      <button class="btn-fantasma text-peligro hover:bg-peligro-suave hover:text-peligro" hx-get="/diagnostico/casos/{{ caso.id }}/eliminar"
+      <a href="/acceso-rapido?{{ caso.consulta }}" class="btn-secundario">{{ icono("pencil") }}Cambiar síntomas</a>
+      <button class="btn-fantasma text-peligro hover:bg-peligro-suave hover:text-peligro" hx-get="/acceso-rapido/casos/{{ caso.id }}/eliminar"
               hx-target="#modal" title="Enviar a la papelera">{{ icono("trash-2") }}<span class="sr-only">Enviar a la papelera</span></button>
     </div>
   </header>
@@ -32,9 +32,9 @@
 
     <section class="tarjeta p-5" aria-labelledby="t-conclusion">
       <h2 id="t-conclusion" class="titulo-seccion mb-3">Tu conclusión</h2>
-      <form hx-post="/diagnostico/casos/{{ caso.id }}" hx-confirm="¿Guardar los cambios del caso?" data-confirmar-boton="Guardar" class="flex flex-col gap-2">
+      <form hx-post="/acceso-rapido/casos/{{ caso.id }}" hx-confirm="¿Guardar los cambios del caso?" data-confirmar-boton="Guardar" class="flex flex-col gap-2">
         <input name="titulo" value="{{ caso.titulo }}" class="campo h-9 text-sm" maxlength="120" aria-label="Título del caso" required>
-        <textarea name="conclusion" rows="4" class="campo text-sm" placeholder="Impresión diagnóstica, diferenciales, qué falta preguntar…"
+        <textarea name="conclusion" rows="4" class="campo text-sm" placeholder="Impresión, diferenciales, qué falta preguntar…"
                   aria-label="Conclusión">{{ caso.conclusion }}</textarea>
         <button class="btn-primario self-start">{{ icono("save") }}Guardar</button>
       </form>

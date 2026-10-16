@@ -175,26 +175,30 @@ def test_casos_propios_del_modulo(con, materia_medica) -> None:
 
 
 def test_web(cliente, materia_medica) -> None:
-    pagina = cliente.get("/diagnostico").text
-    assert "Diagnóstico por síntomas" in pagina and "herramienta de estudio" in pagina.lower()
+    pagina = cliente.get("/acceso-rapido").text
+    assert "Acceso rápido por síntomas" in pagina and "herramienta de estudio" in pagina.lower()
+    assert "iagn" not in pagina                                                    # la palabra no aparece
+    r = cliente.get("/diagnostico/casos/7?x=1", follow_redirects=False)               # direcciones de antes
+    assert r.status_code == 301 and r.headers["location"] == "/acceso-rapido/casos/7?x=1"
     assert "Todas las materias" not in pagina and "Consulta todas las materias" in pagina
-    r = cliente.get("/diagnostico/resultado", params=[("s", "miedo al fracaso"), ("s", "pies fríos"), ("imp", "pies fríos")])
+    r = cliente.get("/acceso-rapido/resultado", params=[("s", "miedo al fracaso"), ("s", "pies fríos"), ("imp", "pies fríos")])
     assert "Lycopodium" in r.text and "2 de 2" in r.text and "Síntomas generales" in r.text and "1 materia revisada" in r.text
-    assert "Miedo al fracaso" in cliente.get("/diagnostico/sugerencias", params={"q": "miedo"}).text
-    r = cliente.post("/diagnostico/casos", data={"s": ["miedo al fracaso"], "titulo": "Caso de prueba", "conclusion": "Lyco"},
+    assert "Miedo al fracaso" in cliente.get("/acceso-rapido/sugerencias", params={"q": "miedo"}).text
+    r = cliente.post("/acceso-rapido/casos", data={"s": ["miedo al fracaso"], "titulo": "Caso de prueba", "conclusion": "Lyco"},
                      headers={"HX-Request": "true"})
-    assert r.headers["HX-Redirect"] == "/diagnostico/casos/1"
-    caso = cliente.get("/diagnostico/casos/1").text
+    assert r.headers["HX-Redirect"] == "/acceso-rapido/casos/1"
+    caso = cliente.get("/acceso-rapido/casos/1").text
     assert "Caso de prueba" in caso and "Lycopodium" in caso and "Análisis con la biblioteca actual" in caso
-    assert "Caso de prueba" in cliente.get("/diagnostico").text                       # aparece en Casos guardados
-    assert "Editando los síntomas del caso" in cliente.get("/diagnostico?caso=1&s=ansiedad").text
-    r = cliente.post("/diagnostico/casos/1/sintomas", data={"s": ["ansiedad", "ardor"]}, headers={"HX-Request": "true"})
-    assert r.headers["HX-Redirect"] == "/diagnostico/casos/1"
-    cliente.post("/diagnostico/casos/1", data={"titulo": "Renombrado", "conclusion": "Arsenicum"})
-    assert "Renombrado" in cliente.get("/diagnostico/casos/1").text
-    assert cliente.post("/diagnostico/casos/1/eliminar", headers={"HX-Request": "true"}).headers["HX-Redirect"] == "/diagnostico"
-    assert "Caso de diagnóstico" in cliente.get("/papelera").text
-    assert cliente.get("/diagnostico/casos/1").status_code == 404
+    assert "Caso de prueba" in cliente.get("/acceso-rapido").text                       # aparece en Casos guardados
+    assert "Editando los síntomas del caso" in cliente.get("/acceso-rapido?caso=1&s=ansiedad").text
+    r = cliente.post("/acceso-rapido/casos/1/sintomas", data={"s": ["ansiedad", "ardor"]}, headers={"HX-Request": "true"})
+    assert r.headers["HX-Redirect"] == "/acceso-rapido/casos/1"
+    cliente.post("/acceso-rapido/casos/1", data={"titulo": "Renombrado", "conclusion": "Arsenicum"})
+    assert "Renombrado" in cliente.get("/acceso-rapido/casos/1").text
+    assert cliente.post("/acceso-rapido/casos/1/eliminar", headers={"HX-Request": "true"}).headers["HX-Redirect"] == "/acceso-rapido"
+    papelera = cliente.get("/papelera").text
+    assert "Caso de acceso rápido" in papelera and "iagn" not in papelera
+    assert cliente.get("/acceso-rapido/casos/1").status_code == 404
 
 
 def test_notas_e_imagenes_como_candidatos(con, tmp_path: Path) -> None:

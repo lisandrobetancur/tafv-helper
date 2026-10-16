@@ -1,4 +1,4 @@
-"""Diagnóstico por síntomas a partir del material guardado (herramienta de estudio).
+"""Acceso rápido por síntomas a partir del material guardado (herramienta de estudio).
 
 Funciona como una repertorización: cada síntoma se busca en las filas de las tablas (p. ej.
 medicamentos o enfermedades), en las notas y en el texto de las imágenes (su descripción y su OCR):
@@ -425,6 +425,6 @@ def nota_markdown(a: Analisis) -> str:
         lineas.append("")
     if a.materias_sin_coincidencias:
         lineas.append(f"Sin coincidencias en: {', '.join(a.materias_sin_coincidencias)}.")
-    lineas += ["", "> Generado por la herramienta de diagnóstico a partir del material de estudio. "
+    lineas += ["", "> Generado por Acceso rápido a partir del material de estudio. "
                    "No reemplaza el juicio clínico."]
     return "\n".join(lineas)

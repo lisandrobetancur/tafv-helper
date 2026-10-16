@@ -52,7 +52,7 @@ templates.env.globals["TIPOS_PAPELERA"] = {
     "pdf": {"nombre": "PDF", "icono": "file-text"},
     "imagen": {"nombre": "Imagen", "icono": "image"},
     "nota": {"nombre": "Nota", "icono": "sticky-note"},
-    "caso": {"nombre": "Caso de diagnóstico", "icono": "stethoscope"},
+    "caso": {"nombre": "Caso de acceso rápido", "icono": "stethoscope"},
 }
 
 COOKIE_AVISO = "aviso"
