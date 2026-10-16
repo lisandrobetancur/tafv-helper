@@ -49,12 +49,12 @@
       const v = (m ? m[1] : td.getAttribute("bgcolor") || "").trim().toLowerCase();
       return /^(#fff(fff)?|white|transparent|none|inherit|auto|)$/.test(v) || v.startsWith("rgb(255, 255, 255)") ? "" : v;
     };
-    const filas = [], negritas = [], fondos = [], ocupadas = [];   // ocupadas[i][j] = valor que baja de una combinada
+    const filas = [], negritas = [], fondos = [], copias = [], ocupadas = [];   // ocupadas[i][j] = valor que baja de una combinada
     [...tabla.rows].forEach((tr, i) => {
-      filas[i] = filas[i] || []; negritas[i] = negritas[i] || []; fondos[i] = fondos[i] || [];
+      filas[i] = filas[i] || []; negritas[i] = negritas[i] || []; fondos[i] = fondos[i] || []; copias[i] = copias[i] || [];
       let j = 0;
       for (const td of tr.cells) {
-        while (ocupadas[i]?.[j] !== undefined) { filas[i][j] = ocupadas[i][j]; negritas[i][j] = false; j++; }
+        while (ocupadas[i]?.[j] !== undefined) { filas[i][j] = ocupadas[i][j]; negritas[i][j] = false; copias[i][j] = true; j++; }
         td.querySelectorAll("br").forEach((br) => br.replaceWith("\n"));
         const texto = td.textContent.replace(/[ \t\u00a0]+/g, " ").replace(/ *\n */g, "\n").trim();
         const alto = Math.max(1, Number(td.rowSpan) || 1), ancho = Math.max(1, Number(td.colSpan) || 1);
@@ -69,9 +69,13 @@
         }
         j += ancho;
       }
-      while (ocupadas[i]?.[j] !== undefined) { filas[i][j] = ocupadas[i][j]; negritas[i][j] = false; j++; }
+      while (ocupadas[i]?.[j] !== undefined) { filas[i][j] = ocupadas[i][j]; negritas[i][j] = false; copias[i][j] = true; j++; }
     });
-    return { filas, negritas, fondos };
+    // Una fila que solo tendría copias de celdas combinadas de arriba (p. ej. un párrafo que en Excel
+    // ocupa varias filas de una sola columna) no es una fila nueva: se descarta
+    const quedan = filas.map((f, i) => f.every((c) => !c) || f.some((c, j) => c && !copias[i][j]));
+    const filtrar = (lista) => lista.filter((_, i) => quedan[i]);
+    return { filas: filtrar(filas), negritas: filtrar(negritas), fondos: filtrar(fondos) };
   };
   const excelAMarkdown = (texto, html = "") => {
     const limpia = (c) => (c || "").trim().replace(/\s*\n\s*/g, " / ").replace(/\|/g, "\\|");
@@ -93,8 +97,26 @@
       if (indices.length === 1 && llenas(indices[0]).length === 1) { partes.push(llenas(indices[0])[0]); continue; }
       const ancho = Math.max(...indices.map((i) => filas[i].length));
       const usadas = [...Array(ancho).keys()].filter((j) => indices.some((i) => filas[i][j]));   // sin columnas vacías
-      if (usadas.length === 1) {                       // una sola columna: lista con viñetas
-        partes.push(indices.map((i) => `- ${filas[i][usadas[0]]}`).join("\n"));
+      if (usadas.length === 1) {
+        // Una sola columna: si unas filas están destacadas (negrita o color de fondo distinto al más
+        // común), son subtítulos y el resto párrafos (con sus saltos de línea); si no, lista con viñetas
+        const j = usadas[0];
+        let resaltada = () => false;
+        if (deHTML) {
+          // Color de referencia: el más común entre las filas que no están en negrita (sin color = "")
+          const conteo = {};
+          indices.filter((i) => !deHTML.negritas[i][j])
+            .forEach((i) => { const f = deHTML.fondos[i][j] || ""; conteo[f] = (conteo[f] || 0) + 1; });
+          const comun = Object.keys(conteo).sort((a, b) => conteo[b] - conteo[a] || a.length - b.length)[0] ?? "";
+          resaltada = (i) => deHTML.negritas[i][j] || (!!deHTML.fondos[i][j] && deHTML.fondos[i][j] !== comun);
+        }
+        const conTitulos = indices.some(resaltada) && !indices.every(resaltada);
+        if (conTitulos) {
+          const parrafo = (t) => (t || "").split("\n").map((l) => l.trim()).filter(Boolean).join("\n");
+          partes.push(indices.map((i) => resaltada(i) ? `### ${filas[i][j]}` : parrafo(crudas[i][j])).join("\n\n"));
+        } else {
+          partes.push(indices.map((i) => `- ${filas[i][j]}`).join("\n"));
+        }
         continue;
       }
       const linea = (i) => `| ${usadas.map((j) => filas[i][j] || " ").join(" | ")} |`;
