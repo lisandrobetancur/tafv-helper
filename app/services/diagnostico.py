@@ -117,7 +117,9 @@ class GrupoMateria:
     nombre: str
     color: str
     total: int
-    candidatos: list[Candidato]
+    candidatos: list[Candidato]                                       # los mejores (los que se muestran)
+    todos: list[Candidato] = field(default_factory=list)              # todos, para la comparación
+    icono: str = "book-open"
 
 
 @dataclass
@@ -132,14 +134,16 @@ class Analisis:
     apoyo: dict[str, list] = field(default_factory=dict)
 
     @property
-    def destacados(self) -> list[Candidato]:
-        """Para comparar: el mejor candidato de cada materia (una columna por materia, identificada por su ícono)."""
-        return [g.candidatos[0] for g in self.por_materia if g.candidatos]
+    def destacados(self) -> list[GrupoMateria]:
+        """Columnas de la comparación: una por materia con resultados (identificada por su ícono)."""
+        return [g for g in self.por_materia if g.todos]
 
     @property
-    def matriz(self) -> list[tuple[Sintoma, list[bool]]]:
-        """Para la tabla comparativa: por cada síntoma, si lo cubre cada uno de los destacados."""
-        return [(s, [s.texto in c.cubiertos for c in self.destacados]) for s in self.sintomas]
+    def matriz(self) -> list[tuple[Sintoma, list[list[str]]]]:
+        """Para la tabla comparativa: por cada síntoma y cada materia, qué registros de esa materia lo mencionan
+        (todos, no solo los que se muestran en su ranking: así ningún síntoma encontrado queda sin marca)."""
+        return [(s, [[c.titulo for c in g.todos if s.texto in c.cubiertos] for g in self.destacados])
+                for s in self.sintomas]
 
 
 # ------------------------------------------------------------------ análisis
@@ -275,9 +279,10 @@ def analizar(con: sqlite3.Connection, sintomas: list[Sintoma], filtros: bus.Filt
     grupos: dict[int | None, GrupoMateria] = {}
     for c in candidatos:
         if c.materia_id not in grupos:
-            grupos[c.materia_id] = GrupoMateria(c.materia_id, c.materia, c.color, 0, [])
+            grupos[c.materia_id] = GrupoMateria(c.materia_id, c.materia, c.color, 0, [], icono=c.icono)
         g = grupos[c.materia_id]
         g.total += 1
+        g.todos.append(c)
         if len(g.candidatos) < por_materia:
             g.candidatos.append(c)
     analisis.por_materia = list(grupos.values())

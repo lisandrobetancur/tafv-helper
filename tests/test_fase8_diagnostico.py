@@ -144,7 +144,9 @@ def test_considera_todas_las_materias(con, materia_medica, tmp_path: Path) -> No
     ibs = a.por_materia[1].candidatos[0]
     assert ibs.titulo == "Síndrome de intestino irritable" and ibs.ubicacion == "Clínica › Digestivo › Enfermedades"
     assert a.por_materia[0].total == 5                                    # Homeopatía completa (4 fichas + 1 nota)
-    assert "Síndrome de intestino irritable" in {c.titulo for c in a.destacados}
+    assert [g.nombre for g in a.destacados] == ["Homeopatía", "Clínica"]          # una columna por materia
+    marcas = dict((s.texto, m) for s, m in a.matriz)
+    assert marcas["distension abdominal"][1] == ["Síndrome de intestino irritable"]
     md = dx.nota_markdown(a)
     assert "### Clínica" in md and "Sin coincidencias en: Anatomía." in md
 
@@ -227,4 +229,17 @@ def test_notas_e_imagenes_como_candidatos(con, tmp_path: Path) -> None:
     assert primero.titulo == "Osteoporosis (Ordenamiento de CMP)"          # el del título gana el empate; sin « - componente»
     assert primero.evidencias[0].columna == "Título" and ("Nota", ["Onda | Sinusoidal", "Tiempo | 8 horas"]) in primero.otros
     assert {c.tipo for c in g.candidatos} == {"nota", "imagen"}
-    assert a.destacados == [primero]                                       # un candidato por materia en la comparación
+    assert [x.nombre for x in a.destacados] == ["Tratamiento metabólico"]   # una columna por materia
+    assert len(a.matriz[0][1][0]) == 3                                     # y en ella los 3 registros con el síntoma
+
+
+def test_comparacion_marca_registros_fuera_del_ranking_visible(con, materia_medica) -> None:
+    """Un síntoma que solo aparece en un registro que no es el primero de su materia igual se marca."""
+    a = dx.analizar(con, dx.preparar(["miedo al fracaso", "pies frios", "ardor"], []))
+    homeo = a.destacados[0]
+    primero = homeo.todos[0]
+    for s, marcas in a.matriz:
+        en_homeo = marcas[0]
+        assert en_homeo == [c.titulo for c in homeo.todos if s.texto in c.cubiertos]
+        if s.texto not in primero.cubiertos and any(s.texto in c.cubiertos for c in homeo.todos):
+            assert en_homeo                                               # antes quedaba vacío
