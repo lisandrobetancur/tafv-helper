@@ -443,9 +443,12 @@
     // Síntomas como "chips" (con autocompletado desde el material); cada cambio recalcula el resultado.
     Alpine.data("accesoRapido", (iniciales = [], importantes = []) => ({
       sintomas: iniciales.map((t) => ({ texto: t, importante: importantes.includes(t) })),
-      texto: "", sugerencias: [], activa: -1, seq: 0,
+      texto: "", sugerencias: [], activa: -1, seq: 0, formulario: null,
+      // El formulario se guarda al iniciar: si el síntoma se elige con un clic en una sugerencia, ese elemento
+      // desaparece de la lista y $root ya no lo encuentra, así que la búsqueda no se disparaba.
+      init() { this.formulario = this.$el; },
       norm(t) { return t.normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim(); },
-      recalcular() { this.$nextTick(() => htmx.trigger(this.$root, "cambio")); },
+      recalcular() { this.$nextTick(() => htmx.trigger(this.formulario, "cambio")); },
       agregar(t) {
         t = (t || "").replace(/\s+/g, " ").trim();
         this.texto = ""; this.sugerencias = []; this.activa = -1;
