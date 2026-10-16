@@ -20,6 +20,7 @@ import openpyxl
 from openpyxl.utils import get_column_letter, range_boundaries
 from openpyxl.utils.cell import coordinate_from_string
 
+from app.services import hojas as lector
 from comun import autor_comentario, texto_comentario
 
 
@@ -156,7 +157,7 @@ def bloques(ws) -> list[dict]:
         celdas = []
         for r, c in anclas:
             x = ws.cell(r, c)
-            celdas.append({"celda": x.coordinate, "combinada": combinadas.get((r, c)), "texto": str(x.value),
+            celdas.append({"celda": x.coordinate, "combinada": combinadas.get((r, c)), "texto": lector.texto_celda(x.value, x.number_format),
                            "negrita": bool(x.font and x.font.b), "relleno": _relleno(x)})
         filas = f1 - f0 + 1
         columnas = c1 - c0 + 1

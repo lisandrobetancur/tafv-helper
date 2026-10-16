@@ -120,7 +120,7 @@ def auditar(plan_ruta: Path, con_ocr: bool) -> tuple[list[str], list[str]]:
         for ws in openpyxl.load_workbook(ruta, data_only=True).worksheets:   # el valor que se ve, como la app
             for fila in ws.iter_rows():
                 for c in fila:
-                    textos = [str(c.value)] if c.value is not None else []
+                    textos = [lector.texto_celda(c.value, c.number_format)] if c.value is not None else []   # como lo muestra la app
                     if c.comment:
                         textos.append(texto_comentario(c.comment))
                     for tx in textos:
