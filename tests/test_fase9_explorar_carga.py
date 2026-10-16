@@ -34,17 +34,21 @@ def test_explorar_indice_lectura_y_navegacion(cliente, con, tmp_path: Path) -> N
         Image.new("RGB", (40, 30), "white").save(ruta)
         img_srv.agregar(con, hbo, ruta.name, ruta, f"Lámina {n}", f"Texto de la lámina {n}")
 
-    r = cliente.get(f"/materias/{mid}/explorar")
+    r = cliente.get(f"/materias/{mid}/explorar")      # por defecto: primer elemento del primer componente
     assert r.status_code == 200
     html = r.text
-    assert "Protocolo - HBO" in html and "5 p.s.i" in html            # nota desplegada (tabla Markdown)
     assert 'x-data="carrusel(' in html and "mina 2" in html          # carrusel con las dos imágenes
-    assert f"explorar?c={hijo}" in html                               # índice con el subcomponente
-    assert "Componentes y carga" in html                              # pestañas de la materia
+    assert "5 p.s.i" not in html                                      # un solo elemento a la vez
+    assert f"explorar?c={hijo}" in html and "Componentes y carga" in html
+    nota = con.execute("SELECT id FROM notas WHERE titulo='Protocolo - HBO'").fetchone()[0]
+    assert f"ver=nota-{nota}" in html                                 # «Siguiente» lleva a la nota
 
-    r = cliente.get(f"/materias/{mid}/explorar?c={hijo}")
-    assert "Ozono" in r.text and "Ozono endovenoso" in r.text
-    assert f"explorar?c={hbo}" in r.text                              # «Anterior» salta el grupo vacío
+    html = cliente.get(f"/materias/{mid}/explorar?c={hbo}&ver=nota-{nota}").text
+    assert "5 p.s.i" in html and 'x-data="carrusel(' not in html and "2 de 2" in html
+    assert f"explorar?c={hijo}&ver=nota-" in html                 # al final del componente sigue al otro (salta el grupo vacío)
+
+    r = cliente.get(f"/materias/{mid}/explorar?c={grupo}")            # componente que solo agrupa
+    assert "Este componente agrupa" in r.text and "Vías" in r.text
 
     vacia = bib.crear_materia(con, "Psicoterapia", "", "rojo", "brain")
     assert "Aún no hay nada para explorar" in cliente.get(f"/materias/{vacia}/explorar").text

@@ -44,13 +44,13 @@ def ver(request: Request, materia_id: int, con: sqlite3.Connection = Depends(obt
 
 
 @router.get("/{materia_id}/explorar")
-def explorar(request: Request, materia_id: int, c: int | None = None, con: sqlite3.Connection = Depends(obtener_db)):
+def explorar(request: Request, materia_id: int, c: int | None = None, ver: str | None = None, con: sqlite3.Connection = Depends(obtener_db)):
     """Pestaña para leer y navegar todo el material de la materia (sin las herramientas de carga)."""
     m = bib.obtener_materia(con, materia_id)
     entradas = exp.indice(con, m.id)
     if c is None:  # por defecto, el primer componente con contenido
         c = next((e.componente.id for e in entradas if not e.vacio), entradas[0].componente.id if entradas else None)
-    lectura = exp.leer(con, entradas, c) if c is not None else None
+    lectura = exp.leer(con, entradas, c, ver) if c is not None else None
     migas = [{"texto": m.nombre, "url": f"/materias/{m.id}", "icono": m.icono, "color": m.color_hex},
              {"texto": "Explorar", "icono": "book-open"}]
     return pagina(request, con, "paginas/explorar.html", materia=m, entradas=entradas, lectura=lectura,

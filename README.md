@@ -82,8 +82,9 @@ data/archivos/<materia>/<componente>/<subcomponente>/
 - **Respaldos:** ZIP con copia en caliente de la BD (API `backup` de SQLite) + `archivos/` + `papelera/`.
   Restaurar valida rutas (anti *zip slip*) e integridad, hace un respaldo automático previo y migra.
 - **Explorar:** cada materia tiene dos pestañas: «Componentes y carga» (organizar y subir material) y
-  «Explorar» (solo lectura): índice de todos los componentes a la izquierda y, a la derecha, el componente
-  completo — carrusel de imágenes, notas desplegadas, tablas con sus primeras filas y PDF — con anterior/siguiente.
+  «Explorar» (solo lectura): índice de todos los componentes a la izquierda y, a la derecha, lo
+  elegido de a un elemento (el carrusel de imágenes, una nota, una tabla o un PDF), con anterior/siguiente que
+  recorren toda la materia.
   Las imágenes se ven en carrusel (también en la pestaña Imágenes y en las fichas, con opción de cuadrícula).
 - **Carga de material con Claude Code:** el skill `.claude/skills/cargar-material` define las reglas (texto literal,
   solo ortografía declarada, nada unido, dividido ni rellenado; recuadros → una nota por encabezado; bloques
