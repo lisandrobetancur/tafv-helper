@@ -14,7 +14,7 @@ Formato del plan (rutas relativas a la carpeta del plan; ver .claude/skills/carg
   "omitidos": [{"celda": "HBO!Z1", "motivo": "…"}],
   "notas":    [{"titulo": "…", "archivo": "notas/….md", "celdas": ["A1:E16"], "etiquetas": ""}],
   "imagenes": [{"archivo": "imagenes/HBO - A36.png", "titulo": "…", "descripcion": "…", "celda": "A36"}],
-  "tablas":   [{"archivo": "tablas/….xlsx", "nombre": "…", "columna_titulo": "Condición", "celdas": ["Q2:S12"]}],
+  "tablas":   [{"archivo": "hojas/….xlsx", "nombre": "…", "columna_titulo": "Nombre", "etiquetas": "Flores de Bach"}],
   "pdfs":     [{"archivo": "pdf/….pdf", "titulo": "…"}]
 }
 """
@@ -50,6 +50,7 @@ if ARGS.prueba:  # antes de importar la app: la carpeta de datos se fija al impo
 from app import db  # noqa: E402
 from app.errores import ErrorUsuario  # noqa: E402
 from app.services import biblioteca as bib  # noqa: E402
+from app.services import etiquetas as etq  # noqa: E402
 from app.services import imagenes, notas, pdfs, respaldos, tablas  # noqa: E402
 from app.services import hojas as lector  # noqa: E402
 from app.services import importacion as imp  # noqa: E402
@@ -165,11 +166,14 @@ def cargar(plan_ruta: Path, reemplazar: bool) -> dict:
         imp.guardar(estado)
         if previa:
             print(f"  tabla actualizada: {t['nombre']} {tablas.reemplazar(con, estado)}")
-            hecho["tablas"].append(previa["id"])
+            ids = [previa["id"]]
         else:
             ids = tablas.importar(con, estado)
-            hecho["tablas"] += ids
             print(f"  tabla importada: {t['nombre']}")
+        if "etiquetas" in t:
+            for tid in ids:
+                etq.asignar(con, "tabla", tid, t["etiquetas"])
+        hecho["tablas"] += ids
 
     if plan.get("pdfs"):
         _asegurar_tipo(con, cid, "pdf")

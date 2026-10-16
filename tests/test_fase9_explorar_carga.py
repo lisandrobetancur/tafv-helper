@@ -61,10 +61,12 @@ def _libro(ruta: Path, png: Path) -> None:
     tabla = wb.active
     tabla.title = "Protocolo"
     tabla.append(["Seccion", "Presion", "Tiempo"])
+    from openpyxl.worksheet.formula import ArrayFormula
     for c in tabla[1]:
         c.font = Font(bold=True)
     for i in range(1, 5):
         tabla.append([i, f"{3 + 2 * i} p.s.i", "1 hora"])
+    tabla["E2"] = ArrayFormula("E2", "=SUM(A2:A5)")   # una fórmula de matriz no debe frenar la separación
     mural = wb.create_sheet("Mural")
     mural["A1"] = "Contraindicaciones"
     mural["A1"].font = Font(bold=True)
@@ -104,7 +106,8 @@ def test_preparar_cargar_y_auditar(con, datos: Path, tmp_path: Path) -> None:
     plan = {"materia": "oxigenoterapia", "componente": "HBO", "fuentes": ["hojas/Protocolo.xlsx", "hojas/Mural.xlsx"],
             "correcciones": {"Presion": "Presión"},
             "notas": [{"titulo": "Contraindicaciones - HBO", "archivo": "notas/Contraindicaciones - HBO.md"}],
-            "tablas": [{"archivo": "hojas/Protocolo.xlsx", "nombre": "Protocolo", "columna_titulo": "Seccion"}],
+            "tablas": [{"archivo": "hojas/Protocolo.xlsx", "nombre": "Protocolo", "columna_titulo": "Seccion",
+                        "etiquetas": "Flores de Bach"}],
             "imagenes": [{"archivo": "imagenes/Mural - D1.png", "titulo": "Lámina", "descripcion": ""}]}
     (carpeta / "plan.json").write_text(json.dumps(plan, ensure_ascii=False))
 
@@ -112,6 +115,8 @@ def test_preparar_cargar_y_auditar(con, datos: Path, tmp_path: Path) -> None:
     assert r.returncode == 0, r.stdout + r.stderr
     assert list((datos / "respaldos").glob("antes-de-cargar-*.zip"))                 # respaldo previo
     assert list((carpeta / "cargas").glob("*.json"))                                 # registro de lo creado
+    assert con.execute("""SELECT e.nombre FROM etiquetas e JOIN etiquetas_elemento x ON x.etiqueta_id = e.id
+                          WHERE x.tipo = 'tabla'""").fetchone()[0] == "Flores de Bach"
     r = _correr(str(CARGA / "auditar.py"), str(carpeta / "plan.json"), datos=datos)
     assert r.returncode == 0, r.stdout
 

@@ -169,7 +169,7 @@ def bloques(ws) -> list[dict]:
 
 
 def inspeccionar(archivo: Path) -> dict:
-    wb = openpyxl.load_workbook(archivo)
+    wb = openpyxl.load_workbook(archivo, data_only=True)   # valores que se ven (las fórmulas, con su resultado)
     imagenes = imagenes_por_hoja(archivo)
     hojas = []
     for ws in wb.worksheets:

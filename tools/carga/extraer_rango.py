@@ -17,7 +17,7 @@ from openpyxl.utils import range_boundaries
 
 
 def extraer(origen: Path, rango: str, salida: Path, hoja: str | None = None) -> int:
-    wb = openpyxl.load_workbook(origen)
+    wb = openpyxl.load_workbook(origen, data_only=True)
     ws = wb[hoja] if hoja else wb.worksheets[0]
     c0, f0, c1, f1 = range_boundaries(rango)
     nuevo = openpyxl.Workbook()

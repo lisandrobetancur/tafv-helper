@@ -47,4 +47,4 @@ Campos:
 - `tablas[].columna_titulo`: encabezado tal como está en el Excel de la tabla. `fila_encabezado` (1, 2…) si
   no es la primera fila con datos.
 - `imagenes[].fuente`: la original cuando se carga una versión mejorada (la auditoría compara el OCR con ella).
-- `etiquetas` (opcional) en notas e imágenes: separadas por comas, solo si la usuaria las pidió.
+- `etiquetas` (opcional) en notas, imágenes y tablas: separadas por comas, solo si la usuaria las pidió.

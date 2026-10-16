@@ -117,7 +117,7 @@ def auditar(plan_ruta: Path, con_ocr: bool) -> tuple[list[str], list[str]]:
         ruta = base / fuente
         if ruta.suffix.lower() not in {".xlsx", ".xlsm"}:
             continue
-        for ws in openpyxl.load_workbook(ruta).worksheets:
+        for ws in openpyxl.load_workbook(ruta, data_only=True).worksheets:   # el valor que se ve, como la app
             for fila in ws.iter_rows():
                 for c in fila:
                     textos = [str(c.value)] if c.value is not None else []

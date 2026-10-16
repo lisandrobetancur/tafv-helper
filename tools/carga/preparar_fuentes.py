@@ -49,18 +49,23 @@ def _copiar_sin_pisar(origen: Path, destino: Path) -> Path:
 
 
 def separar_hoja(archivo: Path, hoja: str, destino: Path) -> None:
-    """Deja solo `hoja` en una copia del libro (conserva valores, formato, combinadas, comentarios e imágenes)."""
-    wb = openpyxl.load_workbook(archivo)
+    """Deja solo `hoja` en una copia del libro (conserva valores, formato, combinadas, comentarios e imágenes).
+    Las fórmulas se guardan con su resultado (el valor que se ve): openpyxl no recalcula, y una fórmula guardada
+    sin su valor quedaría vacía para la app. El original, con sus fórmulas, queda en _originales/."""
+    wb = openpyxl.load_workbook(archivo, data_only=True)
     for ws in list(wb.worksheets):
         if ws.title != hoja:
             wb.remove(ws)
     destino.parent.mkdir(parents=True, exist_ok=True)
     wb.save(destino)
     # Comprobación: las celdas de la copia son idénticas a las del original
-    a = openpyxl.load_workbook(archivo)[hoja]
-    b = openpyxl.load_workbook(destino)[hoja]
-    va = {c.coordinate: c.value for f in a.iter_rows() for c in f if c.value is not None}
-    vb = {c.coordinate: c.value for f in b.iter_rows() for c in f if c.value is not None}
+    a = openpyxl.load_workbook(archivo, data_only=True)[hoja]
+    b = openpyxl.load_workbook(destino, data_only=True)[hoja]
+    def valor(v):  # las fórmulas de matriz son objetos: se comparan por su rango y su texto
+        return (getattr(v, "ref", None), v.text) if hasattr(v, "text") else v
+
+    va = {c.coordinate: valor(c.value) for f in a.iter_rows() for c in f if c.value is not None}
+    vb = {c.coordinate: valor(c.value) for f in b.iter_rows() for c in f if c.value is not None}
     if va != vb:
         raise SystemExit(f"La copia de la hoja «{hoja}» no coincide con el original; no se continúa.")
 
