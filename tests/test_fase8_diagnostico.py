@@ -80,15 +80,17 @@ def test_sintoma_importante_pesa_el_doble(con, materia_medica) -> None:
 
 def test_solo_columnas_de_sintomas(con, materia_medica) -> None:
     todas = dx.analizar(con, dx.preparar(["distension abdominal"], []))
-    assert set(titulos(todas)) == {"Lycopodium", "Arsenicum album"}           # Arsenicum lo dice en «Indicaciones»
+    # Arsenicum lo dice en «Indicaciones»; la nota «Clase de repaso» también es candidata
+    assert set(titulos(todas)) == {"Lycopodium", "Arsenicum album", "Clase de repaso"}
     solo = dx.analizar(con, dx.preparar(["distension abdominal"], []), solo_sintomas=True)
-    assert titulos(solo) == ["Lycopodium"]
+    assert titulos(solo) == ["Lycopodium"]                                     # sin notas: no tienen columnas
 
 
 def test_fuentes_de_apoyo_y_filtros(con, materia_medica) -> None:
     a = dx.analizar(con, dx.preparar(["distensión abdominal", "zzz inexistente"], []))
-    assert [r.tipo for r in a.apoyo["distensión abdominal"]] == ["nota"]
-    assert "zzz inexistente" not in a.apoyo
+    nota = next(c for c in a.candidatos if c.tipo == "nota")                 # las notas son candidatas
+    assert nota.titulo == "Clase de repaso" and nota.url.startswith("/notas/") and nota.evidencias[0].columna == "Nota"
+    assert a.apoyo == {}                                                     # el apoyo queda para los PDF
     otra = bib.crear_materia(con, "Cardiología", "", "rojo", "heart-pulse")
     assert dx.analizar(con, dx.preparar(["ansiedad"], []), bus.Filtros(materia=otra)).candidatos == []
     assert len(dx.analizar(con, dx.preparar(["ansiedad"], []), tabla_id=materia_medica["tabla"]).candidatos) == 4
@@ -143,7 +145,7 @@ def test_considera_todas_las_materias(con, materia_medica, tmp_path: Path) -> No
     assert a.materias_revisadas == ["Homeopatía", "Clínica", "Anatomía"] and a.materias_sin_coincidencias == ["Anatomía"]
     ibs = a.por_materia[1].candidatos[0]
     assert ibs.titulo == "Síndrome de intestino irritable" and ibs.ubicacion == "Clínica › Digestivo › Enfermedades"
-    assert a.por_materia[0].total == 4                                    # Homeopatía completa
+    assert a.por_materia[0].total == 5                                    # Homeopatía completa (4 fichas + 1 nota)
     assert "Síndrome de intestino irritable" in {c.titulo for c in a.destacados}
     md = dx.nota_markdown(a)
     assert "### Clínica" in md and "Sin coincidencias en: Anatomía." in md
@@ -193,3 +195,26 @@ def test_web(cliente, materia_medica) -> None:
     assert cliente.post("/diagnostico/casos/1/eliminar", headers={"HX-Request": "true"}).headers["HX-Redirect"] == "/diagnostico"
     assert "Caso de diagnóstico" in cliente.get("/papelera").text
     assert cliente.get("/diagnostico/casos/1").status_code == 404
+
+
+def test_notas_e_imagenes_como_candidatos(con, tmp_path: Path) -> None:
+    """Una materia cargada solo con notas (un mural de recuadros) también aparece en el diagnóstico."""
+    from PIL import Image as Img
+
+    from app.services import imagenes as img_srv
+    mid = bib.crear_materia(con, "Tratamiento metabólico", "", "pizarra", "atom")
+    cid = bib.crear_componente(con, mid, None, "Campo Magnético", "", ["notas", "imagenes"])
+    notas_srv.crear(con, cid, "Osteoporosis (Ordenamiento de CMP) - Campo Magnético",
+                    "| | |\n|---|---|\n| Onda | Sinusoidal |\n| Tiempo | 8 horas |")
+    notas_srv.crear(con, cid, "Indicaciones - Campo Magnético", "- Fracturas\n- Osteoporosis\n- Artrosis")
+    ruta = tmp_path / "l.png"
+    Img.new("RGB", (20, 20), "white").save(ruta)
+    img_srv.agregar(con, cid, "l.png", ruta, "Tabla de parámetros", "Osteoporosis | Norte | 8 horas")
+    a = dx.analizar(con, dx.preparar(["osteoporosis"], []))
+    g = a.por_materia[0]
+    assert g.nombre == "Tratamiento metabólico" and g.total == 3
+    primero = g.candidatos[0]
+    assert primero.titulo == "Osteoporosis (Ordenamiento de CMP)"          # el del título gana el empate; sin « - componente»
+    assert primero.evidencias[0].columna == "Título" and ("Nota", ["Onda | Sinusoidal", "Tiempo | 8 horas"]) in primero.otros
+    assert {c.tipo for c in g.candidatos} == {"nota", "imagen"}
+    assert a.destacados == [primero]                                       # un candidato por materia en la comparación

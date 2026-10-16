@@ -1,10 +1,11 @@
 """Diagnóstico por síntomas a partir del material guardado (herramienta de estudio).
 
 Funciona como una repertorización: cada síntoma se busca en las filas de las tablas (p. ej.
-medicamentos o enfermedades); los candidatos se ordenan por cuántos síntomas cubren (los
-«importantes» pesan el doble) y para cada uno se muestra la evidencia (columna y texto), los
-síntomas que no menciona y otros rasgos de su ficha que conviene comprobar. Además se reúne lo
-que dicen los PDF, notas e imágenes sobre cada síntoma.
+medicamentos o enfermedades), en las notas y en el texto de las imágenes (su descripción y su OCR):
+cada fila, nota o imagen es un candidato. Los candidatos se ordenan por cuántos síntomas cubren (los
+«importantes» pesan el doble) y para cada uno se muestra la evidencia (columna o renglón), los
+síntomas que no menciona y otros rasgos que conviene comprobar. Además se reúne lo que dicen los
+PDF sobre cada síntoma.
 
 No inventa nada: todo sale del material de la biblioteca y siempre se muestra de dónde.
 """
@@ -70,9 +71,13 @@ class Evidencia:
     fragmentos: list[list[tuple[str, bool]]]      # una o dos líneas con el síntoma resaltado
 
 
+# Material que puede ser candidato: tipo del índice -> (rótulo, enlace)
+TIPOS_CANDIDATO = {"fila": ("Ficha", "/filas/{}"), "nota": ("Nota", "/notas/{}"), "imagen": ("Imagen", "/imagenes/{}")}
+
+
 @dataclass
 class Candidato:
-    fila_id: int
+    fila_id: int                    # id del elemento (fila, nota o imagen, según `tipo`)
     titulo: str
     tabla_id: int
     tabla: str
@@ -87,6 +92,17 @@ class Candidato:
     faltantes: list[str] = field(default_factory=list)
     evidencias: list[Evidencia] = field(default_factory=list)
     otros: list[tuple[str, list[str]]] = field(default_factory=list)   # (columna, líneas) para confirmar
+    tipo: str = "fila"              # fila | nota | imagen
+    en_titulo: int = 0              # síntomas que están en su propio título (desempata: «Osteoporosis» antes que
+                                    # una lámina que solo la menciona)
+
+    @property
+    def url(self) -> str:
+        return TIPOS_CANDIDATO[self.tipo][1].format(self.fila_id)
+
+    @property
+    def rotulo_tipo(self) -> str:
+        return TIPOS_CANDIDATO[self.tipo][0]
 
     @property
     def porcentaje(self) -> int:
@@ -118,29 +134,8 @@ class Analisis:
 
     @property
     def destacados(self) -> list[Candidato]:
-        """Hasta 6 candidatos para comparar, tomando por turnos los mejores de cada materia."""
-        elegidos: list[Candidato] = []
-        ronda = 0
-        while len(elegidos) < 6 and any(ronda < len(g.candidatos) for g in self.por_materia):
-            elegidos += [g.candidatos[ronda] for g in self.por_materia if ronda < len(g.candidatos)]
-            ronda += 1
-        return elegidos[:6]
-
-    @property
-    def rotulos(self) -> list[tuple[Candidato, int | None]]:
-        """Cada destacado con su número dentro de su materia (1, 2…) cuando hay más de uno de la misma materia;
-        en la comparación se identifican por el ícono de la materia más ese número."""
-        destacados = self.destacados
-        repetidas = {c.materia_id for c in destacados if sum(d.materia_id == c.materia_id for d in destacados) > 1}
-        vistos: dict[int | None, int] = {}
-        salida = []
-        for c in destacados:
-            if c.materia_id in repetidas:
-                vistos[c.materia_id] = vistos.get(c.materia_id, 0) + 1
-                salida.append((c, vistos[c.materia_id]))
-            else:
-                salida.append((c, None))
-        return salida
+        """Para comparar: el mejor candidato de cada materia (una columna por materia, identificada por su ícono)."""
+        return [g.candidatos[0] for g in self.por_materia if g.candidatos]
 
     @property
     def matriz(self) -> list[tuple[Sintoma, list[bool]]]:
@@ -149,12 +144,13 @@ class Analisis:
 
 
 # ------------------------------------------------------------------ análisis
-def _filas_que_mencionan(con: sqlite3.Connection, s: Sintoma, filtros: bus.Filtros, tabla_id: int | None) -> set[int]:
+def _filas_que_mencionan(con: sqlite3.Connection, s: Sintoma, filtros: bus.Filtros, tabla_id: int | None,
+                         tipo: str = "fila") -> set[int]:
     consulta = bus.expresion(s.texto)
     if not consulta:
         return set()
     extra, params = bus._condiciones(con, filtros)
-    sql = f"SELECT ref FROM busqueda WHERE busqueda MATCH ? AND tipo = 'fila' {extra}"
+    sql = f"SELECT ref FROM busqueda WHERE busqueda MATCH ? AND tipo = '{tipo}' {extra}"
     if tabla_id:
         sql += " AND padre = ?"
         params = [*params, tabla_id]
@@ -169,6 +165,23 @@ def _lineas(valor: str) -> list[str]:
     salida = []
     for linea in re.split(r"[\n;]+", valor or ""):
         linea = linea.strip().lstrip("-•*·– ").strip()
+        if linea:
+            salida.append(linea)
+    return salida
+
+
+def _lineas_texto(texto: str) -> list[str]:
+    """Renglones legibles de una nota en Markdown o de la descripción de una imagen: sin marcas de título,
+    cita o lista; las filas de una tabla quedan como «celda | celda» y sus separadores se descartan."""
+    salida = []
+    for linea in (texto or "").split("\n"):
+        linea = linea.strip()
+        if not linea or re.fullmatch(r"\|?[\s:|-]+\|?", linea):
+            continue
+        if linea.startswith("|"):
+            linea = " | ".join(c.strip() for c in linea.strip("|").split("|") if c.strip())
+        linea = re.sub(r"^(#{1,6}|>|[-*•·–✓✔️]+)\s*", "", linea)
+        linea = re.sub(r"\*\*(.+?)\*\*", r"\1", linea).strip()
         if linea:
             salida.append(linea)
     return salida
@@ -196,10 +209,6 @@ def analizar(con: sqlite3.Connection, sintomas: list[Sintoma], filtros: bus.Filt
     analisis.materias_revisadas = [n for _, n in alcance]
     por_sintoma = {s.texto: _filas_que_mencionan(con, s, filtros, tabla_id) for s in sintomas}
     ids = set().union(*por_sintoma.values())
-    if not ids:
-        analisis.materias_sin_coincidencias = list(analisis.materias_revisadas)
-        _apoyo(con, analisis, filtros)
-        return analisis
 
     # Datos de las filas candidatas y sus tablas
     filas, tablas = {}, {}
@@ -254,19 +263,17 @@ def analizar(con: sqlite3.Connection, sintomas: list[Sintoma], filtros: bus.Filt
             if extras:
                 c.otros.append((col["nombre"], extras[:4]))
         c.otros = c.otros[:4]
-        if comp_id not in ubicaciones:
-            try:
-                comp = bib.obtener_componente(con, comp_id)
-                m = bib.obtener_materia(con, comp.materia_id)
-                ruta = " › ".join([m.nombre, *(a.nombre for a in bib.ancestros(con, comp)), comp.nombre])
-                ubicaciones[comp_id] = (ruta, COLOR_POR_ID.get(m.color, COLOR_POR_ID["pizarra"])["hex"], m.id, m.nombre,
-                                        m.icono)
-            except Exception:
-                ubicaciones[comp_id] = ("", COLOR_POR_ID["pizarra"]["hex"], None, "", "book-open")
-        c.ubicacion, c.color, c.materia_id, c.materia, c.icono = ubicaciones[comp_id]
+        c.ubicacion, c.color, c.materia_id, c.materia, c.icono = _ubicacion(con, comp_id, ubicaciones)
         candidatos.append(c)
 
-    candidatos.sort(key=lambda c: (-c.puntaje, -len(c.cubiertos), normalizar(c.titulo)))
+    # Notas e imágenes no tienen columnas: entran salvo que se pida «solo columnas de síntomas» o una tabla
+    if tabla_id is None and not solo_sintomas:
+        candidatos += _candidatos_de_texto(con, sintomas, filtros, maximo, ubicaciones)
+    for c in candidatos:
+        if c.tipo == "fila":
+            c.en_titulo = sum(_coincide(normalizar(c.titulo), s.palabras) for s in sintomas if s.texto in c.cubiertos)
+
+    candidatos.sort(key=lambda c: (-c.puntaje, -len(c.cubiertos), -c.en_titulo, normalizar(c.titulo)))
     analisis.total_candidatos = len(candidatos)
     analisis.candidatos = candidatos[:limite]
     # Un ranking por materia, para que ninguna quede tapada por otra con más coincidencias.
@@ -286,9 +293,81 @@ def analizar(con: sqlite3.Connection, sintomas: list[Sintoma], filtros: bus.Filt
     return analisis
 
 
+def _ubicacion(con: sqlite3.Connection, comp_id: int, cache: dict) -> tuple[str, str, int | None, str, str]:
+    """(ruta legible, color, id y nombre de la materia, ícono de la materia) de un componente."""
+    if comp_id not in cache:
+        try:
+            comp = bib.obtener_componente(con, comp_id)
+            m = bib.obtener_materia(con, comp.materia_id)
+            ruta = " › ".join([m.nombre, *(a.nombre for a in bib.ancestros(con, comp)), comp.nombre])
+            cache[comp_id] = (ruta, COLOR_POR_ID.get(m.color, COLOR_POR_ID["pizarra"])["hex"], m.id, m.nombre, m.icono)
+        except Exception:
+            cache[comp_id] = ("", COLOR_POR_ID["pizarra"]["hex"], None, "", "book-open")
+    return cache[comp_id]
+
+
+def _candidatos_de_texto(con: sqlite3.Connection, sintomas: list[Sintoma], filtros: bus.Filtros, maximo: int,
+                         ubicaciones: dict) -> list[Candidato]:
+    """Notas e imágenes como candidatos: cada una se evalúa como una ficha cuyo «campo» es su texto.
+    Un síntoma cuenta si aparece en el título o en un renglón; la evidencia es ese renglón."""
+    consultas = {
+        "nota": ("SELECT id, titulo, contenido AS texto, componente_id FROM notas "
+                 "WHERE papelera_id IS NULL AND id IN ({})"),
+        "imagen": ("SELECT id, titulo, descripcion || char(10) || texto_ocr AS texto, componente_id FROM imagenes "
+                   "WHERE papelera_id IS NULL AND id IN ({})"),
+    }
+    salida = []
+    for tipo, sql in consultas.items():
+        ids = set().union(*(_filas_que_mencionan(con, s, filtros, None, tipo) for s in sintomas))
+        if not ids:
+            continue
+        lista = list(ids)
+        for i in range(0, len(lista), 900):
+            lote = lista[i:i + 900]
+            for f in con.execute(sql.format(",".join("?" * len(lote))), lote):
+                c = _candidato_de_texto(con, tipo, f, sintomas, maximo, ubicaciones)
+                if c:
+                    salida.append(c)
+    return salida
+
+
+def _candidato_de_texto(con, tipo: str, f, sintomas: list[Sintoma], maximo: int, ubicaciones: dict) -> Candidato | None:
+    ruta, color, materia_id, materia, icono = _ubicacion(con, f["componente_id"], ubicaciones)
+    componente = ruta.rsplit(" › ", 1)[-1]
+    titulo = f["titulo"]
+    if componente and titulo.endswith(f" - {componente}"):     # «Osteoporosis (…) - Campo Magnético»
+        titulo = titulo[: -len(f" - {componente}")]
+    lineas = _lineas_texto(f["texto"])
+    columna = TIPOS_CANDIDATO[tipo][0]
+    c = Candidato(f["id"], titulo, 0, columna, ruta, color, materia_id, materia, icono, puntaje_maximo=maximo, tipo=tipo)
+    titulo_norm = normalizar(titulo)
+    for s in sintomas:
+        if _coincide(titulo_norm, s.palabras):
+            c.cubiertos.append(s.texto)
+            c.puntaje += s.peso
+            c.evidencias.append(Evidencia(s.texto, "Título", [fragmentos_resaltados(titulo[:220], s.texto)]))
+            c.en_titulo += 1
+            continue
+        coinciden = [ln for ln in lineas if _coincide(normalizar(ln), s.palabras)]
+        if not coinciden:
+            c.faltantes.append(s.texto)
+            continue
+        c.cubiertos.append(s.texto)
+        c.puntaje += s.peso
+        c.evidencias.append(Evidencia(s.texto, columna, [fragmentos_resaltados(ln[:220], s.texto) for ln in coinciden[:2]]))
+    if not c.puntaje:
+        return None
+    palabras = [p for s in sintomas for p in s.palabras]
+    extras = [ln for ln in lineas if len(ln) <= 160 and normalizar(ln) != titulo_norm
+              and not any(re.search(r"(?<!\w)" + re.escape(p), normalizar(ln)) for p in palabras)]
+    if extras:
+        c.otros.append((columna, extras[:4]))
+    return c
+
+
 def _apoyo(con: sqlite3.Connection, analisis: Analisis, filtros: bus.Filtros) -> None:
-    """Qué dicen los PDF, notas e imágenes sobre cada síntoma (3 resultados por síntoma)."""
-    otros = bus.Filtros(categorias=["pdf", "notas", "imagenes"], materia=filtros.materia, componente=filtros.componente)
+    """Qué dicen los PDF sobre cada síntoma (las notas e imágenes ya entran como candidatos)."""
+    otros = bus.Filtros(categorias=["pdf"], materia=filtros.materia, componente=filtros.componente)
     for s in analisis.sintomas:
         r = bus.buscar(con, s.texto, otros, limite=5)
         if r.resultados:
@@ -337,7 +416,7 @@ def nota_markdown(a: Analisis) -> str:
         lineas += [f"### {g.nombre or 'Sin materia'}", ""]
         for i, c in enumerate(g.candidatos[:5], 1):
             lineas.append(f"{i}. **{c.titulo}** — {len(c.cubiertos)} de {len(a.sintomas)} síntomas ({c.porcentaje} %) · "
-                          f"[ver ficha](/filas/{c.fila_id}) · {c.tabla}")
+                          f"[ver {c.rotulo_tipo.lower()}]({c.url}) · {c.tabla}")
             for e in c.evidencias:
                 texto = " / ".join("".join(t for t, _ in frag) for frag in e.fragmentos)
                 lineas.append(f"    - _{e.sintoma}_ → {e.columna}: {texto}")
