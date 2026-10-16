@@ -13,6 +13,12 @@ interpretar información»). Ante la duda, pregunta; no decidas por ella.
    cerrar (se dejan como están y se avisan en `preguntas.md`).
 3. **No se agrega nada** que no esté en la fuente: ni referencias («ver imagen…»), ni títulos inventados,
    ni resúmenes, ni traducciones, ni etiquetas como «Síntomas:» o «Manejo:» si la fuente no las tiene.
+   **En las tablas de Excel también:** se corrige en una copia (`tablas/<Nombre>.xlsx`, hecha con
+   `extraer_rango.py` o copiando la hoja) y cada cambio de letras se declara en `correcciones`; la hoja de
+   `hojas/` y el original no se tocan.
+   **Restos técnicos** (se limpian y se declaran): flechas de la fuente Wingdings que llegan como «è» → «→»;
+   referencias pegadas por error a otras celdas (p. ej. «+F52» dentro de un texto); errores de fórmula
+   (`#REF!`, `#N/A`…) → celda vacía, declarada en `omitidos`.
 4. **No se une ni se divide:** un renglón con comas («Asma, EPOC, SDRA») sigue siendo un renglón; dos
    renglones iguales en secciones distintas quedan en las dos. No se reagrupan condiciones por similitud.
 5. **No se rellena:** una celda vacía queda vacía. Si una tabla (de Excel o de una imagen) agrupa filas con un
@@ -41,6 +47,10 @@ interpretar información»). Ante la duda, pregunta; no decidas por ella.
   en negrita que titula un recuadro), con todo lo que tiene debajo hasta el siguiente encabezado del mismo
   nivel, en el orden de la hoja (de arriba abajo, columna por columna de izquierda a derecha).
   - Título de la nota: el texto del encabezado + « - <Componente>» (p. ej. «Contraindicaciones - HBO»).
+  - Si un **encabezado general** cubre varios recuadros (p. ej. «Otros medicamentos en homeopatía» sobre seis
+    recuadros de tos, o «Dieta Metabólica» sobre una columna de recuadros), cada recuadro sigue siendo su nota y
+    el encabezado general va entre paréntesis en el título: «Tos seca (Otros medicamentos en homeopatía) -
+    Vademecum». Así no se pierde y no hay notas vacías.
   - Subencabezados dentro del recuadro → `###`; listas con viñetas o números → listas Markdown;
     texto corrido → párrafos con sus saltos de línea.
   - Una tabla pequeña dentro de un recuadro (con o sin fila de encabezados) → tabla Markdown en la nota.
