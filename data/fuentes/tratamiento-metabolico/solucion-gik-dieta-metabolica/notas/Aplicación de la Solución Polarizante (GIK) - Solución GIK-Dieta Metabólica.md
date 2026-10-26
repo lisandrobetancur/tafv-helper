@@ -1,0 +1,1 @@
+Se pasa por vena periférica a una velocidad de goteo de 30 gotas por minuto, pero si el paciente siente dolor en el área de canalización al paso de la solución, este se debe al potasio y hay que disminuir la velocidad de goteo a 20 gotas por minuto.

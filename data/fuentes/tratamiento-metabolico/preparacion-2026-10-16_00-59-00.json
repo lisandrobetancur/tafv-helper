@@ -1,0 +1,35 @@
+{
+  "materia": "Tratamiento metabólico",
+  "fecha": "2026-10-16T00:58:58",
+  "archivos": [
+    {
+      "original": "fuentes/tratamiento-metabolico/_originales/TAFV Cuadro Examen 2026.xlsx",
+      "hojas": [
+        {
+          "hoja": "Campo Magnetico",
+          "componente": "Campo Magnético",
+          "archivo": "fuentes/tratamiento-metabolico/campo-magnetico/hojas/Campo Magnetico.xlsx",
+          "imagenes": [
+            "fuentes/tratamiento-metabolico/campo-magnetico/imagenes/Campo Magnetico - L32.png",
+            "fuentes/tratamiento-metabolico/campo-magnetico/imagenes/Campo Magnetico - W23.jpg",
+            "fuentes/tratamiento-metabolico/campo-magnetico/imagenes/Campo Magnetico - A132.png"
+          ]
+        },
+        {
+          "hoja": "Solucion GIK-Dieta Metabolica",
+          "componente": "Solución GIK-Dieta Metabólica",
+          "archivo": "fuentes/tratamiento-metabolico/solucion-gik-dieta-metabolica/hojas/Solucion GIK-Dieta Metabolica.xlsx",
+          "imagenes": []
+        }
+      ],
+      "sin_asignar": [
+        "Farmacologia Vegetal",
+        "Macerados Florales",
+        "HBO",
+        "Oxivenacion",
+        "Ozonoterapia",
+        "Acupuntura"
+      ]
+    }
+  ]
+}

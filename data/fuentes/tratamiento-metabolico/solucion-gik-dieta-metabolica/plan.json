@@ -1,0 +1,258 @@
+{
+  "materia": "Tratamiento metabólico",
+  "componente": "Solución GIK-Dieta Metabólica",
+  "fuentes": [
+    "hojas/Solucion GIK-Dieta Metabolica.xlsx"
+  ],
+  "correcciones": {
+    "se haya despolarizada": "se halla despolarizada",
+    "composición corpas": "composición Corpas",
+    "osmoralidad": "osmolaridad",
+    "interraccion": "interacción",
+    "sinstesis": "síntesis",
+    "cayo de fractura": "callo de fractura",
+    "postasio": "potasio",
+    "Sorbertes": "Sorbetes",
+    "Aguacate✔️ Papaya": "Aguacate ✔️ Papaya",
+    "Frijoles✔️ Garbanzos": "Frijoles ✔️ Garbanzos",
+    "Almendras✔️ Semillas": "Almendras ✔️ Semillas",
+    "Acelga✔️ Brócoli": "Acelga ✔️ Brócoli"
+  },
+  "omitidos": [],
+  "notas": [
+    {
+      "titulo": "Finalidad de la Solución Polarizante (GIK) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Finalidad de la Solución Polarizante (GIK) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "A2:J5"
+      ]
+    },
+    {
+      "titulo": "La composición clásica de la solución re-polarizante incluye (Solución Polarizante) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/La composición clásica de la solución re-polarizante incluye (Solución Polarizante) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "A6:J8"
+      ]
+    },
+    {
+      "titulo": "La composición Corpas de la solución re-polarizante incluye (Solución Polarizante) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/La composición Corpas de la solución re-polarizante incluye (Solución Polarizante) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "A9:J11"
+      ]
+    },
+    {
+      "titulo": "Aplicación de la Solución Polarizante (GIK) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Aplicación de la Solución Polarizante (GIK) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "A12:J17"
+      ]
+    },
+    {
+      "titulo": "Recomendación durante la aplicación de la Solución Polarizante (GIK) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Recomendación durante la aplicación de la Solución Polarizante (GIK) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "A18:J22"
+      ]
+    },
+    {
+      "titulo": "Efectos de la Insulina en la Solución Polarizante (GIK) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Efectos de la Insulina en la Solución Polarizante (GIK) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "A23:J29"
+      ]
+    },
+    {
+      "titulo": "Efectos del Potasio en la Solución Polarizante (GIK) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Efectos del Potasio en la Solución Polarizante (GIK) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "A30:J37"
+      ]
+    },
+    {
+      "titulo": "Dextrosa (Solución Polarizante) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Dextrosa (Solución Polarizante) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "A38:J43"
+      ]
+    },
+    {
+      "titulo": "Acción general de la Solución GIK (Solución Polarizante) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Acción general de la Solución GIK (Solución Polarizante) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "A44:J54"
+      ]
+    },
+    {
+      "titulo": "Indicaciones de la Solución Polarizante - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Indicaciones de la Solución Polarizante - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "A55:J61"
+      ]
+    },
+    {
+      "titulo": "Efectos Secundarios (Solución Polarizante) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Efectos Secundarios (Solución Polarizante) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "A62:J66"
+      ]
+    },
+    {
+      "titulo": "Contraindicaciones (Solución Polarizante) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Contraindicaciones (Solución Polarizante) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "A67:J70"
+      ]
+    },
+    {
+      "titulo": "Dieta de regulación metabólica (Dieta Metabólica) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Dieta de regulación metabólica (Dieta Metabólica) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "L2:R2"
+      ]
+    },
+    {
+      "titulo": "Recomendación de la dieta (Dieta Metabólica) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Recomendación de la dieta (Dieta Metabólica) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "L3:R5"
+      ]
+    },
+    {
+      "titulo": "Cantidad de sodio en el día (Dieta Metabólica) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Cantidad de sodio en el día (Dieta Metabólica) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "L6:R6"
+      ]
+    },
+    {
+      "titulo": "Cantidad de potasio en el día (Dieta Metabólica) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Cantidad de potasio en el día (Dieta Metabólica) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "L7:R7"
+      ]
+    },
+    {
+      "titulo": "Efecto dieta en metabolismo celular (Dieta Metabólica) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Efecto dieta en metabolismo celular (Dieta Metabólica) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "L8:R11"
+      ]
+    },
+    {
+      "titulo": "Efectos termodinámicos (Dieta Metabólica) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Efectos termodinámicos (Dieta Metabólica) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "L12:R17"
+      ]
+    },
+    {
+      "titulo": "Leche y su derivados (Dieta Metabólica) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Leche y su derivados (Dieta Metabólica) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "L18:R24"
+      ]
+    },
+    {
+      "titulo": "Evitar consumo de (tras Leche y su derivados) (Dieta Metabólica) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Evitar consumo de (tras Leche y su derivados) (Dieta Metabólica) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "L25:R30"
+      ]
+    },
+    {
+      "titulo": "Carnes y Huevos (Dieta Metabólica) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Carnes y Huevos (Dieta Metabólica) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "L31:R44"
+      ]
+    },
+    {
+      "titulo": "Evite el consumo de (tras Carnes y Huevos) (Dieta Metabólica) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Evite el consumo de (tras Carnes y Huevos) (Dieta Metabólica) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "L45:R52"
+      ]
+    },
+    {
+      "titulo": "Leguminosas (Dieta Metabólica) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Leguminosas (Dieta Metabólica) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "L53:R55"
+      ]
+    },
+    {
+      "titulo": "Frutas (Dieta Metabólica) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Frutas (Dieta Metabólica) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "L56:R56"
+      ]
+    },
+    {
+      "titulo": "Evitar el consumo de (tras Frutas) (Dieta Metabólica) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Evitar el consumo de (tras Frutas) (Dieta Metabólica) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "L57:R62"
+      ]
+    },
+    {
+      "titulo": "Hortalizas y Verduras (Dieta Metabólica) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Hortalizas y Verduras (Dieta Metabólica) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "L63:R71"
+      ]
+    },
+    {
+      "titulo": "Tubérculos y Plátanos (Dieta Metabólica) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Tubérculos y Plátanos (Dieta Metabólica) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "L72:R77"
+      ]
+    },
+    {
+      "titulo": "Evite el consumo de (tras Tubérculos y Plátanos) (Dieta Metabólica) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Evite el consumo de (tras Tubérculos y Plátanos) (Dieta Metabólica) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "L78:R86"
+      ]
+    },
+    {
+      "titulo": "Grasas (Dieta Metabólica) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Grasas (Dieta Metabólica) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "L87:R92"
+      ]
+    },
+    {
+      "titulo": "Condimentos (Dieta Metabólica) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Condimentos (Dieta Metabólica) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "L93:R102"
+      ]
+    },
+    {
+      "titulo": "Verduras con mayor contenido de sodio (Dieta Metabólica) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Verduras con mayor contenido de sodio (Dieta Metabólica) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "L103:R104"
+      ]
+    },
+    {
+      "titulo": "Frutas y verduras ricas en potasio (Dieta Metabólica) - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Frutas y verduras ricas en potasio (Dieta Metabólica) - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "L105:R111"
+      ]
+    },
+    {
+      "titulo": "Indicaciones más importantes de la dieta - Solución GIK-Dieta Metabólica",
+      "archivo": "notas/Indicaciones más importantes de la dieta - Solución GIK-Dieta Metabólica.md",
+      "celdas": [
+        "T1:Y13"
+      ]
+    }
+  ],
+  "tablas": [],
+  "imagenes": [],
+  "pdfs": []
+}

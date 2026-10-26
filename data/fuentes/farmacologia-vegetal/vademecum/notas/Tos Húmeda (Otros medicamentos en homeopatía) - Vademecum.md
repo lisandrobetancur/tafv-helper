@@ -1,0 +1,6 @@
+- Dulcamara
+- Pulsatilla
+- Kalium Carbonicum
+- Ipeca
+- Hydrastis
+- Stannum

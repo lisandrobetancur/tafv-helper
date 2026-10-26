@@ -1,0 +1,634 @@
+{
+  "materia": "Tratamiento metabólico",
+  "componente": "Campo Magnético",
+  "fuentes": [
+    "hojas/Campo Magnetico.xlsx"
+  ],
+  "correcciones": {
+    "Polariazante": "Polarizante",
+    "para general proteinas": "para generar proteínas",
+    "dexosirribonucleasa": "desoxirribonucleasa",
+    "los acido nucleicos": "los ácidos nucleicos",
+    "desoxirribunucleasa": "desoxirribonucleasa",
+    "mebrana": "membrana",
+    "condroblastros": "condroblastos",
+    "Osteositos": "Osteocitos",
+    "osteoclastros": "osteoclastos",
+    "oxgeno": "oxígeno",
+    "eslasticidad": "elasticidad",
+    "excergonica": "exergónica",
+    "Gibs": "Gibbs",
+    "Qie": "Que",
+    "al rededor": "alrededor",
+    "Convalencia": "Convalecencia",
+    "Ordenamiento der CMP": "Ordenamiento de CMP",
+    "Manual(Aplicación": "Manual (Aplicación",
+    "1Tesla": "1 Tesla",
+    "Gaus": "Gauss",
+    "intesnsidad": "intensidad",
+    "Herz": "Hertz",
+    "Sinosoidal": "Sinusoidal",
+    "Enmermedades": "Enfermedades",
+    "agrvaciónn": "agravación",
+    "convalenciente": "convaleciente",
+    "Mageneticos": "Magnéticos",
+    "Macrogafos": "Macrófagos",
+    "falicita": "facilita",
+    "interluquinas": "interleuquinas",
+    "periartitis": "periartritis",
+    "Aumeta": "Aumenta",
+    "sinstesis": "síntesis",
+    "Seccion: diaria": "Sesión: diaria",
+    "sonovial": "sinovial",
+    "estiromilisima": "estromelisina",
+    "Nevioso": "Nervioso",
+    "Biologicas del Campo Magnetico": "Biológicas del Campo Magnético",
+    "DIsminuye": "Disminuye",
+    "agrvaciónn(": "agravación (",
+    "1.Tipo de campo": "1. Tipo de campo",
+    "5.Acción en los condrocitos": "5. Acción en los condrocitos"
+  },
+  "omitidos": [],
+  "notas": [
+    {
+      "titulo": "1. Orientación en paralelo de las proteínas de membrana (Acciones del Campo Magnético Polarizante) - Campo Magnético",
+      "archivo": "notas/1. Orientación en paralelo de las proteínas de membrana (Acciones del Campo Magnético Polarizante) - Campo Magnético.md",
+      "celdas": [
+        "A1:J2",
+        "A3:J4"
+      ]
+    },
+    {
+      "titulo": "2. Acción estimulante de los ácidos nucleicos (Acciones del Campo Magnético Polarizante) - Campo Magnético",
+      "archivo": "notas/2. Acción estimulante de los ácidos nucleicos (Acciones del Campo Magnético Polarizante) - Campo Magnético.md",
+      "celdas": [
+        "A1:J2",
+        "A5:J7"
+      ]
+    },
+    {
+      "titulo": "3. Aumenta síntesis de proteínas (Acciones del Campo Magnético Polarizante) - Campo Magnético",
+      "archivo": "notas/3. Aumenta síntesis de proteínas (Acciones del Campo Magnético Polarizante) - Campo Magnético.md",
+      "celdas": [
+        "A1:J2",
+        "A8:J8"
+      ]
+    },
+    {
+      "titulo": "4. Aumenta el AMP cíclico (Acciones del Campo Magnético Polarizante) - Campo Magnético",
+      "archivo": "notas/4. Aumenta el AMP cíclico (Acciones del Campo Magnético Polarizante) - Campo Magnético.md",
+      "celdas": [
+        "A1:J2",
+        "A9:J16"
+      ]
+    },
+    {
+      "titulo": "5. Acción en los condrocitos, osteoblastos y condroblastos (Acciones del Campo Magnético Polarizante) - Campo Magnético",
+      "archivo": "notas/5. Acción en los condrocitos, osteoblastos y condroblastos (Acciones del Campo Magnético Polarizante) - Campo Magnético.md",
+      "celdas": [
+        "A1:J2",
+        "A17:J25"
+      ]
+    },
+    {
+      "titulo": "6. Acción sobre la concentración intracelular de oxígeno (Acciones del Campo Magnético Polarizante) - Campo Magnético",
+      "archivo": "notas/6. Acción sobre la concentración intracelular de oxígeno (Acciones del Campo Magnético Polarizante) - Campo Magnético.md",
+      "celdas": [
+        "A1:J2",
+        "A26:J33"
+      ]
+    },
+    {
+      "titulo": "7. Acción sobre la microcirculación (Acciones del Campo Magnético Polarizante) - Campo Magnético",
+      "archivo": "notas/7. Acción sobre la microcirculación (Acciones del Campo Magnético Polarizante) - Campo Magnético.md",
+      "celdas": [
+        "A1:J2",
+        "A34:J39"
+      ]
+    },
+    {
+      "titulo": "8. Acción antiinflamatoria (Acciones del Campo Magnético Polarizante) - Campo Magnético",
+      "archivo": "notas/8. Acción antiinflamatoria (Acciones del Campo Magnético Polarizante) - Campo Magnético.md",
+      "celdas": [
+        "A1:J2",
+        "A40:J40"
+      ]
+    },
+    {
+      "titulo": "9. Acción antineoplásica coayudante (Acciones del Campo Magnético Polarizante) - Campo Magnético",
+      "archivo": "notas/9. Acción antineoplásica coayudante (Acciones del Campo Magnético Polarizante) - Campo Magnético.md",
+      "celdas": [
+        "A1:J2",
+        "A41:J52"
+      ]
+    },
+    {
+      "titulo": "10. Mejora la percepción de dolor (Acciones del Campo Magnético Polarizante) - Campo Magnético",
+      "archivo": "notas/10. Mejora la percepción de dolor (Acciones del Campo Magnético Polarizante) - Campo Magnético.md",
+      "celdas": [
+        "A1:J2",
+        "A53:J53"
+      ]
+    },
+    {
+      "titulo": "11. Hidrólisis de ATP ( Reacción exergónica) (Acciones del Campo Magnético Polarizante) - Campo Magnético",
+      "archivo": "notas/11. Hidrólisis de ATP ( Reacción exergónica) (Acciones del Campo Magnético Polarizante) - Campo Magnético.md",
+      "celdas": [
+        "A1:J2",
+        "A54:J57"
+      ]
+    },
+    {
+      "titulo": "12. Orientación en paralelo de las membranas (Acciones del Campo Magnético Polarizante) - Campo Magnético",
+      "archivo": "notas/12. Orientación en paralelo de las membranas (Acciones del Campo Magnético Polarizante) - Campo Magnético.md",
+      "celdas": [
+        "A1:J2",
+        "A58:J58"
+      ]
+    },
+    {
+      "titulo": "13. Efecto sobre las neuronas (Acciones del Campo Magnético Polarizante) - Campo Magnético",
+      "archivo": "notas/13. Efecto sobre las neuronas (Acciones del Campo Magnético Polarizante) - Campo Magnético.md",
+      "celdas": [
+        "A1:J2",
+        "A59:J59"
+      ]
+    },
+    {
+      "titulo": "1. Sobre la inmunidad (Tratamiento Metabólico) - Campo Magnético",
+      "archivo": "notas/1. Sobre la inmunidad (Tratamiento Metabólico) - Campo Magnético.md",
+      "celdas": [
+        "A61:J61",
+        "A62:J63"
+      ]
+    },
+    {
+      "titulo": "Sistema Celular (Tratamiento Metabólico) - Campo Magnético",
+      "archivo": "notas/Sistema Celular (Tratamiento Metabólico) - Campo Magnético.md",
+      "celdas": [
+        "A61:J61",
+        "A64:J71"
+      ]
+    },
+    {
+      "titulo": "Inmunidad Humoral (Tratamiento Metabólico) - Campo Magnético",
+      "archivo": "notas/Inmunidad Humoral (Tratamiento Metabólico) - Campo Magnético.md",
+      "celdas": [
+        "A61:J61",
+        "A72:J75"
+      ]
+    },
+    {
+      "titulo": "2. Acción antineoplásica (Tratamiento Metabólico) - Campo Magnético",
+      "archivo": "notas/2. Acción antineoplásica (Tratamiento Metabólico) - Campo Magnético.md",
+      "celdas": [
+        "A61:J61",
+        "A76:J85"
+      ]
+    },
+    {
+      "titulo": "3. Acción anti-inflamatoria (Tratamiento Metabólico) - Campo Magnético",
+      "archivo": "notas/3. Acción anti-inflamatoria (Tratamiento Metabólico) - Campo Magnético.md",
+      "celdas": [
+        "A61:J61",
+        "A86:J90"
+      ]
+    },
+    {
+      "titulo": "4. Acciones sobre el crecimiento (Tratamiento Metabólico) - Campo Magnético",
+      "archivo": "notas/4. Acciones sobre el crecimiento (Tratamiento Metabólico) - Campo Magnético.md",
+      "celdas": [
+        "A61:J61",
+        "A91:J130"
+      ]
+    },
+    {
+      "titulo": "Indicaciones de los Campos Magnéticos Polarizantes - Campo Magnético",
+      "archivo": "notas/Indicaciones de los Campos Magnéticos Polarizantes - Campo Magnético.md",
+      "celdas": [
+        "L1:R16"
+      ]
+    },
+    {
+      "titulo": "Polaridad de los Campos Magnéticos - Campo Magnético",
+      "archivo": "notas/Polaridad de los Campos Magnéticos - Campo Magnético.md",
+      "celdas": [
+        "L18:R30"
+      ]
+    },
+    {
+      "titulo": "Post Operatorio Ortopédico (Ordenamiento de CMP según Etiología) - Campo Magnético",
+      "archivo": "notas/Post Operatorio Ortopédico (Ordenamiento de CMP según Etiología) - Campo Magnético.md",
+      "celdas": [
+        "T1:U1",
+        "T2:U3"
+      ]
+    },
+    {
+      "titulo": "Osteoartrosis degenerativa (Ordenamiento de CMP según Etiología) - Campo Magnético",
+      "archivo": "notas/Osteoartrosis degenerativa (Ordenamiento de CMP según Etiología) - Campo Magnético.md",
+      "celdas": [
+        "T1:U1",
+        "T5:U8"
+      ]
+    },
+    {
+      "titulo": "IAM en tratamientos agudos (Ordenamiento de CMP según Etiología) - Campo Magnético",
+      "archivo": "notas/IAM en tratamientos agudos (Ordenamiento de CMP según Etiología) - Campo Magnético.md",
+      "celdas": [
+        "T1:U1",
+        "T10:U13"
+      ]
+    },
+    {
+      "titulo": "Insuficiencia cardíaca (Ordenamiento de CMP según Etiología) - Campo Magnético",
+      "archivo": "notas/Insuficiencia cardíaca (Ordenamiento de CMP según Etiología) - Campo Magnético.md",
+      "celdas": [
+        "T1:U1",
+        "T15:U18"
+      ]
+    },
+    {
+      "titulo": "Artritis reumatoide (Ordenamiento de CMP según Etiología) - Campo Magnético",
+      "archivo": "notas/Artritis reumatoide (Ordenamiento de CMP según Etiología) - Campo Magnético.md",
+      "celdas": [
+        "T1:U1",
+        "T20:U24"
+      ]
+    },
+    {
+      "titulo": "Osteoporosis (Ordenamiento de CMP según Etiología) - Campo Magnético",
+      "archivo": "notas/Osteoporosis (Ordenamiento de CMP según Etiología) - Campo Magnético.md",
+      "celdas": [
+        "T1:U1",
+        "T26:U30"
+      ]
+    },
+    {
+      "titulo": "Fracturas (Ordenamiento de CMP según Etiología) - Campo Magnético",
+      "archivo": "notas/Fracturas (Ordenamiento de CMP según Etiología) - Campo Magnético.md",
+      "celdas": [
+        "T1:U1",
+        "T32:U35"
+      ]
+    },
+    {
+      "titulo": "Necrosis de fémur o tibia (Ordenamiento de CMP según Etiología) - Campo Magnético",
+      "archivo": "notas/Necrosis de fémur o tibia (Ordenamiento de CMP según Etiología) - Campo Magnético.md",
+      "celdas": [
+        "T1:U1",
+        "T37:U40"
+      ]
+    },
+    {
+      "titulo": "Colagenosis (Ordenamiento de CMP según Etiología) - Campo Magnético",
+      "archivo": "notas/Colagenosis (Ordenamiento de CMP según Etiología) - Campo Magnético.md",
+      "celdas": [
+        "T1:U1",
+        "T42:U45"
+      ]
+    },
+    {
+      "titulo": "Dolores articulares (Ordenamiento de CMP según Etiología) - Campo Magnético",
+      "archivo": "notas/Dolores articulares (Ordenamiento de CMP según Etiología) - Campo Magnético.md",
+      "celdas": [
+        "T1:U1",
+        "T47:U50"
+      ]
+    },
+    {
+      "titulo": "Fibromialgia (Ordenamiento de CMP según Etiología) - Campo Magnético",
+      "archivo": "notas/Fibromialgia (Ordenamiento de CMP según Etiología) - Campo Magnético.md",
+      "celdas": [
+        "T1:U1",
+        "T52:U56"
+      ]
+    },
+    {
+      "titulo": "Parálisis facial (Ordenamiento de CMP según Etiología) - Campo Magnético",
+      "archivo": "notas/Parálisis facial (Ordenamiento de CMP según Etiología) - Campo Magnético.md",
+      "celdas": [
+        "T1:U1",
+        "T58:U62"
+      ]
+    },
+    {
+      "titulo": "Hipertensión arterial (Ordenamiento de CMP según Etiología) - Campo Magnético",
+      "archivo": "notas/Hipertensión arterial (Ordenamiento de CMP según Etiología) - Campo Magnético.md",
+      "celdas": [
+        "T1:U1",
+        "T64:U67"
+      ]
+    },
+    {
+      "titulo": "Tratamiento para el Cáncer (Ordenamiento de CMP según Etiología) - Campo Magnético",
+      "archivo": "notas/Tratamiento para el Cáncer (Ordenamiento de CMP según Etiología) - Campo Magnético.md",
+      "celdas": [
+        "T1:U1",
+        "T69:U73"
+      ]
+    },
+    {
+      "titulo": "1. Tipo de campo (Cómo formular campos magnéticos) - Campo Magnético",
+      "archivo": "notas/1. Tipo de campo (Cómo formular campos magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "W1:Y1",
+        "W2:Y4"
+      ]
+    },
+    {
+      "titulo": "2. Número de sesiones (Cómo formular campos magnéticos) - Campo Magnético",
+      "archivo": "notas/2. Número de sesiones (Cómo formular campos magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "W1:Y1",
+        "W5:Y7"
+      ]
+    },
+    {
+      "titulo": "3. Polaridad (Cómo formular campos magnéticos) - Campo Magnético",
+      "archivo": "notas/3. Polaridad (Cómo formular campos magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "W1:Y1",
+        "W8:Y10"
+      ]
+    },
+    {
+      "titulo": "4. Intensidad (Cómo formular campos magnéticos) - Campo Magnético",
+      "archivo": "notas/4. Intensidad (Cómo formular campos magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "W1:Y1",
+        "W11:Y12"
+      ]
+    },
+    {
+      "titulo": "5. Frecuencia (Cómo formular campos magnéticos) - Campo Magnético",
+      "archivo": "notas/5. Frecuencia (Cómo formular campos magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "W1:Y1",
+        "W13:Y15"
+      ]
+    },
+    {
+      "titulo": "6. Forma de onda (Cómo formular campos magnéticos) - Campo Magnético",
+      "archivo": "notas/6. Forma de onda (Cómo formular campos magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "W1:Y1",
+        "W16:Y18"
+      ]
+    },
+    {
+      "titulo": "Contraindicación (Cómo formular campos magnéticos) - Campo Magnético",
+      "archivo": "notas/Contraindicación (Cómo formular campos magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "W1:Y1",
+        "W19:Y20"
+      ]
+    },
+    {
+      "titulo": "Indicaciones (Cómo formular campos magnéticos) - Campo Magnético",
+      "archivo": "notas/Indicaciones (Cómo formular campos magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "W1:Y1",
+        "W21:Y21"
+      ]
+    },
+    {
+      "titulo": "Horas de exposición CMP (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético",
+      "archivo": "notas/Horas de exposición CMP (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "L53:R53",
+        "L54:R54"
+      ]
+    },
+    {
+      "titulo": "Hora mínimo de exposición a CMP (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético",
+      "archivo": "notas/Hora mínimo de exposición a CMP (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "L53:R53",
+        "L55:R55"
+      ]
+    },
+    {
+      "titulo": "Horas máximo de exposición día (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético",
+      "archivo": "notas/Horas máximo de exposición día (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "L53:R53",
+        "L56:R56"
+      ]
+    },
+    {
+      "titulo": "Intensidad de CMP (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético",
+      "archivo": "notas/Intensidad de CMP (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "L53:R53",
+        "L57:R57"
+      ]
+    },
+    {
+      "titulo": "Frecuencia de CMP (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético",
+      "archivo": "notas/Frecuencia de CMP (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "L53:R53",
+        "L58:R58"
+      ]
+    },
+    {
+      "titulo": "En caso de mucho dolor la frecuencia (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético",
+      "archivo": "notas/En caso de mucho dolor la frecuencia (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "L53:R53",
+        "L59:R59"
+      ]
+    },
+    {
+      "titulo": "Polaridad positiva (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético",
+      "archivo": "notas/Polaridad positiva (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "L53:R53",
+        "L60:R60"
+      ]
+    },
+    {
+      "titulo": "Polaridad negativa (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético",
+      "archivo": "notas/Polaridad negativa (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "L53:R53",
+        "L61:R61"
+      ]
+    },
+    {
+      "titulo": "Onda alternante (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético",
+      "archivo": "notas/Onda alternante (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "L53:R53",
+        "L62:R62"
+      ]
+    },
+    {
+      "titulo": "1 Teslas (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético",
+      "archivo": "notas/1 Teslas (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "L53:R53",
+        "L63:R63"
+      ]
+    },
+    {
+      "titulo": "Energía libre de Gibbs (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético",
+      "archivo": "notas/Energía libre de Gibbs (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "L53:R53",
+        "L64:R67"
+      ]
+    },
+    {
+      "titulo": "Qué hace el CMP (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético",
+      "archivo": "notas/Qué hace el CMP (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "L53:R53",
+        "L68:R79"
+      ]
+    },
+    {
+      "titulo": "Evento fisiopatológicos en inflamación (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético",
+      "archivo": "notas/Evento fisiopatológicos en inflamación (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "L53:R53",
+        "L80:R86"
+      ]
+    },
+    {
+      "titulo": "Entalpía (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético",
+      "archivo": "notas/Entalpía (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "L53:R53",
+        "L87:R90"
+      ]
+    },
+    {
+      "titulo": "Entropía (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético",
+      "archivo": "notas/Entropía (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "L53:R53",
+        "L91:R94"
+      ]
+    },
+    {
+      "titulo": "Paramagnéticas (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético",
+      "archivo": "notas/Paramagnéticas (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "L53:R53",
+        "L95:R103"
+      ]
+    },
+    {
+      "titulo": "Diamagnéticas (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético",
+      "archivo": "notas/Diamagnéticas (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "L53:R53",
+        "L104:R111"
+      ]
+    },
+    {
+      "titulo": "Ferromagnéticas (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético",
+      "archivo": "notas/Ferromagnéticas (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "L53:R53",
+        "L112:R120"
+      ]
+    },
+    {
+      "titulo": "Cuál es el efecto de CMP en el oxígeno (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético",
+      "archivo": "notas/Cuál es el efecto de CMP en el oxígeno (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "L53:R53",
+        "L121:R126"
+      ]
+    },
+    {
+      "titulo": "Tratamiento Metabólico (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético",
+      "archivo": "notas/Tratamiento Metabólico (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "L53:R53",
+        "L127:R129"
+      ]
+    },
+    {
+      "titulo": "Contraindicación Absoluta CMP (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético",
+      "archivo": "notas/Contraindicación Absoluta CMP (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "L53:R53",
+        "L130:R130"
+      ]
+    },
+    {
+      "titulo": "Contraindicación Relativa (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético",
+      "archivo": "notas/Contraindicación Relativa (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "L53:R53",
+        "L131:R131"
+      ]
+    },
+    {
+      "titulo": "Activadores del Metabolismo (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético",
+      "archivo": "notas/Activadores del Metabolismo (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "L53:R53",
+        "L132:R132"
+      ]
+    },
+    {
+      "titulo": "Inhibidores del Metabolismo (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético",
+      "archivo": "notas/Inhibidores del Metabolismo (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "L53:R53",
+        "L133:R133"
+      ]
+    },
+    {
+      "titulo": "Células Lábiles a CMP (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético",
+      "archivo": "notas/Células Lábiles a CMP (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "L53:R53",
+        "L134:R134"
+      ]
+    },
+    {
+      "titulo": "Mejor Hidrólisis de ATP (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético",
+      "archivo": "notas/Mejor Hidrólisis de ATP (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "L53:R53",
+        "L135:R135"
+      ]
+    },
+    {
+      "titulo": "En qué enfermedades no CMP (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético",
+      "archivo": "notas/En qué enfermedades no CMP (Tips de Tratamiento Metabólico-Campos Magnéticos) - Campo Magnético.md",
+      "celdas": [
+        "L53:R53",
+        "L136:R136"
+      ]
+    }
+  ],
+  "tablas": [],
+  "imagenes": [
+    {
+      "archivo": "imagenes/Campo Magnetico - L32.png",
+      "titulo": "Tabla de Parámetros CMP – Magnetoterapia - Campo Magnético",
+      "celda": "L32",
+      "descripcion": "Tabla de Parámetros CMP – Magnetoterapia\nCentro / Corpas\nCondición | Tipo de onda | Tiempo total | Tiempo mínimo exposición | Días\nPostquirúrgicos ortopédicos | Norte o alterna | Segun Criterio Medico | Segun Criterio Medico | Segun Criterio Medico\nOsteoartrosis degenerativa | Norte, sur o alterna | 100 horas | 1 hora | —\nIAM post-etapa aguda | Sur o alterna | 40 horas | 1 hora | —\nInsuficiencia cardíaca | Alterna | 30 horas | 1 hora | —\nArtritis reumatoide | Norte o alterna | 30 horas | 1 hora | 30 días\nOsteoporosis | Sur o alterna | 150 horas | 1 hora | 150 días\nFracturas | Sur o alterna | 20 horas | 2 horas | —\nNecrosis fémur-tibia | Sur o alterna | 150 horas | 1 hora | —\nColagenosis | Norte o alterna | 70 horas | 1 hora | —\nDolores articulares | Norte o alterna | Segun Criterio Medico | Segun Criterio Medico | Segun Criterio Medico\nFibromialgia | Norte o alterna | 20 horas | 2 horas | 10 dias\nCáncer | Siempre norte | Segun Criterio Medico | Segun Criterio Medico | Segun Criterio Medico\nParálisis facial | Norte→Sur/Alterna | 150 horas | 3 horas | 50 días\nHipertensión | Alterna | 30 horas | 1 hora | —"
+    },
+    {
+      "archivo": "imagenes/Campo Magnetico - W23.jpg",
+      "titulo": "Formulación de campos magnéticos - Campo Magnético",
+      "celda": "W23",
+      "descripcion": "• Formulación de campos magnéticos\n- TIPO de campo.\n- Número de sesiones. (180 h de exposición a el campo antes de ver algún cambio) - tiene un efecto acumulativo ( siempre sesiones de 2 h - 1 a 3 veces por semana)\n- Polaridad: casi todas se usan alternos\n  • Positivos : Antiinflamatorio\n  • Negativa: Estimulante\n- Intensidad: Se usa unidad de medida Gauss\n  • 100 a 200 gauss Maximo ( mas de 200 es iatrogenia)\n- Frecuencia : Se usa en Hz\n  • No es claro para que patología a que tipo de frecuencia\n  • Van de 1 a 100 / ese utiliza 50 Hz, pero cuando hay mucho dolor, usamos menos Hz para control del dolor ( 10 a 30 Hz)"
+    },
+    {
+      "archivo": "imagenes/Campo Magnetico - A132.png",
+      "titulo": "Categoría, patología, mecanismo del campo magnético y efecto terapéutico - Campo Magnético",
+      "celda": "A132",
+      "descripcion": "Categoría | Patología | Mecanismo del campo magnético | Efecto terapéutico\nTraumatología y ortopedia | Fracturas | Estimulación osteoblástica | Acelera formación de callo óseo\nTraumatología y ortopedia | Pseudoartrosis | Aumento síntesis de colágeno y ADN | Favorece consolidación ósea\nTraumatología y ortopedia | Retardo de consolidación | Activación metabólica celular | Disminuye tiempo de recuperación\nEnfermedades óseas | Osteoporosis | Estimulación osteoblástica y calcio | Mejora densidad ósea\nEnfermedades óseas | Enfermedad de Sudeck | Modulación vascular y celular | Disminuye dolor e inflamación\nMusculoesquelético | Artrosis | Aumento colágeno y microcirculación | Mejora función articular\nMusculoesquelético | Tendinitis | Estimulación reparación tisular | Disminuye dolor y acelera recuperación\nMusculoesquelético | Lesión muscular | Activación fibroblastos | Favorece regeneración muscular\nTejido conectivo | Artritis reumatoide | Modulación inflamatoria | Disminuye inflamación\nTejido conectivo | Esclerodermia | Estimulación colágeno | Mejora elasticidad tisular\nVascular | Raynaud | Aumento microcirculación | Mejora perfusión\nVascular | Insuficiencia vascular periférica | Mejora flujo sanguíneo | Disminuye isquemia\nInflamatorio | Inflamación aguda | Modulación capilar | Disminuye edema\nInflamatorio | Inflamación crónica | Regulación celular | Reduce inflamación persistente\nCicatrización | Heridas | Estimulación fibroblastos | Acelera cicatrización\nCicatrización | Úlceras | Aumento oxigenación tisular | Mejora reparación\nSistema nervioso | Dolor crónico | Modulación neuronal | Efecto analgésico\nSistema nervioso | Neuralgias | Regulación impulso nervioso | Disminuye dolor\nMetabólico | Hipoxia tisular | Aumento pO2 y metabolismo | Mejora función celular\nMetabólico | Enfermedades crónicas | Aumento ATP | Optimiza metabolismo"
+    }
+  ],
+  "pdfs": []
+}

@@ -1,0 +1,26 @@
+{
+  "materia": "Psicoterapia",
+  "fecha": "2026-10-16T00:58:56",
+  "archivos": [
+    {
+      "original": "fuentes/psicoterapia/_originales/TAFV Cuadro Examen 2026.xlsx",
+      "hojas": [
+        {
+          "hoja": "Macerados Florales",
+          "componente": "Macerados Florales",
+          "archivo": "fuentes/psicoterapia/macerados-florales/hojas/Macerados Florales.xlsx",
+          "imagenes": []
+        }
+      ],
+      "sin_asignar": [
+        "Farmacologia Vegetal",
+        "HBO",
+        "Oxivenacion",
+        "Ozonoterapia",
+        "Acupuntura",
+        "Campo Magnetico",
+        "Solucion GIK-Dieta Metabolica"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1061 @@
+{
+  "archivo": "/Users/lisandro/dev/py/tafv-helper/data/fuentes/oxigenoterapia/hbo/hojas/HBO.xlsx",
+  "hojas": [
+    {
+      "hoja": "HBO",
+      "dimension": "A1:Z65",
+      "bloques": [
+        {
+          "rango": "A1:G15",
+          "filas": 15,
+          "columnas": 7,
+          "densidad": 0.51,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "A1",
+              "combinada": "A1:C1",
+              "texto": "HBO PROTOCOLO CORPAS",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "F1",
+              "combinada": "F1:G1",
+              "texto": "Complicaciones",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "A2",
+              "combinada": null,
+              "texto": "Seccion",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "B2",
+              "combinada": null,
+              "texto": "Presion",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "C2",
+              "combinada": null,
+              "texto": "Tiempo",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "D2",
+              "combinada": "D2:E2",
+              "texto": "Pasos en Camara Monoplaza",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "F2",
+              "combinada": "F2:G2",
+              "texto": "Generales",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "A3",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "B3",
+              "combinada": null,
+              "texto": "5 p.s.i",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "C3",
+              "combinada": null,
+              "texto": "30 minutos",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "D3",
+              "combinada": "D3:E3",
+              "texto": "Barrido Nitrogenado",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "F3",
+              "combinada": "F3:G3",
+              "texto": "1. Claustrofobia",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "A4",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "B4",
+              "combinada": null,
+              "texto": "7 p.s.i",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "C4",
+              "combinada": null,
+              "texto": "45 minutos",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "D4",
+              "combinada": "D4:E4",
+              "texto": "Comprension",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "F4",
+              "combinada": "F4:G4",
+              "texto": "2. Miopia Reversible",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "A5",
+              "combinada": null,
+              "texto": "3",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "B5",
+              "combinada": null,
+              "texto": "9 p.s.i",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "C5",
+              "combinada": null,
+              "texto": "1 hora",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "D5",
+              "combinada": "D5:E5",
+              "texto": "Isopresion",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "F5",
+              "combinada": "F5:G5",
+              "texto": "3. Cataratas",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "A6",
+              "combinada": null,
+              "texto": "4",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "B6",
+              "combinada": null,
+              "texto": "11 p.s.i",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "C6",
+              "combinada": null,
+              "texto": "1 hora",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "D6",
+              "combinada": "D6:E6",
+              "texto": "Descomprension",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "F6",
+              "combinada": "F6:G6",
+              "texto": "4. Hipoglucemia",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "A7",
+              "combinada": null,
+              "texto": "5",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "B7",
+              "combinada": null,
+              "texto": "13 p.s.i",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "C7",
+              "combinada": null,
+              "texto": "1 hora",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "A8",
+              "combinada": null,
+              "texto": "6",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "B8",
+              "combinada": null,
+              "texto": "15 p.s.i (1 a 2 ATA)",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "C8",
+              "combinada": null,
+              "texto": "1 hora",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "A9",
+              "combinada": null,
+              "texto": "7",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "B9",
+              "combinada": null,
+              "texto": "17 p.s.i",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "C9",
+              "combinada": null,
+              "texto": "1 hora",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "A10",
+              "combinada": null,
+              "texto": "8",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "B10",
+              "combinada": null,
+              "texto": "19 p.s.i",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "C10",
+              "combinada": null,
+              "texto": "1 hora",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "A11",
+              "combinada": null,
+              "texto": "9",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "B11",
+              "combinada": null,
+              "texto": "21 p.s.i",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "C11",
+              "combinada": null,
+              "texto": "1 hora",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "A12",
+              "combinada": null,
+              "texto": "10",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "B12",
+              "combinada": null,
+              "texto": "23 p.s.i",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "C12",
+              "combinada": null,
+              "texto": "1 hora",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "A13",
+              "combinada": null,
+              "texto": "11",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "B13",
+              "combinada": null,
+              "texto": "25 p.s.i",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "C13",
+              "combinada": null,
+              "texto": "1 hora",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "A14",
+              "combinada": null,
+              "texto": "12",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "B14",
+              "combinada": null,
+              "texto": "27 p.s.i",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "C14",
+              "combinada": null,
+              "texto": "1 hora",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "A15",
+              "combinada": null,
+              "texto": "13",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "B15",
+              "combinada": null,
+              "texto": "29 p.s.i (2-3 ATA)",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "C15",
+              "combinada": null,
+              "texto": "1 hora",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            }
+          ]
+        },
+        {
+          "rango": "I1:J16",
+          "filas": 16,
+          "columnas": 2,
+          "densidad": 0.5,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "I1",
+              "combinada": "I1:J1",
+              "texto": "Contraindicaciones",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "I2",
+              "combinada": "I2:J2",
+              "texto": "Absolutas",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "I3",
+              "combinada": "I3:J3",
+              "texto": "Neumotorax no tratado",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "I4",
+              "combinada": "I4:J4",
+              "texto": "EPOC",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "I5",
+              "combinada": "I5:J5",
+              "texto": "Asma",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "I6",
+              "combinada": "I6:J6",
+              "texto": "Dispositivos implantables",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "I7",
+              "combinada": "I7:J7",
+              "texto": "Cardiodesfibriladores",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "I8",
+              "combinada": "I8:J8",
+              "texto": "Bombas de analgesia epi",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "I9",
+              "combinada": "I9:J9",
+              "texto": "Esferositosis congenita",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "I10",
+              "combinada": "I10:J10",
+              "texto": "Diabetes Mellitus",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "I11",
+              "combinada": "I11:J11",
+              "texto": "Fiebre",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "I12",
+              "combinada": "I12:J12",
+              "texto": "Epilepsia",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "I13",
+              "combinada": "I13:J13",
+              "texto": "HTA-ICC-Bradicardia",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "I14",
+              "combinada": "I14:J14",
+              "texto": "Cirugia ocular reciente",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "I15",
+              "combinada": "I15:J15",
+              "texto": "Resfriado, Sinusitis, Qx Oido",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "I16",
+              "combinada": "I16:J16",
+              "texto": "HC Qx Toracica",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            }
+          ]
+        },
+        {
+          "rango": "L1:M7",
+          "filas": 7,
+          "columnas": 2,
+          "densidad": 0.5,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "L1",
+              "combinada": "L1:M1",
+              "texto": "Complicaciones",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "L2",
+              "combinada": "L2:M2",
+              "texto": "Relacionadas con la presion",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "L3",
+              "combinada": "L3:M3",
+              "texto": "Barotrauma: ",
+              "negrita": true,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "L4",
+              "combinada": "L4:M4",
+              "texto": "Ruptura de timpano",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "L5",
+              "combinada": "L5:M5",
+              "texto": "Lesion de senos paranasales",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "L6",
+              "combinada": "L6:M6",
+              "texto": "Lesion pulmonar",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "L7",
+              "combinada": "L7:M7",
+              "texto": "Relacionadas con hiperoxia",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            }
+          ]
+        },
+        {
+          "rango": "U1:Z65",
+          "filas": 65,
+          "columnas": 6,
+          "densidad": 0.05,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "U1",
+              "combinada": "U1:Z1",
+              "texto": "Efectos derivados de la hiperoxia",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "U2",
+              "combinada": "U2:Z2",
+              "texto": "1. Vaso constriccion arteriolar",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "U3",
+              "combinada": "U3:Z5",
+              "texto": "Reducción del flujo sanguíneo en tejidos hiperóxicos, con redistribución   hacia zonas hipóxicas.  (Este fenómeno sólo compromete a tejidos sanos)\n\tMantenimiento del retorno venoso",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U6",
+              "combinada": "U6:Z6",
+              "texto": "2. Mantenimiento del flujo sanguíneo en tejidos hipóxicos",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "U7",
+              "combinada": "U7:Z8",
+              "texto": "Redistribución del flujo sanguíneo desde tejidos hiperóxicos a zonas hipóxicas",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U9",
+              "combinada": "U9:Z9",
+              "texto": "3. Estímulo de la cicatrización y reparación tisular ",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "U10",
+              "combinada": "U10:Z22",
+              "texto": "HBO aumenta producción de ácido hialurónico y proteoglicanos por los fibroblastos.\nEn heridas, proliferación de células endoteliales  a los 15 min. y activación de  fibroblastos a los 120 min. La de fibroblastos se mantiene hasta 72 horas después.\nAumento de tejido de granulación en 100% a los 7 días de tratamiento.\nPreservación de  la membrana basal epidérmica\nReducción de la infiltración subepidérmica de leucocitos (prevención lesión por reperfusión)\nIncremento del ATP disponible, después de 36 horas de haberse producido la lesión.\nReducción del edema ",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U23",
+              "combinada": "U23:Z23",
+              "texto": "4. Inhibición bacteriana",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "U24",
+              "combinada": "U24:Z31",
+              "texto": "Anaerobios estrictos no pueden sobrevivir en concentraciones de oxígeno superiores a 5µM de Oxígeno (0.16 ppm o 0.16 mg/L).\nBacteriostático a 150 mmHg.\nInhibe la producción de alfa toxina clostridial a 250 mmHg (las toxinas requieren bajos potenciales de óxido reducción)\nClostridium tetani, Clostridium perfringens, Clostridium botulinum.\n",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U32",
+              "combinada": "U32:Z32",
+              "texto": "5. Homeostasis de la inmunidad",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "U33",
+              "combinada": "U33:Z41",
+              "texto": "La actividad fagocítica requiere ptiO2 de 30 mmHg.\nHipoxia impide síntesis de peróxidos e induce en macrófagos síntesis de citocinas inflamatorias: TNF-alpha, IL-1, IL-8, e ICAM 1 (intracellular adhesion molecule-1).\nHBO  incrementa la digestión bacteriana posterior a fagocitosis, por optimización de la fase oxidativa, dependiente de O2 molecular, la cual requiere un aumento de 10 a 15 veces en el consumo de oxígeno.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U42",
+              "combinada": "U42:Z42",
+              "texto": "6. Reducción de la toxicidad por CO",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "U43",
+              "combinada": "U43:Z44",
+              "texto": "Afinidad Hb – CO  es 200 veces mayor que Hb – O2",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U45",
+              "combinada": "U45:Z45",
+              "texto": "7. Efecto sobre el metabolismo óseo",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "U46",
+              "combinada": "U46:Z47",
+              "texto": "Incrementa diferenciación  de osteoblastos y la expresión de colágeno tipo I",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U48",
+              "combinada": "U48:Z48",
+              "texto": "8. Efecto sobre células sanguíneas",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "U49",
+              "combinada": "U49:Z54",
+              "texto": "A  2 ATA aumenta elasticidad del eritrocito.\nA  2,8 ATA se reduce elasticidad.\nAumenta movilización de células madre en médula ósea\nEfecto sinérgico con EPO en pacientes con anemia",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U55",
+              "combinada": "U55:Z55",
+              "texto": "9. HBO reduce en 50% el edema muscular  postraumático, preservando el ATP.",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "U56",
+              "combinada": "U56:Z62",
+              "texto": "Isquemia postraumática\n↓ ATP\nParálisis de bombas iónicas\n↑ Sodio intracelular\n Edema\nReducción edema\n",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U63",
+              "combinada": "U63:Z63",
+              "texto": "10. Efecto en isquemia / reperfusión",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "U64",
+              "combinada": "U64:Z65",
+              "texto": "Reducción de la adhesión de neutrófilos al endotelio, por inhibición de moléculas de adhesión.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "A19:E33",
+          "filas": 15,
+          "columnas": 5,
+          "densidad": 0.2,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "A19",
+              "combinada": "A19:E19",
+              "texto": "14 Recomendaciones UHMS",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "A20",
+              "combinada": "A20:E20",
+              "texto": "Embolismo Gaseoso",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "A21",
+              "combinada": "A21:E21",
+              "texto": "Envenenamiento por Monóxido de Carbono",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "A22",
+              "combinada": "A22:E22",
+              "texto": "Lesión por aplastamiento, síndrome compartimental y otras isquemias traumáticas agudas",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "A23",
+              "combinada": "A23:E23",
+              "texto": "Miositis Clostridial y Mionecrosis (Gangrena Gaseosa)",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "A24",
+              "combinada": "A24:E24",
+              "texto": "Enfermedad Descompresiva",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "A25",
+              "combinada": "A25:E25",
+              "texto": "Insuficiencias arteriales",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "A26",
+              "combinada": "A26:E26",
+              "texto": "Anemia severa",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "A27",
+              "combinada": "A27:E27",
+              "texto": "Abscesos intracraneales",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "A28",
+              "combinada": "A28:E28",
+              "texto": "Infecciones de tejidos blandos necrotizantes",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "A29",
+              "combinada": "A29:E29",
+              "texto": "Osteomielitis Refractaria",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "A30",
+              "combinada": "A30:E30",
+              "texto": "Lesión por radiación retardada (tejido blando y necrosis ósea)",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "A31",
+              "combinada": "A31:E31",
+              "texto": "Injertos y colgajos comprometidos",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "A32",
+              "combinada": "A32:E32",
+              "texto": "Lesión por quemadura térmica aguda",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "A33",
+              "combinada": "A33:E33",
+              "texto": "Pérdida Auditiva Súbita Idiopática",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            }
+          ]
+        },
+        {
+          "rango": "G19:I33",
+          "filas": 15,
+          "columnas": 3,
+          "densidad": 0.31,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "G19",
+              "combinada": "G19:I19",
+              "texto": "Otras Indicaciones",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "G20",
+              "combinada": "G20:I20",
+              "texto": "Accidente Cerebro Vascular",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "G21",
+              "combinada": "G21:I21",
+              "texto": "Edema Cerebral",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "G22",
+              "combinada": "G22:I22",
+              "texto": "Meningitis",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "G23",
+              "combinada": "G23:I23",
+              "texto": "Lesion por isquemia-Reperfusion",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "G24",
+              "combinada": "G24:I24",
+              "texto": "Lepra lepromatosa",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "G25",
+              "combinada": "G25:I25",
+              "texto": "Colitis por Pseudomona",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "G26",
+              "combinada": "G26:I26",
+              "texto": "Trauma raquimedular",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "G27",
+              "combinada": "G27:I27",
+              "texto": "Absceso intra-abdominal",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "G28",
+              "combinada": "G28:I28",
+              "texto": "Crisis de anemia de celulas falciformes",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "G29",
+              "combinada": "G29:I29",
+              "texto": "Fractura con retardo de consolidacion",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "G30",
+              "combinada": "G30:I30",
+              "texto": "Enveneamiento por sulfato de hidrigeno",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "G31",
+              "combinada": "G31:I31",
+              "texto": "Cancer (No durante quimioterapia)",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            },
+            {
+              "celda": "G32",
+              "combinada": "G32:I33",
+              "texto": "Doxorrubacina (Adriamicina)50 mg\nCisplatino 50 mg\nBleomicina Mafenida (Sulfamylon)",
+              "negrita": false,
+              "relleno": "FFD8D8D8"
+            }
+          ]
+        },
+        {
+          "rango": "A35:M35",
+          "filas": 1,
+          "columnas": 13,
+          "densidad": 0.08,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "A35",
+              "combinada": "A35:M35",
+              "texto": "Indicaciones del European Comittee for Hyperbaric Medicine (ECHM)",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            }
+          ]
+        }
+      ],
+      "comentarios": [],
+      "imagenes": [
+        {
+          "media": "xl/media/image1.png",
+          "desde": "A36",
+          "hasta": null
+        },
+        {
+          "media": "xl/media/image2.png",
+          "desde": "A58",
+          "hasta": null
+        },
+        {
+          "media": "xl/media/image3.png",
+          "desde": "A89",
+          "hasta": null
+        },
+        {
+          "media": "xl/media/image4.png",
+          "desde": "A116",
+          "hasta": null
+        },
+        {
+          "media": "xl/media/image5.png",
+          "desde": "A152",
+          "hasta": null
+        },
+        {
+          "media": "xl/media/image6.png",
+          "desde": "O1",
+          "hasta": null
+        },
+        {
+          "media": "xl/media/image7.png",
+          "desde": "AB1",
+          "hasta": null
+        },
+        {
+          "media": "xl/media/image8.png",
+          "desde": "AB26",
+          "hasta": null
+        },
+        {
+          "media": "xl/media/image9.png",
+          "desde": "AB51",
+          "hasta": null
+        },
+        {
+          "media": "xl/media/image10.png",
+          "desde": "AK1",
+          "hasta": null
+        },
+        {
+          "media": "xl/media/image11.png",
+          "desde": "AK26",
+          "hasta": null
+        },
+        {
+          "media": "xl/media/image12.png",
+          "desde": "AK48",
+          "hasta": null
+        }
+      ],
+      "imagenes_extraidas": [
+        "fuentes/oxigenoterapia/hbo/imagenes/HBO - A36.png",
+        "fuentes/oxigenoterapia/hbo/imagenes/HBO - A58.png",
+        "fuentes/oxigenoterapia/hbo/imagenes/HBO - A89.png",
+        "fuentes/oxigenoterapia/hbo/imagenes/HBO - A116.png",
+        "fuentes/oxigenoterapia/hbo/imagenes/HBO - A152.png",
+        "fuentes/oxigenoterapia/hbo/imagenes/HBO - O1.png",
+        "fuentes/oxigenoterapia/hbo/imagenes/HBO - AB1.png",
+        "fuentes/oxigenoterapia/hbo/imagenes/HBO - AB26.png",
+        "fuentes/oxigenoterapia/hbo/imagenes/HBO - AB51.png",
+        "fuentes/oxigenoterapia/hbo/imagenes/HBO - AK1.png",
+        "fuentes/oxigenoterapia/hbo/imagenes/HBO - AK26.png",
+        "fuentes/oxigenoterapia/hbo/imagenes/HBO - AK48.png"
+      ]
+    }
+  ]
+}

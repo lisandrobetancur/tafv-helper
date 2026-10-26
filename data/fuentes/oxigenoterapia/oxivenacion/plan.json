@@ -1,0 +1,78 @@
+{
+  "materia": "Oxigenoterapia",
+  "componente": "Oxivenación",
+  "fuentes": [
+    "hojas/Oxivenacion.xlsx"
+  ],
+  "correcciones": {
+    "Cuagulopatias": "Coagulopatías",
+    "1.Efecto": "1. Efecto",
+    "Luis fernando Lenis": "Luis Fernando Lenis",
+    "(¿riesgo de lesión por reperfusión)": "(¿riesgo de lesión por reperfusión?)",
+    "Estímulo de respuestas mediadas por GABA?": "¿Estímulo de respuestas mediadas por GABA?",
+    "•Antiagregante •Broncodilatadora": "- Antiagregante\n- Broncodilatadora",
+    "•Vasodilatación pulmonar •Natriuresis": "- Vasodilatación pulmonar\n- Natriuresis"
+  },
+  "omitidos": [],
+  "notas": [
+    {
+      "titulo": "Protocolo Corpas - Oxivenación",
+      "archivo": "notas/Protocolo Corpas - Oxivenación.md",
+      "celdas": [
+        "A1:B16"
+      ]
+    },
+    {
+      "titulo": "Efectos Biológicos de la Oxivenación - Oxivenación",
+      "archivo": "notas/Efectos Biológicos de la Oxivenación - Oxivenación.md",
+      "celdas": [
+        "D1:F42"
+      ]
+    },
+    {
+      "titulo": "Indicación clínica de una solución hiperoxigenada - Oxivenación",
+      "archivo": "notas/Indicación clínica de una solución hiperoxigenada - Oxivenación.md",
+      "celdas": [
+        "H1:L11"
+      ]
+    },
+    {
+      "titulo": "Indicaciones Corpas - Oxivenación",
+      "archivo": "notas/Indicaciones Corpas - Oxivenación.md",
+      "celdas": [
+        "H12:L40"
+      ]
+    },
+    {
+      "titulo": "Contraindicaciones Método Corpas - Oxivenación",
+      "archivo": "notas/Contraindicaciones Método Corpas - Oxivenación.md",
+      "celdas": [
+        "N1:P17"
+      ]
+    },
+    {
+      "titulo": "Tratamiento de efectos secundarios - Oxivenación",
+      "archivo": "notas/Tratamiento de efectos secundarios - Oxivenación.md",
+      "celdas": [
+        "N19:P29"
+      ]
+    },
+    {
+      "titulo": "Precauciones - Oxivenación",
+      "archivo": "notas/Precauciones - Oxivenación.md",
+      "celdas": [
+        "R1:T3"
+      ]
+    },
+    {
+      "titulo": "Efectos secundarios - Oxivenación",
+      "archivo": "notas/Efectos secundarios - Oxivenación.md",
+      "celdas": [
+        "R5:T14"
+      ]
+    }
+  ],
+  "tablas": [],
+  "imagenes": [],
+  "pdfs": []
+}

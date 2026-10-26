@@ -1,0 +1,167 @@
+{
+  "materia": "Oxigenoterapia",
+  "componente": "HBO",
+  "fuentes": [
+    "hojas/HBO.xlsx"
+  ],
+  "correcciones": {
+    "Comprension": "Compresión",
+    "Descomprension": "Descompresión",
+    "Esferositosis": "Esferocitosis",
+    "Enveneamiento": "Envenenamiento",
+    "hidrigeno": "hidrógeno",
+    "Doxorrubacina": "Doxorrubicina",
+    "Comittee": "Committee",
+    "Vaso constriccion": "Vasoconstricción",
+    "(Adriamicina)50 mg": "(Adriamicina) 50 mg"
+  },
+  "omitidos": [],
+  "notas": [
+    {
+      "titulo": "HBO PROTOCOLO CORPAS - HBO",
+      "archivo": "notas/HBO PROTOCOLO CORPAS - HBO.md",
+      "celdas": [
+        "A1:C15"
+      ]
+    },
+    {
+      "titulo": "Pasos en Cámara Monoplaza - HBO",
+      "archivo": "notas/Pasos en Cámara Monoplaza - HBO.md",
+      "celdas": [
+        "D2:E6"
+      ]
+    },
+    {
+      "titulo": "Complicaciones (Generales) - HBO",
+      "archivo": "notas/Complicaciones (Generales) - HBO.md",
+      "celdas": [
+        "F1:G6"
+      ]
+    },
+    {
+      "titulo": "Contraindicaciones - HBO",
+      "archivo": "notas/Contraindicaciones - HBO.md",
+      "celdas": [
+        "I1:J16"
+      ]
+    },
+    {
+      "titulo": "Complicaciones (Relacionadas con la presión y con hiperoxia) - HBO",
+      "archivo": "notas/Complicaciones (Relacionadas con la presión y con hiperoxia) - HBO.md",
+      "celdas": [
+        "L1:M14"
+      ]
+    },
+    {
+      "titulo": "Efectos derivados de la hiperoxia - HBO",
+      "archivo": "notas/Efectos derivados de la hiperoxia - HBO.md",
+      "celdas": [
+        "U1:Z65"
+      ]
+    },
+    {
+      "titulo": "14 Recomendaciones UHMS - HBO",
+      "archivo": "notas/14 Recomendaciones UHMS - HBO.md",
+      "celdas": [
+        "A19:E33"
+      ]
+    },
+    {
+      "titulo": "Otras Indicaciones - HBO",
+      "archivo": "notas/Otras Indicaciones - HBO.md",
+      "celdas": [
+        "G19:I33"
+      ]
+    },
+    {
+      "titulo": "Indicaciones del European Committee for Hyperbaric Medicine (ECHM) - HBO",
+      "archivo": "notas/Indicaciones del European Committee for Hyperbaric Medicine (ECHM) - HBO.md",
+      "celdas": [
+        "A35:M35"
+      ]
+    }
+  ],
+  "tablas": [],
+  "imagenes": [
+    {
+      "archivo": "imagenes/HBO - A36.png",
+      "titulo": "Indicaciones ECHM tipo 1 - HBO",
+      "celda": "A36",
+      "descripcion": "INDICACIONES TIPO 1 – Es muy recomendable el uso de oxígeno hiperbárico como tratamiento principal\nCONDICIÓN | NIVEL EVIDENCIA | NIVEL CONSENSO\nIntoxicación por CO | A | Muy alto\nFracturas abiertas con lesión por aplastamiento | A | Muy alto\nPrevención de osteoradionecrosis tras extracción dental | A | Muy alto\nOsteoradionecrosis (mandibular) | A | Muy alto\nRadionecrosis de tejidos blandos (cistitis y proctitis) | A | Muy alto\nEnfermedad descompresiva | B | Muy alto\nEmbolismo gaseoso | B | Muy alto\nInfección por bacterias anaeróbicas o mixta | B | Muy alto\nSordera súbita | A | Muy alto"
+    },
+    {
+      "archivo": "imagenes/HBO - A58.png",
+      "titulo": "Indicaciones ECHM tipo 2 - HBO",
+      "celda": "A58",
+      "descripcion": "INDICACIONES TIPO 2 – Se sugiere el uso de oxígeno hiperbárico como tratamiento principal\nCONDICIÓN | NIVEL EVIDENCIA | NIVEL CONSENSO\nÚlceras de pie diabético | A | Muy alto\nNecrosis de la cabeza femoral | A | Muy alto\nInjertos de piel y músculo-cutáneos comprometidos | B | Muy alto\nOclusión de la Arteria central de la retina | B | Muy alto\nLesión por aplastamiento sin fractura | B | Alto\nOsteoradionecrosis (otros huesos que no sean la mandíbula) | B | Alto\nLesiones radio inducidas de tejidos blandos (que no sean cistitis y proctitis) | B | Alto\nCirugía e implante en tejido irradiado (tratamiento preventivo) | B | Alto\nÚlceras isquémicas | B | Alto\nOsteomielitis refractaria crónica | B | Alto\nQuemaduras de 2º grado con más del 20% de la superficie del cuerpo | B | Alto\nPneumatosis cystoides intestinalis | B | Alto\nNeuroblastoma, estadío IV | B | Alto"
+    },
+    {
+      "archivo": "imagenes/HBO - A89.png",
+      "titulo": "Indicaciones ECHM tipo 3 - HBO",
+      "celda": "A89",
+      "descripcion": "INDICACIONES TIPO 3 – Se considera razonable el uso de oxígeno hiperbárico como tratamiento\nCONDICIÓN | NIVEL EVIDENCIA | NIVEL CONSENSO\nLesión cerebral (lesión cerebral traumática aguda y crónica, accidente cerebrovascular crónico, encefalopatía post-anóxica) | B | Alto\nLesiones radio inducidas de laringe | B | Alto\nLesiones radio inducidas del SNC | B | Alto\nSíndrome de reperfusión tras proceso vascular | B | Alto\nReimplantación de miembros | B | Alto\nÚlceras secundarias a procesos sistémicos | B | Alto\nEnfermedad de células falciformes | B | Alto\nCistitis intersticial | B | Alto\nNivel de evidencia A: existe suficiente número de ensayos clínicos aleatorizados.\nNivel de evidencia B: hay bastantes ensayos clínicos aleatorizados con consenso del Comité de expertos en Medicina Hiperbárica.\nNivel de evidencia C: existe consenso del Comité de expertos en Medicina Hiperbárica."
+    },
+    {
+      "archivo": "imagenes/HBO - A116.png",
+      "titulo": "Indicaciones off label - HBO",
+      "celda": "A116",
+      "descripcion": "INDICACIONES OFF LABEL – En estudio o de forma experimental\nESPECIALIDAD | CONDICIÓN | ENLACES\nReumatología | Fibromialgia | Hyperbaric Oxygen Therapy Can Diminish Fibromyalgia Syndrome - Prospective Clinical Trial\n |  | Hyperbaric oxygen therapy compared to pharmacological intervention in fibromyalgia patients following traumatic brain injury: A randomized, controlled trial\n | Lupus | \n | Artritis Reumatoide | \n | Enfermedades reumáticas | \n | Síndrome de Susac | \nCardiología y Vascular | Ateroesclerosis | \n | Infarto de miocardio | \n | Enfermedad arterial periférica | \nGastroenterología | Enfermedad de Crohn | \n | Enfermedad Inflamatoria Intestinal | \n | Colitis Ulcerosa | "
+    },
+    {
+      "archivo": "imagenes/HBO - A152.png",
+      "titulo": "Indicaciones off label (continuación) - HBO",
+      "celda": "A152",
+      "descripcion": "Traumatología | Necrosis avascular cadera\n | Consolidación fracturas óseas\n | Osteoartritis\n | Osteoartrosis\nOftalmología | Oclusión arteria central de la retina\n | Retinopatía diabética\n | Retinitis pigmentosa"
+    },
+    {
+      "archivo": "imagenes/HBO - O1.png",
+      "titulo": "Lista de chequeo oxigenoterapia hiperbárica - HBO",
+      "celda": "O1",
+      "descripcion": "LISTA DE CHEQUEO – OXIGENOTERAPIA HIPERBARICA\n• Tiene conocimiento de sufrir de claustrofobia\n• Va a viajar en las próximas 24 horas en avión\n• E.A: Infección respiratoria aguda – Fiebre\nAntecedentes:\n• Patológicos:\n✓ diabetes mellitus (insulinodependiente)\n✓ hipertensión arterial\n✓ ICC\n✓ Esferocitosis hereditaria (anemia)\n✓ Enfermedad pulmonar obstructiva crónica (EPOC)\n✓ Asma (crisis)\n✓ neumotórax espontáneo (rx tórax previo para descartar bulas)\n✓ Sinusitis – rinitis – rinosinusitis\n✓ Patología ótica\n✓ Trastorno refractivo\n✓ Epilepsia (susceptibles a la toxicidad del oxígeno)\n✓ Hipoglicemia\n✓ Deportista (de alto rendimiento x f.c)\n✓ Bradiarritmia\n• Quirúrgicos:\n✓ Ocular\n✓ Oído\n✓ Tórax\n• Farmacológicos:\n✓ quimioterapéuticos (doxorrubicina – cisplatino- bleomicina)\n✓ Acetato de mafemida"
+    },
+    {
+      "archivo": "imagenes/HBO - AB1.png",
+      "titulo": "Barotrauma de oído - HBO",
+      "celda": "AB1",
+      "descripcion": "Barotrauma de oído\nCanal auditivo\nOído medio\nTímpano\nTrompa\nObstrucción de la trompa de Eustaquio\nAbombamiento del tímpano hacia el interior\nClasificación (TEED modificada)\n• Grado 0: Síntomas sin cambios en la otoscopia.\n• Grado 1: Eritema y retracción timpánica\n• Grado 2: Eritema + Petequias\n• Grado 3: Eritema + Placas hemorrágicas confluentes\n• Grado 4: Sangre o líquido en oído medio\n• Grado 5: Perforación timpánica.\nTratamiento:\n1. Suspender HBO en grados superiores a 2.\n2. Descongestionantes locales y sistémicos\n3. Antibioticoterapia y remisión a ORL cuando haya ruptura de tímpano.\nPronóstico\nRecuperación en 3 a 14 días\nHyperbaric Contraindications. [Updated 2020 May 22]. In: StatPearls [Internet]. Treasure Island (FL): StatPearls Publishing; 2021 Jan-. Available from: https://www.ncbi.nlm.nih.gov/books/NBK557661/"
+    },
+    {
+      "archivo": "imagenes/HBO - AB26.png",
+      "titulo": "Barotrauma pulmonar - HBO",
+      "celda": "AB26",
+      "descripcion": "Barotrauma pulmonar\nSubcutaneous Emphysema\nAir Embolism\nPneumothorax\nMediastinal Emphysema\nSíntomas:\n• Disnea, taquipnea, tos seca.\n• Hemoptisis, expansión asimétrica del tórax, disminución ruidos ventilatorios, cianosis\nTratamiento:\n1. Oxígeno por máscara oronasal al 100%\n2. Tratamiento del neumotórax a tensión\n3. Tubo de tórax\n4. Recompresión"
+    },
+    {
+      "archivo": "imagenes/HBO - AB51.png",
+      "titulo": "Barotrauma de senos paranasales - HBO",
+      "celda": "AB51",
+      "descripcion": "Barotrauma de senos paranasales\nSíntomas:\n• Dolor persistente\n• Epistaxis\n• Parestesias en mejillas o frente"
+    },
+    {
+      "archivo": "imagenes/HBO - AK1.png",
+      "titulo": "Toxicidad sobre el Sistema Nervioso Central (Paul Bert) - HBO",
+      "celda": "AK1",
+      "descripcion": "Toxicidad sobre el Sistema Nervioso Central (Paul Bert)\nSe presenta por encima de 2.8 ATA\nTiempo de latencia (depende de presión)\n•1.8 ATA se presenta en 4 horas\n•4 ATA se presenta en 10 minutos\n→ Náuseas, mareo, palidez, diaforesis, cefalea, trastornos visuales (visión borrosa o visión en “túnel”), desorientación, palpitaciones, hipo, fasciculación de músculos faciales, tinnitus, vértigo\n↓\n→ Convulsiones tónico clónicas generalizadas"
+    },
+    {
+      "archivo": "imagenes/HBO - AK26.png",
+      "titulo": "Toxicidad sobre el sistema nervioso central: mecanismos fisiopatológicos - HBO",
+      "celda": "AK26",
+      "descripcion": "Toxicidad sobre el sistema nervioso central\nMecanismos fisiopatológicos\n• Bloqueo de la fosforilación oxidativa → Disminución de ATP\n• Inhibición de glutamato decarboxilasa →disminución de GABA"
+    },
+    {
+      "archivo": "imagenes/HBO - AK48.png",
+      "titulo": "Toxicidad sobre el Sistema Respiratorio (Lorraine – Smith) - HBO",
+      "celda": "AK48",
+      "descripcion": "Toxicidad sobre el Sistema Respiratorio (Lorraine – Smith)\nSe presenta por exposición continua y prolongada\nPr>0.5 ATA o FIO2>50%\nPeríodo de latencia:\nA 1 ATA: 4 a 22 horas\nA 3 ATA: 3 horas\n↓\n1. Traqueobronquitis aguda\nSíntomas: Sensación quemante retroesternal, tos, disnea\n→ Recuperación completa\n→ 2. SDRA\n↓\n3. Fibrosis intersticial pulmonar"
+    }
+  ],
+  "pdfs": [],
+  "aportado_por_la_usuaria": [
+    {
+      "nota": "Complicaciones (Relacionadas con la presión y con hiperoxia) - HBO",
+      "seccion": "Relacionadas con hiperoxia",
+      "motivo": "En TAFV Cuadro Examen 2026.xlsx las celdas L8:L14 están vacías; la usuaria dio el texto en el chat (2026-10-15)."
+    }
+  ]
+}

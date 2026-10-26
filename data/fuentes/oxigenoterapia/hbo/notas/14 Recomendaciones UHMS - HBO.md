@@ -1,0 +1,14 @@
+- Embolismo Gaseoso
+- Envenenamiento por Monóxido de Carbono
+- Lesión por aplastamiento, síndrome compartimental y otras isquemias traumáticas agudas
+- Miositis Clostridial y Mionecrosis (Gangrena Gaseosa)
+- Enfermedad Descompresiva
+- Insuficiencias arteriales
+- Anemia severa
+- Abscesos intracraneales
+- Infecciones de tejidos blandos necrotizantes
+- Osteomielitis Refractaria
+- Lesión por radiación retardada (tejido blando y necrosis ósea)
+- Injertos y colgajos comprometidos
+- Lesión por quemadura térmica aguda
+- Pérdida Auditiva Súbita Idiopática

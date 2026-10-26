@@ -1,0 +1,2289 @@
+{
+  "archivo": "/Users/lisandro/dev/py/tafv-helper/data/fuentes/oxigenoterapia/ozonoterapia/hojas/Ozonoterapia.xlsx",
+  "hojas": [
+    {
+      "hoja": "Ozonoterapia",
+      "dimension": "A1:X174",
+      "bloques": [
+        {
+          "rango": "A1:D87",
+          "filas": 87,
+          "columnas": 4,
+          "densidad": 0.1,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "A1",
+              "combinada": "A1:D1",
+              "texto": "Efectos Biologicos de la Ozonoterapia",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "A2",
+              "combinada": "A2:D2",
+              "texto": "1. Reacción con Ácidos grasos poliinsaturados",
+              "negrita": true,
+              "relleno": "FFD9E2F3"
+            },
+            {
+              "celda": "A3",
+              "combinada": "A3:D3",
+              "texto": "ERO\nH2O2",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A4",
+              "combinada": "A4:D6",
+              "texto": "Lipoperóxidos(LPO), Lipohidroperóxidos\nAldehidos(Malonilaldehido), Hidroxialquenales\nIsoprostanos",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A7",
+              "combinada": "A7:D7",
+              "texto": "Ozónidos",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A8",
+              "combinada": "A8:D8",
+              "texto": "Principales Metabolitos del Ozono",
+              "negrita": false,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "A9",
+              "combinada": "A9:D10",
+              "texto": "Lipoperóxidos (LOP)\nPeróxido de hidrógeno",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A11",
+              "combinada": "A11:D11",
+              "texto": "2. Reacción con Antioxidantes",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "A12",
+              "combinada": "A12:D12",
+              "texto": "Enzimaticos",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "A13",
+              "combinada": "A13:D16",
+              "texto": "•Superóxido dismutasa (SOD)\n•Catalasa\n•Glutatión Peroxidasa(GSH-Px)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A17",
+              "combinada": "A17:D17",
+              "texto": "No Enzimaticos",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "A18",
+              "combinada": "A18:D23",
+              "texto": "Vitamina E, Vitamina C\nGlutatión reducido (GSH)\nBeta-caroteno\nAcido Úrico\nÁcido alfa lipoico",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A24",
+              "combinada": "A24:D24",
+              "texto": "3. Reacción con compuestos tiólicos(-SH)",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "A25",
+              "combinada": "A25:D30",
+              "texto": "Plasma (“Barrera antioxidante del plasma”)\n–Ácido ascórbico\n–Ácido úrico\n–Glutatión reducido (GSH)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A31",
+              "combinada": "A31:D31",
+              "texto": "4. Aumento en la producción de ATP",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "A32",
+              "combinada": "A32:D32",
+              "texto": "Via delas pentosas-Glucosa 6 fosfato",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A33",
+              "combinada": "A33:D33",
+              "texto": "5. Aumento en la elasticidad del eritrocito",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "A34",
+              "combinada": "A34:D35",
+              "texto": "La elasticidad del eritrocito es una función dependiente de energía",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A36",
+              "combinada": "A36:D36",
+              "texto": "6. Aumento en la producción de 2,3 DPG",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "A37",
+              "combinada": "A37:D38",
+              "texto": "Aumento de la transferencia de oxígeno a los tejidos",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A39",
+              "combinada": "A39:D39",
+              "texto": "7. Modulación de la respuesta inmune",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "A40",
+              "combinada": "A40:D40",
+              "texto": "Celulas mononucleares y polimorfonucleares",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A41",
+              "combinada": "A41:D41",
+              "texto": "Citocinas Moleculas de Adhesion",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A42",
+              "combinada": "A42:D42",
+              "texto": "Antioxidantes, Catalasa, GPX, SOD",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A43",
+              "combinada": "A43:D43",
+              "texto": "8. Protección endotelial",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "A44",
+              "combinada": "A44:D49",
+              "texto": "•Preserva la producción de NO y evita la formación de peroxinitrito\n•Disminución en la producción de vasoconstrictores Endotelina 1 y Tromboxano A2\n•Aumento en la producción de PGI2",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A50",
+              "combinada": "A50:D50",
+              "texto": "9. Efecto sobre plaquetas",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "A51",
+              "combinada": "A51:D56",
+              "texto": "1. Fase temprana: Activación de plaquetas, dosis dependiente.\nLiberación de factores de crecimiento derivados de plaquetas (PDGF)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A57",
+              "combinada": "A57:D57",
+              "texto": "2. Fase tardia: Antiagregacion",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A58",
+              "combinada": "A58:D58",
+              "texto": "Accion antioxidante",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "A59",
+              "combinada": "A59:D63",
+              "texto": "Incremento de Superóxidodismutasa, catalasa, glutatión.\nInactivación de anión superóxido, peróxido de hidrógeno, peróxidos lipídicos.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A64",
+              "combinada": "A64:D64",
+              "texto": "Efecto antimicrobiano",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "A65",
+              "combinada": "A65:D73",
+              "texto": "Antibacteriano\nStreptococcushaemolyticusdel grupo A\nStreptococcuspyogenes\nStaphylococcusaureus\nStreptococcushaemolyticus\nE. Coli\nPseudomonaaeruginosa",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A74",
+              "combinada": "A74:D80",
+              "texto": "Acción antiviral:\nHerpes I y II\nVirus del papiloma humano\nHerpes zoster\nVirus Hepatitis B y C\nVIH",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A81",
+              "combinada": "A81:D87",
+              "texto": "Antimicótico\nCandidaalbicans\nMicrosporumcanis\nTrichophytonmentagrophytes\nTrichophytonrubrum\nAsociación fusoespirilar",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "F1:J54",
+          "filas": 54,
+          "columnas": 5,
+          "densidad": 0.08,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "F1",
+              "combinada": "F1:J1",
+              "texto": "Indicaciones Generales de la Ozonoterapia",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "F2",
+              "combinada": "F2:J2",
+              "texto": "Enfermedad isquemica cronica",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "F3",
+              "combinada": "F3:J6",
+              "texto": "–Miembros inferiores\n–Corazón\n–Sistema nervioso\n–Pie diabético",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F7",
+              "combinada": "F7:J7",
+              "texto": "Isquemia Aguda",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "F8",
+              "combinada": "F8:J8",
+              "texto": "Enfermedades que cursan con déficit de ATP",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "F9",
+              "combinada": "F9:J10",
+              "texto": "•Fibromialgia\n•Síndrome de fatiga crónica",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F11",
+              "combinada": "F11:J11",
+              "texto": "Degeneración macular de la retina, forma atrófica o seca",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "F12",
+              "combinada": "F12:J13",
+              "texto": "Enfermedades infecciosas agudas o crónicas, especialmente por microorganismos resistentes.",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "F14",
+              "combinada": "F14:J21",
+              "texto": "Osteomielitis crónica\nEmpiema pleural\nAbscesos con formación de fístula\nÚlceras por presión\nPie diabético\nQuemaduras",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F22",
+              "combinada": "F22:J22",
+              "texto": "Infecciones por S. Aureus",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F23",
+              "combinada": "F23:J23",
+              "texto": "Candidiasis, Onicomicosis",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F24",
+              "combinada": "F24:J24",
+              "texto": "Herpes Virus I y II, VPH, Hepatitis C",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F25",
+              "combinada": "F25:J25",
+              "texto": "Giardiasis",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F26",
+              "combinada": "F26:J26",
+              "texto": "Enfermedad pulmonar",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "F27",
+              "combinada": "F27:J27",
+              "texto": "Asma",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F28",
+              "combinada": "F28:J28",
+              "texto": "Enfermedad Pulmonar Obstructiva Cronica (EPOC)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F29",
+              "combinada": "F29:J29",
+              "texto": "Enfermedad Renal Cronica",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "F30",
+              "combinada": "F30:J34",
+              "texto": "1. Evita el deterioro de la Tasa de Filtración Glomerular\n2. Mejora depuración de Creatinina\n3. Sin efecto sobre función renal en pacientes en diálisis",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F35",
+              "combinada": "F35:J35",
+              "texto": "Hernia Discal",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "F36",
+              "combinada": "F36:J41",
+              "texto": "• Modulación de la producción de FNT-α\n• Activación de mecanismos antinociceptores\n• Lisis de poliglucósidosy deshidratación del disco\n• Reducción edema –compresión",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F42",
+              "combinada": "F42:J42",
+              "texto": "Enfermedades asociadas a estrés oxidativo",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "F43",
+              "combinada": "F43:J54",
+              "texto": "•Dermatitis, psoriasis\n•Artritis reumatoide, osteoartritis\n•Asma, EPOC, SDRA\n•Alzheimer, Parkinson, Epilepsia\n•Cardiopatías\n•Ateroesclerosis\n•Retinopatías, cataratas\n•Hepatitis, cirrosis\n•Glomerulonefritis, IRC\n•Envejecimiento\n•Cáncer\n•Diabetes",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "L1:O9",
+          "filas": 9,
+          "columnas": 4,
+          "densidad": 0.25,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "L1",
+              "combinada": "L1:O1",
+              "texto": "Vias Sistemicas de Ozonoterapia",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "L2",
+              "combinada": "L2:O2",
+              "texto": "Ozono Endovenoso",
+              "negrita": false,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "L3",
+              "combinada": "L3:O3",
+              "texto": "Ozono Subcutaneo",
+              "negrita": false,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "L4",
+              "combinada": "L4:O4",
+              "texto": "Autohemoterapia Mayor",
+              "negrita": false,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "L5",
+              "combinada": "L5:O5",
+              "texto": "Autohemoterapia Menor",
+              "negrita": false,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "L6",
+              "combinada": "L6:O6",
+              "texto": "Ozono Intraarticular",
+              "negrita": false,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "L7",
+              "combinada": "L7:O7",
+              "texto": "Ozono Paravertebral e Interdiscal",
+              "negrita": false,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "L8",
+              "combinada": "L8:O8",
+              "texto": "Insuflacion Rectal",
+              "negrita": false,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "L9",
+              "combinada": "L9:O9",
+              "texto": "Insuflacion Vaginal",
+              "negrita": false,
+              "relleno": "FFE2EFD9"
+            }
+          ]
+        },
+        {
+          "rango": "Q1:S12",
+          "filas": 12,
+          "columnas": 3,
+          "densidad": 0.94,
+          "fila_encabezado": 2,
+          "registros": 10,
+          "sugerencia": "tabla pequeña",
+          "celdas": [
+            {
+              "celda": "Q1",
+              "combinada": "Q1:S1",
+              "texto": "Tabla Ozonoterapia Endovenosa",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "Q2",
+              "combinada": null,
+              "texto": "Seccion",
+              "negrita": false,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "R2",
+              "combinada": null,
+              "texto": "Volumen O3 m/L",
+              "negrita": false,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "S2",
+              "combinada": null,
+              "texto": "Concentracion mcg/mL",
+              "negrita": false,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "Q3",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "R3",
+              "combinada": null,
+              "texto": "5",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "S3",
+              "combinada": null,
+              "texto": "10",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q4",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "R4",
+              "combinada": null,
+              "texto": "10",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "S4",
+              "combinada": null,
+              "texto": "15",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q5",
+              "combinada": null,
+              "texto": "3",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "R5",
+              "combinada": null,
+              "texto": "15",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "S5",
+              "combinada": null,
+              "texto": "20",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q6",
+              "combinada": null,
+              "texto": "4",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "R6",
+              "combinada": null,
+              "texto": "20",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "S6",
+              "combinada": null,
+              "texto": "25",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q7",
+              "combinada": null,
+              "texto": "5",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "R7",
+              "combinada": null,
+              "texto": "25",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "S7",
+              "combinada": null,
+              "texto": "30",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q8",
+              "combinada": null,
+              "texto": "6",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "R8",
+              "combinada": null,
+              "texto": "30",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "S8",
+              "combinada": null,
+              "texto": "35",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q9",
+              "combinada": null,
+              "texto": "7",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "R9",
+              "combinada": null,
+              "texto": "35",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "S9",
+              "combinada": null,
+              "texto": "40",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q10",
+              "combinada": null,
+              "texto": "8",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "R10",
+              "combinada": null,
+              "texto": "40",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "S10",
+              "combinada": null,
+              "texto": "40",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q11",
+              "combinada": null,
+              "texto": "9",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "R11",
+              "combinada": null,
+              "texto": "45",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "S11",
+              "combinada": null,
+              "texto": "40",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q12",
+              "combinada": null,
+              "texto": "10",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "R12",
+              "combinada": null,
+              "texto": "50",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "S12",
+              "combinada": null,
+              "texto": "40",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "U1:X8",
+          "filas": 8,
+          "columnas": 4,
+          "densidad": 0.91,
+          "fila_encabezado": 2,
+          "registros": 6,
+          "sugerencia": "tabla pequeña",
+          "celdas": [
+            {
+              "celda": "U1",
+              "combinada": "U1:X1",
+              "texto": "Autohemoterapia menor",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "U2",
+              "combinada": null,
+              "texto": "Seccion",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "V2",
+              "combinada": null,
+              "texto": "Volumen de Sangre (mL)",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "W2",
+              "combinada": null,
+              "texto": "Volumen de Ozono (mL)",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "X2",
+              "combinada": null,
+              "texto": "Concentracion mcg/mL",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "U3",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "V3",
+              "combinada": null,
+              "texto": "5",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "W3",
+              "combinada": null,
+              "texto": "5",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "X3",
+              "combinada": null,
+              "texto": "5",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U4",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "V4",
+              "combinada": null,
+              "texto": "5",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "W4",
+              "combinada": null,
+              "texto": "5",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "X4",
+              "combinada": null,
+              "texto": "10",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U5",
+              "combinada": null,
+              "texto": "3",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "V5",
+              "combinada": null,
+              "texto": "5",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "W5",
+              "combinada": null,
+              "texto": "5",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "X5",
+              "combinada": null,
+              "texto": "20",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U6",
+              "combinada": null,
+              "texto": "4",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "V6",
+              "combinada": null,
+              "texto": "5",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "W6",
+              "combinada": null,
+              "texto": "5",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "X6",
+              "combinada": null,
+              "texto": "30",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U7",
+              "combinada": null,
+              "texto": "5",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "V7",
+              "combinada": null,
+              "texto": "5",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "W7",
+              "combinada": null,
+              "texto": "5",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "X7",
+              "combinada": null,
+              "texto": "40",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U8",
+              "combinada": null,
+              "texto": "6",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "V8",
+              "combinada": null,
+              "texto": "5",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "W8",
+              "combinada": null,
+              "texto": "5",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "X8",
+              "combinada": null,
+              "texto": "40",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "U10:X30",
+          "filas": 21,
+          "columnas": 4,
+          "densidad": 0.48,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "U10",
+              "combinada": "U10:X10",
+              "texto": "Contraindicaciones",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "U11",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "V11",
+              "combinada": "V11:X11",
+              "texto": "Deficiencia de G6PD (Riesgo de hemólisis severa por estrés oxidativo inducido por el ozono)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U12",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "V12",
+              "combinada": "V12:X12",
+              "texto": "Hipertiroidismo (enf. De Graves)Hipotiroidismo no controlado",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U13",
+              "combinada": null,
+              "texto": "3",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "V13",
+              "combinada": "V13:X13",
+              "texto": "Trombocitopenia (menor de 50.000/mm3)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U14",
+              "combinada": null,
+              "texto": "4",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "V14",
+              "combinada": "V14:X14",
+              "texto": "Coagulopatias graves",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U15",
+              "combinada": null,
+              "texto": "5",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "V15",
+              "combinada": "V15:X15",
+              "texto": "Inestabilidad cardiovascular severa",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U16",
+              "combinada": null,
+              "texto": "6",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "V16",
+              "combinada": "V16:X16",
+              "texto": "Intoxicación alcohólica aguda",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U17",
+              "combinada": null,
+              "texto": "7",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "V17",
+              "combinada": "V17:X17",
+              "texto": "Infarto agudo del miocardio (reciente)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U18",
+              "combinada": null,
+              "texto": "8",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "V18",
+              "combinada": "V18:X18",
+              "texto": "Status convulsivo",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U19",
+              "combinada": null,
+              "texto": "9",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "V19",
+              "combinada": "V19:X19",
+              "texto": "Hemocromatosis",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U20",
+              "combinada": null,
+              "texto": "10",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "V20",
+              "combinada": "V20:X20",
+              "texto": "Tratamiento con hierro y cobre",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U21",
+              "combinada": null,
+              "texto": "11",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "V21",
+              "combinada": "V21:X21",
+              "texto": "Hemorragia activa",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U22",
+              "combinada": null,
+              "texto": "12",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "V22",
+              "combinada": "V22:X22",
+              "texto": "Embarazo",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U23",
+              "combinada": "U23:X23",
+              "texto": "Contraindicaciones Relativas",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "U24",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "V24",
+              "combinada": "V24:X24",
+              "texto": "Anemia severa",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U25",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "V25",
+              "combinada": "V25:X25",
+              "texto": "Pacientes anticoagulados",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U26",
+              "combinada": null,
+              "texto": "3",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "V26",
+              "combinada": "V26:X26",
+              "texto": "Epilepsia no controlada",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U27",
+              "combinada": null,
+              "texto": "4",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "V27",
+              "combinada": "V27:X27",
+              "texto": "Inestabilidad cardiovascular",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U28",
+              "combinada": null,
+              "texto": "5",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "V28",
+              "combinada": "V28:X28",
+              "texto": "Enfermedad pulmonar severa (EPOC avanzada, fibrosis)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U29",
+              "combinada": null,
+              "texto": "6",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "V29",
+              "combinada": "V29:X29",
+              "texto": "Infecciones agudas sistémicas (sepsis)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "U30",
+              "combinada": null,
+              "texto": "7",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "V30",
+              "combinada": "V30:X30",
+              "texto": "Estados de estrés oxidativo elevado no compensado",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "L11:O18",
+          "filas": 8,
+          "columnas": 4,
+          "densidad": 0.06,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "L11",
+              "combinada": "L11:O11",
+              "texto": "Autohemoterapia Mayor (AHM)",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "L12",
+              "combinada": "L12:O18",
+              "texto": "• 100 –200 mLde sangre venosa en frasco de vidrio con anticoagulante (citrato de sodio)\n•Mezcla con 50 -200 mLde ozono a 15 a 70 μg/mL. Aumentar ozono cada 5 sesiones.\n•Reinyección endovenosaen 30 minutos",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "Q14:S20",
+          "filas": 7,
+          "columnas": 3,
+          "densidad": 0.9,
+          "fila_encabezado": 15,
+          "registros": 5,
+          "sugerencia": "tabla pequeña",
+          "celdas": [
+            {
+              "celda": "Q14",
+              "combinada": "Q14:S14",
+              "texto": "Insuflacion Rectal",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "Q15",
+              "combinada": null,
+              "texto": "Seccion",
+              "negrita": false,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "R15",
+              "combinada": null,
+              "texto": "Volumen O3 m/L",
+              "negrita": false,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "S15",
+              "combinada": null,
+              "texto": "Concentracion mcg/mL",
+              "negrita": false,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "Q16",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "R16",
+              "combinada": null,
+              "texto": "100",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "S16",
+              "combinada": null,
+              "texto": "10",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q17",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "R17",
+              "combinada": null,
+              "texto": "150",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "S17",
+              "combinada": null,
+              "texto": "20",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q18",
+              "combinada": null,
+              "texto": "3",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "R18",
+              "combinada": null,
+              "texto": "200",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "S18",
+              "combinada": null,
+              "texto": "30",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q19",
+              "combinada": null,
+              "texto": "4",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "R19",
+              "combinada": null,
+              "texto": "200",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "S19",
+              "combinada": null,
+              "texto": "35",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q20",
+              "combinada": null,
+              "texto": "5",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "R20",
+              "combinada": null,
+              "texto": "200",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "S20",
+              "combinada": null,
+              "texto": "35",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "L20:O47",
+          "filas": 28,
+          "columnas": 4,
+          "densidad": 0.04,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "L20",
+              "combinada": "L20:O21",
+              "texto": "Ozono endovenoso (disuelto en solución endovenosa)",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "L22",
+              "combinada": "L22:O25",
+              "texto": "SSN 0,9% o DAD 5% 250 mL+ ozono (5 a 50 mL)\n• Concentración 10 a 40 mcg/mL.\n• Pasar a 60 gotas por minuto.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L26",
+              "combinada": "L26:O26",
+              "texto": "Indicaciones",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "L27",
+              "combinada": "L27:O47",
+              "texto": "1.Enfermedad isquémica crónica (sistema nervioso, extremidades)\n2. Degeneración macular de la retina\n3. Enfermedades infecciosas agudas o crónicas (especialmente por microorganismos resistentes)\n4. Osteomielitis\n5. Empiema pleural\n6. Asma\n7. Enfermedad pulmonar crónica\n8. Coadyuvante en tratamientos oncológicos\n9. Hepatitis crónica\n10. Esteatosis hepatica asociada a disfuncion metabolica (higado graso)\n11. Cirrosis\n12. Síntomas asociados al envejecimiento (trastornos cognitivos y circulatorios)\n13. Enfermedades de origen autoinmune (artritis reumatoide, lupus eritematoso sistémico - LES, síndrome de Sjögren)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "Q22:S29",
+          "filas": 8,
+          "columnas": 3,
+          "densidad": 0.58,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "Q22",
+              "combinada": "Q22:S22",
+              "texto": "Ozono intrarrectal en niños",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "Q23",
+              "combinada": null,
+              "texto": "Concentracion",
+              "negrita": true,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "R23",
+              "combinada": "R23:S23",
+              "texto": "10μg/mL-35 μg/mL",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q24",
+              "combinada": null,
+              "texto": "Volumen",
+              "negrita": true,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q25",
+              "combinada": null,
+              "texto": "1 mes a 1 año",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "R25",
+              "combinada": "R25:S25",
+              "texto": "15 a 20 ml",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q26",
+              "combinada": null,
+              "texto": "1 a 3 años",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "R26",
+              "combinada": "R26:S26",
+              "texto": "20 a 35 ml",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q27",
+              "combinada": null,
+              "texto": "3 a 10 años",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "R27",
+              "combinada": "R27:S27",
+              "texto": "40 a 75 ml",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q28",
+              "combinada": null,
+              "texto": "11 a 15 años",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "R28",
+              "combinada": "R28:S28",
+              "texto": "75 a 100 ml",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q29",
+              "combinada": null,
+              "texto": "16 años >",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "R29",
+              "combinada": "R29:S29",
+              "texto": "100 a 200 ml",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "Q31:S38",
+          "filas": 8,
+          "columnas": 3,
+          "densidad": 0.08,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "Q31",
+              "combinada": "Q31:S31",
+              "texto": "Insuflacion Vaginal",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "Q32",
+              "combinada": "Q32:S38",
+              "texto": "• Colocación de catéter intravaginal\n• Insuflación de ozono 300 a 1000 mL\n• Concentración: 10 a 30 mcg/mL.\n• En sistemas de caudal continuo: 0,1 a 0,2 L/min durante 10 minutos",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "U32:X38",
+          "filas": 7,
+          "columnas": 4,
+          "densidad": 0.07,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "U32",
+              "combinada": "U32:X32",
+              "texto": "Ozonoterapia. Interacciones",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "U33",
+              "combinada": "U33:X38",
+              "texto": "•Evitar uso de antioxidantes orales o IV durante el tratamiento.\n•O3 potencia acción de los IECA\n•Uso con Warfarina requiere INR en rango terapéutico\n•Efecto sinérgico con LASER, acupuntura, magnetoterapia",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "Q40:S45",
+          "filas": 6,
+          "columnas": 3,
+          "densidad": 0.28,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "Q40",
+              "combinada": "Q40:S40",
+              "texto": "Aplicación en Bolsa",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "Q41",
+              "combinada": "Q41:S41",
+              "texto": "Exposición durante 30 minutos",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q42",
+              "combinada": "Q42:S42",
+              "texto": "Frecuencia: Diaria a 1 vez por semana",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q43",
+              "combinada": "Q43:S43",
+              "texto": "Lesiones infectadas: Concentraciones altas (45 a 70 μg/ml)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q44",
+              "combinada": "Q44:S45",
+              "texto": "Lesiones en proceso de cicatrización: Concentraciones bajas (20 a 40 μg/ml)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "Q47:S57",
+          "filas": 11,
+          "columnas": 3,
+          "densidad": 0.61,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "Q47",
+              "combinada": "Q47:S47",
+              "texto": "Inyeccion Subcutanea",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "Q48",
+              "combinada": "Q48:S48",
+              "texto": "Concentración ozono 5 a 10 mcg/mL.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q49",
+              "combinada": "Q49:S49",
+              "texto": "Volumen 1 –2 mL en cada punto",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q50",
+              "combinada": "Q50:S50",
+              "texto": "Distancia entre puntos 3 a 4 cm",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q51",
+              "combinada": "Q51:S52",
+              "texto": "No aplicar más de 50 mL por sesión",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q53",
+              "combinada": null,
+              "texto": "Seccion",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "R53",
+              "combinada": null,
+              "texto": "Volumen por punto (mL)",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "S53",
+              "combinada": null,
+              "texto": "Concentración (mcg/mL)",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "Q54",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "R54",
+              "combinada": null,
+              "texto": "1 a 2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "S54",
+              "combinada": null,
+              "texto": "5",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Q55",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "R55",
+              "combinada": null,
+              "texto": "1 a 2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "S55",
+              "combinada": null,
+              "texto": "10",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Q56",
+              "combinada": null,
+              "texto": "3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "R56",
+              "combinada": null,
+              "texto": "1 a 2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "S56",
+              "combinada": null,
+              "texto": "10",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Q57",
+              "combinada": null,
+              "texto": "4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "R57",
+              "combinada": null,
+              "texto": "1 a 2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "S57",
+              "combinada": null,
+              "texto": "10",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "L49:O80",
+          "filas": 32,
+          "columnas": 4,
+          "densidad": 0.04,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "L49",
+              "combinada": "L49:O49",
+              "texto": "Insuflación Rectal",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "L50",
+              "combinada": "L50:O51",
+              "texto": "Insuflación lenta de ozono por medio de sonda introducida 5 a 10 cm en el recto.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L52",
+              "combinada": "L52:O54",
+              "texto": "Volumen: 100 a 200 mL\nConcentración: 10 –35 mcg/mL",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L55",
+              "combinada": "L55:O55",
+              "texto": "Indicaciones",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "L56",
+              "combinada": "L56:O80",
+              "texto": "1.Síndrome de intestino irritable\n2.Enfermedad inflamatoria intestinal\n3.Enfermedad isquémica crónica (sistema nervioso, extremidades)\n4.Degeneración macular de la retina\n5.Enfermedades infecciosas agudas o crónicas (especialmente por microorganismos resistentes)\n6.Osteomielitis\n7.Empiema pleural\n8.Asma de difícil tratamiento\n9.Enfermedad pulmonar crónica\n10.Coadyuvante en tratamientos oncológicos\n11.Hepatitis crónica\n12.Esteatosis hepatica asociada a disfuncion metabolica\n13.Cirrosis\n14.Síntomas asociados al envejecimiento (trastornos cognitivos y circulatorios)\n15.Enfermedades de origen autoinmune (artritis reumatoide, lupus eritematoso sistémico - LES, síndrome de Sjögren)\n16.Insuficiencia renal crónica",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "Q59:S66",
+          "filas": 8,
+          "columnas": 3,
+          "densidad": 0.12,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "Q59",
+              "combinada": "Q59:S59",
+              "texto": "Inyección subcutánea perivenosa (cercania de sistema venoso)",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "Q60",
+              "combinada": "Q60:S61",
+              "texto": "Indicación: Tratamiento sintomático de la insuficiencia venosa crónica (se aplica a 1 cm de la vena)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q62",
+              "combinada": "Q62:S66",
+              "texto": "Concentración de ozono: 5 a 10 mcg/mL\nVolumen: 1 – 2 mL en cada punto\nDistancia entre puntos: 3 a 4 cm\nVolumen máximo por sesión: no aplicar más de 50 mL",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "Q68:S74",
+          "filas": 7,
+          "columnas": 3,
+          "densidad": 0.33,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "Q68",
+              "combinada": "Q68:S68",
+              "texto": "Inyección intraarticular",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "Q69",
+              "combinada": "Q69:S69",
+              "texto": "Concentración: 5 a 20μg/mL",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Q70",
+              "combinada": "Q70:S70",
+              "texto": "Volumen: depende del tamaño de la articulación:",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Q71",
+              "combinada": "Q71:S71",
+              "texto": "1 ml en articulaciones pequeñas de manos y pies",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Q72",
+              "combinada": "Q72:S72",
+              "texto": "3 a 5 mLen carpo, tarso y codos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Q73",
+              "combinada": "Q73:S73",
+              "texto": "5 a 10 mLen hombros y rodillas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Q74",
+              "combinada": "Q74:S74",
+              "texto": "10 a 20 mLen caderas",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "Q76:S86",
+          "filas": 11,
+          "columnas": 3,
+          "densidad": 0.33,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "Q76",
+              "combinada": "Q76:S76",
+              "texto": "Inyección intramuscular paravertebral",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "Q77",
+              "combinada": "Q77:S77",
+              "texto": "Cervical",
+              "negrita": true,
+              "relleno": "FFFFCCCC"
+            },
+            {
+              "celda": "Q78",
+              "combinada": "Q78:S78",
+              "texto": "Ubicación: 1,5 cm lateral a la apófisis espinosa",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q79",
+              "combinada": "Q79:S79",
+              "texto": "Volumen: 2,5 a 5 mL de ozono en cada lado",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q80",
+              "combinada": "Q80:S80",
+              "texto": "Concentración: 10 a 20 mcg/mL",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q81",
+              "combinada": "Q81:S81",
+              "texto": "Profundidad: 2 – 2,5 cm",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q82",
+              "combinada": "Q82:S82",
+              "texto": "Lumbar",
+              "negrita": true,
+              "relleno": "FFFFCCCC"
+            },
+            {
+              "celda": "Q83",
+              "combinada": "Q83:S83",
+              "texto": "Ubicación: 2 cm lateral a la apófisis espinosa",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q84",
+              "combinada": "Q84:S84",
+              "texto": "Volumen: 5 a 10 mL de ozono en cada lado",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q85",
+              "combinada": "Q85:S85",
+              "texto": "Concentración: 10 a 20 mcg/mL",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q86",
+              "combinada": "Q86:S86",
+              "texto": "Profundidad: 4 a 5 cm",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "L82:O95",
+          "filas": 14,
+          "columnas": 4,
+          "densidad": 0.14,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "L82",
+              "combinada": "L82:O82",
+              "texto": "Insuflacion Vaginal",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "L83",
+              "combinada": "L83:O89",
+              "texto": "• Colocación de catéter intravaginal\n• Insuflación de ozono 300 a 1000 mL\n• Concentración: 10 a 30 mcg/mL.\n• En sistemas de caudal continuo: 0,1 a 0,2 L/min durante 10 minutos",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L90",
+              "combinada": "L90:O90",
+              "texto": "Indicaciones",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "L91",
+              "combinada": "L91:O91",
+              "texto": "1. Vulvo vaginitis cronica",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L92",
+              "combinada": "L92:O92",
+              "texto": "2. Cervicitis cronica",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L93",
+              "combinada": "L93:O93",
+              "texto": "3. Enfermedad cervical asociada a infeccion por VPH",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L94",
+              "combinada": "L94:O94",
+              "texto": "4. Cancer de cervix",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L95",
+              "combinada": "L95:O95",
+              "texto": "5. Candidiasis",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "L97:O121",
+          "filas": 25,
+          "columnas": 4,
+          "densidad": 0.07,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "L97",
+              "combinada": "L97:O97",
+              "texto": "Autohemoterapia menor",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "L98",
+              "combinada": "L98:O99",
+              "texto": "1. Extracción de 5 mLde Ozono en concentración de 5 a 40 μg/mL",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L100",
+              "combinada": "L100:O100",
+              "texto": "2. Mezcla con 5 mLde sangre",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L101",
+              "combinada": "L101:O101",
+              "texto": "3. Inyección intramuscular",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L102",
+              "combinada": "L102:O102",
+              "texto": "Indicaciones",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "L103",
+              "combinada": "L103:O103",
+              "texto": "Inmunomodulador",
+              "negrita": false,
+              "relleno": "FFFBE4D5"
+            },
+            {
+              "celda": "L104",
+              "combinada": "L104:O121",
+              "texto": "1. Enfermedades de origen autoinmune (esclerosis múltiple, artritis reumatoide, lupus eritematoso sistémico - LES)\n2. Alergia\n3. Inmunodeficiencia\n4. Enfermedad inflamatoria intestinal\n5. Asma\n6. Cáncer\n7. Osteomielitis\n8. Dermatitis crónica\n9. Acné\n10. Psoriasis\n11. Candidiasis\n12. Enfermedades infecciosas agudas o crónicas (especialmente por microorganismos resistentes)\nHerpes zóster",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "L123:O130",
+          "filas": 8,
+          "columnas": 4,
+          "densidad": 0.06,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "L123",
+              "combinada": "L123:O123",
+              "texto": "Aplicaciones Locales de Ozono",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "L124",
+              "combinada": "L124:O130",
+              "texto": "•Ozono local en bolsa\n•Aplicación subcutánea\n•Inyección intraarticular\n•Aplicación intramuscular paravertebral\n•Agua ozonizada\n•Aceite ozonizado",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "L132:O147",
+          "filas": 16,
+          "columnas": 4,
+          "densidad": 0.03,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "L132",
+              "combinada": "L132:O132",
+              "texto": "Aplicación en Bolsa",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "L133",
+              "combinada": "L133:O147",
+              "texto": "1. Pie diabético\n2. Quemaduras\n3. Onicomicosis (40 SS)\n4. Úlceras por presión\n5. Úlcera varicosa\n6. Úlcera isquémica\n7. Abscesos con formación de fístulas\n8. Dermatitis\n9. Pie de atleta\n10. Dermatomicosis\n11. Osteomielitis\n12. Cicatrización de heridas crónicas por estasis, isquemia o trauma",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "L149:O174",
+          "filas": 26,
+          "columnas": 4,
+          "densidad": 0.02,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "L149",
+              "combinada": "L149:O149",
+              "texto": "Inyección subcutánea",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "L150",
+              "combinada": "L150:O174",
+              "texto": "Tratamiento coadyuvante del dolor y la inflamación en:\nOsteoartrosis\nArtritis reumatoide\nDiscopatía\nDolor fasciomuscular\nFibromialgia\nCervicalgia\nDorsalgia\nLumbalgia\nDolor crónico en sistema locomotor\nSíndrome de túnel del carpo\nEpicondilitis\nEspondiloartropatías\nEspondilitis anquilosante\nOtras indicaciones:\nÚlceras\nAbscesos con formación de fístulas\nForunculosis\nNeuropatías\nLesiones herpéticas\nCoadyuvante en procesos de cicatrización",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        }
+      ],
+      "comentarios": [
+        {
+          "celda": "Q59",
+          "autor": "Luis fernando Lenis",
+          "texto": "Torniquete, elevacion de la pierna. Se deja por 10 minutos el torniquete"
+        },
+        {
+          "celda": "Q68",
+          "autor": "Luis fernando Lenis",
+          "texto": "Ozono es importante en osteoartrosis, osteomalacia. Es vital para rodilla"
+        },
+        {
+          "celda": "Q70",
+          "autor": "Luis fernando Lenis",
+          "texto": "El volumen es el que el pacinete tolere"
+        },
+        {
+          "celda": "Q77",
+          "autor": "Luis fernando Lenis",
+          "texto": "Hacer asepsia, antisepsia"
+        },
+        {
+          "celda": "Q82",
+          "autor": "Luis fernando Lenis",
+          "texto": "maracar el sitio con papula. A 2 cm de la linea media posterior."
+        }
+      ],
+      "imagenes": [
+        {
+          "media": "xl/media/image1.png",
+          "desde": "U40",
+          "hasta": null
+        }
+      ],
+      "imagenes_extraidas": [
+        "fuentes/oxigenoterapia/ozonoterapia/imagenes/Ozonoterapia - U40.png"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+- Rumex
+- Phosphorus
+- Calcarea Carbonica

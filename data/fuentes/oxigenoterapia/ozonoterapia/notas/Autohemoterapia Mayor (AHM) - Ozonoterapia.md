@@ -1,0 +1,3 @@
+- 100 –200 mL de sangre venosa en frasco de vidrio con anticoagulante (citrato de sodio)
+- Mezcla con 50 -200 mL de ozono a 15 a 70 μg/mL. Aumentar ozono cada 5 sesiones.
+- Reinyección endovenosa en 30 minutos

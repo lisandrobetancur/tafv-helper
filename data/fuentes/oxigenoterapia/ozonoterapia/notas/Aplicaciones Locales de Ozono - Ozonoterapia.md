@@ -1,0 +1,6 @@
+- Ozono local en bolsa
+- Aplicación subcutánea
+- Inyección intraarticular
+- Aplicación intramuscular paravertebral
+- Agua ozonizada
+- Aceite ozonizado

@@ -1,0 +1,262 @@
+{
+  "materia": "Acupuntura",
+  "componente": "Acupuntura",
+  "fuentes": [
+    "hojas/Acupuntura.xlsx"
+  ],
+  "correcciones": {
+    "DEFICIENCIE TONIFICAR": "DEFICIENCIA TONIFICAR",
+    "Cistitis aguada": "Cistitis aguda",
+    "è": "→"
+  },
+  "omitidos": [
+    {
+      "celda": "Acupuntura!M46",
+      "motivo": "celda con espacios, sin texto"
+    }
+  ],
+  "notas": [
+    {
+      "titulo": "TÉCNICA ZANG-FU - Acupuntura",
+      "archivo": "notas/TÉCNICA ZANG-FU - Acupuntura.md",
+      "celdas": [
+        "B136:R159",
+        "H140",
+        "K141",
+        "O142",
+        "P143",
+        "Q144"
+      ]
+    },
+    {
+      "titulo": "LUO - Acupuntura",
+      "archivo": "notas/LUO - Acupuntura.md",
+      "celdas": [
+        "C161:F183"
+      ]
+    },
+    {
+      "titulo": "YUAN - Acupuntura",
+      "archivo": "notas/YUAN - Acupuntura.md",
+      "celdas": [
+        "G161:J168"
+      ]
+    },
+    {
+      "titulo": "MU - Acupuntura",
+      "archivo": "notas/MU - Acupuntura.md",
+      "celdas": [
+        "P162:Q173"
+      ]
+    },
+    {
+      "titulo": "TÉCNICA DE PLANOS - Acupuntura",
+      "archivo": "notas/TÉCNICA DE PLANOS - Acupuntura.md",
+      "celdas": [
+        "B186",
+        "B188:O201",
+        "H191:I191"
+      ]
+    },
+    {
+      "titulo": "HUI - Acupuntura",
+      "archivo": "notas/HUI - Acupuntura.md",
+      "celdas": [
+        "B222:C235"
+      ]
+    },
+    {
+      "titulo": "XI - Acupuntura",
+      "archivo": "notas/XI - Acupuntura.md",
+      "celdas": [
+        "B236:C251"
+      ]
+    },
+    {
+      "titulo": "HE - Acupuntura",
+      "archivo": "notas/HE - Acupuntura.md",
+      "celdas": [
+        "D222:E249"
+      ]
+    },
+    {
+      "titulo": "8 técnicas BA FENG - Acupuntura",
+      "archivo": "notas/8 técnicas BA FENG - Acupuntura.md",
+      "celdas": [
+        "F222:I231"
+      ]
+    },
+    {
+      "titulo": "Dolor de vísceras - Acupuntura",
+      "archivo": "notas/Dolor de vísceras - Acupuntura.md",
+      "celdas": [
+        "F232:I239"
+      ]
+    },
+    {
+      "titulo": "Dolor de órganos - Acupuntura",
+      "archivo": "notas/Dolor de órganos - Acupuntura.md",
+      "celdas": [
+        "F240:I245"
+      ]
+    },
+    {
+      "titulo": "Enfermedad interna - Acupuntura",
+      "archivo": "notas/Enfermedad interna - Acupuntura.md",
+      "celdas": [
+        "F246:I255"
+      ]
+    },
+    {
+      "titulo": "Técnica de LUO - Acupuntura",
+      "archivo": "notas/Técnica de LUO - Acupuntura.md",
+      "celdas": [
+        "F256:I261"
+      ]
+    },
+    {
+      "titulo": "Frío ataca el Tai Yang:La capa Yin le da e. para liberar el frío (Patógenos externos) - Acupuntura",
+      "archivo": "notas/Frío ataca el Tai Yang:La capa Yin le da e. para liberar el frío (Patógenos externos) - Acupuntura.md",
+      "celdas": [
+        "J222",
+        "J223:M226"
+      ]
+    },
+    {
+      "titulo": "Calor ataca el Tai yang (Patógenos externos) - Acupuntura",
+      "archivo": "notas/Calor ataca el Tai yang (Patógenos externos) - Acupuntura.md",
+      "celdas": [
+        "J227:M230"
+      ]
+    },
+    {
+      "titulo": "Frío (Patógenos externos) - Acupuntura",
+      "archivo": "notas/Frío (Patógenos externos) - Acupuntura.md",
+      "celdas": [
+        "J231:M237"
+      ]
+    },
+    {
+      "titulo": "Viento (Patógenos externos) - Acupuntura",
+      "archivo": "notas/Viento (Patógenos externos) - Acupuntura.md",
+      "celdas": [
+        "J238:M248"
+      ]
+    },
+    {
+      "titulo": "Cazar el viento (Patógenos externos) - Acupuntura",
+      "archivo": "notas/Cazar el viento (Patógenos externos) - Acupuntura.md",
+      "celdas": [
+        "J249:M252"
+      ]
+    },
+    {
+      "titulo": "Humedad (Patógenos externos) - Acupuntura",
+      "archivo": "notas/Humedad (Patógenos externos) - Acupuntura.md",
+      "celdas": [
+        "J253:M254"
+      ]
+    },
+    {
+      "titulo": "Flema (Patógenos externos) - Acupuntura",
+      "archivo": "notas/Flema (Patógenos externos) - Acupuntura.md",
+      "celdas": [
+        "J255:M257"
+      ]
+    },
+    {
+      "titulo": "Viento frío humedad pasa a bazo y comienza a formar Flema (Patógenos externos) - Acupuntura",
+      "archivo": "notas/Viento frío humedad pasa a bazo y comienza a formar Flema (Patógenos externos) - Acupuntura.md",
+      "celdas": [
+        "J258:M263"
+      ]
+    },
+    {
+      "titulo": "El viento-calor-sequedad pasa a Pulmón (Patógenos externos) - Acupuntura",
+      "archivo": "notas/El viento-calor-sequedad pasa a Pulmón (Patógenos externos) - Acupuntura.md",
+      "celdas": [
+        "J264:M267"
+      ]
+    },
+    {
+      "titulo": "Tonificar la sangre (Patógenos externos) - Acupuntura",
+      "archivo": "notas/Tonificar la sangre (Patógenos externos) - Acupuntura.md",
+      "celdas": [
+        "J268:M270"
+      ]
+    },
+    {
+      "titulo": "Tonificar el Qi (Patógenos externos) - Acupuntura",
+      "archivo": "notas/Tonificar el Qi (Patógenos externos) - Acupuntura.md",
+      "celdas": [
+        "J271:M273"
+      ]
+    },
+    {
+      "titulo": "Si la deficiencia de Qi continúa → deficiencia de Yang Dar Yang: Moxar R+ (Patógenos externos) - Acupuntura",
+      "archivo": "notas/Si la deficiencia de Qi continúa → deficiencia de Yang Dar Yang: Moxar R+ (Patógenos externos) - Acupuntura.md",
+      "celdas": [
+        "J274:M275"
+      ]
+    },
+    {
+      "titulo": "Si la deficiencia de sangre continúa → deficiencia de Yin Dar Yin (Patógenos externos) - Acupuntura",
+      "archivo": "notas/Si la deficiencia de sangre continúa → deficiencia de Yin Dar Yin (Patógenos externos) - Acupuntura.md",
+      "celdas": [
+        "J276:M278"
+      ]
+    }
+  ],
+  "tablas": [],
+  "imagenes": [
+    {
+      "archivo": "imagenes/Acupuntura - A1.jpg",
+      "titulo": "Ciclo generación - Acupuntura",
+      "celda": "A1",
+      "descripcion": "Ciclo generación.\nFuego\nCorazón / Intestino Delgado\nPericardio / Triple recalentador\n(Mano)\nTierra\nBazo / Estómago\n(Pie)\nMetal\nPulmón / IG\n(Mano)\nAgua\nRiñón / Vejiga\n(Pie)\nMadera\nHígado\nVB\n(Pie)\nMadera → Fuego → Tierra → Metal → Agua → Madera\n\nCiclo de generación\nMadera genera Fuego\nFuego genera Tierra\nTierra genera Metal\nMetal genera Agua\nAgua genera Madera.\n\nCiclo Dominancia\nFuego Domina Metal\nTierra Domina Agua\nAgua Domina Fuego\nMadera Domina Tierra\nMetal Domina Madera\n\nContradominancia\nMadera contradomina Metal\nMetal contradomina Fuego\nFuego evapora Agua\nAgua Inunda Tierra\nTierra pudre Madera."
+    },
+    {
+      "archivo": "imagenes/Acupuntura - G2.jpg",
+      "titulo": "4 niveles energéticos - Acupuntura",
+      "celda": "G2",
+      "descripcion": "4 niveles energéticos.\nWi - Energía de defensa, protege contra factores patógenos externos.\nQi - Energía funcional, mantiene las actividades fisiológicas.\nJing - Esencia base de la constitución y desarrollo\nXue - Sangre, nutre y mantiene tejidos\n\nExterna\nWei | - Meridiano tendinomuscular (12 meridianos clásicos)\n- Luo longitudinal (Drenar excesos)\n- Meridianos diferentes\nInterna\nQi | Tai yang (Posterior) Térmico | ID Show (Mano) | V Zu (Pie) | 1 ID cabeza ↓ V 67\n  | Shao yang (Medial) Dinámico | TR Show (Mano) | VB Zu (Pie) | 1 TR cabeza ↓ VB 44\n  | Yang Ming (Anterior) Hídrico | IG Show (Mano) | E Zu (Pie) | 1 IG cabeza ↓ E 45\nJing | Tai yin (anterior) | P Show (Mano) | B Zu (Pie) | ↑ 11 P tórax B1\n  | Jue yin (Medial) | PC Show (Mano) | H Zu (Pie) | ↑ 9 PC tórax H1\n  | Shao yin (posterior) | C Show (Mano) | R Zu (Pie) | ↑ 9 C tórax R1\nXue | Línea Blanca\n  Línea Roja\n  Plaquetas } Homeostasis\n  Nutrición de los tejidos.\n\nNota: Útil para manejo en síndrome Bi"
+    },
+    {
+      "archivo": "imagenes/Acupuntura - A48.jpg",
+      "titulo": "Puntos llave/Apertura - Acupuntura",
+      "celda": "A48",
+      "descripcion": "Puntos llave/Apertura.\nPuntos | Meridiano extra | Indicaciones |\nB4 | Chong | Sangre - Meridianos | Genitourinario (Ginecología)\nPC6 | Yin wei | MD (emociones - neuralgias) | Meridianos Diferentes\nP7 | Ren Mai (VC) | órganos (H-C-B-R-P) | Lumbalgia (interna)\nR6 | Yin qiao | Frío - oscuridad | Insomnio\nID3 | Du Mai (VG) | vísceras (VB-ID-E-IG, V) |\nV62 | Yang qiao | calor - luz | sueño y debilidad\nVB41 | Dai Mai | Equilibrio yang/yin |\nTR5 | Yang wei | MTM. |\n\nMujeres: Abro por la derecha, cierro por la izquierda\nHombres: Abro por la izquierda, cierro por la derecha.\n\nPuntos:\nVejiga 40 - Punto Diclofenaco Región lumbar.\nIntestino Delgado 3 - Punto Diclofenaco Región cervical."
+    },
+    {
+      "archivo": "imagenes/Acupuntura - H48.jpg",
+      "titulo": "Técnicas - Acupuntura",
+      "celda": "H48",
+      "descripcion": "Técnicas\n\nEnfermedad interna\nÓrganos Zang/Fu\n1 Punto emperador (ID3/P7)\n2 Técnica Shu/MU\n3 Técnica MU/Zi\n4 Técnica Yuan/Luo\n5 Roe (Reunión)\n6 Técnica de planos\n7 Tierra del acoplado\n8 Cierre (V62/R6)\n\nEnfermedad interna\nTécnica de planos\n1 Punto acelerador (fuego) Meridiano que inicia.\n2 Punto arrastre (pozo) del Meridiano con el que termina\n3 Nudos yang V1-VB2-E7 (Emocionales)\nyin VC12-VC17-VC23 (Emocionales)\n4 Nudos de nudos yang ExH9-VB8-E8\n(donde se concentra la energía)\n5 Gran nudo VG20 (Crisis HTA, ojos rojos, de resto no) manejo de mucho exceso.\n6 Puntos Ashi (Puntos dolorosos)\n\nTécnica MU/Zi\nMadre - Hijo\n- En deficiencia tonifico a la madre y en exceso sedo al hijo.\n\nTécnica Shu/MU\nShu (Deficiencia de órgano)\nMU (uso en exceso de yin vísceras)\n\nTécnica Yuan/Luo\nEquilibrar energía y manejo de meridiano afectado y acoplador por relación. Interior/Exterior.\n\nPuntos Zi o Xi\nse utilizan en caso de bloqueo de energía."
+    },
+    {
+      "archivo": "imagenes/Acupuntura - B87.jpg",
+      "titulo": "Puntos de los 12 meridianos - Acupuntura",
+      "celda": "B87",
+      "descripcion": "yin | P | P5, P6, P7, P8, P9, P10, P11 | Final Mano\nyang | IG | IG11, IG10, IG9, IG8, IG7, IG6, IG5, IG4, IG3, IG2, IG1 | Inicio Mano\nyang | E | E18 (Gran Luo E), E34, E35, E36, E37, E38, E39, E40, E41, E42, E43, E44, E45 | Final Pie\nyin | B | B10, B9, B8, B7, B6, B5, B4, B3, B2, B1 | Inicio Pie\nyin | C | C3, C4, C5, C6, C7, C8, C9 | Final Mano\nyang | ID | ID8, ID7, ID6, ID5, ID4, ID3, ID2, ID1 | Inicio Mano\nyang | V | V40, V41, V42, V43, V44, V45, V46, V47, V48, V49, V50, V51, V52, V53, V54, V55, V56, V57, V58, V59, V60, V61, V62, V63, V64, V65, V66, V67 | Final Pie\nyin | R | R10, R9, R8, R7, R6, R5, R4, R3, R2, R1 | Inicio Pie\nyin | PC | PC3, PC4, PC5, PC6, PC7, PC8, PC9 | Final Mano\nyang | TR | TR10, TR9, TR8, TR7, TR6, TR5, TR4, TR3, TR2, TR1 | Inicio Mano\nyang | VB | VB34, VB35, VB36, VB37, VB38, VB39, VB40, VB41, VB42, VB43, VB44 | Final Pie\nyin | H | H8, H7, H6, H5, H4, H3, H2, H1 | Inicio Pie\n\nMadera\nFuego\nTierra\nAgua\nMetal\nZi\nLuo\nTonifica\nSedo\nYuan\n(-) embarazo\nEmocional"
+    },
+    {
+      "archivo": "imagenes/Acupuntura - B269.png",
+      "titulo": "Meridianos anteriores, posteriores y mediales - Acupuntura",
+      "celda": "B269",
+      "descripcion": "ANTERIORES\nYang Ming\nI.Grueso\nEstómago\nulmón\nBazo\n\nPOSTERIORES\nTaiYang\nI.Delgado\nVejiga\nShaoyin\ncorazón\nRiñón\n\nMEDIALES\nShaoYang\nTriple recalentador\nVesícula Biliar\nJueyin\npericardio\nHígado"
+    },
+    {
+      "archivo": "imagenes/Acupuntura - A286.jpg",
+      "titulo": "Puntos MU (yin) - Acupuntura",
+      "celda": "A286",
+      "descripcion": "Puntos MU (yin)\nP1 | MU de Pulmón → Dispersa calor\nVC17 | MU de Pericardio → Regula Qi, todas las emociones que entran\nVC14 | MU de corazón → Manías, Agitación, Insomnio, Baja el Fuego\nH14 | MU de Hígado → Hace articular Qi de Hígado\nH13 | MU de Bazo → Armoniza Hígado - Bazo\nVB25 | MU de Riñón → Dispersa calor-Húmedo\nVC12 | MU de Estómago → Tonifica estómago\nVB24 | MU de Vesícula Biliar → Dispersa calor-Húmedo\nVC3 | MU de Vejiga → Cistitis - vejiga\nE25 | MU Intestino Grueso → ↓ Diarrea\nVC5 | MU de TR → Circulación Quemador inferior, ITU, leucorreas\nVC4 | MU de Intestino Delgado. → Aporta yin, absorbe Agua, Puerta del Brillo\nQi original."
+    },
+    {
+      "archivo": "imagenes/Acupuntura - H291.jpg",
+      "titulo": "Shu de espalda - Acupuntura",
+      "celda": "H291",
+      "descripcion": "Shu de espalda.\nRama externa V | Rama interna V | Zang Fu | Apófisis espinosa | VG | Función\nV42 | V13 | Pulmón | T3 | VG12 | Asma, Tos, Sinusitis\nV44 | V15 | Corazón | T5 | VG11 | Problemas lengua, Pulso - vasos\nV46 | V17 | Diafragma | T7 | VG9 |\nV47 | V18 | Hígado | T9 | VG8 | Patología Hígado, ojo, tendón, articulación\nV48 | V19 | VB | T10 | VG7 |\nV49 | V20 | Bazo | T11 | VG6 | Problemas boca y músculos\nV50 | V21 | Estómago | T12 | | Estreñimiento y vómitos\nV52 | V23 | Riñón | L2 | VG4 | Dificultad micción. oído, Tinnitus, Hueso.\n\nNota: Escojo MU por excesos y acompaña Shu por deficiencia y\n* Bilateral + yang en enfermedad crónica\n* Shu transporte de energía a los órganos.\n* Excesos igual a dolor\n* Dolor con cambios de color o textura desequilibrio órganos relacionados\n* Vacío = Alivio del dolor a la palpación."
+    }
+  ],
+  "pdfs": []
+}

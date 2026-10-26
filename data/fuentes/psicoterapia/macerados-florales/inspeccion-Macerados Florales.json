@@ -1,0 +1,1980 @@
+{
+  "archivo": "/Users/lisandro/dev/py/tafv-helper/data/fuentes/psicoterapia/macerados-florales/hojas/Macerados Florales.xlsx",
+  "hojas": [
+    {
+      "hoja": "Macerados Florales",
+      "dimension": "A1:Z112",
+      "bloques": [
+        {
+          "rango": "A1:F55",
+          "filas": 55,
+          "columnas": 6,
+          "densidad": 0.68,
+          "fila_encabezado": 3,
+          "registros": 45,
+          "sugerencia": "tabla",
+          "celdas": [
+            {
+              "celda": "A1",
+              "combinada": "A1:D2",
+              "texto": "Flores de Bach",
+              "negrita": true,
+              "relleno": "FFFCE4D6"
+            },
+            {
+              "celda": "E1",
+              "combinada": null,
+              "texto": "https://somapsiconatur.com/flores-de-bach/",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A3",
+              "combinada": null,
+              "texto": "Grupo emocional",
+              "negrita": true,
+              "relleno": "FFDDEBF7"
+            },
+            {
+              "celda": "B3",
+              "combinada": null,
+              "texto": "Flor de Bach",
+              "negrita": true,
+              "relleno": "FFDDEBF7"
+            },
+            {
+              "celda": "C3",
+              "combinada": null,
+              "texto": "Nombre común",
+              "negrita": true,
+              "relleno": "FFDDEBF7"
+            },
+            {
+              "celda": "D3",
+              "combinada": null,
+              "texto": "Indicacion",
+              "negrita": true,
+              "relleno": "FFDDEBF7"
+            },
+            {
+              "celda": "E3",
+              "combinada": null,
+              "texto": "Caracteristico",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "F3",
+              "combinada": null,
+              "texto": "Tipo de Persona",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "A4",
+              "combinada": "A4:A8",
+              "texto": "Miedo\n(Este grupo aborda diferentes tipos de miedo, cada uno con una vibración emocional específica. No todos los miedos son iguales, y por eso cada esencia tiene un perfil muy particular)",
+              "negrita": true,
+              "relleno": "FFE2EFDA"
+            },
+            {
+              "celda": "B4",
+              "combinada": null,
+              "texto": "Mimulus",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "C4",
+              "combinada": null,
+              "texto": "Mímulo",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "D4",
+              "combinada": null,
+              "texto": "Miedos de origen conocido",
+              "negrita": false,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "E4",
+              "combinada": null,
+              "texto": "Miedo concreto e identificable",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F4",
+              "combinada": null,
+              "texto": "Timido, Sensible, Reservado, se sonroja facilamente, Evita confrontaciones, puede somatizar ansiedad",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B5",
+              "combinada": null,
+              "texto": "Aspen",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "C5",
+              "combinada": null,
+              "texto": "Álamo temblón",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "D5",
+              "combinada": null,
+              "texto": "Miedo a lo desconocido o sin causa aparente",
+              "negrita": false,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "E5",
+              "combinada": null,
+              "texto": "Miedo difuso, sin objeto definido ",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F5",
+              "combinada": null,
+              "texto": "Hipersensible, intuitivo, espiritual, niños con terrores nocturnos, experiencias orínicas intensas",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B6",
+              "combinada": null,
+              "texto": "Red Chestnut",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "C6",
+              "combinada": null,
+              "texto": "Castaño rojo",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "D6",
+              "combinada": null,
+              "texto": "Preocupación excesiva por los demás",
+              "negrita": false,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "E6",
+              "combinada": null,
+              "texto": "Miedo centrado en otros, no en sí mismo",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F6",
+              "combinada": null,
+              "texto": "Sobreprotector, ansioso por otros, hipervigilante, transfiere su miedo a la familia, desgaste emocional",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B7",
+              "combinada": null,
+              "texto": "Cherry Plum",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "C7",
+              "combinada": null,
+              "texto": "Cerasífera",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "D7",
+              "combinada": null,
+              "texto": "Miedo a perder el control, personas que controlan sus sentimientos y tienen miedo de perder el control",
+              "negrita": false,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "E7",
+              "combinada": null,
+              "texto": "Miedo a enloquecer, Miedo a hacer daño\nMiedo a explotar, Pensamientos intrusivos",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F7",
+              "combinada": null,
+              "texto": "Tensión extrema, Irritabilidad acumulada. Crisis explosivas, Pensamientos compulsivos, Autocontrol rígido que puede romperse",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B8",
+              "combinada": null,
+              "texto": "Rock Rose",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "C8",
+              "combinada": null,
+              "texto": "Heliantemo",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "D8",
+              "combinada": null,
+              "texto": "Terror y pánico extremo",
+              "negrita": false,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "E8",
+              "combinada": null,
+              "texto": "Ataque de pánico, Shock, Accidentes, Emergencias médicas, Trauma agudo",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F8",
+              "combinada": null,
+              "texto": "La persona puede estar Paralizado, Sudoroso, Taquicárdico\nEn estado de pánicoTerror absoluto, Mirada fija, Estado de shock, Crisis aguda",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A9",
+              "combinada": "A9:A12",
+              "texto": "Incertidumbre\n(Estas esencias trabajan cuando el paciente no tiene claridad interna, duda de sí mismo o ha perdido la esperanza.)",
+              "negrita": true,
+              "relleno": "FFD9E1F2"
+            },
+            {
+              "celda": "B9",
+              "combinada": null,
+              "texto": "Cerato",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "C9",
+              "combinada": null,
+              "texto": "Ceratostigma",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "D9",
+              "combinada": null,
+              "texto": "Búsqueda constante de consejo y aprobación.           Por que dudan de si mismos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E9",
+              "combinada": null,
+              "texto": "Falta de confianza en el propio juicio. Sabe lo que quiere, pero no confía en su propia voz interior",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F9",
+              "combinada": null,
+              "texto": "Pregunta constantemente: “¿Usted qué haría?”, Pide consejo a todos, Cambia de opinión fácilmente, Se deja influenciar, No confía en su intuición",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B10",
+              "combinada": null,
+              "texto": "Gorse",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "C10",
+              "combinada": null,
+              "texto": "Aulaga",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "D10",
+              "combinada": null,
+              "texto": "Pérdida de esperanza y no tienen animo de seguir",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E10",
+              "combinada": null,
+              "texto": "Desesperanza profunda pero sin la intensidad depresiva de Sweet Chestnut.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F10",
+              "combinada": null,
+              "texto": "Resignación \"Ya no hay nada que hacer”, Cumple tratamientos sin convicción, Mirada apagada",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B11",
+              "combinada": null,
+              "texto": "Scleranthus",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "C11",
+              "combinada": null,
+              "texto": "Escleranto",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "D11",
+              "combinada": null,
+              "texto": "Indecisión entre dos opciones,  indecisas  inestables animicamente ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E11",
+              "combinada": null,
+              "texto": "No busca consejo externo (a diferencia de Cerato), el conflicto es interno.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F11",
+              "combinada": null,
+              "texto": "Oscila entre dos decisiones, Cambios de humor, Inestabilidad, Alternancia (dolor, síntomas, estados emocionales)",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B12",
+              "combinada": null,
+              "texto": "Wild Oat",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "C12",
+              "combinada": null,
+              "texto": "Avena silvestre",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "D12",
+              "combinada": null,
+              "texto": "Falta de vocación o rumbo.Para las personas desaminadas por que quieren hacer algo en la vida, pero no encuentran su vocacion",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E12",
+              "combinada": null,
+              "texto": "Incertidumbre sobre el propósito de vida.\nBúsqueda de propósito, no solo decisión puntual.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F12",
+              "combinada": null,
+              "texto": "Sensación de vacío existencial, No encuentra su vocación, Tiene talento pero no dirección, Cambia de carrera frecuentemente",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A13",
+              "combinada": "A13:A17",
+              "texto": "Desinterés\n(Personas que no están plenamente conectadas con el aquí y ahora. Pueden vivir en el pasado, en el futuro, en la resignación o en la distracción mental constante.)\nFrase del grupo:\n“Mi corazón está en el pasado, no en el presente.”",
+              "negrita": true,
+              "relleno": "FFFFF2CC"
+            },
+            {
+              "celda": "B13",
+              "combinada": null,
+              "texto": "Clematis",
+              "negrita": true,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "C13",
+              "combinada": null,
+              "texto": "Clemátide",
+              "negrita": true,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "D13",
+              "combinada": null,
+              "texto": "Vivir en el futuro, desconectado del presente. El presente no les aprece interesante",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E13",
+              "combinada": null,
+              "texto": "Persona que vive más en el futuro que en el presente.\nPersona soñadora, distraida, poco aterrizada, fantasea constantemente, falta de concentracion",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F13",
+              "combinada": null,
+              "texto": "Somnolencia, falta de energia, Desatencion, puede desmayarse con facilidad, poco interes por la enfermedad actual",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B14",
+              "combinada": null,
+              "texto": "Chestnut Bud",
+              "negrita": true,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "C14",
+              "combinada": null,
+              "texto": "Brote de castaño",
+              "negrita": true,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "D14",
+              "combinada": null,
+              "texto": "Repetición de errores. No aprenden de los errores",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E14",
+              "combinada": null,
+              "texto": "No aprende de la experiencia. Repite errores, ciclos repetitivos, no integra la leccion, impulsivo en decisiones",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F14",
+              "combinada": null,
+              "texto": "Recaídas frecuentes, Baja adherencia, Repetición de patrones tóxicos (alimentación, relaciones)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B15",
+              "combinada": null,
+              "texto": "Honeysuckle",
+              "negrita": true,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "C15",
+              "combinada": null,
+              "texto": "Madreselva",
+              "negrita": true,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "D15",
+              "combinada": null,
+              "texto": "Vivir anclado al pasado. Viven de recuerdos",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E15",
+              "combinada": null,
+              "texto": "Persona que vive en el pasado.Nostalgico, melancolico, idealiza, tiempos anteriores, se aferra a recuerdos, dificultad para aceptar cambios",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F15",
+              "combinada": null,
+              "texto": "Tristeza crónica leve, Baja motivación, Comparación constante con el pasado, Duelo no resuelto, Puede haber somatización (fatiga, dolores crónicos), En adultos mayores es muy frecuente.En pacientes crónicos también aparece tras diagnóstico impactante.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B16",
+              "combinada": null,
+              "texto": "White Chestnut",
+              "negrita": true,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "C16",
+              "combinada": null,
+              "texto": "Castaño de Indias",
+              "negrita": true,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "D16",
+              "combinada": null,
+              "texto": "Pensamientos repetitivos u obsesivos",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E16",
+              "combinada": null,
+              "texto": "Pensamientos repetitivos e involuntarios. Rumiación mental, Diálogo interno constante, Insomnio por pensamientos Dificultad para concentrarse",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F16",
+              "combinada": null,
+              "texto": "Bruxismo, Insomnio, Cefalea tensional, Ansiedad cognitiva",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B17",
+              "combinada": null,
+              "texto": "Wild Rose",
+              "negrita": true,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "C17",
+              "combinada": null,
+              "texto": "Escaramujo",
+              "negrita": true,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "D17",
+              "combinada": null,
+              "texto": "Apatía y resignación",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E17",
+              "combinada": null,
+              "texto": "Aceptacion sin lucha, desmotivacion, indiferencia, falta de entusiasmo",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F17",
+              "combinada": null,
+              "texto": "Bajo tono vital, Falta de adherencia, No participa activamente en su tratamiento\nPuede confundirse con depresión leve",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A18",
+              "combinada": "A18:A20",
+              "texto": "Soledad\n(Este grupo no habla simplemente de estar solo, sino de cómo la persona se relaciona con los demás desde su forma particular de aislamiento)\nFrase del grupo:\n“No todos los que están solos lo están por la misma razón.”",
+              "negrita": true,
+              "relleno": "FFFCE4D6"
+            },
+            {
+              "celda": "B18",
+              "combinada": null,
+              "texto": "Heather",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "C18",
+              "combinada": null,
+              "texto": "Brezo",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "D18",
+              "combinada": null,
+              "texto": "Egocentrismo, dificultad para escuchar. Para las personas que estan centradas en si mismo y no saben escuchar",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E18",
+              "combinada": null,
+              "texto": "Habla constantemente de sí mismo, Necesita audiencia, No escucha al otro, Miedo profundo a estar solo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F18",
+              "combinada": null,
+              "texto": "Dependencia afectiva, Busca atención constante, Dramático, Puede exagerar síntomas, Consulta reiteradamente",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B19",
+              "combinada": null,
+              "texto": "Impatiens",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "C19",
+              "combinada": null,
+              "texto": "Impaciencia",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "D19",
+              "combinada": null,
+              "texto": "Prisa constante, irritabilidad. Para las personas impacientes, inquietas y que siempre van de prisa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E19",
+              "combinada": null,
+              "texto": "Se irrita fácilmente, No tolera lentitud, Quiere todo rápido, Trabaja mejor solo, Cuando tiene un dolor desea que se quite de inmediato ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F19",
+              "combinada": null,
+              "texto": "Tensión muscular, Bruxismo, Cefalea tensional, Taquicardia en estrés, Interrumpe conversaciones",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B20",
+              "combinada": null,
+              "texto": "Water Violet",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "C20",
+              "combinada": null,
+              "texto": "Violeta de agua",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "D20",
+              "combinada": null,
+              "texto": "Aislamiento, solitarias y dificultad para relacionarse",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E20",
+              "combinada": null,
+              "texto": "Soledad por orgullo o autosuficiencia. Reservado, Distante, Digno, Autosuficiente, No comparte emociones fácilmente",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F20",
+              "combinada": null,
+              "texto": "Aparente fortaleza, Aislamiento emocional, Puede parecer frío, Mantiene compostura incluso en dolor",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A21",
+              "combinada": "A21:A22",
+              "texto": "Influenciables\n(Personas que se afectan fácilmente por el entorno, por la opinión de otros o por cambios externos)\nFrase del grupo:\n“El entorno no debería gobernar mi salud interior.”",
+              "negrita": true,
+              "relleno": "FFDDEBF7"
+            },
+            {
+              "celda": "B21",
+              "combinada": null,
+              "texto": "Centaury",
+              "negrita": true,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "C21",
+              "combinada": null,
+              "texto": "Centáurea",
+              "negrita": true,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "D21",
+              "combinada": null,
+              "texto": "No saben decir “no”, sumisión. Se someten a voluntad de los demas",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E21",
+              "combinada": null,
+              "texto": "\"Sirve a todos, menos a sí mismo\" Sumiso, Complaciente, Débil voluntad, Se deja dominar, Prioriza a los demás sobre sí mismo.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F21",
+              "combinada": null,
+              "texto": "Agotamiento físico, Fatiga crónica, Baja autoestima, Se sobrecarga de responsabilidades, Puede estar en relaciones dominantes",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B22",
+              "combinada": null,
+              "texto": "Walnut",
+              "negrita": true,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "C22",
+              "combinada": null,
+              "texto": "Nogal",
+              "negrita": true,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "D22",
+              "combinada": null,
+              "texto": "Cambios importantes, protección emocional y protección de influencia  externa ",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E22",
+              "combinada": null,
+              "texto": "Esencia de la transición y protección. Sensible a opiniones ajenas, Le cuesta adaptarse a cambios, Se desvía fácilmente de sus decisiones, Vulnerable en transiciones.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F22",
+              "combinada": null,
+              "texto": "Periodos de transición difíciles: Pubertad, Embarazo, Menopausia, Jubilación, Cambio de ciudad.\nSensación de inestabilidad ante nuevos entornos, Se deja influenciar por presión social",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A23",
+              "combinada": "A23:A24",
+              "texto": "Desesperación\n(Aborda estados emocionales de dolor profundo, culpa, trauma o sufrimiento extremo)",
+              "negrita": true,
+              "relleno": "FFD6DCE4"
+            },
+            {
+              "celda": "B23",
+              "combinada": null,
+              "texto": "Star of Bethlehem",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "C23",
+              "combinada": null,
+              "texto": "Leche de gallina",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "D23",
+              "combinada": null,
+              "texto": "Traumas pasados o presentes, Traumas consciente o inconsciente\n\"Necesito consuelo\"",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E23",
+              "combinada": null,
+              "texto": "La esencia del consuelo y la integración del trauma.Hay un evento identificable que produjo el shock. Shock emocional (reciente o antiguo), Duelo, Trauma físico o psicológico, Noticias impactantes, Eventos inesperados",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F23",
+              "combinada": null,
+              "texto": "Bloqueo emocional, Sensación de “quedarse congelado”, Tristeza profunda tras evento específico, Puede haber síntomas físicos post-trauma, Desconexión afectiva\nPuede usarse incluso años después del evento traumático.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B24",
+              "combinada": null,
+              "texto": "Sweet Chestnut",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "C24",
+              "combinada": null,
+              "texto": "Castaño dulce",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "D24",
+              "combinada": null,
+              "texto": "Angustia extrema, colapso emocional\n\"Estoy en el fondo del abismo\"",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E24",
+              "combinada": null,
+              "texto": "No es simplemente tristeza. Es el punto más bajo de la angustia humana. Sensación de límite absoluto, Oscuridad interna, Crisis existencial profunda, Desesperación total",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F24",
+              "combinada": null,
+              "texto": "Llanto profundo, Sensación de vacío, Crisis espiritual, Puede acompañarse de síntomas físicos intensos, Estado de ruptura interna",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A25",
+              "combinada": "A25:A28",
+              "texto": "Psicorigidez\n(Las personas con estructura mental rígida, fuertes convicciones y tendencia a imponer, controlar o exigirse en exceso.)\nFrase del Grupo:\nCuando la mente se vuelve rígida, el cuerpo también se contrae.”",
+              "negrita": true,
+              "relleno": "FFFFCCCC"
+            },
+            {
+              "celda": "B25",
+              "combinada": null,
+              "texto": "Beech",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "C25",
+              "combinada": null,
+              "texto": "Haya",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "D25",
+              "combinada": null,
+              "texto": "Crítica y juicio constante. Intolerancia y crítica hacia los demás.",
+              "negrita": false,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "E25",
+              "combinada": null,
+              "texto": "Perfeccionista crítico, Intolerante, Observa errores ajenos, Duro en juicio",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F25",
+              "combinada": null,
+              "texto": "Rigidez mental, Irritabilidad, Postura corporal tensa, Puede ser autoritario en opinión",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B26",
+              "combinada": null,
+              "texto": "Rock Water",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "C26",
+              "combinada": null,
+              "texto": "Agua de roca",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "D26",
+              "combinada": null,
+              "texto": "Autoexigencia y rigidez excesiva. Para las personas que son demasiado duras consigo mismas y desean ser tomadas como ejemplo",
+              "negrita": false,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "E26",
+              "combinada": null,
+              "texto": "Rigidez hacia sí mismo. Autoexigente extremo, Disciplina rígida, Idealista, No se permite placer",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F26",
+              "combinada": null,
+              "texto": "Ascetismo, Rutinas estrictas, Puede tener trastornos alimentarios, Contracturas crónicas",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B27",
+              "combinada": null,
+              "texto": "Vervain",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "C27",
+              "combinada": null,
+              "texto": "Verbena",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "D27",
+              "combinada": null,
+              "texto": "Fanatismo, imposición de ideales. Para las personas excesivamente entusiastas que intentan imponer sus ideales",
+              "negrita": false,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "E27",
+              "combinada": null,
+              "texto": "Entusiasmo excesivo que intenta convencer a otros.Idealista, Activista, Intenso, Defiende causas con pasión",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F27",
+              "combinada": null,
+              "texto": "\nTensión nerviosa, Insomnio por sobreexcitación, Hiperactividad mental, Habla rápido",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B28",
+              "combinada": null,
+              "texto": "Vine",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "C28",
+              "combinada": null,
+              "texto": "Vid",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "D28",
+              "combinada": null,
+              "texto": "Dominio y autoritarismo. ¨Para las personas excesivamente entusiastas que intentan imponer sus ideales",
+              "negrita": false,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "E28",
+              "combinada": null,
+              "texto": "\"Autoridad dominante, sin empatia\"\nLíder autoritario, Controlador, Impone decisiones, No tolera oposición",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F28",
+              "combinada": null,
+              "texto": "Firme, Seguro, Puede ser intimidante, Duro en liderazgo",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A29",
+              "combinada": "A29:A31",
+              "texto": "Minusvalía / Depresión\n(La persona siente desánimo, inferioridad o tristeza profunda, pero cada esencia tiene una tonalidad distinta del sufrimiento.)\nFrase del grupo:\n“No toda tristeza es igual: unas tienen causa, otras nacen del interior.”",
+              "negrita": true,
+              "relleno": "FFCCFFFF"
+            },
+            {
+              "celda": "B29",
+              "combinada": null,
+              "texto": "Gentian",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "C29",
+              "combinada": null,
+              "texto": "Genciana",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "D29",
+              "combinada": null,
+              "texto": "Pesimismo y desánimo.Para las personas pesimistas, que dudan de si mismas y se desaniman facilmente",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E29",
+              "combinada": null,
+              "texto": "\"Hay una causa clara del desánimo\"\nSe desmotiva fácilmente, Pesimismo, Se frustra ante obstáculos, Pierde entusiasmo tras un fracaso.\n",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F29",
+              "combinada": null,
+              "texto": "Tristeza reactiva, Baja perseverancia, Abandona tratamientos, Se desalienta ante resultados lentos. Muy depresiva",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B30",
+              "combinada": null,
+              "texto": "Larch",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "C30",
+              "combinada": null,
+              "texto": "Alerce",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "D30",
+              "combinada": null,
+              "texto": "Falta de confianza en sí mismo. Para los que no confian en si mismos y siempre se anticipan al fracaso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E30",
+              "combinada": null,
+              "texto": "\"No intenta porque ya se siente derrotado\" \nSe siente inferior, Anticipa fracaso, No intenta por miedo a fallar, Baja autoestima",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F30",
+              "combinada": null,
+              "texto": "Evita desafíos, Se compara con otros, Se autoexcluye, Puede tener bajo rendimiento académico o laboral",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B31",
+              "combinada": null,
+              "texto": "Mustard",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "C31",
+              "combinada": null,
+              "texto": "Mostaza",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "D31",
+              "combinada": null,
+              "texto": "Tristeza profunda sin causa. Para los que sienten una tristeza profunda y repentina pero desconocen su origen ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E31",
+              "combinada": null,
+              "texto": "\"No hay causa externa evidente\"\nMelancolía súbita, Nube oscura emocional, Episodios depresivos cíclicos, Sensación de vacío inexplicable",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F31",
+              "combinada": null,
+              "texto": "Episodios que aparecen y desaparecen, Puede alternar con momentos normales, Sensación de aislamiento interno, Fatiga emocional profunda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A32",
+              "combinada": "A32:A37",
+              "texto": "Desaliento \n(Estados de culpa, agotamiento, sensación de incapacidad o sobrecarga)\nFrase del grupo\n“Cuando el alma se agota, el cuerpo lo expresa.”",
+              "negrita": true,
+              "relleno": "FF99FFCC"
+            },
+            {
+              "celda": "B32",
+              "combinada": null,
+              "texto": "Crab Apple",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "C32",
+              "combinada": null,
+              "texto": "Manzano silvestre",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "D32",
+              "combinada": null,
+              "texto": "Obsesión por limpieza física o psíquica",
+              "negrita": false,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "E32",
+              "combinada": null,
+              "texto": "\"Sensación de impureza o rechazo hacia uno mismo\"\nAutoimagen negativa, Sensación de estar “sucio” o imperfecto, Vergüenza corporal, Fijación en detalles físicos.\n\"Los narcisos\"",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F32",
+              "combinada": null,
+              "texto": "Se fija en “defectos” (piel, olor, peso, manchas, acné, cicatrices).\nVergüenza corporal; se siente “desagradable” o “no aceptable”\nLe cuesta sentirse bien con su imagen aunque esté objetivamente bien.\nDetallista, autocrítica, sensible a la apariencia y a “lo que dirán”.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B33",
+              "combinada": null,
+              "texto": "Elm",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "C33",
+              "combinada": null,
+              "texto": "Olmo",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "D33",
+              "combinada": null,
+              "texto": "Abrumados por exceso de responsabilidad. Par las personas abrumadas, porque asumen más.",
+              "negrita": false,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "E33",
+              "combinada": null,
+              "texto": "\"Sensación temporal de incapacidad ante gran responsabilidad\"\nPersona competente, Líder responsable, De repente se siente desbordado",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F33",
+              "combinada": null,
+              "texto": "Persona capaz y responsable, pero con colapso momentáneo. Sensación de “no doy abasto” o “me queda grande”. Ansiedad por desempeño, miedo a fallar a otros. Se abruma por agendas, tareas, presión social/laboral. Puede tener episodios de cansancio súbito, tensión, insomnio.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B34",
+              "combinada": null,
+              "texto": "Hornbeam",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "C34",
+              "combinada": null,
+              "texto": "Hojarazo",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "D34",
+              "combinada": null,
+              "texto": "Cansancio mental anticipado.Para las personas que se sienten sin fuerza para afrontar  las actividades del dia a dia ",
+              "negrita": false,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "E34",
+              "combinada": null,
+              "texto": "“Cansancio del lunes por la mañana”, Duda de tener energía para iniciar, Procrastinación.\n“No tengo fuerzas para empezar.”",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F34",
+              "combinada": null,
+              "texto": "                                                                                                                                                                                      Responsable pero saturado; necesita “encender el motor” para arrancar\nSensación de rutina pesada, aburrimiento, saturación mental.\nPuede acompañarse de cefalea tensional o pesadez.\n",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B35",
+              "combinada": null,
+              "texto": "Oak",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "C35",
+              "combinada": null,
+              "texto": "Roble",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "D35",
+              "combinada": null,
+              "texto": "No se rinden pese al agotamiento. Para las persons que no son capaces de rendirse ni abandonar, aunque esten agotadas",
+              "negrita": false,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "E35",
+              "combinada": null,
+              "texto": "“Debo seguir, pase lo que pase.”\nFuerte, Perseverante, No admite debilidad, Sigue aunque esté agotado",
+              "negrita": true,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F35",
+              "combinada": null,
+              "texto": "Tenaz, fuerte, perseverante: “yo puedo con todo”.\nNo pide ayuda, no descansa; se endurece emocionalmente\nSe siente culpable si se detiene.\nResistente, noble, de gran sentido del deber",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B36",
+              "combinada": null,
+              "texto": "Olive",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "C36",
+              "combinada": null,
+              "texto": "Oliva",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "D36",
+              "combinada": null,
+              "texto": "Agotamiento físico y mental",
+              "negrita": false,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "E36",
+              "combinada": null,
+              "texto": "\"Agotamiento real, no solo mental.\"\nExhausto, Sin energía, No quiere hacer nada, Sensación de vacío físico",
+              "negrita": true,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F36",
+              "combinada": null,
+              "texto": "Exhausto “de verdad”: levantarse ya cuesta. Falta de vitalidad, somnolencia, lentitud. Recuperación lenta tras enfermedad, estrés prolongado o insomnio crónico. Puede sentir: “no me queda nada”.                         No es pereza: es agotamiento por desgaste.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B37",
+              "combinada": null,
+              "texto": "Pine",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "C37",
+              "combinada": null,
+              "texto": "Pino",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "D37",
+              "combinada": null,
+              "texto": "Culpa y auto-reproche. Para el sentimiento de culpa y no merecimiento",
+              "negrita": false,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "E37",
+              "combinada": null,
+              "texto": "Se culpa por todo, Se disculpa constantemente, Asume responsabilidad incluso ajena.\n\"Autoacusación persistente.\"",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F37",
+              "combinada": null,
+              "texto": "Se siente responsable incluso por lo que no controla. Autoexigencia moral: “debí haberlo hecho mejor”. Dificultad para disfrutar (siente que no lo merece). Puede cargar vergüenza, remordimiento, sensación de “castigo”.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A38",
+              "combinada": null,
+              "texto": "Egoísmo / Rivalidad \n“Me duele el corazón y reacciono con enojo.”",
+              "negrita": true,
+              "relleno": "FFE2EFDA"
+            },
+            {
+              "celda": "B38",
+              "combinada": null,
+              "texto": "Holly",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "C38",
+              "combinada": null,
+              "texto": "Acebo",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "D38",
+              "combinada": null,
+              "texto": "Rabia, celos, odio, envidia",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E38",
+              "combinada": null,
+              "texto": "Es la flor que trabaja el corazón herido que se protege atacando.\nCelos intensos, Comparación constante, Competencia excesiva, Suspicacia, Irritabilidad hacia el éxito ajeno.\nHolly es más visceral, más emocional, más “cardíaca”.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F38",
+              "combinada": null,
+              "texto": "Celos de pareja, Rivalidad laboral, Conflictos familiares, Hermanos con competencia intensa, Ira reprimida, Personas que sienten resentimiento.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A39",
+              "combinada": null,
+              "texto": "Apariencia\nLa esencia de la persona que oculta su sufrimiento detrás de una sonrisa.",
+              "negrita": true,
+              "relleno": "FFD9E1F2"
+            },
+            {
+              "celda": "B39",
+              "combinada": null,
+              "texto": "Agrimony",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "C39",
+              "combinada": null,
+              "texto": "Agrimonia",
+              "negrita": true,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "D39",
+              "combinada": null,
+              "texto": "Ocultan problemas tras una máscara alegre. Para los que ocultan sus temores detras de una mascara de despreocupación",
+              "negrita": false,
+              "relleno": "FFEDEDED"
+            },
+            {
+              "celda": "E39",
+              "combinada": null,
+              "texto": "Enmascara el dolor, dolor torturante permanente, viven con dolor",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "F39",
+              "combinada": null,
+              "texto": "Risa nerviosa, Uso del humor como defensa, Puede recurrir a alcohol o distracciones para evadir, Ansiedad interna reprimida, Bruxismo, Insomnio, Dolor digestivo por tensión emocional, Sufre en silencio.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A40",
+              "combinada": "A40:A41",
+              "texto": "Manipuladores\n(personas que buscan influir en los demás desde el apego, la posesividad o el resentimiento. No es manipulación fría (como Vine), sino emocional.)",
+              "negrita": true,
+              "relleno": "FFFFF2CC"
+            },
+            {
+              "celda": "B40",
+              "combinada": null,
+              "texto": "Chicory",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "C40",
+              "combinada": null,
+              "texto": "Achicoria",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "D40",
+              "combinada": null,
+              "texto": "Apego excesivo, posesividad. Para los que se preocupan demasiado por los demas, volviendose autocompasivos si esta atencion no es devuelta",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E40",
+              "combinada": null,
+              "texto": "Sobreprotector, Demandante afectivo, Necesita reconocimiento, Da esperando recibir, Controla a través del afecto",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F40",
+              "combinada": null,
+              "texto": "Celos sutiles, Victimización emocional, Control afectivo disfrazado de cuidado, Puede generar culpa en otros, Necesita sentirse indispensable",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B41",
+              "combinada": null,
+              "texto": "Willow",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "C41",
+              "combinada": null,
+              "texto": "Sauce",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "D41",
+              "combinada": null,
+              "texto": "Resentimiento y amargura",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E41",
+              "combinada": null,
+              "texto": "Se siente víctima, Culpa a otros de su situación, Rencor persistente, Envidia silenciosa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F41",
+              "combinada": null,
+              "texto": "Amargura crónica, Queja constante, Actitud negativa, Falta de gratitud, Puede desarrollar rigidez emocional",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A42",
+              "combinada": "A42:A46",
+              "texto": "Rescue Remedy\n(estrés agudo (un accidente, un examen, una mala noticia, un ataque de pánico).\n“Necesito ayuda ahora.”",
+              "negrita": true,
+              "relleno": "FFFFCCCC"
+            },
+            {
+              "celda": "B42",
+              "combinada": null,
+              "texto": "Cherry Plum",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "C42",
+              "combinada": "C42:D42",
+              "texto": "Miedo a perder el control",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E42",
+              "combinada": "E42:E46",
+              "texto": "Accidentes, Noticias impactantes, Ataques de pánico, Crisis emocionales, Antes de cirugía, Antes de exámenes, Eventos estresantes súbitos, Conflictos intensos, Niños con susto fuerte",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F42",
+              "combinada": "F42:F46",
+              "texto": "La persona puede estar: Sudorosa, Taquicárdica, Confundida, Paralizada, Llorando, Hiperventilando, Desconectada. Es el “botiquín emocional inmediato”.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B43",
+              "combinada": null,
+              "texto": "Clematis",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "C43",
+              "combinada": "C43:D43",
+              "texto": "Negación, desconexión de la realidad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B44",
+              "combinada": null,
+              "texto": "Impatiens",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "C44",
+              "combinada": "C44:D44",
+              "texto": "Impaciencia, Tension e Irritabilidad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B45",
+              "combinada": null,
+              "texto": "Rock Rose",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "C45",
+              "combinada": "C45:D45",
+              "texto": "Miedo paralizante, pánico",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B46",
+              "combinada": null,
+              "texto": "Star of Bethlehem",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "C46",
+              "combinada": "C46:D46",
+              "texto": "Traumas y shock",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A47",
+              "combinada": null,
+              "texto": "FÓRMULA DE EXAMEN",
+              "negrita": true,
+              "relleno": "FFB6D7A8"
+            },
+            {
+              "celda": "B47",
+              "combinada": null,
+              "texto": "Clematis, Elm, Larch, White Chestnut y Gentian.",
+              "negrita": false,
+              "relleno": "FFC5E0B3"
+            },
+            {
+              "celda": "A48",
+              "combinada": "A48:D55",
+              "texto": "¿Qué es el «Rescue Remedy» (Remedio de Rescate)?\nEs la única combinación prediseñada por Bach. No es un tratamiento de fondo, es un botiquín de emergencia para situaciones de estrés agudo (un accidente, un examen, una mala noticia, un ataque de pánico).\n\nContiene 5 flores: Rock Rose (pánico), Impatiens (agitación), Clematis (desconexión), Star of Bethlehem (shock) y Cherry Plum (pérdida de control).\nCómo se usa: Se toman 4 gotas tan a menudo como se necesite hasta que la crisis pase.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "A57:D87",
+          "filas": 31,
+          "columnas": 4,
+          "densidad": 0.26,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "A57",
+              "combinada": "A57:D57",
+              "texto": "Esencias para el Duelo",
+              "negrita": true,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "A58",
+              "combinada": "A58:D60",
+              "texto": "El duelo no se aborda como un diagnóstico único, sino como un estado emocional complejo que puede incluir tristeza profunda, shock, desesperanza, culpa o incapacidad de adaptación a la pérdida. Por eso, más que una sola esencia, se eligen varias según la vivencia del paciente.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A61",
+              "combinada": "A61:A64",
+              "texto": "Star of Bethlehem\n(Es la esencia central del duelo)",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "B61",
+              "combinada": "B61:D61",
+              "texto": "Para shock emocional, reciente o antiguo",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B62",
+              "combinada": "B62:D62",
+              "texto": "Pérdidas traumáticas (muerte, separación, diagnóstico grave)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B63",
+              "combinada": "B63:D63",
+              "texto": "Sensación de “bloqueo” o anestesia emocional",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B64",
+              "combinada": "B64:D64",
+              "texto": "Es considerada el “consuelo del alma”",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A65",
+              "combinada": "A65:A67",
+              "texto": "Sweet Chestnut\n(Para el duelo profundo y desgarrador)",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "B65",
+              "combinada": "B65:D65",
+              "texto": "Angustia extrema: “no puedo más”",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B66",
+              "combinada": "B66:D66",
+              "texto": "Sensación de oscuridad total, desesperación límite",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B67",
+              "combinada": "B67:D67",
+              "texto": "Crisis existenciales asociadas a la pérdida",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A68",
+              "combinada": "A68:A70",
+              "texto": "Gentian\n(Cuando el duelo se vuelve desánimo)",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "B68",
+              "combinada": "B68:D68",
+              "texto": "Tristeza persistente",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B69",
+              "combinada": "B69:D69",
+              "texto": "Desaliento, pérdida de fe en la vida",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B70",
+              "combinada": "B70:D70",
+              "texto": "Dificultad para recuperarse emocionalmente",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A71",
+              "combinada": "A71:A73",
+              "texto": "Gorse\n(Para el duelo con desesperanza)",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "B71",
+              "combinada": "B71:D71",
+              "texto": "Sensación de que “nada tiene sentido”",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B72",
+              "combinada": "B72:D72",
+              "texto": "Resignación, abandono interior",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B73",
+              "combinada": "B73:D73",
+              "texto": "Cuando la persona ha dejado de luchar emocionalmente",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A74",
+              "combinada": "A74:A76",
+              "texto": "Honeysuckle\n(Para quienes viven en el pasado)",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "B74",
+              "combinada": "B74:D74",
+              "texto": "Nostalgia intensa por la persona fallecida",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B75",
+              "combinada": "B75:D75",
+              "texto": "Dificultad para soltar",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B76",
+              "combinada": "B76:D76",
+              "texto": "Ideal cuando el paciente está “anclado” al recuerdo",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A77",
+              "combinada": "A77:A79",
+              "texto": "Walnut\n(Para procesos de transición)",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "B77",
+              "combinada": "B77:D77",
+              "texto": "Ayuda a adaptarse al cambio tras la pérdida",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B78",
+              "combinada": "B78:D78",
+              "texto": "Protege de influencias externas durante el duelo",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B79",
+              "combinada": "B79:D79",
+              "texto": "Facilita cerrar ciclos",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A80",
+              "combinada": "A80:A82",
+              "texto": "Mustard\n(Cuando el duelo se vuelve depresión)",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "B80",
+              "combinada": "B80:D80",
+              "texto": "Tristeza profunda sin causa clara aparente",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B81",
+              "combinada": "B81:D81",
+              "texto": "Episodios de melancolía intensa",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B82",
+              "combinada": "B82:D82",
+              "texto": "Oscuridad emocional que aparece y desaparece",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A83",
+              "combinada": "A83:D87",
+              "texto": "El Dr. Bach insistía en que: “No tratamos la enfermedad, tratamos al paciente.”\nPor eso, en un duelo: No se da una sola esencia\nSe combinan 2–5 esencias según el estado emocional predominante\nEl objetivo es restablecer el equilibrio emocional, no suprimir la tristeza",
+              "negrita": false,
+              "relleno": "FFE2EFD9"
+            }
+          ]
+        },
+        {
+          "rango": "A89:D112",
+          "filas": 24,
+          "columnas": 4,
+          "densidad": 0.14,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "A89",
+              "combinada": "A89:D89",
+              "texto": "Rumiación Mental",
+              "negrita": true,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "A90",
+              "combinada": "A90:D92",
+              "texto": "Cuando una persona está en rumiación mental —ese pensamiento repetitivo, circular, que no suelta— el enfoque del Dr. Edward Bach es muy preciso: no se trata solo de “pensar mucho”, sino de qué tipo de pensamiento predomina.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A93",
+              "combinada": "A93:A96",
+              "texto": "White Chestnut\nEs la principal esencia para rumiación mental.",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "B93",
+              "combinada": "B93:D96",
+              "texto": "Pensamientos repetitivos, intrusivos\n“No puedo dejar de pensar en lo mismo”\nDiálogo interno constante (como una mente que no se apaga)\nInsomnio por pensamientos recurrentes",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A97",
+              "combinada": "A97:A99",
+              "texto": "Red Chestnut\nCuando la rumiación está centrada en otros.",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "B97",
+              "combinada": "B97:D99",
+              "texto": "Preocupación excesiva por familiares o seres queridos\nPensamientos repetitivos sobre “algo malo puede pasarles”\nAnsiedad anticipatoria por otros",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A100",
+              "combinada": "A100:A102",
+              "texto": "Agrimony\n(Para la rumiación que se esconde)",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "B100",
+              "combinada": "B100:D102",
+              "texto": "Persona aparentemente alegre, pero con tormento interno\nPensamientos persistentes que no expresa\nEvita enfrentar el dolor emocional",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A103",
+              "combinada": "A103:A105",
+              "texto": "Pine\n(Cuando la rumiación es por culpa)",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "B103",
+              "combinada": "B103:D105",
+              "texto": "Pensamientos repetitivos de auto-reproche\n“Debí haber hecho algo diferente”\nCulpa persistente",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A106",
+              "combinada": "A106:A108",
+              "texto": "Honeysuckle\n(Para la rumiación anclada al pasado.)",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "B106",
+              "combinada": "B106:D108",
+              "texto": "Revivir constantemente situaciones pasadas\nNostalgia, dificultad para soltar\nIdeal en duelos con pensamiento repetitivo",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A109",
+              "combinada": "A109:D112",
+              "texto": "La rumiación es un fenómeno mental en el que la persona queda atrapada en un ciclo repetitivo de pensamientos, generalmente negativos, que giran una y otra vez sin llegar a una solución.\n“No dejo de pensar en lo que pasó… le doy vueltas todo el día… y no logro soltarlo.”",
+              "negrita": false,
+              "relleno": "FFE2EFD9"
+            }
+          ]
+        }
+      ],
+      "comentarios": [
+        {
+          "celda": "A61",
+          "autor": "Luis fernando Lenis",
+          "texto": "Leche de Gallina"
+        },
+        {
+          "celda": "A65",
+          "autor": "Luis fernando Lenis",
+          "texto": "Cstaño Dulce"
+        },
+        {
+          "celda": "A68",
+          "autor": "Luis fernando Lenis",
+          "texto": "Genciana"
+        },
+        {
+          "celda": "A71",
+          "autor": "Luis fernando Lenis",
+          "texto": "Aulaga"
+        },
+        {
+          "celda": "A74",
+          "autor": "Luis fernando Lenis",
+          "texto": "Madreselva"
+        },
+        {
+          "celda": "A77",
+          "autor": "Luis fernando Lenis",
+          "texto": "Nogal"
+        },
+        {
+          "celda": "A80",
+          "autor": "Luis fernando Lenis",
+          "texto": "Mostaza"
+        }
+      ],
+      "imagenes": [],
+      "imagenes_extraidas": []
+    }
+  ]
+}

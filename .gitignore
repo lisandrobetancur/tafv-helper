@@ -4,9 +4,16 @@ __pycache__/
 .pytest_cache/
 .DS_Store
 
-# Datos de la usuaria: viven en disco, no en git
-data/*
-!data/.gitkeep
+# Datos de la usuaria: se versionan la biblioteca, sus archivos y las fuentes;
+# respaldos, caché, registros y papelera quedan solo en disco
+data/respaldos/
+data/cache/
+data/logs/
+data/papelera/
+data/*.db-wal
+data/*.db-shm
+data/*.db-journal
+data/.en_uso
 
 # Herramientas de desarrollo (binario de Tailwind e íconos sueltos); solo se versionan los scripts
 tools/tailwindcss*

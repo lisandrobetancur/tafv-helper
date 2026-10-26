@@ -1,0 +1,2258 @@
+{
+  "archivo": "/Users/lisandro/dev/py/tafv-helper/data/fuentes/acupuntura/sindromes/hojas/Sindromes.xlsx",
+  "hojas": [
+    {
+      "hoja": "Sindromes",
+      "dimension": "A1:F54",
+      "bloques": [
+        {
+          "rango": "A1:F54",
+          "filas": 54,
+          "columnas": 6,
+          "densidad": 0.98,
+          "fila_encabezado": 1,
+          "registros": 53,
+          "sugerencia": "tabla",
+          "celdas": [
+            {
+              "celda": "A1",
+              "combinada": null,
+              "texto": "Sindromes",
+              "negrita": true,
+              "relleno": "FFF1CEEE"
+            },
+            {
+              "celda": "B1",
+              "combinada": null,
+              "texto": "Causa",
+              "negrita": true,
+              "relleno": "FFF1CEEE"
+            },
+            {
+              "celda": "C1",
+              "combinada": null,
+              "texto": "Pulso",
+              "negrita": true,
+              "relleno": "FFF1CEEE"
+            },
+            {
+              "celda": "D1",
+              "combinada": null,
+              "texto": "Lengua",
+              "negrita": true,
+              "relleno": "FFF1CEEE"
+            },
+            {
+              "celda": "E1",
+              "combinada": null,
+              "texto": "Sintomas",
+              "negrita": true,
+              "relleno": "FFF1CEEE"
+            },
+            {
+              "celda": "F1",
+              "combinada": null,
+              "texto": "Claves",
+              "negrita": true,
+              "relleno": "FFF1CEEE"
+            },
+            {
+              "celda": "A2",
+              "combinada": null,
+              "texto": "Deficiencia de Qi de pulmon",
+              "negrita": true,
+              "relleno": "FFD0D0D0"
+            },
+            {
+              "celda": "B2",
+              "combinada": null,
+              "texto": "debilidad constitucional, sedentarismo, mala postura, tristeza persistente, exposion cronica al viento y frio",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C2",
+              "combinada": null,
+              "texto": "debil, distal  a la derecha",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D2",
+              "combinada": null,
+              "texto": "Normal o palisda, saburra blanca",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E2",
+              "combinada": null,
+              "texto": "palidez, cansancio, disnea, voz debil, tos, expectoraion acuosa sudoracion espontanea, friolento, manos frias, tendencia a resfriado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F2",
+              "combinada": null,
+              "texto": "voz debil, respiracion corta, pulso debil",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A3",
+              "combinada": null,
+              "texto": "Deficiencia de Yin de pulmon",
+              "negrita": true,
+              "relleno": "FFD0D0D0"
+            },
+            {
+              "celda": "B3",
+              "combinada": null,
+              "texto": "tristeza persistente, uso excesivo del habla, tabaco, comer tarde en la noche, exceso de trabajo con poco descanso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C3",
+              "combinada": null,
+              "texto": "Vacio y rapido,",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D3",
+              "combinada": null,
+              "texto": "Roja, saburra ausente en la parte anterior",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E3",
+              "combinada": null,
+              "texto": "tos seca,  prurito y sequedad en garganta, voz debil y ronca, adelgazamiento, cansancio, sudoracion nocturna, fiebre vespertina calor en los cinco centros, rubor malar",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F3",
+              "combinada": null,
+              "texto": "tos seca y sensacion de calor por la tarde, tuberculosis pulmonar, despues de enfermedades febriles",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A4",
+              "combinada": null,
+              "texto": "Sequedad de pulmon ",
+              "negrita": true,
+              "relleno": "FFD0D0D0"
+            },
+            {
+              "celda": "B4",
+              "combinada": null,
+              "texto": "Exposicion a clima seco, pocahidratacion",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C4",
+              "combinada": null,
+              "texto": "rapido, vacio distal a la derecha",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D4",
+              "combinada": null,
+              "texto": "Seca, saburra seca",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E4",
+              "combinada": null,
+              "texto": "Tos seca, catarro pegajoso aveces con sangre, garganta, boca y piel seca, ronquido, afonia, fiebre, aversion al viento, dolor de cabeza",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A5",
+              "combinada": null,
+              "texto": "Viento- Calor en pulmon",
+              "negrita": true,
+              "relleno": "FFD0D0D0"
+            },
+            {
+              "celda": "B5",
+              "combinada": null,
+              "texto": "Debilidad de Qi defensivo, invasion de viento-calor",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C5",
+              "combinada": null,
+              "texto": "Superficial y rapido",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D5",
+              "combinada": null,
+              "texto": "Roja en la parte superior, saburra normal o amarilla",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E5",
+              "combinada": null,
+              "texto": "Dolor de garganta, tos, esalofrio, fiebre, aversion al frio, tranpiracion, ceaflea, dolor en el cuerpo, boca seca, nariz obstruida, secrecion amarilla, espesa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F5",
+              "combinada": null,
+              "texto": "Dolro de garganta y fiebre, faringitis, amigdalitis, gripa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A6",
+              "combinada": null,
+              "texto": "Viento- Frio pulmon",
+              "negrita": true,
+              "relleno": "FFD0D0D0"
+            },
+            {
+              "celda": "B6",
+              "combinada": null,
+              "texto": "Debilidad del Qi defensivo, invacion de viento frio",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C6",
+              "combinada": null,
+              "texto": "Superficial y tenso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D6",
+              "combinada": null,
+              "texto": "Saburra blanca",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E6",
+              "combinada": null,
+              "texto": "Coriza, estornudos, aversion al frio, escalofrio, friebre baja, tos, piczon en garganta, cefalea occipital, dolor en el cuerpo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F6",
+              "combinada": null,
+              "texto": "Resfriados, traqueitis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A7",
+              "combinada": null,
+              "texto": "Calor en pulmon",
+              "negrita": true,
+              "relleno": "FFD0D0D0"
+            },
+            {
+              "celda": "B7",
+              "combinada": null,
+              "texto": "Calor en el interior, calor en el exterior, tabaquismo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C7",
+              "combinada": null,
+              "texto": "Rebosante y rapido",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D7",
+              "combinada": null,
+              "texto": "Roja, saburra amarilla",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E7",
+              "combinada": null,
+              "texto": "Espasmo de los bronquios, tos co catarro espeso, amarillo aveces son sangre, epistaxis, dolor de garganta, sed, cara roja, caluroso, fiebre",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F7",
+              "combinada": null,
+              "texto": "Traqueitis aguda, neumonia, supuraciones y abscesos pulmonares",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A8",
+              "combinada": null,
+              "texto": "Mucosidad de pulmon",
+              "negrita": true,
+              "relleno": "FFD0D0D0"
+            },
+            {
+              "celda": "B8",
+              "combinada": null,
+              "texto": "Invacion FPE, acomulacion de mucosidad afectando las funciones de difusion y baja de ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C8",
+              "combinada": null,
+              "texto": "Resbaladizo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D8",
+              "combinada": null,
+              "texto": "saburra gruesa y grasosa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E8",
+              "combinada": null,
+              "texto": "tos productiva sin aliento, sibilancias, ruidos en garganta, opresion en torax, empeora acostado, neuseas, vomito",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F8",
+              "combinada": null,
+              "texto": "produccion excesiva de flam clara y fluida, bronquitits asmatica, enfisema",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A9",
+              "combinada": null,
+              "texto": "Humedad- Calor en intestino grueso",
+              "negrita": true,
+              "relleno": "FFD0D0D0"
+            },
+            {
+              "celda": "B9",
+              "combinada": null,
+              "texto": "Alimentos deteriorados, grasosos, alcohol, emociones como ansiedad y preocupacion, invacion de humedad, calor",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C9",
+              "combinada": null,
+              "texto": "Respiso, suave o resbaladizo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D9",
+              "combinada": null,
+              "texto": "Roja co saburra amarilla, pagajosa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E9",
+              "combinada": null,
+              "texto": "Door y plenitud abdominal, diarrea fetida con moc y sangre, tenesmo y ardor anal, orina escasa y oscura, fiebre, caluroso, boca seca sin sed",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F9",
+              "combinada": null,
+              "texto": "Dolor abadominal, diarrea con heces con moco, gastroenteritits aguda, colitits ulcerativa, enfermedad de crohn",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A10",
+              "combinada": null,
+              "texto": "Calor en el intestino grueso",
+              "negrita": true,
+              "relleno": "FFD0D0D0"
+            },
+            {
+              "celda": "B10",
+              "combinada": null,
+              "texto": "Alimentos calientes y secos ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C10",
+              "combinada": null,
+              "texto": "lleno y rapido",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D10",
+              "combinada": null,
+              "texto": "saburra gruesa amarilla, oscura y seca",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E10",
+              "combinada": null,
+              "texto": "Estreñimiento con heces secas, boca seca, ardor y fisura anal, orina escasa y oscura",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F10",
+              "combinada": null,
+              "texto": "heces secas, ardor en el ano, estreñimiento, fecalomas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A11",
+              "combinada": null,
+              "texto": "Sequedad  en el intestino grueso",
+              "negrita": true,
+              "relleno": "FFD0D0D0"
+            },
+            {
+              "celda": "B11",
+              "combinada": null,
+              "texto": "comer en exceso y tarde en la noche, clima seco y caliente, beber poca agua",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C11",
+              "combinada": null,
+              "texto": "Filiforma, rapido",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D11",
+              "combinada": null,
+              "texto": "roja, saburra seca",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E11",
+              "combinada": null,
+              "texto": "heces secas tipo 1, boca y garganta seca, halitosis, mareo, cuerpo delgado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F11",
+              "combinada": null,
+              "texto": "heces secas, estreñimiento",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A12",
+              "combinada": null,
+              "texto": "Frio en el intestino grueso",
+              "negrita": true,
+              "relleno": "FFD0D0D0"
+            },
+            {
+              "celda": "B12",
+              "combinada": null,
+              "texto": "Consumo exagerado de alimentos grudos y frios, exposicion al frio en el abdomen",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C12",
+              "combinada": null,
+              "texto": "Profundo, debil",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D12",
+              "combinada": null,
+              "texto": "Palida, saburra gruesa, blanca",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E12",
+              "combinada": null,
+              "texto": "Heces blandas y mal formadas, con poco color, borborigmos, colico difuso que alivia con calor, orina clara, miembros frios",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F12",
+              "combinada": null,
+              "texto": "Tendencia a la diarrea",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A13",
+              "combinada": null,
+              "texto": "Deficiencia de Qi de estomaago",
+              "negrita": true,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "B13",
+              "combinada": null,
+              "texto": "dieta desequilibrada en cantidad, calidad y horarios, enfermedades cronicas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C13",
+              "combinada": null,
+              "texto": "Lento y debil, pulso vacio, medio a la derecha",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D13",
+              "combinada": null,
+              "texto": "palida con saburra blanca",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E13",
+              "combinada": null,
+              "texto": "Malestar en epigastrio, falta de apetitio y gusto adelgazaiento, fatiga matinal, miembros debiles, haces blandas, rostro demacrado,",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F13",
+              "combinada": null,
+              "texto": "gastroenteritis cronica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A14",
+              "combinada": null,
+              "texto": "Deficiencia de Yin de estomago",
+              "negrita": true,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "B14",
+              "combinada": null,
+              "texto": "comer tarde en la noche, muy rapido, trabajando o preocupado, saltarse las comidas, enfermedad febril, remedios excesivos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C14",
+              "combinada": null,
+              "texto": "Filiforme, rapido",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D14",
+              "combinada": null,
+              "texto": "Color normal o rojo, sin saburra en el centro",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E14",
+              "combinada": null,
+              "texto": "Epigastralgia leve, falta de apetito, plenitud despues de comer poco, sed sin deseos de ingerir liquidos, sequedad en boca, lengia y garganta, fiebre o sensacion de calor por l a tarde",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F14",
+              "combinada": null,
+              "texto": "enfermedad el estomago de origen nervioso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A15",
+              "combinada": null,
+              "texto": "Fuego en el estomago",
+              "negrita": true,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "B15",
+              "combinada": null,
+              "texto": "Exceso de alimentos calientes como carne roja, condimentos, frituras y alcoghol, tabaquismo, ansiedad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C15",
+              "combinada": null,
+              "texto": "lleno y rapido",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D15",
+              "combinada": null,
+              "texto": "roja en el centro, saburra gruesa, amarilla y seca",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E15",
+              "combinada": null,
+              "texto": "epigastralgia con ardor, regurgitacion con acidez, nauseas, vomito agrio, hambre intensa, sed ee liquidos y helado, aftas,  halitosis, sangreso de las encias, heces resecadas , inquietud mental y calor en la cabeza",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F15",
+              "combinada": null,
+              "texto": "periodontitis, diabetes tipo 1, gingivitis, ulcera peptica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A16",
+              "combinada": null,
+              "texto": "Frio que invade estomago",
+              "negrita": true,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "B16",
+              "combinada": null,
+              "texto": "invacion de frio externo, aliemntos frios y bebidas heladas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C16",
+              "combinada": null,
+              "texto": "profundo, tenso y lento",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D16",
+              "combinada": null,
+              "texto": "palida, saburra gruesa y blanca",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E16",
+              "combinada": null,
+              "texto": "dolro subito e intenso en epigastrio aliva con calor, falta de gusto y sed, nauseas, vomito, borgborismo, frio enmiembros y region epigastrica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F16",
+              "combinada": null,
+              "texto": "gastritits cronica, ulcera gastroduodenal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A17",
+              "combinada": null,
+              "texto": "Retencion de alimentos en el estomago",
+              "negrita": true,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "B17",
+              "combinada": null,
+              "texto": "Comer en exceso, rapido y preocupado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C17",
+              "combinada": null,
+              "texto": "Lleno y sobresaltado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D17",
+              "combinada": null,
+              "texto": "color variable, saburra gruesa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E17",
+              "combinada": null,
+              "texto": "dolor, plenitud y distencion en epigastrio con alivio al vomitar, nauseas, regurgitacion acida, halitosis, eruptos, asco de alimentos, imnombio, heces blandas o constipacion intestinal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F17",
+              "combinada": null,
+              "texto": "Dispepsias agudas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A18",
+              "combinada": null,
+              "texto": "Estancamiento de sangre en estomago",
+              "negrita": true,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "B18",
+              "combinada": null,
+              "texto": "Exceso de alimentos calientes, tabaquismo y alcohol, comer muy rapido, ira y resentimiento, higado invadiendo estomago",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C18",
+              "combinada": null,
+              "texto": "De cuerda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D18",
+              "combinada": null,
+              "texto": "Violeta con petequias, saburra variable",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E18",
+              "combinada": null,
+              "texto": "dolor tipo punzada en epigastrio empeora en la noche y con la presion, vomito con sangre, sangre en heces",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F18",
+              "combinada": null,
+              "texto": "Ulcera en estomago, carcinoma en el estomago",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A19",
+              "combinada": null,
+              "texto": "Deficiencia de Qii de bazo",
+              "negrita": true,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "B19",
+              "combinada": null,
+              "texto": "dieta desequilibrada, exceso intelectual, preocupaciones, clima humedo, enfermedades cronicas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C19",
+              "combinada": null,
+              "texto": "Vacio ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D19",
+              "combinada": null,
+              "texto": "Palida o normal, flacida, saburra blanca",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E19",
+              "combinada": null,
+              "texto": "inapetencia, falta gustativa, deseo de dulce, distencion abdominal postprandial, cansancio, somnolencia, adema, volund de quedarse acostado, debilidad enl os miembros, cara amarillenta, heces sueltas, claras y finas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F19",
+              "combinada": null,
+              "texto": "astenia, anemia",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A20",
+              "combinada": null,
+              "texto": "Deficiencia de Yang de bazo",
+              "negrita": true,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "B20",
+              "combinada": null,
+              "texto": "dieta desequilibrada (crudos y frios), exposicion excesiva al frio y humedad, deficiencia de ming men",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C20",
+              "combinada": null,
+              "texto": "profundo, debil, lento",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D20",
+              "combinada": null,
+              "texto": "palida, flacida, aumentada, saburra blanca",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E20",
+              "combinada": null,
+              "texto": "inapetencia, atiborrado o pesadez estomacal, cansancio, somnolencia, ganas de quedarse acostado, enroscado, palidez, labios palidos , friolento, miembros debiles y frio, mucosidad y edema, diarrea matinal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F20",
+              "combinada": null,
+              "texto": "diarrea cronica, edema",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A21",
+              "combinada": null,
+              "texto": "Hundimiento de Qi de bazo",
+              "negrita": true,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "B21",
+              "combinada": null,
+              "texto": "Dieta desequilibrada, pasar mucho tiempo de pie, embarazos multiples",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C21",
+              "combinada": null,
+              "texto": "suaves, filiforma, debil",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D21",
+              "combinada": null,
+              "texto": "palida, saburra blanca",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E21",
+              "combinada": null,
+              "texto": "inapetencia, distension abdominal posrprandial, tendencia a la obesidad, astenia, palidez y veetigos, diarrea, urgencia urinaria, sensacion de peso descendenteen abdomen bajo, hemorroides, prolapso del estomago, utero, ano, vejiga",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F21",
+              "combinada": null,
+              "texto": "prolapso de los orgamos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A22",
+              "combinada": null,
+              "texto": "Bazo no controla la sangre",
+              "negrita": true,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "B22",
+              "combinada": null,
+              "texto": "Dieta desequilibrada, muchas preocupaciones, constitucion, despues de enfermedades graves",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C22",
+              "combinada": null,
+              "texto": "debil, filiforme",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D22",
+              "combinada": null,
+              "texto": "palida, saburra variables",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E22",
+              "combinada": null,
+              "texto": "inapetencia, distension abdominal, fatiga, respiracion corta, miembros debiles, palidez, palpitaciones, heces mal formadas, depresion, espitiru debil, tendencia a la obesidad, fragilidad capilar, equimosis, hematuras, melenas, ematemesis, menorragia",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F22",
+              "combinada": null,
+              "texto": "purpuras y hemorragias",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A23",
+              "combinada": null,
+              "texto": "Humedad- Frio en bazo",
+              "negrita": true,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "B23",
+              "combinada": null,
+              "texto": "Exceso de productos lacteos, bebidas y frutas frias, exposicion excesiva a climas frios y humedos, muchos baños",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C23",
+              "combinada": null,
+              "texto": "suave, resbaladizo, lento",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D23",
+              "combinada": null,
+              "texto": "palida, saburra blanca y pegajosa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E23",
+              "combinada": null,
+              "texto": "inapetencia, gusto grasoso  o dulce, poca sed, deseo de bebidas calientes, plenitud, opresion o frio en el torax y el abdomen, friolento, palidez, catarro abundante, leucorrea, peso en la cabeza y en el cuerpo, fatiga y edema, heces mal formadas, nauseas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F23",
+              "combinada": null,
+              "texto": "gastritits cronica, enteritis cronica, leucorrea",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A24",
+              "combinada": null,
+              "texto": "Humedad- Calor en bazo",
+              "negrita": true,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "B24",
+              "combinada": null,
+              "texto": "exceso de lacteos, grasas y azucares, alcohol y alimentos contaminados, exposicion excesiva al clima calido y humedo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C24",
+              "combinada": null,
+              "texto": "suave, resbaladizo, rapido",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D24",
+              "combinada": null,
+              "texto": "roja, saburra amarilla y grasosa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E24",
+              "combinada": null,
+              "texto": "inapetencia, gusto amargo, sed sin gaas de beber, dolor y prenitud abdominal, sensacion de pesadez, acalorado, fiebre, sudor aceitoso, nauseas, vomitos, diarrea fetida y con ardor, orina escasa y oscura, cara y ojos amarillos, prurito, erupciones",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F24",
+              "combinada": null,
+              "texto": "colecistitis aguda, ictericia, hepatitis, impetigo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A25",
+              "combinada": null,
+              "texto": "Deficiencia de Qi de corazon",
+              "negrita": true,
+              "relleno": "FFFF0000"
+            },
+            {
+              "celda": "B25",
+              "combinada": null,
+              "texto": "Vejez, tristeza prolongada, enfermedades hemorragicas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C25",
+              "combinada": null,
+              "texto": "vacio, debil, intermitente",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D25",
+              "combinada": null,
+              "texto": "Palida o normal, flacida, saburra blanca",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E25",
+              "combinada": null,
+              "texto": "palpitaciones, respiracion corta, opresion en torax, fatiga, voz debil, disnea de esfuerzos, sudor espontaneo, rostro palido, apatia",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F25",
+              "combinada": null,
+              "texto": "arritmias, insuficiencias cardiacas, enfermedad cornaria, angnas, neurosis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A26",
+              "combinada": null,
+              "texto": "Deficiencia de Yang de corazon",
+              "negrita": true,
+              "relleno": "FFFF0000"
+            },
+            {
+              "celda": "B26",
+              "combinada": null,
+              "texto": "Vejez, tristeza prolongada, enfermedades hemorragicas, deficiencia cronica de ming men",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C26",
+              "combinada": null,
+              "texto": "profundo, debil",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D26",
+              "combinada": null,
+              "texto": "palida, ligeramente humeda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E26",
+              "combinada": null,
+              "texto": "palpitaciones, fatiga, dolores precordiales, opresion toracica, disnea de esfuerzos, sudor espontaneo, friolento, manos frias, cara palida, brillante",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F26",
+              "combinada": null,
+              "texto": "choque cardiogenico, arritmias, insuficiencias cardiacas, enfermedad cornaria, angnas, neurosis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A27",
+              "combinada": null,
+              "texto": "Colapso de Yang del corazon ",
+              "negrita": true,
+              "relleno": "FFFF0000"
+            },
+            {
+              "celda": "B27",
+              "combinada": null,
+              "texto": "Deficiencia cronica de yang de corazon y riñon",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C27",
+              "combinada": null,
+              "texto": "Escondidao, imperceptible, anudado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D27",
+              "combinada": null,
+              "texto": "palida o purpura",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E27",
+              "combinada": null,
+              "texto": "palpitaciones, falta de aire, respiracion superficial, mente perturbada, sudiracion profusa, fria, miembros frios, cianosis labial, piel blanca, gris, en casos graves coma",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F27",
+              "combinada": null,
+              "texto": "infarto",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A28",
+              "combinada": null,
+              "texto": "Estancamiento de sangre del corazon",
+              "negrita": true,
+              "relleno": "FFFF0000"
+            },
+            {
+              "celda": "B28",
+              "combinada": null,
+              "texto": "Ansiedad, ira, luto, deficiencia severa de Yang, ataque de frio, grandes perdidas de sangre. Agotamiento",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C28",
+              "combinada": null,
+              "texto": "rugoso, de cuerda, anudado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D28",
+              "combinada": null,
+              "texto": "morada",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E28",
+              "combinada": null,
+              "texto": "palpitaciones, arritmias, dolorp recordial tipo puntada, opresion toracica, dolor irradiadohacia brazo izquierdo o el hombro izquierdo, cianosis en labios y las uñas, manos frias",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F28",
+              "combinada": null,
+              "texto": "ateromas coronarios, angina, infarto",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A29",
+              "combinada": null,
+              "texto": "Deficiencia de sangre del corazon",
+              "negrita": true,
+              "relleno": "FFFF0000"
+            },
+            {
+              "celda": "B29",
+              "combinada": null,
+              "texto": "bazo no produce sangre, deficiencia de sangre de higado, agotamiento psiquico, enfermedades cronicas y perdidas de sangre",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C29",
+              "combinada": null,
+              "texto": "filiforme, rugoso, debil",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D29",
+              "combinada": null,
+              "texto": "palida, delgada, seca",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E29",
+              "combinada": null,
+              "texto": "palpitaciones, insomnio, pesadillas, vertigos, vision borrosa, memoria debil, ansiedad, se asusta facilmente, rostro macilento, labios palidos, depresion post-parto",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F29",
+              "combinada": null,
+              "texto": "anemia, cardiopatia, depresion postparto",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A30",
+              "combinada": null,
+              "texto": "Deficiencia de Yin de corazon",
+              "negrita": true,
+              "relleno": "FFFF0000"
+            },
+            {
+              "celda": "B30",
+              "combinada": null,
+              "texto": "ansiedad, agotamiento, enfermedades cronicas, insomnio, consumo exagerado de sal, sudoracion excesiva, deficiencia de yin de riñon",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C30",
+              "combinada": null,
+              "texto": "superficial, vacio y rapido",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D30",
+              "combinada": null,
+              "texto": "roja, agrietada hasta la punta, sin saburra",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E30",
+              "combinada": null,
+              "texto": "palpitaciones, sudoracion nocturna, rubor malar, calor en los cinco centros, insomnio, pesadillas, sueños vividos, se asusta facilmente, memoria debil, inquietud, boca y garganta seca, empeora en la noche",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F30",
+              "combinada": null,
+              "texto": "taquicardia, hipertension, ansiedad, hipertiroidismo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A31",
+              "combinada": null,
+              "texto": "Fuego agitando el corazon",
+              "negrita": true,
+              "relleno": "FFFF0000"
+            },
+            {
+              "celda": "B31",
+              "combinada": null,
+              "texto": "pasiones, estres, emociones reprimidas, ira y ansiedad cronica, fuego de higado por consumo exagerado de crnes rojas, codimentos y alcohol",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C31",
+              "combinada": null,
+              "texto": "Lleno, rapido, rebosante",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D31",
+              "combinada": null,
+              "texto": "roja con la punta mas roja, saburra amarilla",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E31",
+              "combinada": null,
+              "texto": "agitacion, impulsividad, mente inquieta, delirio verbal, insomnios, pesadillas, sed, gusto amargo, aftas, ulceras en lengua y boca, calor, rostro colorado, orina oscura o sangre en orina",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F31",
+              "combinada": null,
+              "texto": "glositis, hipertension, hipertiroidismo, locura",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A32",
+              "combinada": null,
+              "texto": "Flema-Fuego en corazon",
+              "negrita": true,
+              "relleno": "FFFF0000"
+            },
+            {
+              "celda": "B32",
+              "combinada": null,
+              "texto": "Emociones reprimidas, alto consumo de alimentos grasosos y calientes, enfermedades febriles, invasion de calor externo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C32",
+              "combinada": null,
+              "texto": "lleno, rapido, resbaladizo, rebosante o de cuerda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D32",
+              "combinada": null,
+              "texto": "roja, punta mas roja, edematizada, saburra pegajosa, amarilla",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E32",
+              "combinada": null,
+              "texto": "habla incoherente y agresiva, agitacion y confusio mental, risa y llanto descontrolado, comportamiento maniacoy depresion, imsomnio, pesadillas, palpitaciones, opresion toracica, sed, gusto amargo, expectoracion de moco , traqueo de la garganta, rostro rojo, casos graves, afasia, coma",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F32",
+              "combinada": null,
+              "texto": "Epilepsia, histeria, psicosis, manias, secuelas de acv, depresion, obnubilacion mental",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A33",
+              "combinada": null,
+              "texto": "Flema que obstruye corazon",
+              "negrita": true,
+              "relleno": "FFFF0000"
+            },
+            {
+              "celda": "B33",
+              "combinada": null,
+              "texto": "Constitucional, exceso de alimentos crudos, frios y grasos, problemas emocionales",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C33",
+              "combinada": null,
+              "texto": "resbaladizo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D33",
+              "combinada": null,
+              "texto": "edematizada, saburra gruesa y pegajosa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E33",
+              "combinada": null,
+              "texto": "confusion mental, afasia, habla incoherente o enredada, depresion, perdida de la conciencia, estupor, letargo, mirada fija y opaca, vomitos de moco, traqueo en la garganta",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F33",
+              "combinada": null,
+              "texto": "esquizofrenia, epilepsia, afasia, confusion, retraso mental",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A34",
+              "combinada": null,
+              "texto": "Calor lleno en intestino delgado",
+              "negrita": true,
+              "relleno": "FFFF0000"
+            },
+            {
+              "celda": "B34",
+              "combinada": null,
+              "texto": "Consumo exagerado de alimentos calientes (carnes, condimentos, alcohol), inquietud mental, indeterminacion por largo tiempo, fuego de corazon",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C34",
+              "combinada": null,
+              "texto": "rebosante, palido",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D34",
+              "combinada": null,
+              "texto": "roja, punta mas roja, edematizada, saburra amarilla",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E34",
+              "combinada": null,
+              "texto": "inquietud mental, insomnio, ulceras en boca y lengua, dolor de garganta, sordera, dolor abdominal, aumento de la pfrecuencia, y dificultad para orinar, sangre en orina, opresion y calor en el pecho, sed de liquidos frios",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F34",
+              "combinada": null,
+              "texto": "ansiedad, glositis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A35",
+              "combinada": null,
+              "texto": "Obstruccion en el intestino delgado",
+              "negrita": true,
+              "relleno": "FFFF0000"
+            },
+            {
+              "celda": "B35",
+              "combinada": null,
+              "texto": "consumo exagerado de alimentos crudos y frios, estancamiento de Qi de higado por la frustracion y el resentimiento",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C35",
+              "combinada": null,
+              "texto": "profundo, de cuerda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D35",
+              "combinada": null,
+              "texto": "saburra gruesa y blanca",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E35",
+              "combinada": null,
+              "texto": "dolor violento en el abdomen que empeora con la presion, distension abdominal, estreñimiento, vomito, borborigmo, flatulencia",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F35",
+              "combinada": null,
+              "texto": "apendicitis aguda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A36",
+              "combinada": null,
+              "texto": "Intestino delgado deficiente y frio",
+              "negrita": true,
+              "relleno": "FFFF0000"
+            },
+            {
+              "celda": "B36",
+              "combinada": null,
+              "texto": "consumo exagerado de alimentos crudos y frios, deficiencia de yang de bazo y riñon",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C36",
+              "combinada": null,
+              "texto": "profundo, debil y lento",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D36",
+              "combinada": null,
+              "texto": "palida, saburra blanca y fina",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E36",
+              "combinada": null,
+              "texto": "dolor abdomina aliviado por presion y calor, deseo de bebidas calientes, borborigmos, diarrea pastosa, orina clara y abundante, miembros frios",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F36",
+              "combinada": null,
+              "texto": "Verminosis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A37",
+              "combinada": null,
+              "texto": "Humedad calor en vejiga ",
+              "negrita": true,
+              "relleno": "FF4D94D8"
+            },
+            {
+              "celda": "B37",
+              "combinada": null,
+              "texto": "FPE se transforma en calor humedad en el interior, tension emocional",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C37",
+              "combinada": null,
+              "texto": "resbaladizo, rapido, de cuerda posterior izquierda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D37",
+              "combinada": null,
+              "texto": "saburra amarilla, pegajosa, y gruesa en la base",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E37",
+              "combinada": null,
+              "texto": "micciones frecuentes y urgentes, dificultad y ardor al orinar, sangre en orina, orina oscura y turbia, fiebre, caluroso, sed sin ganas de beber, planitud y dolor con pesadez en el vientre bajo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F37",
+              "combinada": null,
+              "texto": "infecciones urinarias, calculo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A38",
+              "combinada": null,
+              "texto": "Humedad frio en vejiga",
+              "negrita": true,
+              "relleno": "FF4D94D8"
+            },
+            {
+              "celda": "B38",
+              "combinada": null,
+              "texto": "Exposicion a humedad y frio externos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C38",
+              "combinada": null,
+              "texto": "resbaladizo, lento, tenso posterior a la izquierda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D38",
+              "combinada": null,
+              "texto": "saburra blanca, pegajosaen la base",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E38",
+              "combinada": null,
+              "texto": "micciones claras, frecuentes y urgentes, orina turbia y clara. Chorro de la orina interrumpido, sensacion de pesadez en vientre bajo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F38",
+              "combinada": null,
+              "texto": "deficiencia de yang de bazo y del riñon predisponen a este patron",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A39",
+              "combinada": null,
+              "texto": "Deficiencia de Yin de riñon",
+              "negrita": true,
+              "relleno": "FF4D94D8"
+            },
+            {
+              "celda": "B39",
+              "combinada": null,
+              "texto": "deficiencia constitucional, exceso sexual, dormir poco y tarde en la noche, enfermedad prolongada, perdida de liquido o sangre",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C39",
+              "combinada": null,
+              "texto": "vacio, rapido",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D39",
+              "combinada": null,
+              "texto": "color normal o rojo, roja y sin saburraen el calor vacio",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E39",
+              "combinada": null,
+              "texto": "lumbago, gonalgia, dolor en los huesos, insomnio, memoria debil, mareo y zumbidos, cansancio, leve ansiedad, caluroso, calor en los cinco entros, rubor malar, sudoracio nocturna, fiebre vespertina, adelgazamiento, sequedad en garganta, boca seca por la noche, constipacion, orina escasa, eyaculacion precoz",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F39",
+              "combinada": null,
+              "texto": "diabetes, tuberculosis pulmoar, sindrome climaterico, artrosis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A40",
+              "combinada": null,
+              "texto": "Deficiencia de Yang de riñon",
+              "negrita": true,
+              "relleno": "FF4D94D8"
+            },
+            {
+              "celda": "B40",
+              "combinada": null,
+              "texto": "debilidad constitucional, edad avanzada, enfermedad cronica, actividad fisica y sexal excesiva, exposicion al frio despues del sexo, deficiencia del bazo con humedad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C40",
+              "combinada": null,
+              "texto": "profundo y debil en la posicion proximal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D40",
+              "combinada": null,
+              "texto": "palida, humeda, marca de dientes",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E40",
+              "combinada": null,
+              "texto": "lumbalgia matinal, rodillas frias y debiles, sensacion de frio lumbar, friolento, palidez, cansancio, apatia, dema en piernas, orina clara y abundante, nicturia, heces blandas, esterilidad en la mujer, impotencia, eyaculacion precoz, esperma frio y sin consistencia, libido baja",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F40",
+              "combinada": null,
+              "texto": "edemas, diarreas cronicas, diarreas cronicas, insuficiencia cardiaca cronica, asma",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A41",
+              "combinada": null,
+              "texto": "Deficiencia de Qi de riñon",
+              "negrita": true,
+              "relleno": "FF4D94D8"
+            },
+            {
+              "celda": "B41",
+              "combinada": null,
+              "texto": "Exceso sexual, edad avanzada, mieso, shock, ansiedad, enfermedades cronicas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C41",
+              "combinada": null,
+              "texto": "sin raiz",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D41",
+              "combinada": null,
+              "texto": "ligeramente palida",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E41",
+              "combinada": null,
+              "texto": "lumbago, debilidad en la espalda y rodillas, audicion disminuido, mareo, zumbido, sordera, dientes sueltos, caida de cabello, falta de energia y ambicion, eyaculacion precoz, nicturia, infecciones urinarias recurrentes",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F41",
+              "combinada": null,
+              "texto": "incontinencia urinaria, nefritis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A42",
+              "combinada": null,
+              "texto": "Deficiencia de esencia de riñon",
+              "negrita": true,
+              "relleno": "FF4D94D8"
+            },
+            {
+              "celda": "B42",
+              "combinada": null,
+              "texto": "Edad avanzada, debilidad hereditria, subnutricio en los niños, actividad sexual excesiva, partos y enfermedades cronicas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C42",
+              "combinada": null,
+              "texto": "profundo y debil, vacio, de tambor",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D42",
+              "combinada": null,
+              "texto": "variable, sin saburra",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E42",
+              "combinada": null,
+              "texto": "problemas en el nacimiento y desarrollo infantil, retardo mental y motor, fragilidad en los huesos, perdida de dientes, poco pelo, zumbido, sordera y amnesia, envejecimiento precoz, embotamiento de espiritu, lumbago, dolor y debilidad en las rodillas, artritis, espermatorrea, esterilidad, hiposexualidad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F42",
+              "combinada": null,
+              "texto": "retraso del desarrollo fisico y mental, enfermedades degenerativas, neurologicas, oseas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A43",
+              "combinada": null,
+              "texto": "Calor en el Pericardio",
+              "negrita": true,
+              "relleno": "FFC00000"
+            },
+            {
+              "celda": "B43",
+              "combinada": null,
+              "texto": "Profundizacion del viento calor, enfermedades febriles",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C43",
+              "combinada": null,
+              "texto": "filiforma y rapido",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D43",
+              "combinada": null,
+              "texto": "roja, seca, sin saburra",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E43",
+              "combinada": null,
+              "texto": "fiebre alto, calor en el cuerpo, pies y manos frias, confusion mental, habla incoherente, delirios, vertigo, manchas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F43",
+              "combinada": null,
+              "texto": "enfermedads infectocontagiosas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A44",
+              "combinada": null,
+              "texto": "Triplerecalentador superior",
+              "negrita": true,
+              "relleno": "FFC00000"
+            },
+            {
+              "celda": "B44",
+              "combinada": null,
+              "texto": "viento calor en el pulmon, calor en el pulmon, calor en pericardio ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C44",
+              "combinada": null,
+              "texto": "gravedad moderada",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E44",
+              "combinada": null,
+              "texto": "fiebre, aversion al frio, dolor de cabeza cronico, dolor de garganta, dolores en el cuerpo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A45",
+              "combinada": null,
+              "texto": "Triplerecalenttador medio",
+              "negrita": true,
+              "relleno": "FFC00000"
+            },
+            {
+              "celda": "B45",
+              "combinada": null,
+              "texto": "Calor del riñon, calor en higado provocando viento, viento vacio en el higado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C45",
+              "combinada": null,
+              "texto": "enfermedad peligrosa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E45",
+              "combinada": null,
+              "texto": "fiebre al final de la tarde y al anochecer, calor en los cinco centros, sudoracion nocturna",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A46",
+              "combinada": null,
+              "texto": "Humedad calor en vesicular biliar",
+              "negrita": true,
+              "relleno": "FF8ED873"
+            },
+            {
+              "celda": "B46",
+              "combinada": null,
+              "texto": "humedad calor externos, exceso de grasas y productos lacteos, ira",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C46",
+              "combinada": null,
+              "texto": "Resbaladizo o de cuerda rapido",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D46",
+              "combinada": null,
+              "texto": "saburra gruesa, amarilla y pegajosa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E46",
+              "combinada": null,
+              "texto": "dlor y plenitud en los flancos, sin apetito, nauseas, vomito, gusto amargo, sed sin ganas de beber, intolerancia a alimentos grasos, piel y esclerotica amarillentos, mareos, acufenos, cuerpo pesado, parestesias en los miembros, pies hinchados, irritado, caluroso, febril, evacuacion irregular, orina oscura y escasa, prurito o picor genital",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F46",
+              "combinada": null,
+              "texto": "orquitis, vaginitis, hepatitis, ictericia, colecistitis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A47",
+              "combinada": null,
+              "texto": "Estancamiento de Qi de higado",
+              "negrita": true,
+              "relleno": "FF47D45A"
+            },
+            {
+              "celda": "B47",
+              "combinada": null,
+              "texto": "Frustracion , resentimiento, contrariedades, irritabilidad, ira reprimida",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C47",
+              "combinada": null,
+              "texto": "de cuerda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D47",
+              "combinada": null,
+              "texto": "color normal, o roj en los laterales",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E47",
+              "combinada": null,
+              "texto": "dolor y distension en hipocondrio y los laterales del torax, opresion toracica, suspiros, humor inestable, depresion ,irritabilidad, dificultad para tragar, estremidades frias, dolores migratorios, tension en trapecios, cervicalgias, menstruacion irregular, dismenorrea, dolor en las mamas, spm",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F47",
+              "combinada": null,
+              "texto": "neurosis, hepatitis cronicas, alteraciones menstruales, faringitis, ronqueras, bocio simple, epilepsia",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A48",
+              "combinada": null,
+              "texto": "Estancamiento de sangre de Higado",
+              "negrita": true,
+              "relleno": "FF47D45A"
+            },
+            {
+              "celda": "B48",
+              "combinada": null,
+              "texto": "Frustracion , resentimiento, contrariedades, irritabilidad, ira reprimida, deficiencia de sangre o Qi y flama, frio o calor",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C48",
+              "combinada": null,
+              "texto": "De cuerda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D48",
+              "combinada": null,
+              "texto": "violacea con laterales morados",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E48",
+              "combinada": null,
+              "texto": "dolor y distension en hipocondrio, dolor abdominal fijo y con puntadas, vomitos de sangre, epistaxis, masas en el abdomen, nodulos musculares, uñas, labios y piel morada, petequias moradas, dismenorrea, coagulos, menstruacion irregular, infertilidad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F48",
+              "combinada": null,
+              "texto": "enfermedad cardiaca, coronaria, accidente cerebro vascular, cancer, desordenes +F52menstruales y complicaciones postparto",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A49",
+              "combinada": null,
+              "texto": "Agitacion de fuego de higado",
+              "negrita": true,
+              "relleno": "FF47D45A"
+            },
+            {
+              "celda": "B49",
+              "combinada": null,
+              "texto": "furia prolongada, ira reprimida, resentimiento, disgusto y contrariedades, exceso de alcohol, frituras, condimentos y carnes rojas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C49",
+              "combinada": null,
+              "texto": "Lleno, rapido, de cuerda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D49",
+              "combinada": null,
+              "texto": "roja (enfasis en laterales), saburra gruesa, amarilla y seca",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E49",
+              "combinada": null,
+              "texto": "cara y ojos rojos, explosiones de furia, insomnio con pesadillas, vertigo, cefalea pulsatil, , acufenos, sordera, otitis purulenta, sed intensa de bebidas heladas, gusto amargo, constipacion, heces secas, orina amarilla oscura, epistaxis, hematemesis y hemoptisis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F49",
+              "combinada": null,
+              "texto": "hipertension, hemorragia urinaria y digestiva, glaucoma, conjuntivitis, jaqueca",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A50",
+              "combinada": null,
+              "texto": "Humedad calor en higado",
+              "negrita": true,
+              "relleno": "FF47D45A"
+            },
+            {
+              "celda": "B50",
+              "combinada": null,
+              "texto": "consumo exagerado de productos lacteos, azucar, grasa, alcohol, ira, humedad calor externos, deficiencia de Qi de bazo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C50",
+              "combinada": null,
+              "texto": "Resbaladizo o de cuerda, rapido",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D50",
+              "combinada": null,
+              "texto": "roja (enfasis en laterales), saburra gruesa, amarilla y pegajosa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E50",
+              "combinada": null,
+              "texto": "distension y ardor en epicondrio y abdomen, inapetencia, nauseas y gusto amargo, cuerpo pesado, febricula, dolor y edema en escroto, lesiones papulosas en los genitales, evacuacion irregular, dificultad, dolor y ardor al orinar, secrecion vaginal amarilla genital, prurito genital",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F50",
+              "combinada": null,
+              "texto": "Esteatosis hepatica, ictericia, hepatitis, colelitiasis, colecistitis, infeccion vaginal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A51",
+              "combinada": null,
+              "texto": "Frio en el canal de higado",
+              "negrita": true,
+              "relleno": "FF47D45A"
+            },
+            {
+              "celda": "B51",
+              "combinada": null,
+              "texto": "invacion de frio externo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C51",
+              "combinada": null,
+              "texto": "profundo, tenso y lento",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D51",
+              "combinada": null,
+              "texto": "palida, saburra banca y humeda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E51",
+              "combinada": null,
+              "texto": "dolor y distension en el abdomen inferior, escroto y testiculos alivianados por el calor, contraccion vaginal, cefalea en el apice, cara palida, mnos y pies frios, vomitos de liquido claro, orina clara y abundante",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F51",
+              "combinada": null,
+              "texto": "varicocele, enfermedades de los testiculos y anexos, hernias inguinoescrotales, dismenorrea",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A52",
+              "combinada": null,
+              "texto": "Deficiencia de sangre en higado ",
+              "negrita": true,
+              "relleno": "FF47D45A"
+            },
+            {
+              "celda": "B52",
+              "combinada": null,
+              "texto": "diatea pobre en proteinas y nutrientes, exceso de actividad fisica, hemorragias, deficiencia de bazo y riñon",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C52",
+              "combinada": null,
+              "texto": "rugoso y filiforme",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D52",
+              "combinada": null,
+              "texto": "palida, mas palida que los laterales, delgada y seca",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E52",
+              "combinada": null,
+              "texto": "rostro y labios palidos, adelgazamiento, mareos, vision turbia, , parestesia en los miembros, calambres, debilidad muscular, insomnio, catalepsia del sueño, uñas quebradizas, cabello y piel secos, depresion y sentimiento de inutilidad, menstruacion escasa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F52",
+              "combinada": null,
+              "texto": "anemia, agotamiento nervioso, hepatitis cronica, enfermedades oculares",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A53",
+              "combinada": null,
+              "texto": "Ascenso de Yang del higado",
+              "negrita": true,
+              "relleno": "FF47D45A"
+            },
+            {
+              "celda": "B53",
+              "combinada": null,
+              "texto": "ira, frustracion y resentimiento por un periodo prolongado, comer con ira y con prisa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C53",
+              "combinada": null,
+              "texto": "de cuerda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D53",
+              "combinada": null,
+              "texto": "roja o escarlata",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E53",
+              "combinada": null,
+              "texto": "cefalea en las sienes, apice o en los ojos, vertigo, rigidez en la nica, acufenos, sordera y vision borrosa, dolor ocular congestivo, boca y garganta seca, insomnio, ansiedad, agitacion, crisis de ira, sensacion de agotamiento",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F53",
+              "combinada": null,
+              "texto": "hipertension, hipertiroidismo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A54",
+              "combinada": null,
+              "texto": "Agitacion de viento del higado",
+              "negrita": true,
+              "relleno": "FF47D45A"
+            },
+            {
+              "celda": "B54",
+              "combinada": null,
+              "texto": "ira, frustracion y resentimiento por un periodo prolongado, comer con ira y con prisa, fiebre alta en enfermedades infecciosas generando calor en sangre, deficiencia de sangre",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C54",
+              "combinada": null,
+              "texto": "variable",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D54",
+              "combinada": null,
+              "texto": "deprende del sindrome precursor, desviada",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E54",
+              "combinada": null,
+              "texto": "temblores, tics, mareos, convulsiones o paralisis, torticolis, rigidez cervical, torpeza en los miembros, perdida del equilibrio, desviacion de los ojos y mirada fija",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F54",
+              "combinada": null,
+              "texto": "convulsiones, meningitis, eclampsia, apoplejia",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        }
+      ],
+      "comentarios": [],
+      "imagenes": [],
+      "imagenes_extraidas": []
+    }
+  ]
+}

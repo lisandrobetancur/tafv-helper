@@ -1,0 +1,7 @@
+- Aconitum
+- Hepar Sulphur
+- Phosphorus
+- Rumex
+- Silicea
+- Causticum
+- Kalium Carbonicum

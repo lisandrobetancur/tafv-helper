@@ -1,0 +1,2676 @@
+{
+  "archivo": "/Users/lisandro/dev/py/tafv-helper/data/fuentes/tratamiento-metabolico/campo-magnetico/hojas/Campo Magnetico.xlsx",
+  "hojas": [
+    {
+      "hoja": "Campo Magnetico",
+      "dimension": "A1:Y136",
+      "bloques": [
+        {
+          "rango": "A1:J59",
+          "filas": 59,
+          "columnas": 10,
+          "densidad": 0.06,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "A1",
+              "combinada": "A1:J1",
+              "texto": "Acciones del Campo Magnetico Polariazante",
+              "negrita": true,
+              "relleno": "FFD9E2F3"
+            },
+            {
+              "celda": "A2",
+              "combinada": "A2:J2",
+              "texto": "Acciones Biologicas del Campo Magnetico",
+              "negrita": true,
+              "relleno": "FF00B0F0"
+            },
+            {
+              "celda": "A3",
+              "combinada": "A3:D4",
+              "texto": "1. Orientación en paralelo de las proteinas de membrana",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "E3",
+              "combinada": "E3:J3",
+              "texto": "Mejora el potencial electrico de la membrana ",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E4",
+              "combinada": "E4:J4",
+              "texto": "Ahorra ATP ( De aquí parten muchos de sus beneficios)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A5",
+              "combinada": "A5:D7",
+              "texto": "2. Acción estimulante de los acidos nucleicos ",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "E5",
+              "combinada": "E5:J5",
+              "texto": "Estimula en la transcripcion de ADN a ARN mensajero para general proteinas ",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E6",
+              "combinada": "E6:J6",
+              "texto": "Activa la dexosirribonucleasa, para que se repliquen rapidamente los acido nucleicos",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E7",
+              "combinada": "E7:J7",
+              "texto": "Sirve para  aumentar la reparación de tejidos, mejora la actividad enzimatica ",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A8",
+              "combinada": "A8:D8",
+              "texto": "3. Aumenta sintesis de proteinas ",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "E8",
+              "combinada": "E8:J8",
+              "texto": "Estimula la enzima desoxirribunucleasa, favoreciendo la sintesis de proteinas ",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A9",
+              "combinada": "A9:D16",
+              "texto": "4. Aumenta el AMP ciclico:  ",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "E9",
+              "combinada": "E9:J16",
+              "texto": "AMP ciclico  es un segundo mensajero, al aumentar la adenil ciclasa aumenta el AMP Ciclico\nAumenta la sintesis nucleica\nAumenta la señalización \n Aumenta los receptores de mebrana\nAumenta la señalización en las membranas celulares\n(Con el tiempo los pacientes necesitan menos dosis  de sus medicamentos)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A17",
+              "combinada": "A17:D25",
+              "texto": "5.Acción en los condrocitos, osteoblastos y condroblastros ",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "E17",
+              "combinada": "E17:J19",
+              "texto": "Estímulos síntesis de proteínas por parte de los ribosomas.\n Estímulo de producción de sustancia osteoide por parte del osteocito",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E20",
+              "combinada": "E20:J21",
+              "texto": "Fibroblastos: Los aumenta - Estimulando el colageno, mejorando la cicatrización",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E22",
+              "combinada": "E22:J23",
+              "texto": "Osteoblastos: Estimula la produccion de osteoblastos, para generar mas hueso\nOsteositos: Los pone en equilibrio ",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E24",
+              "combinada": "E24:J25",
+              "texto": "Osteoclasto: Estimula su proliferación, generando remodelación osea ó disminuye los osteoclastros para evitar que se reabsorba hueso. ",
+              "negrita": true,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A26",
+              "combinada": "A26:D33",
+              "texto": "6. Accion sobre la concentracion intracelular de oxigeno",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "E26",
+              "combinada": "E26:J26",
+              "texto": "“El oxígeno se acumula en aquellos sitios en donde la intensidad del campo magnético es más intensa”",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E27",
+              "combinada": "E27:J30",
+              "texto": "“Como el oxígeno en su forma molecular es paramagnético el campo magnético ejerce una\nacción de migración alineada sobre el oxgeno disuelto en el líquido, ocasionando un cambio en la concentración del elemento dentro de la célula”",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E31",
+              "combinada": "E31:J33",
+              "texto": "“El aumento en la concentración de oxígeno, por mayor intensidad del campo magnético, puede beneficiar a los tejidos isquémicos, con pobre circulación arterial”",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A34",
+              "combinada": "A34:D39",
+              "texto": "7. Accion sobre la microcirculacion",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "E34",
+              "combinada": "E34:J39",
+              "texto": "1. Aumenta el oxido nitrico, aumentando el flujo sanguineo \n2. Mejora el diametro vascular. aumentando la eslasticidad de los capilares  y endotelio\n3. Vasodilatación arteriolar (Baja la presion arterial sistolica) \n4. Micro angiogénesis\n5. Aumenta la velocidad del flujo sanguíneo en los capilares",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A40",
+              "combinada": "A40:D40",
+              "texto": "8. Acción antiinflamatoria",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "E40",
+              "combinada": "E40:J40",
+              "texto": "Disminuye las prostaglandinas, hay menos irritación nerviosa, bajando el dolor",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A41",
+              "combinada": "A41:D52",
+              "texto": "9. Acción antineoplasica coayudante",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "E41",
+              "combinada": "E41:J52",
+              "texto": "Aumenta los linfocitos citotoxicos, Natural killer, FNT alfa\nEn celulas tumorales: retarda desarrollo de celulas tumorales\nDIsminuye la division celular\nDisminuye el potencial mitotico (Funcionan alterando la división celular de las células\n cancerosas, induciendo su muerte (apoptosis)\nMejora el dolor\nMejora quemaduras por radioterapia\nReduciendo la radiorresistencia\nNO CURA, SOLO COADYUVANTE\nNO aumenta la metastasis ",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A53",
+              "combinada": "A53:D53",
+              "texto": "10. Mejora la percepción de dolor ",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "E53",
+              "combinada": "E53:J53",
+              "texto": "Aumenta las prostaglandinas, Aumenta la bradiquininas",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A54",
+              "combinada": "A54:D57",
+              "texto": "11. Hidrolisis de ATP ( Reacción excergonica)",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "E54",
+              "combinada": "E54:J57",
+              "texto": "Se hidroliza  ATP + H2=2 = Forma  ADP + 1 ó 2  iones de fosfato + Energia libre de Gibs\nQie es energia libre disponible para usarse \nLa dieta Baja en Na y rica en K es la que  mas Hidrolisis de ATP produce ",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A58",
+              "combinada": "A58:D58",
+              "texto": "12.  Orientación en paralelo de las membranas",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "E58",
+              "combinada": "E58:J58",
+              "texto": "Esto ahorra energia ( ATP)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A59",
+              "combinada": "A59:D59",
+              "texto": "13. Efecto sobre las neuronas",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "E59",
+              "combinada": "E59:J59",
+              "texto": "Estimula neuronas al rededor de neuronas afectadas por hipoxia (Isquemia)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "L1:R16",
+          "filas": 16,
+          "columnas": 7,
+          "densidad": 0.18,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "L1",
+              "combinada": "L1:R1",
+              "texto": "Indicaciones de los Campos Magneticos Polarizantes",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "L2",
+              "combinada": "L2:M2",
+              "texto": "Categoria",
+              "negrita": true,
+              "relleno": "FF00B0F0"
+            },
+            {
+              "celda": "N2",
+              "combinada": "N2:R2",
+              "texto": "Indicaciones",
+              "negrita": true,
+              "relleno": "FF00B0F0"
+            },
+            {
+              "celda": "L3",
+              "combinada": "L3:M9",
+              "texto": "Indicaciones Menores",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "N3",
+              "combinada": "N3:R3",
+              "texto": "Convalecencia de enfermedades infecciosas prolongadas",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "N4",
+              "combinada": "N4:R4",
+              "texto": "Convalencia de enfermedades agudas graves",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "N5",
+              "combinada": "N5:R5",
+              "texto": "Infecciones respiratorias a repeticion",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "N6",
+              "combinada": "N6:R6",
+              "texto": "Infecciones digestivas a repeticion",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "N7",
+              "combinada": "N7:R7",
+              "texto": "Infecciones urinarias a repeticion",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "N8",
+              "combinada": "N8:R8",
+              "texto": "Infecciones genitales a repeticion",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "N9",
+              "combinada": "N9:R9",
+              "texto": "Deficiencia de mecanismo locales de inmunidad",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L10",
+              "combinada": "L10:M13",
+              "texto": "Indicaciones Mayores",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "N10",
+              "combinada": "N10:R10",
+              "texto": "Enfermedades autoinmunes (LES)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "N11",
+              "combinada": "N11:R11",
+              "texto": "Colagenosis",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "N12",
+              "combinada": "N12:R12",
+              "texto": "Vasculitis",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "N13",
+              "combinada": "N13:R13",
+              "texto": "Trastornos inmunitarios de alta gravedad",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L14",
+              "combinada": "L14:M16",
+              "texto": "Indicaciones Especiales (SIDA)",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "N14",
+              "combinada": "N14:R14",
+              "texto": "Teoricamente promisoria",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "N15",
+              "combinada": "N15:R15",
+              "texto": "Puede considerarse con ozonoterapia IV",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "N16",
+              "combinada": "N16:R16",
+              "texto": "CMP como coadyuvante antiviral",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "T1:U3",
+          "filas": 3,
+          "columnas": 2,
+          "densidad": 0.67,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "T1",
+              "combinada": "T1:U1",
+              "texto": "Ordenamiento der CMP según Etiologia",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "T2",
+              "combinada": "T2:U2",
+              "texto": "Post Operatorio Ortopedico",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "T3",
+              "combinada": null,
+              "texto": "Tipo de Onda",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "U3",
+              "combinada": null,
+              "texto": "Norte o Alterna",
+              "negrita": true,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "W1:Y21",
+          "filas": 21,
+          "columnas": 3,
+          "densidad": 0.6,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "W1",
+              "combinada": "W1:Y1",
+              "texto": "Como formular campos magneticos ",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "W2",
+              "combinada": "W2:W4",
+              "texto": "1.Tipo de campo:",
+              "negrita": true,
+              "relleno": "FFF3F3F3"
+            },
+            {
+              "celda": "X2",
+              "combinada": "X2:Y2",
+              "texto": "General (Aplicación amplia, que cubre gran parte del cuerpo o incluso todo el organismo) regulación general, modulación neurovegetativa, inflamación global, fatiga, trastornos metabólicos.)",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "X3",
+              "combinada": "X3:Y3",
+              "texto": "Focal (Aplicación dirigida a una zona específica del cuerpo.) Se usa cuando hay una lesión localizada: rodilla, columna, hombro, zona dolorosa puntual. (músculo, articulación, hueso).",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "X4",
+              "combinada": "X4:Y4",
+              "texto": "Manual(Aplicación realizada directamente por el terapeuta, colocando imanes o dispositivos con intención terapéutica específica.) puntos dolorosos, trayectos energéticos o zonas reflejas.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "W5",
+              "combinada": "W5:W7",
+              "texto": "2. Número de sesiones: ",
+              "negrita": true,
+              "relleno": "FFF3F3F3"
+            },
+            {
+              "celda": "X5",
+              "combinada": "X5:Y5",
+              "texto": "180 Horas con efecto acumulativo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "X6",
+              "combinada": "X6:Y6",
+              "texto": "Debe ser 2 a 3 veces a la semana ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "X7",
+              "combinada": "X7:Y7",
+              "texto": "Minimo 2 horas por sesión",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "W8",
+              "combinada": "W8:W10",
+              "texto": "3. Polaridad: ",
+              "negrita": true,
+              "relleno": "FFF3F3F3"
+            },
+            {
+              "celda": "X8",
+              "combinada": null,
+              "texto": "Positiva / Norte: ",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "Y8",
+              "combinada": null,
+              "texto": "Antinflamatorio, Analgésico",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "X9",
+              "combinada": null,
+              "texto": "Negativo/ Sur: ",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "Y9",
+              "combinada": null,
+              "texto": "Estimulante, Regenera/estimulante. Contraindicación absoluta: cáncer ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "X10",
+              "combinada": null,
+              "texto": "Alterna:",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "Y10",
+              "combinada": null,
+              "texto": "Enfermedades cronicas y autoinmunes",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "W11",
+              "combinada": "W11:W12",
+              "texto": "4. Intensidad:",
+              "negrita": true,
+              "relleno": "FFF3F3F3"
+            },
+            {
+              "celda": "X11",
+              "combinada": "X11:X12",
+              "texto": "100 - 200 Gauss\n1Tesla = 10.000 Gaus",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Y11",
+              "combinada": null,
+              "texto": "Baja intensidad: 10-40 Gaus Procesos  inflamatorios , T. Blandos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Y12",
+              "combinada": null,
+              "texto": "Alta intesnsidad: 50 a 100 Gauss, Consolidación osea, Tejidos profundos ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "W13",
+              "combinada": "W13:W15",
+              "texto": "5. Frecuencia:",
+              "negrita": true,
+              "relleno": "FFF3F3F3"
+            },
+            {
+              "celda": "X13",
+              "combinada": "X13:Y13",
+              "texto": "1 a 100 Herz, NORMALMENTE SE ENVIA 30 o 40 Hz, Baja Intensidad: 1 a 0h",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "X14",
+              "combinada": null,
+              "texto": "Frecuencias bajas:",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Y14",
+              "combinada": null,
+              "texto": "1 a 25 Herz: \nBioestimulante\nRegeneración de tejidos \nFijación osea / Bajos hasta 40 para dolor ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "X15",
+              "combinada": null,
+              "texto": "Frecuencias alta:",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Y15",
+              "combinada": null,
+              "texto": "40 a 60 herz:\nAnalgesico\nAntiinflamatorio / Alta  mayor de 40, \npara regeneración de tejidos ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "W16",
+              "combinada": "W16:W18",
+              "texto": "6. Forma de onda",
+              "negrita": true,
+              "relleno": "FFF3F3F3"
+            },
+            {
+              "celda": "X16",
+              "combinada": null,
+              "texto": "Sinosoidal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Y16",
+              "combinada": null,
+              "texto": "Relajación y dolor",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "X17",
+              "combinada": null,
+              "texto": "Cuadrada",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Y17",
+              "combinada": null,
+              "texto": "Regeneración celular estimulación de ac nucleicos ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "X18",
+              "combinada": null,
+              "texto": "Triangular ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Y18",
+              "combinada": null,
+              "texto": "Modulacion del dolor, relajacion muscular, estimulacion progresiva, mejor tolerancia en pacientes sensibles, La onda triangular no “golpea”, sino que “acompaña” al tejido",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "W19",
+              "combinada": "W19:W20",
+              "texto": "Contraindicación:",
+              "negrita": true,
+              "relleno": "FFF3F3F3"
+            },
+            {
+              "celda": "X19",
+              "combinada": null,
+              "texto": "Marcapasos ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "X20",
+              "combinada": null,
+              "texto": "Embarazo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "W21",
+              "combinada": null,
+              "texto": "Indicaciones:",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "X21",
+              "combinada": "X21:Y21",
+              "texto": "Convalencia de enfermedades infecciosas prolongadas\nEnmermedades agudas que hayan tenido una agrvaciónn( ya en el periodo convalenciente) \nLES - SIDA",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "T5:U8",
+          "filas": 4,
+          "columnas": 2,
+          "densidad": 0.88,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "T5",
+              "combinada": "T5:U5",
+              "texto": "Osteoartrosis degenerativa",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "T6",
+              "combinada": null,
+              "texto": "Onda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U6",
+              "combinada": null,
+              "texto": "Norte, sur o alterna",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T7",
+              "combinada": null,
+              "texto": "Tiempo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U7",
+              "combinada": null,
+              "texto": "100 horas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T8",
+              "combinada": null,
+              "texto": "Tiempo mínimo de exposición",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U8",
+              "combinada": null,
+              "texto": "1 hora",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "T10:U13",
+          "filas": 4,
+          "columnas": 2,
+          "densidad": 0.88,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "T10",
+              "combinada": "T10:U10",
+              "texto": "IAM en tratamientos agudos",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "T11",
+              "combinada": null,
+              "texto": "Onda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U11",
+              "combinada": null,
+              "texto": "Sur o alterna",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T12",
+              "combinada": null,
+              "texto": "Tiempo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U12",
+              "combinada": null,
+              "texto": "40 horas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T13",
+              "combinada": null,
+              "texto": "Tiempo mínimo de exposición",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U13",
+              "combinada": null,
+              "texto": "1 hora",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "T15:U18",
+          "filas": 4,
+          "columnas": 2,
+          "densidad": 0.88,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "T15",
+              "combinada": "T15:U15",
+              "texto": "Insuficiencia cardiaca",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "T16",
+              "combinada": null,
+              "texto": "Onda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U16",
+              "combinada": null,
+              "texto": "Alterna",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T17",
+              "combinada": null,
+              "texto": "Tiempo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U17",
+              "combinada": null,
+              "texto": "30 horas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T18",
+              "combinada": null,
+              "texto": "Tiempo mínimo de exposición",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U18",
+              "combinada": null,
+              "texto": "1 hora",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "L18:R30",
+          "filas": 13,
+          "columnas": 7,
+          "densidad": 0.38,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "L18",
+              "combinada": "L18:R18",
+              "texto": "Polaridad de los Campos Magneticos",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "L19",
+              "combinada": null,
+              "texto": "Polo",
+              "negrita": true,
+              "relleno": "FF00B0F0"
+            },
+            {
+              "celda": "M19",
+              "combinada": "M19:N19",
+              "texto": "Acciones Principales",
+              "negrita": true,
+              "relleno": "FF00B0F0"
+            },
+            {
+              "celda": "O19",
+              "combinada": "O19:P19",
+              "texto": "Indicaciones Clinicas",
+              "negrita": true,
+              "relleno": "FF00B0F0"
+            },
+            {
+              "celda": "Q19",
+              "combinada": "Q19:R19",
+              "texto": "Efectos Fisiologicos",
+              "negrita": true,
+              "relleno": "FF00B0F0"
+            },
+            {
+              "celda": "L20",
+              "combinada": "L20:L23",
+              "texto": "Polo +\n(Norte)",
+              "negrita": true,
+              "relleno": "FFFF0000"
+            },
+            {
+              "celda": "M20",
+              "combinada": "M20:N20",
+              "texto": "Antiinflamatorio",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "O20",
+              "combinada": "O20:P20",
+              "texto": "Dolor articular",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q20",
+              "combinada": "Q20:R20",
+              "texto": "Reduce inflamacion",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "M21",
+              "combinada": "M21:N21",
+              "texto": "Analgesico",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "O21",
+              "combinada": "O21:P21",
+              "texto": "Artrosis/Artritis",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q21",
+              "combinada": "Q21:R21",
+              "texto": "Disminuye dolor",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "M22",
+              "combinada": "M22:N22",
+              "texto": "Desedematizante",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "O22",
+              "combinada": "O22:P22",
+              "texto": "Fibromialgia",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q22",
+              "combinada": "Q22:R22",
+              "texto": "Estabiliza cargas",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "M23",
+              "combinada": "M23:N23",
+              "texto": "Manejo del dolor",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "O23",
+              "combinada": "O23:P23",
+              "texto": "Tendinitis",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q23",
+              "combinada": "Q23:R23",
+              "texto": "Favorece drenaje",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L24",
+              "combinada": "L24:L26",
+              "texto": "Polo -\n(Sur)",
+              "negrita": true,
+              "relleno": "FF0070C0"
+            },
+            {
+              "celda": "M24",
+              "combinada": "M24:N24",
+              "texto": "Estimulante",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "O24",
+              "combinada": "O24:P24",
+              "texto": "Fracturas/Osteoporosis",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q24",
+              "combinada": "Q24:R24",
+              "texto": "Regeneracion",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "M25",
+              "combinada": "M25:N25",
+              "texto": "Regenerador tisular",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "O25",
+              "combinada": "O25:P25",
+              "texto": "Paralisis facial (Bell)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q25",
+              "combinada": "Q25:R25",
+              "texto": "Aumenta irrigacion",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "M26",
+              "combinada": "M26:N26",
+              "texto": "Activa metabolismo celular",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "O26",
+              "combinada": "O26:P26",
+              "texto": "PostQx- Cicatrizacion",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q26",
+              "combinada": "Q26:R26",
+              "texto": "Activa el ATP",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L27",
+              "combinada": "L27:L30",
+              "texto": "Onda Alterna",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "M27",
+              "combinada": "M27:N30",
+              "texto": "Efecto combinado\nRegulacion profunda tisular",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "O27",
+              "combinada": "O27:P27",
+              "texto": "IAM post-agudo",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "Q27",
+              "combinada": "Q27:R30",
+              "texto": "Homeostasis\nBalance de polaridades",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "O28",
+              "combinada": "O28:P28",
+              "texto": "ICC",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "O29",
+              "combinada": "O29:P29",
+              "texto": "HTA",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "O30",
+              "combinada": "O30:P30",
+              "texto": "Artritis reumatoide",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "T20:U24",
+          "filas": 5,
+          "columnas": 2,
+          "densidad": 0.9,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "T20",
+              "combinada": "T20:U20",
+              "texto": "Artritis reumatoide",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "T21",
+              "combinada": null,
+              "texto": "Onda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U21",
+              "combinada": null,
+              "texto": "Norte o alterna",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T22",
+              "combinada": null,
+              "texto": "Tiempo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U22",
+              "combinada": null,
+              "texto": "30 horas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T23",
+              "combinada": null,
+              "texto": "Tiempo mínimo de exposición",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U23",
+              "combinada": null,
+              "texto": "1 hora",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T24",
+              "combinada": null,
+              "texto": "Número de días",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U24",
+              "combinada": null,
+              "texto": "30 días",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "T26:U30",
+          "filas": 5,
+          "columnas": 2,
+          "densidad": 0.9,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "T26",
+              "combinada": "T26:U26",
+              "texto": "Osteoporosis",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "T27",
+              "combinada": null,
+              "texto": "Onda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U27",
+              "combinada": null,
+              "texto": "Sur o alterna",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T28",
+              "combinada": null,
+              "texto": "Tiempo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U28",
+              "combinada": null,
+              "texto": "150 horas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T29",
+              "combinada": null,
+              "texto": "Tiempo mínimo de exposición",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U29",
+              "combinada": null,
+              "texto": "1 hora",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T30",
+              "combinada": null,
+              "texto": "Número de días",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U30",
+              "combinada": null,
+              "texto": "150 días",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "T32:U35",
+          "filas": 4,
+          "columnas": 2,
+          "densidad": 0.88,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "T32",
+              "combinada": "T32:U32",
+              "texto": " Fracturas",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "T33",
+              "combinada": null,
+              "texto": "Onda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U33",
+              "combinada": null,
+              "texto": "Sur o alterno",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T34",
+              "combinada": null,
+              "texto": "Tiempo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U34",
+              "combinada": null,
+              "texto": "20 horas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T35",
+              "combinada": null,
+              "texto": "Tiempo mínimo de exposición",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U35",
+              "combinada": null,
+              "texto": "2 horas",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "T37:U40",
+          "filas": 4,
+          "columnas": 2,
+          "densidad": 0.88,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "T37",
+              "combinada": "T37:U37",
+              "texto": "Necrosis de fémur o tibia",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "T38",
+              "combinada": null,
+              "texto": "Onda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U38",
+              "combinada": null,
+              "texto": "Sur o alterno",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T39",
+              "combinada": null,
+              "texto": "Tiempo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U39",
+              "combinada": null,
+              "texto": "150 horas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T40",
+              "combinada": null,
+              "texto": "Tiempo mínimo de exposición",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U40",
+              "combinada": null,
+              "texto": "1 hora",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "T42:U45",
+          "filas": 4,
+          "columnas": 2,
+          "densidad": 0.88,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "T42",
+              "combinada": "T42:U42",
+              "texto": "Colagenosis",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "T43",
+              "combinada": null,
+              "texto": "Onda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U43",
+              "combinada": null,
+              "texto": "Norte o alterno",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T44",
+              "combinada": null,
+              "texto": "Tiempo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U44",
+              "combinada": null,
+              "texto": "70 horas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T45",
+              "combinada": null,
+              "texto": "Tiempo mínimo de exposición",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U45",
+              "combinada": null,
+              "texto": "1 hora",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "T47:U50",
+          "filas": 4,
+          "columnas": 2,
+          "densidad": 0.88,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "T47",
+              "combinada": "T47:U47",
+              "texto": "Dolores articulares",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "T48",
+              "combinada": null,
+              "texto": "Onda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U48",
+              "combinada": null,
+              "texto": "Norte o alterno",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T49",
+              "combinada": null,
+              "texto": "Tiempo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U49",
+              "combinada": null,
+              "texto": "Según criterio medico (según la Dra. Claudia Delgado 15 días seguidos)",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T50",
+              "combinada": null,
+              "texto": "Tiempo mínimo de exposición",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U50",
+              "combinada": null,
+              "texto": "10 minutos (o criterio medico)",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "T52:U56",
+          "filas": 5,
+          "columnas": 2,
+          "densidad": 0.9,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "T52",
+              "combinada": "T52:U52",
+              "texto": "Fibromialgia",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "T53",
+              "combinada": null,
+              "texto": "Onda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U53",
+              "combinada": null,
+              "texto": "Norte o alterna",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T54",
+              "combinada": null,
+              "texto": "Tiempo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U54",
+              "combinada": null,
+              "texto": "20 horas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T55",
+              "combinada": null,
+              "texto": "Tiempo mínimo de exposición",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U55",
+              "combinada": null,
+              "texto": "2 horas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T56",
+              "combinada": null,
+              "texto": "Número de días",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U56",
+              "combinada": null,
+              "texto": "10 días",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "L53:R136",
+          "filas": 84,
+          "columnas": 7,
+          "densidad": 0.09,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "L53",
+              "combinada": "L53:R53",
+              "texto": "Tips de Tratamiento Metabolico-Campos Mageneticos",
+              "negrita": true,
+              "relleno": "FF92D050"
+            },
+            {
+              "celda": "L54",
+              "combinada": "L54:N54",
+              "texto": "Horas de exposicion CMP",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "O54",
+              "combinada": "O54:R54",
+              "texto": "Hasta 180 horas de exposicion",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L55",
+              "combinada": "L55:N55",
+              "texto": "Hora minimo de exposicion a CMP",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "O55",
+              "combinada": "O55:R55",
+              "texto": "1 a 2 horas (estandar 2 horas)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L56",
+              "combinada": "L56:N56",
+              "texto": "Horas maximo de exposicion dia",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "O56",
+              "combinada": "O56:R56",
+              "texto": "6 horas (no exceder las 6 horas en el dia)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L57",
+              "combinada": "L57:N57",
+              "texto": "Intensidad de CMP",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "O57",
+              "combinada": "O57:R57",
+              "texto": "100 a 200 Gaus (no exceder los 200 gaus)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L58",
+              "combinada": "L58:N58",
+              "texto": "Frecuencia de CMP",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "O58",
+              "combinada": "O58:R58",
+              "texto": "1 a 100 Hertz",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L59",
+              "combinada": "L59:N59",
+              "texto": "En caso de mucho dolor la frecuencia",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "O59",
+              "combinada": "O59:R59",
+              "texto": "30 a 40 Hertz",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L60",
+              "combinada": "L60:N60",
+              "texto": "Polaridad positiva",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "O60",
+              "combinada": "O60:R60",
+              "texto": "Analgesia",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L61",
+              "combinada": "L61:N61",
+              "texto": "Polaridad negativa",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "O61",
+              "combinada": "O61:R61",
+              "texto": "Estimula",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L62",
+              "combinada": "L62:N62",
+              "texto": "Onda alternante",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "O62",
+              "combinada": "O62:R62",
+              "texto": "Es combinado, es el mas utilizado",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L63",
+              "combinada": "L63:N63",
+              "texto": "1 Teslas",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "O63",
+              "combinada": "O63:R63",
+              "texto": "10.000 Gaus",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L64",
+              "combinada": "L64:N67",
+              "texto": "Energia libre de Gibbs",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "O64",
+              "combinada": "O64:R67",
+              "texto": "Es la cantidad de energía disponible en un sistema para realizar trabajo útil.\nΔG < 0 → ocurre espontáneamente\nΔG > 0 → no ocurre sin aporte de energía",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L68",
+              "combinada": "L68:N79",
+              "texto": "Que hace el CMP",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "O68",
+              "combinada": "O68:R79",
+              "texto": "Un campo magnético actúa sobre cargas eléctricas y sistemas biológicos modulando su comportamiento.\nEn lo esencial:\nInfluye en el movimiento de electrones e iones\nPuede modificar reacciones químicas (incluyendo algunas metabólicas)\nEn tejidos: favorece microcirculación, modula inflamación y puede tener efecto analgésico",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L80",
+              "combinada": "L80:N86",
+              "texto": "Evento fisiopatologicos en inflamacion",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "O80",
+              "combinada": "O80:R86",
+              "texto": "❖Edema y disociación de la dermis\n❖ Infiltrado de polimorfonucleares\n❖ Fragmentación de fibras colágenas y elásticas\n❖ Edema del endotelio, disociación de la media y necrosis fibrinoide.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L87",
+              "combinada": "L87:N90",
+              "texto": "Entalpia",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "O87",
+              "combinada": "O87:R90",
+              "texto": "Concepto termodinamico que describe la energía total de un sistema incluye la energía interna y la energía asociada con presión y volumen. (energía almacenada en el sistema)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L91",
+              "combinada": "L91:N94",
+              "texto": "Entropia",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "O91",
+              "combinada": "O91:R94",
+              "texto": "Concepto termodinamico se refiere a la medida del desorden o aleatoriedad del sistema",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L95",
+              "combinada": "L95:N103",
+              "texto": "Paramagnéticas \n(aire, magnesio, aluminio, titanio, wolframio, litio, oxigeno\nferritina, transferrina, ceruloplasmina, citocromos, catalasa, peroxidasa, superóxido dismutasa)\n",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "O95",
+              "combinada": "O95:R103",
+              "texto": "Atraviesa algunas líneas de flujo (medianamente magnéticos), tienen permeabilidad magnética mayor que en el vacío, se alinean con el campo magnético, pierden sus propiedades magnéticas cuando se elimina el CM externo, la magnetización es directamente proporcional al CM aplicado, disminuye a medida que aumenta la temperatura ",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L104",
+              "combinada": "L104:N111",
+              "texto": "Diamagnéticas\n(mayoría de proteínas, membranas celulares, agua, carbono, calcio, sodio) ",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "O104",
+              "combinada": "O104:R111",
+              "texto": "Repelen a todas las líneas de flujo (débilmente magnéticos) - todos los electrones están emparejados- susceptibilidad magnética negativa (oposición débil) - la fuerza repelente es proporcional a la intensidad del campo - independiente de temperatura ",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L112",
+              "combinada": "L112:N120",
+              "texto": "Ferromagnéticas\n(hierro, cobalto, níquel, hemoglobina)",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "O112",
+              "combinada": "O112:R120",
+              "texto": "Atraviesan todas las líneas de flujo (altamente magnéticos), electrones desapareados: momento magnético: todas las líneas del campo atraviesa, se ven fácilmente influenciados por un campo magnético externo: alineación atómica, magnetismo prolongado: incluso después de que se eliminen el CM externo, dependiente de temperatura",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L121",
+              "combinada": "L121:N126",
+              "texto": "Cual es el efecto de CMP en el oxigeno",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "O121",
+              "combinada": "O121:R126",
+              "texto": "Mejora la utilización de oxígeno a nivel celular – ejerce una acción de migración alineada sobre el oxígeno-aumenta la presión parcial de oxigeno",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L127",
+              "combinada": "L127:N129",
+              "texto": "Tratamiento Metabolico",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "O127",
+              "combinada": "O127:R129",
+              "texto": "Dieta- ejercicio- campos magneticos- solucion polarizante",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L130",
+              "combinada": "L130:N130",
+              "texto": "Contraindicacion Absoluta CMP",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "O130",
+              "combinada": "O130:R130",
+              "texto": "Marcapaso",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L131",
+              "combinada": "L131:N131",
+              "texto": "Contraindicacion Relativa",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "O131",
+              "combinada": "O131:R131",
+              "texto": "Embarazo, hemorragia activa, Tumores no controlados",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L132",
+              "combinada": "L132:N132",
+              "texto": "Activadores del Metabolismo",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "O132",
+              "combinada": "O132:R132",
+              "texto": "Sodio, Magnesio, Potasio, Calcio, ADP",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L133",
+              "combinada": "L133:N133",
+              "texto": "Inhibidores del Metabolismo",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "O133",
+              "combinada": "O133:R133",
+              "texto": "ATP",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L134",
+              "combinada": "L134:N134",
+              "texto": "Celulas Labiles a CMP",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "O134",
+              "combinada": "O134:R134",
+              "texto": "Tejido oseo, celulas nerviosas, fibroblastos",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L135",
+              "combinada": "L135:N135",
+              "texto": "Mejor Hidrolisis de ATP",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "O135",
+              "combinada": "O135:R135",
+              "texto": "La dieta",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L136",
+              "combinada": "L136:N136",
+              "texto": "En que enfermedades no CMP",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "O136",
+              "combinada": "O136:R136",
+              "texto": "Enfermedades agudas, asma y SAHOS",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "T58:U62",
+          "filas": 5,
+          "columnas": 2,
+          "densidad": 0.9,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "T58",
+              "combinada": "T58:U58",
+              "texto": "Parálisis facial",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "T59",
+              "combinada": null,
+              "texto": "Onda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U59",
+              "combinada": null,
+              "texto": "Norte inicialmente (75 a 100 horas), luego sur o alterna",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T60",
+              "combinada": null,
+              "texto": "Tiempo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U60",
+              "combinada": null,
+              "texto": "150 horas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T61",
+              "combinada": null,
+              "texto": "Tiempo mínimo de exposición",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U61",
+              "combinada": null,
+              "texto": "3 horas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T62",
+              "combinada": null,
+              "texto": "Número de días",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U62",
+              "combinada": null,
+              "texto": "50 días",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "A61:J130",
+          "filas": 70,
+          "columnas": 10,
+          "densidad": 0.08,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "A61",
+              "combinada": "A61:J61",
+              "texto": "Tratamiento Metabolico",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "A62",
+              "combinada": "A62:D63",
+              "texto": "1. Sobre la inmunidad",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "E62",
+              "combinada": "E62:J62",
+              "texto": "Sistema Celular: Celulas",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E63",
+              "combinada": "E63:J63",
+              "texto": "Sistema Humoral: Inmunidad",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A64",
+              "combinada": "A64:D71",
+              "texto": "Sistema Celular",
+              "negrita": true,
+              "relleno": "FFFBE4D5"
+            },
+            {
+              "celda": "E64",
+              "combinada": "E64:J64",
+              "texto": "ACP (Celulas presentadoras de antigeno) Macrogafos y Neutrofilos",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E65",
+              "combinada": "E65:J65",
+              "texto": "Linfocitos CD4-CD8-APC- Linfocitos B",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E66",
+              "combinada": "E66:J66",
+              "texto": "Linfocitos T (NK)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E67",
+              "combinada": "E67:J67",
+              "texto": "Endotelio: ILAMS-ICAMS: Activan sistema inmunologico",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E68",
+              "combinada": "E68:J68",
+              "texto": "Activan Fagocitosis",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E69",
+              "combinada": "E69:J69",
+              "texto": "Acciones de ATP en transporte interno de sustancias y de movimiento celular",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E70",
+              "combinada": "E70:J70",
+              "texto": "Ahorro energetico",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E71",
+              "combinada": "E71:J71",
+              "texto": "Se falicita la quimiotaxis",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A72",
+              "combinada": "A72:D75",
+              "texto": "Inmunidad Humoral",
+              "negrita": true,
+              "relleno": "FFFBE4D5"
+            },
+            {
+              "celda": "E72",
+              "combinada": "E72:J72",
+              "texto": "Actua sobre la inmunidad del paciente (Producción de inmunoglobulinas)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E73",
+              "combinada": "E73:J73",
+              "texto": "Ahorro energetico de ATP (Un mecanismo esencial para mejorar la fagocitosis mediante magnetoterapia )",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E74",
+              "combinada": "E74:J75",
+              "texto": "Aumenta la formacion de proteinas: Por parte de los ribosomas, factor de complemento, interferon, interluquinas y otros mediadores de inmunidad",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A76",
+              "combinada": "A76:D85",
+              "texto": "2. Accion antineoplasica",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "E76",
+              "combinada": "E76:J76",
+              "texto": "Estímulo de linfocitos T citotóxicos y NK",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E77",
+              "combinada": "E77:J77",
+              "texto": "Mejora la patología colateral y efectos secundarios",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E78",
+              "combinada": "E78:J78",
+              "texto": "Mejora el dolor y reduce alguna de sus complicaciones",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E79",
+              "combinada": "E79:J79",
+              "texto": "Disminucion de las fases mitosicas",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E80",
+              "combinada": "E80:J80",
+              "texto": "Retarda el desarrollo del cancer",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E81",
+              "combinada": "E81:J81",
+              "texto": "Altera las superficies del tumor",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E82",
+              "combinada": "E82:J82",
+              "texto": "Aumenta la quimiotaxis, el englobamiento y la digestión intracelular",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E83",
+              "combinada": "E83:J84",
+              "texto": " Util en pacientes mastectomizadas, reduce formación de metástasis, mejora periartitis postoperatoria y reduce esclerosis conectiva",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E85",
+              "combinada": "E85:J85",
+              "texto": "Ayuda a reducir complicaciones de quimioterapia como flebitis y neuritis.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A86",
+              "combinada": "A86:D90",
+              "texto": "3. Accion anti-inflamatoria",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "E86",
+              "combinada": "E86:J86",
+              "texto": "Se utiliza en edemas, contusion, esguinces deportivos",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E87",
+              "combinada": "E87:J87",
+              "texto": "Dermatosis: Alergicas, dermatitis, psoriasiforme (agudizada)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E88",
+              "combinada": "E88:J88",
+              "texto": "Artritis reumatoide, Seudoartrosis (sobredistension fascio muscular)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E89",
+              "combinada": "E89:J89",
+              "texto": "Procesos virales anti-inflamatorios (Hepatitis, glomerulonefrosis aguda, EPI Cronica",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E90",
+              "combinada": "E90:J90",
+              "texto": "Ayuda a mejorar la genesis y umbral del dolor",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A91",
+              "combinada": "A91:D130",
+              "texto": "4. Acciones sobre el crecimiento",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "E91",
+              "combinada": "E91:J91",
+              "texto": "Estimula el crecimiento en niños y adolescentes de baja estatura",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E92",
+              "combinada": "E92:J92",
+              "texto": "Piel",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "E93",
+              "combinada": "E93:J98",
+              "texto": "Accion sobre la cicatrizacion. Aumenta la disponibilidad de ATP para la sintesis de proteinas\nAumeta la velocidad de la sinstesis de ADN y RNA\nAccion estimulante de los fibroblastos\nSe usa en ulceras varicosas\nSeccion: diaria, exposicion: 1 hora",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E99",
+              "combinada": "E99:J99",
+              "texto": "Hueso",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "E100",
+              "combinada": "E100:J107",
+              "texto": "Hueso: Aumenta la formacion de callo oseo (permite alineacion)\nAyuda a ahorrar ATP\nEstimulo de osteoblastos por la formacion de sustancia osteoide\nEstimulo de la fijacion de calcio por parte de la sustancia osteoide\nEstimula a la formacion de ADN\nEstimula la formacion de los ARN mensajeros, T y Ribosomicos",
+              "negrita": true,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E108",
+              "combinada": "E108:J108",
+              "texto": "Articular (AR o Osteoartritis)",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "E109",
+              "combinada": "E109:J109",
+              "texto": "Disminuir la dosis del medicamento",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E110",
+              "combinada": "E110:J110",
+              "texto": "Estimulo del condroblasto para producir matriz cartilaginosa y mayor numero de condrocitos",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E111",
+              "combinada": "E111:J111",
+              "texto": "Nueva formacion de cartilago",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E112",
+              "combinada": "E112:J112",
+              "texto": "Disminuye la irritacion mecanica (superficies sin cartilago, sonovial vellosidad intrarticular y capsula articular)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E113",
+              "combinada": "E113:J113",
+              "texto": "Preserva la morfologia articular",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E114",
+              "combinada": "E114:J114",
+              "texto": "Retarda el desarrollo de lesion osteoarticular",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E115",
+              "combinada": "E115:J115",
+              "texto": "Disminuye presencia de AC antiproteoglicanos (colagenasa y estiromilisima) en la matriz gelatinosa dañada",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E116",
+              "combinada": "E116:J116",
+              "texto": "Sistema Nevioso",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "E117",
+              "combinada": "E117:J117",
+              "texto": "Tratamiento en manejo de secuelas motoras: Isquemia (ACV) infarto, Herida quirurgica)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E118",
+              "combinada": "E118:J118",
+              "texto": "Tratamiento en neuritis (Tronculares), paralisis de Bell",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E119",
+              "combinada": "E119:J119",
+              "texto": "Accion anti-inflamatoria: Estimula energeticamente la celula por vecindad",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E120",
+              "combinada": "E120:J120",
+              "texto": "Sistema Circulatorio",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "E121",
+              "combinada": "E121:J121",
+              "texto": "Estimula microcirculacion (antianoxica)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E122",
+              "combinada": "E122:J130",
+              "texto": "Aplicación terapeutica:\n1. IAM\n2. Isquemia a repeticion\n3. Coadyuvante en HTA severa\n4. Isquemia cerebral (HTA-Aterosclerosis)\nMarcha claudicante\nInsuficiencia arterial periferica",
+              "negrita": false,
+              "relleno": "FFE2EFD9"
+            }
+          ]
+        },
+        {
+          "rango": "T64:U67",
+          "filas": 4,
+          "columnas": 2,
+          "densidad": 0.88,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "T64",
+              "combinada": "T64:U64",
+              "texto": "Hipertensión arterial",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "T65",
+              "combinada": null,
+              "texto": "Onda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U65",
+              "combinada": null,
+              "texto": "Alterna",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T66",
+              "combinada": null,
+              "texto": "Tiempo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U66",
+              "combinada": null,
+              "texto": "30 horas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T67",
+              "combinada": null,
+              "texto": "Tiempo mínimo de exposición",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U67",
+              "combinada": null,
+              "texto": "1 hora",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "T69:U73",
+          "filas": 5,
+          "columnas": 2,
+          "densidad": 0.9,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "T69",
+              "combinada": "T69:U69",
+              "texto": "Tratamiento para el Cancer",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "T70",
+              "combinada": null,
+              "texto": "Onda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U70",
+              "combinada": null,
+              "texto": "Norte",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T71",
+              "combinada": null,
+              "texto": "Tiempo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U71",
+              "combinada": null,
+              "texto": "180 horas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T72",
+              "combinada": null,
+              "texto": "Tiempo minimo de exposicion",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U72",
+              "combinada": null,
+              "texto": "1 horas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "T73",
+              "combinada": null,
+              "texto": "Tiempo en horas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "U73",
+              "combinada": null,
+              "texto": "2 horas",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        }
+      ],
+      "comentarios": [
+        {
+          "celda": "W13",
+          "autor": "Luis fernando Lenis",
+          "texto": "Cuando esta muy desvitalizado, puede producir mucho cansancio\n y dolor de cabeza, en esos pacientes se puede poner el de 100 Gauss\npolaridad positiva, frecuencias bajas . \nEj: Lupus : 200 gaus, 60 hertz , polaridad positiva"
+        },
+        {
+          "celda": "L20",
+          "autor": "Luis fernando Lenis",
+          "texto": "Disminuye la inflamacion, el edema y aumenta el control mitotico"
+        },
+        {
+          "celda": "L27",
+          "autor": "Luis fernando Lenis",
+          "texto": "Patologias que requieren regeneracion tisular al tiempo con manejo del dolor o lograr efecto antiinflamatorio"
+        },
+        {
+          "celda": "L58",
+          "autor": "Luis fernando Lenis",
+          "texto": "La frecuencia corresponde a la interrupción del campo pulsátil"
+        }
+      ],
+      "imagenes": [
+        {
+          "media": "xl/media/image1.png",
+          "desde": "L32",
+          "hasta": null
+        },
+        {
+          "media": "xl/media/image2.jpeg",
+          "desde": "W23",
+          "hasta": null
+        },
+        {
+          "media": "xl/media/image3.png",
+          "desde": "A132",
+          "hasta": null
+        }
+      ],
+      "imagenes_extraidas": [
+        "fuentes/tratamiento-metabolico/campo-magnetico/imagenes/Campo Magnetico - L32.png",
+        "fuentes/tratamiento-metabolico/campo-magnetico/imagenes/Campo Magnetico - W23.jpg",
+        "fuentes/tratamiento-metabolico/campo-magnetico/imagenes/Campo Magnetico - A132.png"
+      ]
+    }
+  ]
+}

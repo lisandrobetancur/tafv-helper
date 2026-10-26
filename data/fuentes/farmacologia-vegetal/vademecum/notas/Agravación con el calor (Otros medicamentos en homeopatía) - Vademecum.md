@@ -1,0 +1,9 @@
+- Iodum
+- Ipeca
+- Allium Cepa
+- Antimonio Tartaricum
+- Bryonia
+- Lycopodium
+- Pulsatilla
+- Dulcamara
+- Calcarea Carbonica

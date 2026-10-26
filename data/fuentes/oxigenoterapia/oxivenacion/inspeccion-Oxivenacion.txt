@@ -1,0 +1,77 @@
+Archivo: /Users/lisandro/dev/py/tafv-helper/data/fuentes/oxigenoterapia/oxivenacion/hojas/Oxivenacion.xlsx
+
+=== Hoja «Oxivenacion» (A1:T42) — 7 bloques, 1 comentarios, 0 imágenes
+
+--- Bloque A1:B16 · 16×2 · densidad 0.81 · sugerencia: RECUADROS
+  A1 [N FFFFF2CB combinada A1:B1] 'Protocolo Corpas'
+  A2 [FFF2F2F2] 'Seccion 1'
+  B2 [FFF2F2F2] '5 ml'
+  A3 [FFF2F2F2] 'Seccion 2'
+  B3 [FFF2F2F2] '10 ml'
+  A4 [FFF2F2F2] 'Seccion 3'
+  B4 [FFF2F2F2] '15 ml'
+  A5 [FFF2F2F2] 'Seccion 4'
+  B5 [FFF2F2F2] '20 ml'
+  A6 [FFF2F2F2] 'Seccion 5'
+  B6 [FFF2F2F2] '25 ml'
+  A7 [FFF2F2F2] 'Seccion 6'
+  B7 [FFF2F2F2] '30 ml'
+  A8 [FFF2F2F2] 'Seccion 7'
+  B8 [FFF2F2F2] '35 ml'
+  A9 [FFF2F2F2] 'Seccion 8'
+  B9 [FFF2F2F2] '40 ml'
+  A10 [FFF2F2F2] 'Seccion 9'
+  B10 [FFF2F2F2] '45 ml'
+  A11 [FFF2F2F2] 'Seccion 10'
+  B11 [FFF2F2F2] '50 ml'
+  A12 [FFF2F2F2 combinada A12:B12] 'SSN 0.9% o DAD 5% 250 ml'
+  A13 [FFF2F2F2 combinada A13:B13] '60 gotas minuto'
+  A14 [FFF2F2F2 combinada A14:B14] '1 o 2 ss semana'
+  A15 [FFF2F2F2 combinada A15:B15] 'Agitar cada 10 minutos'
+  A16 [FFF2F2F2 combinada A16:B16] 'Oxigeno puro'
+
+--- Bloque D1:F42 · 42×3 · densidad 0.12 · sugerencia: RECUADROS
+  D1 [N FFFFF2CB combinada D1:F1] 'Efectos Biologicos de la Oxivenacion'
+  D2 [N FFDEEAF6 combinada D2:F2] '1.Efecto sobre el eritrocito'
+  D3 [FFF2F2F2 combinada D3:F10] 'Mejora el flujo sanguíneo por\nincrementar la deformabilidad de los\neritrocitos, reduce la agregación de\neritrocitos y plaquetas, disminuye los\nniveles de fibrinógeno, reduce la\nadherencia de leucocitos al endotelio,\nreduce la activación de leucocitos y el\ndaño endotelial resultante, y\ndisminuye la viscosidad sanguínea.'
+  D11 [N FFDEEAF6 combinada D11:F12] '2. Incremento de Eosinófilos\n(observado en método'
+  D13 [FFF2F2F2 combinada D13:F15] 'Aumento en el recuento de eosinófilos a 20% después de 20 a 30 sesiones, es decir, 1% por sesión diaria.'
+  D16 [N FFDEEAF6 combinada D16:F16] '3. Aumento de temperatura'
+  D17 [FFF2F2F2 combinada D17:F18] '(Aumento de circulación en arteriolas distales,\naumento de consumo de oxígeno)'
+  D19 [N FFDEEAF6 combinada D19:F19] '4. Variación del pH hacia alcalinidad'
+  D20 [FFF2F2F2 combinada D20:F23] 'Aumento de capacidad Buffer de la\nhemoglobina\nAumento de la reserva alcalina del plasma'
+  D24 [N FFDEEAF6 combinada D24:F24] '5. Aumento de Prostaciclina'
+  D25 [FFF2F2F2 combinada D25:F32] '•Vasodilatación por\nrelajación del músculo liso endotelial\n•Aumento del flujo sanguíneo\n•Antiagregante •Broncodilatadora\n•Vasodilatación pulmonar •Natriuresis\n•Protección endotelial\n•Gastroprotección'
+  D33 [N FFDEEAF6 combinada D33:F33] '6. Aumento de diuresis'
+  D34 [FFF2F2F2 combinada D34:F36] 'Prostaciclina (PGI2 ) y PGE2 aumentan el\nflujo sanguíneo y la tasa de filtración glomerular'
+  D37 [N FFDEEAF6 combinada D37:F37] '7. Efecto sobre las convulsiones y el sueño'
+  D38 [FFF2F2F2 combinada D38:F42] 'Estímulo de respuestas mediadas por GABA? \nDisminución de respuestas mediadas\npor Glutamato'
+
+--- Bloque H1:L40 · 40×5 · densidad 0.04 · sugerencia: RECUADROS
+  H1 [N FFFFF2CB combinada H1:L1] 'Indicación clínica de una solución hiperoxigenada'
+  H2 [FFF2F2F2 combinada H2:L6] 'I Grupo: Enfermedad Renal Crónica, EPOC\nAlteraciones circulatorias estructurales localizadas (cerebro, ojos, corazón, hígado, riñón, miembros inferiores) o alteraciones circulatorias funcionales (migraña y fenómeno de Raynaud)'
+  H7 [FFF2F2F2 combinada H7:L11] 'II Grupo: Enfermedades alérgicas e inflamatorias crónicas. \nAsma bronquial, Bronquitis crónica\nDermatitis, hepatitis, \nInflamaciones de intestino y riñón\nArtritis.'
+  H12 [N FFFFF2CB combinada H12:L12] 'Indicaciones Corpas'
+  H13 [FFF2F2F2 combinada H13:L21] '•Enfermedad pulmonar que cursa con\nhipoxemia (con o sin hipercapnia)\n•Manifestaciones por hipoxia general o\nhipoxia localizada.\nEj: Trastorno cognitivo del adulto mayor\n•Isquemia crónica: Sistema nervioso, Corazón, Miembros inferiores'
+  H22 [FFF2F2F2 combinada H22:L32] '•EPOC\n•Alteración de la membrana alvéolo capilar\n•Hipertensión pulmonar primaria o secundaria\n•Síndromes convulsivos\n•Cefalea de origen vascular (Como\nprofiláctico; no en dolor agudo)\n•Trastornos del sueño (Insomnio)\n•Terapia complementaria en SAHOS'
+  H33 [FFF2F2F2 combinada H33:L40] '•Síndrome vertiginoso\n•Enfermedad de Méniere\n•Insuficiencia renal crónica\n•Hipertensión arterial\n•Enfermedades por déficit de ATP\n–Fibromialgia\n–Síndrome de fatiga crónica'
+
+--- Bloque N1:P17 · 17×3 · densidad 0.08 · sugerencia: RECUADROS
+  N1 [N FFFFF2CB combinada N1:P1] 'Contraindicaciones Método Corpas'
+  N2 [FFF2F2F2 combinada N2:P7] '•Hemorragia aguda “anormal” (Ejemplo: Hemorragia cerebral)\n•Estado febril\n•Isquemia aguda (en IAM esperar 3 meses)\n•Postoperatorio de cirugía mayor\n•Anticoagulantes'
+  N8 [FFF2F2F2 combinada N8:P10] 'Infección aguda (Ejemplo: Meningitis, encefalitis).\nContraindicación en observación'
+  N11 [FFF2F2F2 combinada N11:P17] '•Malformación congénita del corazón (shunt derecha izquierda)\n•Tromboembolismo pulmonar\n•Infarto agudo del miocardio (tres meses) (¿riesgo de lesión por reperfusión)'
+
+--- Bloque R1:T3 · 3×3 · densidad 0.33 · sugerencia: RECUADROS
+  R1 [N FFFFF2CB combinada R1:T1] 'Precauciones'
+  R2 [FFF2F2F2 combinada R2:T2] 'Tratamientos con anticoagulantes'
+  R3 [FFF2F2F2 combinada R3:T3] 'Cuagulopatias'
+
+--- Bloque R5:T14 · 10×3 · densidad 0.07 · sugerencia: RECUADROS
+  R5 [N FFFFF2CB combinada R5:T5] 'Efectos secundarios'
+  R6 [FFF2F2F2 combinada R6:T14] '•Cefalea\n•Enrojecimiento facial\n•Tos\n•Fatiga\n•Disnea y opresión torácica\n•Síntomas de resfriado'
+
+--- Bloque N19:P29 · 11×3 · densidad 0.06 · sugerencia: RECUADROS
+  N19 [N FFFFF2CB combinada N19:P20] 'Tratamiento de efectos secundarios'
+  N21 [FFF2F2F2 combinada N21:P29] 'Suspender el goteo\nMantener posición en decúbito\nAdministrar AINE\nAdministrar antiinflamatorio\nesteroideo'
+  COMENTARIO D1 (Luis fernando Lenis): 'Las soluciones intravenosas hiperoxigenadas (SIHO) son preparaciones especiales diseñadas para incrementar la disponibilidad de oxígeno molecular (O₂) en el torrente sanguíneo mediante la administración parenteral de líquidos que contienen moléculas portadoras de oxígeno disueltas o estabilizadas.\n\nEl principio es aumentar el transporte y la disponibilidad de oxígeno tisular, especialmente en zonas donde la perfusión está comprometida o donde existe hipoxia celular.'

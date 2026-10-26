@@ -1,0 +1,4 @@
+- Evitar uso de antioxidantes orales o IV durante el tratamiento.
+- O3 potencia acción de los IECA
+- Uso con Warfarina requiere INR en rango terapéutico
+- Efecto sinérgico con LASER, acupuntura, magnetoterapia

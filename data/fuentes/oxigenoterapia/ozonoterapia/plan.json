@@ -1,0 +1,222 @@
+{
+  "materia": "Oxigenoterapia",
+  "componente": "Ozonoterapia",
+  "fuentes": [
+    "hojas/Ozonoterapia.xlsx"
+  ],
+  "correcciones": {
+    "Streptococcushaemolyticusdel": "Streptococcus haemolyticus del",
+    "Streptococcuspyogenes": "Streptococcus pyogenes",
+    "Staphylococcusaureus": "Staphylococcus aureus",
+    "Streptococcushaemolyticus": "Streptococcus haemolyticus",
+    "Pseudomonaaeruginosa": "Pseudomona aeruginosa",
+    "Candidaalbicans": "Candida albicans",
+    "Microsporumcanis": "Microsporum canis",
+    "Trichophytonmentagrophytes": "Trichophyton mentagrophytes",
+    "Trichophytonrubrum": "Trichophyton rubrum",
+    "Via delas pentosas": "Vía de las pentosas",
+    "Superóxidodismutasa": "Superóxido dismutasa",
+    "poliglucósidosy": "poliglucósidos y",
+    "endovenosaen": "endovenosa en",
+    "mLde": "mL de",
+    "mLen": "mL en",
+    "Graves)Hipotiroidismo": "Graves) Hipotiroidismo",
+    "pacinete": "paciente",
+    "maracar": "marcar"
+  },
+  "omitidos": [],
+  "notas": [
+    {
+      "titulo": "Efectos Biológicos de la Ozonoterapia - Ozonoterapia",
+      "archivo": "notas/Efectos Biológicos de la Ozonoterapia - Ozonoterapia.md",
+      "celdas": [
+        "A1:D57"
+      ]
+    },
+    {
+      "titulo": "Acción antioxidante - Ozonoterapia",
+      "archivo": "notas/Acción antioxidante - Ozonoterapia.md",
+      "celdas": [
+        "A58:D63"
+      ]
+    },
+    {
+      "titulo": "Efecto antimicrobiano - Ozonoterapia",
+      "archivo": "notas/Efecto antimicrobiano - Ozonoterapia.md",
+      "celdas": [
+        "A64:D87"
+      ]
+    },
+    {
+      "titulo": "Indicaciones Generales de la Ozonoterapia - Ozonoterapia",
+      "archivo": "notas/Indicaciones Generales de la Ozonoterapia - Ozonoterapia.md",
+      "celdas": [
+        "F1:J54"
+      ]
+    },
+    {
+      "titulo": "Vías Sistémicas de Ozonoterapia - Ozonoterapia",
+      "archivo": "notas/Vías Sistémicas de Ozonoterapia - Ozonoterapia.md",
+      "celdas": [
+        "L1:O9"
+      ]
+    },
+    {
+      "titulo": "Autohemoterapia Mayor (AHM) - Ozonoterapia",
+      "archivo": "notas/Autohemoterapia Mayor (AHM) - Ozonoterapia.md",
+      "celdas": [
+        "L11:O18"
+      ]
+    },
+    {
+      "titulo": "Ozono endovenoso (disuelto en solución endovenosa) - Ozonoterapia",
+      "archivo": "notas/Ozono endovenoso (disuelto en solución endovenosa) - Ozonoterapia.md",
+      "celdas": [
+        "L20:O47"
+      ]
+    },
+    {
+      "titulo": "Insuflación Rectal (indicaciones) - Ozonoterapia",
+      "archivo": "notas/Insuflación Rectal (indicaciones) - Ozonoterapia.md",
+      "celdas": [
+        "L49:O80"
+      ]
+    },
+    {
+      "titulo": "Insuflación Vaginal (indicaciones) - Ozonoterapia",
+      "archivo": "notas/Insuflación Vaginal (indicaciones) - Ozonoterapia.md",
+      "celdas": [
+        "L82:O95"
+      ]
+    },
+    {
+      "titulo": "Autohemoterapia menor (indicaciones) - Ozonoterapia",
+      "archivo": "notas/Autohemoterapia menor (indicaciones) - Ozonoterapia.md",
+      "celdas": [
+        "L97:O121"
+      ]
+    },
+    {
+      "titulo": "Aplicaciones Locales de Ozono - Ozonoterapia",
+      "archivo": "notas/Aplicaciones Locales de Ozono - Ozonoterapia.md",
+      "celdas": [
+        "L123:O130"
+      ]
+    },
+    {
+      "titulo": "Aplicación en Bolsa (indicaciones) - Ozonoterapia",
+      "archivo": "notas/Aplicación en Bolsa (indicaciones) - Ozonoterapia.md",
+      "celdas": [
+        "L132:O147"
+      ]
+    },
+    {
+      "titulo": "Inyección subcutánea (indicaciones) - Ozonoterapia",
+      "archivo": "notas/Inyección subcutánea (indicaciones) - Ozonoterapia.md",
+      "celdas": [
+        "L149:O174"
+      ]
+    },
+    {
+      "titulo": "Tabla Ozonoterapia Endovenosa - Ozonoterapia",
+      "archivo": "notas/Tabla Ozonoterapia Endovenosa - Ozonoterapia.md",
+      "celdas": [
+        "Q1:S12"
+      ]
+    },
+    {
+      "titulo": "Insuflación Rectal (técnica) - Ozonoterapia",
+      "archivo": "notas/Insuflación Rectal (técnica) - Ozonoterapia.md",
+      "celdas": [
+        "Q14:S20"
+      ]
+    },
+    {
+      "titulo": "Ozono intrarrectal en niños - Ozonoterapia",
+      "archivo": "notas/Ozono intrarrectal en niños - Ozonoterapia.md",
+      "celdas": [
+        "Q22:S29"
+      ]
+    },
+    {
+      "titulo": "Insuflación Vaginal (técnica) - Ozonoterapia",
+      "archivo": "notas/Insuflación Vaginal (técnica) - Ozonoterapia.md",
+      "celdas": [
+        "Q31:S38"
+      ]
+    },
+    {
+      "titulo": "Aplicación en Bolsa (técnica) - Ozonoterapia",
+      "archivo": "notas/Aplicación en Bolsa (técnica) - Ozonoterapia.md",
+      "celdas": [
+        "Q40:S45"
+      ]
+    },
+    {
+      "titulo": "Inyección Subcutánea (técnica) - Ozonoterapia",
+      "archivo": "notas/Inyección Subcutánea (técnica) - Ozonoterapia.md",
+      "celdas": [
+        "Q47:S57"
+      ]
+    },
+    {
+      "titulo": "Inyección subcutánea perivenosa (cercanía de sistema venoso) - Ozonoterapia",
+      "archivo": "notas/Inyección subcutánea perivenosa (cercanía de sistema venoso) - Ozonoterapia.md",
+      "celdas": [
+        "Q59:S66"
+      ]
+    },
+    {
+      "titulo": "Inyección intraarticular - Ozonoterapia",
+      "archivo": "notas/Inyección intraarticular - Ozonoterapia.md",
+      "celdas": [
+        "Q68:S74"
+      ]
+    },
+    {
+      "titulo": "Inyección intramuscular paravertebral - Ozonoterapia",
+      "archivo": "notas/Inyección intramuscular paravertebral - Ozonoterapia.md",
+      "celdas": [
+        "Q76:S86"
+      ]
+    },
+    {
+      "titulo": "Autohemoterapia menor (técnica) - Ozonoterapia",
+      "archivo": "notas/Autohemoterapia menor (técnica) - Ozonoterapia.md",
+      "celdas": [
+        "U1:X8"
+      ]
+    },
+    {
+      "titulo": "Contraindicaciones - Ozonoterapia",
+      "archivo": "notas/Contraindicaciones - Ozonoterapia.md",
+      "celdas": [
+        "U10:X22"
+      ]
+    },
+    {
+      "titulo": "Contraindicaciones Relativas - Ozonoterapia",
+      "archivo": "notas/Contraindicaciones Relativas - Ozonoterapia.md",
+      "celdas": [
+        "U23:X30"
+      ]
+    },
+    {
+      "titulo": "Ozonoterapia. Interacciones - Ozonoterapia",
+      "archivo": "notas/Ozonoterapia. Interacciones - Ozonoterapia.md",
+      "celdas": [
+        "U32:X38"
+      ]
+    }
+  ],
+  "tablas": [],
+  "imagenes": [
+    {
+      "archivo": "imagenes/Ozonoterapia - U40.png",
+      "titulo": "Toxicidad - Ozonoterapia",
+      "celda": "U40",
+      "descripcion": "Toxicidad\nEl ozono no debe hacer contacto con pulmones ni ojos. Puede lesionar de manera irreversible el epitelio pulmonar.\n\nSíntomas de toxicidad por exposición a ozono:\n– Lagrimeo, irritación de vías aéreas superiores; rinitis, tos, cefalea, náuseas; opresión torácica, dificultad o dolor al inhalar, fatiga, bradicardia, hipotensión\n→\n✓Acostar al paciente en decúbito prono\n✓Ventilar el recinto\n✓Aspirar oxígeno húmedo\n✓Si es necesario, administrar Ácido Ascórbico IV"
+    }
+  ],
+  "pdfs": []
+}

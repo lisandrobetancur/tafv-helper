@@ -1,0 +1,1 @@
+La solución debe mezclarse cada 10 a 20 minutos, debido a que la insulina tiene mayor peso molecular y tiende a decantarse en el fondo del frasco, con el riesgo que pase primero al paciente, pudiendo producir cuadro de hipoglicemia

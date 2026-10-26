@@ -1,0 +1,6 @@
+- Cefalea
+- Enrojecimiento facial
+- Tos
+- Fatiga
+- Disnea y opresión torácica
+- Síntomas de resfriado

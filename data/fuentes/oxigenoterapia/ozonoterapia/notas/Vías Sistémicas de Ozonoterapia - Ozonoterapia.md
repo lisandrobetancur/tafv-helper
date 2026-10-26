@@ -1,0 +1,8 @@
+- Ozono Endovenoso
+- Ozono Subcutáneo
+- Autohemoterapia Mayor
+- Autohemoterapia Menor
+- Ozono Intraarticular
+- Ozono Paravertebral e Interdiscal
+- Insuflación Rectal
+- Insuflación Vaginal

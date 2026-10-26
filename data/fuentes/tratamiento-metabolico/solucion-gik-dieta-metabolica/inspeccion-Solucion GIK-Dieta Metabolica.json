@@ -1,0 +1,957 @@
+{
+  "archivo": "/Users/lisandro/dev/py/tafv-helper/data/fuentes/tratamiento-metabolico/solucion-gik-dieta-metabolica/hojas/Solucion GIK-Dieta Metabolica.xlsx",
+  "hojas": [
+    {
+      "hoja": "Solucion GIK-Dieta Metabolica",
+      "dimension": "A1:Y111",
+      "bloques": [
+        {
+          "rango": "A1:J70",
+          "filas": 70,
+          "columnas": 10,
+          "densidad": 0.1,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "A1",
+              "combinada": "A1:J1",
+              "texto": "Solucion Polarizante",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "A2",
+              "combinada": "A2:D5",
+              "texto": "Finalidad de la Solucion Polarizante (GIK)",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "E2",
+              "combinada": "E2:J5",
+              "texto": "Aumentar la energía libre celular y corregir entropía celular.\nCuando la célula se haya despolarizada durante el reposo celular, produciendo la polarización durante el reposo, corrigiendo la lesión.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A6",
+              "combinada": "A6:D8",
+              "texto": "La composición clásica de la solución re-polarizante incluye",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "E6",
+              "combinada": "E6:J6",
+              "texto": "DAD al 10% 500 ml",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E7",
+              "combinada": "E7:J7",
+              "texto": "1 ampolla de 20mEq de potasio",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E8",
+              "combinada": "E8:J8",
+              "texto": "Insulina cristalina 5 unidades",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A9",
+              "combinada": "A9:D11",
+              "texto": "La composición corpas de la solución re-polarizante incluye",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "E9",
+              "combinada": "E9:J9",
+              "texto": "DAD al 5% 250 ml",
+              "negrita": true,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E10",
+              "combinada": "E10:J10",
+              "texto": "1 ampolla de 10mEq de potasio",
+              "negrita": true,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E11",
+              "combinada": "E11:J11",
+              "texto": "Insulina cristalina 2.5 unidades",
+              "negrita": true,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A12",
+              "combinada": "A12:D17",
+              "texto": "Aplicacion de la Solucion Polarizante (GIK)",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "E12",
+              "combinada": "E12:J17",
+              "texto": "Se pasa por vena periférica a una velocidad de goteo de 30 gotas por\nminuto, pero si el paciente siente dolor en el área de canalización al paso de la solución, este se debe al potasio y hay que disminuir la\nvelocidad de goteo a 20 gotas por minuto.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A18",
+              "combinada": "A18:D22",
+              "texto": "Recomendación durante la aplicación de la Solucion Polarizante (GIK)",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "E18",
+              "combinada": "E18:J22",
+              "texto": "La solución debe mezclarse cada 10 a 20 minutos, debido a que la insulina tiene mayor peso molecular y tiende a decantarse en el fondo del frasco, con el riesgo que pase primero al paciente, pudiendo producir cuadro de hipoglicemia",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A23",
+              "combinada": "A23:D29",
+              "texto": "Efectos de la Insulina en la Solucion Polarizante (GIK)\n(organiza la célula, aumenta su energía (ATP) y restaura su polaridad)",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "E23",
+              "combinada": "E23:J23",
+              "texto": "1. Aumento de ATP (mas energia disponible)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E24",
+              "combinada": "E24:J24",
+              "texto": "2. Restauración del orden metabólico (↓ entropía)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E25",
+              "combinada": "E25:J25",
+              "texto": "3. Activación de la bomba sodio–potasio (Na⁺/K⁺ ATPasa)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E26",
+              "combinada": "E26:J26",
+              "texto": "4. Efecto eléctrico (antiarrítmico y estabilizador)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E27",
+              "combinada": "E27:J27",
+              "texto": "5. Cambio del metabolismo hacia glucosa (más eficiente)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E28",
+              "combinada": "E28:J28",
+              "texto": "6. Efecto citoprotector celular",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E29",
+              "combinada": "E29:J29",
+              "texto": "Disminuye el consumo de ácidos grasos (menos tóxicos para el miocardio isquémico).",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A30",
+              "combinada": "A30:D37",
+              "texto": "Efectos del Potasio en la Solucion Polarizante (GIK)\nEl potasio “repolariza” la célula:\ndevuelve estabilidad eléctrica, orden iónico y permite que la energía (ATP) se utilice correctamente.",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "E30",
+              "combinada": "E30:J31",
+              "texto": "Mantenimiento de la osmoralidad celular y su interraccion con la sintesis de energia libre por parte de la celula",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E32",
+              "combinada": "E32:J32",
+              "texto": "Aumenta el ATP",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E33",
+              "combinada": "E33:J33",
+              "texto": "Activa el primer paso del ciclo de Krebs",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E34",
+              "combinada": "E34:J34",
+              "texto": "Aumenta la sintesis y el deposito de glucogeno",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E35",
+              "combinada": "E35:J35",
+              "texto": "El potasio se requiere, para la completa oxidación de la glucosa",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E36",
+              "combinada": "E36:J36",
+              "texto": "Regula la respiración celular o cadena de transporte de\nelectrones",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E37",
+              "combinada": "E37:J37",
+              "texto": "Interfiere en la agresión metabólica de las catecolaminas",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A38",
+              "combinada": "A38:D43",
+              "texto": "Dextrosa\nLa dextrosa “alimenta” la célula:\naporta la energía (ATP) que permite recuperar la polaridad, el orden y la función celular.",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "E38",
+              "combinada": "E38:J38",
+              "texto": "1. Fuente directa de energía celular (ATP)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E39",
+              "combinada": "E39:J39",
+              "texto": "2. Aumento de la energía libre de Gibbs",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E40",
+              "combinada": "E40:J40",
+              "texto": "3. Favorece un metabolismo más eficiente (especialmente en hipoxia)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E41",
+              "combinada": "E41:J41",
+              "texto": "4. Disminuye el metabolismo lipídico nocivo",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E42",
+              "combinada": "E42:J42",
+              "texto": "5. Sustrato para almacenamiento energético (glucógeno)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E43",
+              "combinada": "E43:J43",
+              "texto": "6. Facilita la acción de la insulina y del potasio",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A44",
+              "combinada": "A44:D54",
+              "texto": "Accion general de la Solucion GIK\n“La solución polarizante convierte la célula enferma (desordenada y despolarizada) en una célula organizada, energizada y funcional.”",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "E44",
+              "combinada": "E44:J44",
+              "texto": "1. Aumenta el potasio intracelular",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E45",
+              "combinada": "E45:J45",
+              "texto": "2. Incrementa la sinstesis de glucogeno",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E46",
+              "combinada": "E46:J46",
+              "texto": "3. Incrementa la glicolisis anaerobica",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E47",
+              "combinada": "E47:J47",
+              "texto": "4. Aumenta glicerol fosfato por esterificacion de los acidos grasos",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E48",
+              "combinada": "E48:J48",
+              "texto": "5. Disminuye los acidos grasos libres",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E49",
+              "combinada": "E49:J49",
+              "texto": "6. Tiene efecto diuretico por efecto hiperosmolar",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E50",
+              "combinada": "E50:J50",
+              "texto": "7. Aumenta el metabolismo oxidativo de la glucosa",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E51",
+              "combinada": "E51:J51",
+              "texto": "8. Disminuye la actividad lisosómica",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E52",
+              "combinada": "E52:J52",
+              "texto": "9. Incrementa la síntesis proteica",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E53",
+              "combinada": "E53:J54",
+              "texto": "10. Coadyuva a la replicación celular, acelerando los procesos de curación de heridas",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A55",
+              "combinada": "A55:D61",
+              "texto": "Indicaciones de la Solucion Polarizante\n(ayuda en dislipidemia)",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "E55",
+              "combinada": "E55:J55",
+              "texto": "Enfermedad Coronaria o IAM",
+              "negrita": false,
+              "relleno": "FFA8D08D"
+            },
+            {
+              "celda": "E56",
+              "combinada": "E56:J56",
+              "texto": "ICC",
+              "negrita": false,
+              "relleno": "FFA8D08D"
+            },
+            {
+              "celda": "E57",
+              "combinada": "E57:J57",
+              "texto": "Apoyo en convalecencia y recuperación de pacientes\ndebilitados",
+              "negrita": false,
+              "relleno": "FFA8D08D"
+            },
+            {
+              "celda": "E58",
+              "combinada": "E58:J58",
+              "texto": "Mejora la cicatrización y el cayo de fractura",
+              "negrita": false,
+              "relleno": "FFA8D08D"
+            },
+            {
+              "celda": "E59",
+              "combinada": "E59:J59",
+              "texto": "Osteoporosis",
+              "negrita": false,
+              "relleno": "FFA8D08D"
+            },
+            {
+              "celda": "E60",
+              "combinada": "E60:J60",
+              "texto": "Estímulo de la inmunidad",
+              "negrita": false,
+              "relleno": "FFA8D08D"
+            },
+            {
+              "celda": "E61",
+              "combinada": "E61:J61",
+              "texto": "Cancer",
+              "negrita": false,
+              "relleno": "FFA8D08D"
+            },
+            {
+              "celda": "A62",
+              "combinada": "A62:D66",
+              "texto": "Efectos Secundarios",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "E62",
+              "combinada": "E62:J62",
+              "texto": "Flebitis",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E63",
+              "combinada": "E63:J63",
+              "texto": "Rubor",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E64",
+              "combinada": "E64:J64",
+              "texto": "Edema",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E65",
+              "combinada": "E65:J65",
+              "texto": "Equimosis",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E66",
+              "combinada": "E66:J66",
+              "texto": "Infeccion Local",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A67",
+              "combinada": "A67:D70",
+              "texto": "Contraindicaciones",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "E67",
+              "combinada": "E67:J67",
+              "texto": "Hiperkalemia",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E68",
+              "combinada": "E68:J68",
+              "texto": "Hiperglucemia no controlada",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E69",
+              "combinada": "E69:J69",
+              "texto": "Insuficiencia renal severa",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "E70",
+              "combinada": "E70:J70",
+              "texto": "Estados donde no se pueda manejar el equilibrio hidroelectrolítico",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "L1:R111",
+          "filas": 111,
+          "columnas": 7,
+          "densidad": 0.06,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "L1",
+              "combinada": "L1:R1",
+              "texto": "Dieta Metabolica",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "L2",
+              "combinada": "L2:N2",
+              "texto": "Dieta de regulacion metabolica",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "O2",
+              "combinada": "O2:R2",
+              "texto": "Baja en sodio y rica en potasio",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L3",
+              "combinada": "L3:N5",
+              "texto": "Recomendación de la dieta",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "O3",
+              "combinada": "O3:R5",
+              "texto": "Esta dieta elimina todos los alimentos que tienen 100 mg de sodio o más por gramo de alimento.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L6",
+              "combinada": "L6:N6",
+              "texto": "Cantidad de sodio en el dia",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "O6",
+              "combinada": "O6:R6",
+              "texto": "1 gramo dia (360 mg)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L7",
+              "combinada": "L7:N7",
+              "texto": "Cantidad de postasio en el dia",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "O7",
+              "combinada": "O7:R7",
+              "texto": "3600 a 4000 mg (3 a 4 gr)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L8",
+              "combinada": "L8:N11",
+              "texto": "Efecto dieta en metabolismo celular",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "O8",
+              "combinada": "O8:R8",
+              "texto": "Estimula bomba sodio–potasio (Na⁺/K⁺ ATPasa)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "O9",
+              "combinada": "O9:R9",
+              "texto": "Aumento de la produccion de ATP",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "O10",
+              "combinada": "O10:R10",
+              "texto": "Aumenta el glucogeno",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "O11",
+              "combinada": "O11:R11",
+              "texto": "Hidrolisis de ATP",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L12",
+              "combinada": "L12:N17",
+              "texto": "Efectos termodinamicos",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "O12",
+              "combinada": "O12:R12",
+              "texto": "Eleva la Kalemia",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "O13",
+              "combinada": "O13:R13",
+              "texto": "Estimula la Bomba de Na y K",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "O14",
+              "combinada": "O14:R14",
+              "texto": "Favorece la Hidrólisis del ATP",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "O15",
+              "combinada": "O15:R15",
+              "texto": "Aumenta la Energía libre de G.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "O16",
+              "combinada": "O16:R17",
+              "texto": "Favorece a través de la E la síntesis de Macromoléculas y la estructuración del agua.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L18",
+              "combinada": "L18:N24",
+              "texto": "Leche y su derivados",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "O18",
+              "combinada": "O18:R24",
+              "texto": "2 vasos (240mL c/u) al día\nPuede cambiar 1 vaso de 240mL de leche por:\n ½ vaso (120mL) de yogurt de fruta casero\n½ vaso (120mL) de kumis casero\n1 onza (30grs) de cuajada",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L25",
+              "combinada": "L25:N30",
+              "texto": "Evitar consumo de",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "O25",
+              "combinada": "O25:R30",
+              "texto": "Mayor cantidad de leche de la indicada\nProductos comerciales preparados con leche\nChocolate. Leche condensada. Helados. Malteadas. Batidos de leche. Leche instantanea. Sorbertes. Queso salado. Queso para untar. Yogurt crema.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L31",
+              "combinada": "L31:N44",
+              "texto": "Carnes y Huevos",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "O31",
+              "combinada": "O31:R44",
+              "texto": "Esta permitido el consumo de 4 onzas (120grs) de carne de res magra.\nPuede cambiar 120grs de carne de res por:\n120grs de pollo (1/2 pechuga)\n120grs de ternera\n120grs de lengua.\n120grs de pescado fresco ( pargo, trucha,\nróbalo, bagre, salmón, atún, lenguado,\nmerluza)\n120grs de carne de cerdo magra\nPuede incluir 1 huevo diariamente o\ncambiarlo por dos yemas de huevo, sin\nclara.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L45",
+              "combinada": "L45:N52",
+              "texto": "Evite el consumo de",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "O45",
+              "combinada": "O45:R52",
+              "texto": "Carnes gordas\nCarnes procesadas o de salsamentarías\n Sesos\nRiñones\nHígado.\nCarne salada\nConcentrados de carne o gallina\nMariscos.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L53",
+              "combinada": "L53:N55",
+              "texto": "Leguminosas",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "O53",
+              "combinada": "O53:R53",
+              "texto": "Leguminosas enlatadas",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "O54",
+              "combinada": "O54:R54",
+              "texto": "Mani de Sal",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "O55",
+              "combinada": "O55:R55",
+              "texto": "Mantequilla de mani",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L56",
+              "combinada": "L56:N56",
+              "texto": "Frutas",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "O56",
+              "combinada": "O56:R56",
+              "texto": "5 porciones de frutas",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L57",
+              "combinada": "L57:N62",
+              "texto": "Evitar el consumo de",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "O57",
+              "combinada": "O57:R62",
+              "texto": "Frutas enlatadas\nJugos en cajas\nMermelada comercial\n Frutas cristalizadas\nUvas pasas.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L63",
+              "combinada": "L63:N71",
+              "texto": "Hortalizas y Verduras",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "O63",
+              "combinada": "O63:R71",
+              "texto": "Evite el consumo de:\nHortalizas o verduras ensaladas\nEncurtidos\nSopas de verduras en sobre o instantánea\nApio\nEspinaca\nRemolacha\nAceitunas\nAlcaparras.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L72",
+              "combinada": "L72:N77",
+              "texto": "Tuberculos y Platanos",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "O72",
+              "combinada": "O72:R77",
+              "texto": "Evite el consumo de:\nPapas fritas de paquete\nPatacones y demás productos de paquete\nPapas precocidas o listas para freír\nPuré instantáneo de papa.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L78",
+              "combinada": "L78:N86",
+              "texto": "Evite el consumo de",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "O78",
+              "combinada": "O78:R86",
+              "texto": "Cereales procesados e instantáneos\nCereales precocidos\nCereales para el desayuno\nTodos los productos de panadería\nBizcochería\nPastelería\nGalletería.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L87",
+              "combinada": "L87:N92",
+              "texto": "Grasas",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "O87",
+              "combinada": "O87:R92",
+              "texto": "Evite consumo de:\nMargarina vegetal con sal\nMantequilla\nGrasa animal, Tocino\nCrema de leche.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L93",
+              "combinada": "L93:N102",
+              "texto": "Condimentos",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "O93",
+              "combinada": "O93:R102",
+              "texto": "Ajo, Albahaca, Anís, Azafrán, Cardamomo, Cebolla, Cilantro, Clavo, Comino, Enebro, Eneldo, Cilantro, Clavo, Comino, Enebro, Eneldo, Limón, Naranja, Hinojo, Jengibre, Jugo de ajo, Laurel,\nMejorana, Menta, Nuez moscada, Orégano\nPáprika, Pimentón, Perejil, Romero, Tomillo, Ají\nVainilla, Vinagre.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L103",
+              "combinada": "L103:N104",
+              "texto": "Verduras con mayor contenido de sodio",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "O103",
+              "combinada": "O103:R104",
+              "texto": "Apio, Remolacha, Acelga, Espinaca, Zanahoria (moderado)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "L105",
+              "combinada": "L105:N111",
+              "texto": "Frutas y verduras ricas en potasio",
+              "negrita": true,
+              "relleno": "FFE2EFD9"
+            },
+            {
+              "celda": "O105",
+              "combinada": "O105:R111",
+              "texto": "✔️ Banano (plátano) ✔️ Aguacate✔️ Papaya\n✔️ Melón ✔️ Naranja ✔️ Mango\n✔️ Lentejas ✔️ Frijoles✔️ Garbanzos\n✔️ Almendras✔️ Semillas\nPapa, Tomate, ✔️ Espinaca\n✔️ Acelga✔️ Brócoli",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "T1:Y13",
+          "filas": 13,
+          "columnas": 6,
+          "densidad": 0.15,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "T1",
+              "combinada": "T1:Y1",
+              "texto": "Indicaciones más importantes de la dieta",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "T2",
+              "combinada": "T2:Y2",
+              "texto": "HTA y DM",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "T3",
+              "combinada": "T3:Y3",
+              "texto": "IAM",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "T4",
+              "combinada": "T4:Y4",
+              "texto": "Cardiopatia Coronaria",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "T5",
+              "combinada": "T5:Y5",
+              "texto": "ICC",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "T6",
+              "combinada": "T6:Y6",
+              "texto": "Enfermedades Cardiovasculares en General",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "T7",
+              "combinada": "T7:Y7",
+              "texto": "En patologias que se busca preservar funcion celular adecuada",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "T8",
+              "combinada": "T8:Y8",
+              "texto": "Trastornos del ritmo cardiaco",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "T9",
+              "combinada": "T9:Y9",
+              "texto": "Enfermedad Renal",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "T10",
+              "combinada": "T10:Y10",
+              "texto": "Procesos inflamatorios y degenerativos",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "T11",
+              "combinada": "T11:Y11",
+              "texto": "Estados de hipoxia o sufrimiento celular",
+              "negrita": false,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "T12",
+              "combinada": "T12:Y13",
+              "texto": "“El tratamiento metabólico está indicado en cualquier padecimiento donde exista desorden celular.”",
+              "negrita": false,
+              "relleno": "FFC5E0B3"
+            }
+          ]
+        }
+      ],
+      "comentarios": [],
+      "imagenes": [],
+      "imagenes_extraidas": []
+    }
+  ]
+}

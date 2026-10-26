@@ -1,0 +1,8 @@
+- Trumex
+- Hepar Sulphur
+- Phosphorus
+- Sambucus
+- Aconitum
+- Belladona
+- Allium Cepa
+- Ferrum Phosphoricum

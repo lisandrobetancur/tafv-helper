@@ -1,0 +1,4 @@
+- Bryonia
+- Pulsatilla
+- Iodum
+- Bromum

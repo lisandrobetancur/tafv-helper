@@ -1,0 +1,5320 @@
+{
+  "archivo": "/Users/lisandro/dev/py/tafv-helper/data/fuentes/acupuntura/acupuntura/hojas/Acupuntura.xlsx",
+  "hojas": [
+    {
+      "hoja": "Acupuntura",
+      "dimension": "A1:S278",
+      "bloques": [
+        {
+          "rango": "B136:R159",
+          "filas": 24,
+          "columnas": 17,
+          "densidad": 0.61,
+          "fila_encabezado": 137,
+          "registros": 22,
+          "sugerencia": "tabla pequeña",
+          "celdas": [
+            {
+              "celda": "F136",
+              "combinada": "F136:H136",
+              "texto": "BRAZO",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I136",
+              "combinada": "I136:K136",
+              "texto": "PIERNA",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M136",
+              "combinada": "M136:O136",
+              "texto": "BRAZO",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "P136",
+              "combinada": "P136:R136",
+              "texto": "PIERNA",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E137",
+              "combinada": null,
+              "texto": "FUNCIÓN",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "F137",
+              "combinada": null,
+              "texto": "C",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "G137",
+              "combinada": null,
+              "texto": "PC",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "H137",
+              "combinada": null,
+              "texto": "P",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "I137",
+              "combinada": null,
+              "texto": "B",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "J137",
+              "combinada": null,
+              "texto": "H",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "K137",
+              "combinada": null,
+              "texto": "R",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "L137",
+              "combinada": null,
+              "texto": "Yang",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "M137",
+              "combinada": null,
+              "texto": "IG",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "N137",
+              "combinada": null,
+              "texto": "TR",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "O137",
+              "combinada": null,
+              "texto": "ID",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "P137",
+              "combinada": null,
+              "texto": "V",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "Q137",
+              "combinada": null,
+              "texto": "VB",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "R137",
+              "combinada": null,
+              "texto": "E",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "B138",
+              "combinada": "B138:B159",
+              "texto": "TECNICA ZANG-FU",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C138",
+              "combinada": "C138:C145",
+              "texto": "1 \n EXTRAORDINARIOS\n EMPERADOR",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D138",
+              "combinada": null,
+              "texto": "CHONG MAI",
+              "negrita": false,
+              "relleno": "FFFDE9D9"
+            },
+            {
+              "celda": "E138",
+              "combinada": null,
+              "texto": "SANGRE",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I138",
+              "combinada": null,
+              "texto": "B4",
+              "negrita": false,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "D139",
+              "combinada": null,
+              "texto": "YINWEI",
+              "negrita": false,
+              "relleno": "FFFDE9D9"
+            },
+            {
+              "celda": "E139",
+              "combinada": null,
+              "texto": "MD Y PSICOEMOCIONALES",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F139",
+              "combinada": null,
+              "texto": "LUO R9",
+              "negrita": false,
+              "relleno": "FF92D050"
+            },
+            {
+              "celda": "G139",
+              "combinada": null,
+              "texto": "PC6",
+              "negrita": false,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "D140",
+              "combinada": null,
+              "texto": "REN",
+              "negrita": false,
+              "relleno": "FFDAEEF3"
+            },
+            {
+              "celda": "E140",
+              "combinada": null,
+              "texto": "ORGANOS",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F140",
+              "combinada": null,
+              "texto": "REN 15",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D141",
+              "combinada": null,
+              "texto": "YINQIAO",
+              "negrita": false,
+              "relleno": "FFDAEEF3"
+            },
+            {
+              "celda": "E141",
+              "combinada": null,
+              "texto": "OSCURIDAD DA SUEÑO",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F141",
+              "combinada": null,
+              "texto": "LUO R8",
+              "negrita": false,
+              "relleno": "FF92D050"
+            },
+            {
+              "celda": "D142",
+              "combinada": null,
+              "texto": "DU",
+              "negrita": false,
+              "relleno": "FFE5DFEC"
+            },
+            {
+              "celda": "E142",
+              "combinada": null,
+              "texto": "VISCERAS",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F142",
+              "combinada": null,
+              "texto": "DU1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D143",
+              "combinada": null,
+              "texto": "YANQIAO",
+              "negrita": false,
+              "relleno": "FFE5DFEC"
+            },
+            {
+              "celda": "E143",
+              "combinada": null,
+              "texto": "LUZ DESPIERTA",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F143",
+              "combinada": null,
+              "texto": "LUO V59",
+              "negrita": false,
+              "relleno": "FF92D050"
+            },
+            {
+              "celda": "D144",
+              "combinada": null,
+              "texto": "DAI MAI",
+              "negrita": false,
+              "relleno": "FFEAF1DD"
+            },
+            {
+              "celda": "E144",
+              "combinada": null,
+              "texto": "EQUILIBRIO FRIO CALOR",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D145",
+              "combinada": null,
+              "texto": "YANGWEI",
+              "negrita": false,
+              "relleno": "FFEAF1DD"
+            },
+            {
+              "celda": "E145",
+              "combinada": null,
+              "texto": "MTM / PIEL/ OSTEOMUSCULAR",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F145",
+              "combinada": null,
+              "texto": "LUO VB35",
+              "negrita": false,
+              "relleno": "FF92D050"
+            },
+            {
+              "celda": "N145",
+              "combinada": null,
+              "texto": "TR5",
+              "negrita": false,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "C146",
+              "combinada": "C146:C151",
+              "texto": "SHU ANTIG\n MINISTROS",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D146",
+              "combinada": null,
+              "texto": "SHU ANT.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E146",
+              "combinada": null,
+              "texto": "Yin",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "F146",
+              "combinada": null,
+              "texto": "C",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "G146",
+              "combinada": null,
+              "texto": "PC",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "H146",
+              "combinada": null,
+              "texto": "P",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "I146",
+              "combinada": null,
+              "texto": "B",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "J146",
+              "combinada": null,
+              "texto": "H",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "K146",
+              "combinada": null,
+              "texto": "R",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "L146",
+              "combinada": null,
+              "texto": "Yang",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M146",
+              "combinada": null,
+              "texto": "IG",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "N146",
+              "combinada": null,
+              "texto": "TR",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "O146",
+              "combinada": null,
+              "texto": "ID",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "P146",
+              "combinada": null,
+              "texto": "V",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "Q146",
+              "combinada": null,
+              "texto": "VB",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "R146",
+              "combinada": null,
+              "texto": "E",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "D147",
+              "combinada": null,
+              "texto": "1 pozo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E147",
+              "combinada": null,
+              "texto": "madera",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "F147",
+              "combinada": null,
+              "texto": "C9",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "G147",
+              "combinada": null,
+              "texto": "PC9",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "H147",
+              "combinada": null,
+              "texto": "P11",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "I147",
+              "combinada": null,
+              "texto": "B1",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "J147",
+              "combinada": null,
+              "texto": "H1",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "K147",
+              "combinada": null,
+              "texto": "R1",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "L147",
+              "combinada": null,
+              "texto": "metal",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "M147",
+              "combinada": null,
+              "texto": "IG1",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "N147",
+              "combinada": null,
+              "texto": "TR1",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "O147",
+              "combinada": null,
+              "texto": "ID1",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "P147",
+              "combinada": null,
+              "texto": "V67",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "Q147",
+              "combinada": null,
+              "texto": "VB44",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "R147",
+              "combinada": null,
+              "texto": "E45",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "D148",
+              "combinada": null,
+              "texto": "2 manantial",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E148",
+              "combinada": null,
+              "texto": "fuego",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "F148",
+              "combinada": null,
+              "texto": "C8",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "G148",
+              "combinada": null,
+              "texto": "PC8",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "H148",
+              "combinada": null,
+              "texto": "P10",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "I148",
+              "combinada": null,
+              "texto": "B2",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "J148",
+              "combinada": null,
+              "texto": "H2",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "K148",
+              "combinada": null,
+              "texto": "R2",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "L148",
+              "combinada": null,
+              "texto": "agua",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "M148",
+              "combinada": null,
+              "texto": "IG2",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "N148",
+              "combinada": null,
+              "texto": "TR2",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "O148",
+              "combinada": null,
+              "texto": "ID2",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "P148",
+              "combinada": null,
+              "texto": "V66",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "Q148",
+              "combinada": null,
+              "texto": "VB43",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "R148",
+              "combinada": null,
+              "texto": "E44",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "D149",
+              "combinada": null,
+              "texto": "3 quebrada",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E149",
+              "combinada": null,
+              "texto": "tierra",
+              "negrita": true,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "F149",
+              "combinada": null,
+              "texto": "C7",
+              "negrita": true,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "G149",
+              "combinada": null,
+              "texto": "PC7",
+              "negrita": true,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "H149",
+              "combinada": null,
+              "texto": "P9",
+              "negrita": true,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "I149",
+              "combinada": null,
+              "texto": "B3",
+              "negrita": true,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "J149",
+              "combinada": null,
+              "texto": "H3",
+              "negrita": true,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "K149",
+              "combinada": null,
+              "texto": "R3",
+              "negrita": true,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "L149",
+              "combinada": null,
+              "texto": "madera",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "M149",
+              "combinada": null,
+              "texto": "IG3",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "N149",
+              "combinada": null,
+              "texto": "TR3",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "O149",
+              "combinada": null,
+              "texto": "ID3",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "P149",
+              "combinada": null,
+              "texto": "V65",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "Q149",
+              "combinada": null,
+              "texto": "VB41",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "R149",
+              "combinada": null,
+              "texto": "E43",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "D150",
+              "combinada": null,
+              "texto": "4 rio",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E150",
+              "combinada": null,
+              "texto": "metal",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "F150",
+              "combinada": null,
+              "texto": "C4",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "G150",
+              "combinada": null,
+              "texto": "PC5",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "H150",
+              "combinada": null,
+              "texto": "P8",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "I150",
+              "combinada": null,
+              "texto": "B5",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "J150",
+              "combinada": null,
+              "texto": "H4",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "K150",
+              "combinada": null,
+              "texto": "R7",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "L150",
+              "combinada": null,
+              "texto": "fuego",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "M150",
+              "combinada": null,
+              "texto": "IG5",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "N150",
+              "combinada": null,
+              "texto": "TR6",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "O150",
+              "combinada": null,
+              "texto": "ID5",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "P150",
+              "combinada": null,
+              "texto": "V60",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "Q150",
+              "combinada": null,
+              "texto": "VB38",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "R150",
+              "combinada": null,
+              "texto": "E41",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "D151",
+              "combinada": null,
+              "texto": "5 MAR (HE)",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E151",
+              "combinada": null,
+              "texto": "agua",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "F151",
+              "combinada": null,
+              "texto": "C3",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "G151",
+              "combinada": null,
+              "texto": "PC3",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "H151",
+              "combinada": null,
+              "texto": "P5",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "I151",
+              "combinada": null,
+              "texto": "B9",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "J151",
+              "combinada": null,
+              "texto": "H8",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "K151",
+              "combinada": null,
+              "texto": "R10",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "L151",
+              "combinada": null,
+              "texto": "tierra",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "M151",
+              "combinada": null,
+              "texto": "IG11",
+              "negrita": true,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "N151",
+              "combinada": null,
+              "texto": "TR10",
+              "negrita": true,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "O151",
+              "combinada": null,
+              "texto": "ID8",
+              "negrita": true,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "P151",
+              "combinada": null,
+              "texto": "V40",
+              "negrita": true,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "Q151",
+              "combinada": null,
+              "texto": "VB34",
+              "negrita": true,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "R151",
+              "combinada": null,
+              "texto": "E36",
+              "negrita": true,
+              "relleno": "FFFFFF00"
+            },
+            {
+              "celda": "C152",
+              "combinada": "C152:C153",
+              "texto": "2\n MU ZI",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D152",
+              "combinada": null,
+              "texto": "DEFICIENCIE TONIFICAR",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E152",
+              "combinada": null,
+              "texto": "MADRE",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "F152",
+              "combinada": null,
+              "texto": "C9",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "G152",
+              "combinada": null,
+              "texto": "PC9",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "H152",
+              "combinada": null,
+              "texto": "P9",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "I152",
+              "combinada": null,
+              "texto": "B2",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "J152",
+              "combinada": null,
+              "texto": "H8",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "K152",
+              "combinada": null,
+              "texto": "R7",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "L152",
+              "combinada": null,
+              "texto": "MADRE",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "M152",
+              "combinada": null,
+              "texto": "IG11",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "N152",
+              "combinada": null,
+              "texto": "TR3",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "O152",
+              "combinada": null,
+              "texto": "ID3",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "P152",
+              "combinada": null,
+              "texto": "V67",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "Q152",
+              "combinada": null,
+              "texto": "VB43",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "R152",
+              "combinada": null,
+              "texto": "E41",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "D153",
+              "combinada": null,
+              "texto": "EXCESO DISPERSAR",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E153",
+              "combinada": null,
+              "texto": "HIJO",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "F153",
+              "combinada": null,
+              "texto": "C7",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "G153",
+              "combinada": null,
+              "texto": "PC7",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "H153",
+              "combinada": null,
+              "texto": "P5",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "I153",
+              "combinada": null,
+              "texto": "B5",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "J153",
+              "combinada": null,
+              "texto": "H2",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "K153",
+              "combinada": null,
+              "texto": "R1",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "L153",
+              "combinada": null,
+              "texto": "HIJO",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "M153",
+              "combinada": null,
+              "texto": "IG2",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "N153",
+              "combinada": null,
+              "texto": "TR10",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "O153",
+              "combinada": null,
+              "texto": "ID8",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "P153",
+              "combinada": null,
+              "texto": "V65",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "Q153",
+              "combinada": null,
+              "texto": "VB38",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "R153",
+              "combinada": null,
+              "texto": "E45",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "C154",
+              "combinada": "C154:C155",
+              "texto": "3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D154",
+              "combinada": null,
+              "texto": "SHU POST",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E154",
+              "combinada": null,
+              "texto": "Da yang",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F154",
+              "combinada": null,
+              "texto": "V15 (T5)",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G154",
+              "combinada": null,
+              "texto": "V14",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H154",
+              "combinada": null,
+              "texto": "V13 (T3)",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I154",
+              "combinada": null,
+              "texto": "V20 (T11)",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J154",
+              "combinada": null,
+              "texto": "V18 (T9)",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K154",
+              "combinada": null,
+              "texto": "V23 (L2)",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L154",
+              "combinada": null,
+              "texto": "shu post",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M154",
+              "combinada": null,
+              "texto": "V25",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N154",
+              "combinada": null,
+              "texto": "V22",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "O154",
+              "combinada": null,
+              "texto": "V27",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "P154",
+              "combinada": null,
+              "texto": "V28",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Q154",
+              "combinada": null,
+              "texto": "V19 (T10)",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "R154",
+              "combinada": null,
+              "texto": "V21 (T12)",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D155",
+              "combinada": null,
+              "texto": "MU",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E155",
+              "combinada": null,
+              "texto": "Da yin",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F155",
+              "combinada": null,
+              "texto": "VC14",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G155",
+              "combinada": null,
+              "texto": "VC17",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H155",
+              "combinada": null,
+              "texto": "P1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I155",
+              "combinada": null,
+              "texto": "H13",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J155",
+              "combinada": null,
+              "texto": "H14",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K155",
+              "combinada": null,
+              "texto": "VB25",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L155",
+              "combinada": null,
+              "texto": "MU",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M155",
+              "combinada": null,
+              "texto": "E25",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N155",
+              "combinada": null,
+              "texto": "VC5",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "O155",
+              "combinada": null,
+              "texto": "VC4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "P155",
+              "combinada": null,
+              "texto": "VC3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Q155",
+              "combinada": null,
+              "texto": "VB24",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "R155",
+              "combinada": null,
+              "texto": "VC12",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C156",
+              "combinada": "C156:C157",
+              "texto": "4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D156",
+              "combinada": null,
+              "texto": "YUAN",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E156",
+              "combinada": null,
+              "texto": "Para excesos Yang, recibe del luo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F156",
+              "combinada": null,
+              "texto": "C7",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G156",
+              "combinada": null,
+              "texto": "PC7",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H156",
+              "combinada": null,
+              "texto": "P9",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I156",
+              "combinada": null,
+              "texto": "B3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J156",
+              "combinada": null,
+              "texto": "H3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K156",
+              "combinada": null,
+              "texto": "R3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L156",
+              "combinada": null,
+              "texto": "YUAN",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M156",
+              "combinada": null,
+              "texto": "IG4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N156",
+              "combinada": null,
+              "texto": "TR4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "O156",
+              "combinada": null,
+              "texto": "ID4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "P156",
+              "combinada": null,
+              "texto": "V64",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Q156",
+              "combinada": null,
+              "texto": "VB40",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "R156",
+              "combinada": null,
+              "texto": "E42",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D157",
+              "combinada": null,
+              "texto": "LUO",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E157",
+              "combinada": null,
+              "texto": "drena hacia el yuan",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F157",
+              "combinada": null,
+              "texto": "C5",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G157",
+              "combinada": null,
+              "texto": "PC6",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H157",
+              "combinada": null,
+              "texto": "P7",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I157",
+              "combinada": null,
+              "texto": "B4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J157",
+              "combinada": null,
+              "texto": "H5",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K157",
+              "combinada": null,
+              "texto": "R4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L157",
+              "combinada": null,
+              "texto": "LUO",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M157",
+              "combinada": null,
+              "texto": "IG6",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N157",
+              "combinada": null,
+              "texto": "TR5",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "O157",
+              "combinada": null,
+              "texto": "ID7",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "P157",
+              "combinada": null,
+              "texto": "V58",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Q157",
+              "combinada": null,
+              "texto": "VB37",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "R157",
+              "combinada": null,
+              "texto": "E40",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C158",
+              "combinada": "C158:C159",
+              "texto": "5",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D158",
+              "combinada": null,
+              "texto": "XI",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E158",
+              "combinada": null,
+              "texto": "Hendidura",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F158",
+              "combinada": null,
+              "texto": "C6",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G158",
+              "combinada": null,
+              "texto": "PC4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H158",
+              "combinada": null,
+              "texto": "P6",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "I158",
+              "combinada": null,
+              "texto": "B8 - B10",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J158",
+              "combinada": null,
+              "texto": "H6",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K158",
+              "combinada": null,
+              "texto": "R5",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L158",
+              "combinada": null,
+              "texto": "XI",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M158",
+              "combinada": null,
+              "texto": "IG7",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "N158",
+              "combinada": null,
+              "texto": "TR7",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "O158",
+              "combinada": null,
+              "texto": "ID6",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "P158",
+              "combinada": null,
+              "texto": "V63",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Q158",
+              "combinada": null,
+              "texto": "VB36",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "R158",
+              "combinada": null,
+              "texto": "E34",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D159",
+              "combinada": null,
+              "texto": "HUI",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E159",
+              "combinada": null,
+              "texto": "ORGANOS",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F159",
+              "combinada": "F159:K159",
+              "texto": "H13 MU DE BAZO",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L159",
+              "combinada": null,
+              "texto": "VISCERAS",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M159",
+              "combinada": "M159:R159",
+              "texto": ".VC12 HUI DE VISCERAS",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "H140:H140",
+          "filas": 1,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "H140",
+              "combinada": null,
+              "texto": "P7",
+              "negrita": false,
+              "relleno": "FFFFFF00"
+            }
+          ]
+        },
+        {
+          "rango": "K141:K141",
+          "filas": 1,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "K141",
+              "combinada": null,
+              "texto": "R6",
+              "negrita": false,
+              "relleno": "FFFFFF00"
+            }
+          ]
+        },
+        {
+          "rango": "O142:O142",
+          "filas": 1,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "O142",
+              "combinada": null,
+              "texto": "ID3",
+              "negrita": false,
+              "relleno": "FFFFFF00"
+            }
+          ]
+        },
+        {
+          "rango": "P143:P143",
+          "filas": 1,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "P143",
+              "combinada": null,
+              "texto": "V62",
+              "negrita": false,
+              "relleno": "FFFFFF00"
+            }
+          ]
+        },
+        {
+          "rango": "Q144:Q144",
+          "filas": 1,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "Q144",
+              "combinada": null,
+              "texto": "VB41",
+              "negrita": false,
+              "relleno": "FFFFFF00"
+            }
+          ]
+        },
+        {
+          "rango": "C161:J183",
+          "filas": 23,
+          "columnas": 8,
+          "densidad": 0.47,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "C161",
+              "combinada": "C161:F161",
+              "texto": "LUO",
+              "negrita": false,
+              "relleno": "FFB2A1C7"
+            },
+            {
+              "celda": "G161",
+              "combinada": "G161:J161",
+              "texto": "YUAN",
+              "negrita": false,
+              "relleno": "FF95B3D7"
+            },
+            {
+              "celda": "C162",
+              "combinada": null,
+              "texto": "Meridiano acoplado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D162",
+              "combinada": null,
+              "texto": "Punto Luo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E162",
+              "combinada": null,
+              "texto": "Exceso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F162",
+              "combinada": null,
+              "texto": "Deficiencia (vacío)",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G162",
+              "combinada": "G162:J162",
+              "texto": "Yuan de las vísceras Yang se usan para manejar estados de exceso",
+              "negrita": false,
+              "relleno": "FFE5B8B7"
+            },
+            {
+              "celda": "C163",
+              "combinada": "C163:C164",
+              "texto": "IG",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D163",
+              "combinada": "D163:D164",
+              "texto": "P7",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E163",
+              "combinada": "E163:E164",
+              "texto": "Palmas y muñecas calientes",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F163",
+              "combinada": null,
+              "texto": "Cortedad respiración, micción frecuente.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G163",
+              "combinada": null,
+              "texto": "IG4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H163",
+              "combinada": "H163:J163",
+              "texto": "liberar la superficie y cazar el viento caliente",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F164",
+              "combinada": null,
+              "texto": "sudor de manos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G164",
+              "combinada": null,
+              "texto": "ID4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H164",
+              "combinada": "H164:J164",
+              "texto": "para quitar el estancamiento de Qi del Hígado y calmar los dolores costales",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C165",
+              "combinada": null,
+              "texto": "ID",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D165",
+              "combinada": null,
+              "texto": "C5",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E165",
+              "combinada": null,
+              "texto": "Llenura de pecho",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F165",
+              "combinada": null,
+              "texto": "afasia",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G165",
+              "combinada": null,
+              "texto": "V64",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H165",
+              "combinada": "H165:J165",
+              "texto": "para cazar la humedad caliente del quemador inferior",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C166",
+              "combinada": null,
+              "texto": "Tr",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D166",
+              "combinada": null,
+              "texto": "Pc 6",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E166",
+              "combinada": null,
+              "texto": "Dolor cardiaco",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F166",
+              "combinada": null,
+              "texto": "disnea",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G166",
+              "combinada": null,
+              "texto": "VB40",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H166",
+              "combinada": "H166:J166",
+              "texto": "para quitar el estancamiento de Qi del Hígado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C167",
+              "combinada": "C167:C168",
+              "texto": "C",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D167",
+              "combinada": "D167:D168",
+              "texto": "ID 7",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E167",
+              "combinada": null,
+              "texto": "Alteración motora",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F167",
+              "combinada": "F167:F168",
+              "texto": "verrugas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G167",
+              "combinada": null,
+              "texto": "E42",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H167",
+              "combinada": "H167:J167",
+              "texto": "para cazar el viento frío de la cara en las parálisis faciales",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E168",
+              "combinada": null,
+              "texto": "Rigidez codo y hombro",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G168",
+              "combinada": null,
+              "texto": "TR4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H168",
+              "combinada": "H168:J168",
+              "texto": "para dispersar el calor de la VB que esté dando sordera.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C169",
+              "combinada": null,
+              "texto": "P",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D169",
+              "combinada": null,
+              "texto": "IG 6",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E169",
+              "combinada": null,
+              "texto": "Dolor dental",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F169",
+              "combinada": null,
+              "texto": "Frio en dientes",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C170",
+              "combinada": null,
+              "texto": "Pc",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D170",
+              "combinada": null,
+              "texto": "Tr5",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E170",
+              "combinada": null,
+              "texto": "Espasmo codo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F170",
+              "combinada": null,
+              "texto": "Alteración motora codo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C171",
+              "combinada": null,
+              "texto": "R",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D171",
+              "combinada": null,
+              "texto": "V 58",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E171",
+              "combinada": null,
+              "texto": "Rinorrea, obstrucción nasal. Dolor de espalda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F171",
+              "combinada": null,
+              "texto": "epistaxis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C172",
+              "combinada": "C172:C173",
+              "texto": "H",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D172",
+              "combinada": "D172:D173",
+              "texto": "VB 37",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E172",
+              "combinada": null,
+              "texto": "Sincope",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F172",
+              "combinada": "F172:F173",
+              "texto": "Músculos de pie débiles y flácidos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E173",
+              "combinada": null,
+              "texto": "Piernas y pies muy frios",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C174",
+              "combinada": "C174:C175",
+              "texto": "B",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D174",
+              "combinada": "D174:D175",
+              "texto": "E40",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E174",
+              "combinada": "E174:E175",
+              "texto": "Dolor garganta, afonía. Manía",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F174",
+              "combinada": null,
+              "texto": "Sudor pie",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F175",
+              "combinada": null,
+              "texto": "Atrofia MIs",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C176",
+              "combinada": null,
+              "texto": "E",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D176",
+              "combinada": null,
+              "texto": "B4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E176",
+              "combinada": null,
+              "texto": "Dolor abdominal, diarrea",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F176",
+              "combinada": null,
+              "texto": "edema",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C177",
+              "combinada": null,
+              "texto": "V",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D177",
+              "combinada": null,
+              "texto": "R4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E177",
+              "combinada": null,
+              "texto": "Fatiga, disuria",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F177",
+              "combinada": null,
+              "texto": "Dolor lumbar",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C178",
+              "combinada": "C178:C179",
+              "texto": "VB",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D178",
+              "combinada": "D178:D179",
+              "texto": "H5",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E178",
+              "combinada": null,
+              "texto": "Prolapso útero, hernia",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F178",
+              "combinada": "F178:F179",
+              "texto": "Prurito genital",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E179",
+              "combinada": null,
+              "texto": "Inflamacion genital",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C180",
+              "combinada": "C180:C181",
+              "texto": "Conecta abdomen",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D180",
+              "combinada": "D180:D181",
+              "texto": "Ren VC 15",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E180",
+              "combinada": null,
+              "texto": "Dolor abdominal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F180",
+              "combinada": null,
+              "texto": "Prurito abdominal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E181",
+              "combinada": null,
+              "texto": "Gobierna pared abdominal.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F181",
+              "combinada": null,
+              "texto": "agotamiento",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C182",
+              "combinada": null,
+              "texto": "Conecta con cabeza",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D182",
+              "combinada": null,
+              "texto": "Du VG 1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E182",
+              "combinada": null,
+              "texto": "Rigidez columna.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F182",
+              "combinada": null,
+              "texto": "Vertigo, cabeza pesada",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C183",
+              "combinada": null,
+              "texto": "Conecta con hipocondrio",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D183",
+              "combinada": null,
+              "texto": "B 21",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E183",
+              "combinada": null,
+              "texto": "Dolor general. Poliartralgias",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F183",
+              "combinada": null,
+              "texto": "Debilidad general",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "P162:Q173",
+          "filas": 12,
+          "columnas": 2,
+          "densidad": 0.96,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "P162",
+              "combinada": "P162:Q162",
+              "texto": "MU",
+              "negrita": false,
+              "relleno": "FFC2D69B"
+            },
+            {
+              "celda": "P163",
+              "combinada": null,
+              "texto": "P1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Q163",
+              "combinada": null,
+              "texto": "dispersar calor del Pulmón",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "P164",
+              "combinada": null,
+              "texto": "VC17",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Q164",
+              "combinada": null,
+              "texto": "tonificar o hacer circular el Qi en el Tórax",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "P165",
+              "combinada": null,
+              "texto": "VC14",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Q165",
+              "combinada": null,
+              "texto": "calmar el espíritu. Patologías de Corazón que se acompañan de angustia",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "P166",
+              "combinada": null,
+              "texto": "H14",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Q166",
+              "combinada": null,
+              "texto": "para hacer circular el Qi de Hígado cuando está estancado en el hipocondrio. Armoniza Hígado y Estómago",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "P167",
+              "combinada": null,
+              "texto": "VB24",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Q167",
+              "combinada": null,
+              "texto": "dispersar el calor húmedo de la VB",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "P168",
+              "combinada": null,
+              "texto": "H13",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Q168",
+              "combinada": null,
+              "texto": "hacer circular el Qi de Hígado cuando se estanca en el epigastrio o abdomen inferior. Armoniza el Hígado y el bazo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "P169",
+              "combinada": null,
+              "texto": "VC12",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Q169",
+              "combinada": null,
+              "texto": "tonificar el Estómago o el Yin del Estómago y el Qi de bazo.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "P170",
+              "combinada": null,
+              "texto": "VC5",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Q170",
+              "combinada": null,
+              "texto": "acumulación de calor en el Quemador inferior",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "P171",
+              "combinada": null,
+              "texto": "E25",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Q171",
+              "combinada": null,
+              "texto": "regularizar Intestinos, calmar diarrea y dolor",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "P172",
+              "combinada": null,
+              "texto": "VC4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Q172",
+              "combinada": null,
+              "texto": "regularizar ID. Tonifica el Riñón y el Qi Original",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "P173",
+              "combinada": null,
+              "texto": "VC3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Q173",
+              "combinada": null,
+              "texto": "calor húmedo de Vejiga",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "B186:B186",
+          "filas": 1,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "B186",
+              "combinada": null,
+              "texto": "TECNICA DE PLANOS",
+              "negrita": false,
+              "relleno": "FF00FF00"
+            }
+          ]
+        },
+        {
+          "rango": "B188:O201",
+          "filas": 14,
+          "columnas": 14,
+          "densidad": 0.79,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "C188",
+              "combinada": null,
+              "texto": "PLANOS",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D188",
+              "combinada": null,
+              "texto": "C",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "E188",
+              "combinada": null,
+              "texto": "PC",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "F188",
+              "combinada": null,
+              "texto": "P",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "G188",
+              "combinada": null,
+              "texto": "B",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "H188",
+              "combinada": null,
+              "texto": "H",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "I188",
+              "combinada": null,
+              "texto": "R",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "J188",
+              "combinada": null,
+              "texto": "IG",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "K188",
+              "combinada": null,
+              "texto": "TR",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "L188",
+              "combinada": null,
+              "texto": "ID",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "M188",
+              "combinada": null,
+              "texto": "V",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "N188",
+              "combinada": null,
+              "texto": "VB",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "O188",
+              "combinada": null,
+              "texto": "E",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "B189",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C189",
+              "combinada": null,
+              "texto": "acelerador o fuego",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D189",
+              "combinada": null,
+              "texto": "C8",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "E189",
+              "combinada": null,
+              "texto": "PC8",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "F189",
+              "combinada": null,
+              "texto": "P10",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "G189",
+              "combinada": null,
+              "texto": "B2",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "H189",
+              "combinada": null,
+              "texto": "H2",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "I189",
+              "combinada": null,
+              "texto": "R2",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "J189",
+              "combinada": null,
+              "texto": "IG5",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "K189",
+              "combinada": null,
+              "texto": "TR6",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "L189",
+              "combinada": null,
+              "texto": "ID5",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "M189",
+              "combinada": null,
+              "texto": "V60",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "N189",
+              "combinada": null,
+              "texto": "VB38",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "O189",
+              "combinada": null,
+              "texto": "E41",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "B190",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C190",
+              "combinada": null,
+              "texto": "ashi",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B191",
+              "combinada": null,
+              "texto": "3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C191",
+              "combinada": null,
+              "texto": "nudo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F191",
+              "combinada": null,
+              "texto": "VC12",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M191",
+              "combinada": null,
+              "texto": "V1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N191",
+              "combinada": null,
+              "texto": "VB2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "O191",
+              "combinada": null,
+              "texto": "E7",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B192",
+              "combinada": null,
+              "texto": "4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C192",
+              "combinada": null,
+              "texto": "nudo de nudos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F192",
+              "combinada": null,
+              "texto": "VG20",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G192",
+              "combinada": null,
+              "texto": "EXHN9",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N192",
+              "combinada": null,
+              "texto": "VB8",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "O192",
+              "combinada": null,
+              "texto": "E8",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B193",
+              "combinada": null,
+              "texto": "5",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C193",
+              "combinada": null,
+              "texto": "arrastre o pozo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D193",
+              "combinada": null,
+              "texto": "C9",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "E193",
+              "combinada": null,
+              "texto": "PC9",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "F193",
+              "combinada": null,
+              "texto": "P11",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "G193",
+              "combinada": null,
+              "texto": "B1",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "H193",
+              "combinada": null,
+              "texto": "H1",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "I193",
+              "combinada": null,
+              "texto": "R1",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "J193",
+              "combinada": null,
+              "texto": "IG1",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "K193",
+              "combinada": null,
+              "texto": "TR1",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "L193",
+              "combinada": null,
+              "texto": "ID1",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "M193",
+              "combinada": null,
+              "texto": "V67",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "N193",
+              "combinada": null,
+              "texto": "VB44",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "O193",
+              "combinada": null,
+              "texto": "E45",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "B194",
+              "combinada": null,
+              "texto": "6",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C194",
+              "combinada": null,
+              "texto": "agua en los yang",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J194",
+              "combinada": null,
+              "texto": "IG2",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "K194",
+              "combinada": null,
+              "texto": "TR2",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "L194",
+              "combinada": null,
+              "texto": "ID2",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "M194",
+              "combinada": null,
+              "texto": "V66",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "N194",
+              "combinada": null,
+              "texto": "VB43",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "O194",
+              "combinada": null,
+              "texto": "E44",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "B195",
+              "combinada": null,
+              "texto": "7",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C195",
+              "combinada": null,
+              "texto": "hijo meridiano afectado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D195",
+              "combinada": null,
+              "texto": "C7",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "E195",
+              "combinada": null,
+              "texto": "PC7",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "F195",
+              "combinada": null,
+              "texto": "P5",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "G195",
+              "combinada": null,
+              "texto": "B5",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "H195",
+              "combinada": null,
+              "texto": "H2",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "I195",
+              "combinada": null,
+              "texto": "R1",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "J195",
+              "combinada": null,
+              "texto": "IG2",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "K195",
+              "combinada": null,
+              "texto": "TR10",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "L195",
+              "combinada": null,
+              "texto": "ID8",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "M195",
+              "combinada": null,
+              "texto": "V65",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "N195",
+              "combinada": null,
+              "texto": "VB38",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "O195",
+              "combinada": null,
+              "texto": "E45",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "B196",
+              "combinada": null,
+              "texto": "8",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C196",
+              "combinada": null,
+              "texto": "tonifica (madre) meridiano afectado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D196",
+              "combinada": null,
+              "texto": "C9",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "E196",
+              "combinada": null,
+              "texto": "PC9",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "F196",
+              "combinada": null,
+              "texto": "P9",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "G196",
+              "combinada": null,
+              "texto": "B2",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "H196",
+              "combinada": null,
+              "texto": "H8",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "I196",
+              "combinada": null,
+              "texto": "R7",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "J196",
+              "combinada": null,
+              "texto": "IG11",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "K196",
+              "combinada": null,
+              "texto": "TR3",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "L196",
+              "combinada": null,
+              "texto": "ID3",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "M196",
+              "combinada": null,
+              "texto": "V67",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "N196",
+              "combinada": null,
+              "texto": "VB43",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "O196",
+              "combinada": null,
+              "texto": "E41",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "B197",
+              "combinada": null,
+              "texto": "9",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C197",
+              "combinada": null,
+              "texto": "fuego meridiano afectado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D197",
+              "combinada": null,
+              "texto": "C8",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "E197",
+              "combinada": null,
+              "texto": "PC8",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "F197",
+              "combinada": null,
+              "texto": "P10",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "G197",
+              "combinada": null,
+              "texto": "B2",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "H197",
+              "combinada": null,
+              "texto": "H2",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "I197",
+              "combinada": null,
+              "texto": "R2",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "J197",
+              "combinada": null,
+              "texto": "IG5",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "K197",
+              "combinada": null,
+              "texto": "TR6",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "L197",
+              "combinada": null,
+              "texto": "ID5",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "M197",
+              "combinada": null,
+              "texto": "V60",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "N197",
+              "combinada": null,
+              "texto": "VB38",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "O197",
+              "combinada": null,
+              "texto": "E41",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "B198",
+              "combinada": null,
+              "texto": "10",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C198",
+              "combinada": null,
+              "texto": "luo meridiano afectado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D198",
+              "combinada": null,
+              "texto": "C5",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E198",
+              "combinada": null,
+              "texto": "PC6",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F198",
+              "combinada": null,
+              "texto": "P7",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G198",
+              "combinada": null,
+              "texto": "B4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H198",
+              "combinada": null,
+              "texto": "H5",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I198",
+              "combinada": null,
+              "texto": "R4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J198",
+              "combinada": null,
+              "texto": "IG6",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K198",
+              "combinada": null,
+              "texto": "TR5",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L198",
+              "combinada": null,
+              "texto": "ID7",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M198",
+              "combinada": null,
+              "texto": "V58",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N198",
+              "combinada": null,
+              "texto": "VB37",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "O198",
+              "combinada": null,
+              "texto": "E40",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B199",
+              "combinada": null,
+              "texto": "11",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C199",
+              "combinada": null,
+              "texto": "yuan del acoplado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D199",
+              "combinada": null,
+              "texto": "ID4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F199",
+              "combinada": null,
+              "texto": "IG4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G199",
+              "combinada": null,
+              "texto": "E42",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H199",
+              "combinada": null,
+              "texto": "VB40",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I199",
+              "combinada": null,
+              "texto": "V64",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J199",
+              "combinada": null,
+              "texto": "P9",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L199",
+              "combinada": null,
+              "texto": "C7",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M199",
+              "combinada": null,
+              "texto": "R3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N199",
+              "combinada": null,
+              "texto": "H3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "O199",
+              "combinada": null,
+              "texto": "B3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B200",
+              "combinada": null,
+              "texto": "12",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C200",
+              "combinada": null,
+              "texto": "pozo del acoplado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D200",
+              "combinada": null,
+              "texto": "ID1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F200",
+              "combinada": null,
+              "texto": "IG1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G200",
+              "combinada": null,
+              "texto": "E45",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H200",
+              "combinada": null,
+              "texto": "VB44",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I200",
+              "combinada": null,
+              "texto": "V67",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J200",
+              "combinada": null,
+              "texto": "P11",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L200",
+              "combinada": null,
+              "texto": "C9",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M200",
+              "combinada": null,
+              "texto": "R1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N200",
+              "combinada": null,
+              "texto": "H1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "O200",
+              "combinada": null,
+              "texto": "B1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B201",
+              "combinada": null,
+              "texto": "13",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C201",
+              "combinada": null,
+              "texto": "tierra del acoplado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D201",
+              "combinada": null,
+              "texto": "ID8",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F201",
+              "combinada": null,
+              "texto": "IG11",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G201",
+              "combinada": null,
+              "texto": "E36",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H201",
+              "combinada": null,
+              "texto": "VB34",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I201",
+              "combinada": null,
+              "texto": "V40",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J201",
+              "combinada": null,
+              "texto": "P9",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L201",
+              "combinada": null,
+              "texto": "C7",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M201",
+              "combinada": null,
+              "texto": "R3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N201",
+              "combinada": null,
+              "texto": "H3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "O201",
+              "combinada": null,
+              "texto": "B3",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "H191:I191",
+          "filas": 1,
+          "columnas": 2,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "H191",
+              "combinada": null,
+              "texto": "VC17",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I191",
+              "combinada": null,
+              "texto": "VC23",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "B222:M278",
+          "filas": 57,
+          "columnas": 12,
+          "densidad": 0.31,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "B222",
+              "combinada": "B222:C222",
+              "texto": "HUI",
+              "negrita": false,
+              "relleno": "FFFFC1C1"
+            },
+            {
+              "celda": "D222",
+              "combinada": "D222:E222",
+              "texto": "HE",
+              "negrita": false,
+              "relleno": "FFB5EEF9"
+            },
+            {
+              "celda": "F222",
+              "combinada": "F222:I222",
+              "texto": "8 tecnicas BA FENG",
+              "negrita": false,
+              "relleno": "FFB2A1C7"
+            },
+            {
+              "celda": "J222",
+              "combinada": "J222:M222",
+              "texto": "PATOGENOS EXTERNOS",
+              "negrita": false,
+              "relleno": "FFFBD4B4"
+            },
+            {
+              "celda": "B223",
+              "combinada": null,
+              "texto": "Hui de órganos",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "C223",
+              "combinada": null,
+              "texto": "H13",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "D223",
+              "combinada": null,
+              "texto": "B5",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E223",
+              "combinada": null,
+              "texto": "Acción venosa-safena",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F223",
+              "combinada": "F223:I223",
+              "texto": "1. liberación frio: P7-IG4-VG14",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J223",
+              "combinada": "J223:M223",
+              "texto": "Frío ataca el Tai Yang:La capa Yin le da e. para liberar el frío",
+              "negrita": false,
+              "relleno": "FFC6D9F0"
+            },
+            {
+              "celda": "B224",
+              "combinada": null,
+              "texto": "Hui de vísceras",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "C224",
+              "combinada": null,
+              "texto": "VC12",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "D224",
+              "combinada": null,
+              "texto": "VB20",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E224",
+              "combinada": null,
+              "texto": "Acción vago-simpática",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F224",
+              "combinada": "F224:I224",
+              "texto": "Purificación calor: IG4-IG11- VG14",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J224",
+              "combinada": "J224:M224",
+              "texto": "P7 Luo-",
+              "negrita": false,
+              "relleno": "FFC6D9F0"
+            },
+            {
+              "celda": "B225",
+              "combinada": null,
+              "texto": "Hui de Qi",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C225",
+              "combinada": null,
+              "texto": "VC 17",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D225",
+              "combinada": null,
+              "texto": "VB10",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E225",
+              "combinada": null,
+              "texto": "Acción vago-simpática",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F225",
+              "combinada": "F225:I225",
+              "texto": "2. Regulariza Shao Yang Viento VB34 + H3 + tierra.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J225",
+              "combinada": "J225:M225",
+              "texto": "IG4 Yuan-",
+              "negrita": false,
+              "relleno": "FFC6D9F0"
+            },
+            {
+              "celda": "B226",
+              "combinada": null,
+              "texto": "Hui de sangre",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C226",
+              "combinada": null,
+              "texto": "V 17",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D226",
+              "combinada": null,
+              "texto": "V60",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E226",
+              "combinada": null,
+              "texto": "Antálgico general",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F226",
+              "combinada": "F226:I226",
+              "texto": "3. Vomificación ==> Yang Ming E Pc6 Neuralgias",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J226",
+              "combinada": "J226:M226",
+              "texto": "VG14 Unión de los 3 Yang",
+              "negrita": false,
+              "relleno": "FFC6D9F0"
+            },
+            {
+              "celda": "B227",
+              "combinada": null,
+              "texto": "Hui de tendones",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C227",
+              "combinada": null,
+              "texto": "VB34",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D227",
+              "combinada": null,
+              "texto": "R24",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E227",
+              "combinada": null,
+              "texto": "Depresión mujer",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F227",
+              "combinada": "F227:I227",
+              "texto": "4. Purgación ==> Yang Ming IG B6",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J227",
+              "combinada": "J227:M227",
+              "texto": "Calor ataca el Tai yang",
+              "negrita": false,
+              "relleno": "FFC2D69B"
+            },
+            {
+              "celda": "B228",
+              "combinada": null,
+              "texto": "Hui de vasos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C228",
+              "combinada": null,
+              "texto": "P9",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D228",
+              "combinada": null,
+              "texto": "V40",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E228",
+              "combinada": null,
+              "texto": "lumbar-aX dermatológica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F228",
+              "combinada": "F228:I228",
+              "texto": "5. Calorificación ==> Tai yin B: VC12 moxar V20 Shu de B VC4 Moxar R+ V23 + VG4 + VC 6",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J228",
+              "combinada": "J228:M228",
+              "texto": "IG 4- Yuan",
+              "negrita": false,
+              "relleno": "FFC2D69B"
+            },
+            {
+              "celda": "B229",
+              "combinada": null,
+              "texto": "Hui de huesos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C229",
+              "combinada": null,
+              "texto": "V11",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D229",
+              "combinada": null,
+              "texto": "IG4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E229",
+              "combinada": null,
+              "texto": "Comando cara",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F229",
+              "combinada": "F229:I229",
+              "texto": "6. Refrigera Tai yin P R3 + B6+ VC4 manantial.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J229",
+              "combinada": "J229:M229",
+              "texto": "IG 11 – • Tierra, desciende Yang",
+              "negrita": false,
+              "relleno": "FFC2D69B"
+            },
+            {
+              "celda": "B230",
+              "combinada": null,
+              "texto": "Hui de medulas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C230",
+              "combinada": null,
+              "texto": "VB 39",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D230",
+              "combinada": null,
+              "texto": "VB39",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E230",
+              "combinada": null,
+              "texto": "Alteraciones medulares",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F230",
+              "combinada": "F230:I230",
+              "texto": "7. Armonizar ==> Jue yin VG20- VC17- R1VC6- VC12- VC17 E36",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J230",
+              "combinada": "J230:M230",
+              "texto": "VG14 Unión de los 3 yang.",
+              "negrita": false,
+              "relleno": "FFC2D69B"
+            },
+            {
+              "celda": "B231",
+              "combinada": null,
+              "texto": "Hui Estómago",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C231",
+              "combinada": null,
+              "texto": "E36",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D231",
+              "combinada": null,
+              "texto": "E30",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E231",
+              "combinada": null,
+              "texto": "Asimilación alimentos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F231",
+              "combinada": "F231:I231",
+              "texto": "8. Purificar ==> Shao yin\n Tonificar Qi: VG4- VC6- VC12- VC17 E36\n Si frio: R+ è V23+ VG4+VC6\n Tonificar Xue: B6-B10-VC4\n V17-P9- H13- V52\n si calor: R- è R3-7-10",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J231",
+              "combinada": "J231:M231",
+              "texto": "FRIO",
+              "negrita": false,
+              "relleno": "FFE5B8B7"
+            },
+            {
+              "celda": "B232",
+              "combinada": null,
+              "texto": "Hui de IG",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C232",
+              "combinada": null,
+              "texto": "E37",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D232",
+              "combinada": null,
+              "texto": "VC 9",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E232",
+              "combinada": null,
+              "texto": "Separación líquidos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F232",
+              "combinada": "F232:I232",
+              "texto": "Dolor de vísceras",
+              "negrita": false,
+              "relleno": "FFB6DDE8"
+            },
+            {
+              "celda": "J232",
+              "combinada": "J232:M232",
+              "texto": "Impedir que entre. Calor ID pasarlo a V",
+              "negrita": false,
+              "relleno": "FFE5B8B7"
+            },
+            {
+              "celda": "B233",
+              "combinada": null,
+              "texto": "Hui de ID",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C233",
+              "combinada": null,
+              "texto": "E39",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D233",
+              "combinada": null,
+              "texto": "ID3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E233",
+              "combinada": null,
+              "texto": "Cuello, cervicalgias",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F233",
+              "combinada": "F233:I233",
+              "texto": "Shu –Mu",
+              "negrita": false,
+              "relleno": "FFB6DDE8"
+            },
+            {
+              "celda": "J233",
+              "combinada": "J233:M233",
+              "texto": "V 60 moxando.",
+              "negrita": false,
+              "relleno": "FFE5B8B7"
+            },
+            {
+              "celda": "B234",
+              "combinada": null,
+              "texto": "Hui de Tr",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C234",
+              "combinada": null,
+              "texto": "V39",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D234",
+              "combinada": null,
+              "texto": "B6",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E234",
+              "combinada": null,
+              "texto": "venoso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F234",
+              "combinada": "F234:I234",
+              "texto": "Luo-Yuan",
+              "negrita": false,
+              "relleno": "FFB6DDE8"
+            },
+            {
+              "celda": "J234",
+              "combinada": "J234:M234",
+              "texto": "Moxar calor general:",
+              "negrita": false,
+              "relleno": "FFE5B8B7"
+            },
+            {
+              "celda": "B235",
+              "combinada": null,
+              "texto": "Hui de M.O.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C235",
+              "combinada": null,
+              "texto": "IG 16",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D235",
+              "combinada": null,
+              "texto": "P7",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E235",
+              "combinada": null,
+              "texto": "cabeza",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F235",
+              "combinada": "F235:I235",
+              "texto": "Regularizar el Yang Ming: IG4+ VC12 + E36",
+              "negrita": false,
+              "relleno": "FFB6DDE8"
+            },
+            {
+              "celda": "J235",
+              "combinada": "J235:M235",
+              "texto": "R+ è V23- VG4- VC6",
+              "negrita": false,
+              "relleno": "FFE5B8B7"
+            },
+            {
+              "celda": "B236",
+              "combinada": "B236:C236",
+              "texto": "XI",
+              "negrita": false,
+              "relleno": "FFD6E3BC"
+            },
+            {
+              "celda": "D236",
+              "combinada": null,
+              "texto": "R6",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E236",
+              "combinada": null,
+              "texto": "insomnio",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F236",
+              "combinada": "F236:I236",
+              "texto": "Mu de Tr: VC 5-6-7",
+              "negrita": false,
+              "relleno": "FFB6DDE8"
+            },
+            {
+              "celda": "J236",
+              "combinada": "J236:M236",
+              "texto": "fuego del meridiano comprometido",
+              "negrita": false,
+              "relleno": "FFE5B8B7"
+            },
+            {
+              "celda": "B237",
+              "combinada": null,
+              "texto": "Hemorroides, hemoptisis. Asma",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C237",
+              "combinada": null,
+              "texto": "P6",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D237",
+              "combinada": null,
+              "texto": "E44",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E237",
+              "combinada": null,
+              "texto": "Odontalgias",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F237",
+              "combinada": "F237:I237",
+              "texto": "Sedar el fuego: H2- Pc8",
+              "negrita": false,
+              "relleno": "FFB6DDE8"
+            },
+            {
+              "celda": "J237",
+              "combinada": "J237:M237",
+              "texto": "Moxar el área comprometida.",
+              "negrita": false,
+              "relleno": "FFE5B8B7"
+            },
+            {
+              "celda": "B238",
+              "combinada": null,
+              "texto": "Dolor dental, gripa. Hemorroides",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C238",
+              "combinada": null,
+              "texto": "IG7",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D238",
+              "combinada": null,
+              "texto": "B10",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E238",
+              "combinada": null,
+              "texto": "Mar de la sangre",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F238",
+              "combinada": "F238:I238",
+              "texto": "Técnica de Planos",
+              "negrita": false,
+              "relleno": "FFB6DDE8"
+            },
+            {
+              "celda": "J238",
+              "combinada": "J238:M238",
+              "texto": "VIENTO",
+              "negrita": false,
+              "relleno": "FFC6D9F0"
+            },
+            {
+              "celda": "B239",
+              "combinada": null,
+              "texto": "Dolor epigástrico",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C239",
+              "combinada": null,
+              "texto": "E34",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D239",
+              "combinada": null,
+              "texto": "VB37",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E239",
+              "combinada": null,
+              "texto": "PUNTO DE LA LUZ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F239",
+              "combinada": "F239:I239",
+              "texto": "Rama: “cosido” zona viscerocutánea.",
+              "negrita": false,
+              "relleno": "FFB6DDE8"
+            },
+            {
+              "celda": "J239",
+              "combinada": "J239:M239",
+              "texto": "disminuir el Yang para eso tonifico el Yin.",
+              "negrita": false,
+              "relleno": "FFC6D9F0"
+            },
+            {
+              "celda": "B240",
+              "combinada": null,
+              "texto": "Diarrea aguda. Dismenorreas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C240",
+              "combinada": null,
+              "texto": "B8",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D240",
+              "combinada": null,
+              "texto": "VG26",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E240",
+              "combinada": null,
+              "texto": "SEPARACION DE AGUA",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F240",
+              "combinada": "F240:I240",
+              "texto": "Dolor de órganos",
+              "negrita": false,
+              "relleno": "FFE5B8B7"
+            },
+            {
+              "celda": "J240",
+              "combinada": "J240:M240",
+              "texto": "B6 : Unión de los 3 YIN Produce sangre.",
+              "negrita": false,
+              "relleno": "FFC6D9F0"
+            },
+            {
+              "celda": "B241",
+              "combinada": null,
+              "texto": "Insomnio. Dolor cardiaco. manía",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C241",
+              "combinada": null,
+              "texto": "C6",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D241",
+              "combinada": null,
+              "texto": "E32",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E241",
+              "combinada": null,
+              "texto": "REUNION ARTERIAS Y VENAS",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F241",
+              "combinada": "F241:I241",
+              "texto": "1.Punto Xi",
+              "negrita": false,
+              "relleno": "FFE5B8B7"
+            },
+            {
+              "celda": "J241",
+              "combinada": "J241:M241",
+              "texto": "B10: mar de la sangre XI de bazo-",
+              "negrita": false,
+              "relleno": "FFC6D9F0"
+            },
+            {
+              "celda": "B242",
+              "combinada": null,
+              "texto": "Visión borrosa, tinnitus",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C242",
+              "combinada": null,
+              "texto": "ID6",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D242",
+              "combinada": null,
+              "texto": "VG20",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E242",
+              "combinada": null,
+              "texto": "REUNION 6 YANG",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F242",
+              "combinada": "F242:I242",
+              "texto": "2.Puntos Shu-Mu",
+              "negrita": false,
+              "relleno": "FFE5B8B7"
+            },
+            {
+              "celda": "J242",
+              "combinada": "J242:M242",
+              "texto": "VC 4: barrera del manantial",
+              "negrita": false,
+              "relleno": "FFC6D9F0"
+            },
+            {
+              "celda": "B243",
+              "combinada": null,
+              "texto": "Convulsiones. Cistitis aguada.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C243",
+              "combinada": null,
+              "texto": "V63",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D243",
+              "combinada": null,
+              "texto": "R1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E243",
+              "combinada": null,
+              "texto": "POTENCIA TELURICA",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F243",
+              "combinada": "F243:I243",
+              "texto": "3.LUO: no se pone Yuan por que es plenitud",
+              "negrita": false,
+              "relleno": "FFE5B8B7"
+            },
+            {
+              "celda": "J243",
+              "combinada": "J243:M243",
+              "texto": "P9: Roe de circulación aporta agua",
+              "negrita": false,
+              "relleno": "FFC6D9F0"
+            },
+            {
+              "celda": "B244",
+              "combinada": null,
+              "texto": "Prolapso útero, dismenorrea",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C244",
+              "combinada": null,
+              "texto": "R5",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D244",
+              "combinada": null,
+              "texto": "VC14",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E244",
+              "combinada": null,
+              "texto": "REUNION DE LOS 6 YIN",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F244",
+              "combinada": "F244:I244",
+              "texto": "4.Técnica de planos",
+              "negrita": false,
+              "relleno": "FFE5B8B7"
+            },
+            {
+              "celda": "J244",
+              "combinada": "J244:M244",
+              "texto": "H13 reunión de órganos",
+              "negrita": false,
+              "relleno": "FFC6D9F0"
+            },
+            {
+              "celda": "B245",
+              "combinada": null,
+              "texto": "Dolor, palpitaciones,",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C245",
+              "combinada": null,
+              "texto": "Pc 4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D245",
+              "combinada": null,
+              "texto": "VB38",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E245",
+              "combinada": null,
+              "texto": "MOXA EN CASO ANEMIA Y DEBILIDAD",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F245",
+              "combinada": "F245:I245",
+              "texto": "5.Técnica de cosido: zona viscerocutánea del dolor",
+              "negrita": false,
+              "relleno": "FFE5B8B7"
+            },
+            {
+              "celda": "J245",
+              "combinada": "J245:M245",
+              "texto": "V52 hematopoyético",
+              "negrita": false,
+              "relleno": "FFC6D9F0"
+            },
+            {
+              "celda": "B246",
+              "combinada": null,
+              "texto": "Dolor precordial, enteritis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C246",
+              "combinada": null,
+              "texto": "Tr7",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D246",
+              "combinada": null,
+              "texto": "R2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E246",
+              "combinada": null,
+              "texto": "HIPERTENSOS",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F246",
+              "combinada": "F246:I246",
+              "texto": "Enfermedad interna",
+              "negrita": false,
+              "relleno": "FFB5EEF9"
+            },
+            {
+              "celda": "J246",
+              "combinada": "J246:M246",
+              "texto": "V17 Roe de sangre",
+              "negrita": false,
+              "relleno": "FFC6D9F0"
+            },
+            {
+              "celda": "B247",
+              "combinada": null,
+              "texto": "Manía con excitación. Depresión",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C247",
+              "combinada": null,
+              "texto": "VB36",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D247",
+              "combinada": null,
+              "texto": "B21",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E247",
+              "combinada": null,
+              "texto": "ACELERACION CIRCULACION",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F247",
+              "combinada": "F247:I247",
+              "texto": "Técnica para órganos Zang-fu",
+              "negrita": false,
+              "relleno": "FFB5EEF9"
+            },
+            {
+              "celda": "J247",
+              "combinada": "J247:M247",
+              "texto": "Sí frio empeora: Moxar Shu de VB y de H",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B248",
+              "combinada": null,
+              "texto": "Hernia, sangrado genital .cistitis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C248",
+              "combinada": null,
+              "texto": "H6",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D248",
+              "combinada": null,
+              "texto": "VC22",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E248",
+              "combinada": null,
+              "texto": "PLENITUD TORACICA",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F248",
+              "combinada": "F248:I248",
+              "texto": "1.Punto emperador : ID3/P7",
+              "negrita": false,
+              "relleno": "FFB5EEF9"
+            },
+            {
+              "celda": "J248",
+              "combinada": "J248:M248",
+              "texto": "Si calor empeora: Mu de VB y de H",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B249",
+              "combinada": null,
+              "texto": "Dolor testicular, amenorrea, sudoración nocturna",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C249",
+              "combinada": null,
+              "texto": "R8",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D249",
+              "combinada": null,
+              "texto": "VC6",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E249",
+              "combinada": null,
+              "texto": "REUNION ENERGIAS Tr",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F249",
+              "combinada": "F249:I249",
+              "texto": "2.Técnica Shu- Mu",
+              "negrita": false,
+              "relleno": "FFB5EEF9"
+            },
+            {
+              "celda": "J249",
+              "combinada": "J249:M249",
+              "texto": "Cazar el viento:",
+              "negrita": false,
+              "relleno": "FFF2DBDB"
+            },
+            {
+              "celda": "B250",
+              "combinada": null,
+              "texto": "Dolor pecho, flacidez MIs",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C250",
+              "combinada": null,
+              "texto": "VB35",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F250",
+              "combinada": "F250:I250",
+              "texto": "3.Técnica Mu-Zi",
+              "negrita": false,
+              "relleno": "FFB5EEF9"
+            },
+            {
+              "celda": "J250",
+              "combinada": "J250:M250",
+              "texto": "1.VG16+ VB20+ V12",
+              "negrita": false,
+              "relleno": "FFF2DBDB"
+            },
+            {
+              "celda": "B251",
+              "combinada": null,
+              "texto": "Hernia- beriberi",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C251",
+              "combinada": null,
+              "texto": "R9",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F251",
+              "combinada": "F251:I251",
+              "texto": "4.Técnica Yuan-Luo",
+              "negrita": false,
+              "relleno": "FFB5EEF9"
+            },
+            {
+              "celda": "J251",
+              "combinada": "J251:M251",
+              "texto": "1.V10-Tr17- VB31",
+              "negrita": false,
+              "relleno": "FFF2DBDB"
+            },
+            {
+              "celda": "F252",
+              "combinada": "F252:I252",
+              "texto": "5.Roe",
+              "negrita": false,
+              "relleno": "FFB5EEF9"
+            },
+            {
+              "celda": "J252",
+              "combinada": "J252:M252",
+              "texto": "fuego meridiano zona afectada. el calor neutraliza al viento",
+              "negrita": false,
+              "relleno": "FFF2DBDB"
+            },
+            {
+              "celda": "F253",
+              "combinada": "F253:I253",
+              "texto": "6.Técnica de planos",
+              "negrita": false,
+              "relleno": "FFB5EEF9"
+            },
+            {
+              "celda": "J253",
+              "combinada": "J253:M253",
+              "texto": "HUMEDAD",
+              "negrita": false,
+              "relleno": "FFD6E3BC"
+            },
+            {
+              "celda": "F254",
+              "combinada": "F254:I254",
+              "texto": "7.Tierra del acoplado",
+              "negrita": false,
+              "relleno": "FFB5EEF9"
+            },
+            {
+              "celda": "J254",
+              "combinada": "J254:M254",
+              "texto": "Moxar. Regularizar el Yang Ming: E36-IG4-VC12",
+              "negrita": false,
+              "relleno": "FFD6E3BC"
+            },
+            {
+              "celda": "F255",
+              "combinada": "F255:I255",
+              "texto": "8.Cierre V62/ R6",
+              "negrita": false,
+              "relleno": "FFB5EEF9"
+            },
+            {
+              "celda": "J255",
+              "combinada": "J255:M255",
+              "texto": "FLEMA",
+              "negrita": false,
+              "relleno": "FFD6E3BC"
+            },
+            {
+              "celda": "F256",
+              "combinada": "F256:I256",
+              "texto": "Técnica de LUO",
+              "negrita": false,
+              "relleno": "FFCCC0D9"
+            },
+            {
+              "celda": "J256",
+              "combinada": "J256:M256",
+              "texto": "Luo E – Yuan de Bazo E40 - B3",
+              "negrita": false,
+              "relleno": "FFD6E3BC"
+            },
+            {
+              "celda": "F257",
+              "combinada": "F257:I257",
+              "texto": "1.Aguja en el Luo correspondiente",
+              "negrita": false,
+              "relleno": "FFCCC0D9"
+            },
+            {
+              "celda": "J257",
+              "combinada": "J257:M257",
+              "texto": "Regularizar el Calentador Inferior VC 5-6-7",
+              "negrita": false,
+              "relleno": "FFD6E3BC"
+            },
+            {
+              "celda": "F258",
+              "combinada": "F258:I258",
+              "texto": "2.Punto pozo",
+              "negrita": false,
+              "relleno": "FFCCC0D9"
+            },
+            {
+              "celda": "J258",
+              "combinada": "J258:M258",
+              "texto": "viento frío humedad pasa a bazo y comienza a formar Flema",
+              "negrita": false,
+              "relleno": "FFB8CCE4"
+            },
+            {
+              "celda": "F259",
+              "combinada": "F259:I259",
+              "texto": "3.Punto Yuan",
+              "negrita": false,
+              "relleno": "FFCCC0D9"
+            },
+            {
+              "celda": "J259",
+              "combinada": "J259:M259",
+              "texto": "Expeler el frío: dando calor Moxa",
+              "negrita": false,
+              "relleno": "FFB8CCE4"
+            },
+            {
+              "celda": "F260",
+              "combinada": "F260:I260",
+              "texto": "4.Luo del acoplado",
+              "negrita": false,
+              "relleno": "FFCCC0D9"
+            },
+            {
+              "celda": "J260",
+              "combinada": "J260:M260",
+              "texto": "VC 12 mu de estómago",
+              "negrita": false,
+              "relleno": "FFB8CCE4"
+            },
+            {
+              "celda": "F261",
+              "combinada": "F261:I261",
+              "texto": "5.Punto de tonificación.",
+              "negrita": false,
+              "relleno": "FFCCC0D9"
+            },
+            {
+              "celda": "J261",
+              "combinada": "J261:M261",
+              "texto": "V20 Shu de B",
+              "negrita": false,
+              "relleno": "FFB8CCE4"
+            },
+            {
+              "celda": "J262",
+              "combinada": "J262:M262",
+              "texto": "VC 4 moxar si hay frio de cuerpo, frio psíquico, frio sexual.",
+              "negrita": false,
+              "relleno": "FFB8CCE4"
+            },
+            {
+              "celda": "J263",
+              "combinada": "J263:M263",
+              "texto": "Tonificar R+ V23- VG4- VC6",
+              "negrita": false,
+              "relleno": "FFB8CCE4"
+            },
+            {
+              "celda": "J264",
+              "combinada": "J264:M264",
+              "texto": "El viento-calor-sequedad pasa a Pulmón",
+              "negrita": false,
+              "relleno": "FFFFC1C1"
+            },
+            {
+              "celda": "J265",
+              "combinada": "J265:M265",
+              "texto": "R3 Yuan",
+              "negrita": false,
+              "relleno": "FFFFC1C1"
+            },
+            {
+              "celda": "J266",
+              "combinada": "J266:M266",
+              "texto": "B6 reunión de Yin",
+              "negrita": false,
+              "relleno": "FFFFC1C1"
+            },
+            {
+              "celda": "J267",
+              "combinada": "J267:M267",
+              "texto": "VC4 • manantial Mu ID",
+              "negrita": false,
+              "relleno": "FFFFC1C1"
+            },
+            {
+              "celda": "J268",
+              "combinada": "J268:M268",
+              "texto": "Tonificar la sangre:",
+              "negrita": false,
+              "relleno": "FFB2A1C7"
+            },
+            {
+              "celda": "J269",
+              "combinada": "J269:M269",
+              "texto": "B6+ B10+ VC4",
+              "negrita": false,
+              "relleno": "FFB2A1C7"
+            },
+            {
+              "celda": "J270",
+              "combinada": "J270:M270",
+              "texto": "V17 + P9+ H13+ V52",
+              "negrita": false,
+              "relleno": "FFB2A1C7"
+            },
+            {
+              "celda": "J271",
+              "combinada": "J271:M271",
+              "texto": "Tonificar el Qi:",
+              "negrita": false,
+              "relleno": "FFB5EEF9"
+            },
+            {
+              "celda": "J272",
+              "combinada": "J272:M272",
+              "texto": "VG4 + VC6 + VC 12+ VC17",
+              "negrita": false,
+              "relleno": "FFB5EEF9"
+            },
+            {
+              "celda": "J273",
+              "combinada": "J273:M273",
+              "texto": "E36",
+              "negrita": false,
+              "relleno": "FFB5EEF9"
+            },
+            {
+              "celda": "J274",
+              "combinada": "J274:M274",
+              "texto": "Si la deficiencia de Qi continúa è deficiencia de Yang Dar Yang: Moxar R+",
+              "negrita": false,
+              "relleno": "FFC2D69B"
+            },
+            {
+              "celda": "J275",
+              "combinada": "J275:M275",
+              "texto": "VG4 + V23+ VC6",
+              "negrita": false,
+              "relleno": "FFC2D69B"
+            },
+            {
+              "celda": "J276",
+              "combinada": "J276:M276",
+              "texto": "Si la deficiencia de sangre continúa è deficiencia de Yin Dar Yin:",
+              "negrita": false,
+              "relleno": "FFFBD4B4"
+            },
+            {
+              "celda": "J277",
+              "combinada": "J277:M277",
+              "texto": "R3+ R7+ R10",
+              "negrita": false,
+              "relleno": "FFFBD4B4"
+            },
+            {
+              "celda": "J278",
+              "combinada": "J278:M278",
+              "texto": "B6 + V17+ VC4",
+              "negrita": false,
+              "relleno": "FFFBD4B4"
+            }
+          ]
+        }
+      ],
+      "comentarios": [],
+      "imagenes": [
+        {
+          "media": "xl/media/image1.jpeg",
+          "desde": "A1",
+          "hasta": null
+        },
+        {
+          "media": "xl/media/image2.jpeg",
+          "desde": "G2",
+          "hasta": null
+        },
+        {
+          "media": "xl/media/image3.jpeg",
+          "desde": "A48",
+          "hasta": null
+        },
+        {
+          "media": "xl/media/image4.jpeg",
+          "desde": "H48",
+          "hasta": null
+        },
+        {
+          "media": "xl/media/image5.png",
+          "desde": "B269",
+          "hasta": null
+        },
+        {
+          "media": "xl/media/image6.jpeg",
+          "desde": "B87",
+          "hasta": null
+        },
+        {
+          "media": "xl/media/image7.jpeg",
+          "desde": "A286",
+          "hasta": null
+        },
+        {
+          "media": "xl/media/image8.jpeg",
+          "desde": "H291",
+          "hasta": null
+        }
+      ],
+      "imagenes_extraidas": [
+        "fuentes/acupuntura/acupuntura/imagenes/Acupuntura - A1.jpg",
+        "fuentes/acupuntura/acupuntura/imagenes/Acupuntura - G2.jpg",
+        "fuentes/acupuntura/acupuntura/imagenes/Acupuntura - A48.jpg",
+        "fuentes/acupuntura/acupuntura/imagenes/Acupuntura - H48.jpg",
+        "fuentes/acupuntura/acupuntura/imagenes/Acupuntura - B269.png",
+        "fuentes/acupuntura/acupuntura/imagenes/Acupuntura - B87.jpg",
+        "fuentes/acupuntura/acupuntura/imagenes/Acupuntura - A286.jpg",
+        "fuentes/acupuntura/acupuntura/imagenes/Acupuntura - H291.jpg"
+      ]
+    }
+  ]
+}

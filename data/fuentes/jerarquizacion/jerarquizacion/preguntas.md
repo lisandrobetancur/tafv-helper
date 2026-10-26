@@ -1,0 +1,59 @@
+# Preguntas — Tabla jerarquización
+
+- Filas 52 y 53: texto de celdas que desborda y queda cortado en la imagen («(aoe vera) 30 gotas noche», «ón de cazar el vitos psiquismo y c»). Se transcribió tal como se ve, sin completar. En la fila 53 el texto cortado ocupa visualmente ACUP y T.N.; se anotó en ACUP.
+- Hay triángulos naranjas (comentarios de celda) cuyo texto no aparece en la imagen.
+- Se transcribe literal, sin correcciones (p. ej. «vertifgo», «musicoterapoa», «aoe», «escencias», «hacket»).
+- Fila 53: la palabra «vitos» se lee con dudas (el tercer carácter está borroso; el OCR lee «vixos»).
+
+# Jerarquización consolidado — correcciones dudosas aplicadas (celdas de la hoja original)
+
+- Se mantuvo «OXIVENACION» (C70); se propuso «OXIGENACIÓN» y se descartó.
+- D16: «bloque» → «bloquea»
+- D17: «hipoglucida» → «hipoglúcida»
+- D20: «hemorrologico» → «hemorreológico»
+- D33: «Rsetete» → «Rasete»
+- D33: «Anamu» → «Anamú»
+- D35: «hemorrologico» → «hemorreológico»
+- D6: «actimula» → «estimula»
+- D11: «actimula» → «estimula»
+- D14: «actimula» → «estimula»
+- D31: «actimula» → «estimula»
+- D46: «Cresentia» → «Crescentia»
+- D48: «com» → «como»
+- E49: «SI» → «Si»
+- D57: «Calendual» → «Calendula»
+- E66: «os molaridad» → «osmolaridad»
+- D67: «actimula» → «estimula»
+- E69: «os molaridad» → «osmolaridad»
+- D75: «yan» → «yang»
+- D76: «antinflamatorio» → «antiinflamatorio»
+- E77: «os molaridad» → «osmolaridad»
+- A78: «SDMIOFACILA» → «SDMIOFASCIAL»
+- A79: «SDMIOFACILA» → «SDMIOFASCIAL»
+- A80: «SDMIOFACILA» → «SDMIOFASCIAL»
+- A81: «SDMIOFACILA» → «SDMIOFASCIAL»
+- D80: «yan» → «yang»
+- E80: «Yuang» → «Yuan»
+- D81: «antinflamatorio» → «antiinflamatorio»
+- E86: «basi» → «base»
+- D108: «termorregulares» → «termorreguladores»
+- D108: «similax» → «smilax»
+- E108: «tomas» → «tomar»
+- D112: «Saliz» → «Salix»
+- E113: «Tomas» → «Tomar»
+- D116: «enfermedad des» → «enfermedades»
+- D117: «inmunodulación» → «inmunomodulación»
+- D123: «perflipídico» → «perfil lipídico»
+- D126: «whithe» → «white»
+- D130: «para nasales» → «paranasales»
+- D131: «Bidenes» → «Bidens»
+- D141: «grava» → «agrava»
+- D153: «saelix» → «salix»
+- D154: «ropa.En» → «ropa. En»
+- E164: «VITA» → «VÍA»
+- D172: «pretoselinum» → «petroselinum»
+- D173: «VInsuflación» → «Insuflación»
+- D173: «olumen» → «Volumen»
+- D174: «tarde.Sufren» → «tarde. Sufren»
+- D19: «Yuang» → «Yuan» (igual que E80)
+- Mayúsculas sueltas corregidas: «DAr»→«Dar», «REalizar»→«Realizar», «ASma»→«Asma», «anaL»→«anal», «SI»→«Si»

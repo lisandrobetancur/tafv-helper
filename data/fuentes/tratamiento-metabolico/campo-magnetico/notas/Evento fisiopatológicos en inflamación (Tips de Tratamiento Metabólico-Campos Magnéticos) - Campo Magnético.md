@@ -1,0 +1,4 @@
+- Edema y disociación de la dermis
+- Infiltrado de polimorfonucleares
+- Fragmentación de fibras colágenas y elásticas
+- Edema del endotelio, disociación de la media y necrosis fibrinoide.

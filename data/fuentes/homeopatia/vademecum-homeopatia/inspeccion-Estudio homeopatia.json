@@ -1,0 +1,4299 @@
+{
+  "archivo": "/Users/lisandro/dev/py/tafv-helper/data/fuentes/homeopatia/vademecum-homeopatia/hojas/Estudio homeopatia.xlsx",
+  "hojas": [
+    {
+      "hoja": "Estudio homeopatia",
+      "dimension": "A1:AB244",
+      "bloques": [
+        {
+          "rango": "A1:R44",
+          "filas": 44,
+          "columnas": 18,
+          "densidad": 0.77,
+          "fila_encabezado": 1,
+          "registros": 43,
+          "sugerencia": "tabla",
+          "celdas": [
+            {
+              "celda": "A1",
+              "combinada": null,
+              "texto": "Nombre en latin",
+              "negrita": true,
+              "relleno": "FFC9DAF8"
+            },
+            {
+              "celda": "B1",
+              "combinada": null,
+              "texto": "Medicamento ",
+              "negrita": true,
+              "relleno": "FFC9DAF8"
+            },
+            {
+              "celda": "C1",
+              "combinada": null,
+              "texto": "Componentes",
+              "negrita": true,
+              "relleno": "FFC9DAF8"
+            },
+            {
+              "celda": "D1",
+              "combinada": null,
+              "texto": "Abreviatura",
+              "negrita": true,
+              "relleno": "FFC9DAF8"
+            },
+            {
+              "celda": "E1",
+              "combinada": null,
+              "texto": "Origen",
+              "negrita": true,
+              "relleno": "FFC9DAF8"
+            },
+            {
+              "celda": "F1",
+              "combinada": null,
+              "texto": "Regla de preparación",
+              "negrita": true,
+              "relleno": "FFC9DAF8"
+            },
+            {
+              "celda": "G1",
+              "combinada": null,
+              "texto": "Toxicología",
+              "negrita": true,
+              "relleno": "FFC9DAF8"
+            },
+            {
+              "celda": "H1",
+              "combinada": null,
+              "texto": "Sistemas y síntoma principal",
+              "negrita": true,
+              "relleno": "FFC9DAF8"
+            },
+            {
+              "celda": "I1",
+              "combinada": null,
+              "texto": "Síntomas mentales",
+              "negrita": true,
+              "relleno": "FFC9DAF8"
+            },
+            {
+              "celda": "J1",
+              "combinada": null,
+              "texto": "Síntomas generales",
+              "negrita": true,
+              "relleno": "FFC9DAF8"
+            },
+            {
+              "celda": "K1",
+              "combinada": null,
+              "texto": "Síntomas particulares",
+              "negrita": true,
+              "relleno": "FFC9DAF8"
+            },
+            {
+              "celda": "L1",
+              "combinada": null,
+              "texto": "Indicaciones",
+              "negrita": true,
+              "relleno": "FFC9DAF8"
+            },
+            {
+              "celda": "M1",
+              "combinada": null,
+              "texto": "Adicional",
+              "negrita": true,
+              "relleno": "FFC9DAF8"
+            },
+            {
+              "celda": "N1",
+              "combinada": null,
+              "texto": "Otros sintomas",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "O1",
+              "combinada": null,
+              "texto": "NOTAS ",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "P1",
+              "combinada": null,
+              "texto": "Artículo",
+              "negrita": true,
+              "relleno": "FFC9DAF8"
+            },
+            {
+              "celda": "A2",
+              "combinada": null,
+              "texto": "Sulphur",
+              "negrita": false,
+              "relleno": "FFD9EAD3"
+            },
+            {
+              "celda": "B2",
+              "combinada": null,
+              "texto": "Sulfur",
+              "negrita": false,
+              "relleno": "FFD9EAD3"
+            },
+            {
+              "celda": "C2",
+              "combinada": null,
+              "texto": "Azufre",
+              "negrita": false,
+              "relleno": "FFD9EAD3"
+            },
+            {
+              "celda": "D2",
+              "combinada": null,
+              "texto": "Sulph.",
+              "negrita": false,
+              "relleno": "FFD9EAD3"
+            },
+            {
+              "celda": "E2",
+              "combinada": null,
+              "texto": "Mineral",
+              "negrita": false,
+              "relleno": "FFD9EAD3"
+            },
+            {
+              "celda": "F2",
+              "combinada": null,
+              "texto": "2025-07-06 00:00:00",
+              "negrita": false,
+              "relleno": "FFD9EAD3"
+            },
+            {
+              "celda": "G2",
+              "combinada": null,
+              "texto": "No reportan",
+              "negrita": false,
+              "relleno": "FFD9EAD3"
+            },
+            {
+              "celda": "H2",
+              "combinada": null,
+              "texto": "- Piel\n- Neurológico\n- Gastrointestinal",
+              "negrita": false,
+              "relleno": "FFD9EAD3"
+            },
+            {
+              "celda": "I2",
+              "combinada": null,
+              "texto": "- Escaso valor a las cosas que no son importantes para él\n- Ansiedad\n- Impaciente",
+              "negrita": false,
+              "relleno": "FFD9EAD3"
+            },
+            {
+              "celda": "J2",
+              "combinada": null,
+              "texto": "- Orificios naturales rojos especialmente anal\n- Sensación de ardor y quemadura en todas partes",
+              "negrita": false,
+              "relleno": "FFD9EAD3"
+            },
+            {
+              "celda": "K2",
+              "combinada": null,
+              "texto": "- Diarrea imperiosa, que se agrava a las 5 am y obliga al enfermo a salir de la cama)\n- Lesiones en piel (piel, secreciones y excreciones son irritantes)",
+              "negrita": false,
+              "relleno": "FFD9EAD3"
+            },
+            {
+              "celda": "L2",
+              "combinada": null,
+              "texto": "- Hipertensión arterial espasmódica\n- Conjuntivitis\n- Forunculo agudo ",
+              "negrita": false,
+              "relleno": "FFD9EAD3"
+            },
+            {
+              "celda": "M2",
+              "combinada": null,
+              "texto": "Sus antídotos son Nux vóm., Pulsatilla y Mercurius.",
+              "negrita": false,
+              "relleno": "FFD9EAD3"
+            },
+            {
+              "celda": "N2",
+              "combinada": null,
+              "texto": "Sensacion de calor intenso y ardor (palmas y plantas), agrava on calor. Aversion al agua y al baño, secreciones y excreciones etidas, lateralidad izquierda , hambre 11 am, filoso arapiento",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A3",
+              "combinada": null,
+              "texto": "Lycopodium clavatum L.",
+              "negrita": false,
+              "relleno": "FFFCE5CD"
+            },
+            {
+              "celda": "B3",
+              "combinada": null,
+              "texto": "Lycopodium",
+              "negrita": false,
+              "relleno": "FFFCE5CD"
+            },
+            {
+              "celda": "C3",
+              "combinada": null,
+              "texto": "Musgo de tierra, pie de lobo o azufre vegetal",
+              "negrita": false,
+              "relleno": "FFFCE5CD"
+            },
+            {
+              "celda": "D3",
+              "combinada": null,
+              "texto": "Lyc.",
+              "negrita": false,
+              "relleno": "FFFCE5CD"
+            },
+            {
+              "celda": "E3",
+              "combinada": null,
+              "texto": "Vegetal",
+              "negrita": false,
+              "relleno": "FFFCE5CD"
+            },
+            {
+              "celda": "F3",
+              "combinada": null,
+              "texto": "2025-07-04 00:00:00",
+              "negrita": false,
+              "relleno": "FFFCE5CD"
+            },
+            {
+              "celda": "G3",
+              "combinada": null,
+              "texto": "No reportan",
+              "negrita": false,
+              "relleno": "FFFCE5CD"
+            },
+            {
+              "celda": "H3",
+              "combinada": null,
+              "texto": "- Gastrointestinal: Pirosis, estreñimiento, problemas hepáticos\n- Urinario: impotencia sexual\n- Respiratorio: tos seca \n",
+              "negrita": false,
+              "relleno": "FFFCE5CD"
+            },
+            {
+              "celda": "I3",
+              "combinada": null,
+              "texto": "- Miedo al fracaso\n- Dictador.\n- Explosiones de cólera",
+              "negrita": false,
+              "relleno": "FFFCE5CD"
+            },
+            {
+              "celda": "J3",
+              "combinada": null,
+              "texto": "- Adelgazamiento\n- Pies fríos\n",
+              "negrita": false,
+              "relleno": "FFFCE5CD"
+            },
+            {
+              "celda": "K3",
+              "combinada": null,
+              "texto": "- Distensión abdominal \n- Orina rojiza con sedimento arenoso\n",
+              "negrita": false,
+              "relleno": "FFFCE5CD"
+            },
+            {
+              "celda": "L3",
+              "combinada": null,
+              "texto": "- Constipación\n- Ansiedad\n",
+              "negrita": false,
+              "relleno": "FFFCE5CD"
+            },
+            {
+              "celda": "N3",
+              "combinada": null,
+              "texto": "lateralidad derecha y progresion a la izquierda, agrava de 4 a 8 pm , hambre voraz que se sacia rapido (apetito canino al empezar a comer), abdomen distendido por gases, deseos de alimentos y bebidas calientes (dulces y bebidas), lateralidad termica ambibalente, miedo patologico a las responsabilidades, autoritarismo y tirania en el hogar, ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A4",
+              "combinada": null,
+              "texto": "Calcarea ostrearum",
+              "negrita": false,
+              "relleno": "FFCCCCCC"
+            },
+            {
+              "celda": "B4",
+              "combinada": null,
+              "texto": "Calcárea carbónica",
+              "negrita": false,
+              "relleno": "FFCCCCCC"
+            },
+            {
+              "celda": "C4",
+              "combinada": null,
+              "texto": "Carbonato de calcio que se obtiene triturando la\ncapa media de conchas de ostras.",
+              "negrita": false,
+              "relleno": "FFCCCCCC"
+            },
+            {
+              "celda": "D4",
+              "combinada": null,
+              "texto": "Calc.",
+              "negrita": false,
+              "relleno": "FFCCCCCC"
+            },
+            {
+              "celda": "E4",
+              "combinada": null,
+              "texto": "Animal",
+              "negrita": false,
+              "relleno": "FFCCCCCC"
+            },
+            {
+              "celda": "F4",
+              "combinada": null,
+              "texto": "7",
+              "negrita": false,
+              "relleno": "FFCCCCCC"
+            },
+            {
+              "celda": "G4",
+              "combinada": null,
+              "texto": "No se ha reportado toxicidad. Puede darse síntomas de la sustancia bruta: síntomas de hipercalcemia, principalmente urinarios y gastrointestinales. \n",
+              "negrita": false,
+              "relleno": "FFCCCCCC"
+            },
+            {
+              "celda": "H4",
+              "combinada": null,
+              "texto": "- Piel: Eccema, costra láctea, dermatitis atópica\n- Sistema respiratorio: Resfriados recurrentes, disfonía \n- Sistema genitourinario: Litiasis renal, hiperplasia prostática\n",
+              "negrita": false,
+              "relleno": "FFCCCCCC"
+            },
+            {
+              "celda": "I4",
+              "combinada": null,
+              "texto": "- Ansiedad \n- Sensibles a las historias horribles \n- Terquedad",
+              "negrita": false,
+              "relleno": "FFCCCCCC"
+            },
+            {
+              "celda": "J4",
+              "combinada": null,
+              "texto": "- Permanece frío, principalmente pies o piernas \n- Empeora con la luna llena \n",
+              "negrita": false,
+              "relleno": "FFCCCCCC"
+            },
+            {
+              "celda": "K4",
+              "combinada": null,
+              "texto": "- sensación de\narena bajo los párpados superiores,\n- eccema en cuero cabelludo\n- resfriado recurrente",
+              "negrita": false,
+              "relleno": "FFCCCCCC"
+            },
+            {
+              "celda": "L4",
+              "combinada": null,
+              "texto": "- Obesidad\n- Deformidades óseas\n- Raquitismo",
+              "negrita": false,
+              "relleno": "FFCCCCCC"
+            },
+            {
+              "celda": "M4",
+              "combinada": null,
+              "texto": "Paciente con tendencia a la obesidad",
+              "negrita": false,
+              "relleno": "FFCCCCCC"
+            },
+            {
+              "celda": "N4",
+              "combinada": null,
+              "texto": "Sudoracio profusa en la cabeza, agravacion por frio humedo, constitucion hidrogenoide y flacidez, deseo de cosas indigeribles (tiza, cal, carbon, tierra, otros), pies frios y humedos, fontanelas abiertas y retraso en el desarrollo, ansiedad por el futuro, terror a la desgracia , mente lenta, vertigo al subir escaleras, ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A5",
+              "combinada": null,
+              "texto": "Calcium phosphoricum",
+              "negrita": false,
+              "relleno": "FFFFF2CC"
+            },
+            {
+              "celda": "B5",
+              "combinada": null,
+              "texto": "Calcárea phospórica",
+              "negrita": false,
+              "relleno": "FFFFF2CC"
+            },
+            {
+              "celda": "D5",
+              "combinada": null,
+              "texto": "Calc p.",
+              "negrita": false,
+              "relleno": "FFFFF2CC"
+            },
+            {
+              "celda": "E5",
+              "combinada": null,
+              "texto": "Mineral",
+              "negrita": false,
+              "relleno": "FFFFF2CC"
+            },
+            {
+              "celda": "F5",
+              "combinada": null,
+              "texto": "7",
+              "negrita": false,
+              "relleno": "FFFFF2CC"
+            },
+            {
+              "celda": "G5",
+              "combinada": null,
+              "texto": "No se ha reportado.  En su forma farmacológica, dosis excesivas de fosfato de calcio\npueden alterar el equilibrio del calcio-fósforo y provocar efectos gastrointestinales y renales\n",
+              "negrita": false,
+              "relleno": "FFFFF2CC"
+            },
+            {
+              "celda": "H5",
+              "combinada": null,
+              "texto": "- Músculo esquelético: huesos largos, dientes irregulares y pequeños  \n- Hematológico anemia, desnutrición infantil \n- SNC ; fatiga intelectual \n",
+              "negrita": false,
+              "relleno": "FFFFF2CC"
+            },
+            {
+              "celda": "I5",
+              "combinada": null,
+              "texto": "- Mente Perezosa\n- Irritabilidad \n- Dificultad en la concentración \n",
+              "negrita": false,
+              "relleno": "FFFFF2CC"
+            },
+            {
+              "celda": "J5",
+              "combinada": null,
+              "texto": "- Crecimiento lento o retardado\n- Tendencia a fracturas. \n- Abdomen distendido\n",
+              "negrita": false,
+              "relleno": "FFFFF2CC"
+            },
+            {
+              "celda": "K5",
+              "combinada": null,
+              "texto": "- Otalgia reumática \n- Apetito voraz en lactantes \n",
+              "negrita": false,
+              "relleno": "FFFFF2CC"
+            },
+            {
+              "celda": "L5",
+              "combinada": null,
+              "texto": "- Desnutrición Infantil con anemia\n- Raquitismo \n",
+              "negrita": false,
+              "relleno": "FFFFF2CC"
+            },
+            {
+              "celda": "M5",
+              "combinada": null,
+              "texto": "Pacientes muy delgados",
+              "negrita": false,
+              "relleno": "FFFFF2CC"
+            },
+            {
+              "celda": "N5",
+              "combinada": null,
+              "texto": "agravamiento por el frio humedo, afecciones oseas y problemas de crecimiento, deseos de alimentos especificos (tocino, ahumados, grasas, sal, alimentos muy condicmentados), emaciacion y debilidad general trastorno pos accion/frustracion, fontanelas abiertas con sudores localizados (cabeza y cuello), sensacion de entumecimiento y hormigueo, deseo constante de viajar o cambiar de lugar.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A6",
+              "combinada": null,
+              "texto": "Calcium fluorathum",
+              "negrita": false,
+              "relleno": "FFD9D2E9"
+            },
+            {
+              "celda": "B6",
+              "combinada": null,
+              "texto": "Calcárea fluórica",
+              "negrita": false,
+              "relleno": "FFD9D2E9"
+            },
+            {
+              "celda": "D6",
+              "combinada": null,
+              "texto": "Calc f.",
+              "negrita": false,
+              "relleno": "FFD9D2E9"
+            },
+            {
+              "celda": "E6",
+              "combinada": null,
+              "texto": "Mineral",
+              "negrita": false,
+              "relleno": "FFD9D2E9"
+            },
+            {
+              "celda": "F6",
+              "combinada": null,
+              "texto": "7",
+              "negrita": false,
+              "relleno": "FFD9D2E9"
+            },
+            {
+              "celda": "G6",
+              "combinada": null,
+              "texto": "No se reporta",
+              "negrita": false,
+              "relleno": "FFD9D2E9"
+            },
+            {
+              "celda": "H6",
+              "combinada": null,
+              "texto": "- Piel y mucosas: Piel seca, agrietada, callosa, caries\n- Sistema circulatorio: Venas varicosas y hemorroides\n- Glándulas: Inflamación y endurecimiento de glandulas (tiroides)\n",
+              "negrita": false,
+              "relleno": "FFD9D2E9"
+            },
+            {
+              "celda": "I6",
+              "combinada": null,
+              "texto": "- Miedo a la pobreza o futuro\n- Deprimido, ansioso e indeciso\n",
+              "negrita": false,
+              "relleno": "FFD9D2E9"
+            },
+            {
+              "celda": "J6",
+              "combinada": null,
+              "texto": "- Debilidad de tejidos elásticos: Venas varicosas\n- Formación de tumores duros tipo fibromas y quistes\n",
+              "negrita": false,
+              "relleno": "FFD9D2E9"
+            },
+            {
+              "celda": "K6",
+              "combinada": null,
+              "texto": "- Dientes que se desgastan rapido\n- Laxitud con esguinces repetidos\n- Deformidades óseas\n",
+              "negrita": false,
+              "relleno": "FFD9D2E9"
+            },
+            {
+              "celda": "L6",
+              "combinada": null,
+              "texto": "- Osteoporosis\n- Caries\n- Hemorroides",
+              "negrita": false,
+              "relleno": "FFD9D2E9"
+            },
+            {
+              "celda": "N6",
+              "combinada": null,
+              "texto": "afinidad por tejido fibroso y oseo, exostosis y nudosidades oseas, afecciones dentales y del esmaltes, problemas venosos y vasculares (varices muy dilatadas, tortuosas, tendencia a aneurismas o hemorroides), agrava con el descanso y mejora con el movimiento, tejidos hiperlaxos o endurecidos, agrava con frio humedo.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A7",
+              "combinada": null,
+              "texto": "Atropa Belladonna",
+              "negrita": false,
+              "relleno": "FFD5A6BD"
+            },
+            {
+              "celda": "B7",
+              "combinada": null,
+              "texto": "Belladona",
+              "negrita": false,
+              "relleno": "FFD5A6BD"
+            },
+            {
+              "celda": "C7",
+              "combinada": null,
+              "texto": "alcaloides de tropano como la escopolamina, hiosciamina y la atropina",
+              "negrita": false,
+              "relleno": "FFD5A6BD"
+            },
+            {
+              "celda": "D7",
+              "combinada": null,
+              "texto": "Bell. ",
+              "negrita": false,
+              "relleno": "FFD5A6BD"
+            },
+            {
+              "celda": "E7",
+              "combinada": null,
+              "texto": "Vegetal",
+              "negrita": false,
+              "relleno": "FFD5A6BD"
+            },
+            {
+              "celda": "F7",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": "FFD5A6BD"
+            },
+            {
+              "celda": "G7",
+              "combinada": null,
+              "texto": "La intoxicación se da principalmente por alcaloides de tropano como la escopolamina, hiosciamina y la atropina produciendo síntomas que generan un efecto anticolinérgico, secundario al bloqueo de receptores muscarínicos. \n",
+              "negrita": false,
+              "relleno": "FFD5A6BD"
+            },
+            {
+              "celda": "H7",
+              "combinada": null,
+              "texto": "- Sistema nervioso central: Delirio intenso, alucinaciones de predominio visual, actitud ansiosa, cefalea intensa\n- Sensorial: ojos y vision: midriasis, fotofobia, oido y audición: hiperacusia, tinitus\n- Piel: fiebre intensa de aparición súbita seca, piel roja y seca, cara roja\n",
+              "negrita": false,
+              "relleno": "FFD5A6BD"
+            },
+            {
+              "celda": "I7",
+              "combinada": null,
+              "texto": "- Alucinaciones visuales,\n- Miedo constante y exagerado a  perros negros\n",
+              "negrita": false,
+              "relleno": "FFD5A6BD"
+            },
+            {
+              "celda": "J7",
+              "combinada": null,
+              "texto": "- Dolor violento y paroxístico: pulsátil, punzante\n- Calor local e intenso \n",
+              "negrita": false,
+              "relleno": "FFD5A6BD"
+            },
+            {
+              "celda": "K7",
+              "combinada": null,
+              "texto": "- Cara roja, \n- Mirada brillante\n- Pupilas dilatadas\n",
+              "negrita": false,
+              "relleno": "FFD5A6BD"
+            },
+            {
+              "celda": "L7",
+              "combinada": null,
+              "texto": "- Cefalea con o sin fiebre\n- Rinofaringitis\n- Anginas no estreptocócicas\n",
+              "negrita": false,
+              "relleno": "FFD5A6BD"
+            },
+            {
+              "celda": "N7",
+              "combinada": null,
+              "texto": "inico subito con sintomas violentos, rubicundez facial y congestion cefalica, sequedad en mucosas, calor radiante y fiebres altas, dolores pulsatiles , lancinantes y repentinos, lateralidad derecha, delirio furioso, alucinaciones y excitacion sensorial, hiperestesia de los sentidos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A8",
+              "combinada": null,
+              "texto": "Aconitum napellus",
+              "negrita": false,
+              "relleno": "FFC9DAF8"
+            },
+            {
+              "celda": "B8",
+              "combinada": null,
+              "texto": "Aconitum",
+              "negrita": false,
+              "relleno": "FFC9DAF8"
+            },
+            {
+              "celda": "C8",
+              "combinada": null,
+              "texto": "Aconitina \n",
+              "negrita": false,
+              "relleno": "FFC9DAF8"
+            },
+            {
+              "celda": "D8",
+              "combinada": null,
+              "texto": "Acon.",
+              "negrita": false,
+              "relleno": "FFC9DAF8"
+            },
+            {
+              "celda": "E8",
+              "combinada": null,
+              "texto": "Vegetal",
+              "negrita": false,
+              "relleno": "FFC9DAF8"
+            },
+            {
+              "celda": "F8",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": "FFC9DAF8"
+            },
+            {
+              "celda": "G8",
+              "combinada": null,
+              "texto": "Los alcaloides diterpénicos, principalmente la aconitina, actúan sobre los canales iónicos (Na+, Ca++, K+), manifestándose en trastornos del ritmo y trastornos de la conducción a nivel cardiovascular y a nivel neurológico, evidenciado inicialmente con síntomas como ansiedad y agitación psicomotora\n",
+              "negrita": false,
+              "relleno": "FFC9DAF8"
+            },
+            {
+              "celda": "H8",
+              "combinada": null,
+              "texto": "- SNC - Ansiedad, miedo a la muerte\n\n- S. respiratorio - Tos seca\n\n- S. Cardiovascular - Bradicardia (estímulo vagal) o Taquicardia\n",
+              "negrita": false,
+              "relleno": "FFC9DAF8"
+            },
+            {
+              "celda": "I8",
+              "combinada": null,
+              "texto": "- Miedo a la muerte\n- Predice la hora de su muerte\n",
+              "negrita": false,
+              "relleno": "FFC9DAF8"
+            },
+            {
+              "celda": "J8",
+              "combinada": null,
+              "texto": "- Manifestación súbita e intensa\n- Fiebre sin sudoración\n- Empeoramiento por exponerse a corrientes de aire frío\n",
+              "negrita": false,
+              "relleno": "FFC9DAF8"
+            },
+            {
+              "celda": "K8",
+              "combinada": null,
+              "texto": "- Tos seca\n- Terror inminente a  morir \n",
+              "negrita": false,
+              "relleno": "FFC9DAF8"
+            },
+            {
+              "celda": "L8",
+              "combinada": null,
+              "texto": "- Crisis de pánico\n- Neuralgia del trigémino\n- Taquicardia paroxística, no especificada\n- Urgencia hipertensiva\n",
+              "negrita": false,
+              "relleno": "FFC9DAF8"
+            },
+            {
+              "celda": "N8",
+              "combinada": null,
+              "texto": "desencadenante por exposicion a aire frio y seco, miedo a la muerte y angustia de pronostico, inicio violento , fulminante y de alta intensidad, rubicundez facial alternada con palidez, pulso duro, plano, rapido y tenso, sed intensa y voraz de agua fria, agrava con calor y a media noche, parestesias y entumecimiento de extremidades.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A9",
+              "combinada": null,
+              "texto": "Lachesis muta",
+              "negrita": false,
+              "relleno": "FFE06666"
+            },
+            {
+              "celda": "B9",
+              "combinada": null,
+              "texto": "Lachesis",
+              "negrita": false,
+              "relleno": "FFE06666"
+            },
+            {
+              "celda": "D9",
+              "combinada": null,
+              "texto": "Lach. ",
+              "negrita": false,
+              "relleno": "FFE06666"
+            },
+            {
+              "celda": "E9",
+              "combinada": null,
+              "texto": "Animal",
+              "negrita": false,
+              "relleno": "FFE06666"
+            },
+            {
+              "celda": "F9",
+              "combinada": null,
+              "texto": "8",
+              "negrita": false,
+              "relleno": "FFE06666"
+            },
+            {
+              "celda": "G9",
+              "combinada": null,
+              "texto": "En homeopatía se utiliza la sustancia dinamizada por lo cual no contiene toxicidad; El veneno de Lachesis muta contiene enzimas como metaloproteinasas, fosfolipasas A2y serin-proteasas que alteran la coagulación, destruyen tejidos y vasos sanguíneos. Produce hemorragias, necrosis, dolor intenso, edema y puede llevar a shock hemodinámico con complicaciones sistémicas graves.\n",
+              "negrita": false,
+              "relleno": "FFE06666"
+            },
+            {
+              "celda": "H9",
+              "combinada": null,
+              "texto": "- Circulatorio: palpitaciones ansiosas, sangre incoagulable,hemorragias.\n- Respiratorio: sensibilidad en laringe, tos seca, epistaxis.\n- Piel: ulceraciones, coloración púrpura, sensibilidad al tacto.\n",
+              "negrita": false,
+              "relleno": "FFE06666"
+            },
+            {
+              "celda": "I9",
+              "combinada": null,
+              "texto": "- Celos enfermizos\n- Temor a la muerte\n",
+              "negrita": false,
+              "relleno": "FFE06666"
+            },
+            {
+              "celda": "J9",
+              "combinada": null,
+              "texto": "- Sudor abundante\n- Inapetencia alternado con bulimia \n",
+              "negrita": false,
+              "relleno": "FFE06666"
+            },
+            {
+              "celda": "K9",
+              "combinada": null,
+              "texto": "- Palpitaciones\n- Sensación de presión en cuello, ahogo.\n",
+              "negrita": false,
+              "relleno": "FFE06666"
+            },
+            {
+              "celda": "L9",
+              "combinada": null,
+              "texto": "- Hipertensión arterial con cefalea congestiva\n- Metrorragias oscuras, de mal olor, incoagulable.\n",
+              "negrita": false,
+              "relleno": "FFE06666"
+            },
+            {
+              "celda": "N9",
+              "combinada": null,
+              "texto": "lateralidad izquierda, agravamiento por e sueño y al despertar, intolerancia a la ropa ajustada, trastorno por supresion de descargas o secreciones, locuacidad extrema y celos patologicos, sensacion de constricción  y nudo en la garganta, modalidad termica calurosa y agrava con calor, hemorragias con sangre oscura e incoagulable.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A10",
+              "combinada": null,
+              "texto": "Ignatia amara",
+              "negrita": false,
+              "relleno": "FFF1C232"
+            },
+            {
+              "celda": "B10",
+              "combinada": null,
+              "texto": "Ignatia",
+              "negrita": false,
+              "relleno": "FFF1C232"
+            },
+            {
+              "celda": "C10",
+              "combinada": null,
+              "texto": "Estricnina y brucina",
+              "negrita": false,
+              "relleno": "FFF1C232"
+            },
+            {
+              "celda": "D10",
+              "combinada": null,
+              "texto": "IGN",
+              "negrita": false,
+              "relleno": "FFF1C232"
+            },
+            {
+              "celda": "E10",
+              "combinada": null,
+              "texto": "Vegetal",
+              "negrita": false,
+              "relleno": "FFF1C232"
+            },
+            {
+              "celda": "F10",
+              "combinada": null,
+              "texto": "4",
+              "negrita": false,
+              "relleno": "FFF1C232"
+            },
+            {
+              "celda": "G10",
+              "combinada": null,
+              "texto": "La estricinina inhibe competitivamente la unión a los receptores de glicina sensibles a la estricnina --> aumenta la excitación neuronal al bloquear la inhibición por la glicina. La brucina pueden causar convulsiones severas, aumento significativo de la presión arterial e incluso envenenamiento mortal a causa de las proteínas Bcl-2 y caspasa-3",
+              "negrita": false,
+              "relleno": "FFF1C232"
+            },
+            {
+              "celda": "H10",
+              "combinada": null,
+              "texto": "- Sistema nervioso: globo histérico (lachesis), convulsiones\n- Sistema musculoesqueletico: espasmos, temblores\n- Sistema respiratorio: tos nerviosa, seca y temblorosa, se empeora cuando más tose, aversión al tabaco.\n- Sistema gastrointestinal: disfagia que mejora con sólidos.",
+              "negrita": false,
+              "relleno": "FFF1C232"
+            },
+            {
+              "celda": "I10",
+              "combinada": null,
+              "texto": "- Desencadenan por el duelo, ira, decepción\n- Mejoran al distraerse con otra cosa\n- Indeciso ",
+              "negrita": false,
+              "relleno": "FFF1C232"
+            },
+            {
+              "celda": "J10",
+              "combinada": null,
+              "texto": "- Síntomas son contradictorios\n- Mejoran al distraerse con otra cosa\n- Agravación con el humo de tabaco y cafe",
+              "negrita": false,
+              "relleno": "FFF1C232"
+            },
+            {
+              "celda": "K10",
+              "combinada": null,
+              "texto": "- Cefalea con sensación de clavo\n- Respiración tipo suspiración\n- Sensación de cuerpo extraño en la garganta\n- Sensación de hueco en epigastrio\n- Hipo y eructos\n",
+              "negrita": false,
+              "relleno": "FFF1C232"
+            },
+            {
+              "celda": "L10",
+              "combinada": null,
+              "texto": "- Duelo por separación en fase aguda\n- Trastornos por separación aguda\n- Problemas de pareja\n- Disfagia no obstructiva\n- Duelo en fase aguda",
+              "negrita": false,
+              "relleno": "FFF1C232"
+            },
+            {
+              "celda": "N10",
+              "combinada": null,
+              "texto": "contradicción de sintomas, trastorno por penas silenciosas y duelos recientes, suspiros profundos y frecuentes, sensacion de nudo o bola en garganta (globo histerico), rapidos cambios de animo e inestabilidad emocional, aversion al humo de tabaco, agrava con el cafe, tabaco y las emociones, mejoria por la distraccion",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A11",
+              "combinada": null,
+              "texto": "Silicea terra",
+              "negrita": false,
+              "relleno": "FF999999"
+            },
+            {
+              "celda": "B11",
+              "combinada": null,
+              "texto": "Silicea",
+              "negrita": false,
+              "relleno": "FF999999"
+            },
+            {
+              "celda": "C11",
+              "combinada": null,
+              "texto": "Silice ",
+              "negrita": false,
+              "relleno": "FF999999"
+            },
+            {
+              "celda": "D11",
+              "combinada": null,
+              "texto": "Sil.",
+              "negrita": false,
+              "relleno": "FF999999"
+            },
+            {
+              "celda": "E11",
+              "combinada": null,
+              "texto": "Mineral",
+              "negrita": false,
+              "relleno": "FF999999"
+            },
+            {
+              "celda": "F11",
+              "combinada": null,
+              "texto": "7",
+              "negrita": false,
+              "relleno": "FF999999"
+            },
+            {
+              "celda": "G11",
+              "combinada": null,
+              "texto": "- Peligrosa cuando es cristalina → silicosis, cáncer y otros efectos sistémicos.\n- Se relaciona con tuberculosis, porque es toxica para el macrófago alveolar ",
+              "negrita": false,
+              "relleno": "FF999999"
+            },
+            {
+              "celda": "H11",
+              "combinada": null,
+              "texto": "- Sistema urinario: Fístula\n- Sistema endocrinologia: adenopatias\n- Sistema gastrointestinal: diarrea, estreñimiento\n- Sistema inmune: supuraciones crónicas.",
+              "negrita": false,
+              "relleno": "FF999999"
+            },
+            {
+              "celda": "I11",
+              "combinada": null,
+              "texto": "- Timidez para hablar en publico\n- Falta de confianza\n- Indeciso \n- Inseguridad\n- Escrupulosos\n- Tiene miedo a las agujas",
+              "negrita": false,
+              "relleno": "FF999999"
+            },
+            {
+              "celda": "J11",
+              "combinada": null,
+              "texto": "- Malestar general post vacunación\n- Ayuda a expulsar cuerpos extraños\n- Los síntomas empeoran con la luna nueva\n- Friolento ",
+              "negrita": false,
+              "relleno": "FF999999"
+            },
+            {
+              "celda": "K11",
+              "combinada": null,
+              "texto": "- Deposición que retroceden\n- Sensación de pelo en lengua\n- Sensación de aguja en garganta \n- Tiene una pecueca fetida",
+              "negrita": false,
+              "relleno": "FF999999"
+            },
+            {
+              "celda": "L11",
+              "combinada": null,
+              "texto": "- Fistulas\n- Forunculo crónico y recidivante\n- Tuberculosis ganglionar\n- Orzuelos recidivantes\n- Sinusitis \n- Adenopatias\n- Crecimiento \n- Amamantamiento medicamentoso \n ",
+              "negrita": false,
+              "relleno": "FF999999"
+            },
+            {
+              "celda": "M11",
+              "combinada": null,
+              "texto": "Pacientes muy delgadoz y con dificultad en el crecimiento ",
+              "negrita": false,
+              "relleno": "FF999999"
+            },
+            {
+              "celda": "N11",
+              "combinada": null,
+              "texto": "supresion de la transpiracion en los pies, falta de calor vital y escalofrios intensos, afinidad por tejido conjuntivo y tendencia a la supuracion (maduracion de abscesos, expulsion de cuerpos extraños), debilidad de tejido fibroso y cicatrizacion deficiente, cefalea occipital ascendente, obstinacion y timidez mental, aversion a la leche materna y a los alimentos calientes, huesos, uñas y cartilagos fragiles. ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A12",
+              "combinada": null,
+              "texto": "Mercurius y sus sales",
+              "negrita": false,
+              "relleno": "FFF3F3F3"
+            },
+            {
+              "celda": "B12",
+              "combinada": null,
+              "texto": "Mercurius solubilis",
+              "negrita": false,
+              "relleno": "FFF3F3F3"
+            },
+            {
+              "celda": "C12",
+              "combinada": null,
+              "texto": "Mercurio",
+              "negrita": false,
+              "relleno": "FFF3F3F3"
+            },
+            {
+              "celda": "D12",
+              "combinada": null,
+              "texto": "Merc.",
+              "negrita": false,
+              "relleno": "FFF3F3F3"
+            },
+            {
+              "celda": "E12",
+              "combinada": null,
+              "texto": "Mineral",
+              "negrita": false,
+              "relleno": "FFF3F3F3"
+            },
+            {
+              "celda": "F12",
+              "combinada": null,
+              "texto": "7",
+              "negrita": false,
+              "relleno": "FFF3F3F3"
+            },
+            {
+              "celda": "G12",
+              "combinada": null,
+              "texto": "Principalmente al mercurio inorganico (cloruros, oxidos) y el metilmercurio (organico). Vías de intoxicación: inhalación de vapores, ingestión o absorción cutanea",
+              "negrita": false,
+              "relleno": "FFF3F3F3"
+            },
+            {
+              "celda": "H12",
+              "combinada": null,
+              "texto": "- Sistema nervioso: paralisis agitante (enfermedad de parkinson)\n- Sistema mental: deseos de matar.\n- Sistema digestivo: aftas, diarrea con tenesmo\n- Respiratorio: tos nocturna, dolor toracico\n- Osteoarticular: dolores oseos nocturnos, periostitis",
+              "negrita": false,
+              "relleno": "FFF3F3F3"
+            },
+            {
+              "celda": "I12",
+              "combinada": null,
+              "texto": "Puede llorar facilmente o alterarse con poca causa\nPensamientos oscuros (deseo de matar)\nAnsiedad nocturna, con insomnio y sudoración ",
+              "negrita": false,
+              "relleno": "FFF3F3F3"
+            },
+            {
+              "celda": "J12",
+              "combinada": null,
+              "texto": "Sudoración abundante, fétida que no alivia los síntomas\nTendencia a enfriarse fácilmente con exacerbaciones nocturnas\nDebilidad temblores en manos y cuerpo (tipo mercurialismo crónico)",
+              "negrita": false,
+              "relleno": "FFF3F3F3"
+            },
+            {
+              "celda": "K12",
+              "combinada": null,
+              "texto": "Sialorrea abundante\nGingivitis con encias hinchadas, rojas y sangrantes\nAmigdalitis supurativas\nOtitis supurativa crónica",
+              "negrita": false,
+              "relleno": "FFF3F3F3"
+            },
+            {
+              "celda": "L12",
+              "combinada": null,
+              "texto": "Intoxicación por mercurio\nSífilis secundaria\nEstomatitis ulcerativa\nArtritis sifilítica",
+              "negrita": false,
+              "relleno": "FFF3F3F3"
+            },
+            {
+              "celda": "N12",
+              "combinada": null,
+              "texto": "sudoracion profusa nocturna e inutil, agrava con temperaturas extremas , exceso de salivacion, lengua flacida, grande y con marcas dentales, aliento fetido y putrefacto, supuraciones con tendencia ulcerativa y destructiva, agravacion nocturna , temblor en las extremidades. ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A13",
+              "combinada": null,
+              "texto": "Chamomilia",
+              "negrita": false,
+              "relleno": "FFF9CB9C"
+            },
+            {
+              "celda": "B13",
+              "combinada": null,
+              "texto": "Chamomilla",
+              "negrita": false,
+              "relleno": "FFF9CB9C"
+            },
+            {
+              "celda": "C13",
+              "combinada": null,
+              "texto": "a-bisabolol, camazuleno, apigenina, luteolina, quercetina 11",
+              "negrita": false,
+              "relleno": "FFF9CB9C"
+            },
+            {
+              "celda": "D13",
+              "combinada": null,
+              "texto": "Cham",
+              "negrita": false,
+              "relleno": "FFF9CB9C"
+            },
+            {
+              "celda": "E13",
+              "combinada": null,
+              "texto": "Vegetal",
+              "negrita": false,
+              "relleno": "FFF9CB9C"
+            },
+            {
+              "celda": "F13",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": "FFF9CB9C"
+            },
+            {
+              "celda": "G13",
+              "combinada": null,
+              "texto": "No",
+              "negrita": false,
+              "relleno": "FFF9CB9C"
+            },
+            {
+              "celda": "H13",
+              "combinada": null,
+              "texto": "- Sistema ORL: otalgia desgarrante\n- Sistema gastrointestinal: odontalgia, diarrea acuosa, verde y maloliente\n- Sistema respiratorio: bronquitis con la dentición",
+              "negrita": false,
+              "relleno": "FFF9CB9C"
+            },
+            {
+              "celda": "I13",
+              "combinada": null,
+              "texto": "Niño quiere ser cargado y en movimiento todo el tiempo\nColera, agitación\nIrritabilidad\nNiño grita y patalea cuando quiere algo y lo tira cuando se lo dan\nCaprichoso\nVoluntarioso y mordaz\nNo tiene paciencia a la espera",
+              "negrita": false,
+              "relleno": "FFF9CB9C"
+            },
+            {
+              "celda": "J13",
+              "combinada": null,
+              "texto": "Hipersensibilidad al dolor desproporcionada\nInflamaciones agudas con calor, rubor y gran excitabilidad nerviosa\nAversión al café",
+              "negrita": false,
+              "relleno": "FFF9CB9C"
+            },
+            {
+              "celda": "K13",
+              "combinada": null,
+              "texto": "Piel: una mejilla roja y la otra palida\nBlefaritis con ulceracion costrosa\nTos seca con cosquilleo en garganta\nReglas adelantadas, abundantes, con coagulos, sangre negra y colicos violentos.",
+              "negrita": false,
+              "relleno": "FFF9CB9C"
+            },
+            {
+              "celda": "L13",
+              "combinada": null,
+              "texto": "Dentición\nOtalgia\nDismenorrea\nCólico del lactante\nNeuralgia\nTrastornos por colera",
+              "negrita": false,
+              "relleno": "FFF9CB9C"
+            },
+            {
+              "celda": "N13",
+              "combinada": null,
+              "texto": "hipersensibilidad extrema al dolor. Caprichosos y demanda constante, rubicundez asimetrica en el rostro, agrava con ira, café y calor, dolores neuralgicos con entimecimiento, calor y transpiracion durante la fiebre, afecciones durante la denticion, , mejora al ser llevado en brazos. ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A14",
+              "combinada": null,
+              "texto": "Arsenicum Album",
+              "negrita": false,
+              "relleno": "FF46BDC6"
+            },
+            {
+              "celda": "B14",
+              "combinada": null,
+              "texto": "Arsenicum album",
+              "negrita": false,
+              "relleno": "FF46BDC6"
+            },
+            {
+              "celda": "C14",
+              "combinada": null,
+              "texto": "Trióxido de arsénico",
+              "negrita": false,
+              "relleno": "FF46BDC6"
+            },
+            {
+              "celda": "D14",
+              "combinada": null,
+              "texto": "Ars.",
+              "negrita": false,
+              "relleno": "FF46BDC6"
+            },
+            {
+              "celda": "E14",
+              "combinada": null,
+              "texto": "Mineral",
+              "negrita": false,
+              "relleno": "FF46BDC6"
+            },
+            {
+              "celda": "F14",
+              "combinada": null,
+              "texto": "6b y 7",
+              "negrita": false,
+              "relleno": "FF46BDC6"
+            },
+            {
+              "celda": "G14",
+              "combinada": null,
+              "texto": "El trióxido de arsénico es altamente toxico. Produce vómitos, diarrea profusa, dolor abdominal ardiente, deshidratación severa, colpaso circulatorio y falla multiorgánica. La intoxicación aguda puede ser mortal. A nivel celular induce apoptosis por alteración de proteínas mitocondriales y estres oxidativo. Piel: queratosis (palmar y plantar)",
+              "negrita": false,
+              "relleno": "FF46BDC6"
+            },
+            {
+              "celda": "H14",
+              "combinada": null,
+              "texto": "- Sistema gastrointestinal: nauseas, vomito, diarrea ardiente, agravada por alimentos en mal estado.\n- Sistema respiratorio: disnea, asma con ansiedad, opresión\n- Sistema nervioso: postracción y debilidad extrema. \n- Sistema circulatorio: colapso vascular con frialdad\n- Piel: queratosis palmar y plantar",
+              "negrita": false,
+              "relleno": "FF46BDC6"
+            },
+            {
+              "celda": "I14",
+              "combinada": null,
+              "texto": "Fastidioso: todo le genera fastidio y es fastidioso\nHiperorganizado\nAnsiedad intesa, especialmente por la salud y la muerte\nInquietud, no puede quedarse quieto\nMiedo a estar solo, busca compañia sin cercanía",
+              "negrita": false,
+              "relleno": "FF46BDC6"
+            },
+            {
+              "celda": "J14",
+              "combinada": null,
+              "texto": "Sensación de calor, que mejora con calor\nEmpeora de medianoche 3am\nEmpeora con frío, mejora con calor\nGran debilidad tras el menor esfuerzo\nSed de pequeños sorbos frecuentes",
+              "negrita": false,
+              "relleno": "FF46BDC6"
+            },
+            {
+              "celda": "K14",
+              "combinada": null,
+              "texto": "Trastornos digestivos con vomitos y diarreas simultaneos\nTos seca, asma con opresión torácica. disnea\nulceras y erupciones cutaneas con ardor",
+              "negrita": false,
+              "relleno": "FF46BDC6"
+            },
+            {
+              "celda": "L14",
+              "combinada": null,
+              "texto": "Gastroenteritis aguda (intoxicacion alimentaria)\nEstados febriles con gran postración\nAnsiedad, miedo a la muerte y a estar solo\nAsma y bronquitis con ansiedad\nAfecciones cutaneas con ardor\nFalla cardiaca en su estadio inicial",
+              "negrita": false,
+              "relleno": "FF46BDC6"
+            },
+            {
+              "celda": "N14",
+              "combinada": null,
+              "texto": "agitacion y ansiedad extrema con miedo a la muerte, agravacion nocturna 1 - 3 am, modalidad termica calurosa con alivio por calor, sensacion de ardor interno como fuego, sed intensa de pequeños sorbos, secreciones acuosas, acres, escuecen y corroen, agotamiento y debilidad rapida, meticulocidad y pulcritud obsesiva.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A15",
+              "combinada": null,
+              "texto": "Natrium muriaticum",
+              "negrita": false,
+              "relleno": "FF3C78D8"
+            },
+            {
+              "celda": "B15",
+              "combinada": null,
+              "texto": "Natrium muriaticum",
+              "negrita": false,
+              "relleno": "FF3C78D8"
+            },
+            {
+              "celda": "C15",
+              "combinada": null,
+              "texto": "Cloruro de sodio",
+              "negrita": false,
+              "relleno": "FF3C78D8"
+            },
+            {
+              "celda": "D15",
+              "combinada": null,
+              "texto": "Nat-m",
+              "negrita": false,
+              "relleno": "FF3C78D8"
+            },
+            {
+              "celda": "E15",
+              "combinada": null,
+              "texto": "Mineral",
+              "negrita": false,
+              "relleno": "FF3C78D8"
+            },
+            {
+              "celda": "F15",
+              "combinada": null,
+              "texto": "5a y 7",
+              "negrita": false,
+              "relleno": "FF3C78D8"
+            },
+            {
+              "celda": "G15",
+              "combinada": null,
+              "texto": "Hipernatremia: sintomas cardiovascular: HTA, Taquicardia, insuficiencia renal, Sistema neurologico: letargo, debilidad muscular, Sistema gastrointestinal: nauseas, vomito, dolor abdominal, diarrea\nHiponatremia",
+              "negrita": false,
+              "relleno": "FF3C78D8"
+            },
+            {
+              "celda": "H15",
+              "combinada": null,
+              "texto": "- Sistema respiratorio: Rinofaringitis recidivantes, rinitis alérgica periódica o aperiódica, sinusitis crónica alérgica, asma\n- Sistema tegumentario: Dermatitis atópica, acné, Herpes, dermatitis seborreica más seca , verrugas, urticarias\n- Sistema Nervioso: Estados depresivos, trastornos del comportamiento  ",
+              "negrita": false,
+              "relleno": "FF3C78D8"
+            },
+            {
+              "celda": "I15",
+              "combinada": null,
+              "texto": "Tristeza profunda dificil de consolar\nGuarda rencor, no olvida o perdona facilmente\nLlora pero solo\nEstrés: adaptación a la producción de cortisol\nNo puede orinar en presencia de otras personas",
+              "negrita": false,
+              "relleno": "FF3C78D8"
+            },
+            {
+              "celda": "J15",
+              "combinada": null,
+              "texto": "Paciente anemico, debilitado, delgado a pesar de buen apetito\nGran deseo de sal y alimentos salados\nAversión a la grasa\nHipersensibles al calor ",
+              "negrita": false,
+              "relleno": "FF3C78D8"
+            },
+            {
+              "celda": "K15",
+              "combinada": null,
+              "texto": "Migrañas periodicas especialmente por el sol (martillante o pulsatil)\nFotofobia\nCoriza acuosa como clara de huevo\nCongestion nasal crónica\nLabios resecos\nGrieta de labio en la mitad inferior",
+              "negrita": false,
+              "relleno": "FF3C78D8"
+            },
+            {
+              "celda": "L15",
+              "combinada": null,
+              "texto": "Rinitis alergica\nSinusitis alérgica\nAsma\nDermatitis seborreica\nEstados depresivos y reaccionales\nVaginitis recidivante\nInfecciones urinarias recidivantes\nEstreñimiento crónico y grave \nDispepsias\nHiponatremias",
+              "negrita": false,
+              "relleno": "FF3C78D8"
+            },
+            {
+              "celda": "M15",
+              "combinada": null,
+              "texto": "Edad avanzada: hiponatremias",
+              "negrita": false,
+              "relleno": "FF3C78D8"
+            },
+            {
+              "celda": "N15",
+              "combinada": null,
+              "texto": "agravamiento por la consolacion, deseos intenso y voraz de sal, trastorno por penas calladas y decepsiones, agravamiento por el sol y cefalea solar, labios secos, agrietados, ulcerados, sequedad general de mucosas, emaciacion a pesar de buen apetito, transpiracion fragil y debilidad debilidad a menor esfuerzo  ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A16",
+              "combinada": null,
+              "texto": "Platinum metallicum ",
+              "negrita": false,
+              "relleno": "FF6AA84F"
+            },
+            {
+              "celda": "B16",
+              "combinada": null,
+              "texto": "Platina",
+              "negrita": false,
+              "relleno": "FF6AA84F"
+            },
+            {
+              "celda": "C16",
+              "combinada": null,
+              "texto": "Cepa formada por la espuma de platino (masa espumosa)",
+              "negrita": false,
+              "relleno": "FF6AA84F"
+            },
+            {
+              "celda": "D16",
+              "combinada": null,
+              "texto": "Plat.",
+              "negrita": false,
+              "relleno": "FF6AA84F"
+            },
+            {
+              "celda": "E16",
+              "combinada": null,
+              "texto": "Mineral",
+              "negrita": false,
+              "relleno": "FF6AA84F"
+            },
+            {
+              "celda": "F16",
+              "combinada": null,
+              "texto": "7",
+              "negrita": false,
+              "relleno": "FF6AA84F"
+            },
+            {
+              "celda": "G16",
+              "combinada": null,
+              "texto": "No hay al metal, pero alergias a la sales.\nPlatinosis: reacción alérgica respiratorio o cutaneo",
+              "negrita": false,
+              "relleno": "FF6AA84F"
+            },
+            {
+              "celda": "H16",
+              "combinada": null,
+              "texto": "- Sistema nervioso: blefaroespasmo, espasmos intestinales, calambres (manos, dedos y piernas)\n- Sistema reproductor femenino: ciclos cortos con menstruaciones abundantes y flujo oscuro, hiperestesia, excitacion sexual muy fuerte\n- Sistema digestivo: estreñimiento espasmodico, dificultad para evacuar",
+              "negrita": false,
+              "relleno": "FF6AA84F"
+            },
+            {
+              "celda": "I16",
+              "combinada": null,
+              "texto": "Orgullosa\nSe cree superior en todos los aspectos de la vida \nElla llega a percibirse fisicamente más grande que los demás\nHipersexual: conducta sexual muy exaltada, sensual, exitacion sexual\nIrritable acerca de cosas triviales",
+              "negrita": false,
+              "relleno": "FF6AA84F"
+            },
+            {
+              "celda": "J16",
+              "combinada": null,
+              "texto": "Sensación de compresión (como por un tornillo de mordaza o por un vendaje apretado)\nImpresion de que algunas partes del cuerpo aumentan de volumen\nEntumecimiento y sensacion de constricción\nDolores que aumentan y disminuyen progresivamente",
+              "negrita": false,
+              "relleno": "FF6AA84F"
+            },
+            {
+              "celda": "K16",
+              "combinada": null,
+              "texto": "Olfato hipersensible\nHemorragia: sangre negra y con coagulos\nFrecuente urgencia por defecar\nHiperestesia genital\nDolor en ovarios - izquierdo\nEntumecimiento de la región coccígea estando sentada\n",
+              "negrita": false,
+              "relleno": "FF6AA84F"
+            },
+            {
+              "celda": "L16",
+              "combinada": null,
+              "texto": "Sindromes pre e intermentruales por hiperestrogenismo\nEndometriosis\nDismenorreas\nCefaleas que aumentan y disminuyen lentamente\nEspasmofilia\nComportamientos sexuales neuroticos",
+              "negrita": false,
+              "relleno": "FF6AA84F"
+            },
+            {
+              "celda": "N16",
+              "combinada": null,
+              "texto": "arrogancia y senstimiento de superioridad, sensacion de entumecimiento y frio en las partes afectadas, dolores que aumentan y disminuyen gradualmente, hipersensibilidad de los genitales y deseo sexual aumentado, afecicones uterinas con sensacion de peso agrava por la emocion y el reposo, sensacion de constriccion y opresion (abdomen, torax y cabeza)",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A17",
+              "combinada": null,
+              "texto": "Sepia vera\nSepia S. sucus",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B17",
+              "combinada": null,
+              "texto": "Sepia ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C17",
+              "combinada": null,
+              "texto": "Oligoelementos como el magnesio, cobre, silicio y sales minerales, aminoácidos (tirosina, dopa)\nMelanina\nMucopolisacaridos\nAminoácidos libres",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D17",
+              "combinada": null,
+              "texto": "Sep",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E17",
+              "combinada": null,
+              "texto": "Animal ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F17",
+              "combinada": null,
+              "texto": "4 y 7 ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G17",
+              "combinada": null,
+              "texto": "Manifestaciones toxicas por la tinta ( Melanina) - muy raras. ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H17",
+              "combinada": null,
+              "texto": "- sentidos: otalgia, audición sensible\n- Torax: disnea, opresión en el pecho\n- Corazón: palpitaciones\n- Urinario: deseo de orinar, nicturia\n- Organos sexuales: excoriacion en vulva, sequedad de vulva y vagina, abortos espontaneos\n- Piel: amarilla como ictericia",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I17",
+              "combinada": null,
+              "texto": "Acobardamiento\nTristeza e irritabilidad\nLlanto facil\nIndiferencia\nDepresión",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J17",
+              "combinada": null,
+              "texto": "- Falta de energia\n- Espasmos clonicos\n- Gran tendencia a resfriarse.\n- Despertarse a las 3 am y no poder volver a dormir\n- Cruzar las piernas le da calma: porque tiene la sensación de que algo se va a salir\n- Periodo premenstrual todo empeora",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K17",
+              "combinada": null,
+              "texto": "- Vértigos al caminar al aire libre \n- Epistaxis\n- Disnea\n- Deseo frecuente e incapaz de orinar\n- Orina profusa y fétida\n- Abortos espontaneo\n- Deseo sexual femenino casi ausente",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L17",
+              "combinada": null,
+              "texto": "- Enuresis: micción involuntaria durante la noche \n- Dolor de cabeza menstrual: Dolor de cabeza durante las menstruaciones\n- Síndrome de la menopausia: Climaterio; entre ellos sofocos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M17",
+              "combinada": null,
+              "texto": "Antes se trata la tuberculosis \nSepia puede salir en niños, solo si hay repertorizacion",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N17",
+              "combinada": null,
+              "texto": "sensacion de prolapso y peso hacia abajo, indiferencia hacia los seres queridos,  cloasma o pigmentacion amarilla en nariz o mejillaz, mejora al ejercicio vigoroso, sensacion de bulto o bola enel cuerpo, lateralidad izquierda  y agravacion matutino/vespertino , desmayos y sensacion de vacio en el estomago, avercion a ciertos alimentos (leche, acidos, grasa) y olores (carne cocida)",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A18",
+              "combinada": null,
+              "texto": "Pulsatilla",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B18",
+              "combinada": null,
+              "texto": "Pulsatilla Nigricans",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C18",
+              "combinada": null,
+              "texto": "Ranuncolosido, que produce glucosa y protoanemonina que se transforma en anemonina",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D18",
+              "combinada": null,
+              "texto": "Puls",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E18",
+              "combinada": null,
+              "texto": "Vegetal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F18",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G18",
+              "combinada": null,
+              "texto": "La planta fresca es toxica y puede causar irritacion en las mucosas, inflamacion de la piel , y en grandes dosis trastosnos nerviosos y cardiacos.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H18",
+              "combinada": null,
+              "texto": "- Reproductivo femenino: Menstruacion irregular. - Circulatorio : Varice. - Digestivo; Dispepsia, dolor abdominal, indigestion por grasas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I18",
+              "combinada": null,
+              "texto": "- Trastorno por abandono, - Llora facilmente, es dulce, docil, apacible y condescendiente. - Deseo de consuelo y atencion. - Irresolucion y timidez extrema. - Sintomas y estados de animo son muy variables y cambiantes.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J18",
+              "combinada": null,
+              "texto": "Se agrava con el calor y alimentos graos,  Mejora con aire libre y freco, ausencia de sed, sintomas migratorios \nDeseos de alimentos, bebidas frias y alcohol (cosas refrescantes)",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "K18",
+              "combinada": null,
+              "texto": "Secreciones no irritantes\nSecreción ocular espesas, copiosas, amarillentas.\nLabios secos\nDeseo sexual aumentado en la menstruación\nLa grasa lo agrava, sensacion de pesadez en estomago, otalgia punzante que empeora en la noche y con el calor, dolor en varices con sensacion de pesadez y dolor que mejora al caminar, mentruacio tardia con flujo corto y escaso, caprichoso.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L18",
+              "combinada": null,
+              "texto": "Coriza aguda\nBronquitis\nColico flatulentos\nConjuntivitis, Duelo, tristeza, melancolia, ansiedad, (mujeres y niños), dispesia e indigestion por alimentos grasos, sx premenstrual, resfriados, bronquitis, otitis, gota o sinovitis, clorosis/ anemia",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N18",
+              "combinada": null,
+              "texto": "cambios rapidos y constancia de sintomas, llanto facil y deseo de consolacion, mejora con el aire fresco y el aire libre, aversion a la sed y a las bebidas (boca seca con ausencia de sed), agrava con aliemntos grasos, cerdo y helados, modalidad termica calusosa, con intolerania al calor, secreciones espesas blancas y amarillento-verdosas, retrasi i supresion de la menstruacion en espaciial si moja los pies. ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A19",
+              "combinada": null,
+              "texto": "Aurum precipitatum (oro en hojas o láminas)\n",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B19",
+              "combinada": null,
+              "texto": "Aurum metallicum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C19",
+              "combinada": null,
+              "texto": "Oro\nEn estado pulverizado: morado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D19",
+              "combinada": null,
+              "texto": "Au.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E19",
+              "combinada": null,
+              "texto": "Metales nobles",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F19",
+              "combinada": null,
+              "texto": "7",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G19",
+              "combinada": null,
+              "texto": "Las intoxicaciones son esencialmente crónicas y se traducen en:\nsíndrome gripal acompañado de gastroenteritis\ncutáneo: dermatitis, queratodermia.\nrenales: glomerulonefritis extramembranosa con proteinuria y muy raro Sd nefritico\npulmonares: raros: infiltrados pulmonares",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H19",
+              "combinada": null,
+              "texto": "Sistema óseo: Dolores profundos, \"taladrantes\" o desgarradores.\nSistema circulatorio: Sensación de plétora o de que la sangre hierve en las venas.\nSistema nervioso: estados de melancolía profunda.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I19",
+              "combinada": null,
+              "texto": "Los sintomas mentales son los mas importantes: Depresión profunda con tendencia al suicidio\nMelancolía, tristeza, soledad, culpa con remordimiento y desesperación. No se siente querido\nIdeación suicida (impulso de lanzarse desde una altura (le gusta las alturas y el vacio, se siente vacio \"una soledad que lo oprime\" y busca el vacio), \"si dice que se va a matar, se va matar\").\nIra repentina. No le  gusta estar solo ni el encierro, porque siente que las paredes se le viene encima. \nLa causa puede ser por fanatismo religioso (ideas de culpa, piensa que no hace bien las cosas). Tiene penas profundas, se autorreprocha. Hipersensibilidad al ruido.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J19",
+              "combinada": null,
+              "texto": "Mejora con la música.\nSíntomas agravan en la noche.\nMejoría al aire libre (Aunque son friolentos, necesitan aire fresco para respirar mejor).\nCongestión vascular\n",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K19",
+              "combinada": null,
+              "texto": "Palpitaciones violentas, sensación de que la sangre se sale del pecho.\nHemianopsia horizontal.\nOrquitis con dolor severo o atrofia en niños.\n",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L19",
+              "combinada": null,
+              "texto": "Depresión mayor y psicosis con tendencias suicidas.\nHipertensión arterial y enfermedades cardíacas (hipertrofia).\nOsteomielitis o dolores óseos crónicos.\nAlcoholismo crónico asociado a la depresión.\n",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M19",
+              "combinada": null,
+              "texto": "Antídoto: \nHepar Sulphur\nBelladona\nMercurius\n\n\nHacer un buen seguimiento. \nNefrotoxicidad (oro)\n",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N19",
+              "combinada": null,
+              "texto": "depresion profunda con impulsos suicidas, mejoria con lamusica (melodias alegres), afecciones cardiacas y congestion arterial, trastorno por ira reprimida y contrariedades, agrava po el frio y durante la noche, exostosis, caries oseas y afecciones sifilicas, hipervalia (perfeccion) combinada con fracas, hipertrofia e induracin glandular. ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A20",
+              "combinada": null,
+              "texto": "HEPAR SULPHUR CALCARICUM",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B20",
+              "combinada": null,
+              "texto": "Hepar sulfur",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C20",
+              "combinada": null,
+              "texto": "Sulfuro de calcio",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D20",
+              "combinada": null,
+              "texto": "Hepar Sulph",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E20",
+              "combinada": null,
+              "texto": "Mineral",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F20",
+              "combinada": null,
+              "texto": "7",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G20",
+              "combinada": null,
+              "texto": "No homeopatia.\nEn sus componentes: nausea vomito , excoriación piel y mucosas ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H20",
+              "combinada": null,
+              "texto": "Respiratorio: resfriado\nMentales: piromano, irritable.\nPiel: favorece el drenaje de abscesos ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I20",
+              "combinada": null,
+              "texto": "Colericos\nIrritabilidad\nPirómano\nDeseo de contradecir, sobre todo en los niños.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J20",
+              "combinada": null,
+              "texto": "Empeora con el frío, olor a agrio en el cuerpo,Transpiración general por el menor esfuerzo.\nDolor por excoriación o golpe en varias zonas, peor al ser tocadas.\nDeseos de dormir en las mañanas y al atardecer.\nFiebre.\n",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K20",
+              "combinada": null,
+              "texto": "Cabeza: cefalea, Vértigo , sensibilidad en cuero cabelludo\nGarganta : sesancion de astilla en garganta, absesos\nGastrointestinal: Náuseas con frio , distensión, Dolor tipo punzante en  hígado y  bazo, absesos hepaticos \nPiel furúnculos , Abscesos,tendencia a la supuración, úlceras fétidas, verrugas dolorosas.\nGenitales:leucorrea fétidas, chancro, sífilis secundaria.\n",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L20",
+              "combinada": null,
+              "texto": "Conjuntivitis\nForúnculos\nAsma\nResfriado\nSecreción nasal\nInfecciones de oído\núlceras cutáneas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M20",
+              "combinada": null,
+              "texto": "Dx diferencial: influenzinum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N20",
+              "combinada": null,
+              "texto": "Hipersensibilidad extrama al dolor  y al tacto, gran friolabilidad e intolerancia al aire frio, tendencia a supuracion rapida y doloros, olor caracteristico a queso viajo o agrio, agravacion por frio y mejoria por calor, tos seca, ronca y cruposa, irritabilidad y caracter violento, sensacion de astilla clvada  en garganta o en heridas ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A21",
+              "combinada": null,
+              "texto": "Psorinum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B21",
+              "combinada": null,
+              "texto": "Psorinum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C21",
+              "combinada": null,
+              "texto": "Secreciones de pacientes con escabiosis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D21",
+              "combinada": null,
+              "texto": "Psor",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E21",
+              "combinada": null,
+              "texto": "Nosode\nAnimal\nácaro",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F21",
+              "combinada": null,
+              "texto": "4 y 8",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G21",
+              "combinada": null,
+              "texto": "Enfermedad de la sarna: prurito caracteristicos nocturno, migración del ácaro. Lesiones tipicas de la piel. ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H21",
+              "combinada": null,
+              "texto": "Piel: prurito, secreciones fetidas.\nRespiratorio: respiratorio\nDigestivo: diarrea al amanecer",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I21",
+              "combinada": null,
+              "texto": "Oscuridad mental y desesperanza extrema\nDepresión y tristeza\nAnsiedad por fallar en sus negocios y cree que se va a morir\nMelancolia persistente",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J21",
+              "combinada": null,
+              "texto": "Frialdad extrema\nOlor característico en sus secreciones (huevo en descomposicion)\nApariencia de piel sucia, descuidada, cara grasosa\nLavado frecuente solo de manos y pies\nPeriocidad anual: siempre le dan sintomas en la misma fecha cada año.\nHambre voraz que lo puede despertar\nDeficiencia de energia vital",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K21",
+              "combinada": null,
+              "texto": "Piel: ulceraciones con inflamación persistente\nsecreción fétida y prurito irresistible.\nPulmón: disnea que mejora en posicion de crucificcion.\nORL: otorrea fétida, secreción acuosa nasal persistente\nDigestivo: diarrea de \"amanecer\": diarrea imperiosa, liquida, oscura y de olor cadaverico que lo saca de la cama, halitosis, hambre voraz despues del cuadro diarreico. Hambre marcada a pesar de debilidad, enfermedad o trastorno digestivo.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L21",
+              "combinada": null,
+              "texto": "Dermatologia: eccemas, dermatitis atopicas, micosis cutaneas.\nDrenaje o absorción de abscesos\nNeumología: asma con exacerbacion en epoca invernal\nORL: rinofaringitis, otitis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M21",
+              "combinada": null,
+              "texto": "El psorinum se da en paciente que no tienen reacción.\nSe relaciona con sulphur y arsenicum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N21",
+              "combinada": null,
+              "texto": "falta absoluta de reaccion vital, olor corporal fetido e insoportable, piel sucia, aspera seca y contendencia a las erupciones, intolerancia al frio y necesidad de abrigarse, desesperanza profunda y tristeza negra, hambre voraz nocturna, afecciones que alternan o recidivan, cabello seco, enredado y sin brillo ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B22",
+              "combinada": null,
+              "texto": "Medorrhinum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C22",
+              "combinada": null,
+              "texto": "Secreción uretral gonorreica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D22",
+              "combinada": null,
+              "texto": "Med.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E22",
+              "combinada": null,
+              "texto": "Nosode\nBacteriano\nTipo miasma sicótico: enfermedad de exceso (retención, acumulación, engrosamiento, filtración)",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F22",
+              "combinada": null,
+              "texto": "8\nLos nosodes no tienen regla de preparacion",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G22",
+              "combinada": null,
+              "texto": "Patogenesia de la blenorragia: Los diferente patógenos se adhieren al epitelio, inhibe la apoptosis del neutrófilo, liberación de endotoxiina, IgA\nproteasa generando uretritis, cervicitis, endometritis, salpingitis, EPI, proctitis, faringitis gonoccocica, artritis septica, tenosinovitis\n",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H22",
+              "combinada": null,
+              "texto": "-Mucosas:\nSecreciones blanco\namarillentas a\nmenudo irritantes\n-Tegumentario:\nErupciones\nvesiculares\npruriginosas\n-Articular: Esclerosis\ndel tejidos\nfibroconjuntivo que\nprovoca rigidez\ndolorosa\n-Nervioso:\nComportamiento\nagitado, precipitado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I22",
+              "combinada": null,
+              "texto": "Temor a volverse loco\nMemoria debil: olvidadizo\nComete errores de ortografia\nPierde el hilo de la conversación\nSiente que el tiempo pasa lento\n",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J22",
+              "combinada": null,
+              "texto": "Empeora con el frio local y humedad\nMejora al estar en la orilla del mar\nMejora al estar acostado sobre el abdomen",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K22",
+              "combinada": null,
+              "texto": "Cabeza: dolor ardiente en el cerebro, peor en el occipucio\nSensacion de cabeza pesada\nOjos: siente como si mirara fijamente a todas las cosas, dolor en globo ocular\nOidos: sordera parcial, sensacion de pulsaciones en los oídos\nEstómago: sabor a cobre y eructos de hidrógeno sulfurado, solo puede defecar cuando se inclina hacia atras",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L22",
+              "combinada": null,
+              "texto": "Blenorragia mal curada, Asma en niños de padres psicoticos, Artritis deformante",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M22",
+              "combinada": null,
+              "texto": "Rigidez articular dolorosa (sensación de magulladura)\nPrurito sin materia que empeora al desnudarse\nSueño en posicion genupectoral \n\nNiños: inflamacion de epitelio cilindrico no ciliado. Mocosos. Trastornos de comportamiento con manifestaciones respiratorio: una dosis del medicamento hace un cambio. \n\nSiempre que piensen que el medicamento esta indicado, siempre debe dar un resultado.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N22",
+              "combinada": null,
+              "texto": "modalidad temporal de mejoria octurna, agravamiento por pensar en sus sintomas, deseos de cosas refrewscantes, modalidad de aliviojunto al mar, , secreciones espesas, amarilentas o verdosas de olor ofensivo, , posicio para dormir genupectoral, prisa, impaciencia y sensacion de que el tiempo vuela, pies ardientes, sensibles, doloroidos,",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A23",
+              "combinada": null,
+              "texto": "Syphilinum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B23",
+              "combinada": null,
+              "texto": "Syphilinum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C23",
+              "combinada": null,
+              "texto": "Serosidad del chancro sifilítico aun no tratados",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D23",
+              "combinada": null,
+              "texto": "Syph.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E23",
+              "combinada": null,
+              "texto": "Nosode\nAnimal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F23",
+              "combinada": null,
+              "texto": "8 y 4\nLos nosodes no tienen regla de preparacion",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G23",
+              "combinada": null,
+              "texto": "Treponema pallidum no ejerce toxicidad por produccion de toxinas, sino mediante mecanismos indirectos de daño tisular mediados por inflamación crónica, invasión vascular e inmuopatología progresiva.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H23",
+              "combinada": null,
+              "texto": "Sistema nervioso: neuralgias violentas en la cabeza (a los lados)\nSistema tegumentario: ulceras y erupciones en gargantas\nSistema oseo: dolores oseos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I23",
+              "combinada": null,
+              "texto": "Olvidadizo, debil mental.\nNo puede recordar caras, nombres, fechas de eventos, lilbros y lugares\nApático\nMelancolía\nOdia la noche y la mañana por exacerbación de síntomas\nAversión a la compañia",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J23",
+              "combinada": null,
+              "texto": "Deseo de bebidas alcohólicas en calquiera de sus formas, tendencia hereditaria al alcoholismo.\nAversión a la carne\nAgravación durante la noche de todos sus síntomas, especialmente desde el crepusculo al amanecer o desde las 18 hasta las 6 horas del día siguiente",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K23",
+              "combinada": null,
+              "texto": "Cefalea nocturna que impide dormir\nGran caída de cabello\nFontanelas con cierre tardío\nResfriado frecuentes\nDolores oseos\nLengua blanca, sucia con dos grietas longitudinales",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L23",
+              "combinada": null,
+              "texto": "Dolores óseos, periostitis, osteítis\nOsteoartritis de las rodillas, artralgias nocturnas, ulceraciones con bordes indurados\nCefaleas, neuralgias\nEnfermedad de lyme\nInsomnios que en el enfermo considera totales\nAlgunas fobias- obsesión limpieza",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M23",
+              "combinada": null,
+              "texto": "Miasma sifilítico: destrucción, culpa, cronicidad.\n\nCuando usar el nosode: mucho en dolores oseos en especial el borde de la tibia.\n\nPotencia: baja. 3CH/6X",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N23",
+              "combinada": null,
+              "texto": "agravamiento nocturno, dolores osteopepticos y desgarradores, modalidad de alivio por aplicaciones frias, necesidad imperiosa y compulsiva de lavarse las manos, ulceraciones destructivas y secreciones fetidas, afecciones hereditarias y estigmas degenerativos, perdida de memoria y confusion mental, emacion general, y aspecto avejentado ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "O23",
+              "combinada": null,
+              "texto": "Concepto de miasma: se relaciona con enfermedades de epidemia. ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A24",
+              "combinada": null,
+              "texto": "Tuberculinum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B24",
+              "combinada": null,
+              "texto": "Tuberculinum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C24",
+              "combinada": null,
+              "texto": "Tuberculina de Koch\nCultivo de mycobacterium tuberculosis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D24",
+              "combinada": null,
+              "texto": "Tub.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E24",
+              "combinada": null,
+              "texto": "Nosode",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F24",
+              "combinada": null,
+              "texto": "No tiene",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G24",
+              "combinada": null,
+              "texto": "Patogenesia: describir la tuberculosis pulmonar : diana principal ORL, digestivo, respiratorio",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H24",
+              "combinada": null,
+              "texto": "Respiratorio: tos irritante (crónica, productiva), adinamia y diaforesis nocturna. pérdida de vitalidad. \nLinfatico: adenopatias\nPiel: eczemas supurativos\nGastrointestinal: evacuaciones acuosas, oscuras, siempre expulsadas a chorro",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I24",
+              "combinada": null,
+              "texto": "Irritabilidad matinal\nDeseo de viajar\nTemperamiento cambiante (debido a viraje  tubeculínico)\nMiedo a los perros\nSe ofenden facilmente, muy suceptible\nAmenazan\nGolpea la cabeza contra otras cosas o pared\nGrita o insulta, blafesma\nMemoria escasa\nDeprimido fisica y moralmente",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J24",
+              "combinada": null,
+              "texto": "Debilidad intensa con deseo constante de cambiar de lugar, no se encuentran bien en ningun lugar\nSomnolencia por la mañana y despues de comer\nApetito conservado o aumentado\nSíntomas que siempre estan cambiando\nSensibilidad al frio o cualquier cambio de temperatura\nSensibilidad de las extremidades al frio\nSindromes de mala absorción",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K24",
+              "combinada": null,
+              "texto": "Cabeza: cefalea con el menor esfuerzo mental, orzuelo a repeticion superior derecho dolorosos, herpes palpebral. \nORL: otorrea amarillenta, escurrimiento amarillo, zumbidos\nRespiratorio: tos irritante que lo despierta en la noche ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L24",
+              "combinada": null,
+              "texto": "Trastornos de la conducta alimentaria. \nNiños con fiebre muy alta que no sabe que tiene.\nRinitis alérgica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M24",
+              "combinada": null,
+              "texto": "Mar: lo agrava. IMPORTANTE: tener en cuenta antecedente  familiar de tuberculosis (personas muy nerviosas) ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N24",
+              "combinada": null,
+              "texto": "deseo imperioso e incontrolable de viajar, agrava con clima frio/humedo y cambios bruscos de temperatura, adelgazamiento a pesar de apetito voraz, cansancio subito y agoramiento fisico matutino, herencia tuberculina y propension a infecciones respiratorias, alterciones de afecciones respiratorias con problemas cutaneos, caracter voluble, insatisfecho y destructivo, sudoracion octurna profusa.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A25",
+              "combinada": null,
+              "texto": "Carcinosinum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B25",
+              "combinada": null,
+              "texto": "Carcinosinum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C25",
+              "combinada": null,
+              "texto": "Tejidos carcinomatosos variados",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D25",
+              "combinada": null,
+              "texto": "Carc.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E25",
+              "combinada": null,
+              "texto": "Nosode\ncélulas de cáncer",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F25",
+              "combinada": null,
+              "texto": "4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G25",
+              "combinada": null,
+              "texto": "Patogenesia del cáncer:\nPérdida del control del ciclo celular\nProliferación autónoma\nResistencia a la apoptosis\nInestabilidad genética\nAlteración en genes supresores (ej. TP53)\nActivación de oncogenes",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H25",
+              "combinada": null,
+              "texto": "Mental: Perfeccionismo extremo con alta sensibilidad emocional y necesidad de aprobación.\nInmunológico: Predisposición a procesos crónicos recurrentes (infecciones repetidas, adenopatías, antecedentes familiares de cáncer).\nDigestivo: Trastornos digestivos asociados a tensión emocional reprimida.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I25",
+              "combinada": null,
+              "texto": "Exigente, detallista y ordenado en exceso\nIntolerante a los reproches\nObstinados y perseverantes",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J25",
+              "combinada": null,
+              "texto": "Deseo intenso de chocolate\nMejoría en el mar\nRigidez corporal\nHistoria de múltiples antibióticos o corticoides.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K25",
+              "combinada": null,
+              "texto": "Cianosis labial \nCefalea occipital\nSensibilidad en el paladar",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L25",
+              "combinada": null,
+              "texto": "Historia de dominación por padres, perfeccionismo obsesivo\nPacientes que no reaccionan a otros remedios\nAsma infantil recurrente\nDermatitis atópica crónica\nTrastornos autoinmunes\nEnfermedades degenerativas\nTrastornos psicosomáticos\nSíndrome de agotamiento\nInsomnio crónico por pensamientos circulares",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N25",
+              "combinada": null,
+              "texto": "deseo intenso y compulsivo de viajar, amor apasionado por musica y el baile, afinidad patologica por el mar y las tempestades, insomnio cronico y habitos hiper responsables, antecedentes oncologicos familiares marcados, deseos de sal, leche fria, grasa, fruta fresca y chocolate, supresion emocional por exceso de control, manchas cutaneas y numerosos lunares",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A26",
+              "combinada": null,
+              "texto": "Influenzinum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B26",
+              "combinada": null,
+              "texto": "Influenzinum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C26",
+              "combinada": null,
+              "texto": "Nosode a partir de secreciones de pacientes enfermos o por vacuna estacional",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D26",
+              "combinada": null,
+              "texto": "\"flu\"",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E26",
+              "combinada": null,
+              "texto": "Diferentes tipos de influenza ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F26",
+              "combinada": null,
+              "texto": "Primera dilucion 1:99 alcohol sucucion ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G26",
+              "combinada": null,
+              "texto": "Patogenesia de influenza (estacional)\nFase inicial: se pega el virus y se incuba\nFase aguda: inicio de sintomas\nFase critica: disnea, liberacion de citoquinas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H26",
+              "combinada": null,
+              "texto": "Respiratorio: tos seca, tos penosa (gran esfuerzo al paciente y dolor)\nORL: todo es muy congestivo, ojos irritados, polipos, sinusitis, faringitis agudas y cronicas. \nOsteomuscular: mialgia, artralgias.\nDigestivo: nauseas, disminución del apetito.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I26",
+              "combinada": null,
+              "texto": "apatia, dificultad para concentrarse, sensacion de mente nublada, postracion mental y agotamiento fisico, reactivo, mente nublada, neurosis depresiva post viral  ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J26",
+              "combinada": null,
+              "texto": "postracion muy marcada, fiebre, mialgias, agotamiento, cefalea, hipersensibilidad al frio, mejora con reposo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K26",
+              "combinada": null,
+              "texto": "rinorrea\ncongestion nasal\ntos seca\nopresión torácica\nmialgias intensas\ntendencia a infecciones respiratorias recurrentes",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L26",
+              "combinada": null,
+              "texto": "convalecencia de gripe y sindromes gripales, transtornos post infeccion, periodos largos de enfermedad con cortos de recuperacion o asintomatico, transtornos emocionales secundarios, traqueitis traqueobronquitis secundario a episodio postviral o vacunacion ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N26",
+              "combinada": null,
+              "texto": "afinidad por la epidemia gripal y la profilaxis, agotamiento fisico y fatiga muscular profunda, cefalea frontal congestiva y pesadez ocular, fiebre de inciio rapido y escalofrios, catarro en las vias respiratorias superiores, convalecencia prolongada y lenta recuperacion",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A27",
+              "combinada": null,
+              "texto": "Graphites",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B27",
+              "combinada": null,
+              "texto": "Graphites",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C27",
+              "combinada": null,
+              "texto": "(Grafito) Carbono, hierro y silice",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D27",
+              "combinada": null,
+              "texto": "Graph",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E27",
+              "combinada": null,
+              "texto": "Mineral",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F27",
+              "combinada": null,
+              "texto": "Regla 7",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G27",
+              "combinada": null,
+              "texto": "Grafito puro es relativamente toxico, puede provocar eccema en trabajadores, riesgo menor de neumoconiosis por silece",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H27",
+              "combinada": null,
+              "texto": "Piel: vesicula con supuracion caracteristica en pliegues. Dermatitis seborreica. Grietas pezón maternas, Queloides\nCirculatorio: aspecto palido, sofoco vasomotor en cara, epistaxis. \nDigestivo: dispepsia flatulenta, gastralgia que mejora al comer, aliento fetido",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I27",
+              "combinada": null,
+              "texto": "Inseguridad paralizante\nIndeciso\nTimido e impresionable. \nTriste\nAbatido\nDescorazonado\nSíntomas de piel concomitantes con lo mental\nLentitud en pensamiento y decisión",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J27",
+              "combinada": null,
+              "texto": "Gordo, apatico, friolento. Calambres, espasmos, contraacturas musculares. Trastornos de la supuracion por excreciones y secreciones.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K27",
+              "combinada": null,
+              "texto": "Aspecto palido por anemia. Frio local en occipucio, rodillas y pies. Vesiculas con supuracion caracteristica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L27",
+              "combinada": null,
+              "texto": "Dermatitis atopica con lesiones caracteriticas, Blefaritis, orzuelos a repeticion. Sofocos perimenopausicos. Estreñimiento con deposiciones gruesas. queloides. pezones agrietados en lactantes. Dermatitis seborreica. ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M27",
+              "combinada": null,
+              "texto": "piel. gastro. circulatorio y lilamento de moco. habla mucho de supuraciones en piel . Diferente de Natrum Mur..... es muy seca y graphites mas supurativa ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N27",
+              "combinada": null,
+              "texto": "erupciones cuteneas con secrecion de liquido pegajoso y melicerico, fisurasy grietas en los pliegues y comisuras, uñas deformes, gruesas y quebradizas, constituciones hidrogenoide, flacida y tendencia a la obesidad, intolerancia al frio y gran friolabilidad, constipacion pertinaz sin urgencia (heces duras unidas por hilos de mucosa), aversion a carne y pescado, tristeza, timidez e indecision mental",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A28",
+              "combinada": null,
+              "texto": "Petroleum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B28",
+              "combinada": null,
+              "texto": "Petroleum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C28",
+              "combinada": null,
+              "texto": "Descomposición de grandes cantidades de materia orgánica, principalmente de algas, placton y microorganismos marinos, acumulados en el fondo de los mares y lagunas bajo condiciones anoxicas.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D28",
+              "combinada": null,
+              "texto": "Petrol.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E28",
+              "combinada": null,
+              "texto": "Mineral",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F28",
+              "combinada": null,
+              "texto": "8",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G28",
+              "combinada": null,
+              "texto": "Sus efectos dañan tejidos por contacto directo ,inhalacion o ingestion, los  hidrocarburos liposolubles por lo que se incorporan en la capa lipidica, alteran la membrana y provocan daño y  muerte celular.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H28",
+              "combinada": null,
+              "texto": "PIEL\n- Seca, agrietada, sensible, supuracion en heridas\n- Picazon en las noches.\n- Dermatitis (mecánicos)    \nSISTEMA NERVISO \n- Vértigo al levantarse.\n- Mareo en vehículos.\nDIGESTIVO \n- Náusea que mejora al comer.\n- Eructos.\n- Hambre nocturna.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I28",
+              "combinada": null,
+              "texto": "- Presenta estados de confusión y\ndesorientación muy característicos:\n- Desorientación espacial: Se pierde en calles\nque le son familiares.\n- Presagio de muerte: Siente que la muerte está\ncerca y tiene una urgencia por arreglar sus\nasuntos pendientes.\n- Irritabilidad: Se ofende con facilidad y se\nmolesta por nimiedades, especialmente por la\nmañana\n- Sensación de extremidad que sale del pecho",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J28",
+              "combinada": null,
+              "texto": "Agrava con invierno, cinestosis, mejora en verano, en reposo, al cerrar los ojos. hambre intensa, sensibilidad al movimiento, olor fuerte y desagradable \n",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K28",
+              "combinada": null,
+              "texto": "Piel: sangrante, agrietada, picaen las noches.\ncabeza: erupcion en cuero cabellido y dolor al tacto,manos negras\ns, nervioso: vertigo, mareo.\ns. respiratorio: tos seca en invierno, ronquera.\ns. digestivo: nauseas con mejoria al comer, hambre nocturna, eructos, \nrecto, fisuras anales, hemorroides.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L28",
+              "combinada": null,
+              "texto": "Piel: eccema cronico,dermatitis, psoriasis. S. Nervisos: mareo, vertigo.S.Digestivo: fisuras anales, hemorroides. S.Reproductivo: irritabilidad al menstruar, eccema asociado a menstruación. \nHipoacusia, Acufenos. ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M28",
+              "combinada": null,
+              "texto": "Dermatitis asociada con los (mecanicos), agrietada seca y profunda. OJO diferencia de piel con graphites y petroleum va con sint mental caracteristico. CAE xerosis  ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N28",
+              "combinada": null,
+              "texto": "erupciones cuteneas secas, agrietadas y sangrantes en invierno, agravacion general en invierno, grietas y fisuras dolorosas en pulpejos de los dedos, trastorno gastricos con alivio al comer, mareos y neuseas al viajer (cinetosis), olor corporal fetido a pie de etleta, aversion a la carne y a alimenton calientes, irritabilidad extrema y sensacion de doble identidad ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A29",
+              "combinada": null,
+              "texto": "Arnica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B29",
+              "combinada": null,
+              "texto": "ARNICA MONTANA",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C29",
+              "combinada": null,
+              "texto": "importante  “Senecio formosus, conocido ‘árnica americana o andina’, contiene alcaloides pirrolizidínicos como la retrorsina- integerrimina, causantes hepatotoxicidad,  Inducen efecto antimitotico -megalocitosis, fibrosis y enfermedad veno-oclusiva hepática, No seguro en uso oral.”",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D29",
+              "combinada": null,
+              "texto": "Arn.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E29",
+              "combinada": null,
+              "texto": "Vegetal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F29",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G29",
+              "combinada": null,
+              "texto": "Sesquiterpenos  lactones,   el principal es helenalina y sus ésteres, es muy reactiva, se une a proteínas celulares e interfiere con funciones críticas,  como el bloqueo de la activación de nf-κb, lo que en exceso puede alterar la respuesta inflamatoria normal y dañar tejidos.  TGI:    Náuseas Vómito. Diarrea. Hemorragia gastrointestinal. CV:  efectos inotrópicos positivos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H29",
+              "combinada": null,
+              "texto": "Cabeza:\nCongestión post-traumática, cefalea intensa, hematomas.\nOjos:\nHemorragias subconjuntivales.\nExtremidades:\nDolor muscular tras esfuerzo, esguinces, luxaciones, contusiones.\nPiel:\nHematomas dolorosos, petequias. Equimosis\nOtros..  Estómago:\nnáuseas y vómito tras conmoción",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I29",
+              "combinada": null,
+              "texto": "Miedo al contacto físico. Rechazo al examen medico\nNegación de su estado de enfermedad\nDice que no tiene nada, aunque está evidentemente enfermo\n Ansiedad y shock post-trauma.  SHOCK POST TRAUMA EMOCIONAL",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J29",
+              "combinada": null,
+              "texto": "Sensación de cuerpo magullado, dolorido como si hubiera recibido golpes.\nAgravación del dolor por el tacto o el movimiento \nTendencia a equimosis y extravasación sanguínea .\nCama percibida como dura, necesidad de reposo absoluto.\nHemorragias capilares y equimosis.\nHemorragias subconjuntivales. \nEstados febriles adinamicos\nSe queja de escalofrios y sed intensa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K29",
+              "combinada": null,
+              "texto": "Lo mismo de los sistemas principales",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L29",
+              "combinada": null,
+              "texto": "Contusiones, hematomas y traumatismos de tejidos blandos\nEsguinces y luxaciones\nConmoción cerebral post-accidente\nEstados sépticos post trauma\nEstados sépticos secundarios a traumatismos \nPost-procedimientos quirúrgicos \nTraumatismos del parto ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M29",
+              "combinada": null,
+              "texto": "Latina: hepatotóxica\nEuropea: No tóxica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N29",
+              "combinada": null,
+              "texto": "sensacion de contusion y magulladura generalizada, la cama la sienten demasiado dura, miedo a que se le acerquen o lo toquen, negacion rotunda a la enfermedad, rostro caliente, cuerpo frio, eruptos y aliento de huevo podrido, afinidad absoluta por traumatismos y hemorragias, agrava con el movimiento, mejora al aestirara o cambias de postura.   ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "O29",
+              "combinada": null,
+              "texto": "shock emocional violento, postraumatico. No permite ser tocado (a nivel mental). estados febriles adinamicos con sed intensa. ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "P29",
+              "combinada": null,
+              "texto": "Componente toxicologico de arnica PREGUNTA DE EXAMEN sesquiterrpenos. Toda la toxicologia. diferencia entre las arnicas y xq una es toxica y la otra no. Arnicadolor tipo \"magulladura\" (dolor dolorido). si “árnica falsa” = una especie tipo Senecio con alcaloides pirrolizidínicos, la lesión esperada es venooclusiva/sinusoidal; si hablas de Arnica montana, no se reconoce una hepatotoxicidad típica.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A30",
+              "combinada": null,
+              "texto": "Hypericum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B30",
+              "combinada": null,
+              "texto": "Hypericum perforatum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C30",
+              "combinada": null,
+              "texto": "Flores del hiperico",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D30",
+              "combinada": null,
+              "texto": "Hyper",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E30",
+              "combinada": null,
+              "texto": "Vegetal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F30",
+              "combinada": null,
+              "texto": "3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G30",
+              "combinada": null,
+              "texto": "Hiperexcitación de la hipericina genera radicales libres y peroxidación lipidica, llevando a fotodermatitis e hipersensibilidad nerviosa ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H30",
+              "combinada": null,
+              "texto": "Nervioso: neuralgias (post herpeticas), radiculopatías, ciática, dolores postquirurgicos. \nOsteomuscular: Lesión de nervios periféricos, síndrome post traumático doloroso. \nPiel o tegumentario:  Heridas en zonas ricas en\nnervios:\n* Dedos\n* Labios\n* Columna\nFotosensibilidad\nMentales: Ansiedad por dolor, Hipersensibilidad, Irritabilidad por dolor intenso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I30",
+              "combinada": null,
+              "texto": "- Fatiga nerviosa (mala\nmemoria)\n- Depresión post\ntraumática o post herida\n- Hiperexcitabilidad\nnerviosa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J30",
+              "combinada": null,
+              "texto": " Deseo de vino y bebidas calientes\n- Excesiva sensibilidad al\ncambio de clima\n- Empeora con el frío, la\nhumedad, la niebla, el\ntacto y en espacios\ncerrados\n- mejora al inclinar la\ncabeza hacia atrás",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K30",
+              "combinada": null,
+              "texto": "cabeza: erupcion en cuero cabelludo y dolor al tacto.\n Cabeza y columna:\nSensación de compresión o\nde estallido\nExtremidades: Dolor\ndesproporcionado y neuritis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L30",
+              "combinada": null,
+              "texto": "- Todos los traumatismos que\nafecten al sistema nervioso\ncentral o periférico como por  ejemplo en: avulsiones dentales, aplastamiento o magulladuras de las extremidades, avulsiones ungueales, mordeduras, heridas con objetos puntiagudos, picaduras profundas. nauseas y mareo matutino\nSx de miembro fantasma",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N30",
+              "combinada": null,
+              "texto": "afinidad electivas por las lesiones ricas en nervios, dolores neuralgicos, lancinantes y ascendentes, consecuencias de caidas sobre el coxis, prevencio y tratamiento del tetanos, dolores fantasmas tras amputaciones, heridas por aplastamiento de los dedos, agravacion por la niebla, el frio y el tacto, convulsiones consecutivas a traumatismos creneales.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "P30",
+              "combinada": null,
+              "texto": "Golpe trauma y queda neuropatia. Hypericum. Piel lucitis (fotosensibilidad)., SINDROME DE MIEMBRO FANTASMA. xq es mas periferico",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A31",
+              "combinada": null,
+              "texto": "Antimonium tart",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B31",
+              "combinada": null,
+              "texto": "Antimonium mineral",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C31",
+              "combinada": null,
+              "texto": "Antimonio tratado ácido de potasio",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D31",
+              "combinada": null,
+              "texto": "Ant t.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E31",
+              "combinada": null,
+              "texto": "Mineral",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F31",
+              "combinada": null,
+              "texto": "7",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G31",
+              "combinada": null,
+              "texto": "Muy tóxico: a nivel cutaneo, respiratorio y gastrointestinal. ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H31",
+              "combinada": null,
+              "texto": "* Respiratorio: acumulación masiva de mucosidad en las vías respiratorias, estertores, dificultad para respirar, tos en acceso con dificil expectoración.\n* Gastrointestinal: nauseas, lengua con saburra blanca, vómito\n* Piel: erupciones cutaneas, pustulosas y sudoración, varioleciformes que dejan cicatrices azuladas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I31",
+              "combinada": null,
+              "texto": "Agotamiento - Letargo\nNo desea ser molestado\nSiempre de mal humor, extremadamente irritable\nAnsioso presentimiento de que se va a morir\nDeprimido\nAborrecimiento por la comida, vomita hasta una cuchara de agua\nSin sed \nNiños: debiles y que se enferman facil",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J31",
+              "combinada": null,
+              "texto": "Agrava: calor, arropado, baño de agua fria, decúbito\nMejoría: asistencia para expectorar moco, sentados en la cama sin ropa, caminar de noche\nDeseo alimentos ácidos\nAversión: leche, alimentos nutritivos\n\nFaz: pálido, enfermiza\nSomnoliencia\nLengua con saburra blanca.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K31",
+              "combinada": null,
+              "texto": "Estertores, muy dificil expulsar flema \nMucosas también cubiertas muscosidad espesa y blanca (saburra Blanca y gruesa) \nNauseas y vomitos \nDolores reumáticos dientes\nDolores cortantes en abdomen ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L31",
+              "combinada": null,
+              "texto": "Broncopatías agudas\nBronquiolitis\nBronconeumopatias crónicas obstructivas\nExpectoración espesa difícil de eliminar\nAsma y crisis de disnea asmatiforme\n- Sobretodo en Niños, en adultos en más dificil\nAcné pustulosos\nCicatrices varioliformis\nSíndrome vagal de cualquier origen (palidez marcada)",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M31",
+              "combinada": null,
+              "texto": "4-5 CH: favorece las secreciones\n9-15 CH: impide \nMayor totalidad sintomatica: mayor potencia\nMenos totalidad sintomatica: menor potencia\n\nDar el medicamento hasta que este limpio o el evento agudo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N31",
+              "combinada": null,
+              "texto": "acomulacion masiva de mucosidad con estertores audibles, sensacion de ahogo y asfixia, somnolencia profunda y estupor, nauseas intensas, persistentes y desmayos, lengua co saburra blanca y pastosa, agravacoin por calor y al estar acostado, aversion a la lechha y eseos por acidos sudoracion fria, pegajosa. ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "O31",
+              "combinada": null,
+              "texto": "manifestacion basica respitatoria. (MI secrecion que no sale, no expectora, cianosis), lesiones pustulosas purulentas violeciformes que dejan cicatrices azuladas. Muy metal. ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "P31",
+              "combinada": null,
+              "texto": "Ipeca: diferencia: la lengua el limpia y húmeda, expectoración sencilla y tos emetizante\n\nHistoria a reacciones a sustancias externas: nos dice si tiene alto riesgo de resistencia al medicamento",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A32",
+              "combinada": null,
+              "texto": "Spongia",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B32",
+              "combinada": null,
+              "texto": "Spongia",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C32",
+              "combinada": null,
+              "texto": "Sílice\nbromo\nyodo\ncloruro de sodio,\nmagnesio",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D32",
+              "combinada": null,
+              "texto": "Spong",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E32",
+              "combinada": null,
+              "texto": "animal ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F32",
+              "combinada": null,
+              "texto": "7",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G32",
+              "combinada": null,
+              "texto": "a nivel respiratorio causa irritacion severa, alteraciones en glandula tiroides por alto contenido de yodo, cardiovascular con palpitaciones y sensacion de sofocacion ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H32",
+              "combinada": null,
+              "texto": "-  Respiratorio: tos seca con ahogo, en abscesos, con disfonia, crup \n- Endocrino: tiroides, glandulas, hipotiroidismo\n- Cardiovascular: palpitaciones, sudoración.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I32",
+              "combinada": null,
+              "texto": "ansiedad nocturna, miedo a la asfixia, miedo a morir o tener cardiopatias , pensamientos atormentadores sobre tristezas pasadas. ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J32",
+              "combinada": null,
+              "texto": "afecciones glandulares, compromiso cardiovascular, mucosas rigidas como si fueran de madera, mucosas muy secas ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K32",
+              "combinada": null,
+              "texto": "s, nervioso: vertigo, mareo.\nLaringe que se siente obstruida\nTos en la mitad de la noche, con sensación de ahogo, tos seca. ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L32",
+              "combinada": null,
+              "texto": "Crup: niños: Virus sincitial respiratorio\nNiños con virosis \nTos ferina \nPicos respiratorio\nHipertrofia de cornetes",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M32",
+              "combinada": null,
+              "texto": "Casi no tiene estudios clínicos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N32",
+              "combinada": null,
+              "texto": "tos seca, estridente y acampanada, tos de sierra, sensacion de tapon o estrechez laringea, agrava anrtes de la media noche, mejora al comer o beber cosas calientes, disnea con asfixia y ansidad al despertar, afinidad con trastornos valvulares cardiacos, sensacion de debilidad profinda en el pecho, agrava con aire frio,a l hablar y por los dulces",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "O32",
+              "combinada": null,
+              "texto": "MUY MUY ENDOCRINO Y TIROIDES. GLANDULAS. hipotiroidismo. y RESPIRATORIO, se diferencia con tart q es con moco y spongia es seca, se agrava con viento frio. seco. croup, laringitis, traqueitis, hipertrofia de cornetes. despierta a media noche, sofoca, laringe obstruida... spongia. ()",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "P32",
+              "combinada": null,
+              "texto": "En pico respiratorio: spongia, antimonium tart, ipeca",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Q32",
+              "combinada": null,
+              "texto": "intoxicacion alimentaria, distencion, gases dispepsia, nauseas diarrea, exceso el md de base. para verrugas (clavo cutaneo). MUY DIGESTIVO. Eructos con sabor a lo que comio y le cayo mal. diferencia, la lengua blanca la piel con tart",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A33",
+              "combinada": null,
+              "texto": "Antimonium crudum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B33",
+              "combinada": null,
+              "texto": "Antimonium crudum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C33",
+              "combinada": null,
+              "texto": "trisulfuro de antimonio negro [Sb₂S₃]",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D33",
+              "combinada": null,
+              "texto": "Ant. crud.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E33",
+              "combinada": null,
+              "texto": "Mineral",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F33",
+              "combinada": null,
+              "texto": "7",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G33",
+              "combinada": null,
+              "texto": "Intoxicación crónica\nPuede producir:\nFatiga\nIrritación gastrointestinal persistente\nAlteraciones hepáticas\nAlteraciones cardíacas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H33",
+              "combinada": null,
+              "texto": "Gastrointestinal: anorexia, distensión abdominal, digestión dolorosa, estreñimiento.\nORL:Catarro peor al entrar a un lugar caliente, ardor al inhalar aire, lengua blanca gruesa.\nPIel: verrugas córneas e hiperqueratósicas en las plantas de los pies, las palmas de las manos y los dedos. patologías eccematosas e impetigo.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I33",
+              "combinada": null,
+              "texto": "Irritación nerviosa marcada en fiebre gástrica.\nExcitable, nervioso.\nAlternancia entre estados histéricos y gran extenuación",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J33",
+              "combinada": null,
+              "texto": "Síntomas cambian de localización (de extremidades al estómago).\nFiebre continua, intermitente o remitente.\nAgravación nocturna.\nTranspiración abundante y agotadora.\nSuda con el menor esfuerzo.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K33",
+              "combinada": null,
+              "texto": "Sensación de estómago sobrecargado aunque no haya comido.\nDiarrea líquida por vino ácido.\nDolor abdominal violento, distensión tipo “tornillo”.\nInflamación hepática, pesadez en hígado.\nEruptos con sabor a lo que comio ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L33",
+              "combinada": null,
+              "texto": "Gastralgia después de comidas copiosas.\nDispepsia tras vino o alimentos grasos.\nNáuseas con lengua blanca espesa.\nDiarrea o vómito post-exceso.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M33",
+              "combinada": null,
+              "texto": "Niño que no quiere ser tocado.\nLlora si lo miran o examinan.\nIrritable después de comer en exceso.\nLengua blanca espesa.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N33",
+              "combinada": null,
+              "texto": "lengua con capa gruesa blanca y espesa, trastorno por exceso de comida o vino, gran irritabilidad a que le miren o le hablen, niños mal humorados que lloran si los tocan o miran, uñas gruesas y astilladas con crecimiento defectuoso, erupciones cutaneas con costras gruesas y miel amarillenta, sensacion constante de plenitud e inapetencia, agravacion por el baño con agua fria y por el calor. ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "P33",
+              "combinada": null,
+              "texto": "graphites petroleum piel arnica petroleun traumas ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Q33",
+              "combinada": null,
+              "texto": "intoxicacion alimentaria, distencion, gases dispepsia, nauseas diarrea, exceso el md de base. para verrugas (clavo cutaneo). MUY DIGESTIVO. Eructos con sabor a lo que comio y le cayo mal. diferencia, la lengua blanca la piel con tart",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "R33",
+              "combinada": null,
+              "texto": "#REF!",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A34",
+              "combinada": null,
+              "texto": "Carbo vegetabilis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B34",
+              "combinada": null,
+              "texto": "Carbo vegetabilis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C34",
+              "combinada": null,
+              "texto": "Carbón vegetal ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D34",
+              "combinada": null,
+              "texto": "carb",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E34",
+              "combinada": null,
+              "texto": "Vegetal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F34",
+              "combinada": null,
+              "texto": "7",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G34",
+              "combinada": null,
+              "texto": "No tiene-no se absorbe a nivel gastrointestinal, puede dar estreñimiento ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H34",
+              "combinada": null,
+              "texto": "-  Gastrointestinal: acidez, pirosis y epigastralgia. -Circulatorio: cianosis, estasis venosa, hemorragia pasiva de sangre venosa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I34",
+              "combinada": null,
+              "texto": "- Indiferencia mental\n- Lentitud cognitiva\n- Aversión a la oscuridad\n- Miedos nocturnos\n- \"Pereza espiritual\"",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J34",
+              "combinada": null,
+              "texto": "- Frialdad extrema, -tendencia a hemorragias, - debilidad, - venas inflamadas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K34",
+              "combinada": null,
+              "texto": "s. respiratorio: tos seca en invierno, ronquera. -S. gastrointestinal: acidez, pirosis y epigastralgia. dolor por exceso de flatulencia , digestion lenta. circulatorio: dolor ardiente en la zona de corazon, pulso casi imperceptible, varices azuladas tronculares",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L34",
+              "combinada": null,
+              "texto": "-Trastronos digestivos con mucho gas, - estados de agotamiento o colapso - congestion venosa/estasis y empeoramiento por debilidad circulatoria - cuadros septicos o ulcerativos con fetidez",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M34",
+              "combinada": null,
+              "texto": "Util en enfermedades avanzadas de la vida\nMedicamento \"Levanta muertos\"",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N34",
+              "combinada": null,
+              "texto": "colapso vital, frialdad y necesidad de ire, distension abdominal masiva por gases, alivio por eruptos, aversion a la leccha, grasas y alimentos ricos, tendenciaa a las hemorragias pasivas y oscuras, sensacion de ardor intero como brasas, agotamiento extremo y sensacion de muerte inminente, hundimiento de la vitalidad. ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "P34",
+              "combinada": null,
+              "texto": "Yo les voy a hacer un resumen del de carbo: es un reporte de caso de una paciente a quien se le hizo una cx cardiovascular, se le hizo el tratamiento de la parte cardiovascular y todo en ese sentido iba muy bien, pero la paciente al dia 14 permanecia inconsciente y no despertaba por loq ue la familia solicito valoracion de homeopatia, en  esa evaluación describen una paciente anciana,",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "Q34",
+              "combinada": null,
+              "texto": "levanta muertos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A35",
+              "combinada": null,
+              "texto": "Apis Mellifica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B35",
+              "combinada": null,
+              "texto": "Apis Mellifica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C35",
+              "combinada": null,
+              "texto": "apitoxina, histamina, hialuronidasa y ácido fórmico",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D35",
+              "combinada": null,
+              "texto": "Apis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E35",
+              "combinada": null,
+              "texto": "Animal ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F35",
+              "combinada": null,
+              "texto": "4 y 8",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G35",
+              "combinada": null,
+              "texto": "En dosis masivas (picaduras múltiples), produce una caída de la presión arterial, edema de glotis\n(asfixia), insuficiencia renal por albuminuria y colapso circulatorio",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H35",
+              "combinada": null,
+              "texto": "Tejido celular y piel:\nProduce inflamación\naguda y edema rápido.\n\nSerosas (Membranas):\nActúa sobre las\nmembranas que\nrecubren órganos\n(pleura, peritoneo,\nmeninges),\nprovocando derrames.\n\nS. Urogenital:\nInflamación de riñones\ny vejiga.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I35",
+              "combinada": null,
+              "texto": "Torpeza: Deja\ncaer las cosas de\nlas manos.\n\nCelos y\nsuspicacia\n\nGrito encefálico\nen niños\n(especialmente\ncon fiebre alta o\nmeningitis).\n\nEs muy inquieto,\nse mueve mucho\npero no concreta\nnada.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J35",
+              "combinada": null,
+              "texto": "Ausencia de Sed\n\nAgravación por el\ncalor: No soporta el\ncalor de la\nhabitación, las\nmantas o el sol. Todo\nsíntoma mejora con\nel frío aplicado.\n\nDolor punzante como\nsi le estuvieran\nclavando agujas\ncalientes (como un\npicotazo de abeja).\n\nLateralidad Derecha",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K35",
+              "combinada": null,
+              "texto": "Edema: Hinchazón de\ncolor rosado o rojo\nbrillante. edema de los\npárpados inferiores,\nque cuelgan\n\nGarganta: Úvula\nhinchada\n\nPiel: Urticaria con ardor\ny picazón intensa que\nmejora con agua fría.\n\nUrinario: Micción difícil,\ncon goteo y dolor\nardiente (especialmente\nla última gota).",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L35",
+              "combinada": null,
+              "texto": "Rx Alérgicas:\nPicaduras de insectos,\nurticarias y\nangioedemas.\n\nCistitis: Sensacion de\ninflamación de la\nvejiga con mucho\nardor.\n\nOvarios: Inflamación\ndel ovario derecho.\n\nSinovitis de rodilla con\ncalor.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N35",
+              "combinada": null,
+              "texto": "edema rosado y translucido, dolores punzantes, lancinantes y ardientes, intolerancia absoluta al calor y alivio por el frio, ausencia total de sed, agravacion al atardecer, supresion de la orina, celos, desconfianza, torpeza mental, afinidad por membrsnas serosas.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "P35",
+              "combinada": null,
+              "texto": "tranquila, en coma, con piel pálida y fría, tendencia a destaparse, como si necesitara más aire, y con distensión abdominal y Con base en esos signos eligio Carbo vegetabilis 200CH, 7 gránulos dos veces al día, al primer dia mejoro el glasgow, al segundo dia recupero completamente la consciencia y recibio el medicamento por 5 dias, Al persistir gran agotamiento físico y disnea, cambiaron a Stannum metallicum y siguio su recuperacion normal. La conclusion del articulo es que se podria usar como coadyuvante en el tto de pacientes criticos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A36",
+              "combinada": null,
+              "texto": "Berberis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B36",
+              "combinada": null,
+              "texto": "Berberis vulgares",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C36",
+              "combinada": null,
+              "texto": "Principal:berberina; otros (berbamina, palmatina ) ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D36",
+              "combinada": null,
+              "texto": "Berb-v.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E36",
+              "combinada": null,
+              "texto": "Vegetal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F36",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G36",
+              "combinada": null,
+              "texto": "Berberina: berberina, palmatina\nAltera la funcion mitocondrial, interfiere con el metabolismo hepático, deprimir el sistema cardiovascular, desplazar la bilirrubina de la albúmina\n\nNáuseas, vómito, diarrea, dificultad respiratoria\nLargo plazo: alteración renal e inhibición CYP34",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H36",
+              "combinada": null,
+              "texto": "1.Sistema urinario:\nDolor renal con irradiación hacia uretra, vejiga,\nmuslos\nSensación de burbujeo o agua en riñón\n\n2.Sistema musculoesquelético:\nDolor errático\nSensación de rigidez lumbar\n\n3.Sistema hepático o digestivo\nSensación de plenitud abdominal\nDolor irradiado desde región hepática",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I36",
+              "combinada": null,
+              "texto": "- Irritabilidad\nsecundaria al dolor\n- Dificultad para\nconcentrarse\n- Sensación de\npesadez / lentitud\nmental",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J36",
+              "combinada": null,
+              "texto": "- Dolores cambiantes ( aparecen de repente en un lugar y luego saltan a otro lugar)\n- Sensación de burbujas a nivel lumbar\n\nMEJORA: Reposo (relativo), Sentado, Inclinado, Micción (en algunos casos urinarios) Puede aliviar momentáneamente el\ndolor\nEMPEORA: Movimiento, Caminar, Levantarse, Cambios de posición, Sacudidas o vibraciones, Viajar en carro\nPisadas fuertes, Presión o contacto (en algunas zonas) Especialmente región renal, Estar de pie prolongadamente, Aumenta dolor lumbar o renal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K36",
+              "combinada": null,
+              "texto": "1.Sistema urinario:\nDolor renal con irradiación hacia uretra, vejiga,\nmuslos\nSensación de burbujeo o agua en riñón\n\n2.Sistema musculoesquelético:\nDolor errático\nSensación de rigidez lumbar\n\n3.Sistema hepático o digestivo\nSensación de plenitud abdominal\nDolor irradiado desde región hepática",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L36",
+              "combinada": null,
+              "texto": "1.Cólico renal / litiasis urinaria : Dolor:\nIrradia en múltiples direcciones (clave) ,\nHacia vejiga, uretra, muslos\n2.Lumbalgia : dolor Errático, Cambiante o\ncon irradiación\n3.Trastornos urinarios funcionales:\nSensación persistente de molestia renal,\nDolor antes, durante o después de orina\n4.Estados metabólicos asociados\n:Alteraciones hepato-renales",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N36",
+              "combinada": null,
+              "texto": "irradiacion dolorsas en todas las direcciones, afinidad electiva por el aparato urinario y hepatico, dolores en zona renal que se extienden a los muslos, sensacion de burbujeo o goteo de agua (sobre la piel), sensacion de orina residual tras miccionar, dolores articulares y reumaticos migratorios, agrava con movimiento y al estar de pie, piel seca, con eccemas y fisuras al rededor del ano ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A37",
+              "combinada": null,
+              "texto": "Berberis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B37",
+              "combinada": null,
+              "texto": "Berberis aquifolium ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C37",
+              "combinada": null,
+              "texto": "Principal:berberina; otros (berbamina, palmatina )",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D37",
+              "combinada": null,
+              "texto": "Berb-aq.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E37",
+              "combinada": null,
+              "texto": "Vegetal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F37",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G37",
+              "combinada": null,
+              "texto": "Berberina: berberina, palmatina\nAltera la funcion mitocondrial, interfiere con el metabolismo hepático, deprimir el sistema cardiovascular, desplazar la bilirrubina de la albúmina\n\nNáuseas, vómito, diarrea, dificultad respiratoria\nLargo plazo: alteración renal e inhibición CYP34",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H37",
+              "combinada": null,
+              "texto": "piel: puel escamosa, ACNÉ, tez amarillenta.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I37",
+              "combinada": null,
+              "texto": "- Desánimo leve\n- Tendencia a\ntristeza\n- Apatía o falta de\nmotivación\n- Sensación de\n“opacidad” o embotamiento mental",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J37",
+              "combinada": null,
+              "texto": "- Sensación de debilidad.\nCansancio\nTedencia a la fatiga\nPiel seca,aspera y descamación.\ntez opaca o poco saludable.\nMarcha inestable\ntemblores.\n\nModalidades:no\npresenta modalidad muy fuerte.\nMejora por el ejercicio",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K37",
+              "combinada": null,
+              "texto": "- Cara / piel:\nAcné\nTez amarillenta o cérea\nManchas\n\n- Musculoesqueletico:\nDebilidad en miembros\nAdormecimiento\nCalambres y temblores en piernas\n\n- Digestivos:\nDispepsia leve\nNáuseas\nDolor en hipogastrio\nArdor abdominal\nDiarrea biliosa, caliente\n\n- Nervioso:\nMareo, peor al moverse\nCefalea:\nDolor en sien derecha irradiado a\ndientes\nSensación de\n\n“banda de hierro”\n\nalrededor de la cabeza",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L37",
+              "combinada": null,
+              "texto": "Trastornos dermatológicos (USO\nPRINCIPAL)\nAcné vulgar\nPiel seca, áspera\nHiperpigmentación (manchas)\nTez apagada, poco saludable\n\nEspecialmente cuando:\nLa piel luce “enfermiza”\n\nNo hay gran inflamación ni supuración\nintensa\n\nAlteraciones de la pigmentación\nMelasma\nManchas postinflamatorias",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N37",
+              "combinada": null,
+              "texto": "Afinidad electiva por las afeccipnes cutaneas cronicas, rostro aspero, seco, escamoso y con erupciones acneicas, psoriasis con escamas gruesas y piel seca, estimulacion de las funciones glandulares y depuracion hepatica, eczema en cuero cabelludo silimar a la caspa, agravacion por viento y aire libre, mejoria general al aire libre pero con piel seca, efecto tonico general sobre la digestion  lenta. ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A38",
+              "combinada": null,
+              "texto": "Cantharis Vesicante",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B38",
+              "combinada": null,
+              "texto": "Cantharis Vesicante",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C38",
+              "combinada": null,
+              "texto": "Ácido úrico, ácido acetico, acetilcolina, lípidos, colesterol, fosfatos de calcio y magnesio",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D38",
+              "combinada": null,
+              "texto": "Canth. ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E38",
+              "combinada": null,
+              "texto": "ANIMAL. Se utiliza todo el insecto",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F38",
+              "combinada": null,
+              "texto": "4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G38",
+              "combinada": null,
+              "texto": "Cantaridina Vesicante Potente\nVesiculas, ampollas, lesiones ulceras, irritacion urinaria, gastroenteritis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H38",
+              "combinada": null,
+              "texto": "DOLOR TIPO ARDIENTE.           GU: DISURIA COMO SI ORINARA NAVAJAS.  TEG: APARICION DE AMPOLLAS FLICTENAS.  ORL: TIMPANO ERITEMATOSO CON AMPOLLAS HERMORRAGICAS",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I38",
+              "combinada": null,
+              "texto": "Reactividad exagerada al dolor ardiente\nConfusión mental\nPensamiento desordenados\nDElirio, gritos por dolor estado casi frenético.  NO SON RELEVANTES SI CONCOMITANTEMENTE NO SE ENCUENTRAN  SIGNOS DE DOLOR TIPICO ARDIENTE",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J38",
+              "combinada": null,
+              "texto": "Ardor intenso y dolor cortante\nInflamación agudo violenta\nImpresion que la piel o mucosa arde\n\nMejora: friccion, posicion decubito, calor o aplicacion caliente (no es marcado)\nEmpeora: contacto, micción, por liquidos, calor",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K38",
+              "combinada": null,
+              "texto": "Ojos: Inflamacion intensa conjuntivitis, sensacion de ardor\nGenital: DISURIA CON SENSACION DE ORINAR NAVAJAS, ANTES DURANTE Y DESPUES DE LA MICCION, excitacion sexual refleja por irritacion, priapismo doloroso, inflamacion genital\nboca: ardor intenso en mucosa, vesiculas o ampollas, salivacion aumentada\nGarganta: odinofagia\nCirculatorio: taquicardia\nRespiratorio: irritacion de vias respiratorias\nOido: flictenas ampollosas en timpano con contenido ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L38",
+              "combinada": null,
+              "texto": "Cistitis agudas\nQuemaduras grado II\nHerpes zoster\nPenfigos\nLaringitis\nOtitis\nAftas bucales\nGastritis\nHeces disentericas y fetidas\nQueratoconjuntivitis aguda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M38",
+              "combinada": null,
+              "texto": "Los sintomas mentales solos no importan, deben tener un dolor o malestar tipico. ARDIENTE. \n\nTodo lo que se relacione con flictenas.\n\nCantharis es ardor antes, durante y despues de la miccion, ardor, sensacion de cuchillas y piel con flictenas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N38",
+              "combinada": null,
+              "texto": "ardor extremo y quemante como fuego, tenesmo vesicual imperioroy sangrado urinario, aversion absoluta al agua y a la vista de liquidos, ulcera y destruccion tisular por quemaduras, agrava por el café, el tacto y al orinar, cistitis aguda de inicio fulminante, hiperexcitabilidad sexual y priapismo, mejoria a la plicaciones frial y al reposo, ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A39",
+              "combinada": null,
+              "texto": "Sarsaparrilla",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B39",
+              "combinada": null,
+              "texto": "Sarsaparrilla (Smilax officinalis)",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C39",
+              "combinada": null,
+              "texto": "Sarsaparrilla tropical: Smilax officinalis: Raíz \n\nSaponinas esteroidales (sarsaponina, smilagenina): tropismo urinario\n",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D39",
+              "combinada": null,
+              "texto": "Sars.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E39",
+              "combinada": null,
+              "texto": "Vegetal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F39",
+              "combinada": null,
+              "texto": "4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G39",
+              "combinada": null,
+              "texto": "Saponinas hacen irritación a nivel de mucosa gastrica. Efecto hemolítico. Reacciones alérgicas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H39",
+              "combinada": null,
+              "texto": "GU: Litiasis renal. Dolor severo con escalofríos al final de la micción. Sedimento urinario. Polaquiuria, tenesmo vesical    SNC: Cefalea como si tuvier aun clavo en la cabeza. Vértigo al mirar fijo un objeto    TEG: Piel aspecto envejecida, agrietada, Lesiones vesiculares, erupciones herpetiformes, dermatosis vesiculosas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I39",
+              "combinada": null,
+              "texto": "Estado de animo triste, taciturno, melancolico\nIrritabilidad interna\nSensacion que el tiempo pasa lento",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J39",
+              "combinada": null,
+              "texto": "Adelgazamiento extremo, piel arrugada (apergaminada) y cuelga en pliegues, especialmente en cuello, sensibilidad al frio profundamente friolento, sueños vividos con accidentes o desgracias, sintomatologia regresa en primavera o con cambios climatico, deseo intenso por alimentos acidos (vinagre, limones), mejora con el calor y desabrochando la ropa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K39",
+              "combinada": null,
+              "texto": "Dolor de cabeza como si tuviera clavo, vertigo principalmente al mirar fijamente un objeto, erupciones en la frente y comisuras de los labios que aparecen antes de la menstruacion, ruido en los oídos como panas o ráfagas de viento, dolor al tragar, debilidad extrema a nivel de musculos de cuello, tos seca que se desencadena al hablar, sensacion de vacio en el abdomen (como si no tuviera intestino), heces duras, pequeñas y dificiles expulsar, hipo persistente que se acompañan con nauseas, dolor severo con sensacion de escalofrios al final de la miccion, presencia de sedimento como arena blanca, paciente solo puede orinar estando de pie, polaquiuria, poliguria, tenesmo vesical constante, litiasis renal, sensacion de que algo rueda, dolores articulares que pueden desaparecer cuando inician sintomatologia urinaria, sensacion de quemazon debajo de las uñas, dolores oseos nocturnos, grietas o fisuras en manos y pies, erupciones herpetiformes, dermatitis vesiculosa, grietas sobretodo en el dorso del pulgar, manchas cutaneas violetas o azuladas, lesiones cutaneas pruriginosa, sudor acido y olor a orina.  ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L39",
+              "combinada": null,
+              "texto": "Dermatosis vesiculosas a veces infectadas\nColico nefritis (derecho) \nProstatitis cronica\nLitiasis cronica\nPatolgoia urinaria + cefalea, migraña, gastro o respi",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M39",
+              "combinada": null,
+              "texto": "Smilax officinalis es la que se usa en homeopatia. \n\nEl ardor es solo despues de la miccion, piel con grietas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N39",
+              "combinada": null,
+              "texto": "dolor al termnar de orinar, orina escasa, sanguinolenta y arenilla, el niño grita antes y durante la miccion, neceidad de orinar de pie, erupciones costrosas y agrietadas en las manos y en los pliegues de las ingles, agravacion por humedad, aire frio y durante la primavera, huesos y articulaciones rigidas con dolores punzantes, depresion y melancolia por dolor cronico, ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A40",
+              "combinada": null,
+              "texto": "Bryonia",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B40",
+              "combinada": null,
+              "texto": "Bryonia",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C40",
+              "combinada": null,
+              "texto": "Bryonia alba: europa central\n\nEsteroles, ácidos grasos insaturados, triterpenos, lectinas, heterosidos de curcubitacinos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D40",
+              "combinada": null,
+              "texto": "Bry",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E40",
+              "combinada": null,
+              "texto": "Vegetal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F40",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G40",
+              "combinada": null,
+              "texto": "Curcubitacinas triterpenoides: glucosidos que son citotoxicos y altamente irritantes las mucosas y la piel ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H40",
+              "combinada": null,
+              "texto": "INMUNO: Fiebre: sindrome febril adinamico con debilidad intensa. Inicio progresivo, se mantiene en meseta.   TEG: Mucosas: sequedad intensa; respiratorias y digestivas, sed intensa, deseos de consumir agua fria. Seroso: inflamacion membrana serosas con exudación cerebral, pleural, pericárdico\nSNC: Cefalea frontal que empeora con el mínimo movimiento\n- Musculo esqueletico: reumatismo que atacan con gravedad, inflamacion, dolor, afecta tambien el revestimiento de los nervios. \n- Respiratorio: estornudos, rinorrea, aspereza en el pecho, neumonia, pleuresia\n-",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I40",
+              "combinada": null,
+              "texto": "Miedo a la pobreza\nIrritabilidad extrema\nQuiere permanecer quieto\nTemor a la muerte y desespero por recuperarse\nAtaque de colera si lo despiertan\nDesea estar solo \"mal humorado\"\nQuiere algo y no sabe que\nIgnora lo que le dicen\nDelirio: habla y anda sin sentido",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J40",
+              "combinada": null,
+              "texto": "Empeora movimiento, calor (excepto en dolores locales), al llevarle la contraria\nSequedad generalizada; boca, labios agrietados, mucosas secas, heces secas, sed intensa\nMejora: con el reposo, con una presión fuerte o tumbandose sobre el lado que le duele. Con el frío. Con la transpiracion\n\n\n",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "K40",
+              "combinada": null,
+              "texto": "Fiebre inicio progresivo\nCabeza: cefalea opresiva o estallante, frontal, empeora al mover la cabeza o con el menor movimiento\nBoca: labios secos, agrietados, boca y garganta muy seca\nDigestivo: estreñimiento con heces grandes, secas y duras y muy dificiles de expulsar\nVértigo que se agrava con el movimiento\nRespiratorio: tos seca y dolor toracico punzante, peor con respirar, toser o moverse\nMusculoesqueletica: rigidez, dolor\nEscaza transpiracion",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "L40",
+              "combinada": null,
+              "texto": "-Cuadros respiratorios secos y dolorosos\n- Dolores articulares o musculares que empeoran con el movimiento\n- Cefalea por movimiento\n- Cuadros digestivos con sequedad\n- Fiebre inflamatoria de instalación gradual\n",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "M40",
+              "combinada": null,
+              "texto": "FV y Homeopatia: antiinflamatorio potente\n\nFiebre: ademas de belladona y aconitum, bryonia ayuda\n\n",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N40",
+              "combinada": null,
+              "texto": "agravamiento absoluto con el minimo movimiento, dolores punzantes, desgarradores y cortantes, sed intensa de grandes cantitdades de agua fria, sequedad extrema en las mucosas, delirios con deseos de irse de la casa, tos seca espasmodica y dolorosa con sosten toracico, mejoria por la presion fuerte y el reposo, afinidad por membranas serosas y el sindrome gripal.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A41",
+              "combinada": null,
+              "texto": "Ledum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B41",
+              "combinada": null,
+              "texto": "Ledum palustre",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C41",
+              "combinada": null,
+              "texto": "Ledol: Sesquiterpeno cristalino que actúa como un veneno irritante y neurotóxico.\n\nPalustrol: Contribuye a los efectos psicotrópicos.\n\nArbutina y Taninos: Presentes en menores concentraciones, pueden causar irritación gástrica.\n",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D41",
+              "combinada": null,
+              "texto": "Led.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E41",
+              "combinada": null,
+              "texto": "vegetal - Romero silvestre",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F41",
+              "combinada": null,
+              "texto": "Regla # 4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G41",
+              "combinada": null,
+              "texto": "\n1. Efectos vasculares (red capilar): en tejido celular poco abundante:extremidades.  Afecta el tono vascular: hemorragias capilares de parénquima de vísceras, (pulmones, útero); \n2. Inflamación en articulaciones pequeñas: gota, enrojecimiento violáceo circunscripto, edema, sensación de frío al tacto\n\n1. Neurotóxicos (Ledol) en dosis elevadas:\nVértigo intenso y mareos.  Dolores de cabeza persistentes. Convulsiones (en casos de ingesta masiva).\nDelirio o estados de euforia seguidos de somnolencia.\n\n2. Gastrointestinales: Náuseas y vómitos. Dolor abdominal intenso. Gastroenteritis.\n\n\n4. Otros Efectos: Irritación de las vías urinarias.\n•        Efectos Tópicos: El contacto directo con la planta fresca puede causar dermatitis o inflamación en personas sensibles.\n\n\nAceite esencial o Uso Crudo: Estrecho margen terapéutico.\n",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H41",
+              "combinada": null,
+              "texto": "capilares: equimosis de aspecto violaceo, localizadas en regiones del cuerpo donde el tejido celular es poco abundante (dedos de los pies, region periorbital), derrames hemorrágicos extensos y difusos consecutivos a picaduras accidentales por clavos, espinas, que no han sangrado.                                                                     piel: ulceras persistentes de contorno violaceo que mejora con frio, erupciones eritemato-escamosas pruriginosas                                                                                     articulaciones: inflamacion acompañada de edema y sensacion de calor local que mejora con frio. ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I41",
+              "combinada": null,
+              "texto": "1 - (+) Deseo de soledad. Misántropo. Tímido.\n2 - (+) Malhumorado, con tendencia a la ira, a la rabia;  Descontento;\nodia a sus compañeros, a los hombres, con deseos de venganza.\n3 Ansiedad; o imperturbable gravedad.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J41",
+              "combinada": null,
+              "texto": "se  adapta a  constituciones  reumaticas y gotosas. medicamento del reumatismo. Medicamento en picaduras o mordeduras, heridas punzantes o penetrantes. Profiláctico en  tetanos. EMPEORA con el calor, tomar vino, por movimiento o caminar lento. MEJORA: con frio local, poniendo los pies en agua fría, con el reposo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K41",
+              "combinada": null,
+              "texto": "OJOS: hemorragia de la cámara anterior del ojo. NARIZ: epistaxis de sangre pálida. CARA;erupciones tuberosas rojas,que dulen al tocarlas, INTESTINAL: hemorroides que sangran y arden. ARTICULAR: tofos gotosos, reumatismo que comienza en pies y va de abajo hacia arriba PIEL equimosis postraumáticas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L41",
+              "combinada": null,
+              "texto": "equimosis postraumaticas en particular periorbitales consecutivas a un trauma con objeto blando , heridas producidas con objetos punzantes, picaduras de insectos, atralgias agudas que mejoran con frio local, artralgias cronicas, prevencion de las recidivas de crisis de gota con o sin tratamiento, rosaceas, dermatitis secas pruriginosas. ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N41",
+              "combinada": null,
+              "texto": "afinicdad electiva por las heridas punzantes, modalidad termica paradojica de alivio por el frio, sensacion de frio glacial en la parte lesionada, evolucion hacia la hinchazon palida y equimosis violacea, ascenso de dolores reumaticos, propencion cronica a los esguinces frecuentes, piel seca, con tendencia a brotes acneicos en la frente, agravamiento con el movimientos y el calor de cama. ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A42",
+              "combinada": null,
+              "texto": "Rhus tox",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B42",
+              "combinada": null,
+              "texto": "Rhus Toxicodendron",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C42",
+              "combinada": null,
+              "texto": "Urushiol (mezcla de catecoles)",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D42",
+              "combinada": null,
+              "texto": "Rhus Tox.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E42",
+              "combinada": null,
+              "texto": "Vegetal- \"hiedra venenosa\"",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F42",
+              "combinada": null,
+              "texto": "3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G42",
+              "combinada": null,
+              "texto": "Urushiol (mezcla de catecoles)\ninflamación + rigidez + agravación en reposo + mejoría con movimiento.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H42",
+              "combinada": null,
+              "texto": "- Musculoesqueletico: \nRigidez marcada al iniciar movimiento\nDolor que mejora con movimiento continuo\nSensación de “desencaje” o distensión\n- Nervioso: \nInquietud física constante\nNecesidad de moverse pese al dolor\nAgotamiento con imposibilidad de reposo efectivo\n- Piel:\nErupciones vesiculares con prurito intenso\nAmpollas con contenido seroso\nAgravación por humedad/frío",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I42",
+              "combinada": null,
+              "texto": "Inquietud: no puede permanecer en una posición\nAnsiedad con necesidad de movimiento\nIrritabilidad asociada al dolor y la incomodidad física",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J42",
+              "combinada": null,
+              "texto": "Agravación por reposo\nMejoría por movimiento continuo\nAgravación por frío húmedo\nMejoría por calor",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K42",
+              "combinada": null,
+              "texto": "Lumbalgia que mejora al caminar\nRigidez cervical al despertar\nDolor articular post-esfuerzo o por sobreuso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L42",
+              "combinada": null,
+              "texto": "Lumbalgia mecánica\nEsguinces / distensiones\nArtritis reumática\nHerpes (vesicular, con prurito)\nTendinitis por sobreuso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N42",
+              "combinada": null,
+              "texto": "agravamiento iicial por el movimiento y mejoria por movimientos continuados, afinidad por clima humedo, la lluvia y los cambios de tiempo, lengua con una punta roja en froma de triangulo, inquietud fisica extrema que no o deja quieto, erupciones cutaneas vesiculares, con prurito quemante, temor nocturno, y ansiedad persecutorio, torceduras, esguinces y desgarros tendinosos, deseo de lecha fria y bebidas refrescantes. ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A43",
+              "combinada": null,
+              "texto": "Cannabis indica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B43",
+              "combinada": null,
+              "texto": "Cannabis indica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C43",
+              "combinada": null,
+              "texto": "THC (Tetra hidro cannabinol), CBD; Cannabidiol (cannabinoides)",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D43",
+              "combinada": null,
+              "texto": "Cann-i",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E43",
+              "combinada": null,
+              "texto": "Vegetal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F43",
+              "combinada": null,
+              "texto": "4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G43",
+              "combinada": null,
+              "texto": "Toxicología: THC, agonista de los receptores CB1, alterando la liberación de Glutamato y GABA, dosis bajas aumenta temporalmente niveles de serotonina y dosis altas\nsuprimen la actividad de la serotonina. Generando paranoia, ansiedad extrema, psicosis, alteraciones en la coordinación y función cognitiva. Boca seca, enrojecimiento\nocular, taquicardia y letargo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H43",
+              "combinada": null,
+              "texto": "SNC: Transtornos mentales y nerviosos con alteración de la percepción (espacio-tiempo). Cefalea precida por locuacidad. Hipersensibilidad sensorial   SME: Paralisis extremidades inferiores, dolor ante caminatas cortas   SGU:  Uretritis. Esfuerzo urinario. Deseo sexual aumentado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I43",
+              "combinada": null,
+              "texto": "Risa inmoderada\nNo concentra fácil el pensamiento por cantidad de ideas\nMiedo a volverse loco\nTranst. En la noción tiempo y espacio “segundos –\nsiglos”",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J43",
+              "combinada": null,
+              "texto": "Agrava: estímulos sensoriales o emoción intensa. (hipersensibilidad sensorial)\nMejora con el descanso\nSensación de éxtasis que invade el cuerpo y los sentidos\nGran debilidad que se extiende por el cuerpo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K43",
+              "combinada": null,
+              "texto": "Cabeza: Cefalea como si la parte superior de la cabeza\nse abriera y cerrara, cefalea precedida de locuacidad\nExtremidades: Parálisis extremidades inferiores, dolor\ndespués de caminata corta\nGU: uretritis antes, durante y después, aumento\nesfuerzo urinario. Deseos sexuales aumentados",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L43",
+              "combinada": null,
+              "texto": "Mentales: trastornos mentales y nerviosos con alteración de la percepción, cuadros de exaltación cerebral o nerviosa.  Cefaleas y síntomas neurosensoriales.  Síntomas urinarios o sexuales dentro de un cuadro dominante por síntomas mentales",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N43",
+              "combinada": null,
+              "texto": "exaltacion de la imaginacion y lentitud del tiempo, hilaridad incontrolable y sisa convulsiva (risa), sensacion de divion o separacion corporal, olvido repentino y perdida en hilo del pensamiento, afinidad por el sistema nervioso y genitourinario, cefalea con sensacion de apertura craneal , aversion a la luz y agudizacion de los sentidos, agravacion por las emociones intensas y la noche. ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A44",
+              "combinada": null,
+              "texto": "Cannabis sativa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B44",
+              "combinada": null,
+              "texto": "Cannabis sativa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C44",
+              "combinada": null,
+              "texto": "THC (Tetra hidro cannabinol), CBD; Cannabidiol (cannabinoides)",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D44",
+              "combinada": null,
+              "texto": "Cann-s",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E44",
+              "combinada": null,
+              "texto": "Vegetal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F44",
+              "combinada": null,
+              "texto": "4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G44",
+              "combinada": null,
+              "texto": "Por cannabinoides; THC.  Mecanismo igual que el C. indica.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H44",
+              "combinada": null,
+              "texto": "SNC, GU, S: tos expectoración abundante. palpitaciones. constipación.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I44",
+              "combinada": null,
+              "texto": "Cerebro fatigado\nPérdida de ideas\nLa mayor contradicción parece ofensa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J44",
+              "combinada": null,
+              "texto": "Sensación de gotas de agua cayendo por diferentes\npartes del cuerpo\nMejora con el reposo y frio local\nAgrava: después de micción, excitación sexual",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K44",
+              "combinada": null,
+              "texto": "Cabeza: sensación como si cayeran gotas de agua sobre\nel cráneo, vértigo como si estuviera intoxicado.\nRespiratorio: tos violenta, expectoración abundante y\nviscosa. Respiración dificultosa que mejora estando de\npie\nGU: prepucio que se pone rojo oscuro. Uretritis que lo\nhace caminar con las piernas separadas. Secreción\nuretral purulenta",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L44",
+              "combinada": null,
+              "texto": "GU: uretritis, cistitis, gonorrea, priapismo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "N44",
+              "combinada": null,
+              "texto": "afinidad elecva pot las vias urinarias y la uretras, orina de aspecto de sangre mezclada co agua, sensacion de gotas de agua fria cayendo en la cabeza, cefalea y vertigo  y sensacion de balanceo, constriccion toracica y disnea por asma,  visiones y confusion mental con risa totna, agravacion por el movimiento  y las corrientes de aire, inflamacion y dolores punzantes en los ojos. ",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "P38:P38",
+          "filas": 1,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "P38",
+              "combinada": null,
+              "texto": "REPORTE DE CASO.   PACIENTE 4 MESES DE EDAD MASCULINO CON IVU, QUIEN LOS PADRES DECIDEN NO DAR ANTIBIOTERAPIA.  INICIAN CANTHARIS 30CH, CON MEJORIA PROGRESIVA CON RESOLUCION DE SINTOMAS HACIA LOS 7 DIAS ",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        }
+      ],
+      "comentarios": [],
+      "imagenes": [],
+      "imagenes_extraidas": []
+    }
+  ]
+}

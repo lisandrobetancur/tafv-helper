@@ -1,0 +1,18 @@
+{
+  "materia": "Acupuntura",
+  "fecha": "2026-10-16T00:59:01",
+  "archivos": [
+    {
+      "original": "fuentes/acupuntura/_originales/Resumen sindromes acupuntura.xlsx",
+      "hojas": [
+        {
+          "hoja": "Sindromes",
+          "componente": "Síndromes",
+          "archivo": "fuentes/acupuntura/sindromes/hojas/Sindromes.xlsx",
+          "imagenes": []
+        }
+      ],
+      "sin_asignar": []
+    }
+  ]
+}

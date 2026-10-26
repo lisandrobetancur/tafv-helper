@@ -1,0 +1,51 @@
+{
+  "materia": "Oxigenoterapia",
+  "fecha": "2026-10-16T00:58:54",
+  "archivos": [
+    {
+      "original": "fuentes/oxigenoterapia/_originales/TAFV Cuadro Examen 2026.xlsx",
+      "hojas": [
+        {
+          "hoja": "HBO",
+          "componente": "HBO",
+          "archivo": "fuentes/oxigenoterapia/hbo/hojas/HBO.xlsx",
+          "imagenes": [
+            "fuentes/oxigenoterapia/hbo/imagenes/HBO - A36.png",
+            "fuentes/oxigenoterapia/hbo/imagenes/HBO - A58.png",
+            "fuentes/oxigenoterapia/hbo/imagenes/HBO - A89.png",
+            "fuentes/oxigenoterapia/hbo/imagenes/HBO - A116.png",
+            "fuentes/oxigenoterapia/hbo/imagenes/HBO - A152.png",
+            "fuentes/oxigenoterapia/hbo/imagenes/HBO - O1.png",
+            "fuentes/oxigenoterapia/hbo/imagenes/HBO - AB1.png",
+            "fuentes/oxigenoterapia/hbo/imagenes/HBO - AB26.png",
+            "fuentes/oxigenoterapia/hbo/imagenes/HBO - AB51.png",
+            "fuentes/oxigenoterapia/hbo/imagenes/HBO - AK1.png",
+            "fuentes/oxigenoterapia/hbo/imagenes/HBO - AK26.png",
+            "fuentes/oxigenoterapia/hbo/imagenes/HBO - AK48.png"
+          ]
+        },
+        {
+          "hoja": "Oxivenacion",
+          "componente": "Oxivenación",
+          "archivo": "fuentes/oxigenoterapia/oxivenacion/hojas/Oxivenacion.xlsx",
+          "imagenes": []
+        },
+        {
+          "hoja": "Ozonoterapia",
+          "componente": "Ozonoterapia",
+          "archivo": "fuentes/oxigenoterapia/ozonoterapia/hojas/Ozonoterapia.xlsx",
+          "imagenes": [
+            "fuentes/oxigenoterapia/ozonoterapia/imagenes/Ozonoterapia - U40.png"
+          ]
+        }
+      ],
+      "sin_asignar": [
+        "Farmacologia Vegetal",
+        "Macerados Florales",
+        "Acupuntura",
+        "Campo Magnetico",
+        "Solucion GIK-Dieta Metabolica"
+      ]
+    }
+  ]
+}

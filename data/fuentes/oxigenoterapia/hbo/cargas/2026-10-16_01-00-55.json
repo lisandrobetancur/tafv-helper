@@ -1,0 +1,32 @@
+{
+  "plan": "data/fuentes/oxigenoterapia/hbo/plan.json",
+  "fecha": "2026-10-16T01:00:55",
+  "componente_id": 8,
+  "notas": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "imagenes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "tablas": [],
+  "pdfs": []
+}

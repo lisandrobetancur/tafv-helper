@@ -1,0 +1,81 @@
+{
+  "materia": "Psicoterapia",
+  "componente": "Macerados Florales",
+  "fuentes": [
+    "hojas/Macerados Florales.xlsx"
+  ],
+  "correcciones": {
+    "Cstaño Dulce": "Castaño Dulce",
+    "facilamente": "fácilmente",
+    "pánicoTerror": "pánico Terror",
+    "Por que dudan": "Porque dudan",
+    "por que quieren": "porque quieren",
+    "rumbo.Para": "rumbo. Para",
+    "aprece": "parece",
+    "pasado.Nostalgico": "pasado. Nostálgico",
+    "frecuente.En": "frecuente. En",
+    "trauma.Hay": "trauma. Hay",
+    "otros.Idealista": "otros. Idealista",
+    "desánimo.Para": "desánimo. Para",
+    "Par las personas": "Para las personas",
+    "anticipado.Para": "anticipado. Para",
+    "las persons": "las personas"
+  },
+  "omitidos": [],
+  "notas": [
+    {
+      "titulo": "Flores de Bach - Macerados Florales",
+      "archivo": "notas/Flores de Bach - Macerados Florales.md",
+      "celdas": [
+        "A1:D2",
+        "E1"
+      ]
+    },
+    {
+      "titulo": "FÓRMULA DE EXAMEN - Macerados Florales",
+      "archivo": "notas/FÓRMULA DE EXAMEN - Macerados Florales.md",
+      "celdas": [
+        "A47:B47"
+      ]
+    },
+    {
+      "titulo": "¿Qué es el «Rescue Remedy» (Remedio de Rescate)? - Macerados Florales",
+      "archivo": "notas/Que es el Rescue Remedy - Macerados Florales.md",
+      "celdas": [
+        "A48:D55"
+      ]
+    },
+    {
+      "titulo": "Esencias para el Duelo - Macerados Florales",
+      "archivo": "notas/Esencias para el Duelo - Macerados Florales.md",
+      "celdas": [
+        "A57:D87"
+      ]
+    },
+    {
+      "titulo": "Rumiación Mental - Macerados Florales",
+      "archivo": "notas/Rumiación Mental - Macerados Florales.md",
+      "celdas": [
+        "A89:D112"
+      ]
+    }
+  ],
+  "tablas": [
+    {
+      "archivo": "tablas/Macerados Florales.xlsx",
+      "nombre": "Macerados Florales",
+      "columna_titulo": "Flor de Bach",
+      "etiquetas": "Flores de Bach",
+      "celdas": [
+        "A3:F46"
+      ]
+    }
+  ],
+  "imagenes": [],
+  "pdfs": [
+    {
+      "archivo": "pdf/MATERIAL MACERADOS FLORALES.pdf",
+      "titulo": "Material de Estudio: Esencias Florales de Bach"
+    }
+  ]
+}

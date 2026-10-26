@@ -1,0 +1,23 @@
+{
+  "plan": "data/fuentes/farmacologia-vegetal/vademecum/plan.json",
+  "fecha": "2026-10-16T01:19:21",
+  "componente_id": 1,
+  "notas": [
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162
+  ],
+  "imagenes": [],
+  "tablas": [
+    2
+  ],
+  "pdfs": []
+}

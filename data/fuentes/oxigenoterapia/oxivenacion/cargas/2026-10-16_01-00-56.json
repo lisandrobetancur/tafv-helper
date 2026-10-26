@@ -1,0 +1,18 @@
+{
+  "plan": "data/fuentes/oxigenoterapia/oxivenacion/plan.json",
+  "fecha": "2026-10-16T01:00:56",
+  "componente_id": 5,
+  "notas": [
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "imagenes": [],
+  "tablas": [],
+  "pdfs": []
+}

@@ -1,0 +1,16 @@
+{
+  "materia": "Psicoterapia",
+  "fecha": "2026-10-16T00:59:01",
+  "archivos": [
+    {
+      "original": "fuentes/psicoterapia/_originales/MATERIAL MACERADOS FLORALES.pdf",
+      "hojas": [
+        {
+          "componente": "Macerados Florales",
+          "archivo": "fuentes/psicoterapia/macerados-florales/pdf/MATERIAL MACERADOS FLORALES.pdf"
+        }
+      ],
+      "sin_asignar": []
+    }
+  ]
+}

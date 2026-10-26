@@ -1,0 +1,24 @@
+{
+  "materia": "Homeopatía",
+  "fecha": "2026-10-16T01:01:53",
+  "archivos": [
+    {
+      "original": "fuentes/homeopatia/_originales/Estudio homeopatia.xlsx",
+      "hojas": [
+        {
+          "hoja": "Estudio homeopatia",
+          "componente": "Vademecum - homeopatía",
+          "archivo": "fuentes/homeopatia/vademecum-homeopatia/hojas/Estudio homeopatia.xlsx",
+          "imagenes": []
+        },
+        {
+          "hoja": "Formulación",
+          "componente": "Vademecum - homeopatía",
+          "archivo": "fuentes/homeopatia/vademecum-homeopatia/hojas/Formulación.xlsx",
+          "imagenes": []
+        }
+      ],
+      "sin_asignar": []
+    }
+  ]
+}

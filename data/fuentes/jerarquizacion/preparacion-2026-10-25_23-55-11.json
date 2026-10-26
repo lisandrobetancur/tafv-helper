@@ -1,0 +1,18 @@
+{
+  "materia": "Jerarquización",
+  "fecha": "2026-10-25T23:55:10",
+  "archivos": [
+    {
+      "original": "fuentes/jerarquizacion/_originales/Jerarquización consolidado.xlsx",
+      "hojas": [
+        {
+          "hoja": "Consolidado",
+          "componente": "Jerarquización",
+          "archivo": "fuentes/jerarquizacion/jerarquizacion/hojas/Consolidado.xlsx",
+          "imagenes": []
+        }
+      ],
+      "sin_asignar": []
+    }
+  ]
+}

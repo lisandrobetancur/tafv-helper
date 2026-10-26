@@ -1,0 +1,510 @@
+{
+  "archivo": "/Users/lisandro/dev/py/tafv-helper/data/fuentes/oxigenoterapia/oxivenacion/hojas/Oxivenacion.xlsx",
+  "hojas": [
+    {
+      "hoja": "Oxivenacion",
+      "dimension": "A1:T42",
+      "bloques": [
+        {
+          "rango": "A1:B16",
+          "filas": 16,
+          "columnas": 2,
+          "densidad": 0.81,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "A1",
+              "combinada": "A1:B1",
+              "texto": "Protocolo Corpas",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "A2",
+              "combinada": null,
+              "texto": "Seccion 1",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B2",
+              "combinada": null,
+              "texto": "5 ml",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A3",
+              "combinada": null,
+              "texto": "Seccion 2",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B3",
+              "combinada": null,
+              "texto": "10 ml",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A4",
+              "combinada": null,
+              "texto": "Seccion 3",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B4",
+              "combinada": null,
+              "texto": "15 ml",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A5",
+              "combinada": null,
+              "texto": "Seccion 4",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B5",
+              "combinada": null,
+              "texto": "20 ml",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A6",
+              "combinada": null,
+              "texto": "Seccion 5",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B6",
+              "combinada": null,
+              "texto": "25 ml",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A7",
+              "combinada": null,
+              "texto": "Seccion 6",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B7",
+              "combinada": null,
+              "texto": "30 ml",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A8",
+              "combinada": null,
+              "texto": "Seccion 7",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B8",
+              "combinada": null,
+              "texto": "35 ml",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A9",
+              "combinada": null,
+              "texto": "Seccion 8",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B9",
+              "combinada": null,
+              "texto": "40 ml",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A10",
+              "combinada": null,
+              "texto": "Seccion 9",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B10",
+              "combinada": null,
+              "texto": "45 ml",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A11",
+              "combinada": null,
+              "texto": "Seccion 10",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "B11",
+              "combinada": null,
+              "texto": "50 ml",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A12",
+              "combinada": "A12:B12",
+              "texto": "SSN 0.9% o DAD 5% 250 ml",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A13",
+              "combinada": "A13:B13",
+              "texto": "60 gotas minuto",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A14",
+              "combinada": "A14:B14",
+              "texto": "1 o 2 ss semana",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A15",
+              "combinada": "A15:B15",
+              "texto": "Agitar cada 10 minutos",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "A16",
+              "combinada": "A16:B16",
+              "texto": "Oxigeno puro",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "D1:F42",
+          "filas": 42,
+          "columnas": 3,
+          "densidad": 0.12,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "D1",
+              "combinada": "D1:F1",
+              "texto": "Efectos Biologicos de la Oxivenacion",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "D2",
+              "combinada": "D2:F2",
+              "texto": "1.Efecto sobre el eritrocito",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "D3",
+              "combinada": "D3:F10",
+              "texto": "Mejora el flujo sanguíneo por\nincrementar la deformabilidad de los\neritrocitos, reduce la agregación de\neritrocitos y plaquetas, disminuye los\nniveles de fibrinógeno, reduce la\nadherencia de leucocitos al endotelio,\nreduce la activación de leucocitos y el\ndaño endotelial resultante, y\ndisminuye la viscosidad sanguínea.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "D11",
+              "combinada": "D11:F12",
+              "texto": "2. Incremento de Eosinófilos\n(observado en método",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "D13",
+              "combinada": "D13:F15",
+              "texto": "Aumento en el recuento de eosinófilos a 20% después de 20 a 30 sesiones, es decir, 1% por sesión diaria.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "D16",
+              "combinada": "D16:F16",
+              "texto": "3. Aumento de temperatura",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "D17",
+              "combinada": "D17:F18",
+              "texto": "(Aumento de circulación en arteriolas distales,\naumento de consumo de oxígeno)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "D19",
+              "combinada": "D19:F19",
+              "texto": "4. Variación del pH hacia alcalinidad",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "D20",
+              "combinada": "D20:F23",
+              "texto": "Aumento de capacidad Buffer de la\nhemoglobina\nAumento de la reserva alcalina del plasma",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "D24",
+              "combinada": "D24:F24",
+              "texto": "5. Aumento de Prostaciclina",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "D25",
+              "combinada": "D25:F32",
+              "texto": "•Vasodilatación por\nrelajación del músculo liso endotelial\n•Aumento del flujo sanguíneo\n•Antiagregante •Broncodilatadora\n•Vasodilatación pulmonar •Natriuresis\n•Protección endotelial\n•Gastroprotección",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "D33",
+              "combinada": "D33:F33",
+              "texto": "6. Aumento de diuresis",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "D34",
+              "combinada": "D34:F36",
+              "texto": "Prostaciclina (PGI2 ) y PGE2 aumentan el\nflujo sanguíneo y la tasa de filtración glomerular",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "D37",
+              "combinada": "D37:F37",
+              "texto": "7. Efecto sobre las convulsiones y el sueño",
+              "negrita": true,
+              "relleno": "FFDEEAF6"
+            },
+            {
+              "celda": "D38",
+              "combinada": "D38:F42",
+              "texto": "Estímulo de respuestas mediadas por GABA? \nDisminución de respuestas mediadas\npor Glutamato",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "H1:L40",
+          "filas": 40,
+          "columnas": 5,
+          "densidad": 0.04,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "H1",
+              "combinada": "H1:L1",
+              "texto": "Indicación clínica de una solución hiperoxigenada",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "H2",
+              "combinada": "H2:L6",
+              "texto": "I Grupo: Enfermedad Renal Crónica, EPOC\nAlteraciones circulatorias estructurales localizadas (cerebro, ojos, corazón, hígado, riñón, miembros inferiores) o alteraciones circulatorias funcionales (migraña y fenómeno de Raynaud)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "H7",
+              "combinada": "H7:L11",
+              "texto": "II Grupo: Enfermedades alérgicas e inflamatorias crónicas. \nAsma bronquial, Bronquitis crónica\nDermatitis, hepatitis, \nInflamaciones de intestino y riñón\nArtritis.",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "H12",
+              "combinada": "H12:L12",
+              "texto": "Indicaciones Corpas",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "H13",
+              "combinada": "H13:L21",
+              "texto": "•Enfermedad pulmonar que cursa con\nhipoxemia (con o sin hipercapnia)\n•Manifestaciones por hipoxia general o\nhipoxia localizada.\nEj: Trastorno cognitivo del adulto mayor\n•Isquemia crónica: Sistema nervioso, Corazón, Miembros inferiores",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "H22",
+              "combinada": "H22:L32",
+              "texto": "•EPOC\n•Alteración de la membrana alvéolo capilar\n•Hipertensión pulmonar primaria o secundaria\n•Síndromes convulsivos\n•Cefalea de origen vascular (Como\nprofiláctico; no en dolor agudo)\n•Trastornos del sueño (Insomnio)\n•Terapia complementaria en SAHOS",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "H33",
+              "combinada": "H33:L40",
+              "texto": "•Síndrome vertiginoso\n•Enfermedad de Méniere\n•Insuficiencia renal crónica\n•Hipertensión arterial\n•Enfermedades por déficit de ATP\n–Fibromialgia\n–Síndrome de fatiga crónica",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "N1:P17",
+          "filas": 17,
+          "columnas": 3,
+          "densidad": 0.08,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "N1",
+              "combinada": "N1:P1",
+              "texto": "Contraindicaciones Método Corpas",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "N2",
+              "combinada": "N2:P7",
+              "texto": "•Hemorragia aguda “anormal” (Ejemplo: Hemorragia cerebral)\n•Estado febril\n•Isquemia aguda (en IAM esperar 3 meses)\n•Postoperatorio de cirugía mayor\n•Anticoagulantes",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "N8",
+              "combinada": "N8:P10",
+              "texto": "Infección aguda (Ejemplo: Meningitis, encefalitis).\nContraindicación en observación",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "N11",
+              "combinada": "N11:P17",
+              "texto": "•Malformación congénita del corazón (shunt derecha izquierda)\n•Tromboembolismo pulmonar\n•Infarto agudo del miocardio (tres meses) (¿riesgo de lesión por reperfusión)",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "R1:T3",
+          "filas": 3,
+          "columnas": 3,
+          "densidad": 0.33,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "R1",
+              "combinada": "R1:T1",
+              "texto": "Precauciones",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "R2",
+              "combinada": "R2:T2",
+              "texto": "Tratamientos con anticoagulantes",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            },
+            {
+              "celda": "R3",
+              "combinada": "R3:T3",
+              "texto": "Cuagulopatias",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "R5:T14",
+          "filas": 10,
+          "columnas": 3,
+          "densidad": 0.07,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "R5",
+              "combinada": "R5:T5",
+              "texto": "Efectos secundarios",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "R6",
+              "combinada": "R6:T14",
+              "texto": "•Cefalea\n•Enrojecimiento facial\n•Tos\n•Fatiga\n•Disnea y opresión torácica\n•Síntomas de resfriado",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        },
+        {
+          "rango": "N19:P29",
+          "filas": 11,
+          "columnas": 3,
+          "densidad": 0.06,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "N19",
+              "combinada": "N19:P20",
+              "texto": "Tratamiento de efectos secundarios",
+              "negrita": true,
+              "relleno": "FFFFF2CB"
+            },
+            {
+              "celda": "N21",
+              "combinada": "N21:P29",
+              "texto": "Suspender el goteo\nMantener posición en decúbito\nAdministrar AINE\nAdministrar antiinflamatorio\nesteroideo",
+              "negrita": false,
+              "relleno": "FFF2F2F2"
+            }
+          ]
+        }
+      ],
+      "comentarios": [
+        {
+          "celda": "D1",
+          "autor": "Luis fernando Lenis",
+          "texto": "Las soluciones intravenosas hiperoxigenadas (SIHO) son preparaciones especiales diseñadas para incrementar la disponibilidad de oxígeno molecular (O₂) en el torrente sanguíneo mediante la administración parenteral de líquidos que contienen moléculas portadoras de oxígeno disueltas o estabilizadas.\n\nEl principio es aumentar el transporte y la disponibilidad de oxígeno tisular, especialmente en zonas donde la perfusión está comprometida o donde existe hipoxia celular."
+        }
+      ],
+      "imagenes": [],
+      "imagenes_extraidas": []
+    }
+  ]
+}

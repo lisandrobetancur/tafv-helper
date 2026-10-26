@@ -1,0 +1,2511 @@
+{
+  "archivo": "/Users/lisandro/dev/py/tafv-helper/data/fuentes/jerarquizacion/jerarquizacion/hojas/JERARQUIZACIÓN.xlsx",
+  "hojas": [
+    {
+      "hoja": "JERARQUIZACIÓN",
+      "dimension": "A1:Q259",
+      "bloques": [
+        {
+          "rango": "B2:L56",
+          "filas": 55,
+          "columnas": 11,
+          "densidad": 0.31,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "B2",
+              "combinada": null,
+              "texto": "Columna 1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C2",
+              "combinada": null,
+              "texto": "PATOLOGIA",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "D2",
+              "combinada": null,
+              "texto": "ACUP",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E2",
+              "combinada": null,
+              "texto": "T.N.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F2",
+              "combinada": null,
+              "texto": "F.V.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G2",
+              "combinada": null,
+              "texto": "HOMEOP",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H2",
+              "combinada": null,
+              "texto": "C. MAGN",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I2",
+              "combinada": null,
+              "texto": "SOL. GIK",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J2",
+              "combinada": null,
+              "texto": "PSICOT",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K2",
+              "combinada": null,
+              "texto": "O2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L2",
+              "combinada": null,
+              "texto": "o3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B3",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C3",
+              "combinada": null,
+              "texto": "cefalea",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D3",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E3",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F3",
+              "combinada": null,
+              "texto": "3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K3",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B4",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C4",
+              "combinada": null,
+              "texto": "artritis reumatoidea",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D4",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B5",
+              "combinada": null,
+              "texto": "3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C5",
+              "combinada": null,
+              "texto": "paralisis facial",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D5",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E5",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B6",
+              "combinada": null,
+              "texto": "4",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C6",
+              "combinada": null,
+              "texto": "neuralgia del trigemino",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E6",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B7",
+              "combinada": null,
+              "texto": "5",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C7",
+              "combinada": null,
+              "texto": "obesidad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B8",
+              "combinada": null,
+              "texto": "6",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C8",
+              "combinada": null,
+              "texto": "insuficiencia renal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B9",
+              "combinada": null,
+              "texto": "7",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C9",
+              "combinada": null,
+              "texto": "dermatitis atopica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B10",
+              "combinada": null,
+              "texto": "8",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C10",
+              "combinada": null,
+              "texto": "trastorno de ansiedad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B11",
+              "combinada": null,
+              "texto": "9",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C11",
+              "combinada": null,
+              "texto": "cancer",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B12",
+              "combinada": null,
+              "texto": "10",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C12",
+              "combinada": null,
+              "texto": "hipotiroidismo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D12",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E12",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B13",
+              "combinada": null,
+              "texto": "11",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C13",
+              "combinada": null,
+              "texto": "trastorno del sueño",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F13",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B14",
+              "combinada": null,
+              "texto": "12",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C14",
+              "combinada": null,
+              "texto": "asma",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D14",
+              "combinada": null,
+              "texto": "3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E14",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F14",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G14",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B15",
+              "combinada": null,
+              "texto": "13",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C15",
+              "combinada": null,
+              "texto": "osteoporosis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G15",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H15",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I15",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B16",
+              "combinada": null,
+              "texto": "14",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C16",
+              "combinada": null,
+              "texto": "osteoartrosis degenerativa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D16",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E16",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F16",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H16",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B17",
+              "combinada": null,
+              "texto": "15",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C17",
+              "combinada": null,
+              "texto": "gastritis cronica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D17",
+              "combinada": null,
+              "texto": "3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E17",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F17",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B18",
+              "combinada": null,
+              "texto": "16",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C18",
+              "combinada": null,
+              "texto": "adicciones",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F18",
+              "combinada": null,
+              "texto": "3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G18",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B19",
+              "combinada": null,
+              "texto": "17",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C19",
+              "combinada": null,
+              "texto": "intestino irritable",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E19",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F19",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G19",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B20",
+              "combinada": null,
+              "texto": "18",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C20",
+              "combinada": null,
+              "texto": "colitis ulcerativa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D20",
+              "combinada": null,
+              "texto": "3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F20",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G20",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H20",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I20",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B21",
+              "combinada": null,
+              "texto": "19",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C21",
+              "combinada": null,
+              "texto": "fracturas de dificil consolidacion",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G21",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H21",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I21",
+              "combinada": null,
+              "texto": "3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K21",
+              "combinada": null,
+              "texto": "2 Camara",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B22",
+              "combinada": null,
+              "texto": "20",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C22",
+              "combinada": null,
+              "texto": "fibromialgia",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D22",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E22",
+              "combinada": null,
+              "texto": "3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F22",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G22",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H22",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I22",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J22",
+              "combinada": null,
+              "texto": "2 E.F.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K22",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B23",
+              "combinada": null,
+              "texto": "21",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C23",
+              "combinada": null,
+              "texto": "sd miofascial",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D23",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E23",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F23",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H23",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B24",
+              "combinada": null,
+              "texto": "22",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C24",
+              "combinada": null,
+              "texto": "vertifgo periferico",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E24",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B25",
+              "combinada": null,
+              "texto": "23",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C25",
+              "combinada": null,
+              "texto": "trastorno del animo / depresion",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B26",
+              "combinada": null,
+              "texto": "24",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C26",
+              "combinada": null,
+              "texto": "EPOC",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D26",
+              "combinada": null,
+              "texto": "3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B27",
+              "combinada": null,
+              "texto": "25",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C27",
+              "combinada": null,
+              "texto": "cloasma facial",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B28",
+              "combinada": null,
+              "texto": "26",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C28",
+              "combinada": null,
+              "texto": "rosacea",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B29",
+              "combinada": null,
+              "texto": "27",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C29",
+              "combinada": null,
+              "texto": "sobrepeso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D29",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B30",
+              "combinada": null,
+              "texto": "28",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C30",
+              "combinada": null,
+              "texto": "LES",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B31",
+              "combinada": null,
+              "texto": "29",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C31",
+              "combinada": null,
+              "texto": "discopatia lumbar",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D31",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E31",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F31",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B32",
+              "combinada": null,
+              "texto": "30",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C32",
+              "combinada": null,
+              "texto": "desgarros / esguinces articulares",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D32",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E32",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B33",
+              "combinada": null,
+              "texto": "31",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C33",
+              "combinada": null,
+              "texto": "parkinson",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B34",
+              "combinada": null,
+              "texto": "32",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C34",
+              "combinada": null,
+              "texto": "Enfermedad bipolar",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B35",
+              "combinada": null,
+              "texto": "33",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C35",
+              "combinada": null,
+              "texto": "infeccion respiratoria a repeticion",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B36",
+              "combinada": null,
+              "texto": "34",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C36",
+              "combinada": null,
+              "texto": "IVU baja a repeticion",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B37",
+              "combinada": null,
+              "texto": "35",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C37",
+              "combinada": null,
+              "texto": "enfermedad hemorroidal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B38",
+              "combinada": null,
+              "texto": "36",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C38",
+              "combinada": null,
+              "texto": "enfermedad varicosa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B39",
+              "combinada": null,
+              "texto": "37",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C39",
+              "combinada": null,
+              "texto": "HTA",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B40",
+              "combinada": null,
+              "texto": "38",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C40",
+              "combinada": null,
+              "texto": "secuelas acv isquemico",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D40",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B41",
+              "combinada": null,
+              "texto": "39",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C41",
+              "combinada": null,
+              "texto": "afasia",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D41",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B42",
+              "combinada": null,
+              "texto": "40",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C42",
+              "combinada": null,
+              "texto": "diabetes tipo 2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B43",
+              "combinada": null,
+              "texto": "41",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C43",
+              "combinada": null,
+              "texto": "dismenorrea",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B44",
+              "combinada": null,
+              "texto": "42",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C44",
+              "combinada": null,
+              "texto": "sd climaterico",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B45",
+              "combinada": null,
+              "texto": "43",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C45",
+              "combinada": null,
+              "texto": "urolitiasis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B46",
+              "combinada": null,
+              "texto": "44",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C46",
+              "combinada": null,
+              "texto": "gota",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B47",
+              "combinada": null,
+              "texto": "45",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C47",
+              "combinada": null,
+              "texto": "sd sjögren",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B48",
+              "combinada": null,
+              "texto": "46",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C48",
+              "combinada": null,
+              "texto": "autismo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B49",
+              "combinada": null,
+              "texto": "47",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C49",
+              "combinada": null,
+              "texto": "disfuncion erectil",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D49",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B50",
+              "combinada": null,
+              "texto": "48",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C50",
+              "combinada": null,
+              "texto": "rinitis/Rinosinusitis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B51",
+              "combinada": null,
+              "texto": "49",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C51",
+              "combinada": null,
+              "texto": "amigdalitis cronica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B52",
+              "combinada": null,
+              "texto": "50",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C52",
+              "combinada": null,
+              "texto": "TOC",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B53",
+              "combinada": null,
+              "texto": "51",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C53",
+              "combinada": null,
+              "texto": "dislipidemia",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F53",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B54",
+              "combinada": null,
+              "texto": "52",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C54",
+              "combinada": null,
+              "texto": "Estreñimiento ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E54",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F54",
+              "combinada": null,
+              "texto": "1. sabila (aoe vera) 30 gotas noche",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B55",
+              "combinada": null,
+              "texto": "53",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C55",
+              "combinada": null,
+              "texto": "Temblor esencial ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D55",
+              "combinada": null,
+              "texto": "opción de cazar el viento ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E55",
+              "combinada": null,
+              "texto": "3 puntos psiquismo y corona",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F55",
+              "combinada": null,
+              "texto": "4 escencias ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G55",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B56",
+              "combinada": null,
+              "texto": "54",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C56",
+              "combinada": null,
+              "texto": "cervicalgia",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E56",
+              "combinada": null,
+              "texto": "1 gatillo, paravert, hacket ",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "F4:K12",
+          "filas": 9,
+          "columnas": 6,
+          "densidad": 0.41,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "G4",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H4",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I4",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H5",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H6",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H7",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I7",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G8",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H8",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I8",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F9",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G9",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F10",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G10",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J10",
+              "combinada": null,
+              "texto": "1 E.F. MUSICOT",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K10",
+              "combinada": null,
+              "texto": "3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F11",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G11",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H11",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I11",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J11",
+              "combinada": null,
+              "texto": "3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G12",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "F7:F7",
+          "filas": 1,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "F7",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "K8:K8",
+          "filas": 1,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "K8",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "L9:L9",
+          "filas": 1,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "L9",
+              "combinada": null,
+              "texto": "3",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "J13:K13",
+          "filas": 1,
+          "columnas": 2,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "J13",
+              "combinada": null,
+              "texto": "1 E.F. MUSICOT",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K13",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "L14:L14",
+          "filas": 1,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "L14",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "L16:L16",
+          "filas": 1,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "L16",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "J18:J19",
+          "filas": 2,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "J18",
+              "combinada": null,
+              "texto": "1 E.F.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J19",
+              "combinada": null,
+              "texto": "3",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "L19:L20",
+          "filas": 2,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "L19",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L20",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "J24:K26",
+          "filas": 3,
+          "columnas": 2,
+          "densidad": 0.67,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "K24",
+              "combinada": null,
+              "texto": "1 oxivenacion",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J25",
+              "combinada": null,
+              "texto": "1 E.F.",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K25",
+              "combinada": null,
+              "texto": "2 oxivenacion",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K26",
+              "combinada": null,
+              "texto": "2 oxivenacion",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "F25:G29",
+          "filas": 5,
+          "columnas": 2,
+          "densidad": 0.7,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "F25",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F26",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G26",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F27",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F28",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G28",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F29",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "L28:L28",
+          "filas": 1,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "L28",
+              "combinada": null,
+              "texto": "3",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "J29:J29",
+          "filas": 1,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "J29",
+              "combinada": null,
+              "texto": "2 E.F.",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "F30:I39",
+          "filas": 10,
+          "columnas": 4,
+          "densidad": 0.38,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "G30",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H30",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I30",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H31",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H32",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G33",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H33",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G34",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F35",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G35",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F36",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G36",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F37",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F38",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F39",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "L30:L31",
+          "filas": 2,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "L30",
+              "combinada": null,
+              "texto": "3",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L31",
+              "combinada": null,
+              "texto": "2 local",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "K33:K33",
+          "filas": 1,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "K33",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "J34:J34",
+          "filas": 1,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "J34",
+              "combinada": null,
+              "texto": "1 E.F. MUSICOT",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "L35:L37",
+          "filas": 3,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "L35",
+              "combinada": null,
+              "texto": "1 endovenoso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L36",
+              "combinada": null,
+              "texto": "2 endovenoso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "L37",
+              "combinada": null,
+              "texto": "2 local",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "K38:K38",
+          "filas": 1,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "K38",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "H39:I41",
+          "filas": 3,
+          "columnas": 2,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "H39",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I39",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H40",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I40",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H41",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I41",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "K40:K41",
+          "filas": 2,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "K40",
+              "combinada": null,
+              "texto": "1 oxivenacion",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K41",
+              "combinada": null,
+              "texto": "1 oxivenacion",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "E42:H52",
+          "filas": 11,
+          "columnas": 4,
+          "densidad": 0.52,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "F42",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G42",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E43",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F43",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G43",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F44",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G44",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F45",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G45",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F46",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G46",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H46",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G47",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G48",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F49",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G49",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E50",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F50",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G50",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E51",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F51",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G51",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G52",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "L47:L47",
+          "filas": 1,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "L47",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "J48:J49",
+          "filas": 2,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "J48",
+              "combinada": null,
+              "texto": "1 musicoterapoa, EF",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J49",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "J52:J52",
+          "filas": 1,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "J52",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "I53:I53",
+          "filas": 1,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "I53",
+              "combinada": null,
+              "texto": "1",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "I55:I55",
+          "filas": 1,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "I55",
+              "combinada": null,
+              "texto": "2 nunca si erc o creatinina aguda",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "K55:K56",
+          "filas": 2,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "K55",
+              "combinada": null,
+              "texto": "2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "K56",
+              "combinada": null,
+              "texto": "3",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "H56:H56",
+          "filas": 1,
+          "columnas": 1,
+          "densidad": 1.0,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "H56",
+              "combinada": null,
+              "texto": "2 puls + 100gz 20-30gauss / ejercicio ",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        }
+      ],
+      "comentarios": [
+        {
+          "celda": "E34",
+          "autor": "ID#AAACHztFEXw",
+          "texto": "Puntos de psiquismo."
+        },
+        {
+          "celda": "J34",
+          "autor": "ID#AAACHztFEYY",
+          "texto": "Esencias florales: REscue remedí, gorse."
+        },
+        {
+          "celda": "L36",
+          "autor": "ID#AAACHztFEYA",
+          "texto": "Intrarrectal o endovenosa"
+        },
+        {
+          "celda": "F37",
+          "autor": "ID#AAACHztFEYE",
+          "texto": "Flebotroficos"
+        },
+        {
+          "celda": "H38",
+          "autor": "ID#AAACHztFEYc",
+          "texto": "Flebotroficos: Guaba, castaño de indias, yerbamora"
+        },
+        {
+          "celda": "I39",
+          "autor": "ID#AAACHztFEX0",
+          "texto": "solución GIK.\nDieta Hiposodica.\nEjercicio"
+        },
+        {
+          "celda": "K40",
+          "autor": "ID#AAACHztFEYU",
+          "texto": "camara hiperbarica"
+        },
+        {
+          "celda": "F43",
+          "autor": "ID#AAACHztFEYI",
+          "texto": "Isoflavonas derivados de soja o semilla de UVA. (daidzeina y genisteina)"
+        },
+        {
+          "celda": "F45",
+          "autor": "ID#AAACHztFEYk",
+          "texto": "Dienteles de león"
+        },
+        {
+          "celda": "F46",
+          "autor": "ID#AAACHztFEYg",
+          "texto": "Gota"
+        },
+        {
+          "celda": "J48",
+          "autor": "ID#AAACHztFEX4",
+          "texto": "Musicoterapia"
+        },
+        {
+          "celda": "F49",
+          "autor": "ID#AAACHztFEXs",
+          "texto": "Hormonas biosimilares"
+        },
+        {
+          "celda": "F50",
+          "autor": "ID#AAACHztFEYM",
+          "texto": "1. Tinto chiquito (Monnina phytolaccaefolia)\n2. Divi Divi (Caesalpinia spinosa)"
+        },
+        {
+          "celda": "F51",
+          "autor": "ID#AAACHztFEX8",
+          "texto": "Hojas de tomate.\nGuasquin"
+        },
+        {
+          "celda": "I53",
+          "autor": "ID#AAACHztFEYQ",
+          "texto": "Dieta Hiposodica\nEjercicio"
+        },
+        {
+          "celda": "F54",
+          "autor": "ASUS",
+          "texto": "ASUS:"
+        }
+      ],
+      "imagenes": [],
+      "imagenes_extraidas": []
+    }
+  ]
+}

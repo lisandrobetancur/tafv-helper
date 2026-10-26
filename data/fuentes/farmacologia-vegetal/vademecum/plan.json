@@ -1,0 +1,189 @@
+{
+  "materia": "Farmacología vegetal",
+  "componente": "Vademecum",
+  "fuentes": [
+    "hojas/Farmacologia Vegetal.xlsx"
+  ],
+  "correcciones": {
+    "20 gotas/nohe": "20 gotas/noche",
+    "Kallium Carbonicum": "Kalium Carbonicum",
+    "sequiterpenos": "sesquiterpenos",
+    "Solucio oral": "Solución oral",
+    "obstrucciónbiliar": "obstrucción biliar",
+    "lss secreciones": "las secreciones",
+    "Eucalytus": "Eucalyptus",
+    "Antiinflamtorio": "Antiinflamatorio",
+    "antiinflamtoria": "antiinflamatoria",
+    "Antiinflamtoria": "Antiinflamatoria",
+    "Antinflamatorio": "Antiinflamatorio",
+    "esecnial": "esencial",
+    "anticuagulantes": "anticoagulantes",
+    "anticuagualentes": "anticoagulantes",
+    "mucuosa": "mucosa",
+    "escencial": "esencial",
+    "antivital": "antiviral",
+    "Antivital": "Antiviral",
+    "Antiflactulento": "Antiflatulento",
+    "Ezimatico": "Enzimático",
+    "Rubibarbo": "Ruibarbo",
+    "veces la dia": "veces al día",
+    "Cassi pulchra": "Cassia pulchra",
+    "excecer": "exceder",
+    "Sacharomyces": "Saccharomyces",
+    "Acanthaceace": "Acanthaceae",
+    "estra al": "estar al",
+    "traquilizante": "tranquilizante",
+    "mollisima": "mollissima",
+    "inductoe": "inductor",
+    "estereoides": "esteroides",
+    "Apium graveolen": "Apium graveolens",
+    "comunis": "communis",
+    "Cavendshia": "Cavendishia",
+    "americanun": "americanum",
+    "apolecia": "Alopecia",
+    "Cordondicillo": "Cordoncillo",
+    "ene l tratamiento": "en el tratamiento",
+    "bursistis": "bursitis",
+    "esgunces": "esguinces",
+    "desgarroos": "desgarros",
+    "distenciones": "distensiones",
+    "linaool": "linalool",
+    "Antireumatico": "Antirreumático",
+    "antireumatico": "antirreumático",
+    "Soanum": "Solanum",
+    "Paulinia yoco": "Paullinia yoco",
+    "Cinnamomun": "Cinnamomum",
+    "pancraticas": "pancreáticas",
+    "Intercciones": "Interacciones",
+    "Hipogliciamientes": "Hipoglicemiantes",
+    "Decocion": "Decocción",
+    "insufiencia": "insuficiencia"
+  },
+  "omitidos": [
+    {
+      "celda": "Farmacologia Vegetal!A2",
+      "motivo": "título «FITOTERAPEUTICOS FARMACOLOGIA VEGETAL» (combinado A2:J2) por encima de los encabezados de la tabla; la tabla no tiene dónde guardarlo y se llama «Farmacología vegetal» (ver preguntas.md)"
+    }
+  ],
+  "notas": [
+    {
+      "titulo": "Comentarios - Farmacología vegetal",
+      "archivo": "notas/Comentarios - Farmacología vegetal.md",
+      "celdas": [
+        "A4",
+        "F11",
+        "A18",
+        "C46",
+        "C49",
+        "A51",
+        "C65",
+        "C66",
+        "E66",
+        "A69",
+        "A81",
+        "A94",
+        "A101",
+        "A105",
+        "E107",
+        "F107",
+        "A108",
+        "F109",
+        "C112",
+        "E112",
+        "C114"
+      ]
+    },
+    {
+      "titulo": "Dosis Ansiolíticos - Vademecum",
+      "archivo": "notas/Dosis Ansiolíticos - Vademecum.md",
+      "celdas": [
+        "A121:A125",
+        "C122:E125"
+      ]
+    },
+    {
+      "titulo": "Dosis inductor del sueño - Vademecum",
+      "archivo": "notas/Dosis inductor del sueño - Vademecum.md",
+      "celdas": [
+        "A128:A131",
+        "C129:E131"
+      ]
+    },
+    {
+      "titulo": "Dosis general - Vademecum",
+      "archivo": "notas/Dosis general - Vademecum.md",
+      "celdas": [
+        "A134:A138",
+        "C135:D138"
+      ]
+    },
+    {
+      "titulo": "Tos seca (Otros medicamentos en homeopatía) - Vademecum",
+      "archivo": "notas/Tos seca (Otros medicamentos en homeopatía) - Vademecum.md",
+      "celdas": [
+        "A146",
+        "A149:A157"
+      ]
+    },
+    {
+      "titulo": "Tos Húmeda (Otros medicamentos en homeopatía) - Vademecum",
+      "archivo": "notas/Tos Húmeda (Otros medicamentos en homeopatía) - Vademecum.md",
+      "celdas": [
+        "A146",
+        "A159:A165"
+      ]
+    },
+    {
+      "titulo": "Agravación con el frío (Otros medicamentos en homeopatía) - Vademecum",
+      "archivo": "notas/Agravación con el frío (Otros medicamentos en homeopatía) - Vademecum.md",
+      "celdas": [
+        "A146",
+        "A167:A174"
+      ]
+    },
+    {
+      "titulo": "Agravación con el calor (Otros medicamentos en homeopatía) - Vademecum",
+      "archivo": "notas/Agravación con el calor (Otros medicamentos en homeopatía) - Vademecum.md",
+      "celdas": [
+        "A146",
+        "A176:A185"
+      ]
+    },
+    {
+      "titulo": "Agravación del Calor al Frío (Otros medicamentos en homeopatía) - Vademecum",
+      "archivo": "notas/Agravación del Calor al Frío (Otros medicamentos en homeopatía) - Vademecum.md",
+      "celdas": [
+        "A146",
+        "A187:A190"
+      ]
+    },
+    {
+      "titulo": "Agravación del frío al calor (Otros medicamentos en homeopatía) - Vademecum",
+      "archivo": "notas/Agravación del frío al calor (Otros medicamentos en homeopatía) - Vademecum.md",
+      "celdas": [
+        "A146",
+        "A192:A196"
+      ]
+    },
+    {
+      "titulo": "Alfa hidroxiácidos AHA - Vademecum",
+      "archivo": "notas/Alfa hidroxiácidos AHA - Vademecum.md",
+      "celdas": [
+        "A202:C208"
+      ]
+    }
+  ],
+  "tablas": [
+    {
+      "archivo": "tablas/Farmacología vegetal.xlsx",
+      "nombre": "Farmacología vegetal",
+      "columna_titulo": "Nombre",
+      "fila_encabezado": 3,
+      "celdas": [
+        "A2:K114"
+      ]
+    }
+  ],
+  "imagenes": [],
+  "pdfs": []
+}

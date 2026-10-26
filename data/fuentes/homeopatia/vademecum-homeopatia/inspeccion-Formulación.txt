@@ -1,0 +1,33 @@
+Archivo: /Users/lisandro/dev/py/tafv-helper/data/fuentes/homeopatia/vademecum-homeopatia/hojas/Formulación.xlsx
+
+=== Hoja «Formulación» (A1:Z220) — 2 bloques, 0 comentarios, 0 imágenes
+
+--- Bloque B2:D8 · 7×3 · densidad 0.67 · sugerencia: RECUADROS
+  B2 [N combinada B2:D2] 'Formulación'
+  B3 [] 'Dilución'
+  C3 [] 'Potencia'
+  D3 [] 'Escala'
+  B4 [] 'Frecuencia'
+  C4 [] 'Depende del estado del paciente '
+  B5 [] 'Observaciones pronósticas de Kent'
+  B6 [] 'Niño'
+  C6 [] 'Mejor globulos '
+  B7 [] 'Adultos - alcoholismo'
+  C7 [] 'Globulos o gotas en agua'
+  D7 [] 'Gotas de agua: dura para 1 mes'
+  B8 [] 'Intolerante a la lactosa'
+  C8 [] 'Gotas'
+
+--- Bloque B12:E15 · 4×4 · densidad 0.75 · sugerencia: RECUADROS
+  B12 [N] 'Potencia'
+  D12 [N] 'Escala'
+  E12 [] 'Depende de la agravación homeopática'
+  B13 [] 'Baja'
+  C13 [] 'Por debajo del numero de abogadro: 6-7'
+  D13 [] 'Decimal'
+  B14 [] 'Media'
+  C14 [] '9-15'
+  D14 [] 'Centesimal'
+  B15 [] 'Alta'
+  C15 [] '30 en adelante'
+  D15 [] 'Milesimales'

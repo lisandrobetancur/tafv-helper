@@ -1,0 +1,218 @@
+{
+  "archivo": "/Users/lisandro/dev/py/tafv-helper/data/fuentes/homeopatia/vademecum-homeopatia/hojas/Formulación.xlsx",
+  "hojas": [
+    {
+      "hoja": "Formulación",
+      "dimension": "A1:Z220",
+      "bloques": [
+        {
+          "rango": "B2:D8",
+          "filas": 7,
+          "columnas": 3,
+          "densidad": 0.67,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "B2",
+              "combinada": "B2:D2",
+              "texto": "Formulación",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "B3",
+              "combinada": null,
+              "texto": "Dilución",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C3",
+              "combinada": null,
+              "texto": "Potencia",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D3",
+              "combinada": null,
+              "texto": "Escala",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B4",
+              "combinada": null,
+              "texto": "Frecuencia",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C4",
+              "combinada": null,
+              "texto": "Depende del estado del paciente ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B5",
+              "combinada": null,
+              "texto": "Observaciones pronósticas de Kent",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B6",
+              "combinada": null,
+              "texto": "Niño",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C6",
+              "combinada": null,
+              "texto": "Mejor globulos ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B7",
+              "combinada": null,
+              "texto": "Adultos - alcoholismo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C7",
+              "combinada": null,
+              "texto": "Globulos o gotas en agua",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D7",
+              "combinada": null,
+              "texto": "Gotas de agua: dura para 1 mes",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B8",
+              "combinada": null,
+              "texto": "Intolerante a la lactosa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C8",
+              "combinada": null,
+              "texto": "Gotas",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        },
+        {
+          "rango": "B12:E15",
+          "filas": 4,
+          "columnas": 4,
+          "densidad": 0.75,
+          "fila_encabezado": null,
+          "registros": 0,
+          "sugerencia": "recuadros",
+          "celdas": [
+            {
+              "celda": "B12",
+              "combinada": null,
+              "texto": "Potencia",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "D12",
+              "combinada": null,
+              "texto": "Escala",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "E12",
+              "combinada": null,
+              "texto": "Depende de la agravación homeopática",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B13",
+              "combinada": null,
+              "texto": "Baja",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C13",
+              "combinada": null,
+              "texto": "Por debajo del numero de abogadro: 6-7",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D13",
+              "combinada": null,
+              "texto": "Decimal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B14",
+              "combinada": null,
+              "texto": "Media",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C14",
+              "combinada": null,
+              "texto": "9-15",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D14",
+              "combinada": null,
+              "texto": "Centesimal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B15",
+              "combinada": null,
+              "texto": "Alta",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C15",
+              "combinada": null,
+              "texto": "30 en adelante",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D15",
+              "combinada": null,
+              "texto": "Milesimales",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        }
+      ],
+      "comentarios": [],
+      "imagenes": [],
+      "imagenes_extraidas": []
+    }
+  ]
+}

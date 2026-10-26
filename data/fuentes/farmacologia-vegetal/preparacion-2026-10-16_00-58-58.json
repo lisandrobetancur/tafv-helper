@@ -1,0 +1,26 @@
+{
+  "materia": "Farmacología vegetal",
+  "fecha": "2026-10-16T00:58:57",
+  "archivos": [
+    {
+      "original": "fuentes/farmacologia-vegetal/_originales/TAFV Cuadro Examen 2026.xlsx",
+      "hojas": [
+        {
+          "hoja": "Farmacologia Vegetal",
+          "componente": "Vademecum",
+          "archivo": "fuentes/farmacologia-vegetal/vademecum/hojas/Farmacologia Vegetal.xlsx",
+          "imagenes": []
+        }
+      ],
+      "sin_asignar": [
+        "Macerados Florales",
+        "HBO",
+        "Oxivenacion",
+        "Ozonoterapia",
+        "Acupuntura",
+        "Campo Magnetico",
+        "Solucion GIK-Dieta Metabolica"
+      ]
+    }
+  ]
+}
