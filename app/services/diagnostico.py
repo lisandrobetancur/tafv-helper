@@ -227,6 +227,8 @@ def analizar(con: sqlite3.Connection, sintomas: list[Sintoma], filtros: bus.Filt
 
     # Un síntoma cuenta en cualquier columna de la fila
     permitidas: dict[int, list[dict]] = {tid: columnas for tid, (_, columnas, _, _) in tablas.items()}
+    # La numeración de filas (1, 2, 3…) no es un rasgo de la ficha: no se muestra entre «otros rasgos»
+    numeracion = {tid: _columnas_de_numeracion(con, tid, columnas) for tid, columnas in permitidas.items()}
 
     ubicaciones: dict[int, tuple[str, str, int | None, str, str]] = {}
     maximo = sum(s.peso for s in sintomas)
@@ -254,7 +256,7 @@ def analizar(con: sqlite3.Connection, sintomas: list[Sintoma], filtros: bus.Filt
         # Otros rasgos de la ficha (para preguntar u observar y confirmar o descartar)
         palabras = [p for s in sintomas for p in s.palabras]
         for col in permitidas[f["tabla_id"]]:
-            if col["clave"] == columna_titulo:
+            if col["clave"] == columna_titulo or col["clave"] in numeracion[f["tabla_id"]]:
                 continue
             extras = [ln for ln in _lineas(valores.get(col["clave"], ""))
                       if not any(re.search(r"(?<!\w)" + re.escape(p), normalizar(ln)) for p in palabras) and len(ln) <= 160]
@@ -290,6 +292,23 @@ def analizar(con: sqlite3.Connection, sintomas: list[Sintoma], filtros: bus.Filt
     analisis.materias_sin_coincidencias = [n for n in analisis.materias_revisadas if n not in con_resultados]
     _apoyo(con, analisis, filtros)
     return analisis
+
+
+def _columnas_de_numeracion(con: sqlite3.Connection, tabla_id: int, columnas: list[dict]) -> set[str]:
+    """Columnas que solo numeran las filas: en el orden de la tabla valen 1, 2, 3… (o n, n+1, n+2…),
+    como la «Columna 1» que agrega Google Sheets a una tabla. Hacen falta al menos 3 filas."""
+    valores = [json.loads(r[0]) for r in con.execute(
+        "SELECT valores FROM filas WHERE tabla_id = ? AND huerfana = 0 ORDER BY posicion", (tabla_id,))]
+    if len(valores) < 3:
+        return set()
+    salida = set()
+    for col in columnas:
+        serie = [v.get(col["clave"], "").strip() for v in valores]
+        if all(s.isdigit() for s in serie):
+            numeros = [int(s) for s in serie]
+            if numeros == list(range(numeros[0], numeros[0] + len(numeros))):
+                salida.add(col["clave"])
+    return salida
 
 
 def _ubicacion(con: sqlite3.Connection, comp_id: int, cache: dict) -> tuple[str, str, int | None, str, str]:

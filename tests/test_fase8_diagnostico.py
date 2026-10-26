@@ -251,8 +251,9 @@ def jerarquizacion(con, materia_medica, tmp_path: Path) -> dict:
     patología repetida en varias filas (una por terapia), más una nota de comentarios."""
     mid = bib.crear_materia(con, "Jerarquización", "", "pizarra", "atom")
     cid = bib.crear_componente(con, mid, None, "Jerarquización", "", ["excel", "notas"])
-    tabla = agregar_tabla(con, tmp_path, cid, "Tabla jerarquización", ["PATOLOGÍA", "ACUP", "T.N.", "F.V."],
-                          [["cefalea", "1", "1", "3"], ["artritis reumatoidea", "1", "", ""]])
+    tabla = agregar_tabla(con, tmp_path, cid, "Tabla jerarquización", ["PATOLOGÍA", "Columna 1", "ACUP", "T.N.", "F.V."],
+                          [["cefalea", "1", "1", "1", "3"], ["artritis reumatoidea", "2", "1", "", ""],
+                           ["parálisis facial", "3", "1", "2", ""]])
     consolidado = agregar_tabla(con, tmp_path, cid, "Jerarquización consolidado",
                                 ["PATOLOGÍA", "JERARQUIZACIÓN", "TERAPÉUTICA", "DESCRIPCIÓN"],
                                 [["CEFALEA", "1", "TERAPIA NEURAL", "Músculos occipitofrontal y temporal"],
@@ -268,6 +269,8 @@ def test_jerarquizacion_entra_completa(con, jerarquizacion) -> None:
     a = dx.analizar(con, dx.preparar(["cefalea"], []))
     g = next(g for g in a.por_materia if g.nombre == "Jerarquización")
     assert g.total == 4                                                   # 1 de la tabla + 3 del consolidado
+    fila_tabla = next(c for c in g.todos if c.tabla == "Tabla jerarquización")
+    assert dict(fila_tabla.otros) == {"ACUP": ["1"], "T.N.": ["1"], "F.V.": ["3"]}   # sin la numeración «Columna 1»
     terapias = [dict(c.otros).get("TERAPÉUTICA") for c in g.todos if c.tabla == "Jerarquización consolidado"]
     assert sorted(t[0] for t in terapias) == ["ACUPUNTURA", "OXIVENACIÓN", "TERAPIA NEURAL"]
     # por el contenido (no por el título) también aparece
@@ -290,8 +293,8 @@ def test_cobertura_de_toda_la_biblioteca(con, jerarquizacion, tmp_path: Path) ->
     img_srv.agregar(con, cid, "i.png", ruta, "Barotrauma de oído - HBO", "Escala de Teed | grado 1")
     bib.archivar_materia(con, otra, True)                                 # las archivadas también se revisan
     revisados, faltantes = dx.revisar_cobertura(con)
-    # Homeopatía: 4 fichas + 1 nota; Jerarquización: 2 + 3 fichas + 1 nota; Oxigenoterapia: 1 nota + 1 imagen
-    assert revisados == 13 and faltantes == []
+    # Homeopatía: 4 fichas + 1 nota; Jerarquización: 3 + 3 fichas + 1 nota; Oxigenoterapia: 1 nota + 1 imagen
+    assert revisados == 14 and faltantes == []
 
 
 def test_cobertura_detecta_lo_que_no_aparece(con, jerarquizacion) -> None:
@@ -302,3 +305,15 @@ def test_cobertura_detecta_lo_que_no_aparece(con, jerarquizacion) -> None:
     _, faltantes = dx.revisar_cobertura(con)
     assert {(f.tipo, f.id) for f in faltantes} == {("fila", fila)}
     assert faltantes[0].materia == "Jerarquización" and faltantes[0].contenedor == "Jerarquización consolidado"
+
+
+def test_numeracion_no_es_rasgo(con, tmp_path: Path) -> None:
+    """Solo se oculta una columna que numera las filas de forma consecutiva, no una con números repetidos."""
+    mid = bib.crear_materia(con, "Clínica", "", "azul", "heart-pulse")
+    cid = bib.crear_componente(con, mid, None, "Escalas", "", ["excel"])
+    tid = agregar_tabla(con, tmp_path, cid, "Escalas", ["Escala", "N°", "Nivel"],
+                        [["Dolor leve", "5", "1"], ["Dolor moderado", "6", "1"], ["Dolor intenso", "7", "2"]])
+    columnas = tab.obtener(con, tid).columnas
+    assert {c["nombre"] for c in columnas if c["clave"] in dx._columnas_de_numeracion(con, tid, columnas)} == {"N°"}
+    c = dx.analizar(con, dx.preparar(["dolor intenso"], [])).candidatos[0]
+    assert dict(c.otros) == {"Nivel": ["2"]}
