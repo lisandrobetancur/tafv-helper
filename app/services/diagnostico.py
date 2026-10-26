@@ -400,6 +400,67 @@ def sugerencias(con: sqlite3.Connection, q: str, limite: int = 10) -> list[str]:
     return [t for _, t in sorted(encontrados.values())][:limite]
 
 
+# --------------------------------------------------------------- cobertura
+@dataclass
+class Faltante:
+    tipo: str            # fila | nota | imagen
+    id: int
+    materia: str
+    contenedor: str      # tabla (filas) o componente (notas e imágenes)
+    titulo: str
+    busqueda: str        # lo que se buscó y no lo trajo
+    motivo: str
+
+
+def _palabra_de_contenido(texto: str, titulo: str) -> str | None:
+    """La palabra más larga del contenido que no está en el título (sin números), para buscar por el cuerpo."""
+    del_titulo = set(re.findall(r"\w+", normalizar(titulo)))
+    palabras = [p for p in re.findall(r"\w+", normalizar(texto))
+                if p not in del_titulo and len(p) >= 5 and not any(ch.isdigit() for ch in p)]
+    return max(palabras, key=len) if palabras else None
+
+
+def revisar_cobertura(con: sqlite3.Connection) -> tuple[int, list[Faltante]]:
+    """Comprueba que cada fila, nota e imagen vigente sea candidata en Acceso rápido: buscándola por su
+    título y por una palabra de su contenido. Devuelve (elementos revisados, los que no aparecieron)."""
+    vigentes = """JOIN componentes c ON c.id = {t}.componente_id JOIN materias m ON m.id = c.materia_id
+                  WHERE {t}.papelera_id IS NULL AND c.papelera_id IS NULL AND m.papelera_id IS NULL"""
+    elementos = []    # (tipo, id, materia, contenedor, título visible, contenido)
+    for f in con.execute(f"""SELECT f.id, f.titulo, f.valores, t.nombre, t.columna_titulo, m.nombre AS materia
+                             FROM filas f JOIN tablas t ON t.id = f.tabla_id {vigentes.format(t='t')}
+                             AND f.huerfana = 0"""):
+        valores = json.loads(f["valores"])
+        titulo = f["titulo"].strip() or next((v for v in valores.values() if v.strip()), "")
+        cuerpo = " ".join(v for k, v in valores.items() if k != f["columna_titulo"])
+        elementos.append(("fila", f["id"], f["materia"], f["nombre"], titulo, cuerpo))
+    for tipo, sql in (("nota", "SELECT x.id, x.titulo, x.contenido AS texto, m.nombre AS materia, c.nombre AS comp "
+                               "FROM notas x {}"),
+                      ("imagen", "SELECT x.id, x.titulo, x.descripcion || ' ' || COALESCE(x.texto_ocr, '') AS texto, "
+                                 "m.nombre AS materia, c.nombre AS comp FROM imagenes x {}")):
+        for f in con.execute(sql.format(vigentes.format(t="x"))):
+            titulo = f["titulo"]
+            if titulo.endswith(f" - {f['comp']}"):     # Acceso rápido muestra el título sin « - <componente>»
+                titulo = titulo[: -len(f" - {f['comp']}")]
+            elementos.append((tipo, f["id"], f["materia"], f["comp"], titulo, f["texto"] or ""))
+
+    faltantes = []
+    for tipo, ref, materia, contenedor, titulo, cuerpo in elementos:
+        busquedas = []
+        palabras_titulo = re.findall(r"\w+", titulo)[:6]
+        if palabras_titulo:
+            busquedas.append((" ".join(palabras_titulo), "no aparece al buscar su título"))
+        palabra = _palabra_de_contenido(cuerpo, titulo)
+        if palabra:
+            busquedas.append((palabra, "no aparece al buscar una palabra de su contenido"))
+        if not busquedas:
+            faltantes.append(Faltante(tipo, ref, materia, contenedor, titulo, "", "no tiene texto para buscar"))
+        for texto, motivo in busquedas:
+            a = analizar(con, preparar([texto], []))
+            if not any(c.tipo == tipo and c.fila_id == ref for g in a.por_materia for c in g.todos):
+                faltantes.append(Faltante(tipo, ref, materia, contenedor, titulo, texto, motivo))
+    return len(elementos), faltantes
+
+
 # ----------------------------------------------------------------- informe
 def nota_markdown(a: Analisis) -> str:
     """Resumen del análisis en Markdown (se guarda con el caso)."""

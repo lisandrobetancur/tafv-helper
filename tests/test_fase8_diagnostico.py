@@ -243,3 +243,62 @@ def test_comparacion_marca_registros_fuera_del_ranking_visible(con, materia_medi
         assert en_homeo == [c.titulo for c in homeo.todos if s.texto in c.cubiertos]
         if s.texto not in primero.cubiertos and any(s.texto in c.cubiertos for c in homeo.todos):
             assert en_homeo                                               # antes quedaba vacío
+
+
+@pytest.fixture()
+def jerarquizacion(con, materia_medica, tmp_path: Path) -> dict:
+    """Una materia como Jerarquización: una tabla con solo números junto a la patología y otra con la misma
+    patología repetida en varias filas (una por terapia), más una nota de comentarios."""
+    mid = bib.crear_materia(con, "Jerarquización", "", "pizarra", "atom")
+    cid = bib.crear_componente(con, mid, None, "Jerarquización", "", ["excel", "notas"])
+    tabla = agregar_tabla(con, tmp_path, cid, "Tabla jerarquización", ["PATOLOGÍA", "ACUP", "T.N.", "F.V."],
+                          [["cefalea", "1", "1", "3"], ["artritis reumatoidea", "1", "", ""]])
+    consolidado = agregar_tabla(con, tmp_path, cid, "Jerarquización consolidado",
+                                ["PATOLOGÍA", "JERARQUIZACIÓN", "TERAPÉUTICA", "DESCRIPCIÓN"],
+                                [["CEFALEA", "1", "TERAPIA NEURAL", "Músculos occipitofrontal y temporal"],
+                                 ["CEFALEA", "1", "ACUPUNTURA", "Dolor externo por viento"],
+                                 ["CEFALEA", "2", "OXIVENACIÓN", "Produce vasoconstricción cerebral"]])
+    notas_srv.crear(con, cid, "Comentarios - Tabla jerarquización",
+                    "**enfermedad varicosa · C. MAGN** (celda H38):\n> Comentario: Flebotróficos: castaño de indias")
+    return {"materia": mid, "tabla": tabla, "consolidado": consolidado}
+
+
+def test_jerarquizacion_entra_completa(con, jerarquizacion) -> None:
+    """Cada fila de las dos tablas cuenta, aunque la patología se repita, y en su materia se ve la terapia."""
+    a = dx.analizar(con, dx.preparar(["cefalea"], []))
+    g = next(g for g in a.por_materia if g.nombre == "Jerarquización")
+    assert g.total == 4                                                   # 1 de la tabla + 3 del consolidado
+    terapias = [dict(c.otros).get("TERAPÉUTICA") for c in g.todos if c.tabla == "Jerarquización consolidado"]
+    assert sorted(t[0] for t in terapias) == ["ACUPUNTURA", "OXIVENACIÓN", "TERAPIA NEURAL"]
+    # por el contenido (no por el título) también aparece
+    a = dx.analizar(con, dx.preparar(["vasoconstriccion"], []))
+    assert [c.titulo for c in a.candidatos] == ["CEFALEA"]
+    a = dx.analizar(con, dx.preparar(["castaño de indias"], []))
+    assert [c.tipo for c in a.candidatos] == ["nota"]
+
+
+def test_cobertura_de_toda_la_biblioteca(con, jerarquizacion, tmp_path: Path) -> None:
+    """revisar_cobertura busca cada fila, nota e imagen vigente y confirma que sea candidata."""
+    from PIL import Image as Img
+
+    from app.services import imagenes as img_srv
+    otra = bib.crear_materia(con, "Oxigenoterapia", "", "azul", "heart-pulse")
+    cid = bib.crear_componente(con, otra, None, "HBO", "", ["notas", "imagenes"])
+    notas_srv.crear(con, cid, "Contraindicaciones - HBO", "- Neumotórax no tratado")
+    ruta = tmp_path / "i.png"
+    Img.new("RGB", (20, 20), "white").save(ruta)
+    img_srv.agregar(con, cid, "i.png", ruta, "Barotrauma de oído - HBO", "Escala de Teed | grado 1")
+    bib.archivar_materia(con, otra, True)                                 # las archivadas también se revisan
+    revisados, faltantes = dx.revisar_cobertura(con)
+    # Homeopatía: 4 fichas + 1 nota; Jerarquización: 2 + 3 fichas + 1 nota; Oxigenoterapia: 1 nota + 1 imagen
+    assert revisados == 13 and faltantes == []
+
+
+def test_cobertura_detecta_lo_que_no_aparece(con, jerarquizacion) -> None:
+    """Si un elemento falta en el índice de búsqueda, la revisión lo informa."""
+    fila = con.execute("SELECT id FROM filas WHERE tabla_id = ? ORDER BY posicion LIMIT 1",
+                       (jerarquizacion["consolidado"],)).fetchone()[0]
+    con.execute("DELETE FROM busqueda WHERE tipo = 'fila' AND ref = ?", (fila,))
+    _, faltantes = dx.revisar_cobertura(con)
+    assert {(f.tipo, f.id) for f in faltantes} == {("fila", fila)}
+    assert faltantes[0].materia == "Jerarquización" and faltantes[0].contenedor == "Jerarquización consolidado"

@@ -170,7 +170,8 @@ modelos/ocr/         (no va en git) modelos ONNX del OCR; los descarga `instalar
 tests/               pytest, una suite por fase
 tools/               compilar_css.(sh|bat), construir_sprite.py (+ binario de Tailwind, no versionado)
 tools/carga/         carga fiel de material: preparar_fuentes, inspeccionar, extraer_rango, mejorar_imagen,
-                     cargar (plan.json) y auditar (fuentes vs. biblioteca)
+                     cargar (plan.json), auditar (fuentes vs. biblioteca) y verificar_acceso_rapido
+                     (cada fila, nota e imagen vigente aparece como candidata en Acceso rápido)
 .claude/            skill «cargar-material» (reglas y formato del plan) y agentes extractor-material y
                      verificador-carga, para Claude Code
 instalador.py        instalar/iniciar (solo biblioteca estándar); lo llaman los .command y .bat

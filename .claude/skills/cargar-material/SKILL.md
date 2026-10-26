@@ -11,7 +11,7 @@ Las reglas de contenido están en [reglas.md](reglas.md) y el formato del plan e
 léelos antes de empezar.
 
 Herramientas (desde la raíz del proyecto, con `.venv/bin/python`): `tools/carga/preparar_fuentes.py`,
-`inspeccionar.py`, `extraer_rango.py`, `mejorar_imagen.py`, `cargar.py`, `auditar.py`. Cada una explica su
+`inspeccionar.py`, `extraer_rango.py`, `mejorar_imagen.py`, `cargar.py`, `auditar.py`, `verificar_acceso_rapido.py`. Cada una explica su
 uso con `--help`.
 
 ## 1. Entender el pedido
@@ -69,6 +69,13 @@ La app puede estar abierta: escribe en la misma base de datos.
 Lanza un agente **verificador-carga** por componente cargado. Revisa por su cuenta las fuentes contra la
 app (incluido mirar cada imagen y compararla con su descripción) y corre `auditar.py --ocr`. Si encuentra
 algo, corrígelo (edita el plan, vuelve a cargar con `--reemplazar`) y vuelve a verificar hasta que esté limpio.
+
+Después comprueba que todo lo de la biblioteca (lo nuevo y lo anterior) sea tenido en cuenta por Acceso rápido:
+```bash
+.venv/bin/python tools/carga/verificar_acceso_rapido.py
+```
+Busca cada fila, nota e imagen vigente por su título y por una palabra de su contenido. Si algo no aparece,
+revisa el índice (Mantenimiento › «Reconstruir índice») y vuelve a correrlo hasta que diga CORRECTO.
 
 ## 7. Informar
 Dile a la usuaria, en pocas líneas: qué quedó en cada componente (notas, tablas, imágenes, PDF), las
