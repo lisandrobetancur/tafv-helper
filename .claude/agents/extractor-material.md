@@ -26,7 +26,8 @@ compartida: puede haber otros extractores trabajando en paralelo).
      completa, o `.venv/bin/python tools/carga/extraer_rango.py hojas/<hoja>.xlsx --rango <rango> --salida tablas/<Nombre>.xlsx`
      si la base ocupa solo parte de la hoja;
    - **TABLA PEQUEÑA** → tabla Markdown dentro de la nota de su encabezado;
-   - **RECUADROS** → una nota por encabezado, en `notas/<Título>.md`.
+   - **RECUADROS** → una nota por encabezado, en `notas/<Título>.md`. El nombre del archivo debe servir en Windows:
+     sin `: ? * < > | "` ni `/` (usa «-» en lugar de «:» o «/»; el título dentro del plan queda tal cual).
    Nunca armes una tabla de Excel con recuadros o listas (p. ej. «Condición | Grupo» a partir de viñetas).
 3. Mira **cada imagen** con Read. Escribe su título y la transcripción literal completa en `descripcion`.
    Si algo no se lee con seguridad, no lo adivines: anótala en `preguntas.md` (qué parte no se lee).

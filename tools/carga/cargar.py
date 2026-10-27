@@ -50,6 +50,7 @@ if ARGS.prueba:  # antes de importar la app: la carpeta de datos se fija al impo
 
 from app import db  # noqa: E402
 from app.errores import ErrorUsuario  # noqa: E402
+from app.services import almacenamiento as alm  # noqa: E402
 from app.services import biblioteca as bib  # noqa: E402
 from app.services import etiquetas as etq  # noqa: E402
 from app.services import imagenes, notas, pdfs, respaldos, tablas  # noqa: E402
@@ -111,9 +112,24 @@ def _contenido_nota(base: Path, n: dict) -> str:
     return n["contenido"]
 
 
+def _nombres_invalidos_en_windows(plan: dict) -> list[str]:
+    """Archivos del plan cuyo nombre no se puede crear en Windows (el repositorio se clona también allí)."""
+    malos = []
+    for grupo in ("notas", "imagenes", "tablas", "pdfs"):
+        for elemento in plan.get(grupo, []):
+            archivo = elemento.get("archivo", "")
+            if any(alm.sanear_nombre_archivo(parte, largo=10_000) != parte for parte in Path(archivo).parts):
+                malos.append(archivo)
+    return malos
+
+
 def cargar(plan_ruta: Path, reemplazar: bool) -> dict:
     plan = json.loads(plan_ruta.read_text(encoding="utf-8"))
     base = plan_ruta.parent
+    if malos := _nombres_invalidos_en_windows(plan):
+        raise SystemExit("Estos archivos tienen un nombre que Windows no admite (p. ej. «:», «?» o «*»); "
+                         "renómbralos (en el plan y en la carpeta) con alm.nombre_legible:\n  "
+                         + "\n  ".join(malos))
     con = db.conectar()
     mid = _materia(con, plan["materia"])
     cid = _componente(con, mid, plan["componente"], plan.get("crear_componente"))

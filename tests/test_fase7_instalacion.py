@@ -58,3 +58,29 @@ def test_demostracion_en_su_propia_carpeta(tmp_path: Path, monkeypatch: pytest.M
         assert con.execute("SELECT COUNT(*) FROM favoritos").fetchone()[0] == 2
     finally:
         con.close()
+
+
+def test_nombres_del_repositorio_validos_en_windows() -> None:
+    """Todo lo versionado (también data/) debe poder clonarse en Windows: sin «: ? * < > | "», sin nombres
+    reservados, sin punto o espacio al final, sin rutas que solo difieran en mayúsculas y sin rutas muy largas."""
+    import re
+    import subprocess
+
+    from app.services.almacenamiento import _RESERVADOS_WINDOWS
+
+    raiz = Path(__file__).resolve().parents[1]
+    try:
+        salida = subprocess.run(["git", "-c", "core.quotepath=false", "ls-files", "-z"], cwd=raiz,
+                                capture_output=True, check=True).stdout.decode("utf-8")
+    except (OSError, subprocess.CalledProcessError):
+        pytest.skip("sin repositorio git")
+    rutas = [r for r in salida.split("\0") if r]
+    malas = [r for r in rutas for parte in r.split("/")
+             if re.search(r'[<>:"\\|?*\x00-\x1f]', parte) or parte.endswith((".", " "))
+             or parte.split(".")[0].lower() in _RESERVADOS_WINDOWS]
+    assert malas == []
+    minusculas: dict[str, str] = {}
+    repetidas = [(minusculas.setdefault(r.lower(), r), r) for r in rutas if minusculas.get(r.lower(), r) != r]
+    assert repetidas == []
+    # Windows limita la ruta completa a 260 caracteres; se dejan ~60 para la carpeta donde se clone
+    assert [r for r in rutas if len(r) > 200] == []
