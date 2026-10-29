@@ -1,0 +1,76 @@
+{# Fragmentos de una recopilación, en orden. Se reemplaza completa al mover, editar o quitar. #}
+{% from "macros.html" import icono %}
+{% set r = recopilacion %}
+{% if r.fragmentos %}
+<ol class="flex flex-col gap-3" x-data="ordenable" data-url="/recopilaciones/{{ r.id }}/orden">
+  {% for f in r.fragmentos %}
+  <li data-id="{{ f.id }}" class="{{ 'border-l-4 border-marca bg-marca-suave/40' if f.tipo == 'seccion' else '' }} tarjeta flex gap-3 p-4">
+    <div class="flex shrink-0 flex-col items-center gap-0.5">
+      <span class="asa p-1" title="Arrastra para ordenar">{{ icono("grip-vertical") }}</span>
+      <button type="button" class="btn-icono p-1" title="Subir" aria-label="Subir" {% if loop.first %}disabled{% endif %}
+              hx-post="/fragmentos/{{ f.id }}/mover" hx-vals='{"paso": -1}' hx-target="#fragmentos">{{ icono("arrow-up") }}</button>
+      <button type="button" class="btn-icono p-1" title="Bajar" aria-label="Bajar" {% if loop.last %}disabled{% endif %}
+              hx-post="/fragmentos/{{ f.id }}/mover" hx-vals='{"paso": 1}' hx-target="#fragmentos">{{ icono("arrow-down") }}</button>
+    </div>
+    <div class="min-w-0 flex-1">
+      {% if f.tipo == "seccion" %}
+        <h2 class="text-lg font-bold text-marca">{{ f.titulo }}</h2>
+      {% else %}
+        <p class="mb-1 flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wide text-tenue">
+          {{ icono({"campos": "list", "texto": "type", "imagen": "image"}[f.tipo], "size-3.5") }}
+          {{ {"campos": "Ficha", "texto": "Texto" if f.origen else "Texto propio", "imagen": "Imagen"}[f.tipo] }}</p>
+        {% if f.titulo %}<h3 class="font-semibold [overflow-wrap:anywhere]">{{ f.titulo }}</h3>{% endif %}
+      {% endif %}
+
+      {% if f.tipo == "campos" %}
+        <dl class="mt-2 flex flex-col gap-1.5 text-sm" x-data="{ todo: false }">
+          {% for nombre, valor in f.campos %}
+          <div {% if loop.index > 4 %}x-show="todo" x-cloak{% endif %}><dt class="inline font-semibold">{{ nombre }}:</dt>
+            <dd class="inline whitespace-pre-wrap [overflow-wrap:anywhere]">{{ valor }}</dd></div>
+          {% endfor %}
+          {% if f.campos|length > 4 %}<button type="button" class="self-start text-xs font-medium text-marca hover:underline" @click="todo = !todo"
+                  x-text="todo ? 'Ver menos' : 'Ver los {{ f.campos|length }} campos'"></button>{% endif %}
+        </dl>
+      {% elif f.tipo == "texto" %}
+        <div class="mt-1 text-sm" x-data="{ todo: false }">
+          <div class="prose prose-sm max-w-none [overflow-wrap:anywhere]" :class="todo || 'line-clamp-6'">{{ f.html|safe }}</div>
+          {% if f.contenido|length > 400 or f.contenido.count("\n") > 5 %}
+          <button type="button" class="mt-1 text-xs font-medium text-marca hover:underline" @click="todo = !todo" x-text="todo ? 'Ver menos' : 'Ver todo'"></button>
+          {% endif %}
+        </div>
+      {% elif f.tipo == "imagen" %}
+        <button type="button" class="mt-2 block cursor-zoom-in" title="Ver en grande"
+                @click="$dispatch('abrir-visor', { imagenes: [{{ {'src': '/recopilaciones/imagenes/' ~ f.archivo, 'titulo': f.titulo}|tojson|forceescape }}], indice: 0 })">
+          <img src="/recopilaciones/imagenes/{{ f.archivo }}" alt="{{ f.titulo }}" loading="lazy"
+               class="max-h-64 max-w-full rounded-lg border border-borde bg-superficie-2 object-contain"></button>
+        <p class="mt-1 text-xs text-tenue">{{ f.ancho }}×{{ f.alto }} px · en el documento: {{ {"pequena": "pequeña", "mediana": "mediana", "grande": "grande"}.get(f.tamano, "mediana") }}</p>
+      {% endif %}
+
+      {% if f.comentario.strip() %}
+        <div class="mt-3 rounded-lg border border-oro/30 bg-oro-suave px-3 py-2 text-sm">
+          <p class="mb-0.5 flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wide text-oro">{{ icono("notebook-pen", "size-3.5") }}Tu comentario</p>
+          <div class="prose prose-sm max-w-none">{{ f.html_comentario|safe }}</div>
+        </div>
+      {% endif %}
+      {% if f.origen %}
+        <p class="mt-2 text-xs text-tenue">Fuente: {% if f.origen_url %}<a href="{{ f.origen_url }}" class="hover:text-marca hover:underline">{{ f.origen }}</a>{% else %}{{ f.origen }}{% endif %}</p>
+      {% endif %}
+    </div>
+    <div class="flex shrink-0 flex-col gap-1">
+      <button type="button" class="btn-icono" title="Editar y comentar" aria-label="Editar y comentar"
+              hx-get="/fragmentos/{{ f.id }}/editar" hx-target="#modal">{{ icono("pencil") }}</button>
+      <button type="button" class="btn-icono hover:text-peligro" title="Quitar de la recopilación" aria-label="Quitar"
+              hx-post="/fragmentos/{{ f.id }}/eliminar" hx-target="#fragmentos"
+              hx-confirm="¿Quitar este fragmento de la recopilación?" data-confirmar-boton="Quitar" data-confirmar-peligro>{{ icono("trash-2") }}</button>
+    </div>
+  </li>
+  {% endfor %}
+</ol>
+{% else %}
+<div class="flex flex-col items-center gap-3 rounded-2xl border border-dashed border-borde-fuerte bg-superficie/60 px-6 py-14 text-center">
+  <span class="grid size-14 place-items-center rounded-2xl bg-marca-suave text-marca">{{ icono("clipboard-plus", "size-7") }}</span>
+  <h3 class="text-base font-semibold">Todavía no hay nada aquí</h3>
+  <p class="max-w-lg text-sm text-tenue">Ve a cualquier materia y usa {{ icono("clipboard-plus", "inline size-4 -mt-0.5") }} en una ficha, un campo, una nota,
+    una imagen o un PDF. También puedes subrayar un texto y pulsar «Agregar a la recopilación».</p>
+</div>
+{% endif %}

@@ -5,11 +5,12 @@ __pycache__/
 .DS_Store
 
 # Datos de la usuaria: se versionan la biblioteca, sus archivos y las fuentes;
-# respaldos, caché, registros y papelera quedan solo en disco
+# respaldos, caché, registros, papelera y recopilaciones quedan solo en disco
 data/respaldos/
 data/cache/
 data/logs/
 data/papelera/
+data/recopilaciones/
 data/*.db-wal
 data/*.db-shm
 data/*.db-journal

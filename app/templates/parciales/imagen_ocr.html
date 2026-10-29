@@ -15,6 +15,7 @@
   {% elif imagen.ocr_estado == "listo" %}
     {% if imagen.texto_ocr %}
     <p class="max-h-72 overflow-auto whitespace-pre-wrap rounded-lg bg-superficie-2 p-3 text-sm leading-relaxed"
+       data-capturar="imagen:{{ imagen.id }}" data-capturar-titulo="{{ imagen.titulo }}"
        data-resaltar="{{ request.query_params.get('buscar', '') if request is defined else '' }}">{{ imagen.texto_ocr }}</p>
     <p class="ayuda">Este texto se incluye en la búsqueda de la biblioteca.</p>
     {% else %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% from "macros.html" import icono %}
+{% block titulo %}Vista previa · {{ recopilacion.titulo }}{% endblock %}
+{% block contenido %}
+<section class="mb-5 flex flex-wrap items-center gap-3">
+  <div class="min-w-[min(100%,18rem)] flex-1">
+    <h1 class="text-2xl font-bold tracking-tight">Vista previa</h1>
+    <p class="text-sm text-tenue">Así quedará el documento. Si algo no va, vuelve a la recopilación para ordenarlo, editarlo o quitarlo.</p>
+  </div>
+  <a class="btn-secundario" href="/recopilaciones/{{ recopilacion.id }}">{{ icono("pencil") }}Volver a editar</a>
+  {% if recopilacion.fragmentos %}
+  <a class="btn-primario" href="/recopilaciones/{{ recopilacion.id }}/pdf" hx-boost="false">{{ icono("file-down") }}Descargar PDF</a>
+  <a class="btn-primario" href="/recopilaciones/{{ recopilacion.id }}/word" hx-boost="false">{{ icono("file-down") }}Descargar Word</a>
+  {% endif %}
+</section>
+{# Hoja blanca tamaño carta (el documento siempre es claro, como al imprimirlo) #}
+<div class="overflow-x-auto rounded-2xl bg-superficie-3 p-3 sm:p-8">
+  <article class="documento-recopilacion mx-auto w-full max-w-[8.5in] bg-white px-6 py-8 text-[#1f1b17] shadow-lg sm:px-[0.75in] sm:py-[0.75in]">
+    {{ documento|safe }}
+  </article>
+</div>
+{% endblock %}

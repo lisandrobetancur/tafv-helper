@@ -46,6 +46,7 @@
                  x-text="navigator.platform.toUpperCase().includes('MAC') ? '⌘ K' : 'Ctrl K'">Ctrl K</kbd>
           </form>
           <span id="ocr-estado" hx-get="/ocr/estado" hx-trigger="load" hx-swap="outerHTML" class="ml-auto"></span>
+          <span hx-get="/recopilacion/contador" hx-trigger="load" hx-swap="outerHTML"></span>
           <div class="ml-auto hidden items-center gap-1 sm:flex" x-data role="group" aria-label="Tema de color">
             {% for valor, nombre, ic in [("claro", "Modo claro", "sun"), ("sistema", "Según el sistema", "monitor"), ("oscuro", "Modo oscuro", "moon")] %}
             <button type="button" class="btn-icono" title="{{ nombre }}" aria-label="{{ nombre }}"
@@ -116,6 +117,34 @@
       </div>
       <p class="px-4 py-3 text-center text-sm text-white/80" x-show="actual.pie" x-text="actual.pie"></p>
     </dialog>
+  </div>
+
+  {# Barra de selección múltiple: lo marcado con casillas (en esta u otras páginas) se agrega de una vez #}
+  <div x-data x-show="$store.seleccion.items.length" x-cloak x-transition.opacity
+       class="fixed inset-x-0 bottom-16 z-40 flex justify-center px-4 lg:bottom-5">
+    <div class="tarjeta flex w-full max-w-2xl flex-col overflow-hidden !shadow-[var(--sombra-alta)]">
+      <ul x-show="$store.seleccion.lista" x-cloak class="max-h-60 divide-y divide-borde overflow-y-auto border-b border-borde text-sm">
+        <template x-for="(e, i) in $store.seleccion.items" :key="$store.seleccion.clave(e)">
+          <li class="flex items-center gap-2 px-4 py-1.5">
+            <span class="chip shrink-0" x-text="{fila: 'Ficha', nota: 'Nota', imagen: 'Imagen', imagen_fila: 'Imagen', pdf: 'Página'}[e.fuente]"></span>
+            <span class="min-w-0 flex-1 truncate" x-text="e.titulo + (e.pagina ? ` (pág. ${e.pagina})` : '')"></span>
+            <button type="button" class="btn-icono p-1" @click="$store.seleccion.quitar(i)" aria-label="Quitar de la selección">{{ icono("x", "size-3.5") }}</button>
+          </li>
+        </template>
+      </ul>
+      <div class="flex flex-wrap items-center gap-2 px-4 py-2.5">
+        <button type="button" class="flex items-center gap-2 text-sm font-medium hover:text-marca" @click="$store.seleccion.lista = !$store.seleccion.lista"
+                :aria-expanded="$store.seleccion.lista">
+          <span class="rounded-full bg-marca px-2 text-xs font-semibold leading-5 text-sobre-marca" x-text="$store.seleccion.items.length"></span>
+          <span x-text="$store.seleccion.items.length === 1 ? 'seleccionado' : 'seleccionados'"></span>
+          <span class="transition-transform" :class="$store.seleccion.lista && 'rotate-180'">{{ icono("chevron-up", "size-4") }}</span>
+        </button>
+        <span class="hidden text-xs text-tenue sm:inline">puedes seguir marcando en otras páginas</span>
+        <button type="button" class="btn-fantasma ml-auto py-1.5 text-sm" @click="$store.seleccion.vaciar()">Quitar selección</button>
+        <button type="button" class="btn-primario py-1.5 text-sm" @click="$store.seleccion.agregar()" :disabled="$store.seleccion.enviando">
+          {{ icono("clipboard-plus") }}Agregar a la recopilación</button>
+      </div>
+    </div>
   </div>
 
   <div x-data="avisos" @aviso.window="mostrar($event.detail)" aria-live="polite"

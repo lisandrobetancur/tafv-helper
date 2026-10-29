@@ -1,13 +1,19 @@
 {# Pestaña Notas de un componente #}
-{% from "macros.html" import icono, vacio, plural %}
+{% from "macros.html" import icono, vacio, plural, casilla %}
 {% if notas %}
 <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
-  <p class="text-sm text-tenue">{{ plural(notas|length, "nota", "notas") }}</p>
+  <div class="flex items-center gap-3" x-data>
+    <p class="text-sm text-tenue">{{ plural(notas|length, "nota", "notas") }}</p>
+    <label class="flex cursor-pointer items-center gap-1.5 text-xs text-tenue" title="Seleccionar todas para la recopilación">
+      <input type="checkbox" class="size-4 accent-[var(--marca)]" :checked="$store.seleccion.todasEn(document.getElementById('lista-notas'))"
+             @click="$store.seleccion.grupo(document.getElementById('lista-notas'), $event.target.checked)">Seleccionar todas</label>
+  </div>
   <a href="/componentes/{{ componente.id }}/notas/nueva" class="btn-primario">{{ icono("plus") }}Nueva nota</a>
 </div>
-<ul class="grid gap-3 lg:grid-cols-2">
+<ul class="grid gap-3 lg:grid-cols-2" id="lista-notas">
   {% for n in notas %}
   <li class="group relative flex gap-3 rounded-xl border border-borde p-4 transition hover:border-borde-fuerte hover:bg-superficie-2/40">
+    {{ casilla("nota", n.id, n.titulo, clase="relative z-10 mt-3") }}
     <span class="grid size-10 shrink-0 place-items-center rounded-xl bg-oro-suave text-oro">{{ icono("sticky-note", "size-5") }}</span>
     <div class="min-w-0 flex-1">
       <h3 class="font-semibold"><a href="/notas/{{ n.id }}" class="after:absolute after:inset-0">{{ n.titulo }}</a></h3>

@@ -1,5 +1,5 @@
 {# Resultados agrupados por materia › componente. compacto=True para la paleta Ctrl/⌘+K #}
-{% from "macros.html" import icono %}
+{% from "macros.html" import icono, casilla %}
 
 {% macro grupos(lista, compacto=False) -%}
 {% for g in lista %}
@@ -10,9 +10,12 @@
   </h3>
   <ul class="{{ 'flex flex-col' if compacto else 'tarjeta divide-y divide-borde overflow-hidden' }}">
     {% for r in g.resultados %}
-    <li>
+    {% set sel = {"fila": ("fila", r.ref, None), "nota": ("nota", r.ref, None), "imagen": ("imagen", r.ref, None),
+                  "imagen_fila": ("imagen_fila", r.ref, None), "pagina": ("pdf", r.ref, r.sub)}.get(r.tipo) if not compacto else None %}
+    <li class="{{ 'flex items-start' if sel }}">
+      {% if sel %}<span class="pl-4 pt-4">{{ casilla(sel[0], sel[1], r.titulo, pagina=sel[2]) }}</span>{% endif %}
       <a href="{{ r.url }}" data-resultado
-         class="group flex items-start gap-3 {{ 'rounded-lg px-2.5 py-2 hover:bg-superficie-2 data-[activo]:bg-marca-suave' if compacto else 'px-4 py-3 hover:bg-superficie-2/70' }}">
+         class="group flex min-w-0 flex-1 items-start gap-3 {{ 'rounded-lg px-2.5 py-2 hover:bg-superficie-2 data-[activo]:bg-marca-suave' if compacto else 'px-4 py-3 hover:bg-superficie-2/70' }}">
         <span class="mt-0.5 grid {{ 'size-7' if compacto else 'size-9' }} shrink-0 place-items-center rounded-lg
                      {{ {'excel': 'bg-exito-suave text-exito', 'pdf': 'bg-peligro-suave text-peligro', 'imagenes': 'bg-oro-suave text-oro',
                          'notas': 'bg-alerta-suave text-alerta', 'organizacion': 'bg-superficie-2 text-tenue'}[r.categoria] }}">

@@ -37,9 +37,12 @@ def _imagenes_carrusel(imagenes: list, tipo: str) -> list[dict[str, str]]:
     """Datos para la macro `carrusel`: imágenes de un componente ("imagenes") o de una ficha ("imagenes-fila")."""
     if tipo == "imagenes":
         return [{"src": f"/imagenes/{i.id}/archivo", "miniatura": f"/imagenes/{i.id}/miniatura", "titulo": i.titulo,
-                 "pie": i.descripcion, "url": f"/imagenes/{i.id}"} for i in imagenes]
+                 "pie": i.descripcion, "url": f"/imagenes/{i.id}",
+                 "recortar": f"/recopilacion/recortar?fuente=imagen&ref_id={i.id}",
+                 "seleccion": {"fuente": "imagen", "ref_id": i.id, "titulo": i.titulo, "pagina": None}} for i in imagenes]
     return [{"src": f"/imagenes-fila/{i.id}/archivo", "miniatura": f"/imagenes-fila/{i.id}/miniatura", "titulo": i.titulo,
-             "pie": i.pie} for i in imagenes]
+             "pie": i.pie, "recortar": f"/recopilacion/recortar?fuente=imagen_fila&ref_id={i.id}",
+             "seleccion": {"fuente": "imagen_fila", "ref_id": i.id, "titulo": i.titulo, "pagina": None}} for i in imagenes]
 
 
 templates.env.globals["version_estaticos"] = _version_estaticos

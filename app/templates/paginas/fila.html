@@ -17,7 +17,7 @@
     {% if resto.strip() %}
     <div x-data="{ todo: false }" class="mt-2 max-w-4xl">
       <p class="whitespace-pre-wrap text-sm text-tenue [overflow-wrap:anywhere]" :class="todo || 'line-clamp-3'"
-         data-resaltar="{{ request.query_params.get('buscar', '') }}">{{ resto.strip() }}</p>
+         data-capturar="fila:{{ fila.id }}" data-capturar-titulo="{{ principal }}" data-resaltar="{{ request.query_params.get('buscar', '') }}">{{ resto.strip() }}</p>
       <button type="button" class="mt-1 text-xs font-medium text-marca hover:underline" @click="todo = !todo"
               x-text="todo ? 'Ver menos' : 'Ver todo'"></button>
     </div>
@@ -26,6 +26,8 @@
   </div>
   <nav class="flex items-center gap-1" aria-label="Fichas vecinas">
     {% with tipo="fila", ref_id=fila.id, activo=favorito %}{% include "parciales/estrella.html" %}{% endwith %}
+    <button type="button" class="btn-secundario" title="Agregar la ficha completa (sus campos de texto) a la recopilación"
+            hx-post="/recopilacion/agregar" hx-vals='{"fuente": "fila", "ref_id": {{ fila.id }}}' hx-swap="none">{{ icono("clipboard-plus") }}<span class="hidden sm:inline">Recopilar ficha</span></button>
     <a {% if anterior %}href="/filas/{{ anterior }}"{% endif %} class="btn-secundario {{ 'pointer-events-none opacity-40' if not anterior }}" title="Ficha anterior">{{ icono("chevron-left") }}<span class="hidden sm:inline">Anterior</span></a>
     <a {% if siguiente %}href="/filas/{{ siguiente }}"{% endif %} class="btn-secundario {{ 'pointer-events-none opacity-40' if not siguiente }}" title="Ficha siguiente"><span class="hidden sm:inline">Siguiente</span>{{ icono("chevron-right") }}</a>
   </nav>
@@ -38,12 +40,19 @@
 
 <div class="grid gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(340px,440px)]">
   {# Campos: los cortos en rejilla y los largos en bloques, en el orden del Excel #}
-  <section class="tarjeta p-5" aria-label="Datos de la ficha" data-resaltar="{{ request.query_params.get('buscar', '') }}">
+  <section class="tarjeta p-5" aria-label="Datos de la ficha" data-resaltar="{{ request.query_params.get('buscar', '') }}"
+           data-capturar="fila:{{ fila.id }}" data-capturar-titulo="{{ principal }}">
     <div class="flex flex-col gap-4">
       {% set ns = namespace(grupo=[]) %}
+      {% macro boton_campo(c) %}
+        <button type="button" class="btn-icono absolute right-1 top-1 p-1 opacity-60 hover:opacity-100 group-hover:opacity-100 focus:opacity-100"
+                title="Agregar el campo «{{ c.nombre }}» a la recopilación" aria-label="Agregar el campo «{{ c.nombre }}» a la recopilación"
+                hx-post="/recopilacion/agregar" hx-vals='{{ {"fuente": "campo", "ref_id": fila.id, "campo": c.clave}|tojson }}' hx-swap="none">{{ icono("clipboard-plus", "size-3.5") }}</button>
+      {% endmacro %}
       {% macro bloque_corto(grupo) %}
         <dl class="grid gap-3 sm:grid-cols-2 2xl:grid-cols-3">
-          {% for c, v in grupo %}<div class="rounded-lg border border-borde bg-superficie-2/60 px-3.5 py-2.5">
+          {% for c, v in grupo %}<div class="group relative rounded-lg border border-borde bg-superficie-2/60 px-3.5 py-2.5" data-capturar-titulo="{{ principal }} — {{ c.nombre }}">
+            {{ boton_campo(c) }}
             <dt class="text-[11px] font-semibold uppercase tracking-wide text-tenue">{{ c.nombre }}</dt>
             <dd class="mt-0.5 whitespace-pre-wrap [overflow-wrap:anywhere]">{{ v }}</dd></div>{% endfor %}
         </dl>
@@ -55,7 +64,8 @@
             {% set ns.grupo = ns.grupo + [(c, v)] %}
           {% else %}
             {% if ns.grupo %}{{ bloque_corto(ns.grupo) }}{% set ns.grupo = [] %}{% endif %}
-            <div class="border-l-[3px] border-marca-suave pl-4">
+            <div class="group relative border-l-[3px] border-marca-suave pl-4" data-capturar-titulo="{{ principal }} — {{ c.nombre }}">
+              {{ boton_campo(c) }}
               <h2 class="text-[11px] font-semibold uppercase tracking-wide text-marca">{{ c.nombre }}</h2>
               <p class="mt-1 whitespace-pre-wrap [overflow-wrap:anywhere] leading-relaxed">{{ v }}</p>
             </div>

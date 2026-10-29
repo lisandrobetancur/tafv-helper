@@ -149,6 +149,23 @@ dialog.modal::backdrop { background: rgb(15 10 8 / .5); backdrop-filter: blur(2p
 .prose thead:not(:has(th:not(:empty))) { display: none; }
 .prose mark { background: var(--oro-suave); color: var(--texto); border-radius: 3px; padding: 0 2px; }
 
+/* Vista previa de una recopilación: imita el PDF (mismo HTML, siempre en claro como una hoja impresa) */
+.documento-recopilacion { font-size: 10.5pt; line-height: 1.45; color-scheme: light; }
+.documento-recopilacion h1 { font-size: 20pt; font-weight: 700; color: #8f1d2c; margin-bottom: 4pt; }
+.documento-recopilacion h2.seccion { font-size: 15pt; font-weight: 700; color: #8f1d2c; margin: 18pt 0 5pt; padding-bottom: 2pt; border-bottom: 1px solid #d2ccc3; }
+.documento-recopilacion h3 { font-size: 12pt; font-weight: 700; margin: 14pt 0 3pt; }
+.documento-recopilacion h4, .documento-recopilacion h5, .documento-recopilacion h6 { font-size: 11pt; font-weight: 700; margin: 8pt 0 2pt; }
+.documento-recopilacion p { margin: 0 0 5pt; }
+.documento-recopilacion ul { list-style: disc; padding-left: 18pt; margin: 0 0 5pt; }
+.documento-recopilacion ol { list-style: decimal; padding-left: 18pt; margin: 0 0 5pt; }
+.documento-recopilacion .portada, .documento-recopilacion .origen { color: #6b645c; font-size: 8.5pt; }
+.documento-recopilacion .portada { font-size: 9.5pt; }
+.documento-recopilacion .comentario { background: #f7efda; padding: 5pt 7pt; margin: 4pt 0 6pt; }
+.documento-recopilacion table { border-collapse: collapse; margin: 4pt 0 6pt; }
+.documento-recopilacion td, .documento-recopilacion th { border: 1px solid #b9b2a8; padding: 2pt 4pt; font-size: 9.5pt; vertical-align: top; }
+.documento-recopilacion th { background: #f3f1ee; }
+.documento-recopilacion img { max-width: 100%; height: auto; }
+
 /* Visor de imágenes a pantalla completa */
 dialog.visor {
   @apply m-0 h-dvh max-h-none w-screen max-w-none border-0 bg-transparent p-0 text-white;

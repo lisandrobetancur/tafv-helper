@@ -1,5 +1,5 @@
 {# Resultados de la tabla (se reemplaza por HTMX al buscar, filtrar, ordenar o paginar) #}
-{% from "macros.html" import icono, vacio %}
+{% from "macros.html" import icono, vacio, casilla %}
 {% macro url() -%}
   {%- set p = dict(request.query_params) -%}
   {%- set _ = p.update(kwargs) -%}
@@ -27,6 +27,9 @@
             {% set activa = consulta.orden == c.clave %}
             <th scope="col" style="width: {{ c.ancho }}px"
                 class="sticky top-0 z-10 border-b border-borde bg-superficie-2 px-3 py-2.5 text-left align-bottom text-xs font-semibold uppercase tracking-wide text-tenue {{ 'left-0 z-20 shadow-[1px_0_0_var(--borde)]' if loop.first }}">
+              {% if loop.first %}<input type="checkbox" x-data class="mr-1.5 size-4 cursor-pointer align-[-3px] accent-[var(--marca)]"
+                     title="Seleccionar todas las filas de esta página para la recopilación" aria-label="Seleccionar todas las filas de esta página"
+                     :checked="$store.seleccion.todasEn($el.closest('table'))" @click="$store.seleccion.grupo($el.closest('table'), $event.target.checked)">{% endif %}
               <a href="{{ url(orden=c.clave, desc='1' if activa and not consulta.desc else '', pagina=1) }}" hx-get="{{ url(orden=c.clave, desc='1' if activa and not consulta.desc else '', pagina=1) }}"
                  hx-target="#region-tabla" hx-push-url="true" class="inline-flex items-center gap-1 hover:text-texto {{ 'text-marca' if activa }}">
                 {{ c.nombre }}{% if activa %}{{ icono("arrow-down" if consulta.desc else "arrow-up", "size-3.5") }}{% endif %}</a>
@@ -45,7 +48,7 @@
             {% for c in columnas %}
             <td class="border-b border-borde px-3 py-2.5 align-top group-hover:bg-marca-suave/40 {{ 'sticky left-0 z-[1] bg-superficie font-semibold shadow-[1px_0_0_var(--borde)] group-hover:bg-[color-mix(in_srgb,var(--marca-suave)_40%,var(--superficie))]' if loop.first }}">
               {% if loop.first %}
-                <a href="/filas/{{ f.id }}" class="enlace-fila whitespace-pre-wrap [overflow-wrap:anywhere] hover:text-marca">{{ f.valores.get(c.clave, '') or "(sin título)" }}</a>
+                {{ casilla("fila", f.id, f.titulo.split("\n")[0], clase="mr-1.5 align-[-3px]") }}<a href="/filas/{{ f.id }}" class="enlace-fila whitespace-pre-wrap [overflow-wrap:anywhere] hover:text-marca">{{ f.valores.get(c.clave, '') or "(sin título)" }}</a>
                 {% if f.huerfana %}<span class="mt-1 block text-[11px] font-medium text-alerta">Ya no está en el Excel</span>{% endif %}
               {% else %}
                 <div class="whitespace-pre-wrap [overflow-wrap:anywhere]" :class="!completo && 'line-clamp-3'">{{ f.valores.get(c.clave, '') }}</div>

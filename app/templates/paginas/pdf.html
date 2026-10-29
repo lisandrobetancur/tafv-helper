@@ -13,6 +13,8 @@
   </div>
   <div class="flex items-center gap-2">
     {% with tipo="pdf", ref_id=pdf.id, activo=favorito %}{% include "parciales/estrella.html" %}{% endwith %}
+    <button type="button" class="btn-secundario" title="Agregar una página del PDF (completa o un recorte) a la recopilación"
+            hx-get="/recopilacion/recortar?fuente=pdf&ref_id={{ pdf.id }}&pagina={{ numero or 1 }}" hx-target="#modal">{{ icono("clipboard-plus") }}Recopilar página</button>
     <a class="btn-secundario" href="/componentes/{{ pdf.componente_id }}#pdf" title="Subir otro PDF al mismo componente">{{ icono("plus") }}Subir otro PDF</a>
     <a class="btn-secundario" href="/pdfs/{{ pdf.id }}/descargar" hx-boost="false">{{ icono("download") }}Descargar</a>
     <div class="relative" x-data="desplegable" @click.outside="cerrar()" @keydown.escape="cerrar()">
@@ -36,7 +38,8 @@
 <details class="tarjeta mb-4 p-4" open>
   <summary class="cursor-pointer text-sm font-medium">{{ icono("scan-text", "inline size-4 -mt-0.5 mr-1") }}Texto reconocido en la página {{ numero }}
     <span class="font-normal text-tenue">(es una página escaneada: el visor no puede resaltar en ella)</span></summary>
-  <p class="mt-3 max-h-60 overflow-auto whitespace-pre-wrap rounded-lg bg-superficie-2 p-3 text-sm leading-relaxed">{% for trozo, marcado in texto_ocr %}{% if marcado %}<mark class="rounded bg-oro-suave px-0.5 text-texto ring-1 ring-oro/40">{{ trozo }}</mark>{% else %}{{ trozo }}{% endif %}{% endfor %}</p>
+  <p class="mt-3 max-h-60 overflow-auto whitespace-pre-wrap rounded-lg bg-superficie-2 p-3 text-sm leading-relaxed"
+     data-capturar="pdf:{{ pdf.id }}" data-capturar-pagina="{{ numero }}" data-capturar-titulo="{{ pdf.titulo }} — página {{ numero }}">{% for trozo, marcado in texto_ocr %}{% if marcado %}<mark class="rounded bg-oro-suave px-0.5 text-texto ring-1 ring-oro/40">{{ trozo }}</mark>{% else %}{{ trozo }}{% endif %}{% endfor %}</p>
 </details>
 {% endif %}
 

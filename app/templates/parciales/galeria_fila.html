@@ -1,5 +1,5 @@
 {# Galería + carga de imágenes de una fila (se reemplaza completa tras subir, editar o eliminar) #}
-{% from "macros.html" import icono, carrusel %}
+{% from "macros.html" import icono, carrusel, casilla %}
 <div class="flex flex-col gap-4">
   {# --- Carga: cada imagen elegida pide su nombre descriptivo antes de subir --- #}
   <div x-data="carga('/filas/{{ fila.id }}/imagenes', 'galeria', 'imagen')" class="tarjeta p-4">
@@ -51,6 +51,7 @@
     {% for img in imagenes %}
     <li data-id="{{ img.id }}" class="group relative overflow-hidden rounded-xl border border-borde bg-superficie"
         data-img='{{ {"src": "/imagenes-fila/" ~ img.id ~ "/archivo", "titulo": img.titulo, "pie": img.pie}|tojson }}'>
+      {{ casilla("imagen_fila", img.id, img.titulo, clase="absolute left-2 top-2 z-10 size-5 rounded shadow") }}
       <button type="button" class="block w-full overflow-hidden" title="Ver en grande"
               @click="const lis = [...$el.closest('ul').children];
                       $dispatch('abrir-visor', { imagenes: lis.map(li => JSON.parse(li.dataset.img)), indice: lis.indexOf($el.closest('li')) })">
@@ -62,6 +63,7 @@
           <p class="truncate text-sm font-medium" title="{{ img.titulo }}">{{ img.titulo }}</p>
           {% if img.pie %}<p class="line-clamp-2 text-xs text-tenue">{{ img.pie }}</p>{% endif %}
         </div>
+        <button type="button" class="btn-icono -m-1 p-1" title="Agregar a la recopilación (completa o un recorte)" hx-get="/recopilacion/recortar?fuente=imagen_fila&ref_id={{ img.id }}" hx-target="#modal">{{ icono("clipboard-plus", "size-3.5") }}</button>
         <button type="button" class="btn-icono -m-1 p-1" title="Editar" hx-get="/imagenes-fila/{{ img.id }}/editar" hx-target="#modal">{{ icono("pencil", "size-3.5") }}</button>
         <button type="button" class="btn-icono -m-1 p-1 hover:text-peligro" title="Enviar a la papelera"
                 hx-post="/imagenes-fila/{{ img.id }}/eliminar" hx-target="#galeria" hx-confirm="¿Enviar «{{ img.titulo }}» a la papelera?" data-confirmar-boton="Enviar a la papelera" data-confirmar-peligro>{{ icono("trash-2", "size-3.5") }}</button>

@@ -1,5 +1,5 @@
 {# Pestaña Imágenes de un componente: carga en lote + galería con filtro por etiqueta #}
-{% from "macros.html" import icono, carrusel %}
+{% from "macros.html" import icono, carrusel, casilla %}
 <div id="contenido-imagenes" class="flex flex-col gap-5">
   <div x-data="carga('/componentes/{{ componente.id }}/imagenes', 'contenido-imagenes', 'galeria')">
     <label class="flex cursor-pointer flex-col items-center gap-1.5 rounded-xl border-2 border-dashed px-4 py-7 text-center transition"
@@ -68,6 +68,7 @@
     {% for img in imagenes %}
     <li data-id="{{ img.id }}" class="group relative flex flex-col overflow-hidden rounded-xl border border-borde bg-superficie transition hover:border-borde-fuerte"
         data-img='{{ {"src": "/imagenes/" ~ img.id ~ "/archivo", "titulo": img.titulo, "pie": img.descripcion}|tojson }}'>
+      {{ casilla("imagen", img.id, img.titulo, clase="absolute left-2 top-2 z-10 size-5 rounded shadow") }}
       <button type="button" class="block overflow-hidden" title="Ver en grande"
               @click="const lis = [...$el.closest('ul').children];
                       $dispatch('abrir-visor', { imagenes: lis.map(li => JSON.parse(li.dataset.img)), indice: lis.indexOf($el.closest('li')) })">
@@ -84,6 +85,8 @@
           </p>
           {% endif %}
         </div>
+        <button type="button" class="btn-icono -m-1 p-1" title="Agregar a la recopilación (completa o un recorte)"
+                hx-get="/recopilacion/recortar?fuente=imagen&ref_id={{ img.id }}" hx-target="#modal">{{ icono("clipboard-plus", "size-3.5") }}</button>
       </div>
     </li>
     {% endfor %}

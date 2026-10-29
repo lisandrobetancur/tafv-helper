@@ -10,6 +10,8 @@
   </div>
   <nav class="flex items-center gap-1" aria-label="Imágenes vecinas">
     {% with tipo="imagen", ref_id=imagen.id, activo=favorito %}{% include "parciales/estrella.html" %}{% endwith %}
+    <button type="button" class="btn-secundario" title="Agregar la imagen (completa o un recorte) a la recopilación"
+            hx-get="/recopilacion/recortar?fuente=imagen&ref_id={{ imagen.id }}" hx-target="#modal">{{ icono("clipboard-plus") }}<span class="hidden sm:inline">Recopilar</span></button>
     <a {% if anterior %}href="/imagenes/{{ anterior }}"{% endif %} class="btn-secundario {{ 'pointer-events-none opacity-40' if not anterior }}" title="Imagen anterior">{{ icono("chevron-left") }}</a>
     <a {% if siguiente %}href="/imagenes/{{ siguiente }}"{% endif %} class="btn-secundario {{ 'pointer-events-none opacity-40' if not siguiente }}" title="Imagen siguiente">{{ icono("chevron-right") }}</a>
     <button class="btn-secundario hover:text-peligro" hx-get="/imagenes/{{ imagen.id }}/eliminar" hx-target="#modal" title="Enviar a la papelera">{{ icono("trash-2") }}</button>
@@ -22,7 +24,7 @@
             @click="$dispatch('abrir-visor', { imagenes: [{{ {'src': '/imagenes/' ~ imagen.id ~ '/archivo', 'titulo': imagen.titulo, 'pie': imagen.descripcion}|tojson|forceescape }}], indice: 0 })">
       <img src="/imagenes/{{ imagen.id }}/archivo" alt="{{ imagen.titulo }}" class="mx-auto max-h-[70vh] w-auto object-contain">
     </button>
-    {% if imagen.descripcion %}<figcaption data-resaltar="{{ request.query_params.get('buscar', '') }}" class="whitespace-pre-wrap border-t border-borde px-5 py-3 text-sm text-tenue">{{ imagen.descripcion }}</figcaption>{% endif %}
+    {% if imagen.descripcion %}<figcaption data-capturar="imagen:{{ imagen.id }}" data-capturar-titulo="{{ imagen.titulo }}" data-resaltar="{{ request.query_params.get('buscar', '') }}" class="whitespace-pre-wrap border-t border-borde px-5 py-3 text-sm text-tenue">{{ imagen.descripcion }}</figcaption>{% endif %}
   </figure>
 
   <div class="flex flex-col gap-6">

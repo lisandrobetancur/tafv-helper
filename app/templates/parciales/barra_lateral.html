@@ -23,6 +23,10 @@
     <a href="/acceso-rapido" title="Acceso rápido por síntomas" class="item-menu flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium {{ 'bg-marca-suave text-marca' if en_dx else 'text-texto hover:bg-superficie-2' }}">
       {{ icono("stethoscope", "size-[18px]") }}<span class="solo-desplegado">Acceso rápido</span>
     </a>
+    {% set en_recop = request.url.path.startswith("/recopilaciones") %}
+    <a href="/recopilaciones" title="Recopilaciones" class="item-menu flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium {{ 'bg-marca-suave text-marca' if en_recop else 'text-texto hover:bg-superficie-2' }}">
+      {{ icono("clipboard-list", "size-[18px]") }}<span class="solo-desplegado">Recopilaciones</span>
+    </a>
 
     <div class="solo-desplegado mt-5 mb-1 flex items-center justify-between px-3">
       <span class="titulo-seccion">Materias</span>
@@ -59,7 +63,8 @@
 <div class="fixed inset-x-0 bottom-0 z-30 flex items-center justify-around border-t border-borde bg-superficie py-2 lg:hidden">
   <a href="/" class="flex flex-col items-center gap-0.5 px-3 text-[11px] text-tenue">{{ icono("house", "size-5") }}Inicio</a>
   <a href="/acceso-rapido" class="flex flex-col items-center gap-0.5 px-3 text-[11px] text-tenue">{{ icono("stethoscope", "size-5") }}Acceso rápido</a>
-  <button type="button" class="flex flex-col items-center gap-0.5 px-3 text-[11px] text-tenue" hx-get="/materias/nueva" hx-target="#modal">{{ icono("folder-plus", "size-5") }}Nueva materia</button>
+  <a href="/recopilaciones" class="flex flex-col items-center gap-0.5 px-2 text-[11px] text-tenue">{{ icono("clipboard-list", "size-5") }}Recopilar</a>
+  <button type="button" class="flex flex-col items-center gap-0.5 px-2 text-[11px] text-tenue" hx-get="/materias/nueva" hx-target="#modal">{{ icono("folder-plus", "size-5") }}Nueva materia</button>
   <a href="/papelera" class="flex flex-col items-center gap-0.5 px-3 text-[11px] text-tenue">{{ icono("trash-2", "size-5") }}Papelera</a>
   <a href="/mantenimiento" class="flex flex-col items-center gap-0.5 px-3 text-[11px] text-tenue">{{ icono("settings", "size-5") }}Mantenimiento</a>
 </div>

@@ -1,5 +1,5 @@
 {# Resultado del diagnóstico: materias revisadas, ranking por materia con evidencia, comparación, apoyo y guardar #}
-{% from "macros.html" import icono, vacio %}
+{% from "macros.html" import icono, vacio, casilla %}
 {# Símbolo de una materia en la comparación: su ícono, con su color #}
 {% macro simbolo(g) -%}
 <span class="inline-grid size-5 shrink-0 place-items-center rounded-md align-middle text-white" style="background: {{ g.color }}"
@@ -11,7 +11,9 @@
 
 {% macro tarjeta_candidato(c, posicion, abierto) %}
 <li class="tarjeta overflow-hidden" x-data="{ abierto: {{ 'true' if abierto else 'false' }} }">
-  <button type="button" class="flex w-full items-center gap-4 px-5 py-4 text-left hover:bg-superficie-2/50" @click="abierto = !abierto" :aria-expanded="abierto">
+  <div class="flex items-center">
+  <span class="pl-5">{{ casilla(c.tipo, c.fila_id, c.titulo) }}</span>
+  <button type="button" class="flex min-w-0 flex-1 items-center gap-4 px-5 py-4 text-left hover:bg-superficie-2/50" @click="abierto = !abierto" :aria-expanded="abierto">
     <span class="grid size-9 shrink-0 place-items-center rounded-full text-sm font-bold
                  {{ 'bg-marca text-sobre-marca' if posicion == 1 else 'bg-superficie-2 text-tenue' }}">{{ posicion }}</span>
     <span class="min-w-0 flex-1">
@@ -24,6 +26,7 @@
     </span>
     <span class="text-tenue transition-transform" :class="abierto && 'rotate-90'">{{ icono("chevron-right") }}</span>
   </button>
+  </div>
   <div x-show="abierto" x-cloak class="border-t border-borde px-5 py-4">
     <dl class="flex flex-col gap-2.5">
       {% for e in c.evidencias %}

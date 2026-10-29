@@ -156,6 +156,77 @@
     avisar("Tabla de Excel convertida a Markdown. Ctrl/⌘+Z para deshacer.");
   };
 
+  // ------------------------------------------------------- recopilaciones
+  // Envía un fragmento a la recopilación activa y muestra el aviso que devuelve el servidor
+  // (los botones con hx-post hacen lo mismo con HTMX; esto es para el texto subrayado y los recortes).
+  const agregarARecopilacion = async (datos) => {
+    const cuerpo = new FormData();
+    Object.entries(datos).forEach(([k, v]) => { if (v !== undefined && v !== null && v !== "") cuerpo.append(k, v); });
+    try {
+      const r = await fetch("/recopilacion/agregar", { method: "POST", body: cuerpo, headers: { "HX-Request": "true" } });
+      const disparo = JSON.parse(r.headers.get("HX-Trigger") || "{}");
+      if (disparo.aviso) avisar(disparo.aviso.mensaje, disparo.aviso.tipo);
+      if (r.ok) {
+        document.body.dispatchEvent(new Event("recopilacion-cambio"));
+        if (disparo["cerrar-modal"]) window.dispatchEvent(new Event("cerrar-modal"));
+      }
+      return r.ok;
+    } catch (e) {
+      avisar("No se pudo agregar. ¿Sigue abierta la biblioteca?", "error");
+      return false;
+    }
+  };
+  window.agregarARecopilacion = agregarARecopilacion;
+
+  // Subrayar texto dentro de una zona [data-capturar="tipo:id"] muestra un botón flotante para
+  // guardarlo. El título sale del [data-capturar-titulo] más cercano; data-capturar-pagina, si existe.
+  const seleccionCapturable = () => {
+    const sel = window.getSelection();
+    if (!sel || sel.isCollapsed || !sel.rangeCount) return null;
+    const texto = sel.toString().trim();
+    if (texto.length < 2) return null;
+    const nodo = sel.getRangeAt(0).commonAncestorContainer;
+    const el = nodo.nodeType === 1 ? nodo : nodo.parentElement;
+    const zona = el?.closest("[data-capturar]");
+    if (!zona || el.closest("input, textarea, dialog")) return null;
+    const [tipo, id] = zona.dataset.capturar.split(":");
+    const conTitulo = el.closest("[data-capturar-titulo]") || zona.closest("[data-capturar-titulo]");
+    return { texto, tipo, id, titulo: conTitulo?.dataset.capturarTitulo || "", pagina: zona.dataset.capturarPagina || "",
+             rect: sel.getRangeAt(0).getBoundingClientRect() };
+  };
+  let botonSeleccion = null;
+  const ocultarBotonSeleccion = () => { if (botonSeleccion) botonSeleccion.hidden = true; };
+  const mostrarBotonSeleccion = () => {
+    const s = seleccionCapturable();
+    if (!s) { ocultarBotonSeleccion(); return; }
+    if (!botonSeleccion) {
+      botonSeleccion = document.createElement("button");
+      botonSeleccion.type = "button";
+      botonSeleccion.className = "btn-primario fixed z-50 py-1.5 text-xs shadow-lg";
+      botonSeleccion.innerHTML = '<svg class="ic size-4"><use href="/static/vendor/lucide/sprite.svg#clipboard-plus"/></svg>Agregar a la recopilación';
+      botonSeleccion.addEventListener("mousedown", (e) => e.preventDefault());   // no perder la selección
+      botonSeleccion.addEventListener("click", async () => {
+        const actual = seleccionCapturable();
+        if (!actual) return;
+        ocultarBotonSeleccion();
+        if (await agregarARecopilacion({ fuente: `texto:${actual.tipo}`, ref_id: actual.id, texto: actual.texto,
+                                         titulo: actual.titulo, pagina: actual.pagina })) {
+          window.getSelection()?.removeAllRanges();
+        }
+      });
+      document.body.appendChild(botonSeleccion);
+    }
+    const ancho = 210;
+    botonSeleccion.style.left = `${Math.min(Math.max(8, s.rect.left + s.rect.width / 2 - ancho / 2), window.innerWidth - ancho - 8)}px`;
+    botonSeleccion.style.top = `${s.rect.top > 48 ? s.rect.top - 40 : s.rect.bottom + 8}px`;
+    botonSeleccion.hidden = false;
+  };
+  document.addEventListener("mouseup", () => setTimeout(mostrarBotonSeleccion, 0));
+  document.addEventListener("keyup", (e) => { if (e.shiftKey || e.key === "Shift") mostrarBotonSeleccion(); });
+  document.addEventListener("selectionchange", () => { if (window.getSelection()?.isCollapsed) ocultarBotonSeleccion(); });
+  window.addEventListener("scroll", ocultarBotonSeleccion, true);
+  document.addEventListener("htmx:beforeRequest", ocultarBotonSeleccion);
+
   // HTMX: el botón "atrás" vuelve a pedir la página (evita estados viejos de Alpine en caché).
   document.addEventListener("DOMContentLoaded", () => {
     if (window.htmx) {
@@ -240,6 +311,51 @@
       },
     });
     medio.addEventListener("change", () => Alpine.store("tema").aplicar());
+
+    // ------------------------------------- selección múltiple para la recopilación
+    // Las casillas (macro `casilla`) marcan fichas, notas, imágenes o páginas de PDF en cualquier página;
+    // la selección se recuerda al navegar (sessionStorage) para juntar cosas de varias materias y
+    // agregarlas todas de una vez desde la barra inferior.
+    const leerSeleccion = () => { try { return JSON.parse(sessionStorage.getItem("seleccion-recopilacion") || "[]"); } catch (e) { return []; } };
+    Alpine.store("seleccion", {
+      items: leerSeleccion(), enviando: false, lista: false,
+      clave: (e) => `${e.fuente}:${e.ref_id}:${e.pagina || ""}`,
+      guardar() { try { sessionStorage.setItem("seleccion-recopilacion", JSON.stringify(this.items)); } catch (e) { /* sin almacenamiento */ } },
+      tiene(e) { const k = this.clave(e); return this.items.some((i) => this.clave(i) === k); },
+      poner(e, marcar) {
+        const k = this.clave(e);
+        this.items = this.items.filter((i) => this.clave(i) !== k);
+        if (marcar) this.items.push(e);
+      },
+      alternar(e) { this.poner(e, !this.tiene(e)); this.guardar(); },
+      quitar(i) { this.items.splice(i, 1); this.guardar(); if (!this.items.length) this.lista = false; },
+      // Casilla «todas»: marca o desmarca las casillas que hay dentro de `zona` (p. ej. la tabla)
+      grupo(zona, marcar) {
+        zona.querySelectorAll("[data-elemento]").forEach((c) => this.poner(JSON.parse(c.dataset.elemento), marcar));
+        this.guardar();
+      },
+      todasEn(zona) {
+        const casillas = zona ? [...zona.querySelectorAll("[data-elemento]")] : [];
+        return casillas.length > 0 && casillas.every((c) => this.tiene(JSON.parse(c.dataset.elemento)));
+      },
+      vaciar() { this.items = []; this.lista = false; this.guardar(); },
+      async agregar() {
+        if (!this.items.length || this.enviando) return;
+        this.enviando = true;
+        try {
+          const r = await fetch("/recopilacion/agregar-varios", {
+            method: "POST", headers: { "Content-Type": "application/json", "HX-Request": "true" },
+            body: JSON.stringify({ elementos: this.items }),
+          });
+          const disparo = JSON.parse(r.headers.get("HX-Trigger") || "{}");
+          if (disparo.aviso) avisar(disparo.aviso.mensaje, disparo.aviso.tipo);
+          if (r.ok) { this.vaciar(); document.body.dispatchEvent(new Event("recopilacion-cambio")); }
+        } catch (e) {
+          avisar("No se pudo agregar. ¿Sigue abierta la biblioteca?", "error");
+        }
+        this.enviando = false;
+      },
+    });
 
     // ---------------------------------------------------------- menú lateral
     Alpine.store("menu", {
@@ -479,6 +595,42 @@
           this.sugerencias = lista.filter((t) => !ya.has(this.norm(t)));
           this.activa = -1;
         } catch (e) { this.sugerencias = []; }
+      },
+    }));
+
+    // ------------------------------------------- recortar para la recopilación
+    // Se arrastra sobre la imagen para marcar un rectángulo; se envía en fracciones (0 a 1) y el
+    // servidor recorta el original a resolución completa (o la página del PDF a 200 ppp).
+    Alpine.data("recorte", ({ fuente, ref_id, src, pagina, paginas }) => ({
+      fuente, ref_id, pagina, paginas, caja: null, punto: null, titulo: "", enviando: false, cargando: true,
+      get url() { return fuente === "pdf" ? `${src}?n=${this.pagina}` : src; },
+      irPagina(n) {
+        n = Math.min(Math.max(1, n || 1), this.paginas);
+        if (n === this.pagina) return;
+        this.pagina = n; this.caja = null; this.cargando = true;
+      },
+      posicion(e) {
+        const r = this.$refs.imagen.getBoundingClientRect();
+        return { x: Math.min(Math.max((e.clientX - r.left) / r.width, 0), 1), y: Math.min(Math.max((e.clientY - r.top) / r.height, 0), 1) };
+      },
+      inicio(e) { this.punto = this.posicion(e); this.caja = null; e.currentTarget.setPointerCapture?.(e.pointerId); },
+      mover(e) {
+        if (!this.punto) return;
+        const p = this.posicion(e);
+        this.caja = { x: Math.min(p.x, this.punto.x), y: Math.min(p.y, this.punto.y),
+                      w: Math.abs(p.x - this.punto.x), h: Math.abs(p.y - this.punto.y) };
+      },
+      fin() {
+        this.punto = null;
+        if (this.caja && (this.caja.w < 0.01 || this.caja.h < 0.01)) this.caja = null;   // fue un clic, no un rectángulo
+      },
+      async enviar(conRecorte) {
+        const datos = { fuente: this.fuente, ref_id: this.ref_id, titulo: this.titulo };
+        if (this.fuente === "pdf") datos.pagina = this.pagina;
+        if (conRecorte && this.caja) datos.recorte = [this.caja.x, this.caja.y, this.caja.w, this.caja.h].map((v) => v.toFixed(5)).join(",");
+        this.enviando = true;
+        await agregarARecopilacion(datos);
+        this.enviando = false;
       },
     }));
 
