@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import os
 import shutil
 import sqlite3
 import tempfile
@@ -30,7 +31,9 @@ async def guardar_subida(archivo: UploadFile, limite: int) -> Path:
     """Copia el archivo subido a un temporal dentro de data/cache (mismo disco que el destino)."""
     carpeta = rutas.cache / "subidas"
     carpeta.mkdir(parents=True, exist_ok=True)
-    tmp = Path(tempfile.mkstemp(dir=carpeta, suffix=Path(archivo.filename or "").suffix.lower())[1])
+    descriptor, nombre = tempfile.mkstemp(dir=carpeta, suffix=Path(archivo.filename or "").suffix.lower())
+    os.close(descriptor)   # si queda abierto, Windows no deja borrar ni mover el temporal
+    tmp = Path(nombre)
     total = 0
     with tmp.open("wb") as destino:
         while bloque := await archivo.read(1024 * 1024):

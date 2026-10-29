@@ -98,18 +98,18 @@ def test_preparar_cargar_y_auditar(con, datos: Path, tmp_path: Path) -> None:
     assert openpyxl.load_workbook(carpeta / "hojas" / "Protocolo.xlsx").sheetnames == ["Protocolo"]  # una hoja por archivo
     assert openpyxl.load_workbook(carpeta / "hojas" / "Mural.xlsx")["Mural"]["A2"].comment is not None
     assert (carpeta / "imagenes" / "Mural - D1.png").exists()                           # imagen por su celda ancla
-    assert "Revisar antes de cada sesión" in (carpeta / "inspeccion-Mural.txt").read_text()
+    assert "Revisar antes de cada sesión" in (carpeta / "inspeccion-Mural.txt").read_text("utf-8")
 
     (carpeta / "notas").mkdir()
     (carpeta / "notas" / "Contraindicaciones - HBO.md").write_text(
-        "## Contraindicaciones\n- Neumotórax no tratado\n- Fiebre\n\n> Comentario de Docente: Revisar antes de cada sesión\n")
+        "## Contraindicaciones\n- Neumotórax no tratado\n- Fiebre\n\n> Comentario de Docente: Revisar antes de cada sesión\n", "utf-8")
     plan = {"materia": "oxigenoterapia", "componente": "HBO", "fuentes": ["hojas/Protocolo.xlsx", "hojas/Mural.xlsx"],
             "correcciones": {"Presion": "Presión"},
             "notas": [{"titulo": "Contraindicaciones - HBO", "archivo": "notas/Contraindicaciones - HBO.md"}],
             "tablas": [{"archivo": "hojas/Protocolo.xlsx", "nombre": "Protocolo", "columna_titulo": "Seccion",
                         "etiquetas": "Flores de Bach"}],
             "imagenes": [{"archivo": "imagenes/Mural - D1.png", "titulo": "Lámina", "descripcion": ""}]}
-    (carpeta / "plan.json").write_text(json.dumps(plan, ensure_ascii=False))
+    (carpeta / "plan.json").write_text(json.dumps(plan, ensure_ascii=False), "utf-8")
 
     r = _correr(str(CARGA / "cargar.py"), str(carpeta / "plan.json"), datos=datos)
     assert r.returncode == 0, r.stdout + r.stderr
@@ -131,7 +131,7 @@ def test_preparar_cargar_y_auditar(con, datos: Path, tmp_path: Path) -> None:
     doc = pymupdf.open(); doc.new_page().insert_text((72, 72), "Guia"); doc.save(pdf)
     (carpeta / "pdf").mkdir(); (carpeta / "pdf" / "guia.pdf").write_bytes(pdf.read_bytes())
     plan["pdfs"] = [{"archivo": "pdf/guia.pdf", "titulo": "Guía"}]
-    (carpeta / "plan.json").write_text(json.dumps(plan, ensure_ascii=False))
+    (carpeta / "plan.json").write_text(json.dumps(plan, ensure_ascii=False), "utf-8")
     for _ in range(2):
         r = _correr(str(CARGA / "cargar.py"), str(carpeta / "plan.json"), "--reemplazar", datos=datos)
         assert r.returncode == 0, r.stdout + r.stderr
