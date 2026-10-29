@@ -28,7 +28,11 @@ MAC_INTEL = sys.platform == "darwin" and platform.machine() == "x86_64"
 
 
 def decir(texto: str = "") -> None:
-    print(texto, flush=True)
+    try:
+        print(texto, flush=True)
+    except UnicodeEncodeError:  # consola de Windows sin UTF-8 (p. ej. salida redirigida): ✓ y ✖ se reemplazan
+        codificacion = sys.stdout.encoding or "ascii"
+        print(texto.encode(codificacion, "replace").decode(codificacion), flush=True)
 
 
 def titulo(texto: str) -> None:

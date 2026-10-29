@@ -1,0 +1,46 @@
+# Pruebas en Windows y Mac en cada push: instala como lo hace la usuaria (instalador.py) y corre pytest.
+name: Pruebas
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  pruebas:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest]
+        python: ["3.13"]
+        include:
+          - os: windows-latest
+            python: "3.11"
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Instalar (como «instalar» de la usuaria)
+        run: python instalador.py instalar
+      - name: Herramientas de prueba
+        shell: bash
+        run: |
+          if [ "$RUNNER_OS" = "Windows" ]; then PY=.venv/Scripts/python.exe; else PY=.venv/bin/python; fi
+          "$PY" -m pip install --disable-pip-version-check -q pytest httpx
+      - name: Pruebas
+        shell: bash
+        run: |
+          if [ "$RUNNER_OS" = "Windows" ]; then PY=.venv/Scripts/python.exe; else PY=.venv/bin/python; fi
+          "$PY" -m pytest -q
+      - name: Prueba de humo con los datos reales (app corriendo, recopilación y exportación)
+        shell: bash
+        run: |
+          if [ "$RUNNER_OS" = "Windows" ]; then PY=.venv/Scripts/python.exe; else PY=.venv/bin/python; fi
+          "$PY" -m app --puerto 8799 --sin-navegador > servidor.log 2>&1 &
+          "$PY" .github/humo.py http://127.0.0.1:8799 || { cat servidor.log; exit 1; }

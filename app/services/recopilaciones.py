@@ -504,8 +504,12 @@ def _borrar_imagen(nombre: str) -> None:
 
 # ------------------------------------------------------------------ exportar
 def nombre_archivo(r: Recopilacion, extension: str) -> str:
-    base = " ".join(re.sub(r'[\\/:*?"<>|\x00-\x1f]+', " ", r.titulo).split()).strip(" .") or "Recopilacion"
-    return f"{base[:80]}.{extension}"
+    """Nombre válido en Windows y Mac: sin caracteres prohibidos, sin punto o espacio final y sin
+    nombres reservados de Windows (CON, PRN, AUX, NUL, COM1…, LPT1…)."""
+    base = " ".join(re.sub(r'[\\/:*?"<>|\x00-\x1f]+', " ", r.titulo).split())[:80].strip(" .") or "Recopilacion"
+    if re.fullmatch(r"(con|prn|aux|nul|com\d|lpt\d)(\..*)?", base, re.IGNORECASE):
+        base = f"Recopilación {base}"
+    return f"{base}.{extension}"
 
 
 CSS_PDF = """

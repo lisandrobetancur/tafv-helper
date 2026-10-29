@@ -72,8 +72,8 @@ def test_capturar_ordenar_y_exportar(con, rcon, tmp_path: Path, datos: Path) -> 
     assert nota.formato == "markdown" and "<table>" in nota.html
     assert subrayado.contenido == "El fémur es largo" and subrayado.titulo == "Subrayado"
     # El recorte es solo la mitad roja, a resolución completa
-    con_recorte = Image.open(rec.ruta_imagen(recorte.archivo))
-    assert con_recorte.size == (200, 200) and con_recorte.getpixel((100, 100)) == (200, 0, 0)
+    with Image.open(rec.ruta_imagen(recorte.archivo)) as con_recorte:   # cerrada: en Windows un archivo abierto no se borra
+        assert con_recorte.size == (200, 200) and con_recorte.getpixel((100, 100)) == (200, 0, 0)
     assert recorte.titulo == "Radiografía AP (recorte)" and recorte.tamano == "mediana"
     assert pagina.origen.endswith("Guía › página 2") and pagina.origen_url.endswith("?pagina=2") and pagina.tamano == "grande"
     assert propio.origen == "" and propio.formato == "markdown"
@@ -141,6 +141,8 @@ def test_validaciones(con, rcon, tmp_path: Path) -> None:
         rec.ruta_imagen("../biblioteca.db")
     assert rec.leer_recorte("0.9,0.9,0.5,0.5") == pytest.approx((0.9, 0.9, 0.1, 0.1))   # se ajusta a la imagen
     assert rec.nombre_archivo(rec.Recopilacion(1, 'Caso: "A/B"?', "", "", ""), "pdf") == "Caso A B.pdf"
+    assert rec.nombre_archivo(rec.Recopilacion(1, "con", "", "", ""), "docx") == "Recopilación con.docx"   # reservado en Windows
+    assert rec.nombre_archivo(rec.Recopilacion(1, "Fin. ", "", "", ""), "pdf") == "Fin.pdf"
 
 
 def test_recopilacion_desde_la_web(cliente, tmp_path: Path, datos: Path) -> None:
