@@ -46,7 +46,7 @@
               <button type="button" class="grid size-6 place-items-center rounded-full hover:bg-superficie-3"
                       :class="s.importante ? 'text-oro' : 'text-tenue'" @click.stop="alternar(i)"
                       :title="s.importante ? 'Quitar «importante»' : 'Marcar como importante (vale el doble)'">
-                <svg class="ic size-3.5" :class="s.importante && 'fill-current'"><use href="/static/vendor/lucide/sprite.svg#star"/></svg></button>
+                <svg class="ic size-3.5" :class="s.importante && 'fill-current'"><use href="{{ SPRITE }}#star"/></svg></button>
               <button type="button" class="grid size-6 place-items-center rounded-full text-tenue hover:bg-superficie-3 hover:text-peligro"
                       @click.stop="quitar(i)" title="Quitar">{{ icono("x", "size-3.5") }}</button>
             </span>

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "macros.html" import icono, vacio, carrusel, plural %}
+{% from "macros.html" import icono, vacio, carrusel, plural, casilla %}
 {% block titulo %}Explorar · {{ materia.nombre }}{% endblock %}
 {% block contenido %}
 {% with pestana="explorar" %}{% include "parciales/cabecera_materia.html" %}{% endwith %}
@@ -82,30 +82,37 @@
     {% elif lectura.nota %}
     {% set nota, html = lectura.nota %}
     <article class="tarjeta px-5 py-5 sm:px-8">
-      <div class="mb-2 flex justify-end gap-1">
+      <div class="mb-2 flex items-center justify-end gap-1">
+        <label class="chip mr-auto cursor-pointer py-1" title="Seleccionar para agregarla a la recopilación junto con otras">
+          {{ casilla("nota", nota.id, nota.titulo) }}Seleccionar</label>
+        <button type="button" class="btn-secundario py-1.5 text-sm" title="Agregar la nota completa a la recopilación (o subraya solo una parte)"
+                hx-post="/recopilacion/agregar" hx-vals='{"fuente": "nota", "ref_id": {{ nota.id }}}' hx-swap="none">{{ icono("clipboard-plus") }}Recopilar</button>
         <a href="/notas/{{ nota.id }}" class="btn-icono" title="Abrir la nota sola">{{ icono("external-link", "size-4") }}</a>
         <a href="/notas/{{ nota.id }}/editar" class="btn-icono" title="Editar la nota" aria-label="Editar la nota">{{ icono("pencil", "size-4") }}</a>
       </div>
-      {% if nota.contenido.strip() %}<div class="prose max-w-none">{{ html|safe }}</div>
+      {% if nota.contenido.strip() %}<div class="prose max-w-none" data-capturar="nota:{{ nota.id }}" data-capturar-titulo="{{ nota.titulo }}">{{ html|safe }}</div>
       {% else %}<p class="text-sm text-tenue">Nota vacía.</p>{% endif %}
     </article>
     {% elif lectura.tabla %}
     {% set t = lectura.tabla %}
     <section class="tarjeta overflow-hidden" aria-label="{{ t.nombre }}">
       <header class="flex flex-wrap items-center gap-3 px-5 py-3">
-        <span class="flex-1 text-sm text-tenue">{{ plural(t.total, "fila", "filas") }}</span>
+        <span class="flex-1 text-sm text-tenue">{{ plural(t.total, "fila", "filas") }} · marca las que quieras recopilar</span>
         <a href="/tablas/{{ t.id }}" class="btn-secundario">{{ icono("filter") }}Abrir con filtros</a>
       </header>
       <div class="max-h-[34rem] overflow-auto border-t border-borde">
         <table class="w-full text-left text-sm">
           <thead class="sticky top-0 bg-superficie-2 text-xs uppercase tracking-wide text-tenue">
-            <tr>{% for col in t.columnas %}<th class="whitespace-nowrap px-3 py-2 font-semibold">{{ col.nombre }}</th>{% endfor %}</tr>
+            <tr>{% for col in t.columnas %}<th class="whitespace-nowrap px-3 py-2 font-semibold">{% if loop.first %}<input type="checkbox" x-data
+                class="mr-1.5 size-4 cursor-pointer align-[-3px] accent-[var(--marca)]" title="Seleccionar todas las filas mostradas para la recopilación"
+                aria-label="Seleccionar todas las filas mostradas" :checked="$store.seleccion.todasEn($el.closest('table'))"
+                @click="$store.seleccion.grupo($el.closest('table'), $event.target.checked)">{% endif %}{{ col.nombre }}</th>{% endfor %}</tr>
           </thead>
           <tbody>
             {% for fid, titulo, valores in t.filas %}
             <tr class="border-t border-borde align-top hover:bg-superficie-2/60">
               {% for col in t.columnas %}
-              <td class="max-w-[28rem] whitespace-pre-line px-3 py-2">{% if loop.first %}<a href="/filas/{{ fid }}" class="font-medium hover:text-marca">{{ valores.get(col.clave, "") }}</a>{% else %}{{ valores.get(col.clave, "") }}{% endif %}</td>
+              <td class="max-w-[28rem] whitespace-pre-line px-3 py-2">{% if loop.first %}{{ casilla("fila", fid, titulo.split("\n")[0], clase="mr-1.5 align-[-3px]") }}<a href="/filas/{{ fid }}" class="font-medium hover:text-marca">{{ valores.get(col.clave, "") }}</a>{% else %}{{ valores.get(col.clave, "") }}{% endif %}</td>
               {% endfor %}
             </tr>
             {% endfor %}
@@ -118,6 +125,10 @@
       {% endif %}
     </section>
     {% elif lectura.pdf %}
+    <div class="flex justify-end">
+      <button type="button" class="btn-secundario" title="Agregar una página del PDF (completa o un recorte) a la recopilación"
+              hx-get="/recopilacion/recortar?fuente=pdf&ref_id={{ lectura.pdf.id }}" hx-target="#modal">{{ icono("clipboard-plus") }}Recopilar página</button>
+    </div>
     <a href="/pdfs/{{ lectura.pdf.id }}" class="tarjeta flex items-center gap-4 px-5 py-4 hover:border-borde-fuerte">
       <span class="grid size-11 shrink-0 place-items-center rounded-xl bg-marca-suave text-marca">{{ icono("file-text", "size-5") }}</span>
       <span class="min-w-0 flex-1"><span class="block font-semibold">Abrir el PDF</span>

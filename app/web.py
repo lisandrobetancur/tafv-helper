@@ -46,6 +46,9 @@ def _imagenes_carrusel(imagenes: list, tipo: str) -> list[dict[str, str]]:
 
 
 templates.env.globals["version_estaticos"] = _version_estaticos
+# Con versión: al agregar íconos el navegador no sigue usando el sprite viejo guardado en caché
+_sprite = config.STATIC_DIR / "vendor" / "lucide" / "sprite.svg"
+templates.env.globals["SPRITE"] = f"/static/vendor/lucide/sprite.svg?v={int(_sprite.stat().st_mtime) if _sprite.exists() else 0}"
 templates.env.globals["imagenes_carrusel"] = _imagenes_carrusel
 templates.env.globals["TIPOS_PAPELERA"] = {
     "materia": {"nombre": "Materia", "icono": "graduation-cap"},

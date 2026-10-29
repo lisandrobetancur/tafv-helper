@@ -4,5 +4,5 @@
         hx-post="/favoritos/{{ tipo }}/{{ ref_id }}" hx-swap="outerHTML"
         title="{{ 'Quitar de favoritos' if activo else 'Agregar a favoritos' }}" aria-pressed="{{ 'true' if activo else 'false' }}"
         aria-label="{{ 'Quitar de favoritos' if activo else 'Agregar a favoritos' }}">
-  <svg class="ic size-4 {{ 'fill-current' if activo }}" aria-hidden="true"><use href="/static/vendor/lucide/sprite.svg#star"/></svg>
+  <svg class="ic size-4 {{ 'fill-current' if activo }}" aria-hidden="true"><use href="{{ SPRITE }}#star"/></svg>
 </button>

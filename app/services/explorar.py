@@ -117,7 +117,9 @@ def leer(con: sqlite3.Connection, entradas: list[Entrada], componente_id: int, v
     tipo, _, ref = (pieza.clave.partition("-") if pieza else ("", "", ""))
     if tipo == "imagenes":
         lectura.imagenes = [{"src": f"/imagenes/{i.id}/archivo", "miniatura": f"/imagenes/{i.id}/miniatura",
-                             "titulo": i.titulo, "pie": i.descripcion, "url": f"/imagenes/{i.id}"}
+                             "titulo": i.titulo, "pie": i.descripcion, "url": f"/imagenes/{i.id}",
+                             "recortar": f"/recopilacion/recortar?fuente=imagen&ref_id={i.id}",
+                             "seleccion": {"fuente": "imagen", "ref_id": i.id, "titulo": i.titulo, "pagina": None}}
                             for i in servicio_imagenes.listar(con, e.componente.id)]
     elif tipo == "nota":
         n = servicio_notas.obtener(con, int(ref))

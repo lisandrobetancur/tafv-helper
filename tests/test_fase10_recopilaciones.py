@@ -242,3 +242,17 @@ def test_agregar_varios_seleccionados(cliente, tmp_path: Path) -> None:
     # Las listas muestran las casillas
     assert '"fuente": "fila"' in cliente.get(f"/tablas/{m['tabla'].id}").text.replace("&#34;", '"')
     assert "lista-notas" in cliente.get(f"/componentes/{m['tabla'].componente_id}").text
+
+
+def test_explorar_permite_recopilar(cliente, tmp_path: Path) -> None:
+    from app import db
+    con = db.conectar()
+    m = material(con, tmp_path)
+    comp = bib.obtener_componente(con, m["tabla"].componente_id)
+    con.close()
+    base = f"/materias/{comp.materia_id}/explorar?c={comp.id}"
+    nota = cliente.get(f"{base}&ver=nota-{m['nota'].id}").text
+    assert 'data-capturar="nota:' in nota and '"fuente": "nota"' in nota
+    tabla = cliente.get(f"{base}&ver=tabla-{m['tabla'].id}").text.replace("&#34;", '"')
+    assert '"fuente": "fila"' in tabla and "Seleccionar todas las filas mostradas" in tabla
+    assert "fuente=pdf" in cliente.get(f"{base}&ver=pdf-{m['pdf'].id}").text

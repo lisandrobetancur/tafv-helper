@@ -4,6 +4,7 @@
 
   const guardar = (clave, valor) => { try { localStorage.setItem(clave, valor); } catch (e) { /* sin almacenamiento */ } };
   const leer = (clave) => { try { return localStorage.getItem(clave); } catch (e) { return null; } };
+  const SPRITE = document.documentElement.dataset.sprite || "/static/vendor/lucide/sprite.svg";
   const avisar = (mensaje, tipo = "exito") =>
     window.dispatchEvent(new CustomEvent("aviso", { detail: { mensaje, tipo } }));
   window.avisar = avisar;
@@ -203,7 +204,7 @@
       botonSeleccion = document.createElement("button");
       botonSeleccion.type = "button";
       botonSeleccion.className = "btn-primario fixed z-50 py-1.5 text-xs shadow-lg";
-      botonSeleccion.innerHTML = '<svg class="ic size-4"><use href="/static/vendor/lucide/sprite.svg#clipboard-plus"/></svg>Agregar a la recopilación';
+      botonSeleccion.innerHTML = `<svg class="ic size-4"><use href="${SPRITE}#clipboard-plus"/></svg>Agregar a la recopilación`;
       botonSeleccion.addEventListener("mousedown", (e) => e.preventDefault());   // no perder la selección
       botonSeleccion.addEventListener("click", async () => {
         const actual = seleccionCapturable();
@@ -244,7 +245,7 @@
     dialogo.innerHTML = `
       <div class="flex gap-4 px-6 pb-2 pt-6">
         <span class="grid size-11 shrink-0 place-items-center rounded-full ${peligro ? "bg-peligro-suave text-peligro" : "bg-marca-suave text-marca"}">
-          <svg class="ic size-5"><use href="/static/vendor/lucide/sprite.svg#${peligro ? "triangle-alert" : "circle-help"}"/></svg></span>
+          <svg class="ic size-5"><use href="${SPRITE}#${peligro ? "triangle-alert" : "circle-help"}"/></svg></span>
         <p class="pt-2.5 text-base font-medium" data-pregunta></p>
       </div>
       <footer class="mt-4 flex justify-end gap-2 border-t border-borde bg-superficie-2/50 px-6 py-4">

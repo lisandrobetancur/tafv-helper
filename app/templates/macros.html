@@ -1,7 +1,7 @@
 {# Macros reutilizables de la interfaz #}
 
 {% macro icono(nombre, clase="size-4") -%}
-<svg class="ic {{ clase }}" aria-hidden="true"><use href="/static/vendor/lucide/sprite.svg#{{ nombre }}"/></svg>
+<svg class="ic {{ clase }}" aria-hidden="true"><use href="{{ SPRITE }}#{{ nombre }}"/></svg>
 {%- endmacro %}
 
 {% macro ficha_materia(m, clase="size-10", tam_icono="size-5") -%}
