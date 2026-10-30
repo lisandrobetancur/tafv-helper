@@ -156,7 +156,12 @@
       "descripcion": "Toxicidad sobre el Sistema Respiratorio (Lorraine – Smith)\nSe presenta por exposición continua y prolongada\nPr>0.5 ATA o FIO2>50%\nPeríodo de latencia:\nA 1 ATA: 4 a 22 horas\nA 3 ATA: 3 horas\n↓\n1. Traqueobronquitis aguda\nSíntomas: Sensación quemante retroesternal, tos, disnea\n→ Recuperación completa\n→ 2. SDRA\n↓\n3. Fibrosis intersticial pulmonar"
     }
   ],
-  "pdfs": [],
+  "pdfs": [
+    {
+      "archivo": "pdf/Física de los gases.pdf",
+      "titulo": "Física de los gases"
+    }
+  ],
   "aportado_por_la_usuaria": [
     {
       "nota": "Complicaciones (Relacionadas con la presión y con hiperoxia) - HBO",

@@ -1,0 +1,16 @@
+{
+  "materia": "Oxigenoterapia",
+  "componente": "HBO",
+  "fuentes": [],
+  "correcciones": {},
+  "omitidos": [],
+  "notas": [],
+  "tablas": [],
+  "imagenes": [],
+  "pdfs": [
+    {
+      "archivo": "pdf/Física de los gases.pdf",
+      "titulo": "Física de los gases"
+    }
+  ]
+}
