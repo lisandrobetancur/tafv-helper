@@ -13,6 +13,7 @@ from PIL import Image, ImageDraw, ImageFont
 from app import db
 from app.errores import ErrorUsuario
 from app.services import biblioteca as bib
+from app.services import busqueda as bus
 from app.services import ocr
 from app.services import papelera as pap
 from app.services import pdfs
@@ -98,6 +99,46 @@ def test_ocr_de_pagina_escaneada(con, tmp_path: Path) -> None:
     assert p["origen"] == "ocr" and "nefrona" in p["texto_norm"] and "fisiologia renal" in p["texto_norm"]
     pdf = pdfs.obtener(con, pdf.id)
     assert pdf.ocr_pendientes == 0 and pdf.ocr_hechas == 1 and pdf.ocr_progreso == 100
+
+
+def pdf_diapositiva(ruta: Path) -> Path:
+    """Como una diapositiva: título escrito y un recuadro con texto pegado como imagen, más un logo pequeño."""
+    img = Image.new("RGB", (1400, 400), "white")
+    fuente = ImageFont.truetype(FUENTE, 60) if FUENTE else ImageFont.load_default(size=60)
+    ImageDraw.Draw(img).text((40, 60), "Región cervical: ozono 5 mL", fill="black", font=fuente)
+    ImageDraw.Draw(img).text((40, 220), "Profundidad: 2 cm", fill="black", font=fuente)
+    buf = io.BytesIO()
+    img.save(buf, "PNG")
+    logo = io.BytesIO()
+    Image.new("RGB", (60, 60), "red").save(logo, "PNG")
+    doc = pymupdf.open()
+    pag = doc.new_page()
+    pag.insert_text((60, 80), "Inyección intramuscular paravertebral", fontsize=24)
+    pag.insert_image(pymupdf.Rect(72, 120, 540, 254), stream=buf.getvalue())
+    pag.insert_image(pymupdf.Rect(520, 740, 560, 780), stream=logo.getvalue())   # logo: muy pequeño para OCR
+    doc.save(ruta)
+    return ruta
+
+
+def test_ocr_de_imagenes_en_paginas_con_texto(con, tmp_path: Path) -> None:
+    cid = preparar(con)
+    pdf, _ = subir(con, tmp_path, cid, pdf_diapositiva(tmp_path / "diapo.pdf"), "Diapositiva")
+    assert pdf.ocr_pendientes == 1                                      # tiene texto, pero también una imagen grande
+    assert pdfs.procesar_una_pagina(con) is True
+    p = pdfs.pagina(con, pdf.id, 1)
+    # El texto escrito queda igual, al principio, y se le agrega lo que dice la imagen
+    assert p["origen"] == "texto" and p["texto"].startswith("Inyección intramuscular paravertebral\n")
+    assert "region cervical" in p["texto_norm"] and "profundidad" in p["texto_norm"]
+    assert bus.buscar(con, "region cervical").total >= 1
+    # Repetirlo no duplica el texto de la imagen
+    con.execute("UPDATE pdf_paginas SET ocr_pendiente=1 WHERE pdf_id=?", (pdf.id,))
+    pdfs.procesar_una_pagina(con)
+    assert pdfs.pagina(con, pdf.id, 1)["texto_norm"].count("profundidad") == 1
+    # «Leer todas las páginas con OCR» sigue leyendo la página entera
+    pdfs.pedir_ocr_completo(con, pdf.id)
+    pdfs.procesar_una_pagina(con)
+    p = pdfs.pagina(con, pdf.id, 1)
+    assert p["origen"] == "ocr" and "region cervical" in p["texto_norm"] and "paravertebral" in p["texto_norm"]
 
 
 def test_ocr_en_segundo_plano(datos: Path, tmp_path: Path) -> None:

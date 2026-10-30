@@ -249,6 +249,9 @@ MIGRACIONES: list[str] = [
     """,
     # 8 — las tablas admiten etiquetas (el índice de búsqueda las incluye)
     indice_sql.recrear(),
+    # 9 — OCR de la página entera pedido a mano («Leer todas las páginas con OCR»); si no, en las páginas
+    #     con texto solo se leen sus imágenes grandes y ese texto se agrega al de la página
+    "ALTER TABLE pdf_paginas ADD COLUMN ocr_completo INTEGER NOT NULL DEFAULT 0;",
 ]
 
 

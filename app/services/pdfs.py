@@ -25,6 +25,42 @@ log = logging.getLogger(__name__)
 
 MAX_BYTES = 300 * 1024 * 1024
 MIN_CARACTERES = 25   # menos que esto en una página = probablemente escaneada
+MIN_FRACCION_IMAGEN = 0.04  # imágenes desde el 4 % de la página se leen con OCR (los logos quedan fuera)
+
+
+def _imagenes_grandes(pag: pymupdf.Page) -> list[pymupdf.Rect]:
+    """Zonas de la página ocupadas por imágenes grandes (diagramas, recuadros pegados como imagen)."""
+    minimo = pag.rect.width * pag.rect.height * MIN_FRACCION_IMAGEN
+    zonas: list[pymupdf.Rect] = []
+    for info in pag.get_images(full=True):
+        try:
+            rects = pag.get_image_rects(info[0])
+        except Exception:
+            continue
+        for r in rects:
+            r = r & pag.rect
+            if not r.is_empty and r.width * r.height >= minimo and not any(r in z for z in zonas):
+                zonas.append(r)
+    return zonas
+
+
+def _sin_espacios(texto: str) -> str:
+    return "".join(normalizar(texto).split())
+
+
+def _texto_de_imagenes(pag: pymupdf.Page, texto_pagina: str) -> str:
+    """Las líneas que el OCR lee en las imágenes grandes y que no están ya en el texto de la página."""
+    from PIL import Image
+    ya = _sin_espacios(texto_pagina)
+    nuevas: list[str] = []
+    for zona in _imagenes_grandes(pag):
+        pix = pag.get_pixmap(dpi=ocr.RESOLUCION_PDF, clip=zona, alpha=False)
+        for linea in ocr.reconocer(Image.frombytes("RGB", (pix.width, pix.height), pix.samples)).splitlines():
+            clave = _sin_espacios(linea)
+            if len(clave) >= 2 and clave not in ya:
+                nuevas.append(linea.strip())
+                ya += clave
+    return "\n".join(nuevas)
 LARGO_TITULO = 120
 
 
@@ -137,7 +173,8 @@ def agregar(con: sqlite3.Connection, componente_id: int, nombre_original: str, t
         for i, pag in enumerate(doc, start=1):
             texto = pag.get_text("text", sort=True).strip()
             escaneada = len(texto.replace(" ", "").replace("\n", "")) < MIN_CARACTERES
-            paginas.append((i, texto, escaneada))
+            # En cola de OCR: las escaneadas y las que tienen imágenes grandes (su texto no se puede buscar)
+            paginas.append((i, texto, escaneada or bool(_imagenes_grandes(pag))))
         total = doc.page_count
     finally:
         doc.close()
@@ -188,7 +225,7 @@ def renombrar(con: sqlite3.Connection, pdf_id: int, titulo: str) -> Pdf:
 def pedir_ocr_completo(con: sqlite3.Connection, pdf_id: int) -> int:
     """Vuelve a reconocer TODAS las páginas con OCR (útil si el texto del PDF sale mal)."""
     obtener(con, pdf_id)
-    n = con.execute("UPDATE pdf_paginas SET ocr_pendiente=1, ocr_error=NULL WHERE pdf_id=?", (pdf_id,)).rowcount
+    n = con.execute("UPDATE pdf_paginas SET ocr_pendiente=1, ocr_completo=1, ocr_error=NULL WHERE pdf_id=?", (pdf_id,)).rowcount
     ocr.avisar_trabajo()
     return n
 
@@ -224,28 +261,40 @@ def miniatura(con: sqlite3.Connection, pdf: Pdf, ancho: int = 480) -> Path | Non
 def procesar_una_pagina(con: sqlite3.Connection) -> bool:
     """Fuente de trabajos para el OCR en segundo plano: reconoce UNA página pendiente."""
     f = con.execute(
-        """SELECT p.id, p.numero, p.texto, d.id AS pdf_id, d.archivo, d.componente_id
+        """SELECT p.id, p.numero, p.texto, p.ocr_completo, d.id AS pdf_id, d.archivo, d.componente_id
            FROM pdf_paginas p JOIN pdfs d ON d.id = p.pdf_id JOIN componentes c ON c.id = d.componente_id
            WHERE p.ocr_pendiente = 1 AND d.papelera_id IS NULL AND c.papelera_id IS NULL
            ORDER BY d.id, p.numero LIMIT 1""").fetchone()
     if f is None:
         return False
+    procesar_pagina(con, f)
+    return True
+
+
+def procesar_pagina(con: sqlite3.Connection, f: sqlite3.Row) -> None:
+    """OCR de una página (fila con id, numero, texto, ocr_completo, pdf_id, archivo, componente_id)."""
     try:
         comp = bib.obtener_componente(con, f["componente_id"])
         archivo = bib.carpeta_componente(con, comp) / Path(*f["archivo"].split("/"))
         with pymupdf.open(archivo) as doc:
-            pix = doc[f["numero"] - 1].get_pixmap(dpi=ocr.RESOLUCION_PDF, alpha=False)
-        from PIL import Image
-        imagen = Image.frombytes("RGB", (pix.width, pix.height), pix.samples)
-        texto = ocr.reconocer(imagen).strip()
-        # Si el OCR no encontró nada se conserva el poco texto que tuviera la página
-        final = texto if len(texto) >= len(f["texto"]) else f["texto"]
-        con.execute("UPDATE pdf_paginas SET texto=?, texto_norm=?, origen=?, ocr_pendiente=0, ocr_error=NULL WHERE id=?",
-                    (final, normalizar(final), "ocr" if final == texto else "texto", f["id"]))
+            pag = doc[f["numero"] - 1]
+            digital = pag.get_text("text", sort=True).strip()   # siempre desde el archivo: repetir no duplica
+            if f["ocr_completo"] or len(digital.replace(" ", "").replace("\n", "")) < MIN_CARACTERES:
+                # Página escaneada (o pedida a mano): el OCR de la página entera reemplaza su texto
+                pix = pag.get_pixmap(dpi=ocr.RESOLUCION_PDF, alpha=False)
+                from PIL import Image
+                texto = ocr.reconocer(Image.frombytes("RGB", (pix.width, pix.height), pix.samples)).strip()
+                # Si el OCR no encontró nada se conserva el poco texto que tuviera la página
+                final, origen = (texto, "ocr") if len(texto) >= len(digital) else (digital, "texto")
+            else:
+                # Página con texto: se conserva tal cual y se le agrega lo que dicen sus imágenes
+                extra = _texto_de_imagenes(pag, digital)
+                final, origen = (f"{digital}\n\n{extra}" if extra else digital), "texto"
+        con.execute("""UPDATE pdf_paginas SET texto=?, texto_norm=?, origen=?, ocr_pendiente=0, ocr_completo=0,
+                       ocr_error=NULL WHERE id=?""", (final, normalizar(final), origen, f["id"]))
     except Exception as e:
         log.exception("OCR falló en la página %s del PDF %s", f["numero"], f["pdf_id"])
         con.execute("UPDATE pdf_paginas SET ocr_pendiente=0, ocr_error=? WHERE id=?", (str(e)[:300], f["id"]))
-    return True
 
 
 ocr.registrar_fuente(procesar_una_pagina)
