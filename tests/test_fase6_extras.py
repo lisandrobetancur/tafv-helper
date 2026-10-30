@@ -237,3 +237,17 @@ def test_web(cliente, base) -> None:
     nombre = respaldos.listar()[0].nombre
     assert cliente.get(f"/respaldos/{nombre}").headers["content-type"] == "application/zip"
     assert cliente.get("/respaldos/../../etc/passwd").status_code == 404
+
+
+def test_respaldos_en_el_mismo_segundo_no_se_pisan(con, base, monkeypatch) -> None:
+    from datetime import datetime as dt
+
+    class Fijo(dt):
+        @classmethod
+        def now(cls, tz=None):
+            return dt(2026, 10, 29, 21, 52, 45)
+    monkeypatch.setattr(respaldos, "datetime", Fijo)
+    a, b = respaldos.crear("antes-de-cargar"), respaldos.crear("antes-de-cargar")
+    assert a.nombre == "antes-de-cargar-2026-10-29_21-52-45.zip"
+    assert b.nombre == "antes-de-cargar-2026-10-29_21-52-45-2.zip"
+    assert {r.nombre for r in respaldos.listar()} >= {a.nombre, b.nombre}

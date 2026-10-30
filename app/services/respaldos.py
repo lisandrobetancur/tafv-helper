@@ -57,6 +57,11 @@ def crear(prefijo: str = "respaldo") -> Respaldo:
     rutas.respaldos.mkdir(parents=True, exist_ok=True)
     marca = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     destino = rutas.respaldos / f"{prefijo}-{marca}.zip"
+    n = 2
+    while destino.exists():   # dos respaldos en el mismo segundo (p. ej. cargas seguidas): no se pisan
+        destino = rutas.respaldos / f"{prefijo}-{marca}-{n}.zip"
+        n += 1
+    marca = destino.stem.removeprefix(f"{prefijo}-")
     parcial = destino.with_suffix(".zip.parcial")
     copia_db = rutas.cache / f"respaldo-{marca}.db"
     copia_db.parent.mkdir(parents=True, exist_ok=True)
