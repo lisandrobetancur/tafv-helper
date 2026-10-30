@@ -76,6 +76,13 @@ def editar(request: Request, materia_id: int, nombre: str = Form(""), descripcio
     return redirigir(request, f"/materias/{materia_id}", "Cambios guardados.")
 
 
+@router.post("/{materia_id}/en-busqueda")
+def en_busqueda(request: Request, materia_id: int, activo: bool = Form(False), con: sqlite3.Connection = Depends(obtener_db)):
+    m = bib.poner_en_busqueda(con, materia_id, activo)
+    return redirigir(request, f"/materias/{materia_id}",
+                     f"«{m.nombre}» {'ahora sale' if activo else 'ya no sale'} en la búsqueda y en Acceso rápido.")
+
+
 @router.post("/{materia_id}/archivar")
 def archivar(request: Request, materia_id: int, archivar: bool = Form(True), con: sqlite3.Connection = Depends(obtener_db)):
     m = bib.archivar_materia(con, materia_id, archivar)

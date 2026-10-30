@@ -45,9 +45,17 @@ def carpeta_materia(m: Materia) -> Path:
     return rutas.archivos / m.slug
 
 
-def listar_materias(con: sqlite3.Connection, archivadas: bool | None = False) -> list[Materia]:
-    """archivadas=False: activas; True: solo archivadas; None: todas."""
+# Las materias ocultas usan ids desde aquí (se abren escribiendo /materias/<id>); las demás, ids menores
+ID_MATERIAS_OCULTAS = 8000
+# Materias que no deben salir en la búsqueda ni en Acceso rápido (ocultas con el interruptor apagado)
+SQL_OCULTAS_SIN_BUSQUEDA = "SELECT id FROM materias WHERE oculta = 1 AND en_busqueda = 0"
+
+
+def listar_materias(con: sqlite3.Connection, archivadas: bool | None = False, ocultas: bool = False) -> list[Materia]:
+    """archivadas=False: activas; True: solo archivadas; None: todas. Las ocultas solo si ocultas=True."""
     filtro = "" if archivadas is None else f"AND archivada = {int(archivadas)}"
+    if not ocultas:
+        filtro += " AND oculta = 0"
     filas = con.execute(
         f"""SELECT m.*,
                    (SELECT COUNT(*) FROM componentes c WHERE c.materia_id = m.id AND c.papelera_id IS NULL) AS n_comp
@@ -90,16 +98,27 @@ def _slugs_materias(con: sqlite3.Connection, excluir: int | None = None) -> set[
         "SELECT slug FROM materias WHERE papelera_id IS NULL AND id IS NOT ?", (excluir,))}
 
 
+def poner_en_busqueda(con: sqlite3.Connection, materia_id: int, activo: bool) -> Materia:
+    """Interruptor de una materia oculta: si sale en la búsqueda y en Acceso rápido."""
+    m = obtener_materia(con, materia_id)
+    if not m.oculta:
+        raise ErrorUsuario("Esta materia no está oculta: ya sale en la búsqueda.")
+    con.execute("UPDATE materias SET en_busqueda=? WHERE id=?", (int(activo), materia_id))
+    return obtener_materia(con, materia_id)
+
+
 def crear_materia(con: sqlite3.Connection, nombre: str, descripcion: str, color: str, icono: str) -> int:
     nombre = _limpiar_nombre(nombre, "la materia")
     descripcion = _limpiar_descripcion(descripcion)
     _validar_materia(con, nombre, color, icono)
     slug = alm.slug_unico(alm.slugify(nombre), _slugs_materias(con))
     orden = con.execute("SELECT COALESCE(MAX(orden), 0) + 1 FROM materias").fetchone()[0]
+    # Siempre por debajo de los ids de las materias ocultas (si no, la siguiente sería la 8001)
+    nuevo_id = con.execute("SELECT COALESCE(MAX(id), 0) + 1 FROM materias WHERE id < ?", (ID_MATERIAS_OCULTAS,)).fetchone()[0]
     t = ahora()
     cur = con.execute(
-        "INSERT INTO materias (nombre, slug, descripcion, color, icono, orden, creado, actualizado) VALUES (?,?,?,?,?,?,?,?)",
-        (nombre, slug, descripcion, color, icono, orden, t, t),
+        "INSERT INTO materias (id, nombre, slug, descripcion, color, icono, orden, creado, actualizado) VALUES (?,?,?,?,?,?,?,?,?)",
+        (nuevo_id, nombre, slug, descripcion, color, icono, orden, t, t),
     )
     (rutas.archivos / slug).mkdir(parents=True, exist_ok=True)
     log.info("Materia creada: %s (%s)", nombre, slug)

@@ -32,6 +32,7 @@ class Elemento:
     url: str
     ubicacion: str
     color: str
+    oculta: bool = False      # está en una materia oculta
 
     @property
     def icono(self) -> str:
@@ -42,14 +43,14 @@ class Elemento:
         return NOMBRES[self.tipo]
 
 
-def resolver(con: sqlite3.Connection, pares: list[tuple[str, int]]) -> list[Elemento]:
-    """Mantiene el orden de `pares`."""
+def resolver(con: sqlite3.Connection, pares: list[tuple[str, int]], ocultas: bool = True) -> list[Elemento]:
+    """Mantiene el orden de `pares`. ocultas=False descarta lo que está en materias ocultas."""
     datos: dict[tuple[str, int], tuple] = {}
     for tipo in {t for t, _ in pares if t in _CONSULTAS}:
         ids = [i for t, i in pares if t == tipo]
         for f in con.execute(_CONSULTAS[tipo].format(",".join("?" * len(ids))), ids):
             datos[(tipo, f[0])] = (f[1], f[2], f[3])
-    ubicaciones: dict[int, tuple[str, str] | None] = {}
+    ubicaciones: dict[int, tuple[str, str, bool] | None] = {}
     salida = []
     for tipo, ref in pares:
         if (tipo, ref) not in datos:
@@ -60,11 +61,13 @@ def resolver(con: sqlite3.Connection, pares: list[tuple[str, int]]) -> list[Elem
                 c = bib.obtener_componente(con, comp_id)   # falla si el componente está en la papelera
                 m = bib.obtener_materia(con, c.materia_id)
                 ruta = " › ".join([m.nombre, *(a.nombre for a in bib.ancestros(con, c)), c.nombre])
-                ubicaciones[comp_id] = (ruta, COLOR_POR_ID.get(m.color, COLOR_POR_ID["pizarra"])["hex"])
+                ubicaciones[comp_id] = (ruta, COLOR_POR_ID.get(m.color, COLOR_POR_ID["pizarra"])["hex"], m.oculta)
             except Exception:
                 ubicaciones[comp_id] = None
         if ubicaciones[comp_id] is None:
             continue
-        ruta, color = ubicaciones[comp_id]
-        salida.append(Elemento(tipo, ref, titulo, url, ruta, color))
+        ruta, color, oculta = ubicaciones[comp_id]
+        if oculta and not ocultas:
+            continue
+        salida.append(Elemento(tipo, ref, titulo, url, ruta, color, oculta))
     return salida

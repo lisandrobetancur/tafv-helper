@@ -20,6 +20,8 @@ class Materia:
     archivada: bool
     creado: str
     actualizado: str
+    oculta: bool = False          # no sale en el menú, Inicio, recientes ni favoritos; se abre por su URL
+    en_busqueda: bool = True      # si es oculta: ¿sale en la búsqueda y en Acceso rápido?
     # Calculados al listar
     num_componentes: int = 0
     num_elementos: int = 0
@@ -32,7 +34,9 @@ class Materia:
     def desde_fila(cls, f: sqlite3.Row) -> Materia:
         return cls(id=f["id"], nombre=f["nombre"], slug=f["slug"], descripcion=f["descripcion"],
                    color=f["color"], icono=f["icono"], orden=f["orden"], archivada=bool(f["archivada"]),
-                   creado=f["creado"], actualizado=f["actualizado"])
+                   creado=f["creado"], actualizado=f["actualizado"],
+                   oculta=bool(f["oculta"]) if "oculta" in f.keys() else False,
+                   en_busqueda=bool(f["en_busqueda"]) if "en_busqueda" in f.keys() else True)
 
 
 @dataclass

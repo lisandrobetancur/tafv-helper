@@ -36,12 +36,14 @@ def alternar(con: sqlite3.Connection, tipo: str, ref_id: int) -> bool:
 
 def favoritos(con: sqlite3.Connection, limite: int = 100) -> list[elementos.Elemento]:
     pares = [(f[0], f[1]) for f in con.execute("SELECT tipo, ref_id FROM favoritos ORDER BY creado DESC, rowid DESC LIMIT ?", (limite,))]
-    return elementos.resolver(con, pares)
+    return elementos.resolver(con, pares, ocultas=False)   # lo de materias ocultas no se muestra
 
 
 def registrar_visita(con: sqlite3.Connection, tipo: str, ref_id: int) -> None:
     if tipo not in TIPOS_RECIENTE:
         return
+    if any(e.oculta for e in elementos.resolver(con, [(tipo, ref_id)])):
+        return   # lo de una materia oculta no deja rastro en «Abiertos recientemente»
     con.execute("INSERT INTO recientes (tipo, ref_id, visto) VALUES (?,?,?) "
                 "ON CONFLICT (tipo, ref_id) DO UPDATE SET visto = excluded.visto", (tipo, ref_id, ahora()))
     con.execute("DELETE FROM recientes WHERE rowid NOT IN (SELECT rowid FROM recientes ORDER BY visto DESC, rowid DESC LIMIT ?)",
@@ -61,4 +63,4 @@ def limpiar_recientes(con: sqlite3.Connection) -> int:
 def recientes(con: sqlite3.Connection, limite: int = 10) -> list[elementos.Elemento]:
     pares = [(f[0], f[1]) for f in con.execute(
         "SELECT tipo, ref_id FROM recientes ORDER BY visto DESC, rowid DESC LIMIT ?", (limite * 2,))]
-    return elementos.resolver(con, pares)[:limite]
+    return elementos.resolver(con, pares, ocultas=False)[:limite]

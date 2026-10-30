@@ -192,7 +192,7 @@ def _lineas_texto(texto: str) -> list[str]:
 
 def _materias_en_alcance(con: sqlite3.Connection, filtros: bus.Filtros) -> list[tuple[int, str]]:
     """Todas las materias que se revisan (también las archivadas), en el orden de la biblioteca."""
-    sql = "SELECT id, nombre FROM materias WHERE papelera_id IS NULL"
+    sql = f"SELECT id, nombre FROM materias WHERE papelera_id IS NULL AND id NOT IN ({bib.SQL_OCULTAS_SIN_BUSQUEDA})"
     params: list = []
     if filtros.materia:
         sql += " AND id = ?"
@@ -443,7 +443,8 @@ def revisar_cobertura(con: sqlite3.Connection) -> tuple[int, list[Faltante]]:
     """Comprueba que cada fila, nota e imagen vigente sea candidata en Acceso rápido: buscándola por su
     título y por una palabra de su contenido. Devuelve (elementos revisados, los que no aparecieron)."""
     vigentes = """JOIN componentes c ON c.id = {t}.componente_id JOIN materias m ON m.id = c.materia_id
-                  WHERE {t}.papelera_id IS NULL AND c.papelera_id IS NULL AND m.papelera_id IS NULL"""
+                  WHERE {t}.papelera_id IS NULL AND c.papelera_id IS NULL AND m.papelera_id IS NULL
+                  AND NOT (m.oculta = 1 AND m.en_busqueda = 0)"""
     elementos = []    # (tipo, id, materia, contenedor, título visible, contenido)
     for f in con.execute(f"""SELECT f.id, f.titulo, f.valores, t.nombre, t.columna_titulo, m.nombre AS materia
                              FROM filas f JOIN tablas t ON t.id = f.tabla_id {vigentes.format(t='t')}

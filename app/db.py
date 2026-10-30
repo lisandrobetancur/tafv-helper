@@ -252,6 +252,12 @@ MIGRACIONES: list[str] = [
     # 9 — OCR de la página entera pedido a mano («Leer todas las páginas con OCR»); si no, en las páginas
     #     con texto solo se leen sus imágenes grandes y ese texto se agrega al de la página
     "ALTER TABLE pdf_paginas ADD COLUMN ocr_completo INTEGER NOT NULL DEFAULT 0;",
+    # 10 — materias ocultas: no salen en el menú ni en Inicio (se abren por su URL, con id desde 8000) ni en
+    #      recientes y favoritos; en_busqueda decide si salen en la búsqueda y en Acceso rápido
+    """
+    ALTER TABLE materias ADD COLUMN oculta INTEGER NOT NULL DEFAULT 0;
+    ALTER TABLE materias ADD COLUMN en_busqueda INTEGER NOT NULL DEFAULT 1;
+    """,
 ]
 
 

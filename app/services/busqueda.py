@@ -41,6 +41,7 @@ _EXCLUIR_PAPELERA = """
     AND NOT (tipo IN ('pdf', 'pagina') AND padre IN (SELECT id FROM pdfs WHERE papelera_id IS NOT NULL))
     AND NOT (tipo = 'imagen' AND ref IN (SELECT id FROM imagenes WHERE papelera_id IS NOT NULL))
     AND NOT (tipo = 'nota' AND ref IN (SELECT id FROM notas WHERE papelera_id IS NOT NULL))
+    AND (materia IS NULL OR materia NOT IN (SELECT id FROM materias WHERE oculta = 1 AND en_busqueda = 0))
     AND NOT (tipo = 'imagen_fila' AND ref IN (SELECT id FROM imagenes_fila WHERE papelera_id IS NOT NULL))
 """
 
