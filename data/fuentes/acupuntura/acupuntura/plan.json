@@ -258,5 +258,10 @@
       "descripcion": "Shu de espalda.\nRama externa V | Rama interna V | Zang Fu | Apófisis espinosa | VG | Función\nV42 | V13 | Pulmón | T3 | VG12 | Asma, Tos, Sinusitis\nV44 | V15 | Corazón | T5 | VG11 | Problemas lengua, Pulso - vasos\nV46 | V17 | Diafragma | T7 | VG9 |\nV47 | V18 | Hígado | T9 | VG8 | Patología Hígado, ojo, tendón, articulación\nV48 | V19 | VB | T10 | VG7 |\nV49 | V20 | Bazo | T11 | VG6 | Problemas boca y músculos\nV50 | V21 | Estómago | T12 | | Estreñimiento y vómitos\nV52 | V23 | Riñón | L2 | VG4 | Dificultad micción. oído, Tinnitus, Hueso.\n\nNota: Escojo MU por excesos y acompaña Shu por deficiencia y\n* Bilateral + yang en enfermedad crónica\n* Shu transporte de energía a los órganos.\n* Excesos igual a dolor\n* Dolor con cambios de color o textura desequilibrio órganos relacionados\n* Vacío = Alivio del dolor a la palpación."
     }
   ],
-  "pdfs": []
+  "pdfs": [
+    {
+      "archivo": "pdf/TECNICA DE PLANOS.pdf",
+      "titulo": "Técnica de planos - Acupuntura"
+    }
+  ]
 }

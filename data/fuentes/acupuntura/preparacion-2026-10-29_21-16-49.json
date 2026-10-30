@@ -1,0 +1,16 @@
+{
+  "materia": "Acupuntura",
+  "fecha": "2026-10-29T21:16:49",
+  "archivos": [
+    {
+      "original": "fuentes/acupuntura/_originales/TECNICA DE PLANOS.pdf",
+      "hojas": [
+        {
+          "componente": "Acupuntura",
+          "archivo": "fuentes/acupuntura/acupuntura/pdf/TECNICA DE PLANOS.pdf"
+        }
+      ],
+      "sin_asignar": []
+    }
+  ]
+}
