@@ -101,6 +101,13 @@ def test_limpiar_recientes_desde_inicio(cliente) -> None:
     assert r.headers["HX-Redirect"] == "/"
     assert con.execute("SELECT COUNT(*) FROM recientes").fetchone()[0] == 0
     assert "Abiertos recientemente" not in cliente.get("/").text
+
+    cliente.post(f"/favoritos/nota/{nota.id}", headers={"HX-Request": "true"})
+    assert 'hx-post="/favoritos/limpiar"' in cliente.get("/").text
+    r = cliente.post("/favoritos/limpiar", headers={"HX-Request": "true"})
+    assert r.headers["HX-Redirect"] == "/"
+    assert con.execute("SELECT COUNT(*) FROM favoritos").fetchone()[0] == 0
+    assert notas_srv.obtener(con, nota.id).titulo == "Resumen"          # la nota sigue ahí
     con.close()
 
 

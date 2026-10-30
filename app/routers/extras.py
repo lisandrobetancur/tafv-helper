@@ -35,6 +35,12 @@ def alternar_favorito(request: Request, tipo: str, ref_id: int, con: sqlite3.Con
     return respuesta
 
 
+@router.post("/favoritos/limpiar")
+def limpiar_favoritos(request: Request, con: sqlite3.Connection = Depends(obtener_db)):
+    fav.limpiar_favoritos(con)
+    return redirigir(request, "/", "Se quitaron todos los favoritos.")
+
+
 @router.post("/recientes/limpiar")
 def limpiar_recientes(request: Request, con: sqlite3.Connection = Depends(obtener_db)):
     fav.limpiar_recientes(con)

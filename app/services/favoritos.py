@@ -48,6 +48,11 @@ def registrar_visita(con: sqlite3.Connection, tipo: str, ref_id: int) -> None:
                 (MAX_RECIENTES,))
 
 
+def limpiar_favoritos(con: sqlite3.Connection) -> int:
+    """Quita todas las estrellas (los elementos no se tocan)."""
+    return con.execute("DELETE FROM favoritos").rowcount
+
+
 def limpiar_recientes(con: sqlite3.Connection) -> int:
     """Vacía la lista de abiertos recientemente (los elementos no se tocan)."""
     return con.execute("DELETE FROM recientes").rowcount
