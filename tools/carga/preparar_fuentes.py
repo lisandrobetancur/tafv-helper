@@ -9,6 +9,7 @@ Estructura que deja (nada se modifica después de copiado):
     data/fuentes/<materia>/<componente>/imagenes/<hoja> - <celda>.<ext>   imágenes del Excel, por su celda ancla
     data/fuentes/<materia>/<componente>/inspeccion-<hoja>.txt|.json      descripción de bloques (ver inspeccionar.py)
     data/fuentes/<materia>/<componente>/pdf|imagenes/...      PDF e imágenes entregados sueltos
+    data/fuentes/<materia>/<componente>/documentos/<archivo>.docx   documentos de Word (se pasan a notas)
 
 --componente manda todas las hojas a un componente; --hoja "Hoja=Componente" reparte por hoja
 (las hojas sin asignar se informan y no se copian).
@@ -119,10 +120,10 @@ def main() -> None:
                 (carpeta / f"inspeccion-{destino.stem}.txt").write_text(resumen(info), "utf-8")
                 registro["hojas"].append({"hoja": hoja, "componente": componente, "archivo": rutas.relativa(destino),
                                           "imagenes": [rutas.relativa(p) for p in imgs]})
-        elif ext in EXT_IMAGEN | {".pdf", ".csv"}:
+        elif ext in EXT_IMAGEN | {".pdf", ".csv", ".docx"}:
             if not a.componente:
                 ap.error(f"{archivo.name}: indica --componente para archivos que no son Excel")
-            sub = {".pdf": "pdf", ".csv": "hojas"}.get(ext, "imagenes")
+            sub = {".pdf": "pdf", ".csv": "hojas", ".docx": "documentos"}.get(ext, "imagenes")
             copia = _copiar_sin_pisar(original, base / slugify(a.componente) / sub / archivo.name)
             registro["hojas"].append({"componente": a.componente, "archivo": rutas.relativa(copia)})
         else:

@@ -5,8 +5,9 @@
 Revisa:
   1. Cada nota, imagen, tabla y PDF del plan existe en el componente con el contenido exacto del plan
      (texto de la nota, descripción y archivo idéntico de la imagen, filas y celdas de la tabla).
-  2. Cobertura: cada palabra de cada celda y comentario de las fuentes aparece en lo cargado. Solo se
-     aceptan diferencias declaradas en "correcciones" (ortografía) u "omitidos" (con motivo).
+  2. Cobertura: cada palabra de cada celda y comentario de las fuentes (o de cada párrafo, si la fuente es
+     un Word .docx) aparece en lo cargado. Solo se aceptan diferencias declaradas en "correcciones"
+     (ortografía) u "omitidos" (con motivo; en un Word: {"parrafo": <n.º desde 1>, "motivo": …}).
   3. Toda imagen de la carpeta imagenes/ del plan está cargada o declarada en "omitidos".
   4. Con --ocr: palabras que el OCR lee en cada imagen y no están en su descripción (aviso, no error).
 Sale con código 1 si hay errores.
@@ -28,6 +29,27 @@ from app.services import hojas as lector
 from app.services.texto import normalizar
 from comun import palabras, texto_comentario
 from resolver import componente_del_plan
+
+
+def textos_docx(ruta: Path) -> list[str]:
+    """Párrafos de un Word en orden: cuerpo (también dentro de tablas), encabezados y pies de página."""
+    import docx
+    documento = docx.Document(str(ruta))
+    textos = []
+
+    def de(contenedor) -> None:
+        for p in contenedor.paragraphs:
+            textos.append(p.text)
+        for tabla in contenedor.tables:
+            for fila in tabla.rows:
+                for celda in fila.cells:
+                    de(celda)
+
+    de(documento)
+    for seccion in documento.sections:
+        de(seccion.header)
+        de(seccion.footer)
+    return textos
 
 
 def _celdas_omitidas(plan: dict) -> set[str]:
@@ -113,8 +135,16 @@ def auditar(plan_ruta: Path, con_ocr: bool) -> tuple[list[str], list[str]]:
             errores.append(f"La corrección «{original}» → «{corregido}» no aparece en lo cargado.")
     omitidas = _celdas_omitidas(plan)
     revisadas = 0
+    parrafos_omitidos = {o["parrafo"] for o in plan.get("omitidos", []) if "parrafo" in o}
     for fuente in plan.get("fuentes", []):
         ruta = base / fuente
+        if ruta.suffix.lower() == ".docx":
+            for n, tx in enumerate(textos_docx(ruta), start=1):
+                revisadas += 1
+                faltan = palabras(tx) - corpus - aceptadas
+                if faltan and n not in parrafos_omitidos:
+                    errores.append(f"{ruta.name}, párrafo {n}: no está en lo cargado {sorted(faltan)} — «{tx[:80]}»")
+            continue
         if ruta.suffix.lower() not in {".xlsx", ".xlsm"}:
             continue
         for ws in openpyxl.load_workbook(ruta, data_only=True).worksheets:   # el valor que se ve, como la app
@@ -130,7 +160,7 @@ def auditar(plan_ruta: Path, con_ocr: bool) -> tuple[list[str], list[str]]:
                         faltan = palabras(tx) - corpus - aceptadas
                         if faltan:
                             errores.append(f"{ws.title}!{c.coordinate}: no está en lo cargado {sorted(faltan)} — «{tx[:80]}»")
-    avisos.append(f"Celdas y comentarios revisados: {revisadas}")
+    avisos.append(f"Celdas, comentarios y párrafos revisados: {revisadas}")
 
     # 3. Imágenes de las fuentes sin cargar
     en_plan = {i["archivo"] for i in plan.get("imagenes", [])} | {o["archivo"] for o in plan.get("omitidos", []) if "archivo" in o}

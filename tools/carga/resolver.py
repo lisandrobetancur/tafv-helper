@@ -12,7 +12,7 @@ def _igual(nombre: str, slug: str, buscado: str) -> bool:
 
 
 def materia_id(con, nombre: str) -> int | None:
-    return next((m.id for m in bib.listar_materias(con, archivadas=None) if _igual(m.nombre, m.slug, nombre)), None)
+    return next((m.id for m in bib.listar_materias(con, archivadas=None, ocultas=True) if _igual(m.nombre, m.slug, nombre)), None)
 
 
 def partes_componente(ruta: str) -> list[str]:
