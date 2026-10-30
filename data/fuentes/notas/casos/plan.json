@@ -1,0 +1,176 @@
+{
+  "materia": "Notas",
+  "componente": "Casos",
+  "crear_componente": {
+    "tipos": [
+      "notas"
+    ],
+    "descripcion": ""
+  },
+  "fuentes": [
+    "documentos/Notas casos.docx"
+  ],
+  "correcciones": {
+    "FISCO": "FÍSICO",
+    "magistrarl": "magistral",
+    "exposiocion": "exposición",
+    "minitos": "minutos",
+    "procedinmiento": "procedimiento",
+    "Autohemoteraoia": "Autohemoterapia",
+    "sculentum": "esculentum",
+    "Paullina": "Paullinia",
+    "Nerural": "Neural",
+    "Colistis": "Colitis",
+    "SULHUR": "SULPHUR",
+    "PHOSPUROS": "PHOSPHORUS",
+    "CAUTISCUM": "CAUSTICUM",
+    "sulfhur": "sulphur",
+    "phosphoros": "phosphorus",
+    "pulsatalia": "pulsatilla",
+    "folliculim": "folliculinum",
+    "Calcalera": "Calcarea",
+    "metalicum": "metallicum",
+    "Hodking": "Hodgkin",
+    "Pegfilgrastrim": "Pegfilgrastim",
+    "Alupurinol": "Alopurinol",
+    "Hyosciamus": "Hyoscyamus",
+    "mollisima": "mollissima",
+    "cebo": "sebo"
+  },
+  "omitidos": [],
+  "notas": [
+    {
+      "titulo": "CASO 1 - Casos",
+      "archivo": "notas/CASO 1 - Casos.md",
+      "parrafos": "1-78"
+    },
+    {
+      "titulo": "CASO 2 - Casos",
+      "archivo": "notas/CASO 2 - Casos.md",
+      "parrafos": "79-157"
+    },
+    {
+      "titulo": "CASO 3 - Casos",
+      "archivo": "notas/CASO 3 - Casos.md",
+      "parrafos": "158-237"
+    },
+    {
+      "titulo": "CASO 4 - Casos",
+      "archivo": "notas/CASO 4 - Casos.md",
+      "parrafos": "238-324"
+    },
+    {
+      "titulo": "CASO 5 - Casos",
+      "archivo": "notas/CASO 5 - Casos.md",
+      "parrafos": "325-493"
+    },
+    {
+      "titulo": "CASO 6 - Casos",
+      "archivo": "notas/CASO 6 - Casos.md",
+      "parrafos": "494-563"
+    },
+    {
+      "titulo": "CASO 7 - Casos",
+      "archivo": "notas/CASO 7 - Casos.md",
+      "parrafos": "564-589"
+    },
+    {
+      "titulo": "CASO 8 - Casos",
+      "archivo": "notas/CASO 8 - Casos.md",
+      "parrafos": "590-607"
+    },
+    {
+      "titulo": "CASO 9 - Casos",
+      "archivo": "notas/CASO 9 - Casos.md",
+      "parrafos": "608-618"
+    },
+    {
+      "titulo": "CASO 10 - Casos",
+      "archivo": "notas/CASO 10 - Casos.md",
+      "parrafos": "619-644"
+    },
+    {
+      "titulo": "CASO 11 - Casos",
+      "archivo": "notas/CASO 11 - Casos.md",
+      "parrafos": "645-671"
+    },
+    {
+      "titulo": "CASO 12 - Casos",
+      "archivo": "notas/CASO 12 - Casos.md",
+      "parrafos": "672-689"
+    },
+    {
+      "titulo": "CASO 13 - Casos",
+      "archivo": "notas/CASO 13 - Casos.md",
+      "parrafos": "690-710"
+    },
+    {
+      "titulo": "CASO 14 - Casos",
+      "archivo": "notas/CASO 14 - Casos.md",
+      "parrafos": "711-735"
+    },
+    {
+      "titulo": "CASO 15 - Casos",
+      "archivo": "notas/CASO 15 - Casos.md",
+      "parrafos": "736-769"
+    },
+    {
+      "titulo": "CASO 16 - Casos",
+      "archivo": "notas/CASO 16 - Casos.md",
+      "parrafos": "770-838"
+    },
+    {
+      "titulo": "CASO 17 - Casos",
+      "archivo": "notas/CASO 17 - Casos.md",
+      "parrafos": "839-887"
+    },
+    {
+      "titulo": "CASO 18 - Casos",
+      "archivo": "notas/CASO 18 - Casos.md",
+      "parrafos": "888-930"
+    },
+    {
+      "titulo": "CASO 19 - Casos",
+      "archivo": "notas/CASO 19 - Casos.md",
+      "parrafos": "931-977"
+    },
+    {
+      "titulo": "CASO 20 - Casos",
+      "archivo": "notas/CASO 20 - Casos.md",
+      "parrafos": "978-1001"
+    },
+    {
+      "titulo": "CASO 21 - Casos",
+      "archivo": "notas/CASO 21 - Casos.md",
+      "parrafos": "1002-1025"
+    },
+    {
+      "titulo": "CASO 22 - Casos",
+      "archivo": "notas/CASO 22 - Casos.md",
+      "parrafos": "1026-1051"
+    },
+    {
+      "titulo": "CASO 23 - Casos",
+      "archivo": "notas/CASO 23 - Casos.md",
+      "parrafos": "1052-1077"
+    },
+    {
+      "titulo": "CASO 24 - Casos",
+      "archivo": "notas/CASO 24 - Casos.md",
+      "parrafos": "1078-1118"
+    },
+    {
+      "titulo": "CASO 25 - Casos",
+      "archivo": "notas/CASO 25 - Casos.md",
+      "parrafos": "1119-1147"
+    },
+    {
+      "titulo": "CASO 26 - Casos",
+      "archivo": "notas/CASO 26 - Casos.md",
+      "parrafos": "1148-1190"
+    }
+  ],
+  "tablas": [],
+  "imagenes": [],
+  "pdfs": []
+}

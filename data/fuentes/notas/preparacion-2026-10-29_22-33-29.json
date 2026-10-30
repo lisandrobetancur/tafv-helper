@@ -1,0 +1,16 @@
+{
+  "materia": "Notas",
+  "fecha": "2026-10-29T22:33:29",
+  "archivos": [
+    {
+      "original": "fuentes/notas/_originales/Notas casos.docx",
+      "hojas": [
+        {
+          "componente": "Casos",
+          "archivo": "fuentes/notas/casos/documentos/Notas casos.docx"
+        }
+      ],
+      "sin_asignar": []
+    }
+  ]
+}
