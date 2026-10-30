@@ -80,6 +80,28 @@ def test_recientes(con, base) -> None:
     for i in range(fav.MAX_RECIENTES + 10):
         fav.registrar_visita(con, "tabla", 1000 + i)
     assert con.execute("SELECT COUNT(*) FROM recientes").fetchone()[0] == fav.MAX_RECIENTES
+    # Limpiar la lista no toca los elementos
+    assert fav.limpiar_recientes(con) == fav.MAX_RECIENTES
+    assert fav.recientes(con) == [] and fav.favoritos(con) == []
+    assert con.execute("SELECT COUNT(*) FROM filas WHERE id=?", (base["filas"]["Amoxicilina"],)).fetchone()[0] == 1
+
+
+def test_limpiar_recientes_desde_inicio(cliente) -> None:
+    from app import db
+    from app.services import biblioteca as bib
+    from app.services import notas as notas_srv
+    con = db.conectar()
+    mid = bib.crear_materia(con, "Anatomía", "", "azul", "bone")
+    cid = bib.crear_componente(con, mid, None, "Parcial", "", ["notas"])
+    nota = notas_srv.crear(con, cid, "Resumen", "texto")
+    cliente.get(f"/notas/{nota.id}")
+    inicio = cliente.get("/").text
+    assert "Abiertos recientemente" in inicio and 'hx-post="/recientes/limpiar"' in inicio
+    r = cliente.post("/recientes/limpiar", headers={"HX-Request": "true"})
+    assert r.headers["HX-Redirect"] == "/"
+    assert con.execute("SELECT COUNT(*) FROM recientes").fetchone()[0] == 0
+    assert "Abiertos recientemente" not in cliente.get("/").text
+    con.close()
 
 
 # ------------------------------------------------------------- etiquetas

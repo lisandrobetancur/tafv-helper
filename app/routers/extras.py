@@ -35,6 +35,12 @@ def alternar_favorito(request: Request, tipo: str, ref_id: int, con: sqlite3.Con
     return respuesta
 
 
+@router.post("/recientes/limpiar")
+def limpiar_recientes(request: Request, con: sqlite3.Connection = Depends(obtener_db)):
+    fav.limpiar_recientes(con)
+    return redirigir(request, "/", "Se limpió la lista de abiertos recientemente.")
+
+
 # ========================================== etiquetas de filas, PDF y tablas
 @router.post("/etiquetas/{tipo}/{ref_id}")
 def guardar_etiquetas(request: Request, tipo: str, ref_id: int, etiquetas: str = Form(""),

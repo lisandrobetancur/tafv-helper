@@ -48,6 +48,11 @@ def registrar_visita(con: sqlite3.Connection, tipo: str, ref_id: int) -> None:
                 (MAX_RECIENTES,))
 
 
+def limpiar_recientes(con: sqlite3.Connection) -> int:
+    """Vacía la lista de abiertos recientemente (los elementos no se tocan)."""
+    return con.execute("DELETE FROM recientes").rowcount
+
+
 def recientes(con: sqlite3.Connection, limite: int = 10) -> list[elementos.Elemento]:
     pares = [(f[0], f[1]) for f in con.execute(
         "SELECT tipo, ref_id FROM recientes ORDER BY visto DESC, rowid DESC LIMIT ?", (limite * 2,))]
