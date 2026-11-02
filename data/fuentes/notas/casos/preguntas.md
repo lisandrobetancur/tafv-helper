@@ -6,7 +6,7 @@
 3. CASO 4 (párr. 252): «se ha tomado irascible». ¿Es «se ha tornado irascible»?
 4. CASO 4 (párr. 275): «corpulmunar». ¿Es «cor pulmonale»?
 5. CASO 4 (párr. 291): «10 mq de Potasio». ¿Es «10 mEq»? (en el CASO 16 dice «10 mEq de potasio»).
-6. CASO 5 (párr. 382): «1 sección semana». ¿Es «1 sesión semana»?
+6. CASO 5 (párr. 382): «1 sección semana». ¿Es «1 sesión semana»? **Resuelta el 2026-11-02: sí, corregida.**
 7. CASO 6 (párr. 541): «ortiga si prurito. (Urticaria urens)». ¿Es «Urtica urens»?
 8. CASO 6 (párr. 543): «Autohemoteraoia menor y ozo solucion». «Autohemoteraoia» la corregí a «Autohemoterapia»; «ozo solucion» la dejé: ¿es «ozono solución»?
 9. CASO 3 (párr. 211): «(Valeria, Passiflora, Toronjil)». ¿Es «Valeriana»?

@@ -1,4 +1,4 @@
-| Sección | Presión | Tiempo |
+| Sesión | Presión | Tiempo |
 | --- | --- | --- |
 | 1 | 5 p.s.i | 30 minutos |
 | 2 | 7 p.s.i | 45 minutos |

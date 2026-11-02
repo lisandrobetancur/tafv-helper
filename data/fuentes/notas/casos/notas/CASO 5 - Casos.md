@@ -65,7 +65,7 @@ Punto: Protuberancia Occipital, Suboccipital, Hackett A-B-C-T
 
 ### 2. Oxivenacion:
 
-250 ml DAD 5% + 5 ML Oxigeno pasar 60 gotas. 1-10: 5-50ml 1 sección semana x 4 ss y se evalúa
+250 ml DAD 5% + 5 ML Oxigeno pasar 60 gotas. 1-10: 5-50ml 1 sesión semana x 4 ss y se evalúa
 
 **3. Homeopatia:** Lachesis mutus
 

@@ -6,7 +6,7 @@ Distancia entre puntos 3 a 4 cm
 
 No aplicar más de 50 mL por sesión
 
-| Sección | Volumen por punto (mL) | Concentración (mcg/mL) |
+| Sesión | Volumen por punto (mL) | Concentración (mcg/mL) |
 |---|---|---|
 | 1 | 1 a 2 | 5 |
 | 2 | 1 a 2 | 10 |

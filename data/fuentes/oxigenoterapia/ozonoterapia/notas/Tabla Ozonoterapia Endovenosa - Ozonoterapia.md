@@ -1,4 +1,4 @@
-| Sección | Volumen O3 m/L | Concentración mcg/mL |
+| Sesión | Volumen O3 m/L | Concentración mcg/mL |
 |---|---|---|
 | 1 | 5 | 10 |
 | 2 | 10 | 15 |

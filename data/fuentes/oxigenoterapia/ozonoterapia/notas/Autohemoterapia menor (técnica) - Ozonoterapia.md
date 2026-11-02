@@ -1,4 +1,4 @@
-| Sección | Volumen de Sangre (mL) | Volumen de Ozono (mL) | Concentración mcg/mL |
+| Sesión | Volumen de Sangre (mL) | Volumen de Ozono (mL) | Concentración mcg/mL |
 |---|---|---|---|
 | 1 | 5 | 5 | 5 |
 | 2 | 5 | 5 | 10 |
