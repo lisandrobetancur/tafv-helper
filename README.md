@@ -173,7 +173,7 @@ tools/carga/         carga fiel de material: preparar_fuentes, inspeccionar, ext
                      cargar (plan.json), auditar (fuentes vs. biblioteca) y verificar_acceso_rapido
                      (cada fila, nota e imagen vigente aparece como candidata en Acceso rápido)
 .claude/            skill «cargar-material» (reglas y formato del plan) y agentes extractor-material y
-                     verificador-carga, para Claude Code
+                     verificador-carga (herramientas de desarrollo para la carga de material)
 instalador.py        instalar/iniciar (solo biblioteca estándar); lo llaman los .command y .bat
 ```
 
@@ -211,7 +211,7 @@ data/archivos/<materia>/<componente>/<subcomponente>/
   elegido de a un elemento (el carrusel de imágenes, una nota, una tabla o un PDF), con anterior/siguiente que
   recorren toda la materia.
   Las imágenes se ven en carrusel (también en la pestaña Imágenes y en las fichas, con opción de cuadrícula).
-- **Carga de material con Claude Code:** el skill `.claude/skills/cargar-material` define las reglas (texto literal,
+- **Carga de material:** el skill `.claude/skills/cargar-material` define las reglas (texto literal,
   solo ortografía declarada, nada unido, dividido ni rellenado; recuadros → una nota por encabezado; bloques
   tabulares con encabezado → tabla de Excel; cada hoja → su propio archivo; imágenes con su texto transcrito).
   Los originales quedan en `data/fuentes/<materia>/` (entran en los respaldos); `tools/carga/cargar.py` carga un
