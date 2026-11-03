@@ -234,6 +234,7 @@ class Evidencia:
     seccion: str = ""
     tipo: str = "directo"         # directo | indicio | dato
     detalle: str = ""             # explicación de un dato calculado (IMC, TA)
+    valor: str = ""               # el dato en corto, para el nombre del diagnóstico («IMC 29,3», «TA 135/80»)
 
     @property
     def partes(self) -> list[tuple[str, bool]]:
@@ -283,6 +284,28 @@ class Diagnostico:
         return self.nombre[:1].upper() + self.nombre[1:]
 
     @property
+    def calificativo(self) -> str:
+        """Lo que el caso dice del diagnóstico, como en clase: «controlada (TA 135/80)», «IMC 29,3»."""
+        valores = list(dict.fromkeys(e.valor for e in self.evidencias if e.valor))
+        if self.clave == "hta":
+            ta = [e for e in self.evidencias if e.valor.startswith("TA")]
+            if any(e.tipo == "dato" for e in ta):
+                return "controlada (" + ", ".join(e.valor for e in ta) + ")"
+            if ta and any(e.tipo == "directo" for e in self.evidencias):
+                return "no controlada (" + ", ".join(e.valor for e in ta) + ")"
+        return ", ".join(valores)
+
+    @property
+    def titulo_completo(self) -> str:
+        return self.titulo + (f" {self.calificativo}" if self.calificativo.startswith(("controlada", "no controlada"))
+                              else f" ({self.calificativo})" if self.calificativo else "")
+
+    @property
+    def base(self) -> list[str]:
+        """Palabras del caso en que se apoya (para el resumen)."""
+        return list(dict.fromkeys(e.linea[e.inicio:e.fin].strip() for e in self.evidencias if e.tipo != "dato"))
+
+    @property
     def principal(self) -> bool:
         return any(e.seccion in SECCIONES_PRINCIPALES and e.tipo != "dato" for e in self.evidencias)
 
@@ -320,18 +343,36 @@ class Resultado:
     patologias: list[tuple[str, str]] = field(default_factory=list)   # (clave, nombre) para agregar a mano
     fuentes: dict[str, int | None] = field(default_factory=dict)      # id de las tablas usadas
     faltan_fuentes: bool = False
+    paciente: str = ""                                                # «Mujer de 55 años»
+    motivo: str = ""                                                  # motivo de consulta tal como viene
+    avisos: list[str] = field(default_factory=list)                   # lo que le falta al caso
 
     @property
     def resumen(self) -> str:
-        """Texto para copiar, con la forma de los casos de clase."""
-        lineas = ["DIAGNÓSTICOS"]
-        lineas += [f"{n}. {d.titulo}{' (probable)' if d.probable else ''}"
-                   for n, d in enumerate(self.diagnosticos, 1)]
+        """Texto para copiar, con la forma de los casos de clase: diagnósticos y jerarquización con su prescripción."""
+        lineas = []
+        if self.paciente:
+            lineas.append(self.paciente)
+        if self.motivo:
+            lineas.append(f"Motivo de consulta: {self.motivo}")
+        lineas += ["", "DIAGNÓSTICOS"] if lineas else ["DIAGNÓSTICOS"]
+        lineas += [f"{n}. {d.titulo_completo}{' (probable)' if d.probable else ''}" for n, d in enumerate(self.diagnosticos, 1)]
         lineas += ["", "JERARQUIZACIÓN"]
         for n, p in enumerate(self.plan, 1):
-            para = ", ".join(f"{d.nombre} ({i.prioridad if i.prioridad is not None else 's/p'})" for d, i in p.usos)
-            lineas.append(f"{n}. {p.nombre} — {para}")
-        return "\n".join(lineas)
+            lineas.append(f"{n}. {p.nombre} (para {', '.join(d.nombre for d, _ in p.usos)})")
+            for m, (d, i) in enumerate(p.usos, 1):
+                prefijo = f"{n}.{m} " if len(p.usos) > 1 else ""
+                lineas.append(f"{prefijo}{d.titulo} — prioridad {i.prioridad if i.prioridad is not None else 's/p'}")
+                for f in i.filas:
+                    texto = f["formula"] or f["descripcion"]
+                    if texto:
+                        lineas.append(texto.strip())
+                if i.nota_tabla:
+                    lineas.append(f"Tabla: {i.nota_tabla}")
+                if i.comentario_tabla:
+                    lineas.append(f"Comentario de la tabla: {i.comentario_tabla}")
+            lineas.append("")
+        return "\n".join(lineas).strip()
 
 
 # ------------------------------------------------------------------ texto
@@ -376,7 +417,34 @@ def renglones(texto: str) -> list[tuple[str, str, str, int]]:
         else:
             seccion_linea, desde = seccion, 0
         salida.append((linea, plano, seccion_linea, desde))
+    if salida and not any(r[2] for r in salida):
+        # Caso sin secciones («Paciente de 52 años con hipertensión…»): la primera frase hace de motivo de consulta
+        linea, plano, _, _ = salida[0]
+        m = re.search(r"[.;]\s", plano)
+        corte = m.end() if m else len(plano)
+        salida[0:1] = [(linea[:corte], plano[:corte], "motivo", 0)] + (
+            [(linea[corte:], plano[corte:], "", 0)] if plano[corte:].strip() else [])
     return salida
+
+
+def tiene_secciones(texto: str) -> bool:
+    return any(_seccion_de_encabezado(_plano(l))[0] for l in (texto or "").split("\n"))
+
+
+def datos_paciente(texto: str) -> tuple[str, str]:
+    """(«Mujer de 55 años», motivo de consulta) cuando el caso los dice."""
+    plano = _plano((texto or "")[:3000])
+    sexo = ""
+    if re.search(r"(?<![a-z])(femenin[oa]|mujer|senora|paciente femenina)(?![a-z])", plano):
+        sexo = "Mujer"
+    elif re.search(r"(?<![a-z])(masculino|hombre|varon|senor)(?![a-z])", plano):
+        sexo = "Hombre"
+    edad = re.search(r"(?<![a-z])(?:paciente|edad|mujer|hombre|varon|femenin[oa]|masculin[oa])[^.\n\d]{0,25}?(\d{1,3})\s*anos", plano) \
+        or re.search(r"^\W*(\d{1,3})\s*anos", plano)
+    edad_txt = f"{edad.group(1)} años" if edad else ""
+    paciente = " de ".join(x for x in (sexo, edad_txt) if x) if sexo else (f"Paciente de {edad_txt}" if edad_txt else "")
+    motivo = " ".join(l.strip() for l, _, sec, _ in renglones(texto) if sec == "motivo")
+    return paciente, motivo[:300]
 
 
 def _negado(plano: str, inicio: int) -> bool:
@@ -453,16 +521,17 @@ def datos_examen(texto: str) -> tuple[dict[str, list[Evidencia]], list[str]]:
             sis, dia = int(m.group(3)), int(m.group(4))
             if sis >= 140 or dia >= 90:
                 txt = f"Tensión arterial {sis}/{dia} mmHg: elevada (≥ 140/90)."
-                por_clave.setdefault("hta", []).append(Evidencia(linea, m.start(), m.end(), seccion, "indicio", txt))
+                por_clave.setdefault("hta", []).append(Evidencia(linea, m.start(), m.end(), seccion, "indicio", txt, f"TA {sis}/{dia}"))
             else:
                 txt = f"Tensión arterial {sis}/{dia} mmHg: por debajo de 140/90 (si es hipertensa, está controlada)."
-                por_clave.setdefault("hta", []).append(Evidencia(linea, m.start(), m.end(), seccion, "dato", txt))
+                por_clave.setdefault("hta", []).append(Evidencia(linea, m.start(), m.end(), seccion, "dato", txt, f"TA {sis}/{dia}"))
             resumen.append(txt)
         for clave, patron, umbral, nombre_lab, tipo in LABORATORIOS:
             if (m := re.search(patron, plano)) and _numero(m.group(m.lastindex)) >= umbral:
                 valor = _numero(m.group(m.lastindex))
                 txt = f"{nombre_lab} {valor:g}: por encima de {umbral:g}."
-                por_clave.setdefault(clave, []).append(Evidencia(linea, m.start(), m.end(), seccion, tipo, txt))
+                por_clave.setdefault(clave, []).append(
+                    Evidencia(linea, m.start(), m.end(), seccion, tipo, txt, f"{nombre_lab} {valor:g}".replace(".", ",")))
                 resumen.append(txt)
     origen = linea_imc
     if imc is None and peso and talla and 0.5 < talla < 2.5:
@@ -477,7 +546,7 @@ def datos_examen(texto: str) -> tuple[dict[str, list[Evidencia]], list[str]]:
             txt = f"IMC {imc:.1f}: {categoria}."
             resumen[0] += f" Corresponde a {categoria}."
             linea, i, f, seccion = origen
-            por_clave.setdefault(clave, []).append(Evidencia(linea, i, f, seccion, "directo", txt))
+            por_clave.setdefault(clave, []).append(Evidencia(linea, i, f, seccion, "directo", txt, f"IMC {imc:.1f}".replace(".", ",")))
         else:
             resumen[0] += " Sin sobrepeso." if imc >= 18.5 else " Bajo peso."
     return por_clave, resumen
@@ -637,6 +706,15 @@ def analizar(con: sqlite3.Connection, texto: str, elegidos: list[str] | None = N
     nombres = {k: fuentes.patologias[k]["nombre"] if k in fuentes.patologias else k for k in claves}
     resultado.patologias = sorted(((k, nombres[k]) for k in claves), key=lambda x: normalizar(x[1]))
     datos, resultado.datos = datos_examen(texto)
+    resultado.paciente, resultado.motivo = datos_paciente(texto)
+    if texto.strip():
+        if not tiene_secciones(texto):
+            resultado.avisos.append("El caso no trae secciones (motivo de consulta, enfermedad actual, examen físico…): "
+                                    "se tomó la primera frase como motivo de consulta.")
+        if not any("IMC" in d for d in resultado.datos):
+            resultado.avisos.append("No hay peso y talla (ni IMC): no se pudo valorar sobrepeso u obesidad.")
+        if not any("Tensión arterial" in d for d in resultado.datos):
+            resultado.avisos.append("No hay tensión arterial.")
 
     reconocidos: list[Diagnostico] = []
     for clave in claves:

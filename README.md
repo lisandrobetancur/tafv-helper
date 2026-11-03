@@ -226,8 +226,13 @@ data/archivos/<materia>/<componente>/<subcomponente>/
   muestra su origen. Es independiente de las materias: siempre revisa todas, arma un ranking por materia
   (ninguna queda tapada por otra) y guarda sus propios casos en la tabla `casos` (síntomas, conclusión y
   foto del análisis; van a la papelera como el resto). Las direcciones son `/acceso-rapido…`; las antiguas
-  `/diagnostico/…` (y `/diagnostico?s=…`) redirigen.
-- **Diagnóstico** (`/diagnostico`, módulo `diagnostico_clinico`): recibe un caso clínico en texto libre y
+  `/diagnostico/casos…` (y `/diagnostico?s=…`) redirigen.
+- **Diagnóstico** (`/diagnostico`, módulo `diagnostico_clinico`): pantalla propia, distinta de Acceso rápido. Se pega
+  el caso (completo con sus secciones o un solo párrafo; sin secciones, la primera frase hace de motivo de consulta) y
+  el resultado sale en otra pantalla (`POST /diagnostico/resultado`) con la forma de los casos de clase: paciente y
+  motivo, DIAGNÓSTICOS numerados con su calificativo («HTA controlada (TA 135/80)», «Sobrepeso (IMC 29,3)») y
+  JERARQUIZACIÓN con la prescripción de cada terapia (fórmula del Consolidado, sub-opciones n.1, n.2 por diagnóstico),
+  avisos de lo que le falta al caso y un botón para copiarlo todo como texto. Recibe un caso clínico en texto libre y
   reconoce, con reglas deterministas (sin IA), las patologías de la Tabla de jerarquización: nombres y siglas
   («lo nombra»), síntomas y medicamentos («indicio»; si solo hay indicios el diagnóstico es «probable»), IMC
   calculado con peso y talla, tensión arterial y laboratorios. Respeta negaciones («niega cefalea») y no toma

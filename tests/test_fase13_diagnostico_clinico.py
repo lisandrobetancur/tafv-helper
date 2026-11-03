@@ -135,12 +135,39 @@ def test_laboratorios(con, jerarquizacion) -> None:
     assert "HTA" in nombres(r) and any("150/95" in d for d in r.datos)
 
 
+def test_caso_corto_sin_secciones(con, jerarquizacion) -> None:
+    r = dxc.analizar(con, "Paciente mujer de 52 años con hipertensión estadio 1, sin tratamiento. TA 150/95. Refiere gastritis.")
+    assert r.paciente == "Mujer de 52 años" and r.motivo.startswith("Paciente mujer de 52 años")
+    hta, gastritis = r.diagnosticos
+    assert hta.nombre == "HTA" and hta.principal and not gastritis.principal     # la primera frase hace de motivo
+    assert hta.titulo_completo == "HTA no controlada (TA 150/95)"
+    assert any("no trae secciones" in a for a in r.avisos) and any("peso y talla" in a for a in r.avisos)
+
+
+def test_paciente_y_resumen(con, jerarquizacion) -> None:
+    r = dxc.analizar(con, "Paciente de 55 años de sexo femenino\n" + CASO_1)
+    assert r.paciente == "Mujer de 55 años" and r.motivo == "úlcera en la pierna"
+    assert [d.titulo_completo for d in r.diagnosticos][:3] == [
+        "Enfermedad varicosa", "HTA controlada (TA 135/80)", "Sobrepeso (IMC 29,3)"]
+    assert "DIAGNÓSTICOS\n1. Enfermedad varicosa" in r.resumen
+    assert "1. Campos magnéticos (para enfermedad varicosa, HTA)" in r.resumen
+    assert "2. Ozonoterapia (para enfermedad varicosa)" in r.resumen and "Bolsa sellada" in r.resumen   # la prescripción
+
+
 def test_web(cliente, con, jerarquizacion) -> None:
     pagina = cliente.get("/diagnostico").text
-    assert "Pega el caso clínico" in pagina and 'href="/diagnostico"' in pagina
-    r = cliente.post("/diagnostico/resultado", data={"texto": CASO_1})
-    assert "Enfermedad varicosa" in r.text and "Principal · motivo de consulta" in r.text and "Jerarquización del caso" in r.text
-    r = cliente.post("/diagnostico/resultado", data={"texto": CASO_1, "ajustado": "1", "dx": ["HTA", ""]})
-    assert "Reconocidos pero quitados" in r.text and "Agregado a mano" not in r.text
+    assert "Analizar caso" in pagina and 'href="/diagnostico"' in pagina and "JERARQUIZACIÓN" not in pagina
+    r = cliente.post("/diagnostico/resultado", data={"texto": CASO_1})          # otra pantalla, con el resultado
+    assert "Resultado del diagnóstico" in r.text and "Principal · motivo de consulta" in r.text
+    assert "1. Enfermedad varicosa" in r.text and "HTA controlada (TA 135/80)" in r.text and "JERARQUIZACIÓN" in r.text
+    assert "Bolsa sellada" in r.text and "Editar el caso" in r.text
+    r = cliente.post("/diagnostico/resultado", data={"texto": CASO_1, "ajustado": "1", "dx": ["hta", ""]})
+    assert "1. HTA controlada" in r.text and "Enfermedad varicosa" in r.text.split("Agregar diagnóstico")[0]  # quedó como quitado
+    assert "2. Enfermedad varicosa" not in r.text
+    r = cliente.post("/diagnostico", data={"texto": "úlcera en la pierna"})        # editar: vuelve con el texto
+    assert "úlcera en la pierna</textarea>" in r.text
+    assert cliente.get("/diagnostico/resultado", follow_redirects=False).headers["location"] == "/diagnostico"
     r = cliente.get("/diagnostico", params={"s": "fiebre"}, follow_redirects=False)       # direcciones de antes
     assert r.status_code == 301 and r.headers["location"].startswith("/acceso-rapido?s=")
+    r = cliente.get("/diagnostico/casos/7?x=1", follow_redirects=False)
+    assert r.headers["location"] == "/acceso-rapido/casos/7?x=1"
