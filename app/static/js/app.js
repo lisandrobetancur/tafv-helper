@@ -658,6 +658,10 @@
         if (e.sintomas.some((x) => this.clave(x) === this.clave(s))) { e.error = "Ese síntoma ya está en el cuadro."; return false; }
         e.error = "";
         e.sintomas.push(s);
+        this.$nextTick(() => {   // la lista tiene scroll: que se vea el que se acaba de agregar
+          const lista = this.$root.querySelector(`[data-movimiento="${id}"] .mov-lista`);
+          lista.scrollTop = lista.scrollHeight;
+        });
         return true;
       },
       elegir(id, evento) {
