@@ -1,0 +1,197 @@
+{# Resultado del módulo Diagnóstico: diagnósticos con evidencia, jerarquización integrada y tratamiento por diagnóstico #}
+{% from "macros.html" import icono, vacio %}
+{% macro resaltado(e) -%}
+  {%- for texto, marcado in e.partes %}{% if marcado %}<mark class="rounded bg-oro-suave px-0.5 text-texto">{{ texto }}</mark>{% else %}{{ texto }}{% endif %}{% endfor -%}
+{%- endmacro %}
+{% macro prioridad(n, principal=false) -%}
+<span class="grid size-7 shrink-0 place-items-center rounded-full text-xs font-bold {{ 'bg-marca text-sobre-marca' if n == 1 else 'bg-superficie-2 text-texto' }}"
+      title="{{ 'Prioridad ' ~ n if n is not none else 'Sin prioridad indicada' }}">{{ n if n is not none else "–" }}</span>
+{%- endmacro %}
+{% macro detalle_indicacion(i) %}
+  {% for f in i.filas %}
+  <div class="flex flex-col gap-2 text-sm">
+    {% if f.descripcion %}<div><p class="text-xs font-semibold uppercase tracking-wide text-tenue">Descripción</p>
+      <p class="whitespace-pre-line [overflow-wrap:anywhere]">{{ f.descripcion }}</p></div>{% endif %}
+    {% if f.formula %}<div><p class="text-xs font-semibold uppercase tracking-wide text-tenue">Fórmula</p>
+      <p class="whitespace-pre-line [overflow-wrap:anywhere]">{{ f.formula }}</p></div>{% endif %}
+    {% if f.notas %}<div><p class="text-xs font-semibold uppercase tracking-wide text-tenue">Notas</p>
+      <p class="whitespace-pre-line [overflow-wrap:anywhere]">{{ f.notas }}</p></div>{% endif %}
+    {% if not f.descripcion and not f.formula and not f.notas %}<p class="text-tenue">El Consolidado no trae descripción ni fórmula para esta terapia.</p>{% endif %}
+    <a href="/filas/{{ f.id }}" class="inline-flex items-center gap-1 text-xs font-medium text-marca hover:underline">Consolidado: {{ f.terapeutica }} (prioridad {{ f.prioridad if f.prioridad is not none else "–" }}) {{ icono("chevron-right", "size-3.5") }}</a>
+  </div>
+  {% endfor %}
+  {% if i.nota_tabla or i.comentario_tabla or (i.prioridad_tabla is not none and not i.filas) %}
+  <div class="rounded-lg bg-superficie-2/70 px-3 py-2 text-sm">
+    <p class="text-xs font-semibold uppercase tracking-wide text-tenue">Tabla de jerarquización{% if i.prioridad_tabla is not none %} · prioridad {{ i.prioridad_tabla }}{% endif %}</p>
+    {% if i.nota_tabla %}<p class="[overflow-wrap:anywhere]">{{ i.nota_tabla }}</p>{% endif %}
+    {% if i.comentario_tabla %}<p class="whitespace-pre-line text-tenue [overflow-wrap:anywhere]">Comentario: {{ i.comentario_tabla }}</p>{% endif %}
+  </div>
+  {% endif %}
+  {% if i.aviso %}<p class="flex items-center gap-1.5 text-xs text-alerta">{{ icono("triangle-alert", "size-3.5") }}{{ i.aviso }}</p>{% endif %}
+{% endmacro %}
+
+{% if not resultado %}
+  {% call vacio("clipboard-plus", "Pega el caso clínico", "Escribe o pega el caso arriba y pulsa «Analizar caso». Verás los diagnósticos que se reconocen, en qué parte del caso se basa cada uno y el tratamiento jerarquizado.") %}{% endcall %}
+{% elif resultado.faltan_fuentes %}
+  {% call vacio("table", "No se encontró la tabla de jerarquización", "Carga en la biblioteca la Tabla de jerarquización (columnas PATOLOGÍA, ACUP, T.N., F.V.…) y el Consolidado (PATOLOGÍA, JERARQUIZACIÓN, TERAPÉUTICA, DESCRIPCIÓN, FÓRMULA, NOTAS).") %}{% endcall %}
+{% else %}
+{% if resultado.datos %}
+<section class="mb-5 flex flex-wrap gap-2 text-sm" aria-label="Datos calculados del caso">
+  {% for d in resultado.datos %}<span class="chip gap-1.5 py-1">{{ icono("activity", "size-3.5 text-marca") }}{{ d }}</span>{% endfor %}
+</section>
+{% endif %}
+
+<div class="grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
+  <div class="flex min-w-0 flex-col gap-8">
+    {# ------------------------------------------------------------ diagnósticos #}
+    <section aria-labelledby="t-dxc-dx">
+      <div class="mb-3 flex flex-wrap items-baseline justify-between gap-2">
+        <h2 id="t-dxc-dx" class="text-lg font-semibold">Diagnósticos</h2>
+        <p class="text-xs text-tenue">Desmarca los que no correspondan o agrega otro de la tabla: el tratamiento se recalcula.</p>
+      </div>
+      {% if not resultado.diagnosticos %}
+      <p class="rounded-xl border border-dashed border-borde px-5 py-6 text-center text-sm text-tenue">
+        No se reconoció ninguna patología de la tabla de jerarquización en el caso. Puedes agregarla abajo.</p>
+      {% endif %}
+      <ol class="flex flex-col gap-3">
+        {% for d in resultado.diagnosticos %}
+        <li class="tarjeta overflow-hidden" x-data="{ abierto: {{ 'true' if loop.first else 'false' }} }">
+          <div class="flex items-center gap-3 px-5 py-4">
+            <input type="checkbox" name="dx" value="{{ d.clave }}" checked class="size-4 shrink-0 accent-[var(--color-marca)]"
+                   hx-post="/diagnostico/resultado" hx-target="#resultado-dxc" hx-vals='{"ajustado": "1"}' hx-trigger="change"
+                   title="Quitar este diagnóstico" aria-label="Mantener {{ d.nombre }}">
+            <button type="button" class="flex min-w-0 flex-1 items-center gap-3 text-left" @click="abierto = !abierto" :aria-expanded="abierto">
+              <span class="grid size-9 shrink-0 place-items-center rounded-full text-sm font-bold {{ 'bg-marca text-sobre-marca' if loop.first else 'bg-superficie-2 text-tenue' }}">{{ loop.index }}</span>
+              <span class="min-w-0 flex-1">
+                <span class="block text-lg font-semibold">{{ d.titulo }}</span>
+                <span class="mt-0.5 flex flex-wrap gap-1.5 text-xs">
+                  {% if d.principal %}<span class="chip border-marca/40 bg-marca-suave py-0.5 text-marca">Principal · motivo de consulta</span>{% endif %}
+                  {% if d.manual %}<span class="chip py-0.5">Agregado a mano</span>
+                  {% elif d.probable %}<span class="chip border-oro/50 bg-oro-suave py-0.5" title="El caso no nombra la enfermedad; se deduce de síntomas, medicamentos o datos del examen">Probable · solo indicios</span>{% endif %}
+                  <span class="text-tenue">{{ d.indicaciones|length }} terapia{{ "s" if d.indicaciones|length != 1 }}</span>
+                </span>
+              </span>
+              <span class="text-tenue transition-transform" :class="abierto && 'rotate-90'">{{ icono("chevron-right") }}</span>
+            </button>
+          </div>
+          <div x-show="abierto" x-cloak class="flex flex-col gap-4 border-t border-borde px-5 py-4">
+            {% if d.evidencias %}
+            <div>
+              <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-tenue">En qué se basa</p>
+              <ul class="flex flex-col gap-2">
+                {% for e in d.evidencias %}
+                <li class="flex gap-2.5 text-sm">
+                  <span class="mt-0.5 {{ 'text-exito' if e.tipo == 'directo' else 'text-oro' if e.tipo == 'indicio' else 'text-tenue' }}">{{ icono("circle-check" if e.tipo == "directo" else "circle-help" if e.tipo == "indicio" else "info", "size-4") }}</span>
+                  <div class="min-w-0">
+                    <p class="text-xs text-tenue">{{ e.nombre_seccion or "Caso" }} · {{ {"directo": "lo nombra", "indicio": "indicio", "dato": "dato"}[e.tipo] }}</p>
+                    <p class="[overflow-wrap:anywhere]">«{{ resaltado(e) }}»</p>
+                    {% if e.detalle %}<p class="text-xs font-medium">{{ e.detalle }}</p>{% endif %}
+                  </div>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endif %}
+            <div>
+              <p class="mb-2 text-xs font-semibold uppercase tracking-wide text-tenue">Jerarquización para este diagnóstico</p>
+              {% if d.indicaciones %}
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                  <thead><tr class="text-left text-xs text-tenue"><th class="pb-2 pr-2 font-medium">Prioridad</th><th class="pb-2 pr-2 font-medium">Terapia</th>
+                    <th class="pb-2 pr-2 font-medium">Consolidado</th><th class="pb-2 font-medium">Tabla</th></tr></thead>
+                  <tbody class="divide-y divide-borde">
+                    {% for i in d.indicaciones %}
+                    <tr><td class="py-2 pr-2">{{ prioridad(i.prioridad) }}</td>
+                      <td class="py-2 pr-2 font-medium">{{ i.nombre }}{% if i.aviso %} <span class="text-alerta" title="{{ i.aviso }}">{{ icono("triangle-alert", "size-3.5") }}</span>{% endif %}</td>
+                      <td class="py-2 pr-2">{{ i.prioridad_consolidado if i.prioridad_consolidado is not none else ("✓" if i.filas else "—") }}</td>
+                      <td class="py-2">{{ i.prioridad_tabla if i.prioridad_tabla is not none else "—" }}{% if i.nota_tabla %} <span class="text-xs text-tenue">{{ i.nota_tabla }}</span>{% endif %}</td></tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+              {% else %}
+              <p class="text-sm text-tenue">Ni la tabla ni el Consolidado tienen terapias para esta patología.</p>
+              {% endif %}
+              {% if d.fila_tabla %}<a href="/filas/{{ d.fila_tabla }}" class="mt-2 inline-flex items-center gap-1 text-xs font-medium text-marca hover:underline">Ver la fila en la tabla de jerarquización {{ icono("chevron-right", "size-3.5") }}</a>{% endif %}
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+      </ol>
+
+      {% if resultado.descartados %}
+      <div class="mt-3 flex flex-wrap items-center gap-2 text-sm">
+        <span class="text-tenue">Reconocidos pero quitados:</span>
+        {% for d in resultado.descartados %}
+        <label class="chip cursor-pointer gap-1.5 py-1 hover:border-marca">
+          <input type="checkbox" name="dx" value="{{ d.clave }}" class="size-3.5"
+                 hx-post="/diagnostico/resultado" hx-target="#resultado-dxc" hx-vals='{"ajustado": "1"}' hx-trigger="change">
+          <span>{{ d.titulo }}</span></label>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <div class="mt-3 flex flex-wrap items-center gap-2">
+        <label class="text-sm text-tenue" for="dxc-agregar">Agregar diagnóstico:</label>
+        <select id="dxc-agregar" name="dx" class="campo h-9 w-auto max-w-full py-1 text-sm"
+                hx-post="/diagnostico/resultado" hx-target="#resultado-dxc" hx-vals='{"ajustado": "1"}' hx-trigger="change">
+          <option value="">Elegir de la tabla…</option>
+          {% set ya = resultado.diagnosticos|map(attribute="clave")|list %}
+          {% for clave, nombre in resultado.patologias if clave not in ya %}<option value="{{ clave }}">{{ nombre }}</option>{% endfor %}
+        </select>
+      </div>
+
+      {% if resultado.familiares %}
+      <p class="mt-3 flex gap-2 text-sm text-tenue">{{ icono("users", "size-4 shrink-0") }}
+        <span>En los antecedentes familiares aparece{{ "n" if resultado.familiares|length > 1 }}
+          {% for d in resultado.familiares %}<strong class="font-medium text-texto">{{ d.nombre }}</strong>{{ ", " if not loop.last }}{% endfor %}:
+          no se toma{{ "n" if resultado.familiares|length > 1 }} como diagnóstico del paciente.</span></p>
+      {% endif %}
+    </section>
+  </div>
+
+  {# ------------------------------------------------------------ plan integrado #}
+  <aside class="flex min-w-0 flex-col gap-6">
+    {% if resultado.plan %}
+    <section class="tarjeta p-4" aria-labelledby="t-dxc-plan" x-data="{ copiado: false }">
+      <div class="mb-1 flex items-center justify-between gap-2">
+        <h2 id="t-dxc-plan" class="titulo-seccion">Jerarquización del caso</h2>
+        <button type="button" class="btn-fantasma h-8 px-2 text-xs" title="Copiar diagnósticos y jerarquización como texto"
+                @click="navigator.clipboard.writeText($refs.resumen.value).then(() => { copiado = true; setTimeout(() => copiado = false, 1800) })">
+          {{ icono("clipboard-list", "size-3.5") }}<span x-text="copiado ? 'Copiado' : 'Copiar'">Copiar</span></button>
+      </div>
+      <textarea x-ref="resumen" class="hidden" aria-hidden="true" tabindex="-1">{{ resultado.resumen }}</textarea>
+      <p class="mb-3 text-xs text-tenue">Primero las terapias del diagnóstico principal, según su prioridad; luego las demás. Con igual prioridad
+        va antes la que trae tratamiento detallado y la que sirve para más diagnósticos.</p>
+      <ol class="flex flex-col gap-2">
+        {% for p in resultado.plan %}
+        <li class="rounded-xl border border-borde" x-data="{ abierto: false }">
+          <button type="button" class="flex w-full items-start gap-3 px-3 py-2.5 text-left hover:bg-superficie-2/50" @click="abierto = !abierto" :aria-expanded="abierto">
+            <span class="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-superficie-2 text-xs font-bold">{{ loop.index }}</span>
+            <span class="min-w-0 flex-1">
+              <span class="block font-semibold">{{ p.nombre }}</span>
+              <span class="mt-1 flex flex-wrap gap-1">
+                {% for d, i in p.usos %}<span class="chip py-0 text-[11px] {{ 'border-marca/40 bg-marca-suave text-marca' if d.principal }}">{{ d.nombre }} · {{ i.prioridad if i.prioridad is not none else "s/p" }}</span>{% endfor %}
+              </span>
+            </span>
+            <span class="mt-0.5 text-tenue transition-transform" :class="abierto && 'rotate-90'">{{ icono("chevron-right", "size-4") }}</span>
+          </button>
+          <div x-show="abierto" x-cloak class="flex flex-col gap-4 border-t border-borde px-3 py-3">
+            {% for d, i in p.usos %}
+            <div class="flex flex-col gap-2">
+              <p class="flex items-center gap-2 text-sm font-semibold">{{ prioridad(i.prioridad) }}<span>{{ d.titulo }}</span></p>
+              {{ detalle_indicacion(i) }}
+            </div>
+            {% endfor %}
+          </div>
+        </li>
+        {% endfor %}
+      </ol>
+    </section>
+    {% endif %}
+    <p class="text-xs text-tenue">Fuentes: Tabla de jerarquización{% if resultado.fuentes.tabla %} (<a class="text-marca hover:underline" href="/tablas/{{ resultado.fuentes.tabla }}">abrir</a>){% else %} (no encontrada){% endif %}
+      y Jerarquización consolidado{% if resultado.fuentes.consolidado %} (<a class="text-marca hover:underline" href="/tablas/{{ resultado.fuentes.consolidado }}">abrir</a>){% else %} (no encontrado){% endif %}.
+      Manda la prioridad del Consolidado; si una terapia solo está en la tabla, se usa la de la tabla.</p>
+  </aside>
+</div>
+{% endif %}

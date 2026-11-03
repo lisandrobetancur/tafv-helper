@@ -226,7 +226,17 @@ data/archivos/<materia>/<componente>/<subcomponente>/
   muestra su origen. Es independiente de las materias: siempre revisa todas, arma un ranking por materia
   (ninguna queda tapada por otra) y guarda sus propios casos en la tabla `casos` (síntomas, conclusión y
   foto del análisis; van a la papelera como el resto). Las direcciones son `/acceso-rapido…`; las antiguas
-  `/diagnostico…` redirigen.
+  `/diagnostico/…` (y `/diagnostico?s=…`) redirigen.
+- **Diagnóstico** (`/diagnostico`, módulo `diagnostico_clinico`): recibe un caso clínico en texto libre y
+  reconoce, con reglas deterministas (sin IA), las patologías de la Tabla de jerarquización: nombres y siglas
+  («lo nombra»), síntomas y medicamentos («indicio»; si solo hay indicios el diagnóstico es «probable»), IMC
+  calculado con peso y talla, tensión arterial y laboratorios. Respeta negaciones («niega cefalea») y no toma
+  los antecedentes familiares; lo del motivo de consulta y la enfermedad actual marca el diagnóstico principal.
+  Para cada diagnóstico junta el Consolidado (prioridad, descripción, fórmula, notas) con la Tabla (prioridad,
+  indicación y comentario de la celda): manda la prioridad del Consolidado y se avisa cuando difieren. Arma
+  además la jerarquización del caso (primero las terapias del diagnóstico principal). Las tablas se encuentran
+  por sus columnas; las reglas están en `REGLAS` (`app/services/diagnostico_clinico.py`), y una patología nueva
+  en la tabla se reconoce por su nombre. La usuaria puede quitar o agregar diagnósticos y todo se recalcula.
 - **Seguridad de contenido:** todo el texto del Excel se escapa; el Markdown de las notas no admite HTML;
   las subidas se validan por contenido (Pillow/PyMuPDF), no por extensión.
 - **Mac Intel:** onnxruntime ≥ 1.24 no publica wheels x86_64 para macOS; `requirements.txt` fija la 1.23.2

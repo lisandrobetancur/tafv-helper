@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% from "macros.html" import icono %}
+{% block titulo %}Diagnóstico{% endblock %}
+{% block contenido %}
+<div class="mx-auto max-w-6xl">
+  <header class="mb-5 flex flex-wrap items-start gap-4">
+    <span class="grid size-12 shrink-0 place-items-center rounded-2xl bg-marca-suave text-marca">{{ icono("clipboard-plus", "size-6") }}</span>
+    <div class="min-w-0 flex-1">
+      <h1 class="text-2xl font-bold tracking-tight sm:text-3xl">Diagnóstico</h1>
+      <p class="mt-1 max-w-3xl text-tenue">Pega un caso clínico (motivo de consulta, enfermedad actual, revisión por sistemas,
+        antecedentes, examen físico…). Se reconocen las patologías de la <strong class="font-medium text-texto">tabla de jerarquización</strong>
+        que aparecen en él y, para cada una, el tratamiento ordenado por jerarquía con lo que dice el Consolidado.</p>
+    </div>
+  </header>
+
+  <p class="mb-5 flex gap-2 rounded-xl border border-alerta/30 bg-alerta-suave px-4 py-2.5 text-sm">{{ icono("info", "size-5 shrink-0 text-alerta") }}
+    Es una herramienta de estudio: ordena lo que dice tu propio material, con su fuente. No reemplaza el juicio clínico.</p>
+
+  <form id="form-dxc" hx-post="/diagnostico/resultado" hx-target="#resultado-dxc" hx-indicator="#resultado-dxc"
+        x-data="{ texto: '' }">
+    <div class="tarjeta mb-6 flex flex-col gap-3 p-5">
+      <label class="etiqueta" for="dxc-texto">Caso clínico</label>
+      <textarea id="dxc-texto" name="texto" rows="12" class="campo text-sm leading-relaxed" x-model="texto" maxlength="20000" required
+                placeholder="MOTIVO DE CONSULTA&#10;úlcera en la pierna&#10;&#10;ENFERMEDAD ACTUAL&#10;…&#10;&#10;REVISIÓN POR SISTEMAS&#10;…&#10;&#10;ANTECEDENTES PERSONALES&#10;…&#10;&#10;EXAMEN FÍSICO&#10;peso 66 kilos talla 150 cm TA: 135/80 …">{{ texto }}</textarea>
+      <p class="ayuda">Conviene dejar los títulos de cada sección: lo que está en el motivo de consulta y la enfermedad actual marca el
+        diagnóstico principal, y lo de los antecedentes familiares no se toma como diagnóstico del paciente. El IMC se calcula con
+        el peso y la talla.</p>
+      <div class="flex flex-wrap items-center gap-2">
+        <button class="btn-primario">{{ icono("stethoscope") }}Analizar caso</button>
+        <button type="button" class="btn-fantasma" x-show="texto" x-cloak
+                @click="texto = ''; document.getElementById('resultado-dxc').innerHTML = ''">{{ icono("x") }}Limpiar</button>
+      </div>
+    </div>
+
+    <div id="resultado-dxc" class="[&.htmx-request]:opacity-60 transition-opacity">
+      {% include "parciales/diagnostico_clinico_resultado.html" %}
+    </div>
+  </form>
+</div>
+{% endblock %}

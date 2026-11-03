@@ -108,8 +108,9 @@ def eliminar_caso(request: Request, caso_id: int, con: sqlite3.Connection = Depe
     return redirigir(request, "/acceso-rapido", f"«{titulo}» se envió a la papelera.")
 
 
-@router.get("/diagnostico{resto:path}", include_in_schema=False)
+@router.get("/diagnostico/{resto:path}", include_in_schema=False)
 def direccion_anterior(request: Request, resto: str = ""):
-    """Las direcciones de antes del cambio de nombre llevan a «Acceso rápido» (favoritos, enlaces guardados)."""
+    """Las direcciones de antes del cambio de nombre llevan a «Acceso rápido» (favoritos, enlaces guardados).
+    «/diagnostico» a secas es hoy el módulo Diagnóstico (routers/diagnostico_clinico.py)."""
     consulta = f"?{request.url.query}" if request.url.query else ""
-    return RedirectResponse(f"/acceso-rapido{resto}{consulta}", status_code=301)
+    return RedirectResponse(f"/acceso-rapido/{resto}{consulta}", status_code=301)
