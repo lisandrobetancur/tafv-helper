@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% from "macros.html" import icono %}
+{% block titulo %}Diagnóstico{% endblock %}
+{% block contenido %}
+<div class="mx-auto max-w-4xl">
+  <header class="mb-5 flex flex-wrap items-start gap-4">
+    <span class="grid size-12 shrink-0 place-items-center rounded-2xl bg-marca-suave text-marca">{{ icono("clipboard-plus", "size-6") }}</span>
+    <div class="min-w-0 flex-1">
+      <h1 class="text-2xl font-bold tracking-tight sm:text-3xl">Diagnóstico</h1>
+      <p class="mt-1 text-tenue">Pega un caso clínico, completo o solo con lo que tengas. Al analizarlo verás, en otra pantalla, los
+        diagnósticos y la jerarquización del tratamiento con su prescripción, como en los casos de clase, según la
+        <strong class="font-medium text-texto">tabla de jerarquización</strong> y el Consolidado.</p>
+    </div>
+  </header>
+
+  <p class="mb-5 flex gap-2 rounded-xl border border-alerta/30 bg-alerta-suave px-4 py-2.5 text-sm">{{ icono("info", "size-5 shrink-0 text-alerta") }}
+    Es una herramienta de estudio: ordena lo que dice tu propio material, con su fuente. No reemplaza el juicio clínico.</p>
+
+  <form method="post" action="/diagnostico/resultado" class="tarjeta flex flex-col gap-3 p-5" x-data="{ texto: {{ texto|tojson|forceescape }} }">
+    <label class="etiqueta" for="dxc-texto">Caso clínico</label>
+    <textarea id="dxc-texto" name="texto" rows="16" class="campo text-sm leading-relaxed" x-model="texto" maxlength="20000" required autofocus
+              placeholder="Paciente de 55 años de sexo femenino&#10;&#10;MOTIVO DE CONSULTA&#10;úlcera en la pierna&#10;&#10;ENFERMEDAD ACTUAL&#10;…&#10;&#10;REVISIÓN POR SISTEMAS&#10;…&#10;&#10;ANTECEDENTES PERSONALES&#10;…&#10;&#10;EXAMEN FÍSICO&#10;peso 66 kilos talla 150 cm TA: 135/80 …">{{ texto }}</textarea>
+    <div class="ayuda flex flex-col gap-1">
+      <p>Sirve igual un caso de un párrafo («Mujer de 52 años con hipertensión estadio 1, colesterol total 280…»): entonces la primera frase
+        hace de motivo de consulta.</p>
+      <p>Si el caso trae títulos (motivo de consulta, enfermedad actual, revisión por sistemas, antecedentes, examen físico), lo del motivo
+        de consulta y la enfermedad actual marca el diagnóstico principal, y lo de los antecedentes familiares no se toma como diagnóstico.
+        Con peso y talla se calcula el IMC; también se leen la tensión arterial y los laboratorios.</p>
+    </div>
+    <div class="flex flex-wrap items-center gap-2">
+      <button class="btn-primario" :disabled="!texto.trim()">{{ icono("stethoscope") }}Analizar caso</button>
+      <button type="button" class="btn-fantasma" x-show="texto" x-cloak @click="texto = ''; $nextTick(() => document.getElementById('dxc-texto').focus())">{{ icono("x") }}Limpiar</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

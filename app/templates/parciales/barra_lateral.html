@@ -19,6 +19,10 @@
     <a href="/" title="Inicio" class="item-menu flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium {{ 'bg-marca-suave text-marca' if en_inicio else 'text-texto hover:bg-superficie-2' }}">
       {{ icono("house", "size-[18px]") }}<span class="solo-desplegado">Inicio</span>
     </a>
+    {% set en_dxc = request.url.path.startswith("/diagnostico") %}
+    <a href="/diagnostico" title="Diagnóstico de un caso clínico" class="item-menu flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium {{ 'bg-marca-suave text-marca' if en_dxc else 'text-texto hover:bg-superficie-2' }}">
+      {{ icono("clipboard-plus", "size-[18px]") }}<span class="solo-desplegado">Diagnóstico</span>
+    </a>
     {% set en_dx = request.url.path.startswith("/acceso-rapido") %}
     <a href="/acceso-rapido" title="Acceso rápido por síntomas" class="item-menu flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium {{ 'bg-marca-suave text-marca' if en_dx else 'text-texto hover:bg-superficie-2' }}">
       {{ icono("stethoscope", "size-[18px]") }}<span class="solo-desplegado">Acceso rápido</span>
@@ -62,6 +66,7 @@
 {# Menú inferior para pantallas pequeñas #}
 <div class="fixed inset-x-0 bottom-0 z-30 flex items-center justify-around border-t border-borde bg-superficie py-2 lg:hidden">
   <a href="/" class="flex flex-col items-center gap-0.5 px-3 text-[11px] text-tenue">{{ icono("house", "size-5") }}Inicio</a>
+  <a href="/diagnostico" class="flex flex-col items-center gap-0.5 px-2 text-[11px] text-tenue">{{ icono("clipboard-plus", "size-5") }}Diagnóstico</a>
   <a href="/acceso-rapido" class="flex flex-col items-center gap-0.5 px-3 text-[11px] text-tenue">{{ icono("stethoscope", "size-5") }}Acceso rápido</a>
   <a href="/recopilaciones" class="flex flex-col items-center gap-0.5 px-2 text-[11px] text-tenue">{{ icono("clipboard-list", "size-5") }}Recopilar</a>
   <button type="button" class="flex flex-col items-center gap-0.5 px-2 text-[11px] text-tenue" hx-get="/materias/nueva" hx-target="#modal">{{ icono("folder-plus", "size-5") }}Nueva materia</button>

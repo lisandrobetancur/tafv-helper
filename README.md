@@ -173,7 +173,7 @@ tools/carga/         carga fiel de material: preparar_fuentes, inspeccionar, ext
                      cargar (plan.json), auditar (fuentes vs. biblioteca) y verificar_acceso_rapido
                      (cada fila, nota e imagen vigente aparece como candidata en Acceso rápido)
 .claude/            skill «cargar-material» (reglas y formato del plan) y agentes extractor-material y
-                     verificador-carga, para Claude Code
+                     verificador-carga (herramientas de desarrollo para la carga de material)
 instalador.py        instalar/iniciar (solo biblioteca estándar); lo llaman los .command y .bat
 ```
 
@@ -211,7 +211,7 @@ data/archivos/<materia>/<componente>/<subcomponente>/
   elegido de a un elemento (el carrusel de imágenes, una nota, una tabla o un PDF), con anterior/siguiente que
   recorren toda la materia.
   Las imágenes se ven en carrusel (también en la pestaña Imágenes y en las fichas, con opción de cuadrícula).
-- **Carga de material con Claude Code:** el skill `.claude/skills/cargar-material` define las reglas (texto literal,
+- **Carga de material:** el skill `.claude/skills/cargar-material` define las reglas (texto literal,
   solo ortografía declarada, nada unido, dividido ni rellenado; recuadros → una nota por encabezado; bloques
   tabulares con encabezado → tabla de Excel; cada hoja → su propio archivo; imágenes con su texto transcrito).
   Los originales quedan en `data/fuentes/<materia>/` (entran en los respaldos); `tools/carga/cargar.py` carga un
@@ -222,11 +222,26 @@ data/archivos/<materia>/<componente>/<subcomponente>/
   cualquier columna de la fila, o por renglón y título en notas e imágenes (siempre se busca en todo). Se ordenan por síntomas cubiertos (los «importantes» pesan el doble;
   a igualdad, primero quien tiene el síntoma en su título) con evidencia (columna o renglón resaltado),
   síntomas faltantes, «otros rasgos para confirmar», comparación del mejor candidato de cada materia
-  (identificado por el ícono de la materia) y lo que dicen los PDF. Sin IA: todo sale del material y se
+  (identificado por el ícono de la materia) y lo que dicen los PDF. Todo es local: sale del material y se
   muestra su origen. Es independiente de las materias: siempre revisa todas, arma un ranking por materia
   (ninguna queda tapada por otra) y guarda sus propios casos en la tabla `casos` (síntomas, conclusión y
   foto del análisis; van a la papelera como el resto). Las direcciones son `/acceso-rapido…`; las antiguas
-  `/diagnostico…` redirigen.
+  `/diagnostico/casos…` (y `/diagnostico?s=…`) redirigen.
+- **Diagnóstico** (`/diagnostico`, módulo `diagnostico_clinico`): pantalla propia, distinta de Acceso rápido. Se pega
+  el caso (completo con sus secciones o un solo párrafo; sin secciones, la primera frase hace de motivo de consulta) y
+  el resultado sale en otra pantalla (`POST /diagnostico/resultado`) con la forma de los casos de clase: paciente y
+  motivo, DIAGNÓSTICOS numerados con su calificativo («HTA controlada (TA 135/80)», «Sobrepeso (IMC 29,3)») y
+  JERARQUIZACIÓN con la prescripción de cada terapia (fórmula del Consolidado, sub-opciones n.1, n.2 por diagnóstico),
+  avisos de lo que le falta al caso y un botón para copiarlo todo como texto. Recibe un caso clínico en texto libre y
+  reconoce, con reglas deterministas, todo local y sin internet, las patologías de la Tabla de jerarquización: nombres y siglas
+  («lo nombra»), síntomas y medicamentos («indicio»; si solo hay indicios el diagnóstico es «probable»), IMC
+  calculado con peso y talla, tensión arterial y laboratorios. Respeta negaciones («niega cefalea») y no toma
+  los antecedentes familiares; lo del motivo de consulta y la enfermedad actual marca el diagnóstico principal.
+  Para cada diagnóstico junta el Consolidado (prioridad, descripción, fórmula, notas) con la Tabla (prioridad,
+  indicación y comentario de la celda): manda la prioridad del Consolidado y se avisa cuando difieren. Arma
+  además la jerarquización del caso (primero las terapias del diagnóstico principal). Las tablas se encuentran
+  por sus columnas; las reglas están en `REGLAS` (`app/services/diagnostico_clinico.py`), y una patología nueva
+  en la tabla se reconoce por su nombre. La usuaria puede quitar o agregar diagnósticos y todo se recalcula.
 - **Seguridad de contenido:** todo el texto del Excel se escapa; el Markdown de las notas no admite HTML;
   las subidas se validan por contenido (Pillow/PyMuPDF), no por extensión.
 - **Mac Intel:** onnxruntime ≥ 1.24 no publica wheels x86_64 para macOS; `requirements.txt` fija la 1.23.2

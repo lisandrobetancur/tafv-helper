@@ -177,7 +177,7 @@ def test_casos_propios_del_modulo(con, materia_medica) -> None:
 def test_web(cliente, materia_medica) -> None:
     pagina = cliente.get("/acceso-rapido").text
     assert "Acceso rápido por síntomas" in pagina and "herramienta de estudio" in pagina.lower()
-    assert "iagn" not in pagina                                                    # la palabra no aparece
+    assert "iagn" not in pagina.split('id="contenido"')[1]                         # la palabra no aparece (salvo en el menú)
     assert "Solo en columnas" not in pagina and "Limpiar todo" in pagina
     r = cliente.get("/diagnostico/casos/7?x=1", follow_redirects=False)               # direcciones de antes
     assert r.status_code == 301 and r.headers["location"] == "/acceso-rapido/casos/7?x=1"
@@ -205,7 +205,7 @@ def test_web(cliente, materia_medica) -> None:
     assert "Renombrado" in cliente.get("/acceso-rapido/casos/1").text
     assert cliente.post("/acceso-rapido/casos/1/eliminar", headers={"HX-Request": "true"}).headers["HX-Redirect"] == "/acceso-rapido"
     papelera = cliente.get("/papelera").text
-    assert "Caso de acceso rápido" in papelera and "iagn" not in papelera
+    assert "Caso de acceso rápido" in papelera and "iagn" not in papelera.split('id="contenido"')[1]
     assert cliente.get("/acceso-rapido/casos/1").status_code == 404
 
 
