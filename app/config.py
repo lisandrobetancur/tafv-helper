@@ -97,6 +97,7 @@ TIPOS_CONTENIDO: dict[str, dict[str, str]] = {
     "pdf": {"nombre": "PDF", "icono": "file-text"},
     "imagenes": {"nombre": "Imágenes", "icono": "images"},
     "notas": {"nombre": "Notas", "icono": "sticky-note"},
+    "movimientos": {"nombre": "Movimientos", "icono": "dna"},
 }
 
 COLORES_MATERIA: list[dict[str, str]] = [

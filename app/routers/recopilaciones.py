@@ -268,6 +268,15 @@ def agregar_varios(elementos: list[dict] = Body(..., embed=True), con: sqlite3.C
     return _con_aviso(Response(status_code=200), mensaje, "aviso" if fallidos else "exito")
 
 
+@router.post("/recopilacion/movimientos")
+def agregar_movimientos(componente_id: int = Body(...), sintomas: dict = Body(...),
+                        con: sqlite3.Connection = Depends(obtener_db), rcon: sqlite3.Connection = Depends(obtener_rdb)):
+    r = rec.activa(rcon, crear_si_falta=True)
+    rec.agregar_movimientos(con, rcon, componente_id, sintomas, r.id)
+    n = rec.obtener(rcon, r.id, False).num_fragmentos
+    return _con_aviso(Response(status_code=200), f"El diagrama y sus síntomas se agregaron a «{r.titulo}» ({n}).")
+
+
 @router.get("/recopilacion/recortar")
 def recortar(request: Request, fuente: str, ref_id: int, pagina: int = 1, con: sqlite3.Connection = Depends(obtener_db),
              rcon: sqlite3.Connection = Depends(obtener_rdb)):

@@ -637,6 +637,62 @@
 
     // ------------------------------------------------- modo repaso (flashcards)
     // Espacio: dar vuelta · →: lo sé · ←: repasar. Cada marca se guarda en el servidor.
+    // ------------------------------------------------- diagnóstico por movimiento
+    // Los síntomas viven solo en la página: al volver a entrar todo empieza en 0.
+    Alpine.data("movimientos", (componenteId, movimientos) => ({
+      enviando: false,
+      estado: Object.fromEntries(movimientos.map((m) => [m.id, { sintomas: [], otro: false, texto: "", error: "" }])),
+      clave: (s) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim().toLowerCase(),
+      total(id) { return this.estado[id].sintomas.length; },
+      esMayor(id) {
+        const tope = Math.max(...movimientos.map((m) => this.total(m.id)));
+        return tope > 0 && this.total(id) === tope;
+      },
+      opciones(id) {
+        const usados = this.estado[id].sintomas.map(this.clave);
+        return movimientos.find((m) => m.id === id).opciones.filter((o) => !usados.includes(this.clave(o)));
+      },
+      agregar(id, texto) {
+        const e = this.estado[id], s = texto.split(/\s+/).filter(Boolean).join(" ");
+        if (!s) { e.error = "Escribe un síntoma primero."; return false; }
+        if (e.sintomas.some((x) => this.clave(x) === this.clave(s))) { e.error = "Ese síntoma ya está en el cuadro."; return false; }
+        e.error = "";
+        e.sintomas.push(s);
+        return true;
+      },
+      elegir(id, evento) {
+        const valor = evento.target.value, e = this.estado[id];
+        evento.target.value = "";
+        e.error = "";
+        if (valor === "__otro__") {
+          e.otro = true;
+          this.$nextTick(() => evento.target.parentElement.querySelector("input").focus());
+        } else if (valor) this.agregar(id, valor);
+      },
+      agregarManual(id) {
+        if (this.agregar(id, this.estado[id].texto)) this.cancelar(id);
+      },
+      cancelar(id) { Object.assign(this.estado[id], { otro: false, texto: "", error: "" }); },
+      quitar(id, i) { this.estado[id].sintomas.splice(i, 1); },
+      async recopilar() {
+        if (this.enviando) return;
+        this.enviando = true;
+        try {
+          const sintomas = Object.fromEntries(movimientos.map((m) => [m.id, this.estado[m.id].sintomas]));
+          const r = await fetch("/recopilacion/movimientos", {
+            method: "POST", headers: { "Content-Type": "application/json", "HX-Request": "true" },
+            body: JSON.stringify({ componente_id: componenteId, sintomas }),
+          });
+          const disparo = JSON.parse(r.headers.get("HX-Trigger") || "{}");
+          if (disparo.aviso) avisar(disparo.aviso.mensaje, disparo.aviso.tipo);
+          if (r.ok) document.body.dispatchEvent(new Event("recopilacion-cambio"));
+        } catch (e) {
+          avisar("No se pudo agregar. ¿Sigue abierta la biblioteca?", "error");
+        }
+        this.enviando = false;
+      },
+    }));
+
     Alpine.data("repaso", (tarjetas) => ({
       tarjetas, i: 0, volteada: false, terminado: false, resultados: {},
       get actual() { return this.tarjetas[this.i] || { imagenes: [] }; },

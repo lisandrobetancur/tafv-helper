@@ -186,6 +186,51 @@ dialog.visor[open] { display: flex; flex-direction: column; animation: aparecer 
   [data-menu=plegado] .barra-lateral .boton-plegar svg { transform: rotate(180deg); }
 }
 
+/* ------------------------------------------------------- diagnóstico por movimiento */
+.mov-diagrama { container-type: inline-size; }
+.mov-fila { display: flex; justify-content: center; align-items: flex-start; margin-bottom: .5rem; }
+.mov-fila-1 { padding-left: 214px; }   /* así el círculo queda en el centro y su cuadro a la derecha */
+.mov-fila-2 .mov-hueco { flex: none; width: 7rem; }
+.mov-fila-3 .mov-hueco { flex: none; width: .375rem; }
+.mov-grupo { display: flex; align-items: flex-start; }
+.mov-linea { flex: none; width: 14px; height: 2px; margin-top: 52px; }
+.mov-circulo {
+  flex: none; position: relative; width: 106px; height: 106px; border-radius: 50%; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center; font-size: 11px; line-height: 1; letter-spacing: -.2px; color: #2c2c2a;
+  background: radial-gradient(circle at 35% 28%, #fff 0%, #f6f5f0 40%, #dfddd3 78%, #c4c2b7 100%);
+  box-shadow: 0 10px 16px rgb(0 0 0 / .28), 0 3px 5px rgb(0 0 0 / .2), inset -5px -7px 11px rgb(0 0 0 / .1), inset 4px 4px 9px rgb(255 255 255 / .85);
+  transition: transform .15s ease;
+}
+.mov-circulo:hover { transform: translateY(-3px); }
+.mov-circulo b { font-size: 12px; font-weight: 600; margin-bottom: 1px; }
+.mov-mayor {
+  color: #042c53;
+  background: radial-gradient(circle at 35% 28%, #f4faff 0%, #cfe6fb 42%, #9cc8f0 80%, #74afe6 100%);
+  box-shadow: 0 10px 18px rgb(24 95 165 / .4), 0 3px 5px rgb(24 95 165 / .28), inset -5px -7px 11px rgb(12 68 124 / .14), inset 4px 4px 9px rgb(255 255 255 / .85);
+}
+.mov-cuadro {
+  flex: none; width: 200px; border: 1px solid var(--borde); border-top: 3px solid; border-radius: .75rem;
+  background: var(--superficie); box-shadow: 0 4px 12px rgb(0 0 0 / .1);
+}
+.mov-cabecera { display: flex; align-items: center; justify-content: space-between; gap: .375rem; padding: .5625rem .625rem .25rem; font-size: .75rem; font-weight: 600; letter-spacing: .02em; }
+.mov-contador { min-width: 1.5rem; padding: 1px .375rem; border-radius: 999px; text-align: center; background: var(--superficie-2); color: var(--tenue); }
+.mov-activo { background: #dcebfa; color: #0c447c; }
+.mov-cuerpo { display: flex; flex-direction: column; gap: .375rem; padding: .375rem .625rem .625rem; }
+.mov-lista { display: flex; flex-direction: column; gap: .25rem; font-size: .75rem; line-height: 1.3; }
+.mov-lista li { display: flex; justify-content: space-between; align-items: flex-start; gap: .25rem; padding: .3125rem .375rem .3125rem .5rem; border-radius: .375rem; background: var(--superficie-2); }
+.mov-lista span { min-width: 0; overflow-wrap: anywhere; }
+.mov-quitar { flex: none; color: var(--tenue); cursor: pointer; }
+.mov-quitar:hover { color: var(--peligro); }
+/* Sin espacio para el pentágono: cada círculo con su cuadro, uno debajo de otro */
+@container (max-width: 780px) {
+  .mov-fila { flex-direction: column; align-items: center; margin: 0; padding: 0; }
+  .mov-hueco { display: none; }
+  .mov-grupo { flex-direction: column; align-items: center; margin-bottom: 1.25rem; }
+  .mov-izquierda { flex-direction: column-reverse; }
+  .mov-linea { width: 2px; height: 14px; margin: 0; }
+  .mov-cuadro { width: min(100cqw, 20rem); }
+}
+
 /* Lista ordenable (SortableJS) */
 .sortable-ghost { opacity: .35; }
 .sortable-chosen { box-shadow: var(--sombra-alta); }

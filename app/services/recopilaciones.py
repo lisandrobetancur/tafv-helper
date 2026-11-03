@@ -22,9 +22,11 @@ from PIL import Image
 
 from ..config import rutas
 from ..errores import ErrorUsuario, NoEncontrado
+from . import biblioteca as bib
 from . import elementos
 from . import imagenes as img_srv
 from . import imagenes_fila as imf
+from . import movimientos as mov
 from . import notas as notas_srv
 from . import pdfs as pdf_srv
 from . import tablas as tab
@@ -487,6 +489,27 @@ def agregar_imagen(con: sqlite3.Connection, rcon: sqlite3.Connection, tipo: str,
     titulo = " ".join((titulo or "").split()) or _titulo_imagen(con, tipo, ref_id, pagina) + (" (recorte)" if caja else "")
     return _insertar(rcon, rid, "imagen", titulo=titulo[:200], archivo=nombre, ancho=imagen.width, alto=imagen.height,
                      tamano="mediana" if caja else "grande", origen=origen, origen_url=url)
+
+
+def agregar_movimientos(con: sqlite3.Connection, rcon: sqlite3.Connection, componente_id: int, sintomas: dict,
+                        rid: int) -> list[int]:
+    """Copia fija del diagnóstico por movimiento: una imagen del diagrama y, debajo, los síntomas en texto."""
+    c = bib.obtener_componente(con, componente_id)
+    if "movimientos" not in c.tipos:
+        raise ErrorUsuario("Este componente no tiene diagnóstico por movimiento.")
+    limpios = mov.validar(sintomas)
+    imagen = mov.imagen(limpios, c.nombre)
+    imagen.thumbnail((LADO_MAXIMO, LADO_MAXIMO))
+    nombre = f"{uuid.uuid4().hex}.png"
+    imagen.save(carpeta_imagenes() / nombre, "PNG", optimize=True)
+    ruta = [bib.obtener_materia(con, c.materia_id).nombre, *(a.nombre for a in bib.ancestros(con, c)), c.nombre]
+    origen, url = " › ".join(ruta), f"/componentes/{c.id}"
+    return [
+        _insertar(rcon, rid, "imagen", titulo=c.nombre[:200], archivo=nombre, ancho=imagen.width, alto=imagen.height,
+                  tamano="grande", origen=origen, origen_url=url),
+        _insertar(rcon, rid, "campos", titulo="Síntomas por movimiento", origen=origen, origen_url=url,
+                  campos=[[f"{m} ({len(lista)})", "\n".join(lista)] for m, lista in limpios.items() if lista]),
+    ]
 
 
 def ruta_imagen(nombre: str) -> Path:
