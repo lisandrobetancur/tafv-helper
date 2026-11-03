@@ -71,23 +71,6 @@
     </div>
   </section>
 
-  {# ------------------------------------------------------------ inteligencia artificial #}
-  <section id="ia" class="tarjeta mt-6 flex scroll-mt-6 flex-col gap-3 p-5" aria-labelledby="t-ia">
-    <h2 id="t-ia" class="flex items-center gap-2 font-semibold">{{ icono("sparkles", "size-4") }}Inteligencia artificial ({{ ia_modelo }})</h2>
-    <p class="text-sm text-tenue">El módulo Diagnóstico puede pedirle a {{ ia_modelo }} (Claude, de Anthropic) que interprete el caso y redacte el
-      resultado como en los casos de clase, usando tu tabla de jerarquización. Necesita internet y una clave de la API de Anthropic
-      (se crea en console.anthropic.com; cada análisis tiene un costo según el uso). La clave se guarda solo en este equipo, fuera de los respaldos.
-      Sin clave, el diagnóstico funciona igual con reglas.</p>
-    {% if not ia_sdk %}<p class="text-sm text-alerta">Falta el paquete «anthropic»: ejecuta de nuevo el instalador.</p>{% endif %}
-    <form hx-post="/mantenimiento/ia" class="flex flex-wrap items-center gap-2">
-      <input type="password" name="clave" class="campo h-9 min-w-48 flex-1 text-sm" autocomplete="off" spellcheck="false"
-             placeholder="{{ ('Clave guardada: ' ~ ia_clave) if ia_clave else 'sk-ant-…' }}" aria-label="Clave de la API de Anthropic">
-      <button class="btn-primario h-9">{{ icono("save") }}Guardar clave</button>
-      {% if ia_clave %}<button class="btn-fantasma h-9 text-peligro" name="quitar" value="1" hx-confirm="¿Quitar la clave guardada?" data-confirmar-boton="Quitar">{{ icono("trash-2") }}Quitar</button>{% endif %}
-    </form>
-    {% if ia_clave %}<p class="flex items-center gap-1.5 text-xs text-exito">{{ icono("circle-check", "size-3.5") }}Diagnóstico con {{ ia_modelo }} activo.</p>{% endif %}
-  </section>
-
   <p class="mt-6 text-xs text-tenue">Carpeta de datos: <code class="rounded bg-superficie-2 px-1">{{ carpeta }}</code></p>
 </div>
 {% endblock %}

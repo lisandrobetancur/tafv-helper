@@ -222,7 +222,7 @@ data/archivos/<materia>/<componente>/<subcomponente>/
   cualquier columna de la fila, o por renglón y título en notas e imágenes (siempre se busca en todo). Se ordenan por síntomas cubiertos (los «importantes» pesan el doble;
   a igualdad, primero quien tiene el síntoma en su título) con evidencia (columna o renglón resaltado),
   síntomas faltantes, «otros rasgos para confirmar», comparación del mejor candidato de cada materia
-  (identificado por el ícono de la materia) y lo que dicen los PDF. Sin IA: todo sale del material y se
+  (identificado por el ícono de la materia) y lo que dicen los PDF. Todo es local: sale del material y se
   muestra su origen. Es independiente de las materias: siempre revisa todas, arma un ranking por materia
   (ninguna queda tapada por otra) y guarda sus propios casos en la tabla `casos` (síntomas, conclusión y
   foto del análisis; van a la papelera como el resto). Las direcciones son `/acceso-rapido…`; las antiguas
@@ -233,7 +233,7 @@ data/archivos/<materia>/<componente>/<subcomponente>/
   motivo, DIAGNÓSTICOS numerados con su calificativo («HTA controlada (TA 135/80)», «Sobrepeso (IMC 29,3)») y
   JERARQUIZACIÓN con la prescripción de cada terapia (fórmula del Consolidado, sub-opciones n.1, n.2 por diagnóstico),
   avisos de lo que le falta al caso y un botón para copiarlo todo como texto. Recibe un caso clínico en texto libre y
-  reconoce, con reglas deterministas (sin IA), las patologías de la Tabla de jerarquización: nombres y siglas
+  reconoce, con reglas deterministas, todo local y sin internet, las patologías de la Tabla de jerarquización: nombres y siglas
   («lo nombra»), síntomas y medicamentos («indicio»; si solo hay indicios el diagnóstico es «probable»), IMC
   calculado con peso y talla, tensión arterial y laboratorios. Respeta negaciones («niega cefalea») y no toma
   los antecedentes familiares; lo del motivo de consulta y la enfermedad actual marca el diagnóstico principal.
@@ -242,15 +242,6 @@ data/archivos/<materia>/<componente>/<subcomponente>/
   además la jerarquización del caso (primero las terapias del diagnóstico principal). Las tablas se encuentran
   por sus columnas; las reglas están en `REGLAS` (`app/services/diagnostico_clinico.py`), y una patología nueva
   en la tabla se reconoce por su nombre. La usuaria puede quitar o agregar diagnósticos y todo se recalcula.
-- **Diagnóstico con Fable** (`app/services/diagnostico_ia.py`, opcional): con una clave de la API de Anthropic
-  (Mantenimiento › Inteligencia artificial; se guarda en `data/ia/clave.txt`, fuera de git y de los respaldos, o se
-  toma de `ANTHROPIC_API_KEY`), el caso lo interpreta Claude Fable 5.1 (`BIBLIOTECA_MODELO_IA` para cambiarlo, p. ej.
-  `claude-fable-5`; `BIBLIOTECA_ESFUERZO_IA`, por defecto `medium`). Se le envía como referencia en caché la Tabla de
-  jerarquización, el Consolidado (cada fila numerada) y los casos de clase de Notas (menos el que se analiza), más el
-  caso y los hallazgos de las reglas; responde un JSON con esquema fijo (salida estructurada) con diagnósticos y
-  jerarquización con objetivo y prescripción por diagnóstico. La app comprueba cada patología y fila citada contra la
-  biblioteca. Usa respaldo del servidor si el modelo declina (`fallbacks: "default"`). Sin clave, sin internet o si la
-  API falla, queda el análisis por reglas con un aviso del motivo.
 - **Seguridad de contenido:** todo el texto del Excel se escapa; el Markdown de las notas no admite HTML;
   las subidas se validan por contenido (Pillow/PyMuPDF), no por extensión.
 - **Mac Intel:** onnxruntime ≥ 1.24 no publica wheels x86_64 para macOS; `requirements.txt` fija la 1.23.2

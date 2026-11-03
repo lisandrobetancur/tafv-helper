@@ -16,7 +16,7 @@
   <p class="mb-5 flex gap-2 rounded-xl border border-alerta/30 bg-alerta-suave px-4 py-2.5 text-sm">{{ icono("info", "size-5 shrink-0 text-alerta") }}
     Es una herramienta de estudio: ordena lo que dice tu propio material, con su fuente. No reemplaza el juicio clínico.</p>
 
-  <form method="post" action="/diagnostico/resultado" class="tarjeta flex flex-col gap-3 p-5" x-data="{ texto: {{ texto|tojson|forceescape }}, enviando: false }" @submit="enviando = true">
+  <form method="post" action="/diagnostico/resultado" class="tarjeta flex flex-col gap-3 p-5" x-data="{ texto: {{ texto|tojson|forceescape }} }">
     <label class="etiqueta" for="dxc-texto">Caso clínico</label>
     <textarea id="dxc-texto" name="texto" rows="16" class="campo text-sm leading-relaxed" x-model="texto" maxlength="20000" required autofocus
               placeholder="Paciente de 55 años de sexo femenino&#10;&#10;MOTIVO DE CONSULTA&#10;úlcera en la pierna&#10;&#10;ENFERMEDAD ACTUAL&#10;…&#10;&#10;REVISIÓN POR SISTEMAS&#10;…&#10;&#10;ANTECEDENTES PERSONALES&#10;…&#10;&#10;EXAMEN FÍSICO&#10;peso 66 kilos talla 150 cm TA: 135/80 …">{{ texto }}</textarea>
@@ -27,16 +27,8 @@
         de consulta y la enfermedad actual marca el diagnóstico principal, y lo de los antecedentes familiares no se toma como diagnóstico.
         Con peso y talla se calcula el IMC; también se leen la tensión arterial y los laboratorios.</p>
     </div>
-    {% if ia_disponible %}
-    <p class="flex items-center gap-1.5 text-xs text-tenue">{{ icono("sparkles", "size-3.5 shrink-0 text-marca") }}Lo analiza {{ modelo }} (Claude) con tu tabla
-      de jerarquización y tus casos de clase. El caso se envía a Anthropic; no pongas nombres ni documentos de pacientes reales.</p>
-    {% else %}
-    <p class="flex items-center gap-1.5 text-xs text-tenue">{{ icono("info", "size-3.5 shrink-0") }}Se analiza con reglas, sin internet. Para que lo
-      interprete {{ modelo }}, agrega la clave de Anthropic en <a href="/mantenimiento#ia" class="text-marca hover:underline">Mantenimiento</a>.</p>
-    {% endif %}
     <div class="flex flex-wrap items-center gap-2">
-      <button class="btn-primario" :disabled="!texto.trim() || enviando">{{ icono("sparkles" if ia_disponible else "stethoscope") }}<span
-        x-text="enviando ? '{{ ('Analizando con ' ~ modelo ~ '… puede tardar uno o dos minutos') if ia_disponible else 'Analizando…' }}' : 'Analizar caso'">Analizar caso</span></button>
+      <button class="btn-primario" :disabled="!texto.trim()">{{ icono("stethoscope") }}Analizar caso</button>
       <button type="button" class="btn-fantasma" x-show="texto" x-cloak @click="texto = ''; $nextTick(() => document.getElementById('dxc-texto').focus())">{{ icono("x") }}Limpiar</button>
     </div>
   </form>

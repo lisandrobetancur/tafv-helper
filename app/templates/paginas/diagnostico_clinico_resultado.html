@@ -40,34 +40,28 @@
 
 {% block contenido %}
 {% set r = resultado %}
-{% set base = ia or r %}
 <div class="mx-auto max-w-4xl">
   <header class="mb-5 flex flex-wrap items-start gap-4">
     <span class="grid size-12 shrink-0 place-items-center rounded-2xl bg-marca-suave text-marca">{{ icono("clipboard-plus", "size-6") }}</span>
     <div class="min-w-0 flex-1">
       <h1 class="text-2xl font-bold tracking-tight sm:text-3xl">Resultado del diagnóstico</h1>
-      {% if base.paciente or base.motivo %}
-      <p class="mt-1 text-tenue">{% if base.paciente %}<strong class="font-medium text-texto">{{ base.paciente }}</strong>{% endif %}
-        {%- if base.paciente and base.motivo %} · {% endif %}{% if base.motivo %}Motivo de consulta: «{{ base.motivo }}»{% endif %}</p>
+      {% if r.paciente or r.motivo %}
+      <p class="mt-1 text-tenue">{% if r.paciente %}<strong class="font-medium text-texto">{{ r.paciente }}</strong>{% endif %}
+        {%- if r.paciente and r.motivo %} · {% endif %}{% if r.motivo %}Motivo de consulta: «{{ r.motivo }}»{% endif %}</p>
       {% endif %}
     </div>
     <div class="flex flex-wrap gap-2" x-data="{ copiado: false }">
       <form method="post" action="/diagnostico"><input type="hidden" name="texto" value="{{ r.texto }}">
         <button class="btn-secundario">{{ icono("pencil") }}Editar el caso</button></form>
       <a href="/diagnostico" class="btn-secundario">{{ icono("plus") }}Caso nuevo</a>
-      {% if base.diagnosticos %}
+      {% if r.diagnosticos %}
       <button type="button" class="btn-primario" title="Copiar el resultado como texto"
               @click="navigator.clipboard.writeText($refs.resumen.value).then(() => { copiado = true; setTimeout(() => copiado = false, 1800) })">
         {{ icono("clipboard-list") }}<span x-text="copiado ? 'Copiado' : 'Copiar'">Copiar</span></button>
-      <textarea x-ref="resumen" class="hidden" aria-hidden="true" tabindex="-1">{{ base.resumen }}</textarea>
+      <textarea x-ref="resumen" class="hidden" aria-hidden="true" tabindex="-1">{{ r.resumen }}</textarea>
       {% endif %}
     </div>
   </header>
-
-  {% if error_ia %}
-  <p class="mb-5 flex gap-2 rounded-xl border border-alerta/30 bg-alerta-suave px-4 py-2.5 text-sm">{{ icono("triangle-alert", "size-5 shrink-0 text-alerta") }}
-    <span>No se pudo analizar con {{ modelo }}: {{ error_ia }} Abajo está el análisis por reglas, que funciona sin internet.</span></p>
-  {% endif %}
 
   {% if r.faltan_fuentes %}
     {% call vacio("table", "No se encontró la tabla de jerarquización", "Carga en la biblioteca la Tabla de jerarquización (columnas PATOLOGÍA, ACUP, T.N., F.V.…) y el Consolidado (PATOLOGÍA, JERARQUIZACIÓN, TERAPÉUTICA, DESCRIPCIÓN, FÓRMULA, NOTAS).") %}{% endcall %}
@@ -81,9 +75,6 @@
   </section>
   {% endif %}
 
-  {% if ia %}
-  {% include "parciales/diagnostico_ia.html" %}
-  {% else %}
   <form method="post" action="/diagnostico/resultado" id="form-ajuste">
     <input type="hidden" name="texto" value="{{ r.texto }}">
     <input type="hidden" name="ajustado" value="1">
@@ -198,24 +189,6 @@
     </div>
   </section>
   {% endif %}
-
-  {% endif %}
-
-  <div class="mb-4 flex flex-wrap items-center gap-2 text-sm">
-    <form method="post" action="/diagnostico/resultado">
-      <input type="hidden" name="texto" value="{{ r.texto }}">
-      {% if ia %}
-      <input type="hidden" name="motor" value="reglas">
-      <button class="btn-secundario">{{ icono("list") }}Ver el análisis por reglas (sin IA)</button>
-      {% elif ia_disponible %}
-      <input type="hidden" name="motor" value="ia">
-      <button class="btn-secundario" x-data="{ enviando: false }" @click="enviando = true" :disabled="enviando">{{ icono("sparkles") }}<span x-text="enviando ? 'Analizando con {{ modelo }}…' : 'Analizar con {{ modelo }}'">Analizar con {{ modelo }}</span></button>
-      {% else %}
-      <span class="text-xs text-tenue">Para que {{ modelo }} interprete el caso y redacte el resultado, agrega la clave de Anthropic en
-        <a href="/mantenimiento#ia" class="text-marca hover:underline">Mantenimiento</a>.</span>
-      {% endif %}
-    </form>
-  </div>
 
   <p class="text-xs text-tenue">Fuentes: Tabla de jerarquización{% if r.fuentes.tabla %} (<a class="text-marca hover:underline" href="/tablas/{{ r.fuentes.tabla }}">abrir</a>){% else %} (no encontrada){% endif %}
     y Jerarquización consolidado{% if r.fuentes.consolidado %} (<a class="text-marca hover:underline" href="/tablas/{{ r.fuentes.consolidado }}">abrir</a>){% else %} (no encontrado){% endif %}.

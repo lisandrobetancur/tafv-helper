@@ -25,6 +25,3 @@ modelos/
 
 # Biblioteca de demostración (python -m app.demo); nunca se mezcla con los datos reales
 demo/
-
-# Clave de la API de Anthropic (Diagnóstico con IA): solo en este equipo
-data/ia/

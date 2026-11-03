@@ -13,7 +13,6 @@ from ..db import obtener_db
 from ..errores import ErrorUsuario
 from ..services import biblioteca as bib
 from ..services import busqueda as bus
-from ..services import diagnostico_ia as dia
 from ..services import etiquetas as etq
 from ..services import favoritos as fav
 from ..services import imagenes as img_srv
@@ -117,17 +116,7 @@ def mantenimiento(request: Request, con: sqlite3.Connection = Depends(obtener_db
                   tamano=respaldos.tamano_biblioteca(), documentos=documentos, equipo=nombre_equipo(),
                   carpeta=str(rutas.datos), errores_ocr=errores_ocr,
                   ocr_pendiente=pdfs.ocr_pendiente_total(con) + img_srv.ocr_pendientes(con),
-                  ia_modelo=dia.NOMBRE_MODELO, ia_clave=dia.clave_enmascarada(), ia_sdk=dia.sdk_instalado(),
                   migas=[{"texto": "Mantenimiento", "icono": "settings"}])
-
-
-@router.post("/mantenimiento/ia")
-def guardar_clave_ia(request: Request, clave: str = Form(""), quitar: str = Form("")):
-    if quitar:
-        dia.guardar_clave("")
-        return redirigir(request, "/mantenimiento#ia", "Clave de Anthropic quitada.")
-    dia.guardar_clave(clave)
-    return redirigir(request, "/mantenimiento#ia", f"Clave guardada: el diagnóstico usará {dia.NOMBRE_MODELO}.")
 
 
 @router.post("/mantenimiento/indice")
