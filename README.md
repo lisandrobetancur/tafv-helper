@@ -242,6 +242,15 @@ data/archivos/<materia>/<componente>/<subcomponente>/
   además la jerarquización del caso (primero las terapias del diagnóstico principal). Las tablas se encuentran
   por sus columnas; las reglas están en `REGLAS` (`app/services/diagnostico_clinico.py`), y una patología nueva
   en la tabla se reconoce por su nombre. La usuaria puede quitar o agregar diagnósticos y todo se recalcula.
+- **Diagnóstico con Fable** (`app/services/diagnostico_ia.py`, opcional): con una clave de la API de Anthropic
+  (Mantenimiento › Inteligencia artificial; se guarda en `data/ia/clave.txt`, fuera de git y de los respaldos, o se
+  toma de `ANTHROPIC_API_KEY`), el caso lo interpreta Claude Fable 5.1 (`BIBLIOTECA_MODELO_IA` para cambiarlo, p. ej.
+  `claude-fable-5`; `BIBLIOTECA_ESFUERZO_IA`, por defecto `medium`). Se le envía como referencia en caché la Tabla de
+  jerarquización, el Consolidado (cada fila numerada) y los casos de clase de Notas (menos el que se analiza), más el
+  caso y los hallazgos de las reglas; responde un JSON con esquema fijo (salida estructurada) con diagnósticos y
+  jerarquización con objetivo y prescripción por diagnóstico. La app comprueba cada patología y fila citada contra la
+  biblioteca. Usa respaldo del servidor si el modelo declina (`fallbacks: "default"`). Sin clave, sin internet o si la
+  API falla, queda el análisis por reglas con un aviso del motivo.
 - **Seguridad de contenido:** todo el texto del Excel se escapa; el Markdown de las notas no admite HTML;
   las subidas se validan por contenido (Pillow/PyMuPDF), no por extensión.
 - **Mac Intel:** onnxruntime ≥ 1.24 no publica wheels x86_64 para macOS; `requirements.txt` fija la 1.23.2

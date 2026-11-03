@@ -171,3 +171,112 @@ def test_web(cliente, con, jerarquizacion) -> None:
     assert r.status_code == 301 and r.headers["location"].startswith("/acceso-rapido?s=")
     r = cliente.get("/diagnostico/casos/7?x=1", follow_redirects=False)
     assert r.headers["location"] == "/acceso-rapido/casos/7?x=1"
+
+
+# ------------------------------------------------------------------ con Fable (cliente simulado: no llama a la API)
+import json as _json
+from types import SimpleNamespace
+
+from app.services import diagnostico_ia as dia
+
+
+class _ClienteFalso:
+    def __init__(self, respuesta: dict | None, stop_reason: str = "end_turn"):
+        self.respuesta, self.stop_reason, self.llamadas = respuesta, stop_reason, []
+        self.beta = SimpleNamespace(messages=SimpleNamespace(stream=self._stream))
+
+    def _stream(self, **kwargs):
+        self.llamadas.append(kwargs)
+        mensaje = SimpleNamespace(
+            stop_reason=self.stop_reason, model=kwargs["model"],
+            content=[SimpleNamespace(type="text", text=_json.dumps(self.respuesta or {}))],
+            usage=SimpleNamespace(input_tokens=10, cache_read_input_tokens=0, output_tokens=5))
+
+        class _Ctx:
+            def __enter__(self_):
+                return SimpleNamespace(get_final_message=lambda: mensaje)
+
+            def __exit__(self_, *a):
+                return False
+        return _Ctx()
+
+
+def _respuesta_fable(fila_ozono: int) -> dict:
+    return {
+        "paciente": "Mujer de 55 años", "motivo": "úlcera en la pierna",
+        "diagnosticos": [
+            {"nombre": "Enfermedad venosa crónica", "patologia_tabla": "enfermedad varicosa", "principal": True,
+             "probable": False, "fundamento": "Várices de años y úlcera maleolar."},
+            {"nombre": "Úlcera sobreinfectada maleolar izquierda", "patologia_tabla": "", "principal": False,
+             "probable": False, "fundamento": "Exudado purulento."}],
+        "jerarquizacion": [
+            {"terapia": "Ozonoterapia", "objetivo": "mejorar la oxigenación y la microcirculación del tejido",
+             "indicaciones": [{"diagnostico": "Enfermedad venosa crónica", "prioridad": 1,
+                               "prescripcion": "Ozono tópico en bolsa sellada, 3 veces por semana por 1 mes.",
+                               "fila_consolidado": fila_ozono},
+                              {"diagnostico": "Úlcera", "prioridad": 0, "prescripcion": "Igual.", "fila_consolidado": 99999}]}],
+        "datos_faltantes": ["Cultivo de la úlcera"], "observaciones": ""}
+
+
+def test_fable_consulta_y_validacion(con, jerarquizacion) -> None:
+    reglas = dxc.analizar(con, CASO_1)
+    ref, fuentes = dia.preparar(con, CASO_1)
+    assert "# TABLA DE JERARQUIZACIÓN" in ref and "enfermedad varicosa" in ref and "[fila " in ref
+    fila_ozono = next(f["id"] for f in fuentes.consolidado["varices"] if f["terapeutica"] == "OZONOTERAPIA")
+    cliente = _ClienteFalso(_respuesta_fable(fila_ozono))
+    r = dia.consultar(ref, fuentes, CASO_1, reglas, cliente)
+    pedido = cliente.llamadas[0]
+    assert pedido["model"] == dia.MODELO and pedido["fallbacks"] == "default"
+    assert pedido["output_config"]["format"]["schema"] == dia.ESQUEMA
+    assert pedido["system"][1]["cache_control"]["type"] == "ephemeral"          # la referencia va en caché
+    assert "úlcera en la pierna" in pedido["messages"][0]["content"] and "Hallazgos automáticos" in pedido["messages"][0]["content"]
+    venosa, ulcera = r.diagnosticos
+    assert venosa.patologia == "enfermedad varicosa" and venosa.fila_tabla and venosa.principal
+    assert ulcera.patologia == "" and ulcera.fila_tabla is None                    # no está en la tabla
+    ozono = r.jerarquizacion[0]
+    assert ozono.indicaciones[0].fila["id"] == fila_ozono
+    assert ozono.indicaciones[1].fila is None and ozono.indicaciones[1].fila_citada == 99999   # fila inventada: se marca
+    assert "1. Ozonoterapia: (mejorar la oxigenación" in r.resumen and "1.1 Enfermedad venosa crónica:" in r.resumen
+
+
+def test_fable_errores(con, jerarquizacion, monkeypatch) -> None:
+    reglas = dxc.analizar(con, CASO_1)
+    ref, fuentes = dia.preparar(con, CASO_1)
+    with pytest.raises(dia.ErrorIA, match="declinó"):
+        dia.consultar(ref, fuentes, CASO_1, reglas, _ClienteFalso({}, "refusal"))
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    with pytest.raises(dia.ErrorIA, match="clave"):
+        dia.consultar(ref, fuentes, CASO_1, reglas)
+
+
+def test_clave(datos, monkeypatch) -> None:
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+    assert not dia.disponible() and dia.clave_enmascarada() == ""
+    from app.errores import ErrorUsuario
+    with pytest.raises(ErrorUsuario):
+        dia.guardar_clave("no-es-una-clave")
+    dia.guardar_clave("sk-ant-api03-abcdefghijklmnop1234")
+    assert dia.clave() == "sk-ant-api03-abcdefghijklmnop1234" and dia.clave_enmascarada().endswith("1234")
+    assert (datos / "ia" / "clave.txt").exists()
+    dia.guardar_clave("")
+    assert dia.clave() == ""
+
+
+def test_web_con_fable(cliente, con, jerarquizacion, monkeypatch) -> None:
+    ref, fuentes = dia.preparar(con, CASO_1)
+    fila_ozono = next(f["id"] for f in fuentes.consolidado["varices"] if f["terapeutica"] == "OZONOTERAPIA")
+    falso = _ClienteFalso(_respuesta_fable(fila_ozono))
+    original = dia.consultar
+    monkeypatch.setattr(dia, "disponible", lambda: True)
+    monkeypatch.setattr(dia, "consultar", lambda ref, f, t, r: original(ref, f, t, r, falso))
+    assert "Lo analiza" in cliente.get("/diagnostico").text
+    r = cliente.post("/diagnostico/resultado", data={"texto": CASO_1})
+    assert "Redactado por" in r.text and "Enfermedad venosa crónica" in r.text and "No está en la tabla" in r.text
+    assert "mejorar la oxigenación" in r.text and "que no existe" in r.text and "Ver el análisis por reglas" in r.text
+    r = cliente.post("/diagnostico/resultado", data={"texto": CASO_1, "motor": "reglas"})      # sin IA a pedido
+    assert "Redactado por" not in r.text and "1. Enfermedad varicosa" in r.text and "Analizar con" in r.text
+    monkeypatch.setattr(dia, "consultar", lambda *a: (_ for _ in ()).throw(dia.ErrorIA("No hay conexión con Anthropic.")))
+    r = cliente.post("/diagnostico/resultado", data={"texto": CASO_1})                          # falla: quedan las reglas
+    assert "No se pudo analizar" in r.text and "No hay conexión" in r.text and "1. Enfermedad varicosa" in r.text
+    r = cliente.post("/mantenimiento/ia", data={"clave": "sk-ant-api03-abcdefghijklmnop1234"}, headers={"HX-Request": "true"})
+    assert r.headers.get("HX-Redirect", "").startswith("/mantenimiento")
