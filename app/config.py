@@ -26,7 +26,7 @@ CASOS_ACTIVOS = False
 # sigue completo: para volver a activarlo basta con poner True.
 ACCESO_RAPIDO_ACTIVO = False
 # Dirección oculta del módulo Diagnóstico: solo se ve escribiéndola; al recargar la página (F5) desaparece
-RUTA_DIAGNOSTICO = "/5000"
+RUTA_DIAGNOSTICO = "/6000"
 
 
 @dataclass

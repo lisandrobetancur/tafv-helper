@@ -1,7 +1,7 @@
 """Módulo Diagnóstico: caso clínico en texto libre -> diagnósticos y tratamiento según la tabla de jerarquización.
 
-Es un módulo oculto: se ve solo escribiendo /5000 y desaparece al recargar (F5), pero el diagnóstico sigue guardado
-hasta que la usuaria lo limpie con «Crear nuevo diagnóstico»: al volver a /5000 está tal como lo dejó.
+Es un módulo oculto: se ve solo escribiendo /6000 y desaparece al recargar (F5), pero el diagnóstico sigue guardado
+hasta que la usuaria lo limpie con «Crear nuevo diagnóstico»: al volver a /6000 está tal como lo dejó.
 """
 from __future__ import annotations
 
