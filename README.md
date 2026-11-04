@@ -9,6 +9,9 @@ Pensada para 3 equipos (Mac Apple Silicon, Mac Intel y Windows) que comparten la
 
 > **Para la usuaria:** la guía paso a paso está en [INSTALACION.md](INSTALACION.md).
 
+> **Versión de escritorio (rama `escritorio`):** instalador para Windows y Mac, ventana propia, sin Python ni
+> internet, con licencia por equipo que no vence. Ver [ESCRITORIO.md](ESCRITORIO.md).
+
 ## Instalación y ejecución
 
 Se necesita **Python 3.11, 3.12 o 3.13** (se recomienda la **3.13**) y **Git** para descargar el proyecto. La

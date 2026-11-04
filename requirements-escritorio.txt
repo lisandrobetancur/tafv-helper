@@ -1,0 +1,4 @@
+# Para construir la versión de escritorio (además de requirements.txt). No se necesitan para usar la versión web.
+-r requirements.txt
+pyinstaller==6.22.3
+pywebview==6.2.1

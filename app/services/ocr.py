@@ -11,6 +11,7 @@ Descargar los modelos (lo hace `instalar`): python -m app.services.ocr
 from __future__ import annotations
 
 import logging
+import os
 import shutil
 import sqlite3
 import threading
@@ -21,7 +22,8 @@ from ..config import ROOT
 
 log = logging.getLogger(__name__)
 
-MODELOS_DIR = ROOT / "modelos" / "ocr"
+# La versión de escritorio la cambia a la carpeta del usuario (la del programa no admite escritura)
+MODELOS_DIR = Path(os.environ.get("BIBLIOTECA_MODELOS") or ROOT / "modelos" / "ocr")
 MODELO_LATINO = "latin_PP-OCRv5_rec_mobile.onnx"
 RESOLUCION_PDF = 200  # ppp al convertir páginas escaneadas en imagen
 LADO_MAXIMO = 3000

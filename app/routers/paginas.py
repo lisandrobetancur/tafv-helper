@@ -7,6 +7,7 @@ from fastapi import APIRouter, Depends, Request
 from ..db import obtener_db
 from ..services import biblioteca as bib
 from ..services import bloqueo
+from ..services import licencia
 from ..services import papelera as pap
 from ..web import pagina, parcial, redirigir, templates
 
@@ -79,3 +80,24 @@ def aviso_bloqueo(request: Request):
 def forzar_bloqueo(request: Request):
     request.app.state.bloqueo = bloqueo.adquirir(forzar=True)
     return redirigir(request, "/", "Abriste la biblioteca en este equipo. Recuerda no usarla en el otro a la vez.", "aviso")
+
+
+# --------------------------------------------------------------------- licencia
+@router.get("/licencia")
+def pagina_licencia(request: Request):
+    estado = licencia.estado_actual()
+    return templates.TemplateResponse(request, "paginas/licencia.html",
+                                      {"codigo": licencia.codigo_equipo(), "estado": estado, "error": ""})
+
+
+@router.post("/licencia")
+async def activar_licencia(request: Request):
+    form = await request.form()
+    estado = licencia.activar(str(form.get("licencia") or ""))
+    if estado.valida:
+        request.app.state.licencia_valida = True
+        return redirigir(request, "/", "Programa activado en este equipo.")
+    return templates.TemplateResponse(request, "paginas/licencia.html",
+                                      {"codigo": licencia.codigo_equipo(), "estado": licencia.estado_actual(),
+                                       "error": estado.mensaje, "licencia": form.get("licencia") or ""},
+                                      status_code=400)

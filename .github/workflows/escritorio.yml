@@ -1,0 +1,47 @@
+# Construye los instaladores de la versión de escritorio (Windows .exe y Mac .dmg) en GitHub.
+# Se ejecuta a mano: pestaña Actions › «Escritorio» › «Run workflow» (elige la rama escritorio).
+# Los instaladores quedan para descargar en el resumen de la ejecución («Artifacts»).
+name: Escritorio
+
+on:
+  workflow_dispatch:
+
+jobs:
+  construir:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            artefacto: Instalador-Windows
+            archivo: dist/Instalador-Biblioteca-de-Estudio.exe
+          - os: macos-latest          # Mac con procesador Apple (M1, M2…)
+            artefacto: Instalador-Mac-Apple
+            archivo: dist/Biblioteca-de-Estudio.dmg
+          - os: macos-15-intel        # Mac con procesador Intel
+            artefacto: Instalador-Mac-Intel
+            archivo: dist/Biblioteca-de-Estudio.dmg
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Inno Setup (Windows)
+        if: runner.os == 'Windows'
+        run: choco install innosetup -y --no-progress
+      - name: Dependencias
+        run: python -m pip install --disable-pip-version-check -q -r requirements-escritorio.txt
+      - name: Construir
+        env:
+          PYTHONIOENCODING: utf-8
+        run: python escritorio/construir.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artefacto }}
+          path: ${{ matrix.archivo }}
+          if-no-files-found: error
+          retention-days: 30

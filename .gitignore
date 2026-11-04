@@ -25,3 +25,11 @@ modelos/
 
 # Biblioteca de demostración (python -m app.demo); nunca se mezcla con los datos reales
 demo/
+
+# Licencia de este equipo (cada equipo tiene la suya)
+data/licencia.txt
+
+# Versión de escritorio: entorno y resultados de la construcción
+.venv-escritorio/
+build/
+dist/

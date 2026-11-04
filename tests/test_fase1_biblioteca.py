@@ -240,7 +240,7 @@ def test_web_redirige_si_esta_bloqueada(datos: Path) -> None:
     from fastapi.testclient import TestClient
     from app.main import crear_app
     config.rutas.bloqueo.write_text(json.dumps({"equipo": "Mac-de-casa", "inicio": "2026-10-13T10:00:00", "pid": 1}))
-    with TestClient(crear_app()) as c:
+    with TestClient(crear_app(exigir_licencia=False)) as c:
         r = c.get("/", follow_redirects=False)
         assert r.status_code == 303 and r.headers["location"] == "/bloqueo"
         assert "Mac-de-casa" in c.get("/bloqueo").text

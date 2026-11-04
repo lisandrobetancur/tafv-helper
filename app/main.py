@@ -13,7 +13,7 @@ from . import config, db
 from .errores import ErrorUsuario
 from .registro import configurar_registro
 from .routers import busqueda, componentes, contenido, diagnostico, diagnostico_clinico, extras, materias, paginas, pdfs as rutas_pdfs, recopilaciones, tablas
-from .services import bloqueo, imagenes, importacion, ocr, pdfs  # noqa: F401 (registran sus fuentes de OCR)
+from .services import bloqueo, imagenes, importacion, licencia, ocr, pdfs  # noqa: F401 (registran sus fuentes de OCR)
 from .web import aviso, es_htmx, templates
 
 log = logging.getLogger(__name__)
@@ -39,9 +39,10 @@ async def ciclo_de_vida(app: FastAPI):
         log.info("Biblioteca cerrada")
 
 
-def crear_app(ocr_activo: bool = True) -> FastAPI:
+def crear_app(ocr_activo: bool = True, exigir_licencia: bool = True) -> FastAPI:
     app = FastAPI(title=config.NOMBRE_APP, lifespan=ciclo_de_vida, docs_url=None, redoc_url=None)
     app.state.ocr_activo = ocr_activo
+    app.state.licencia_valida = not exigir_licencia
     app.mount("/static", StaticFiles(directory=config.STATIC_DIR), name="static")
 
     @app.middleware("http")
@@ -53,6 +54,18 @@ def crear_app(ocr_activo: bool = True) -> FastAPI:
             if request.headers.get("HX-Request"):
                 return Response(headers={"HX-Redirect": "/bloqueo"})
             return RedirectResponse("/bloqueo", status_code=303)
+        return await call_next(request)
+
+    @app.middleware("http")
+    async def control_de_licencia(request: Request, call_next):
+        """Sin una licencia válida para este equipo, todo lleva a la pantalla de activación."""
+        ruta = request.url.path
+        if not request.app.state.licencia_valida and not ruta.startswith(("/static", "/licencia", "/favicon")):
+            request.app.state.licencia_valida = licencia.estado_actual().valida
+            if not request.app.state.licencia_valida:
+                if request.headers.get("HX-Request"):
+                    return Response(headers={"HX-Redirect": "/licencia"})
+                return RedirectResponse("/licencia", status_code=303)
         return await call_next(request)
 
     @app.exception_handler(ErrorUsuario)
