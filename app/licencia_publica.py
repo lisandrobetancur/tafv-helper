@@ -4,4 +4,4 @@ La escribe `python tools/licencias/crear_claves.py`, que guarda la clave privada
 Esta clave puede ir en el código y en git: solo sirve para comprobar licencias, no para crearlas.
 Vacía, ninguna licencia es válida y el programa no se abre.
 """
-CLAVE_PUBLICA = ""
+CLAVE_PUBLICA = "DvAJH76IX_5LPFXHF929WQlOnDGh46LjDptzIQkSRWU"
