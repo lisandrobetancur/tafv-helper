@@ -33,7 +33,7 @@
       <div><label class="etiqueta" for="i-titulo">Nombre descriptivo</label>
         <input id="i-titulo" name="titulo" class="campo" required maxlength="120" value="{{ imagen.titulo }}"></div>
       <div><label class="etiqueta" for="i-desc">Descripción <span class="font-normal text-tenue">(opcional)</span></label>
-        <textarea id="i-desc" name="descripcion" class="campo" rows="3" maxlength="2000">{{ imagen.descripcion }}</textarea></div>
+        <textarea id="i-desc" name="descripcion" class="campo" rows="3" maxlength="10000">{{ imagen.descripcion }}</textarea></div>
       <div><label class="etiqueta" for="i-etq">Etiquetas <span class="font-normal text-tenue">(separadas por comas)</span></label>
         <input id="i-etq" name="etiquetas" class="campo" maxlength="300" value="{{ imagen.etiquetas|join(', ') }}" placeholder="radiografía, miembro inferior"></div>
       <div class="flex justify-end"><button class="btn-primario">Guardar cambios</button></div>

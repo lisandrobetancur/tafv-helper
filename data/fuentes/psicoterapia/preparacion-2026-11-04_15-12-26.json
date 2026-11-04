@@ -1,0 +1,26 @@
+{
+  "materia": "Psicoterapia",
+  "fecha": "2026-11-04T15:12:26",
+  "archivos": [
+    {
+      "original": "fuentes/psicoterapia/_originales/1.jpg",
+      "hojas": [
+        {
+          "componente": "Macerados Florales",
+          "archivo": "fuentes/psicoterapia/macerados-florales/imagenes/1.jpg"
+        }
+      ],
+      "sin_asignar": []
+    },
+    {
+      "original": "fuentes/psicoterapia/_originales/2.jpg",
+      "hojas": [
+        {
+          "componente": "Macerados Florales",
+          "archivo": "fuentes/psicoterapia/macerados-florales/imagenes/2.jpg"
+        }
+      ],
+      "sin_asignar": []
+    }
+  ]
+}
