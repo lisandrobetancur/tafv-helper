@@ -1,0 +1,5 @@
+| Potencia | Orientación general de estudio |
+| --- | --- |
+| 6CH | Síntomas locales o funcionales; repetición más frecuente |
+| 30CH | Totalidad más clara; síntomas generales y mentales moderados |
+| 200CH | Alta similitud, cuadros profundos y seguimiento cuidadoso |

@@ -71,6 +71,24 @@ def separar_hoja(archivo: Path, hoja: str, destino: Path) -> None:
         raise SystemExit(f"La copia de la hoja «{hoja}» no coincide con el original; no se continúa.")
 
 
+def _valores(ruta: Path, hoja: str | None = None) -> list[tuple]:
+    libro = openpyxl.load_workbook(ruta, data_only=True)
+    ws = libro[hoja] if hoja else libro.worksheets[0]
+    return list(ws.iter_rows(values_only=True))
+
+
+def destino_hoja(archivo: Path, hoja: str, carpeta: Path) -> Path:
+    """Dónde va la hoja. Otra con el mismo nombre y distinto contenido («Hoja1» de dos libros) no se pisa nunca:
+    esta se nombra también por su archivo."""
+    destino = carpeta / sanear_nombre_archivo(f"{hoja}.xlsx")
+    if not destino.exists() or _valores(destino) == _valores(archivo, hoja):
+        return destino
+    destino = carpeta / sanear_nombre_archivo(f"{archivo.stem} - {hoja}.xlsx")
+    if destino.exists() and _valores(destino) != _valores(archivo, hoja):
+        destino = destino.with_name(f"{destino.stem} ({datetime.now():%Y-%m-%d %H-%M-%S}){destino.suffix}")
+    return destino
+
+
 def extraer_imagenes(archivo: Path, hoja: str, carpeta: Path) -> list[Path]:
     salida = []
     with zipfile.ZipFile(archivo) as z:
@@ -111,7 +129,7 @@ def main() -> None:
                     registro["sin_asignar"].append(hoja)
                     continue
                 carpeta = base / slugify(componente)
-                destino = carpeta / "hojas" / sanear_nombre_archivo(f"{hoja}.xlsx")
+                destino = destino_hoja(original, hoja, carpeta / "hojas")
                 separar_hoja(original, hoja, destino)
                 imgs = extraer_imagenes(original, hoja, carpeta / "imagenes")
                 info = inspeccionar(destino)

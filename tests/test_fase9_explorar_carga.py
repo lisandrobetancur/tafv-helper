@@ -143,3 +143,84 @@ def test_preparar_cargar_y_auditar(con, datos: Path, tmp_path: Path) -> None:
     # Volver a cargar sin --reemplazar no duplica nada
     r = _correr(str(CARGA / "cargar.py"), str(carpeta / "plan.json"), datos=datos)
     assert r.returncode != 0 and "Ya existe" in (r.stdout + r.stderr)
+
+
+def _tabla_simple(ruta: Path, filas: list[list[str]]) -> None:
+    wb = openpyxl.Workbook()
+    wb.active.title = "Hoja1"
+    for fila in filas:
+        wb.active.append(fila)
+    wb.save(ruta)
+
+
+def test_hojas_homonimas_no_se_pisan_y_cada_tabla_se_compara_con_la_suya(datos: Path, tmp_path: Path) -> None:
+    uno, dos = tmp_path / "Libro 1.xlsx", tmp_path / "Libro 2.xlsx"
+    _tabla_simple(uno, [["Medicamento", "Tropismo"], ["Sulphur", "Piel"], ["Sepia", "Hormonal"]])
+    _tabla_simple(dos, [["Medicamento", "Cuadro"], ["Aloe", "Colitis post infecciosa"], ["Bryonia", "Colitis seca"]])
+    r = _correr(str(CARGA / "preparar_fuentes.py"), str(uno), str(dos), "--materia", "M", "--componente", "C", datos=datos)
+    assert r.returncode == 0, r.stderr
+    carpeta = datos / "fuentes" / "m" / "c"
+    assert sorted(p.name for p in (carpeta / "hojas").iterdir()) == ["Hoja1.xlsx", "Libro 2 - Hoja1.xlsx"]
+    assert openpyxl.load_workbook(carpeta / "hojas" / "Hoja1.xlsx").active["A2"].value == "Sulphur"
+    assert openpyxl.load_workbook(carpeta / "hojas" / "Libro 2 - Hoja1.xlsx").active["A2"].value == "Aloe"
+
+    # Volver a entregar el mismo archivo no crea otra copia
+    r = _correr(str(CARGA / "preparar_fuentes.py"), str(uno), "--materia", "M", "--componente", "C", datos=datos)
+    assert r.returncode == 0 and len(list((carpeta / "hojas").iterdir())) == 2
+
+    # La segunda tabla se compara con su propia hoja: solo se avisa el cambio sin declarar
+    (carpeta / "tablas").mkdir()
+    _tabla_simple(carpeta / "tablas" / "Dos.xlsx",
+                  [["Medicamento", "Cuadro"], ["Aloe", "Colitis postinfecciosa"], ["Bryonia", "Colitis seca"]])
+    plan = {"fuentes": ["hojas/Hoja1.xlsx", "hojas/Libro 2 - Hoja1.xlsx"], "correcciones": {},
+            "tablas": [{"archivo": "tablas/Dos.xlsx", "nombre": "Dos"}]}
+    (carpeta / "plan.json").write_text(json.dumps(plan), "utf-8")
+    r = _correr(str(CARGA / "comparar_tabla.py"), str(carpeta / "plan.json"), datos=datos)
+    assert r.returncode == 1 and r.stdout.count("REVISAR  ") == 1 and "postinfecciosa" in r.stdout
+
+    plan["correcciones"] = {"post infecciosa": "postinfecciosa"}
+    (carpeta / "plan.json").write_text(json.dumps(plan), "utf-8")
+    r = _correr(str(CARGA / "comparar_tabla.py"), str(carpeta / "plan.json"), datos=datos)
+    assert r.returncode == 0, r.stdout
+
+
+def test_auditar_cubre_el_texto_entregado(con, datos: Path) -> None:
+    mid = bib.crear_materia(con, "Materia", "", "azul", "wind")
+    bib.crear_componente(con, mid, None, "Comp", "", ["notas"])
+    carpeta = datos / "fuentes" / "materia" / "comp"
+    (carpeta / "texto").mkdir(parents=True)
+    (carpeta / "notas").mkdir()
+    (carpeta / "texto" / "t.txt").write_text("Potencia\tOrientación\n\n6CH\tLocales\n", "utf-8")
+    (carpeta / "notas" / "n.md").write_text("| Potencia | Orientación |\n|---|---|\n| 6CH | Locales |\n", "utf-8")
+    plan = {"materia": "Materia", "componente": "Comp", "fuentes": ["texto/t.txt"], "correcciones": {}, "omitidos": [],
+            "notas": [{"titulo": "N", "archivo": "notas/n.md"}], "tablas": [], "imagenes": [], "pdfs": []}
+    (carpeta / "plan.json").write_text(json.dumps(plan), "utf-8")
+    r = _correr(str(CARGA / "cargar.py"), str(carpeta / "plan.json"), datos=datos)
+    assert r.returncode == 0, r.stdout + r.stderr
+    r = _correr(str(CARGA / "auditar.py"), str(carpeta / "plan.json"), datos=datos)
+    assert r.returncode == 0 and "revisados: 2" in r.stdout, r.stdout
+
+    con.execute("UPDATE notas SET contenido = replace(contenido, 'Locales', '') WHERE titulo = 'N'")
+    con.commit()
+    r = _correr(str(CARGA / "auditar.py"), str(carpeta / "plan.json"), datos=datos)
+    assert r.returncode == 1 and "locales" in r.stdout.lower() and "renglón 3" in r.stdout
+
+
+def test_comparar_tabla_tildes(datos: Path) -> None:
+    carpeta = datos / "fuentes" / "m" / "t"
+    (carpeta / "hojas").mkdir(parents=True)
+    (carpeta / "tablas").mkdir()
+    _tabla_simple(carpeta / "hojas" / "H.xlsx", [["Calendula (Calendual Officinalis", "TECNICA"], ["demas", "demasiado"]])
+    plan = {"fuentes": ["hojas/H.xlsx"], "correcciones": {"Calendual": "Calendula"},
+            "tablas": [{"archivo": "tablas/T.xlsx", "nombre": "T"}]}
+    (carpeta / "plan.json").write_text(json.dumps(plan), "utf-8")
+
+    # Tildes correctas y una corrección declarada: nada que revisar
+    _tabla_simple(carpeta / "tablas" / "T.xlsx", [["Caléndula (Calendula Officinalis", "TÉCNICA"], ["demás", "demasiado"]])
+    r = _correr(str(CARGA / "comparar_tabla.py"), str(carpeta / "plan.json"), datos=datos)
+    assert r.returncode == 0, r.stdout
+
+    # Una tilde caída dentro de otra palabra sí se avisa
+    _tabla_simple(carpeta / "tablas" / "T.xlsx", [["Caléndula (Calendula Officinalis", "TÉCNICA"], ["demás", "demásiado"]])
+    r = _correr(str(CARGA / "comparar_tabla.py"), str(carpeta / "plan.json"), datos=datos)
+    assert r.returncode == 1 and "demásiado" in r.stdout

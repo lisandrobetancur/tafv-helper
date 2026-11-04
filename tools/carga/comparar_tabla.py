@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import difflib
 import json
+from collections import Counter
 import re
 import sys
 from pathlib import Path
@@ -28,6 +29,14 @@ def _celdas(ruta: Path) -> dict[str, str]:
     return {c.coordinate: str(c.value) for f in ws.iter_rows() for c in f if c.value is not None}
 
 
+def _hoja_de(copia: dict[str, str], plan: dict, base: Path) -> dict[str, str] | None:
+    """La hoja de `fuentes` de la que salió la copia: la que comparte más celdas idénticas con ella."""
+    hojas = [_celdas(base / f) for f in plan.get("fuentes", [])
+             if f.startswith("hojas/") and Path(f).suffix.lower() in {".xlsx", ".xlsm"}]
+    valores = Counter(copia.values())
+    return max(hojas, key=lambda h: sum((Counter(h.values()) & valores).values()), default=None)
+
+
 def comparar(plan_ruta: Path) -> list[str]:
     plan = json.loads(plan_ruta.read_text(encoding="utf-8"))
     base = plan_ruta.parent
@@ -41,10 +50,9 @@ def comparar(plan_ruta: Path) -> list[str]:
         if not t["archivo"].startswith("tablas/"):
             continue
         copia = _celdas(base / t["archivo"])
-        hoja = next((base / f for f in plan.get("fuentes", []) if f.startswith("hojas/")), None)
-        if hoja is None:
+        original = _hoja_de(copia, plan, base)
+        if original is None:
             continue
-        original = _celdas(hoja)
         # La copia puede empezar en otra fila (extraer_rango): se emparejan celdas por contenido parecido
         pendientes = dict(original)
         cambios_tilde: list[tuple[str, str, str, str]] = []   # (palabra original, nueva, celda copia, celda hoja)
@@ -55,13 +63,13 @@ def comparar(plan_ruta: Path) -> list[str]:
                 continue
             viejo = pendientes.pop(viejo_celda)
             a, b = PALABRA.findall(viejo), PALABRA.findall(nuevo)
-            for op, i1, i2, j1, j2 in difflib.SequenceMatcher(None, a, b, autojunk=False).get_opcodes():
-                if op == "equal":
+            # Se alinea sin tildes ni mayúsculas: una tilde no debe desordenar el emparejamiento de las palabras
+            norm_a, norm_b = ([sin_tildes(x).lower() for x in lista] for lista in (a, b))
+            for op, i1, i2, j1, j2 in difflib.SequenceMatcher(None, norm_a, norm_b, autojunk=False).get_opcodes():
+                if op == "equal":   # solo tildes (se revisan abajo)
+                    cambios_tilde += [(x, y, celda, viejo_celda) for x, y in zip(a[i1:i2], b[j1:j2]) if x != y]
                     continue
                 antes, despues = " ".join(a[i1:i2]), " ".join(b[j1:j2])
-                if sin_tildes(antes).lower() == sin_tildes(despues).lower():
-                    cambios_tilde += [(x, y, celda, viejo_celda) for x, y in zip(a[i1:i2], b[j1:j2]) if x != y]
-                    continue  # solo tildes (se revisan abajo)
                 if (antes.lower(), despues.lower()) in declaradas or any(
                         (x.lower(), y.lower()) in declaradas for x, y in zip(a[i1:i2], b[j1:j2])):
                     continue
@@ -70,11 +78,12 @@ def comparar(plan_ruta: Path) -> list[str]:
                     continue
                 hallazgos.append(f"{t['nombre']} · {celda} (hoja {viejo_celda}): «{antes}» → «{despues}»")
         # Una tilde que cae dentro de una palabra más larga: «demas» → «demás» aplicado a «demasiado» da «demásiado»
+        # (desde 3 letras: «té» es prefijo legítimo de «técnica»)
         cortas = {(x.lower(), y.lower()) for x, y, _, _ in cambios_tilde}
         for x, y, celda, viejo_celda in cambios_tilde:
             for cx, cy in cortas:
                 resto = x.lower()[len(cx):]
-                if (len(cx) < len(x) and x.lower().startswith(cx) and y.lower().startswith(cy) and cx != cy
+                if (3 <= len(cx) < len(x) and x.lower().startswith(cx) and y.lower().startswith(cy) and cx != cy
                         and resto not in ("s", "es", "n", "mente")):   # plural, verbo o adverbio: misma tilde (cápsulas, están, fácilmente)
                     hallazgos.append(f"{t['nombre']} · {celda} (hoja {viejo_celda}): «{x}» → «{y}» "
                                      f"(¿la tilde de «{cy}» cayó dentro de otra palabra?)")

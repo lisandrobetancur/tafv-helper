@@ -1,0 +1,1565 @@
+{
+  "archivo": "data/fuentes/homeopatia/tropismo/hojas/TROPISMOS HOMEOPATÍA 2.xlsx",
+  "hojas": [
+    {
+      "hoja": "Hoja1",
+      "dimension": "A1:J22",
+      "bloques": [
+        {
+          "rango": "A1:J22",
+          "filas": 22,
+          "columnas": 10,
+          "densidad": 1.0,
+          "fila_encabezado": 1,
+          "registros": 21,
+          "sugerencia": "tabla",
+          "celdas": [
+            {
+              "celda": "A1",
+              "combinada": null,
+              "texto": "Medicamento",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "B1",
+              "combinada": null,
+              "texto": "Tropismo digestivo principal",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "C1",
+              "combinada": null,
+              "texto": "Tipo de colitis o cuadro compatible",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "D1",
+              "combinada": null,
+              "texto": "Síntomas guía característicos",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "E1",
+              "combinada": null,
+              "texto": "Síntomas generales",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "F1",
+              "combinada": null,
+              "texto": "Síntomas mentales",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "G1",
+              "combinada": null,
+              "texto": "Modalidades de agravación",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "H1",
+              "combinada": null,
+              "texto": "Modalidades de mejoría",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "I1",
+              "combinada": null,
+              "texto": "Tipo sensible",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "J1",
+              "combinada": null,
+              "texto": "Potencia orientativa académica",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "A2",
+              "combinada": null,
+              "texto": "Nux vomica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B2",
+              "combinada": null,
+              "texto": "Colon espástico, hígado, estómago",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C2",
+              "combinada": null,
+              "texto": "Colitis espástica, colon irritable por estrés",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D2",
+              "combinada": null,
+              "texto": "Tenesmo, evacuación incompleta, espasmos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E2",
+              "combinada": null,
+              "texto": "Hipersensibilidad, estreñimiento alternante",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F2",
+              "combinada": null,
+              "texto": "Irritable, competitivo, intolerante",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G2",
+              "combinada": null,
+              "texto": "< estrés, < café, < mañana",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H2",
+              "combinada": null,
+              "texto": "> reposo relativo, > calor",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I2",
+              "combinada": null,
+              "texto": "Ejecutivo, sedentario",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J2",
+              "combinada": null,
+              "texto": "6CH local funcional / 30CH totalidad clara",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A3",
+              "combinada": null,
+              "texto": "Colocynthis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B3",
+              "combinada": null,
+              "texto": "Intestino y plexo nervioso abdominal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C3",
+              "combinada": null,
+              "texto": "Colitis espasmódica dolorosa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D3",
+              "combinada": null,
+              "texto": "Cólicos violentos, mejora doblándose",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E3",
+              "combinada": null,
+              "texto": "Diarrea por ira o indignación",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F3",
+              "combinada": null,
+              "texto": "Ira reprimida",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G3",
+              "combinada": null,
+              "texto": "< enojo, < comida",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H3",
+              "combinada": null,
+              "texto": "> presión fuerte, > doblarse",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I3",
+              "combinada": null,
+              "texto": "Tenso, reactivo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J3",
+              "combinada": null,
+              "texto": "30CH frecuente en cuadros espasmódicos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A4",
+              "combinada": null,
+              "texto": "Lycopodium",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B4",
+              "combinada": null,
+              "texto": "Hígado, intestino, metabolismo digestivo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C4",
+              "combinada": null,
+              "texto": "Colitis con meteorismo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D4",
+              "combinada": null,
+              "texto": "Distensión importante, gases, fermentación",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E4",
+              "combinada": null,
+              "texto": "Saciedad rápida",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F4",
+              "combinada": null,
+              "texto": "Inseguridad con apariencia dominante",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G4",
+              "combinada": null,
+              "texto": "< 4-8 pm, < cebolla",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H4",
+              "combinada": null,
+              "texto": "> expulsión de gases",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I4",
+              "combinada": null,
+              "texto": "Intelectual inseguro",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J4",
+              "combinada": null,
+              "texto": "30CH muy usada en digestivo funcional",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A5",
+              "combinada": null,
+              "texto": "Arsenicum album",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B5",
+              "combinada": null,
+              "texto": "Mucosa digestiva",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C5",
+              "combinada": null,
+              "texto": "Colitis inflamatoria con ansiedad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D5",
+              "combinada": null,
+              "texto": "Ardor, diarrea agotadora, inquietud",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E5",
+              "combinada": null,
+              "texto": "Debilidad intensa, frío",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F5",
+              "combinada": null,
+              "texto": "Ansiedad, miedo, control excesivo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G5",
+              "combinada": null,
+              "texto": "< medianoche, < frío",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H5",
+              "combinada": null,
+              "texto": "> calor, > bebidas calientes",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I5",
+              "combinada": null,
+              "texto": "Ansioso, perfeccionista",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J5",
+              "combinada": null,
+              "texto": "30CH o 200CH con alta similitud",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A6",
+              "combinada": null,
+              "texto": "Mercurius solubilis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B6",
+              "combinada": null,
+              "texto": "Colon inflamatorio y mucosas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C6",
+              "combinada": null,
+              "texto": "Colitis mucosa o infecciosa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D6",
+              "combinada": null,
+              "texto": "Moco, tenesmo, fetidez",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E6",
+              "combinada": null,
+              "texto": "Sudoración, salivación",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F6",
+              "combinada": null,
+              "texto": "Inquietud lenta",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G6",
+              "combinada": null,
+              "texto": "< noche, < extremos térmicos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H6",
+              "combinada": null,
+              "texto": "Mejoría moderada reposo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I6",
+              "combinada": null,
+              "texto": "Séptico, húmedo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J6",
+              "combinada": null,
+              "texto": "6CH–30CH según intensidad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A7",
+              "combinada": null,
+              "texto": "Aloe socotrina",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B7",
+              "combinada": null,
+              "texto": "Recto y colon distal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C7",
+              "combinada": null,
+              "texto": "Colitis con urgencia rectal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D7",
+              "combinada": null,
+              "texto": "Sensación de pérdida de control anal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E7",
+              "combinada": null,
+              "texto": "Flatulencia, debilidad rectal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F7",
+              "combinada": null,
+              "texto": "Indiferencia leve",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G7",
+              "combinada": null,
+              "texto": "< mañana, < calor",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H7",
+              "combinada": null,
+              "texto": "> frío moderado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I7",
+              "combinada": null,
+              "texto": "Hipotónico digestivo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J7",
+              "combinada": null,
+              "texto": "6CH o 30CH",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A8",
+              "combinada": null,
+              "texto": "Podophyllum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B8",
+              "combinada": null,
+              "texto": "Intestino delgado y colon",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C8",
+              "combinada": null,
+              "texto": "Colitis diarreica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D8",
+              "combinada": null,
+              "texto": "Diarrea explosiva, abundante",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E8",
+              "combinada": null,
+              "texto": "Debilidad post evacuación",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F8",
+              "combinada": null,
+              "texto": "Irritabilidad por agotamiento",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G8",
+              "combinada": null,
+              "texto": "< mañana",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H8",
+              "combinada": null,
+              "texto": "> reposo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I8",
+              "combinada": null,
+              "texto": "Niño o adulto agotado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J8",
+              "combinada": null,
+              "texto": "6CH–30CH",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A9",
+              "combinada": null,
+              "texto": "Bryonia alba",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B9",
+              "combinada": null,
+              "texto": "Serosas y tubo digestivo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C9",
+              "combinada": null,
+              "texto": "Colitis con sequedad y estreñimiento",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D9",
+              "combinada": null,
+              "texto": "Dolor empeora movimiento",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E9",
+              "combinada": null,
+              "texto": "Sed intensa, sequedad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F9",
+              "combinada": null,
+              "texto": "Irritable, desea estar solo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G9",
+              "combinada": null,
+              "texto": "< movimiento",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H9",
+              "combinada": null,
+              "texto": "> reposo absoluto",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I9",
+              "combinada": null,
+              "texto": "Seco, rígido",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J9",
+              "combinada": null,
+              "texto": "30CH frecuente",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A10",
+              "combinada": null,
+              "texto": "Pulsatilla",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B10",
+              "combinada": null,
+              "texto": "Digestivo y mucosas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C10",
+              "combinada": null,
+              "texto": "Colitis por grasas o intolerancias",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D10",
+              "combinada": null,
+              "texto": "Heces variables, poca sed",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E10",
+              "combinada": null,
+              "texto": "Síntomas cambiantes",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F10",
+              "combinada": null,
+              "texto": "Dependiente afectivo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G10",
+              "combinada": null,
+              "texto": "< calor, < grasas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H10",
+              "combinada": null,
+              "texto": "> aire fresco",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I10",
+              "combinada": null,
+              "texto": "Dulce, sensible",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J10",
+              "combinada": null,
+              "texto": "30CH común en funcionales",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A11",
+              "combinada": null,
+              "texto": "China officinalis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B11",
+              "combinada": null,
+              "texto": "Intestino y pérdida de líquidos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C11",
+              "combinada": null,
+              "texto": "Colitis post infecciosa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D11",
+              "combinada": null,
+              "texto": "Distensión por gases, debilidad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E11",
+              "combinada": null,
+              "texto": "Anemia, agotamiento",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F11",
+              "combinada": null,
+              "texto": "Hipersensible",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G11",
+              "combinada": null,
+              "texto": "< pérdida de líquidos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H11",
+              "combinada": null,
+              "texto": "> presión",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I11",
+              "combinada": null,
+              "texto": "Débil, exhausto",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J11",
+              "combinada": null,
+              "texto": "6CH–30CH",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A12",
+              "combinada": null,
+              "texto": "Carbo vegetabilis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B12",
+              "combinada": null,
+              "texto": "Digestivo y circulación",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C12",
+              "combinada": null,
+              "texto": "Colitis con meteorismo severo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D12",
+              "combinada": null,
+              "texto": "Distensión extrema, gases ofensivos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E12",
+              "combinada": null,
+              "texto": "Frialdad, colapso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F12",
+              "combinada": null,
+              "texto": "Indiferente por agotamiento",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G12",
+              "combinada": null,
+              "texto": "< grasas, < acostado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H12",
+              "combinada": null,
+              "texto": "> abanico, > eructos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I12",
+              "combinada": null,
+              "texto": "Agotado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J12",
+              "combinada": null,
+              "texto": "6CH–30CH",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A13",
+              "combinada": null,
+              "texto": "Sulphur",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B13",
+              "combinada": null,
+              "texto": "Intestino y metabolismo portal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C13",
+              "combinada": null,
+              "texto": "Colitis crónica recidivante",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D13",
+              "combinada": null,
+              "texto": "Ardor anal, diarrea matutina",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E13",
+              "combinada": null,
+              "texto": "Calor, congestión",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F13",
+              "combinada": null,
+              "texto": "Filosófico, desordenado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G13",
+              "combinada": null,
+              "texto": "< calor, < mañana",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H13",
+              "combinada": null,
+              "texto": "> aire fresco",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I13",
+              "combinada": null,
+              "texto": "Reactivo crónico",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J13",
+              "combinada": null,
+              "texto": "30CH frecuente en crónicos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A14",
+              "combinada": null,
+              "texto": "Calcarea carbonica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B14",
+              "combinada": null,
+              "texto": "Digestivo y metabolismo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C14",
+              "combinada": null,
+              "texto": "Colitis asociada a lentitud digestiva",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D14",
+              "combinada": null,
+              "texto": "Distensión, digestión lenta",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E14",
+              "combinada": null,
+              "texto": "Sudoración cefálica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F14",
+              "combinada": null,
+              "texto": "Ansiedad por seguridad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G14",
+              "combinada": null,
+              "texto": "< frío, < esfuerzo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H14",
+              "combinada": null,
+              "texto": "> descanso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I14",
+              "combinada": null,
+              "texto": "Linfático, lento",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J14",
+              "combinada": null,
+              "texto": "30CH constitucional",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A15",
+              "combinada": null,
+              "texto": "Argentum nitricum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B15",
+              "combinada": null,
+              "texto": "Sistema nervioso y digestivo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C15",
+              "combinada": null,
+              "texto": "Colon irritable ansioso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D15",
+              "combinada": null,
+              "texto": "Diarrea anticipatoria",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E15",
+              "combinada": null,
+              "texto": "Temblor, impulsividad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F15",
+              "combinada": null,
+              "texto": "Ansiedad anticipatoria",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G15",
+              "combinada": null,
+              "texto": "< emociones, < azúcar",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H15",
+              "combinada": null,
+              "texto": "> aire libre",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I15",
+              "combinada": null,
+              "texto": "Ansioso acelerado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J15",
+              "combinada": null,
+              "texto": "30CH frecuente",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A16",
+              "combinada": null,
+              "texto": "Chamomilla",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B16",
+              "combinada": null,
+              "texto": "Digestivo infantil y nervioso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C16",
+              "combinada": null,
+              "texto": "Colitis infantil espasmódica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D16",
+              "combinada": null,
+              "texto": "Cólicos intolerables",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E16",
+              "combinada": null,
+              "texto": "Hipersensibilidad al dolor",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F16",
+              "combinada": null,
+              "texto": "Irritabilidad extrema",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G16",
+              "combinada": null,
+              "texto": "< noche",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H16",
+              "combinada": null,
+              "texto": "> cargar en brazos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I16",
+              "combinada": null,
+              "texto": "Niño irritable",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J16",
+              "combinada": null,
+              "texto": "6CH–30CH",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A17",
+              "combinada": null,
+              "texto": "Magnesia phosphorica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B17",
+              "combinada": null,
+              "texto": "Sistema neuromuscular digestivo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C17",
+              "combinada": null,
+              "texto": "Colitis espasmódica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D17",
+              "combinada": null,
+              "texto": "Dolor tipo calambre",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E17",
+              "combinada": null,
+              "texto": "Espasmos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F17",
+              "combinada": null,
+              "texto": "Nervioso sensible",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G17",
+              "combinada": null,
+              "texto": "< frío",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H17",
+              "combinada": null,
+              "texto": "> calor y presión",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I17",
+              "combinada": null,
+              "texto": "Espasmódico",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J17",
+              "combinada": null,
+              "texto": "6CH–30CH",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A18",
+              "combinada": null,
+              "texto": "Iris versicolor",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B18",
+              "combinada": null,
+              "texto": "Estómago e intestino",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C18",
+              "combinada": null,
+              "texto": "Colitis asociada a hiperacidez",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D18",
+              "combinada": null,
+              "texto": "Ardor digestivo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E18",
+              "combinada": null,
+              "texto": "Cefalea asociada",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F18",
+              "combinada": null,
+              "texto": "Irritable",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G18",
+              "combinada": null,
+              "texto": "< alimentos grasos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H18",
+              "combinada": null,
+              "texto": "> reposo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I18",
+              "combinada": null,
+              "texto": "Digestivo ácido",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J18",
+              "combinada": null,
+              "texto": "6CH–30CH",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A19",
+              "combinada": null,
+              "texto": "Natrum phosphoricum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B19",
+              "combinada": null,
+              "texto": "Digestivo ácido",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C19",
+              "combinada": null,
+              "texto": "Colitis fermentativa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D19",
+              "combinada": null,
+              "texto": "Acidez y fermentación",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E19",
+              "combinada": null,
+              "texto": "Lengua amarilla",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F19",
+              "combinada": null,
+              "texto": "Sensible",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G19",
+              "combinada": null,
+              "texto": "< lácteos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H19",
+              "combinada": null,
+              "texto": "> dieta ligera",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I19",
+              "combinada": null,
+              "texto": "Digestivo ácido",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J19",
+              "combinada": null,
+              "texto": "6CH",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A20",
+              "combinada": null,
+              "texto": "Antimonium crudum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B20",
+              "combinada": null,
+              "texto": "Estómago e intestino",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C20",
+              "combinada": null,
+              "texto": "Colitis por exceso alimentario",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D20",
+              "combinada": null,
+              "texto": "Lengua blanca gruesa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E20",
+              "combinada": null,
+              "texto": "Náusea y aversión",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F20",
+              "combinada": null,
+              "texto": "Malhumorado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G20",
+              "combinada": null,
+              "texto": "< calor, < excesos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H20",
+              "combinada": null,
+              "texto": "> reposo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I20",
+              "combinada": null,
+              "texto": "Niño irritable",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J20",
+              "combinada": null,
+              "texto": "6CH–30CH",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A21",
+              "combinada": null,
+              "texto": "Croton tiglium",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B21",
+              "combinada": null,
+              "texto": "Intestino",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C21",
+              "combinada": null,
+              "texto": "Diarrea explosiva urgente",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D21",
+              "combinada": null,
+              "texto": "Evacuación súbita",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E21",
+              "combinada": null,
+              "texto": "Debilidad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F21",
+              "combinada": null,
+              "texto": "Ansiedad evacuatoria",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G21",
+              "combinada": null,
+              "texto": "< comer o beber",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H21",
+              "combinada": null,
+              "texto": "Mejoría parcial reposo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I21",
+              "combinada": null,
+              "texto": "Reactivo intestinal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J21",
+              "combinada": null,
+              "texto": "6CH",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A22",
+              "combinada": null,
+              "texto": "Veratrum album",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B22",
+              "combinada": null,
+              "texto": "Digestivo severo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C22",
+              "combinada": null,
+              "texto": "Gastroenteritis intensa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D22",
+              "combinada": null,
+              "texto": "Vómito y diarrea profusa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E22",
+              "combinada": null,
+              "texto": "Frialdad extrema",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F22",
+              "combinada": null,
+              "texto": "Ansiedad y colapso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G22",
+              "combinada": null,
+              "texto": "< frío",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "H22",
+              "combinada": null,
+              "texto": "> calor",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "I22",
+              "combinada": null,
+              "texto": "Colapsado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "J22",
+              "combinada": null,
+              "texto": "30CH con precaución",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        }
+      ],
+      "comentarios": [],
+      "imagenes": [],
+      "imagenes_extraidas": []
+    }
+  ]
+}

@@ -36,7 +36,8 @@ carpeta. Lo escribe el agente extractor-material; lo leen `cargar.py` y `auditar
 Campos:
 - `materia`, `componente`: nombres como en la app (sin importar tildes o mayúsculas). Subcomponentes:
   `"Parcial 1 › Atlas"`. `crear_componente` solo si la usuaria confirmó crearlo.
-- `fuentes`: archivos de la hoja que se auditan celda por celda.
+- `fuentes`: lo que se audita: hojas celda por celda, Word por párrafo y texto entregado en el mensaje
+  (`texto/<nombre>.txt`, guardado tal cual) renglón por renglón.
 - `correcciones`: texto original → texto corregido, para cada cambio de letras. Los cambios que solo agregan
   o quitan tildes no hace falta declararlos.
 - `omitidos`: lo que no se carga, con motivo. `celda` admite rangos (`"HBO!A1:B3"`).

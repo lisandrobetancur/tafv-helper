@@ -1,0 +1,30 @@
+{
+  "materia": "Homeopatía",
+  "fecha": "2026-11-03T21:58:04",
+  "archivos": [
+    {
+      "original": "fuentes/homeopatia/_originales/TROPISMOS HOMEOPATÍA 1.xlsx",
+      "hojas": [
+        {
+          "hoja": "Hoja1",
+          "componente": "Tropismo",
+          "archivo": "fuentes/homeopatia/tropismo/hojas/TROPISMOS HOMEOPATÍA 1.xlsx",
+          "imagenes": []
+        }
+      ],
+      "sin_asignar": []
+    },
+    {
+      "original": "fuentes/homeopatia/_originales/TROPISMOS HOMEOPATÍA 2.xlsx",
+      "hojas": [
+        {
+          "hoja": "Hoja1",
+          "componente": "Tropismo",
+          "archivo": "fuentes/homeopatia/tropismo/hojas/TROPISMOS HOMEOPATÍA 2.xlsx",
+          "imagenes": []
+        }
+      ],
+      "sin_asignar": []
+    }
+  ]
+}
