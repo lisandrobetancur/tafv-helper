@@ -1,10 +1,15 @@
 # Construye los instaladores de la versión de escritorio (Windows .exe y Mac .dmg) en GitHub.
-# Se ejecuta a mano: pestaña Actions › «Escritorio» › «Run workflow» (elige la rama escritorio).
-# Los instaladores quedan para descargar en el resumen de la ejecución («Artifacts»).
+# Corre en cada push a la rama escritorio (y a mano: Actions › «Escritorio» › «Run workflow»).
+# Los instaladores se publican en Releases («Escritorio AAAA.MM.DD-N») y quedan también en «Artifacts».
 name: Escritorio
 
 on:
+  push:
+    branches: [escritorio]
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   construir:
@@ -39,9 +44,31 @@ jobs:
         env:
           PYTHONIOENCODING: utf-8
         run: python escritorio/construir.py
+      - name: Nombre del archivo según el equipo
+        shell: bash
+        run: |
+          ext="${{ matrix.archivo }}"; ext="${ext##*.}"
+          mkdir -p salida && cp "${{ matrix.archivo }}" "salida/${{ matrix.artefacto }}.${ext}"
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.artefacto }}
-          path: ${{ matrix.archivo }}
+          path: salida/*
           if-no-files-found: error
           retention-days: 30
+
+  publicar:
+    needs: construir
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: instaladores
+          merge-multiple: true
+      - name: Publicar en Releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          etiqueta="escritorio-$(date -u +%Y.%m.%d)-${{ github.run_number }}"
+          gh release create "$etiqueta" instaladores/* --repo "${{ github.repository }}" --target "${{ github.sha }}" \
+            --title "Escritorio $(date -u +%Y.%m.%d) (${{ github.run_number }})" \
+            --notes "Instaladores de la Biblioteca de Estudio (versión de escritorio). Windows: Instalador-Windows.exe · Mac con procesador Apple: Instalador-Mac-Apple.dmg · Mac Intel: Instalador-Mac-Intel.dmg. Guía de instalación y activación en ESCRITORIO.md."

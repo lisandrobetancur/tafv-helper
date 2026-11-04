@@ -28,11 +28,15 @@ Sin la clave pública, el programa no se puede activar y la construcción se det
 
 ### Opción A · En GitHub (recomendada: arma Windows y Mac sin tener los dos equipos)
 
-1. En GitHub, pestaña **Actions** › **Escritorio** › **Run workflow** › rama `escritorio` › **Run workflow**.
-2. Al terminar (unos 15 minutos), abre la ejecución y descarga en **Artifacts**:
-   - `Instalador-Windows` → `Instalador-Biblioteca-de-Estudio.exe`
-   - `Instalador-Mac-Apple` → `Biblioteca-de-Estudio.dmg` (Mac M1, M2, M3…)
-   - `Instalador-Mac-Intel` → `Biblioteca-de-Estudio.dmg` (Mac con Intel)
+Se construyen solos cada vez que se suben cambios a la rama `escritorio` (también a mano: pestaña **Actions** ›
+**Escritorio** › **Run workflow**). En unos 15 minutos aparecen en la sección **Releases** del repositorio, en una
+entrega llamada «Escritorio AAAA.MM.DD (N)», listos para descargar:
+- `Instalador-Windows.exe`
+- `Instalador-Mac-Apple.dmg` (Mac M1, M2, M3…)
+- `Instalador-Mac-Intel.dmg` (Mac con Intel)
+
+Para incluir el contenido más reciente de `main`, primero se trae `main` a la rama `escritorio`
+(`git checkout escritorio && git merge main && git push`).
 
 ### Opción B · En tu equipo
 
@@ -45,7 +49,8 @@ de lectura de texto (OCR).
 
 ## 3. Instalar en el equipo de una persona
 
-**Windows:** abrir `Instalador-Biblioteca-de-Estudio.exe`. Como el programa no tiene firma comprada, Windows muestra
+**Windows:** abrir `Instalador-Windows.exe`. Hace falta internet solo para descargarlo: el programa trae todo
+dentro (también la lectura de texto) y después funciona sin internet. Como el programa no tiene firma comprada, Windows muestra
 «Windows protegió su PC»: clic en **Más información** › **Ejecutar de todas formas**. Se instala solo para ese usuario
 (no pide contraseña de administrador) y crea el acceso en el menú Inicio y, si se elige, en el escritorio.
 
