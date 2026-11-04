@@ -82,7 +82,8 @@ def contexto_comun(request: Request, con: sqlite3.Connection, **extra: Any) -> d
             aviso = None
     return {
         "request": request,
-        "materias_menu": bib.listar_materias(con),
+        "materias_menu": bib.listar_materias(con, ocultas=config.MOSTRAR_OCULTOS),
+        "MOSTRAR_OCULTOS": config.MOSTRAR_OCULTOS,
         "en_papelera": pap.contar(con),
         "aviso_inicial": aviso,
         **extra,

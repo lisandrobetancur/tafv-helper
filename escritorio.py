@@ -94,6 +94,7 @@ def main() -> None:
     datos, modelos = preparar_carpetas()
     os.environ["BIBLIOTECA_DATOS"] = str(datos)          # antes de importar la app: config lee estas variables
     os.environ["BIBLIOTECA_MODELOS"] = str(modelos)
+    os.environ.setdefault("BIBLIOTECA_MOSTRAR_OCULTOS", "1")   # Diagnóstico y las materias ocultas, siempre a la vista
 
     import uvicorn
     from app.main import app

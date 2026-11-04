@@ -27,6 +27,9 @@ CASOS_ACTIVOS = False
 ACCESO_RAPIDO_ACTIVO = False
 # Dirección oculta del módulo Diagnóstico: solo se ve escribiéndola; al recargar la página (F5) desaparece
 RUTA_DIAGNOSTICO = "/6000"
+# Versión de escritorio: lo oculto queda siempre a la vista (Diagnóstico en el menú y las materias ocultas,
+# como Notas, en la lista de materias). Lo enciende escritorio.py; en la versión web queda apagado.
+MOSTRAR_OCULTOS = os.environ.get("BIBLIOTECA_MOSTRAR_OCULTOS") == "1"
 
 
 @dataclass
