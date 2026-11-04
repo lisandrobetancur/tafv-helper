@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import logging
+from datetime import date, timedelta
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request
@@ -43,6 +44,7 @@ def crear_app(ocr_activo: bool = True, exigir_licencia: bool = True) -> FastAPI:
     app = FastAPI(title=config.NOMBRE_APP, lifespan=ciclo_de_vida, docs_url=None, redoc_url=None)
     app.state.ocr_activo = ocr_activo
     app.state.licencia_valida = not exigir_licencia
+    app.state.licencia_revisar_el = date.max if not exigir_licencia else date.min
     app.mount("/static", StaticFiles(directory=config.STATIC_DIR), name="static")
 
     @app.middleware("http")
@@ -58,14 +60,19 @@ def crear_app(ocr_activo: bool = True, exigir_licencia: bool = True) -> FastAPI:
 
     @app.middleware("http")
     async def control_de_licencia(request: Request, call_next):
-        """Sin una licencia válida para este equipo, todo lleva a la pantalla de activación."""
+        """Sin una licencia válida para este equipo, todo lleva a la pantalla de activación.
+        Una licencia permanente se comprueba una vez por sesión; una temporal, cada día (puede vencer)."""
         ruta = request.url.path
-        if not request.app.state.licencia_valida and not ruta.startswith(("/static", "/licencia", "/favicon")):
-            request.app.state.licencia_valida = licencia.estado_actual().valida
-            if not request.app.state.licencia_valida:
-                if request.headers.get("HX-Request"):
-                    return Response(headers={"HX-Redirect": "/licencia"})
-                return RedirectResponse("/licencia", status_code=303)
+        estado = request.app.state
+        if not estado.licencia_valida or estado.licencia_revisar_el <= date.today():
+            if not ruta.startswith(("/static", "/licencia", "/favicon")):
+                actual = licencia.estado_actual()
+                estado.licencia_valida = actual.valida
+                estado.licencia_revisar_el = (date.max if not actual.temporal else date.today() + timedelta(days=1))
+                if not actual.valida:
+                    if request.headers.get("HX-Request"):
+                        return Response(headers={"HX-Redirect": "/licencia"})
+                    return RedirectResponse("/licencia", status_code=303)
         return await call_next(request)
 
     @app.exception_handler(ErrorUsuario)

@@ -5,6 +5,9 @@
 - La licencia es ese código (más el nombre de la persona) **firmado** con la clave privada de quien distribuye el
   programa (Ed25519). La app solo tiene la clave pública: puede comprobar una licencia, pero no fabricarla.
 - No vence y no hay límite de equipos: cada equipo recibe su propia licencia.
+- También hay licencias **temporales** (con fecha de vencimiento), que pueden valer para cualquier equipo («*»):
+  sirven para repartir una versión de prueba sin activar equipo por equipo. Para que no baste con atrasar el reloj,
+  el programa recuerda la fecha más reciente en que se abrió.
 - La licencia se guarda en la carpeta de datos; si esa carpeta se copia a otro equipo, allí no vale y se pide otra.
 
 Formato de la licencia: «TAFV1.<datos en base64url>.<firma en base64url>».
@@ -22,12 +25,13 @@ import re
 import subprocess
 import uuid
 from dataclasses import dataclass
-from datetime import date
+from datetime import date, timedelta
 
 from ..config import rutas
 from ..licencia_publica import CLAVE_PUBLICA
 
 PREFIJO = "TAFV1"
+CUALQUIER_EQUIPO = "*"
 
 
 # ------------------------------------------------------------------ código de equipo
@@ -83,10 +87,14 @@ def _de_b64(texto: str) -> bytes:
     return base64.urlsafe_b64decode(texto + "=" * (-len(texto) % 4))
 
 
-def emitir(clave_privada, codigo: str, nombre: str = "", fecha: str | None = None) -> str:
-    """Crea una licencia (lo usa la herramienta de quien distribuye; la app nunca tiene la clave privada)."""
-    datos = {"e": normalizar_codigo(codigo), "n": " ".join((nombre or "").split())[:80],
-             "f": fecha or date.today().isoformat()}
+def emitir(clave_privada, codigo: str, nombre: str = "", fecha: str | None = None, dias: int | None = None) -> str:
+    """Crea una licencia (lo usa la herramienta de quien distribuye; la app nunca tiene la clave privada).
+    `codigo` «*» = cualquier equipo. Con `dias`, vence ese número de días después de `fecha` (incluido el último)."""
+    emitida = date.fromisoformat(fecha) if fecha else date.today()
+    datos = {"e": CUALQUIER_EQUIPO if codigo == CUALQUIER_EQUIPO else normalizar_codigo(codigo),
+             "n": " ".join((nombre or "").split())[:80], "f": emitida.isoformat()}
+    if dias:
+        datos["v"] = (emitida + timedelta(days=dias)).isoformat()
     cuerpo = json.dumps(datos, ensure_ascii=False, separators=(",", ":"), sort_keys=True).encode()
     return f"{PREFIJO}.{_b64(cuerpo)}.{_b64(clave_privada.sign(cuerpo))}"
 
@@ -97,10 +105,16 @@ class Estado:
     mensaje: str = ""
     nombre: str = ""
     fecha: str = ""
+    vence: str = ""                  # vacío: no vence
+
+    @property
+    def temporal(self) -> bool:
+        return bool(self.vence)
 
 
-def verificar(licencia: str, codigo: str | None = None, clave_publica: str | None = None) -> Estado:
-    """Comprueba la firma y que la licencia sea de este equipo."""
+def verificar(licencia: str, codigo: str | None = None, clave_publica: str | None = None,
+              hoy: date | None = None) -> Estado:
+    """Comprueba la firma, que la licencia sea de este equipo (o de cualquiera) y, si es temporal, que no haya vencido."""
     from cryptography.exceptions import InvalidSignature
     from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PublicKey
 
@@ -117,9 +131,44 @@ def verificar(licencia: str, codigo: str | None = None, clave_publica: str | Non
         datos = json.loads(cuerpo)
     except (InvalidSignature, ValueError):
         return Estado(False, "La licencia no es válida. Revisa que la copiaste completa.")
-    if normalizar_codigo(datos.get("e", "")) != (codigo or codigo_equipo()):
+    equipo = datos.get("e", "")
+    if equipo != CUALQUIER_EQUIPO and normalizar_codigo(equipo) != (codigo or codigo_equipo()):
         return Estado(False, "Esta licencia es de otro equipo. Pide una para el código que aparece aquí.")
-    return Estado(True, nombre=datos.get("n", ""), fecha=datos.get("f", ""))
+    vence = datos.get("v", "")
+    if vence:
+        try:
+            limite = date.fromisoformat(vence)
+        except ValueError:
+            return Estado(False, "La licencia no es válida. Revisa que la copiaste completa.")
+        if (hoy or fecha_de_referencia()) > limite:
+            return Estado(False, f"La licencia temporal venció el {limite.strftime('%d/%m/%Y')}. "
+                                 "Pide una licencia para este equipo con el código que aparece aquí.", vence=vence)
+    return Estado(True, nombre=datos.get("n", ""), fecha=datos.get("f", ""), vence=vence)
+
+
+# ------------------------------------------------------------------ reloj
+def _archivo_reloj():
+    return rutas.datos / ".licencia_reloj"
+
+
+def fecha_de_referencia() -> date:
+    """Hoy, o la fecha más reciente en que se abrió el programa si el reloj quedó atrás (no se gana tiempo
+    atrasando el reloj del computador)."""
+    hoy = date.today()
+    try:
+        vista = date.fromisoformat(_archivo_reloj().read_text(encoding="utf-8").strip())
+    except (OSError, ValueError):
+        return hoy
+    return max(hoy, vista)
+
+
+def _anotar_fecha() -> None:
+    try:
+        referencia = fecha_de_referencia()
+        _archivo_reloj().parent.mkdir(parents=True, exist_ok=True)
+        _archivo_reloj().write_text(referencia.isoformat(), encoding="utf-8")
+    except OSError:
+        pass
 
 
 # ------------------------------------------------------------------ licencia guardada
@@ -138,10 +187,12 @@ def estado_actual() -> Estado:
     licencia = guardada()
     if not licencia:
         return Estado(False, "")
+    _anotar_fecha()
     return verificar(licencia)
 
 
 def activar(licencia: str) -> Estado:
+    _anotar_fecha()
     estado = verificar(licencia)
     if estado.valida:
         _archivo().parent.mkdir(parents=True, exist_ok=True)

@@ -95,7 +95,10 @@ async def activar_licencia(request: Request):
     form = await request.form()
     estado = licencia.activar(str(form.get("licencia") or ""))
     if estado.valida:
-        request.app.state.licencia_valida = True
+        request.app.state.licencia_valida = False      # el control la vuelve a comprobar (y agenda el vencimiento)
+        if estado.temporal:
+            vence = "/".join(reversed(estado.vence.split("-")))
+            return redirigir(request, "/", f"Programa activado con una licencia temporal: vale hasta el {vence}.", "aviso")
         return redirigir(request, "/", "Programa activado en este equipo.")
     return templates.TemplateResponse(request, "paginas/licencia.html",
                                       {"codigo": licencia.codigo_equipo(), "estado": licencia.estado_actual(),

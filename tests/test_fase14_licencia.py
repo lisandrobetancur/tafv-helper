@@ -64,3 +64,37 @@ def test_pantalla_de_activacion(datos, claves) -> None:
         assert c.get("/", follow_redirects=False).status_code == 200
     with TestClient(crear_app(ocr_activo=False)) as c:                                         # al volver a abrir
         assert c.get("/", follow_redirects=False).status_code == 200
+
+
+def test_licencia_temporal(claves, datos, monkeypatch) -> None:
+    from datetime import date, timedelta
+    hoy = date.today()
+    temporal = lic.emitir(claves, "*", "Prueba", dias=8)
+    estado = lic.verificar(temporal)                                               # cualquier equipo, vigente
+    assert estado.valida and estado.temporal and estado.vence == (hoy + timedelta(days=8)).isoformat()
+    assert lic.verificar(temporal, codigo="AAAA-BBBB-CCCC-DDDD").valida             # vale en cualquier equipo
+    assert lic.verificar(temporal, hoy=hoy + timedelta(days=8)).valida              # el último día aún vale
+    vencida = lic.verificar(temporal, hoy=hoy + timedelta(days=9))
+    assert not vencida.valida and "venció" in vencida.mensaje
+    # Una permanente de este equipo no vence
+    assert lic.verificar(lic.emitir(claves, lic.codigo_equipo()), hoy=hoy + timedelta(days=4000)).valida
+    # Atrasar el reloj no devuelve la licencia: queda anotada la fecha más reciente vista
+    lic._archivo_reloj().write_text((hoy + timedelta(days=30)).isoformat(), encoding="utf-8")
+    assert lic.fecha_de_referencia() == hoy + timedelta(days=30)
+    assert not lic.verificar(temporal).valida
+    lic._archivo_reloj().unlink()
+
+
+def test_pantalla_con_temporal_vencida(datos, claves, monkeypatch) -> None:
+    from datetime import date, timedelta
+    from app.main import crear_app
+    temporal = lic.emitir(claves, "*", dias=8)
+    with TestClient(crear_app(ocr_activo=False)) as c:
+        r = c.post("/licencia", data={"licencia": temporal}, follow_redirects=False)
+        assert r.status_code in (302, 303)
+        assert c.get("/", follow_redirects=False).status_code == 200
+        monkeypatch.setattr(lic, "fecha_de_referencia", lambda: date.today() + timedelta(days=9))
+    with TestClient(crear_app(ocr_activo=False)) as c:                               # vencida: vuelve a activación
+        r = c.get("/", follow_redirects=False)
+        assert r.status_code == 303 and r.headers["location"] == "/licencia"
+        assert "venció" in c.get("/licencia").text

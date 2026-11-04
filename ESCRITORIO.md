@@ -72,6 +72,11 @@ pulsar **Abrir de todas formas**. Solo pasa la primera vez.
 Cada equipo necesita su propia licencia: si se copia la carpeta de datos a otro computador, allí se pide activar de
 nuevo. Si alguien formatea o cambia de computador, el código cambia y se le emite una licencia nueva.
 
+**Licencia temporal (versiones de prueba):** `python tools/licencias/emitir.py cualquiera --dias 8 --nombre "Prueba"`
+emite una licencia que vale en **cualquier equipo** durante ese número de días (el programa recuerda la fecha más
+reciente en que se abrió, así que atrasar el reloj no la revive). Al vencer, el programa vuelve a la pantalla de
+activación con su código de equipo: ahí se le emite la licencia permanente de ese equipo, sin reinstalar nada.
+
 ## 5. Datos, actualizaciones y desinstalación
 
 - La biblioteca de cada persona se guarda en su usuario:
