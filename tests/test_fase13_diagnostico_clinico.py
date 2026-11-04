@@ -155,19 +155,56 @@ def test_paciente_y_resumen(con, jerarquizacion) -> None:
 
 
 def test_web(cliente, con, jerarquizacion) -> None:
-    pagina = cliente.get("/diagnostico").text
-    assert "Analizar caso" in pagina and 'href="/diagnostico"' in pagina and "JERARQUIZACIÓN" not in pagina
-    r = cliente.post("/diagnostico/resultado", data={"texto": CASO_1})          # otra pantalla, con el resultado
-    assert "Resultado del diagnóstico" in r.text and "Principal · motivo de consulta" in r.text
-    assert "1. Enfermedad varicosa" in r.text and "HTA controlada (TA 135/80)" in r.text and "JERARQUIZACIÓN" in r.text
-    assert "Bolsa sellada" in r.text and "Editar el caso" in r.text
-    r = cliente.post("/diagnostico/resultado", data={"texto": CASO_1, "ajustado": "1", "dx": ["hta", ""]})
+    # Oculto: fuera de /5000 no hay rastro en el menú y las direcciones de antes no llevan a él
+    assert "Diagnóstico" not in cliente.get("/").text
+    assert cliente.get("/diagnostico", follow_redirects=False).headers["location"] == "/"
+    assert cliente.get("/diagnostico/resultado", follow_redirects=False).headers["location"] == "/"
+    pagina = cliente.get("/5000").text
+    assert 'href="/5000"' in pagina and "Analizar caso" in pagina and "Ingresa la información del diagnóstico" in pagina
+    assert 'rows="8"' in pagina and "JERARQUIZACIÓN" not in pagina and pagina.count("disabled") >= 4
+    assert pagina.index("Analizar caso") < pagina.index('id="dxc-texto"')
+    assert cliente.get("/diagnostico/pdf").status_code == 400
+
+    # Analizar guarda: el resultado sigue en /5000 hasta limpiarlo
+    r = cliente.post("/diagnostico/analizar", data={"texto": CASO_1})
+    assert str(r.url).endswith("/5000") and "Resultado del diagnóstico" in r.text
+    for _ in range(2):
+        r = cliente.get("/5000")
+        assert "Principal · motivo de consulta" in r.text and "1. Enfermedad varicosa" in r.text and "Bolsa sellada" in r.text
+        assert "HTA controlada (TA 135/80)" in r.text and "JERARQUIZACIÓN" in r.text and "úlcera en la pierna" in r.text
+        assert 'href="/diagnostico/pdf"' in r.text and 'href="/diagnostico/word"' in r.text and r.headers["cache-control"] == "no-store"
+    assert "Diagnóstico" not in cliente.get("/").text    # otra página: el módulo no aparece, lo guardado sigue
+
+    # El ajuste de la lista también queda guardado
+    r = cliente.post("/diagnostico/ajustar", data={"dx": ["hta", ""]})
     assert "1. HTA controlada" in r.text and "Enfermedad varicosa" in r.text.split("Agregar diagnóstico")[0]  # quedó como quitado
-    assert "2. Enfermedad varicosa" not in r.text
-    r = cliente.post("/diagnostico", data={"texto": "úlcera en la pierna"})        # editar: vuelve con el texto
-    assert "úlcera en la pierna</textarea>" in r.text
-    assert cliente.get("/diagnostico/resultado", follow_redirects=False).headers["location"] == "/diagnostico"
-    r = cliente.get("/diagnostico", params={"s": "fiebre"}, follow_redirects=False)       # direcciones de antes
-    assert r.status_code == 301 and r.headers["location"].startswith("/acceso-rapido?s=")
-    r = cliente.get("/diagnostico/casos/7?x=1", follow_redirects=False)
-    assert r.headers["location"] == "/acceso-rapido/casos/7?x=1"
+    assert "2. Enfermedad varicosa" not in cliente.get("/5000").text
+
+    # Exportar y recopilar
+    r = cliente.get("/diagnostico/pdf")
+    assert r.status_code == 200 and r.content[:4] == b"%PDF" and "attachment" in r.headers["content-disposition"]
+    import pymupdf
+    with pymupdf.open("pdf", r.content) as doc:
+        escrito = "".join(p.get_text() for p in doc)
+    assert "HTA controlada" in escrito and "Jerarquización" in escrito and "\\" not in escrito and "fragmentos" not in escrito
+    r = cliente.get("/diagnostico/word")
+    assert r.status_code == 200 and r.content[:2] == b"PK"
+    import io
+    from docx import Document
+    escrito = "\n".join(p.text for p in Document(io.BytesIO(r.content)).paragraphs)
+    assert "HTA controlada" in escrito and "Jerarquización" in escrito and "\\" not in escrito
+    r = cliente.post("/diagnostico/recopilar", headers={"HX-Request": "true"})
+    assert r.status_code == 204 and "se agreg" in r.headers["HX-Trigger"]
+
+    # Crear nuevo limpia el formulario y el resultado
+    r = cliente.post("/diagnostico/nuevo")
+    assert "Resultado del diagnóstico" not in r.text and "úlcera en la pierna" not in r.text
+    assert "Resultado del diagnóstico" not in cliente.get("/5000").text
+    assert dxc.leer_actual() is None
+
+
+def test_acceso_rapido_deshabilitado(cliente, con) -> None:
+    assert "Acceso rápido" not in cliente.get("/").text
+    assert cliente.get("/acceso-rapido").status_code == 404
+    assert cliente.get("/acceso-rapido/sugerencias", params={"q": "a"}).status_code == 404
+    assert cliente.post("/acceso-rapido/casos", data={"s": ["x"]}).status_code == 404

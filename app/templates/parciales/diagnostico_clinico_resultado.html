@@ -1,7 +1,4 @@
-{% extends "base.html" %}
 {% from "macros.html" import icono, vacio %}
-{% block titulo %}Resultado del diagnóstico{% endblock %}
-
 {% macro resaltado(e) -%}
   {%- for texto, marcado in e.partes %}{% if marcado %}<mark class="rounded bg-oro-suave px-0.5 text-texto">{{ texto }}</mark>{% else %}{{ texto }}{% endif %}{% endfor -%}
 {%- endmacro %}
@@ -38,29 +35,14 @@
 </div>
 {% endmacro %}
 
-{% block contenido %}
 {% set r = resultado %}
-<div class="mx-auto max-w-4xl">
-  <header class="mb-5 flex flex-wrap items-start gap-4">
-    <span class="grid size-12 shrink-0 place-items-center rounded-2xl bg-marca-suave text-marca">{{ icono("clipboard-plus", "size-6") }}</span>
-    <div class="min-w-0 flex-1">
-      <h1 class="text-2xl font-bold tracking-tight sm:text-3xl">Resultado del diagnóstico</h1>
-      {% if r.paciente or r.motivo %}
-      <p class="mt-1 text-tenue">{% if r.paciente %}<strong class="font-medium text-texto">{{ r.paciente }}</strong>{% endif %}
-        {%- if r.paciente and r.motivo %} · {% endif %}{% if r.motivo %}Motivo de consulta: «{{ r.motivo }}»{% endif %}</p>
-      {% endif %}
-    </div>
-    <div class="flex flex-wrap gap-2" x-data="{ copiado: false }">
-      <form method="post" action="/diagnostico"><input type="hidden" name="texto" value="{{ r.texto }}">
-        <button class="btn-secundario">{{ icono("pencil") }}Editar el caso</button></form>
-      <a href="/diagnostico" class="btn-secundario">{{ icono("plus") }}Caso nuevo</a>
-      {% if r.diagnosticos %}
-      <button type="button" class="btn-primario" title="Copiar el resultado como texto"
-              @click="navigator.clipboard.writeText($refs.resumen.value).then(() => { copiado = true; setTimeout(() => copiado = false, 1800) })">
-        {{ icono("clipboard-list") }}<span x-text="copiado ? 'Copiado' : 'Copiar'">Copiar</span></button>
-      <textarea x-ref="resumen" class="hidden" aria-hidden="true" tabindex="-1">{{ r.resumen }}</textarea>
-      {% endif %}
-    </div>
+<div class="mt-6">
+  <header class="mb-5">
+    <h2 class="text-xl font-bold tracking-tight">Resultado del diagnóstico</h2>
+    {% if r.paciente or r.motivo %}
+    <p class="mt-1 text-tenue">{% if r.paciente %}<strong class="font-medium text-texto">{{ r.paciente }}</strong>{% endif %}
+      {%- if r.paciente and r.motivo %} · {% endif %}{% if r.motivo %}Motivo de consulta: «{{ r.motivo }}»{% endif %}</p>
+    {% endif %}
   </header>
 
   {% if r.faltan_fuentes %}
@@ -75,10 +57,7 @@
   </section>
   {% endif %}
 
-  <form method="post" action="/diagnostico/resultado" id="form-ajuste">
-    <input type="hidden" name="texto" value="{{ r.texto }}">
-    <input type="hidden" name="ajustado" value="1">
-
+  <form method="post" action="/diagnostico/ajustar" id="form-ajuste">
     {# ------------------------------------------------------------ diagnósticos #}
     <section class="tarjeta mb-6 p-5" aria-labelledby="t-dx">
       <div class="mb-3 flex flex-wrap items-baseline justify-between gap-2">
@@ -195,4 +174,3 @@
     Manda la prioridad del Consolidado; si una terapia solo está en la tabla, se usa la de la tabla.</p>
   {% endif %}
 </div>
-{% endblock %}

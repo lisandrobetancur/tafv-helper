@@ -7,6 +7,7 @@ from pathlib import Path
 import pytest
 from openpyxl import Workbook
 
+from app import config
 from app.errores import ErrorUsuario
 from app.services import biblioteca as bib
 from app.services import busqueda as bus
@@ -47,6 +48,13 @@ def materia_medica(con: sqlite3.Connection, tmp_path: Path) -> dict:
     [tid] = tab.importar(con, estado)
     notas_srv.crear(con, cid, "Clase de repaso", "La **distensión abdominal** con gases es típica de Lycopodium.")
     return {"materia": mid, "componente": cid, "tabla": tid}
+
+
+@pytest.fixture(autouse=True)
+def _acceso_rapido_activo(monkeypatch: pytest.MonkeyPatch) -> None:
+    """El módulo sigue completo aunque esté deshabilitado en la app."""
+    monkeypatch.setattr(config, "ACCESO_RAPIDO_ACTIVO", True)
+
 
 
 def titulos(a: dx.Analisis) -> list[str]:

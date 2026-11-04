@@ -19,11 +19,13 @@ Es una herramienta de estudio; no reemplaza el juicio clínico.
 from __future__ import annotations
 
 import json
+import os
 import re
 import sqlite3
 import unicodedata
 from dataclasses import dataclass, field
 
+from ..config import rutas
 from . import biblioteca as bib
 from .texto import normalizar
 
@@ -373,6 +375,73 @@ class Resultado:
                     lineas.append(f"Comentario de la tabla: {i.comentario_tabla}")
             lineas.append("")
         return "\n".join(lineas).strip()
+
+    @property
+    def documento(self) -> str:
+        """El caso y su resultado en Markdown, para exportarlo o agregarlo a una recopilación."""
+        partes = []
+        if self.paciente or self.motivo:
+            partes.append(_md(" · ".join(x for x in (self.paciente, f"Motivo de consulta: {self.motivo}" if self.motivo else "") if x)))
+        partes += ["## Caso clínico", _md(self.texto), "## Diagnósticos"]
+        partes += ["\n".join(f"{n}\\. {_md(d.titulo_completo)}{' (probable)' if d.probable else ''}  "
+                             for n, d in enumerate(self.diagnosticos, 1)) or "No se reconoció ninguna patología de la tabla."]
+        if self.datos:
+            partes += ["## Datos del caso", "  \n".join(_md(d) for d in self.datos)]
+        if self.plan:
+            partes.append("## Jerarquización")
+        for n, p in enumerate(self.plan, 1):
+            partes.append(f"### {n}. {_md(p.nombre)} (para {_md(', '.join(d.nombre for d, _ in p.usos))})")
+            for m, (d, i) in enumerate(p.usos, 1):
+                prefijo = f"{n}.{m} " if len(p.usos) > 1 else ""
+                partes.append(f"**{prefijo}{_md(d.titulo)}** — prioridad {i.prioridad if i.prioridad is not None else 'sin indicar'}")
+                for f in i.filas:
+                    partes += [_md(x) for x in (f["formula"], f["descripcion"]) if x and x.strip()]
+                    if f["notas"]:
+                        partes.append(_md(f"Notas: {f['notas']}"))
+                if i.nota_tabla:
+                    partes.append(_md(f"Tabla de jerarquización: {i.nota_tabla}"))
+                if i.comentario_tabla:
+                    partes.append(_md(f"Comentario de la tabla: {i.comentario_tabla}"))
+        return "\n\n".join(partes)
+
+
+def _md(texto: str) -> str:
+    """Texto literal dentro de Markdown: sin marcas accidentales y con sus saltos de línea."""
+    salida = []
+    for linea in (texto or "").strip().splitlines():
+        linea = re.sub(r"([\\`*_\[\]<>#|~])", r"\\\1", linea.strip())
+        linea = re.sub(r"^([-+])(?=\s)", r"\\\1", linea)
+        linea = re.sub(r"^(\d+)([.)])(?=\s)", r"\1\\\2", linea)
+        salida.append(linea)
+    return "  \n".join(salida)
+
+
+# ------------------------------------------------------------------ el diagnóstico en curso
+# Queda hasta que la usuaria lo limpie, aunque cierre la app. Va en un archivo aparte, no en la biblioteca: la base
+# se sube a un repositorio público y este texto es un caso clínico (la carpeta está en .gitignore).
+def _archivo_actual():
+    return rutas.datos / "diagnostico" / "actual.json"
+
+
+def leer_actual() -> dict | None:
+    """{"texto", "elegidos"} del diagnóstico en curso, o None si no hay."""
+    try:
+        datos = json.loads(_archivo_actual().read_text("utf-8"))
+    except (OSError, ValueError):
+        return None
+    return datos if isinstance(datos, dict) and str(datos.get("texto", "")).strip() else None
+
+
+def guardar_actual(texto: str, elegidos: list[str] | None = None) -> None:
+    ruta = _archivo_actual()
+    ruta.parent.mkdir(parents=True, exist_ok=True)
+    temporal = ruta.with_suffix(".tmp")
+    temporal.write_text(json.dumps({"texto": texto[:MAX_TEXTO], "elegidos": elegidos}, ensure_ascii=False), "utf-8")
+    os.replace(temporal, ruta)
+
+
+def limpiar_actual() -> None:
+    _archivo_actual().unlink(missing_ok=True)
 
 
 # ------------------------------------------------------------------ texto
