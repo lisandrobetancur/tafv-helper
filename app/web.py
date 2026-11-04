@@ -80,9 +80,12 @@ def contexto_comun(request: Request, con: sqlite3.Connection, **extra: Any) -> d
             aviso = json.loads(unquote(crudo))
         except ValueError:
             aviso = None
+    materia_activa = extra.get("materia_activa")
     return {
         "request": request,
         "materias_menu": bib.listar_materias(con),
+        # Página de una materia oculta: desaparece al recargar y no deja el menú marcado
+        "materia_oculta_activa": isinstance(materia_activa, int) and materia_activa >= bib.ID_MATERIAS_OCULTAS,
         "en_papelera": pap.contar(con),
         "aviso_inicial": aviso,
         **extra,
