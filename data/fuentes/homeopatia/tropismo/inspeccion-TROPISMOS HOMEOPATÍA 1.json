@@ -1,0 +1,1915 @@
+{
+  "archivo": "/Users/lisandro/dev/py/tafv-helper/data/fuentes/homeopatia/tropismo/hojas/Hoja1.xlsx",
+  "hojas": [
+    {
+      "hoja": "Hoja1",
+      "dimension": "A1:F45",
+      "bloques": [
+        {
+          "rango": "A1:F45",
+          "filas": 45,
+          "columnas": 6,
+          "densidad": 1.0,
+          "fila_encabezado": 1,
+          "registros": 44,
+          "sugerencia": "tabla",
+          "celdas": [
+            {
+              "celda": "A1",
+              "combinada": null,
+              "texto": "Medicamento",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "B1",
+              "combinada": null,
+              "texto": "Tropismo principal",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "C1",
+              "combinada": null,
+              "texto": "Patologías o síndromes orientativos",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "D1",
+              "combinada": null,
+              "texto": "Síntomas guía característicos",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "E1",
+              "combinada": null,
+              "texto": "Modalidades clave",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "F1",
+              "combinada": null,
+              "texto": "Tipo sensible / constitución",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "A2",
+              "combinada": null,
+              "texto": "Sulphur",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B2",
+              "combinada": null,
+              "texto": "Piel, mucosas, circulación portal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C2",
+              "combinada": null,
+              "texto": "Dermatitis, eczema, hemorroides, afecciones crónicas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D2",
+              "combinada": null,
+              "texto": "Ardor, calor, prurito, suciedad, empeora baño",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E2",
+              "combinada": null,
+              "texto": "< calor, < baño",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F2",
+              "combinada": null,
+              "texto": "Intelectual, desordenado, reactivo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A3",
+              "combinada": null,
+              "texto": "Lycopodium",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B3",
+              "combinada": null,
+              "texto": "Hígado, digestivo, urinario",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C3",
+              "combinada": null,
+              "texto": "Dispepsia, colon irritable, litiasis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D3",
+              "combinada": null,
+              "texto": "Distensión abdominal, gases, inseguridad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E3",
+              "combinada": null,
+              "texto": "< 4-8 pm, < cebolla",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F3",
+              "combinada": null,
+              "texto": "Intelectual inseguro con apariencia dominante",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A4",
+              "combinada": null,
+              "texto": "Calcarea carbonica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B4",
+              "combinada": null,
+              "texto": "Sistema linfático, metabolismo óseo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C4",
+              "combinada": null,
+              "texto": "Adenoides, obesidad, retraso desarrollo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D4",
+              "combinada": null,
+              "texto": "Sudor cefálico, fatiga, frío",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E4",
+              "combinada": null,
+              "texto": "< esfuerzo, < humedad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F4",
+              "combinada": null,
+              "texto": "Lento, responsable, ansioso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A5",
+              "combinada": null,
+              "texto": "Belladonna",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B5",
+              "combinada": null,
+              "texto": "Sistema nervioso y vascular",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C5",
+              "combinada": null,
+              "texto": "Fiebre aguda, amigdalitis, cefalea congestiva",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D5",
+              "combinada": null,
+              "texto": "Rubor, calor, pulsación, inicio súbito",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E5",
+              "combinada": null,
+              "texto": "< luz, < ruido",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F5",
+              "combinada": null,
+              "texto": "Reactivo, febril, intenso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A6",
+              "combinada": null,
+              "texto": "Aconitum napellus",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B6",
+              "combinada": null,
+              "texto": "Sistema nervioso agudo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C6",
+              "combinada": null,
+              "texto": "Crisis agudas, susto, fiebre inicial",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D6",
+              "combinada": null,
+              "texto": "Miedo intenso, ansiedad, inicio brusco",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E6",
+              "combinada": null,
+              "texto": "< noche, < frío seco",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F6",
+              "combinada": null,
+              "texto": "Hipersensible, ansioso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A7",
+              "combinada": null,
+              "texto": "Lachesis mutus",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B7",
+              "combinada": null,
+              "texto": "Circulación, sistema nervioso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C7",
+              "combinada": null,
+              "texto": "Congestión, menopausia, amigdalitis izquierda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D7",
+              "combinada": null,
+              "texto": "Habla mucho, celos, color violáceo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E7",
+              "combinada": null,
+              "texto": "< dormir, < calor",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F7",
+              "combinada": null,
+              "texto": "Intenso, celoso, congestivo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A8",
+              "combinada": null,
+              "texto": "Ignatia amara",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B8",
+              "combinada": null,
+              "texto": "Sistema nervioso emocional",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C8",
+              "combinada": null,
+              "texto": "Duelo, ansiedad, espasmos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D8",
+              "combinada": null,
+              "texto": "Suspiros, contradicción emocional",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E8",
+              "combinada": null,
+              "texto": "< consuelo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F8",
+              "combinada": null,
+              "texto": "Sensible, contenido",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A9",
+              "combinada": null,
+              "texto": "Silicea terra",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B9",
+              "combinada": null,
+              "texto": "Tejido conectivo, supuración",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C9",
+              "combinada": null,
+              "texto": "Abscesos, debilidad, uñas frágiles",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D9",
+              "combinada": null,
+              "texto": "Expulsa cuerpos extraños, friolento",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E9",
+              "combinada": null,
+              "texto": "< frío",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F9",
+              "combinada": null,
+              "texto": "Delicado, tímido",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A10",
+              "combinada": null,
+              "texto": "Mercurius solubilis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B10",
+              "combinada": null,
+              "texto": "Mucosas, glándulas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C10",
+              "combinada": null,
+              "texto": "Amigdalitis, gingivitis, supuración",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D10",
+              "combinada": null,
+              "texto": "Salivación, fetidez, lengua dentada",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E10",
+              "combinada": null,
+              "texto": "< noche, < calor y frío extremos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F10",
+              "combinada": null,
+              "texto": "Séptico, húmedo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A11",
+              "combinada": null,
+              "texto": "Chamomilla",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B11",
+              "combinada": null,
+              "texto": "Sistema nervioso infantil",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C11",
+              "combinada": null,
+              "texto": "Dentición, cólicos, irritabilidad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D11",
+              "combinada": null,
+              "texto": "Irritabilidad extrema, hipersensibilidad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E11",
+              "combinada": null,
+              "texto": "< noche",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F11",
+              "combinada": null,
+              "texto": "Niño irritable",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A12",
+              "combinada": null,
+              "texto": "Arsenicum album",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B12",
+              "combinada": null,
+              "texto": "Mucosas, digestivo, ansiedad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C12",
+              "combinada": null,
+              "texto": "Gastritis, asma, TOC, ansiedad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D12",
+              "combinada": null,
+              "texto": "Ardor, inquietud, orden extremo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E12",
+              "combinada": null,
+              "texto": "< medianoche, > calor",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F12",
+              "combinada": null,
+              "texto": "Ansioso, perfeccionista",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A13",
+              "combinada": null,
+              "texto": "Natrum muriaticum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B13",
+              "combinada": null,
+              "texto": "Sistema nervioso y líquidos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C13",
+              "combinada": null,
+              "texto": "Cefaleas, duelo, rinitis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D13",
+              "combinada": null,
+              "texto": "Reserva emocional, tristeza silenciosa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E13",
+              "combinada": null,
+              "texto": "< sol",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F13",
+              "combinada": null,
+              "texto": "Introvertido",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A14",
+              "combinada": null,
+              "texto": "Platina",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B14",
+              "combinada": null,
+              "texto": "Sistema nervioso sexual",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C14",
+              "combinada": null,
+              "texto": "Histeria, trastornos sexuales",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D14",
+              "combinada": null,
+              "texto": "Orgullo, sensación de superioridad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E14",
+              "combinada": null,
+              "texto": "< tarde",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F14",
+              "combinada": null,
+              "texto": "Altivo, hipersensible",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A15",
+              "combinada": null,
+              "texto": "Sepia",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B15",
+              "combinada": null,
+              "texto": "Sistema hormonal femenino",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C15",
+              "combinada": null,
+              "texto": "Trastornos ginecológicos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D15",
+              "combinada": null,
+              "texto": "Indiferencia afectiva, ptosis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E15",
+              "combinada": null,
+              "texto": "> ejercicio",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F15",
+              "combinada": null,
+              "texto": "Agotada, irritable",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A16",
+              "combinada": null,
+              "texto": "Pulsatilla",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B16",
+              "combinada": null,
+              "texto": "Mucosas respiratorias y hormonales",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C16",
+              "combinada": null,
+              "texto": "Rinitis, otitis, trastornos menstruales",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D16",
+              "combinada": null,
+              "texto": "Secreción espesa, falta de sed",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E16",
+              "combinada": null,
+              "texto": "> aire fresco",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F16",
+              "combinada": null,
+              "texto": "Dependiente afectivo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A17",
+              "combinada": null,
+              "texto": "Folliculinum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B17",
+              "combinada": null,
+              "texto": "Sistema hormonal femenino",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C17",
+              "combinada": null,
+              "texto": "Síndrome premenstrual, disfunción hormonal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D17",
+              "combinada": null,
+              "texto": "Hipersensibilidad hormonal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E17",
+              "combinada": null,
+              "texto": "Variable",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F17",
+              "combinada": null,
+              "texto": "Sensible hormonal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A18",
+              "combinada": null,
+              "texto": "Phosphorus",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B18",
+              "combinada": null,
+              "texto": "Pulmón, sangre, sistema nervioso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C18",
+              "combinada": null,
+              "texto": "Bronquitis, hemorragias",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D18",
+              "combinada": null,
+              "texto": "Sed fría, sensibilidad emocional",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E18",
+              "combinada": null,
+              "texto": "< tormenta",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F18",
+              "combinada": null,
+              "texto": "Extrovertido, sensible",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A19",
+              "combinada": null,
+              "texto": "Causticum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B19",
+              "combinada": null,
+              "texto": "Sistema nervioso motor",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C19",
+              "combinada": null,
+              "texto": "Parálisis, contracturas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D19",
+              "combinada": null,
+              "texto": "Injusticia, debilidad muscular",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E19",
+              "combinada": null,
+              "texto": "< frío seco",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F19",
+              "combinada": null,
+              "texto": "Empático, idealista",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A20",
+              "combinada": null,
+              "texto": "Staphysagria",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B20",
+              "combinada": null,
+              "texto": "Sistema genitourinario y emocional",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C20",
+              "combinada": null,
+              "texto": "Cistitis, humillación emocional",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D20",
+              "combinada": null,
+              "texto": "Ira contenida, sensibilidad moral",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E20",
+              "combinada": null,
+              "texto": "< indignación",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F20",
+              "combinada": null,
+              "texto": "Refinado, sensible",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A21",
+              "combinada": null,
+              "texto": "Nux vomica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B21",
+              "combinada": null,
+              "texto": "Digestivo, hígado, sistema nervioso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C21",
+              "combinada": null,
+              "texto": "Gastritis, estrés, insomnio",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D21",
+              "combinada": null,
+              "texto": "Irritabilidad, espasmos, exceso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E21",
+              "combinada": null,
+              "texto": "< café, < estrés",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F21",
+              "combinada": null,
+              "texto": "Ejecutivo, competitivo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A22",
+              "combinada": null,
+              "texto": "Thuja occidentalis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B22",
+              "combinada": null,
+              "texto": "Piel, sistema inmune",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C22",
+              "combinada": null,
+              "texto": "Verrugas, secuelas vacunales",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D22",
+              "combinada": null,
+              "texto": "Sensación de fragilidad, secretos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E22",
+              "combinada": null,
+              "texto": "< humedad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F22",
+              "combinada": null,
+              "texto": "Reservado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A23",
+              "combinada": null,
+              "texto": "Nitric acidum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B23",
+              "combinada": null,
+              "texto": "Mucosas ulcerativas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C23",
+              "combinada": null,
+              "texto": "Fisuras, úlceras, condilomas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D23",
+              "combinada": null,
+              "texto": "Dolor como astilla",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E23",
+              "combinada": null,
+              "texto": "< frío",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F23",
+              "combinada": null,
+              "texto": "Irritable",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A24",
+              "combinada": null,
+              "texto": "Hepar sulphur",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B24",
+              "combinada": null,
+              "texto": "Supuración, mucosas respiratorias",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C24",
+              "combinada": null,
+              "texto": "Abscesos, amigdalitis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D24",
+              "combinada": null,
+              "texto": "Hipersensibilidad al dolor",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E24",
+              "combinada": null,
+              "texto": "< frío, > calor",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F24",
+              "combinada": null,
+              "texto": "Friolento",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A25",
+              "combinada": null,
+              "texto": "Psorinum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B25",
+              "combinada": null,
+              "texto": "Piel, inmunidad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C25",
+              "combinada": null,
+              "texto": "Dermatitis crónica, debilidad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D25",
+              "combinada": null,
+              "texto": "Suciedad, desesperanza, frío intenso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E25",
+              "combinada": null,
+              "texto": "< frío",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F25",
+              "combinada": null,
+              "texto": "Agotado, pesimista",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A26",
+              "combinada": null,
+              "texto": "Medorrhinum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B26",
+              "combinada": null,
+              "texto": "Mucosas genitourinarias",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C26",
+              "combinada": null,
+              "texto": "Alergias, hiperactividad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D26",
+              "combinada": null,
+              "texto": "Impulsividad, extremos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E26",
+              "combinada": null,
+              "texto": "> noche",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F26",
+              "combinada": null,
+              "texto": "Intenso, acelerado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A27",
+              "combinada": null,
+              "texto": "Syphilinum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B27",
+              "combinada": null,
+              "texto": "Sistema destructivo profundo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C27",
+              "combinada": null,
+              "texto": "Ulceraciones, compulsividad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D27",
+              "combinada": null,
+              "texto": "Destrucción, desesperación",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E27",
+              "combinada": null,
+              "texto": "Noche",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F27",
+              "combinada": null,
+              "texto": "Obsesivo, oscuro",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A28",
+              "combinada": null,
+              "texto": "Tuberculinum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B28",
+              "combinada": null,
+              "texto": "Pulmón, sistema inmune",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C28",
+              "combinada": null,
+              "texto": "Infecciones respiratorias recurrentes",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D28",
+              "combinada": null,
+              "texto": "Deseo de cambio, inquietud",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E28",
+              "combinada": null,
+              "texto": "< clima cerrado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F28",
+              "combinada": null,
+              "texto": "Inquieto",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A29",
+              "combinada": null,
+              "texto": "Carcinosinum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B29",
+              "combinada": null,
+              "texto": "Sistema nervioso e inmunológico",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C29",
+              "combinada": null,
+              "texto": "Fatiga crónica, antecedentes familiares",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D29",
+              "combinada": null,
+              "texto": "Perfeccionismo, sensibilidad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E29",
+              "combinada": null,
+              "texto": "Variable",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F29",
+              "combinada": null,
+              "texto": "Complaciente",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A30",
+              "combinada": null,
+              "texto": "Influenzinum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B30",
+              "combinada": null,
+              "texto": "Vías respiratorias",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C30",
+              "combinada": null,
+              "texto": "Cuadros gripales recurrentes",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D30",
+              "combinada": null,
+              "texto": "Debilidad postviral",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E30",
+              "combinada": null,
+              "texto": "< frío",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F30",
+              "combinada": null,
+              "texto": "Reactivo viral",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A31",
+              "combinada": null,
+              "texto": "Graphites",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B31",
+              "combinada": null,
+              "texto": "Piel y metabolismo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C31",
+              "combinada": null,
+              "texto": "Eczema húmedo, obesidad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D31",
+              "combinada": null,
+              "texto": "Secreción pegajosa, lentitud",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E31",
+              "combinada": null,
+              "texto": "< frío",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F31",
+              "combinada": null,
+              "texto": "Lento, indeciso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A32",
+              "combinada": null,
+              "texto": "Petroleum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B32",
+              "combinada": null,
+              "texto": "Piel y mucosas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C32",
+              "combinada": null,
+              "texto": "Dermatitis fisurada",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D32",
+              "combinada": null,
+              "texto": "Grietas profundas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E32",
+              "combinada": null,
+              "texto": "< invierno",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F32",
+              "combinada": null,
+              "texto": "Irritable",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A33",
+              "combinada": null,
+              "texto": "Arnica montana",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B33",
+              "combinada": null,
+              "texto": "Trauma músculo-esquelético",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C33",
+              "combinada": null,
+              "texto": "Contusiones, golpes",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D33",
+              "combinada": null,
+              "texto": "Sensación de estar golpeado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E33",
+              "combinada": null,
+              "texto": "< tacto",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F33",
+              "combinada": null,
+              "texto": "Rechaza ayuda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A34",
+              "combinada": null,
+              "texto": "Hypericum perforatum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B34",
+              "combinada": null,
+              "texto": "Nervios periféricos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C34",
+              "combinada": null,
+              "texto": "Traumas nerviosos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D34",
+              "combinada": null,
+              "texto": "Dolor irradiado intenso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E34",
+              "combinada": null,
+              "texto": "< frío",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F34",
+              "combinada": null,
+              "texto": "Hipersensible al dolor",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A35",
+              "combinada": null,
+              "texto": "Antimonium tartaricum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B35",
+              "combinada": null,
+              "texto": "Pulmón",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C35",
+              "combinada": null,
+              "texto": "Bronquitis con secreción",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D35",
+              "combinada": null,
+              "texto": "Estertores, dificultad expectorar",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E35",
+              "combinada": null,
+              "texto": "< acostado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F35",
+              "combinada": null,
+              "texto": "Débil",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A36",
+              "combinada": null,
+              "texto": "Spongia tosta",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B36",
+              "combinada": null,
+              "texto": "Laringe",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C36",
+              "combinada": null,
+              "texto": "Crup, tos seca",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D36",
+              "combinada": null,
+              "texto": "Tos como sierra",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E36",
+              "combinada": null,
+              "texto": "< noche",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F36",
+              "combinada": null,
+              "texto": "Ansioso respiratorio",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A37",
+              "combinada": null,
+              "texto": "Antimonium crudum",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B37",
+              "combinada": null,
+              "texto": "Digestivo y piel",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C37",
+              "combinada": null,
+              "texto": "Gastritis, lengua blanca",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D37",
+              "combinada": null,
+              "texto": "Irritabilidad al contacto",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E37",
+              "combinada": null,
+              "texto": "< calor",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F37",
+              "combinada": null,
+              "texto": "Niño malhumorado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A38",
+              "combinada": null,
+              "texto": "Carbo vegetabilis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B38",
+              "combinada": null,
+              "texto": "Circulación y digestivo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C38",
+              "combinada": null,
+              "texto": "Colapso, meteorismo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D38",
+              "combinada": null,
+              "texto": "Frialdad, deseo de aire",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E38",
+              "combinada": null,
+              "texto": "> abanico",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F38",
+              "combinada": null,
+              "texto": "Agotado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A39",
+              "combinada": null,
+              "texto": "Apis mellifica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B39",
+              "combinada": null,
+              "texto": "Edema y serosas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C39",
+              "combinada": null,
+              "texto": "Alergias, edema, urticaria",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D39",
+              "combinada": null,
+              "texto": "Hinchazón rosada, sin sed",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E39",
+              "combinada": null,
+              "texto": "< calor, > frío",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F39",
+              "combinada": null,
+              "texto": "Reactivo alérgico",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A40",
+              "combinada": null,
+              "texto": "Berberis vulgaris",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B40",
+              "combinada": null,
+              "texto": "Riñón y vías urinarias",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C40",
+              "combinada": null,
+              "texto": "Litiasis renal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D40",
+              "combinada": null,
+              "texto": "Dolor irradiado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E40",
+              "combinada": null,
+              "texto": "Movimiento empeora",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F40",
+              "combinada": null,
+              "texto": "Renal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A41",
+              "combinada": null,
+              "texto": "Cantharis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B41",
+              "combinada": null,
+              "texto": "Vías urinarias",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C41",
+              "combinada": null,
+              "texto": "Cistitis, quemaduras",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D41",
+              "combinada": null,
+              "texto": "Ardor intenso al orinar",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E41",
+              "combinada": null,
+              "texto": "< micción",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F41",
+              "combinada": null,
+              "texto": "Inflamatorio intenso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A42",
+              "combinada": null,
+              "texto": "Sarsaparilla",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B42",
+              "combinada": null,
+              "texto": "Vías urinarias y piel",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C42",
+              "combinada": null,
+              "texto": "Litiasis, eczema",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D42",
+              "combinada": null,
+              "texto": "Dolor al final de micción",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E42",
+              "combinada": null,
+              "texto": "< final micción",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F42",
+              "combinada": null,
+              "texto": "Delgado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A43",
+              "combinada": null,
+              "texto": "Bryonia alba",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B43",
+              "combinada": null,
+              "texto": "Serosas y articulaciones",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C43",
+              "combinada": null,
+              "texto": "Pleuritis, artritis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D43",
+              "combinada": null,
+              "texto": "Dolor empeora movimiento",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E43",
+              "combinada": null,
+              "texto": "> reposo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F43",
+              "combinada": null,
+              "texto": "Seco, irritable",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A44",
+              "combinada": null,
+              "texto": "Ledum palustre",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B44",
+              "combinada": null,
+              "texto": "Articulaciones y picaduras",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C44",
+              "combinada": null,
+              "texto": "Gota, heridas punzantes",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D44",
+              "combinada": null,
+              "texto": "Frío local mejora",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E44",
+              "combinada": null,
+              "texto": "> frío",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F44",
+              "combinada": null,
+              "texto": "Reumático",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A45",
+              "combinada": null,
+              "texto": "Rhus toxicodendron",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B45",
+              "combinada": null,
+              "texto": "Tendones y articulaciones",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C45",
+              "combinada": null,
+              "texto": "Esguinces, artritis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D45",
+              "combinada": null,
+              "texto": "Rigidez mejora movimiento",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E45",
+              "combinada": null,
+              "texto": "< reposo, < humedad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F45",
+              "combinada": null,
+              "texto": "Inquieto",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        }
+      ],
+      "comentarios": [],
+      "imagenes": [],
+      "imagenes_extraidas": []
+    }
+  ]
+}

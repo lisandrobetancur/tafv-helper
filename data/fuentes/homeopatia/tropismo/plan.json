@@ -1,0 +1,20 @@
+{
+  "materia": "Homeopatía",
+  "componente": "Tropismo",
+  "crear_componente": {"tipos": ["excel", "notas"], "descripcion": ""},
+  "fuentes": [
+    "hojas/TROPISMOS HOMEOPATÍA 1.xlsx",
+    "hojas/TROPISMOS HOMEOPATÍA 2.xlsx"
+  ],
+  "correcciones": {},
+  "omitidos": [],
+  "notas": [
+    {"titulo": "Potencia - Tropismo", "archivo": "notas/Potencia - Tropismo.md"}
+  ],
+  "tablas": [
+    {"archivo": "hojas/TROPISMOS HOMEOPATÍA 1.xlsx", "nombre": "Tropismos Homeopatía 1", "columna_titulo": "Medicamento", "celdas": ["Hoja1!A1:F45"]},
+    {"archivo": "hojas/TROPISMOS HOMEOPATÍA 2.xlsx", "nombre": "Tropismos Homeopatía 2", "columna_titulo": "Medicamento", "celdas": ["Hoja1!A1:J22"]}
+  ],
+  "imagenes": [],
+  "pdfs": []
+}
