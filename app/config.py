@@ -22,6 +22,11 @@ PROFUNDIDAD_MAXIMA = 4  # niveles de componentes bajo una materia (componente �
 # Casos guardados en Acceso rápido. Deshabilitado a pedido de la usuaria (2026-10-16): no se muestran «Guardar el caso»
 # ni la lista de casos. El código sigue completo: para volver a activarlo basta con poner True.
 CASOS_ACTIVOS = False
+# Acceso rápido, deshabilitado a pedido de la usuaria (2026-11-03): sale del menú y sus direcciones dan 404. El código
+# sigue completo: para volver a activarlo basta con poner True.
+ACCESO_RAPIDO_ACTIVO = False
+# Dirección oculta del módulo Diagnóstico: solo se ve escribiéndola; al recargar la página (F5) desaparece
+RUTA_DIAGNOSTICO = "/6000"
 
 
 @dataclass

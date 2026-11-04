@@ -16,4 +16,4 @@ La norma pide estas palabras juntas, pero son términos médicos que se ven escr
 6. **«Noche»** (TROPISMOS HOMEOPATÍA 1, Hoja1!E27, Syphilinum, columna «Modalidades clave»): no lleva «<» ni «>», así que no dice si agrava o mejora. Se deja igual. ¿Falta el signo?
 
 ## Resueltas
-La usuaria aprobó corregir (2026-11-03) las preguntas 3, 4 y 5: «postevacuación», «postinfecciosa» y «musculoesquelético». Quedan abiertas las preguntas 1, 2 y 6.
+La usuaria aprobó corregir (2026-11-03) las preguntas 3, 4 y 5: «postevacuación», «postinfecciosa» y «musculoesquelético». También aprobó corregir (2026-11-03) las preguntas 1 y 2: «Nitricum acidum» y «Hepar sulphuris». La usuaria pidió dejar la pregunta 6 como está: «Noche», sin signo.

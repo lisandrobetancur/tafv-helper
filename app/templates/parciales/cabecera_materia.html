@@ -15,7 +15,7 @@
           <label class="flex cursor-pointer items-center gap-2 font-medium">
             <input type="checkbox" name="activo" value="true" class="size-4 accent-[var(--marca)]" {% if materia.en_busqueda %}checked{% endif %}
                    @change="$el.form.requestSubmit()">
-            Incluir en la búsqueda y en Acceso rápido</label>
+            Incluir en la búsqueda{% if ACCESO_RAPIDO_ACTIVO %} y en Acceso rápido{% endif %}</label>
         </form>
       </div>
       {% endif %}

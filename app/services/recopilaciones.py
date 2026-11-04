@@ -155,6 +155,7 @@ class Recopilacion:
     actualizado: str
     num_fragmentos: int = 0
     fragmentos: list[Fragmento] = field(default_factory=list)
+    con_conteo: bool = True                  # «N fragmentos» en la portada del documento
 
 
 def _recopilacion(f: sqlite3.Row) -> Recopilacion:
@@ -526,6 +527,14 @@ def _borrar_imagen(nombre: str) -> None:
 
 
 # ------------------------------------------------------------------ exportar
+def documento_suelto(titulo: str, contenido: str) -> Recopilacion:
+    """Un documento de un solo texto (Markdown) para exportarlo sin guardarlo como recopilación."""
+    fragmento = Fragmento(id=0, recopilacion_id=0, orden=0, tipo="texto", titulo="", contenido=contenido, formato="markdown",
+                          campos=[], archivo=None, ancho=None, alto=None, tamano="mediana", comentario="", origen="", origen_url="")
+    return Recopilacion(id=0, titulo=titulo, descripcion="", creado=ahora(), actualizado=ahora(), num_fragmentos=1,
+                        fragmentos=[fragmento], con_conteo=False)
+
+
 def nombre_archivo(r: Recopilacion, extension: str) -> str:
     """Nombre válido en Windows y Mac: sin caracteres prohibidos, sin punto o espacio final y sin
     nombres reservados de Windows (CON, PRN, AUX, NUL, COM1…, LPT1…)."""
@@ -565,7 +574,8 @@ def documento_html(r: Recopilacion, src_imagen, logo: str | None = None) -> str:
     if r.descripcion:
         partes.append(f'<p>{e(r.descripcion)}</p>')
     fecha = datetime.now().strftime("%d/%m/%Y")
-    partes.append(f'<p class="portada">{fecha} · {len([f for f in r.fragmentos if f.tipo != "seccion"])} fragmentos</p>')
+    conteo = f' · {len([f for f in r.fragmentos if f.tipo != "seccion"])} fragmentos' if r.con_conteo else ""
+    partes.append(f'<p class="portada">{fecha}{conteo}</p>')
     for fr in r.fragmentos:
         if fr.tipo == "seccion":
             partes.append(f'<h2 class="seccion">{e(fr.titulo)}</h2>')
@@ -595,6 +605,7 @@ def documento_html(r: Recopilacion, src_imagen, logo: str | None = None) -> str:
 def exportar_pdf(r: Recopilacion, logo: Path | None = None) -> bytes:
     import pymupdf
 
+    carpeta_imagenes().mkdir(parents=True, exist_ok=True)
     archivo = pymupdf.Archive(str(carpeta_imagenes()))
     if logo and logo.exists():
         archivo.add(pymupdf.Archive(str(logo.parent)))
@@ -736,7 +747,8 @@ def exportar_docx(r: Recopilacion, logo: Path | None = None) -> bytes:
     if r.descripcion:
         doc.add_paragraph(r.descripcion)
     p = doc.add_paragraph()
-    run = p.add_run(f"{datetime.now():%d/%m/%Y} · {len([f for f in r.fragmentos if f.tipo != 'seccion'])} fragmentos")
+    conteo = f" · {len([f for f in r.fragmentos if f.tipo != 'seccion'])} fragmentos" if r.con_conteo else ""
+    run = p.add_run(f"{datetime.now():%d/%m/%Y}{conteo}")
     run.font.color.rgb, run.font.size = tenue, Pt(9)
 
     def comentario(fr: Fragmento) -> None:

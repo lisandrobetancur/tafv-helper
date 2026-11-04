@@ -370,6 +370,30 @@
 
     // ---------------------------------------------------------------- modal
     // Las respuestas de HTMX traen un <dialog x-data="modal">; se abre solo y se borra al cerrar.
+    // Bloques plegables de un componente. Lo plegado se recuerda en este navegador; `#tipo` abre el bloque y va a él
+    Alpine.data("acordeon", (id) => ({
+      plegados: [],
+      init() {
+        try { this.plegados = JSON.parse(localStorage.getItem(`componente-plegado-${id}`) || "[]"); } catch (e) { /* sin almacenamiento */ }
+        this.irA(false);
+      },
+      irA(conArchivo) {
+        const tipo = location.hash.slice(1);
+        const bloque = tipo && this.$el.querySelector(`[data-tipo="${CSS.escape(tipo)}"]`);
+        if (!bloque) return;
+        this.plegados = this.plegados.filter((t) => t !== tipo);
+        this.$nextTick(() => {
+          bloque.scrollIntoView({ behavior: "smooth", block: "start" });
+          if (conArchivo) bloque.querySelector("input[type=file]")?.click();
+        });
+      },
+      abierto(tipo) { return !this.plegados.includes(tipo); },
+      alternar(tipo) {
+        this.plegados = this.abierto(tipo) ? [...this.plegados, tipo] : this.plegados.filter((t) => t !== tipo);
+        try { localStorage.setItem(`componente-plegado-${id}`, JSON.stringify(this.plegados)); } catch (e) { /* sin almacenamiento */ }
+      },
+    }));
+
     Alpine.data("modal", () => ({
       // Un clic fuera del formulario NO lo cierra (se perdía lo escrito). Se cierra con la X,
       // «Cancelar» o Esc; si ya escribiste algo, primero pregunta si quieres descartarlo.

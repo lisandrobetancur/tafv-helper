@@ -5,9 +5,10 @@ import sqlite3
 from urllib.parse import urlencode
 
 from fastapi.responses import RedirectResponse
-from fastapi import APIRouter, Depends, Form, Request
+from fastapi import APIRouter, Depends, Form, HTTPException, Request
 from fastapi.responses import JSONResponse
 
+from .. import config
 from ..db import obtener_db
 from ..services import casos as casos_srv
 from ..services import diagnostico as dx
@@ -15,7 +16,13 @@ from ..services import notas as notas_srv
 from ..services import papelera as pap
 from ..web import pagina, parcial, redirigir
 
-router = APIRouter()
+
+def _activo() -> None:
+    if not config.ACCESO_RAPIDO_ACTIVO:
+        raise HTTPException(status_code=404)
+
+
+router = APIRouter(dependencies=[Depends(_activo)])
 
 
 def _entero(valor: str | None) -> int | None:

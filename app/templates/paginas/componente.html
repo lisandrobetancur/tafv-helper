@@ -42,22 +42,20 @@
 <section aria-labelledby="t-contenido">
   <h2 id="t-contenido" class="titulo-seccion mb-3">Contenido</h2>
   {% if componente.tipos %}
-  <div x-data="{ pestana: {{ componente.tipos|tojson|forceescape }}.includes(location.hash.slice(1)) ? location.hash.slice(1) : '{{ componente.tipos[0] }}' }"
-       @hashchange.window="const t = location.hash.slice(1); if ({{ componente.tipos|tojson|forceescape }}.includes(t)) { pestana = t; $nextTick(() => { $el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-         const zona = $el.querySelector('[role=tabpanel]:not([style*=none]) input[type=file]'); if (zona) zona.click(); }) }"
-       class="tarjeta scroll-mt-20 overflow-hidden">
-    <div class="flex gap-1 overflow-x-auto border-b border-borde bg-superficie-2/60 px-2 pt-2" role="tablist">
-      {% for t in componente.tipos_info %}
-      <button type="button" role="tab" class="-mb-px inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-t-lg border border-transparent px-4 py-2.5 text-sm font-medium text-tenue hover:text-texto"
-              :class="pestana === '{{ t.id }}' && 'border-borde !border-b-superficie bg-superficie !text-marca'"
-              :aria-selected="pestana === '{{ t.id }}'" @click="pestana = '{{ t.id }}'; history.replaceState(null, '', '#{{ t.id }}')">{{ icono(t.icono) }}{{ t.nombre }}</button>
-      {% endfor %}
+  {# Un bloque por tipo, siempre en este orden, plegable #}
+  <div class="flex flex-col gap-3" x-data="acordeon({{ componente.id }})" @hashchange.window="irA(true)">
+    {% for tipo in ["excel", "notas", "imagenes", "pdf", "movimientos"] %}{% for t in componente.tipos_info if t.id == tipo %}
+    <div class="tarjeta scroll-mt-20 overflow-hidden" data-tipo="{{ t.id }}">
+      <h3><button type="button" class="flex w-full items-center gap-2 bg-superficie-2/60 px-5 py-3 text-left text-sm font-semibold hover:text-marca"
+              :aria-expanded="abierto('{{ t.id }}')" @click="alternar('{{ t.id }}')">
+        {{ icono(t.icono) }}<span class="flex-1">{{ t.nombre }}</span>
+        <span class="text-tenue transition-transform" :class="abierto('{{ t.id }}') && 'rotate-90'">{{ icono("chevron-right") }}</span>
+      </button></h3>
+      <div class="border-t border-borde p-6" x-show="abierto('{{ t.id }}')" x-cloak>
+        {% include "parciales/contenido_" ~ t.id ~ ".html" ignore missing %}
+      </div>
     </div>
-    {% for t in componente.tipos_info %}
-    <div class="p-6" x-show="pestana === '{{ t.id }}'" x-cloak role="tabpanel">
-      {% include "parciales/contenido_" ~ t.id ~ ".html" ignore missing %}
-    </div>
-    {% endfor %}
+    {% endfor %}{% endfor %}
   </div>
   {% else %}
     {% call vacio("layers", "Este componente solo agrupa subcomponentes",

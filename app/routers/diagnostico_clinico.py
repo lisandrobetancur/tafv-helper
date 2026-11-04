@@ -1,50 +1,102 @@
 """Módulo Diagnóstico: caso clínico en texto libre -> diagnósticos y tratamiento según la tabla de jerarquización.
 
-Dos pantallas: en /diagnostico se pega el caso; al analizarlo se pasa a /diagnostico/resultado, que lo entrega
-como en los casos de clase (diagnósticos numerados y jerarquización con la prescripción de cada terapia).
+Es un módulo oculto: se ve solo escribiendo /6000 y desaparece al recargar (F5), pero el diagnóstico sigue guardado
+hasta que la usuaria lo limpie con «Crear nuevo diagnóstico»: al volver a /6000 está tal como lo dejó.
 """
 from __future__ import annotations
 
 import sqlite3
-from urllib.parse import urlencode
 
-from fastapi import APIRouter, Depends, Request
+from fastapi import APIRouter, Depends, Request, Response
 from fastapi.responses import RedirectResponse
 
+from .. import config
 from ..db import obtener_db
+from ..errores import ErrorUsuario
 from ..services import diagnostico_clinico as dxc
-from ..web import pagina
+from ..services import recopilaciones as rec
+from ..services.recopilaciones import obtener_rdb
+from ..web import pagina, redirigir
+from .recopilaciones import LOGO, _con_aviso, _descarga
 
 router = APIRouter()
-MIGAS = [{"texto": "Diagnóstico", "icono": "clipboard-plus"}]
+RUTA = config.RUTA_DIAGNOSTICO
+WORD = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
 
 
-@router.get("/diagnostico")
-def pagina_caso(request: Request, con: sqlite3.Connection = Depends(obtener_db)):
-    if "s" in request.query_params:   # dirección del antiguo «Diagnóstico por síntomas», hoy Acceso rápido
-        return RedirectResponse("/acceso-rapido?" + urlencode(list(request.query_params.multi_items())), status_code=301)
-    return pagina(request, con, "paginas/diagnostico_clinico.html", texto="", migas=MIGAS)
+def _resultado(con: sqlite3.Connection) -> dxc.Resultado | None:
+    actual = dxc.leer_actual()
+    return dxc.analizar(con, actual["texto"], actual.get("elegidos")) if actual else None
 
 
-@router.post("/diagnostico")
-async def editar_caso(request: Request, con: sqlite3.Connection = Depends(obtener_db)):
-    """Vuelve a la pantalla del caso con el texto ya escrito («Editar el caso» desde el resultado)."""
-    form = await request.form()
-    return pagina(request, con, "paginas/diagnostico_clinico.html", texto=str(form.get("texto") or ""), migas=MIGAS)
+def _guardado(con: sqlite3.Connection) -> dxc.Resultado:
+    r = _resultado(con)
+    if r is None:
+        raise ErrorUsuario("Primero analiza un caso.")
+    return r
 
 
-@router.get("/diagnostico/resultado")
-def resultado_sin_caso():
-    return RedirectResponse("/diagnostico", status_code=303)
+def _titulo(r: dxc.Resultado) -> str:
+    return " ".join(f"Diagnóstico {r.paciente or r.motivo}".split())[:100]
 
 
-@router.post("/diagnostico/resultado")
-async def resultado(request: Request, con: sqlite3.Connection = Depends(obtener_db)):
+@router.get(RUTA)
+def modulo(request: Request, con: sqlite3.Connection = Depends(obtener_db)):
+    respuesta = pagina(request, con, "paginas/diagnostico_clinico.html", resultado=_resultado(con),
+                       migas=[{"texto": "Diagnóstico", "icono": "clipboard-plus"}])
+    respuesta.headers["Cache-Control"] = "no-store"   # «Atrás» también pide la página: nunca un diagnóstico ya limpiado
+    return respuesta
+
+
+@router.post("/diagnostico/analizar")
+async def analizar(request: Request):
     form = await request.form()
     texto = str(form.get("texto") or "")
-    elegidos = [str(v) for v in form.getlist("dx") if v] if form.get("ajustado") else None
-    if not texto.strip() and not elegidos:
-        return RedirectResponse("/diagnostico", status_code=303)
-    res = dxc.analizar(con, texto, elegidos)
-    return pagina(request, con, "paginas/diagnostico_clinico_resultado.html", resultado=res,
-                  migas=[{"texto": "Diagnóstico", "url": "/diagnostico", "icono": "clipboard-plus"}, {"texto": "Resultado"}])
+    if texto.strip():
+        dxc.guardar_actual(texto)
+    return redirigir(request, RUTA)
+
+
+@router.post("/diagnostico/ajustar")
+async def ajustar(request: Request):
+    """La usuaria quitó o agregó un diagnóstico: la jerarquización se rehace y el ajuste queda guardado."""
+    form = await request.form()
+    actual = dxc.leer_actual()
+    if actual:
+        dxc.guardar_actual(actual["texto"], [str(v) for v in form.getlist("dx") if v])
+    return redirigir(request, RUTA)
+
+
+@router.post("/diagnostico/nuevo")
+def nuevo(request: Request):
+    dxc.limpiar_actual()
+    return redirigir(request, RUTA)
+
+
+@router.post("/diagnostico/recopilar")
+def recopilar(con: sqlite3.Connection = Depends(obtener_db), rcon: sqlite3.Connection = Depends(obtener_rdb)):
+    r = _guardado(con)
+    activa = rec.activa(rcon, crear_si_falta=True)
+    rec.agregar_texto_propio(rcon, activa.id, _titulo(r), r.documento)
+    n = rec.obtener(rcon, activa.id, False).num_fragmentos
+    return _con_aviso(Response(status_code=204), f"El diagnóstico se agregó a «{activa.titulo}» ({n}).")
+
+
+@router.get("/diagnostico/pdf")
+def exportar_pdf(con: sqlite3.Connection = Depends(obtener_db)):
+    r = _guardado(con)
+    doc = rec.documento_suelto(_titulo(r), r.documento)
+    return _descarga(rec.exportar_pdf(doc, LOGO), rec.nombre_archivo(doc, "pdf"), "application/pdf")
+
+
+@router.get("/diagnostico/word")
+def exportar_word(con: sqlite3.Connection = Depends(obtener_db)):
+    r = _guardado(con)
+    doc = rec.documento_suelto(_titulo(r), r.documento)
+    return _descarga(rec.exportar_docx(doc, LOGO), rec.nombre_archivo(doc, "docx"), WORD)
+
+
+@router.get("/diagnostico", include_in_schema=False)
+@router.get("/diagnostico/resultado", include_in_schema=False)
+def direccion_anterior():
+    return RedirectResponse("/", status_code=303)

@@ -87,7 +87,7 @@ def test_materia_oculta_en_la_web(cliente) -> None:
     inicio = cliente.get("/").text
     assert "Anatomía" in inicio and "/materias/8000" not in inicio      # ni en el menú ni en Inicio
     pagina = cliente.get("/materias/8000").text
-    assert "Incluir en la búsqueda y en Acceso rápido" in pagina and "/materias/8000" in pagina
+    assert "Incluir en la búsqueda" in pagina and "Acceso rápido" not in pagina and "/materias/8000" in pagina
     cliente.get(f"/notas/{d['nota']}")
     assert "CASO 1" not in cliente.get("/").text                        # no quedó en recientes
     r = cliente.post("/materias/8000/en-busqueda", data={"activo": "true"}, headers={"HX-Request": "true"})
