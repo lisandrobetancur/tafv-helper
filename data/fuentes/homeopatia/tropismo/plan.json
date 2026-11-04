@@ -10,7 +10,8 @@
   },
   "fuentes": [
     "hojas/TROPISMOS HOMEOPATÍA 1.xlsx",
-    "hojas/TROPISMOS HOMEOPATÍA 2.xlsx"
+    "hojas/TROPISMOS HOMEOPATÍA 2.xlsx",
+    "texto/Potencia (texto de la usuaria).txt"
   ],
   "correcciones": {
     "músculo-esquelético": "musculoesquelético",

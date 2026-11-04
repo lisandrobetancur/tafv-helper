@@ -1,4 +1,4 @@
-Archivo: /Users/lisandro/dev/py/tafv-helper/data/fuentes/homeopatia/tropismo/hojas/Hoja1.xlsx
+Archivo: data/fuentes/homeopatia/tropismo/hojas/TROPISMOS HOMEOPATÍA 1.xlsx
 
 === Hoja «Hoja1» (A1:F45) — 1 bloques, 0 comentarios, 0 imágenes
 

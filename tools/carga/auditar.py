@@ -145,6 +145,15 @@ def auditar(plan_ruta: Path, con_ocr: bool) -> tuple[list[str], list[str]]:
                 if faltan and n not in parrafos_omitidos:
                     errores.append(f"{ruta.name}, párrafo {n}: no está en lo cargado {sorted(faltan)} — «{tx[:80]}»")
             continue
+        if ruta.suffix.lower() in {".txt", ".md"}:   # texto entregado por la usuaria, renglón por renglón
+            for n, tx in enumerate(ruta.read_text(encoding="utf-8").splitlines(), start=1):
+                if not tx.strip():
+                    continue
+                revisadas += 1
+                faltan = palabras(tx) - corpus - aceptadas
+                if faltan and n not in parrafos_omitidos:
+                    errores.append(f"{ruta.name}, renglón {n}: no está en lo cargado {sorted(faltan)} — «{tx[:80]}»")
+            continue
         if ruta.suffix.lower() not in {".xlsx", ".xlsm"}:
             continue
         for ws in openpyxl.load_workbook(ruta, data_only=True).worksheets:   # el valor que se ve, como la app
