@@ -209,3 +209,36 @@ def test_acceso_rapido_deshabilitado(cliente, con) -> None:
     assert cliente.get("/acceso-rapido").status_code == 404
     assert cliente.get("/acceso-rapido/sugerencias", params={"q": "a"}).status_code == 404
     assert cliente.post("/acceso-rapido/casos", data={"s": ["x"]}).status_code == 404
+
+
+def test_tropismos_en_homeopatia(cliente, con, jerarquizacion, tmp_path: Path) -> None:
+    mid = bib.crear_materia(con, "Homeopatía", "", "oro", "pipette")
+    cid = bib.crear_componente(con, mid, None, "Tropismo", "", ["excel"])
+    tid = _importar(con, cid, tmp_path, "tropismos.xlsx",
+              ["Medicamento", "Tropismo principal", "Patologías o síndromes orientativos", "Potencia orientativa académica"],
+              [("Belladonna", "Sistema nervioso y vascular", "Fiebre aguda, cefaleas congestivas", "30CH"),
+               ("Sulphur", "Piel", "Dermatitis, eczema", "6CH"),
+               ("Nux vomica", "Digestivo", "Gastritis, estrés", "6CH local funcional")])
+
+    r = dxc.analizar(con, "Paciente con cefalea intensa y gastritis crónica")
+    assert sorted(nombres(r)) == ["cefalea", "gastritis cronica"]
+    [cefalea] = r.tropismos["cefalea"]            # «cefaleas congestivas» cuenta para «cefalea» (plural)
+    assert cefalea["medicamento"] == "Belladonna" and cefalea["potencia"] == "30CH"
+    assert "gastritis cronica" not in r.tropismos      # «Gastritis» a secas no es «gastritis cronica»
+
+    # En la página y en el documento exportado
+    dxc.guardar_actual("Paciente con cefalea intensa")
+    pagina = cliente.get("/6000").text
+    assert "TROPISMOS EN HOMEOPATÍA" in pagina and "Belladonna" in pagina and "Potencia orientativa: 30CH" in pagina
+    assert "Sulphur" not in pagina                # sin diagnóstico que lo nombre no aparece
+    r = dxc.analizar(con, "Paciente con cefalea intensa")
+    assert "Tropismos en homeopatía" in r.documento and "Belladonna" in r.documento and "30CH" in r.documento
+    assert "TROPISMOS EN HOMEOPATÍA" in r.resumen and "Belladonna — 30CH" in r.resumen
+    dxc.limpiar_actual()
+
+    # Sin tablas de tropismos (p. ej. antes de cargarlas) no sale la sección
+    con.execute("UPDATE tablas SET papelera_id = 9 WHERE id = ?", (tid,))
+    con.commit()
+    r = dxc.analizar(con, "Paciente con cefalea intensa")
+    assert r.tropismos == {} and "Tropismos en homeopatía" not in r.documento
+

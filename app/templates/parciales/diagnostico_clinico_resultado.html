@@ -140,6 +140,32 @@
     </ol>
   </section>
 
+  {# ------------------------------------------------------------ tropismos en homeopatía #}
+  {% if r.tropismos %}
+  <section class="tarjeta mb-6 p-5" aria-labelledby="t-trop">
+    <h2 id="t-trop" class="text-lg font-bold tracking-wide">TROPISMOS EN HOMEOPATÍA</h2>
+    <p class="mb-4 mt-1 text-xs text-tenue">Medicamentos de tus tablas de tropismos cuya columna de patologías nombra un
+      diagnóstico de este caso, tal cual está escrito. Es material de apoyo: no cambia la jerarquización.</p>
+    <div class="grid gap-5 sm:grid-cols-2">
+      {% for d in r.diagnosticos if r.tropismos.get(d.clave) %}
+      <div>
+        <p class="mb-1.5 font-semibold">{{ d.titulo }}</p>
+        <ul class="flex flex-col gap-2">
+          {% for t in r.tropismos[d.clave] %}
+          <li class="text-sm">
+            <a href="/filas/{{ t.fila }}" class="font-medium text-marca hover:underline">{{ t.medicamento }}</a>
+            <span class="block text-tenue [overflow-wrap:anywhere]">{{ t.detalle }}</span>
+            {% if t.potencia %}<span class="block text-xs [overflow-wrap:anywhere]">Potencia orientativa: {{ t.potencia }}</span>{% endif %}
+            <span class="block text-xs text-tenue">{{ t.tabla }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
   {# ------------------------------------------------------------ por diagnóstico #}
   <section class="tarjeta mb-6 p-5" aria-labelledby="t-pordx" x-data="{ abierto: false }">
     <button type="button" class="flex w-full items-center justify-between gap-2 text-left" @click="abierto = !abierto" :aria-expanded="abierto">
