@@ -380,7 +380,10 @@ class Resultado:
             lineas.append("TROPISMOS EN HOMEOPATÍA")
             for d in con_tropismos:
                 for t in self.tropismos[d.clave]:
-                    lineas.append(f"{d.titulo}: {t['medicamento']}" + (f" — {t['potencia']}" if t["potencia"] else ""))
+                    linea = f"{d.titulo}: {t['medicamento']}" + (f" — {t['potencia']}" if t["potencia"] else "")
+                    if t["aprox"]:
+                        linea += f" — pendiente de evaluar criterio: la tabla solo coincide en {t['aprox']}"
+                    lineas.append(linea)
             lineas.append("")
         return "\n".join(lineas).strip()
 
@@ -414,8 +417,11 @@ class Resultado:
         if con_tropismos:
             partes.append("## Tropismos en homeopatía")
             for d in con_tropismos:
-                filas = "\n".join(f"- {_md(t['medicamento'])} — {_md(t['detalle'])}" + (f" ({_md(t['potencia'])})" if t["potencia"] else "")
-                                  for t in self.tropismos[d.clave])
+                filas = "\n".join(
+                    f"- {_md(t['medicamento'])} — {_md(t['detalle'])}" + (f" ({_md(t['potencia'])})" if t["potencia"] else "")
+                    + (_md(f" — Pendiente de evaluar criterio: la asociación no es precisa, la tabla solo coincide en {t['aprox']}.")
+                       if t["aprox"] else "")
+                    for t in self.tropismos[d.clave])
                 partes.append(f"**{_md(d.titulo)}**\n{filas}")
         return "\n\n".join(partes)
 
@@ -799,29 +805,48 @@ def _tablas_tropismo(con: sqlite3.Connection) -> list[tuple]:
     return salida
 
 
+# Palabras que no bastan para asociar un diagnóstico a un tropismo («trastorno de ansiedad» no es cualquier «trastorno»)
+_PALABRAS_GENERICAS = {"enfermedad", "trastorno", "sindrome", "tipo", "cronica", "cronico", "aguda", "agudo", "leve",
+                       "moderada", "severa", "baja", "bajo", "alta", "alto", "dificil", "secuelas", "repeticion"}
+
+
+def _patron(palabras: list[str]) -> re.Pattern:
+    """Las palabras seguidas, enteras y admitiendo el plural: «cefaleas» cuenta para «cefalea»."""
+    return re.compile(r"(?<!\w)" + r"\s+".join(re.escape(p) + r"(?:e?s)?" for p in palabras) + r"(?!\w)")
+
+
 def tropismos_de(con: sqlite3.Connection, diagnosticos: list[Diagnostico]) -> dict[str, list[dict]]:
-    """Filas de las tablas de tropismos cuya columna de patologías nombra un diagnóstico, palabra por palabra
-    (se admite el plural: «cefaleas» cuenta para «cefalea»). No se interpreta nada más."""
+    """Filas de las tablas de tropismos cuya columna de patologías nombra un diagnóstico.
+    Primero las que lo nombran tal cual; después, marcadas como imprecisas («aprox»), las que solo
+    coinciden en una palabra no genérica del nombre («Gastritis» para «gastritis crónica»)."""
     tablas_t = _tablas_tropismo(con) if diagnosticos else []
     if not tablas_t:
         return {}
-    patrones = {}
+    patrones: dict[str, tuple[re.Pattern, list[tuple[str, re.Pattern]]]] = {}
     for d in diagnosticos:
-        palabras = [re.escape(p) + r"(?:e?s)?" for p in normalizar(d.nombre).split()]
-        if palabras:
-            patrones[d.clave] = re.compile(r"(?<!\w)" + r"\s+".join(palabras) + r"(?!\w)")
-    salida: dict[str, list[dict]] = {}
+        palabras = re.findall(r"\w+", normalizar(d.nombre))
+        if not palabras:
+            continue
+        sueltas = [p for p in palabras if len(p) >= 4 and p not in _PALABRAS_GENERICAS] if len(palabras) > 1 else []
+        patrones[d.clave] = (_patron(palabras), [(p, _patron([p])) for p in sueltas])
+    exactos: dict[str, list[dict]] = {}
+    aproximados: dict[str, list[dict]] = {}
     for tid, nombre_tabla, medicamento, patologia, potencia in tablas_t:
         for fid, valores in con.execute("SELECT id, valores FROM filas WHERE tabla_id = ? AND huerfana = 0 ORDER BY posicion", (tid,)):
             v = json.loads(valores)
             texto = normalizar(" · ".join(str(v.get(k, "")) for k in patologia))
-            for clave, patron in patrones.items():
-                if patron.search(texto):
-                    salida.setdefault(clave, []).append(
-                        {"fila": fid, "medicamento": str(v.get(medicamento, "")).strip(),
-                         "detalle": " · ".join(s for k in patologia if (s := str(v.get(k, "")).strip())),
-                         "potencia": str(v.get(potencia, "")).strip() if potencia else "", "tabla": nombre_tabla})
-    return salida
+            for clave, (exacto, sueltas) in patrones.items():
+                coincide = [p for p, patron in sueltas if patron.search(texto)]
+                if not exacto.search(texto) and not coincide:
+                    continue
+                destino = exactos if exacto.search(texto) else aproximados
+                destino.setdefault(clave, []).append(
+                    {"fila": fid, "medicamento": str(v.get(medicamento, "")).strip(),
+                     "detalle": " · ".join(s for k in patologia if (s := str(v.get(k, "")).strip())),
+                     "potencia": str(v.get(potencia, "")).strip() if potencia else "", "tabla": nombre_tabla,
+                     "aprox": "" if exacto.search(texto) else ", ".join(f"«{p}»" for p in coincide)})
+    return {clave: exactos.get(clave, []) + aproximados.get(clave, [])
+            for clave in {**exactos, **aproximados}}
 
 
 def analizar(con: sqlite3.Connection, texto: str, elegidos: list[str] | None = None) -> Resultado:

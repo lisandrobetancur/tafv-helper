@@ -223,14 +223,23 @@ def test_tropismos_en_homeopatia(cliente, con, jerarquizacion, tmp_path: Path) -
     r = dxc.analizar(con, "Paciente con cefalea intensa y gastritis crónica")
     assert sorted(nombres(r)) == ["cefalea", "gastritis cronica"]
     [cefalea] = r.tropismos["cefalea"]            # «cefaleas congestivas» cuenta para «cefalea» (plural)
-    assert cefalea["medicamento"] == "Belladonna" and cefalea["potencia"] == "30CH"
-    assert "gastritis cronica" not in r.tropismos      # «Gastritis» a secas no es «gastritis cronica»
+    assert cefalea["medicamento"] == "Belladonna" and cefalea["potencia"] == "30CH" and not cefalea["aprox"]
+    [gastritis] = r.tropismos["gastritis cronica"]     # «Gastritis» a secas: se muestra, pero marcada como imprecisa
+    assert gastritis["medicamento"] == "Nux vomica" and gastritis["aprox"] == "«gastritis»"
 
     # En la página y en el documento exportado
     dxc.guardar_actual("Paciente con cefalea intensa")
     pagina = cliente.get("/6000").text
     assert "TROPISMOS EN HOMEOPATÍA" in pagina and "Belladonna" in pagina and "Potencia orientativa: 30CH" in pagina
     assert "Sulphur" not in pagina                # sin diagnóstico que lo nombre no aparece
+    assert "Pendiente de evaluar criterio" not in pagina   # la coincidencia de cefalea es exacta
+    dxc.guardar_actual("Paciente con gastritis crónica")
+    pagina = cliente.get("/6000").text
+    assert "Nux vomica" in pagina and "Pendiente de evaluar criterio" in pagina and "coincide en «gastritis»" in pagina
+    r = dxc.analizar(con, "Paciente con gastritis crónica")
+    assert "Pendiente de evaluar criterio" in r.documento and "pendiente de evaluar criterio" in r.resumen
+    # Las palabras genéricas no asocian: «trastorno de ansiedad» no trae los «trastornos sexuales» de otra fila
+    assert "trastorno" not in (r.tropismos or {})
     r = dxc.analizar(con, "Paciente con cefalea intensa")
     assert "Tropismos en homeopatía" in r.documento and "Belladonna" in r.documento and "30CH" in r.documento
     assert "TROPISMOS EN HOMEOPATÍA" in r.resumen and "Belladonna — 30CH" in r.resumen
