@@ -25,8 +25,9 @@ CASOS_ACTIVOS = False
 # Acceso rápido, deshabilitado a pedido de la usuaria (2026-11-03): sale del menú y sus direcciones dan 404. El código
 # sigue completo: para volver a activarlo basta con poner True.
 ACCESO_RAPIDO_ACTIVO = False
-# Dirección oculta del módulo Diagnóstico: solo se ve escribiéndola; al recargar la página (F5) desaparece
-RUTA_DIAGNOSTICO = "/6000"
+# Dirección oculta del módulo Diagnóstico: solo se ve escribiéndola; al recargar la página (F5) desaparece.
+# Parece la de una materia oculta, pero no hay ninguna materia 8001: su router va antes que el de materias.
+RUTA_DIAGNOSTICO = "/materias/8001"
 
 
 @dataclass

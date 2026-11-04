@@ -84,6 +84,7 @@ def crear_app(ocr_activo: bool = True) -> FastAPI:
 
     app.include_router(paginas.router)
     app.include_router(busqueda.router)
+    app.include_router(diagnostico_clinico.router)  # antes que materias: su dirección es /materias/8001
     app.include_router(materias.router)
     app.include_router(componentes.router)
     app.include_router(tablas.router)
@@ -91,7 +92,6 @@ def crear_app(ocr_activo: bool = True) -> FastAPI:
     app.include_router(contenido.router)
     app.include_router(extras.router)
     app.include_router(diagnostico.router)
-    app.include_router(diagnostico_clinico.router)
     app.include_router(recopilaciones.router)
     return app
 

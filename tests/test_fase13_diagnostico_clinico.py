@@ -155,22 +155,23 @@ def test_paciente_y_resumen(con, jerarquizacion) -> None:
 
 
 def test_web(cliente, con, jerarquizacion) -> None:
-    # Oculto: fuera de /6000 no hay rastro en el menú y las direcciones de antes no llevan a él
+    # Oculto: fuera de /materias/8001 no hay rastro en el menú y las direcciones de antes no llevan a él
     assert "Diagnóstico" not in cliente.get("/").text
     assert cliente.get("/diagnostico", follow_redirects=False).headers["location"] == "/"
     assert cliente.get("/diagnostico/resultado", follow_redirects=False).headers["location"] == "/"
-    assert cliente.get("/5000").status_code == 404       # la dirección anterior ya no existe
-    pagina = cliente.get("/6000").text
-    assert 'href="/6000"' in pagina and "Analizar caso" in pagina and "Ingresa la información del diagnóstico" in pagina
+    assert cliente.get("/5000").status_code == 404       # las direcciones anteriores ya no existen
+    assert cliente.get("/6000").status_code == 404
+    pagina = cliente.get("/materias/8001").text
+    assert 'href="/materias/8001"' in pagina and "Analizar caso" in pagina and "Ingresa la información del diagnóstico" in pagina
     assert 'rows="8"' in pagina and "JERARQUIZACIÓN" not in pagina and pagina.count("disabled") >= 4
     assert pagina.index("Analizar caso") < pagina.index('id="dxc-texto"')
     assert cliente.get("/diagnostico/pdf").status_code == 400
 
-    # Analizar guarda: el resultado sigue en /6000 hasta limpiarlo
+    # Analizar guarda: el resultado sigue en /materias/8001 hasta limpiarlo
     r = cliente.post("/diagnostico/analizar", data={"texto": CASO_1})
-    assert str(r.url).endswith("/6000") and "Resultado del diagnóstico" in r.text
+    assert str(r.url).endswith("/materias/8001") and "Resultado del diagnóstico" in r.text
     for _ in range(2):
-        r = cliente.get("/6000")
+        r = cliente.get("/materias/8001")
         assert "Principal · motivo de consulta" in r.text and "1. Enfermedad varicosa" in r.text and "Bolsa sellada" in r.text
         assert "HTA controlada (TA 135/80)" in r.text and "JERARQUIZACIÓN" in r.text and "úlcera en la pierna" in r.text
         assert 'href="/diagnostico/pdf"' in r.text and 'href="/diagnostico/word"' in r.text and r.headers["cache-control"] == "no-store"
@@ -179,7 +180,7 @@ def test_web(cliente, con, jerarquizacion) -> None:
     # El ajuste de la lista también queda guardado
     r = cliente.post("/diagnostico/ajustar", data={"dx": ["hta", ""]})
     assert "1. HTA controlada" in r.text and "Enfermedad varicosa" in r.text.split("Agregar diagnóstico")[0]  # quedó como quitado
-    assert "2. Enfermedad varicosa" not in cliente.get("/6000").text
+    assert "2. Enfermedad varicosa" not in cliente.get("/materias/8001").text
 
     # Exportar y recopilar
     r = cliente.get("/diagnostico/pdf")
@@ -200,7 +201,7 @@ def test_web(cliente, con, jerarquizacion) -> None:
     # Crear nuevo limpia el formulario y el resultado
     r = cliente.post("/diagnostico/nuevo")
     assert "Resultado del diagnóstico" not in r.text and "úlcera en la pierna" not in r.text
-    assert "Resultado del diagnóstico" not in cliente.get("/6000").text
+    assert "Resultado del diagnóstico" not in cliente.get("/materias/8001").text
     assert dxc.leer_actual() is None
 
 
@@ -229,12 +230,12 @@ def test_tropismos_en_homeopatia(cliente, con, jerarquizacion, tmp_path: Path) -
 
     # En la página y en el documento exportado
     dxc.guardar_actual("Paciente con cefalea intensa")
-    pagina = cliente.get("/6000").text
+    pagina = cliente.get("/materias/8001").text
     assert "TROPISMOS EN HOMEOPATÍA" in pagina and "Belladonna" in pagina and "Potencia orientativa: 30CH" in pagina
     assert "Sulphur" not in pagina                # sin diagnóstico que lo nombre no aparece
     assert "Pendiente de evaluar criterio" not in pagina   # la coincidencia de cefalea es exacta
     dxc.guardar_actual("Paciente con gastritis crónica")
-    pagina = cliente.get("/6000").text
+    pagina = cliente.get("/materias/8001").text
     assert "Nux vomica" in pagina and "Pendiente de evaluar criterio" in pagina and "coincide en «gastritis»" in pagina
     r = dxc.analizar(con, "Paciente con gastritis crónica")
     assert "Pendiente de evaluar criterio" in r.documento and "pendiente de evaluar criterio" in r.resumen
