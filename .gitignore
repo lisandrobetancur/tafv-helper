@@ -26,3 +26,8 @@ modelos/
 
 # Biblioteca de demostración (python -m app.demo); nunca se mezcla con los datos reales
 demo/
+
+# Construcción de la versión de escritorio (rama escritorio): nunca se versiona
+.venv-escritorio/
+build/
+dist/
