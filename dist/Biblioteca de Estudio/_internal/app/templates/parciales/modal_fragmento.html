@@ -1,0 +1,51 @@
+{# Editar un fragmento (título, texto, tamaño, comentario) o agregar una sección / texto propio #}
+{% from "macros.html" import icono %}
+{% set f = fragmento %}
+{% set tipo = f.tipo if f else nuevo %}
+{% if f %}{% set accion = "/fragmentos/" ~ f.id %}{% elif nuevo == "seccion" %}{% set accion = "/recopilaciones/" ~ recopilacion_id ~ "/seccion" %}{% else %}{% set accion = "/recopilaciones/" ~ recopilacion_id ~ "/texto" %}{% endif %}
+<dialog class="modal !w-[min(680px,calc(100vw-2rem))]" x-data="modal" @cerrar-modal.window="cerrar(true)" aria-labelledby="t-frag">
+  <form hx-post="{{ accion }}" hx-target="#fragmentos" class="flex max-h-[90vh] flex-col">
+    <header class="flex items-center justify-between gap-4 border-b border-borde px-6 py-4">
+      <h2 id="t-frag" class="text-lg font-semibold">
+        {% if not f %}{{ "Nueva sección" if tipo == "seccion" else "Texto propio" }}
+        {% elif tipo == "seccion" %}Editar sección{% else %}Editar fragmento{% endif %}</h2>
+      <button type="button" class="btn-icono -mr-2" @click="cerrar()" aria-label="Cerrar">{{ icono("x", "size-5") }}</button>
+    </header>
+    <div class="flex min-h-0 flex-col gap-4 overflow-y-auto px-6 py-5">
+      <div><label class="etiqueta" for="f-titulo">{{ "Título de la sección" if tipo == "seccion" else "Título" }}
+          {% if tipo != "seccion" %}<span class="font-normal text-tenue">(opcional)</span>{% endif %}</label>
+        <input id="f-titulo" name="titulo" class="campo" maxlength="200" value="{{ f.titulo if f else '' }}" {% if tipo == "seccion" %}required{% endif %} autofocus></div>
+
+      {% if f and f.tipo == "imagen" %}
+        <img src="/recopilaciones/imagenes/{{ f.archivo }}" alt="" class="max-h-48 w-full rounded-xl bg-superficie-2 object-contain">
+        <fieldset><legend class="etiqueta">Tamaño en el documento</legend>
+          <div class="flex flex-wrap gap-2">
+            {% for clave, (nombre, _) in tamanos.items() %}
+            <label class="chip cursor-pointer px-3 py-1 has-[:checked]:border-marca has-[:checked]:bg-marca-suave has-[:checked]:text-marca">
+              <input type="radio" name="tamano" value="{{ clave }}" class="sr-only" {% if f.tamano == clave %}checked{% endif %}>{{ nombre }}</label>
+            {% endfor %}
+          </div>
+          <p class="ayuda">Un recorte pequeño no se agranda más que su tamaño real, para que no se vea borroso.</p>
+        </fieldset>
+      {% elif f and f.tipo == "campos" %}
+        <div class="rounded-lg bg-superficie-2 px-3 py-2 text-sm">
+          {% for nombre, valor in f.campos %}<p class="[overflow-wrap:anywhere]"><strong>{{ nombre }}:</strong> {{ valor|truncate(160, true, "…") }}</p>{% endfor %}
+          <p class="mt-1 text-xs text-tenue">Los campos de la ficha se guardan tal como estaban. Si solo te sirve uno, agrega ese campo por separado.</p>
+        </div>
+      {% elif tipo == "texto" %}
+        <div><label class="etiqueta" for="f-contenido">Texto</label>
+          <textarea id="f-contenido" name="contenido" class="campo font-mono text-[13px]" rows="8" {% if not f %}required{% endif %}>{{ f.contenido if f else '' }}</textarea>
+          <p class="ayuda">{% if f and f.formato == "markdown" %}Admite Markdown: **negrita**, *cursiva*, listas con «-» y tablas.{% elif f %}Puedes corregir o recortar el texto copiado.{% else %}Admite Markdown: **negrita**, *cursiva*, listas con «-».{% endif %}</p></div>
+      {% endif %}
+
+      <div><label class="etiqueta" for="f-coment">{{ icono("notebook-pen", "inline size-4 -mt-0.5 mr-1 text-oro") }}{{ "Texto bajo la sección" if tipo == "seccion" else "Tu comentario" }}
+          <span class="font-normal text-tenue">(opcional; sale en el documento)</span></label>
+        <textarea id="f-coment" name="comentario" class="campo" rows="4" placeholder="Lo que concluyes, por qué te sirve, qué relacionas…">{{ f.comentario if f else '' }}</textarea></div>
+      {% if f and f.origen %}<p class="text-xs text-tenue">Fuente: {{ f.origen }}</p>{% endif %}
+    </div>
+    <footer class="flex justify-end gap-2 border-t border-borde bg-superficie-2/50 px-6 py-4">
+      <button type="button" class="btn-secundario" @click="cerrar()">Cancelar</button>
+      <button type="submit" class="btn-primario">{{ "Guardar" if f else "Agregar" }}</button>
+    </footer>
+  </form>
+</dialog>

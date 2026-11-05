@@ -1,0 +1,7 @@
+{# Modal del asistente: cada paso reemplaza el contenido de #asistente #}
+<dialog class="modal !w-[min(1040px,calc(100vw-2rem))]" x-data="modal" aria-labelledby="t-asistente"
+        @close="const t = $el.querySelector('[data-token]'); if (t) navigator.sendBeacon('/importar/' + t.dataset.token + '/cancelar')">
+  <div id="asistente" class="flex max-h-[90vh] flex-col">
+    {% include "parciales/importar/paso1.html" %}
+  </div>
+</dialog>

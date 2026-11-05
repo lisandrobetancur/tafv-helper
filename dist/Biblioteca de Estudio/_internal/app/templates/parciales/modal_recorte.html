@@ -1,0 +1,43 @@
+{# Marcar el rectángulo que se guarda de una imagen o de una página de PDF (o guardarla completa) #}
+{% from "macros.html" import icono %}
+<dialog class="modal !w-[min(1000px,calc(100vw-2rem))]" x-data="modal" @cerrar-modal.window="cerrar(true)" aria-labelledby="t-recorte">
+  <div class="flex max-h-[92vh] flex-col" x-data="recorte({{ {'fuente': fuente, 'ref_id': ref_id, 'src': src, 'pagina': pagina, 'paginas': paginas}|tojson|forceescape }})">
+    <header class="flex flex-wrap items-center justify-between gap-3 border-b border-borde px-6 py-4">
+      <div>
+        <h2 id="t-recorte" class="text-lg font-semibold">Agregar a la recopilación</h2>
+        <p class="text-xs text-tenue">Arrastra sobre la imagen para marcar solo la parte que te sirve.
+          Irá a «{{ activa.titulo if activa else "Mi recopilación" }}».</p>
+      </div>
+      <div class="flex items-center gap-2">
+        {% if fuente == "pdf" %}
+        <button type="button" class="btn-icono" @click="irPagina(pagina - 1)" :disabled="pagina <= 1" aria-label="Página anterior">{{ icono("chevron-left") }}</button>
+        <label class="flex items-center gap-1.5 text-sm">Página
+          <input type="number" min="1" max="{{ paginas }}" class="campo h-9 w-20" :value="pagina" @change="irPagina(Number($event.target.value))"></label>
+        <span class="text-sm text-tenue">de {{ paginas }}</span>
+        <button type="button" class="btn-icono" @click="irPagina(pagina + 1)" :disabled="pagina >= paginas" aria-label="Página siguiente">{{ icono("chevron-right") }}</button>
+        {% endif %}
+        <button type="button" class="btn-icono -mr-2" @click="cerrar()" aria-label="Cerrar">{{ icono("x", "size-5") }}</button>
+      </div>
+    </header>
+    <div class="min-h-0 flex-1 overflow-auto bg-superficie-2 p-4">
+      <div class="relative mx-auto w-fit touch-none select-none" x-ref="lienzo"
+           @pointerdown.prevent="inicio($event)" @pointermove="mover($event)" @pointerup="fin()" @pointercancel="fin()">
+        <img :src="url" alt="" draggable="false" class="block max-h-[65vh] max-w-full cursor-crosshair" @load="cargando = false" x-ref="imagen">
+        <div x-show="cargando" class="absolute inset-0 grid place-items-center bg-superficie-2/70">{{ icono("loader-circle", "size-6 animate-spin text-tenue") }}</div>
+        <template x-if="caja">
+          <div class="pointer-events-none absolute border-2 border-marca bg-marca/10 shadow-[0_0_0_9999px_rgb(0_0_0/0.35)]"
+               :style="`left:${caja.x * 100}%;top:${caja.y * 100}%;width:${caja.w * 100}%;height:${caja.h * 100}%`"></div>
+        </template>
+      </div>
+    </div>
+    <footer class="flex flex-wrap items-center justify-end gap-2 border-t border-borde bg-superficie-2/50 px-6 py-4">
+      <label class="mr-auto flex min-w-[min(100%,16rem)] flex-1 items-center gap-2 text-sm">
+        <span class="shrink-0 text-tenue">Título</span>
+        <input class="campo h-9" maxlength="200" x-model="titulo" placeholder="(opcional: se usa el nombre de la imagen)"></label>
+      <button type="button" class="btn-fantasma" x-show="caja" @click="caja = null">Quitar recorte</button>
+      <button type="button" class="btn-secundario" @click="enviar(false)" :disabled="enviando">
+        {{ icono("image") }}{{ "Página completa" if fuente == "pdf" else "Imagen completa" }}</button>
+      <button type="button" class="btn-primario" @click="enviar(true)" :disabled="!caja || enviando">{{ icono("crop") }}Agregar recorte</button>
+    </footer>
+  </div>
+</dialog>

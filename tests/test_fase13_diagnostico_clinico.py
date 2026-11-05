@@ -205,8 +205,14 @@ def test_web(cliente, con, jerarquizacion) -> None:
     assert dxc.leer_actual() is None
 
 
-def test_acceso_rapido_deshabilitado(cliente, con) -> None:
-    assert "Acceso rápido" not in cliente.get("/").text
+def test_acceso_rapido_habilitado(cliente, con, monkeypatch) -> None:
+    """Habilitado de nuevo a pedido de la usuaria (2026-11-05): en el menú y funcionando. Con el interruptor
+    apagado, sus direcciones dan 404 (el menú se congela al arrancar, así que eso se prueba aparte)."""
+    assert "Acceso rápido" in cliente.get("/").text
+    assert cliente.get("/acceso-rapido").status_code == 200
+    assert cliente.get("/acceso-rapido/sugerencias", params={"q": "a"}).status_code == 200
+    from app import config
+    monkeypatch.setattr(config, "ACCESO_RAPIDO_ACTIVO", False)
     assert cliente.get("/acceso-rapido").status_code == 404
     assert cliente.get("/acceso-rapido/sugerencias", params={"q": "a"}).status_code == 404
     assert cliente.post("/acceso-rapido/casos", data={"s": ["x"]}).status_code == 404

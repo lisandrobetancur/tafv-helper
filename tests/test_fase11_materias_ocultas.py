@@ -87,7 +87,7 @@ def test_materia_oculta_en_la_web(cliente) -> None:
     inicio = cliente.get("/").text
     assert "Anatomía" in inicio and "/materias/8000" not in inicio      # ni en el menú ni en Inicio
     pagina = cliente.get("/materias/8000").text
-    assert "Incluir en la búsqueda" in pagina and "Acceso rápido" not in pagina and "/materias/8000" in pagina
+    assert "Incluir en la búsqueda y en Acceso rápido" in pagina and "/materias/8000" in pagina
     # Al recargar (F5) la materia oculta desaparece; sus páginas interiores también, y las visibles no
     assert 'n.type === "reload"' in pagina
     assert 'n.type === "reload"' in cliente.get(f"/notas/{d['nota']}").text

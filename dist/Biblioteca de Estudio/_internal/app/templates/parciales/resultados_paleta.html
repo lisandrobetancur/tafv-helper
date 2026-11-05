@@ -1,0 +1,15 @@
+{# Resultados en vivo de la paleta Ctrl/⌘+K #}
+{% from "macros.html" import icono %}
+{% from "parciales/resultados_macros.html" import grupos %}
+{% if not q.strip() %}
+  <p class="px-3 py-8 text-center text-sm text-tenue">Escribe para buscar en filas, PDF, imágenes y notas.<br>
+    <span class="text-xs">Sin importar tildes · «cardio» encuentra «cardiología» · "entre comillas" busca la frase</span></p>
+{% elif not respuesta.total %}
+  <p class="px-3 py-8 text-center text-sm text-tenue">Sin resultados para «{{ q }}».</p>
+{% else %}
+  {{ grupos(respuesta.grupos, compacto=True) }}
+  {% if respuesta.total > respuesta.resultados|length %}
+  <a href="/buscar?q={{ q|urlencode }}" data-resultado class="mt-1 flex items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-marca hover:bg-marca-suave data-[activo]:bg-marca-suave">
+    Ver los {{ respuesta.total }} resultados {{ icono("chevron-right") }}</a>
+  {% endif %}
+{% endif %}

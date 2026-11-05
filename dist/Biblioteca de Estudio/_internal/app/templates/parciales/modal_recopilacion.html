@@ -1,0 +1,20 @@
+{% from "macros.html" import icono %}
+<dialog class="modal !w-[min(520px,calc(100vw-2rem))]" x-data="modal" aria-labelledby="t-recop">
+  <form hx-post="{{ accion }}" class="flex flex-col">
+    <header class="flex items-center justify-between gap-4 border-b border-borde px-6 py-4">
+      <h2 id="t-recop" class="text-lg font-semibold">{{ titulo }}</h2>
+      <button type="button" class="btn-icono -mr-2" @click="cerrar()" aria-label="Cerrar">{{ icono("x", "size-5") }}</button>
+    </header>
+    <div class="flex flex-col gap-4 px-6 py-5">
+      <div><label class="etiqueta" for="r-titulo">Nombre</label>
+        <input id="r-titulo" name="titulo" class="campo" required maxlength="120" autofocus
+               value="{{ recopilacion.titulo if recopilacion else '' }}" placeholder="Ej.: Caso clínico de cefalea"></div>
+      <div><label class="etiqueta" for="r-desc">Descripción <span class="font-normal text-tenue">(opcional, sale en la portada)</span></label>
+        <textarea id="r-desc" name="descripcion" class="campo" rows="3" maxlength="2000">{{ recopilacion.descripcion if recopilacion else '' }}</textarea></div>
+    </div>
+    <footer class="flex justify-end gap-2 border-t border-borde bg-superficie-2/50 px-6 py-4">
+      <button type="button" class="btn-secundario" @click="cerrar()">Cancelar</button>
+      <button type="submit" class="btn-primario">{{ "Guardar" if recopilacion else "Crear" }}</button>
+    </footer>
+  </form>
+</dialog>

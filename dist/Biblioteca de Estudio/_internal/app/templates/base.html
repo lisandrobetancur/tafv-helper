@@ -1,0 +1,171 @@
+{% from "macros.html" import icono, migas as dibujar_migas %}
+<!doctype html>
+<html lang="es" data-theme="claro" data-sprite="{{ SPRITE }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>{% block titulo %}{{ NOMBRE_APP }}{% endblock %} · {{ NOMBRE_APP }}</title>
+  <link rel="icon" type="image/png" href="/static/marca/logo-corpas.png">
+  <script>
+    // Tema y menú antes de pintar, para que no parpadee
+    (function () {
+      try {
+        var t = localStorage.getItem("tema") || "sistema";
+        var oscuro = t === "oscuro" || (t === "sistema" && matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.dataset.theme = oscuro ? "oscuro" : "claro";
+        if (localStorage.getItem("menu-plegado") === "1") document.documentElement.dataset.menu = "plegado";
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="/static/css/app.css?v={{ version_estaticos() }}">
+  <script defer src="/static/vendor/htmx.min.js"></script>
+  <script defer src="/static/vendor/Sortable.min.js"></script>
+  <script defer src="/static/js/app.js?v={{ version_estaticos() }}"></script>
+  <script defer src="/static/vendor/alpine.min.js"></script>
+</head>
+<body hx-boost="true">
+  <a href="#contenido" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 btn-primario">Saltar al contenido</a>
+  <div class="flex min-h-screen">
+    {% include "parciales/barra_lateral.html" %}
+
+    <div class="flex min-w-0 flex-1 flex-col">
+      <header class="sticky top-0 z-20 border-b border-borde bg-fondo/85 backdrop-blur">
+        <div class="flex items-center gap-3 px-4 py-3 sm:px-6 lg:px-8">
+          {# Buscador global: siempre visible; al usarlo se abre la paleta con resultados en vivo #}
+          <form action="/buscar" method="get" role="search" class="relative flex-1 max-w-2xl" x-data
+                @submit.prevent="$dispatch('abrir-paleta', { q: $refs.global.value })">
+            <label for="buscador-global" class="sr-only">Buscar en toda la biblioteca</label>
+            <span class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-tenue">{{ icono("search") }}</span>
+            <input id="buscador-global" x-ref="global" name="q" type="search" value="" autocomplete="off" readonly
+                   placeholder="Buscar en toda la biblioteca…"
+                   @click="$dispatch('abrir-paleta', { q: '' })"
+                   @keydown.enter.prevent="$dispatch('abrir-paleta', { q: '' })" @keydown.space.prevent="$dispatch('abrir-paleta', { q: '' })"
+                   class="campo h-10 cursor-pointer pl-10 pr-16 bg-superficie">
+            <kbd class="pointer-events-none absolute right-3 top-1/2 hidden -translate-y-1/2 rounded-md border border-borde bg-superficie-2 px-1.5 py-0.5 text-[11px] font-medium text-tenue sm:block"
+                 x-text="navigator.platform.toUpperCase().includes('MAC') ? '⌘ K' : 'Ctrl K'">Ctrl K</kbd>
+          </form>
+          <span id="ocr-estado" hx-get="/ocr/estado" hx-trigger="load" hx-swap="outerHTML" class="ml-auto"></span>
+          <span hx-get="/recopilacion/contador" hx-trigger="load" hx-swap="outerHTML"></span>
+          <div class="ml-auto hidden items-center gap-1 sm:flex" x-data role="group" aria-label="Tema de color">
+            {% for valor, nombre, ic in [("claro", "Modo claro", "sun"), ("sistema", "Según el sistema", "monitor"), ("oscuro", "Modo oscuro", "moon")] %}
+            <button type="button" class="btn-icono" title="{{ nombre }}" aria-label="{{ nombre }}"
+                    :class="$store.tema.valor === '{{ valor }}' && 'bg-superficie-2 text-texto'"
+                    @click="$store.tema.poner('{{ valor }}')">{{ icono(ic) }}</button>
+            {% endfor %}
+          </div>
+        </div>
+      </header>
+
+      <main id="contenido" class="w-full flex-1 px-4 pb-24 pt-6 sm:px-6 lg:px-8 lg:pb-10">
+        {{ dibujar_migas(migas|default([])) }}
+        {% block contenido %}{% endblock %}
+      </main>
+    </div>
+  </div>
+
+  <div id="modal"></div>
+
+  {# Paleta de búsqueda tipo Spotlight (Ctrl/⌘+K): resultados en vivo, ↑ ↓ para moverse, Enter para abrir #}
+  <div x-data="paleta" @abrir-paleta.window="abrir($event.detail?.q || '')">
+    <dialog x-ref="dialogo" class="modal !w-[min(720px,calc(100vw-2rem))] self-start !mt-[10vh]" aria-label="Buscar en la biblioteca"
+            @keydown="teclas($event)" @click="if ($event.target === $refs.dialogo) cerrar()">
+      <div class="flex items-center gap-3 border-b border-borde px-4">
+        <span class="text-tenue">{{ icono("search", "size-5") }}</span>
+        <input x-ref="entrada" name="q" type="search" autocomplete="off" x-model="q"
+               class="h-14 flex-1 bg-transparent text-base outline-none placeholder:text-tenue"
+               placeholder="Buscar en filas, PDF, imágenes y notas…"
+               hx-get="/buscar/rapida" hx-trigger="input changed delay:180ms, buscar" hx-target="#paleta-resultados"
+               hx-indicator="#paleta-cargando" aria-controls="paleta-resultados">
+        <span id="paleta-cargando" class="indicador text-tenue">{{ icono("loader-circle", "size-4 animate-spin") }}</span>
+        <kbd class="rounded-md border border-borde bg-superficie-2 px-1.5 py-0.5 text-[11px] text-tenue">Esc</kbd>
+      </div>
+      <div id="paleta-resultados" class="max-h-[60vh] overflow-y-auto p-2" @htmx:after-swap="activo = -1"></div>
+      <footer class="flex items-center justify-between gap-3 border-t border-borde bg-superficie-2/50 px-4 py-2 text-[11px] text-tenue">
+        <span>↑ ↓ para moverte · Enter para abrir</span>
+        <a :href="'/buscar?q=' + encodeURIComponent(q)" class="font-medium text-marca hover:underline" @click="cerrar()">Búsqueda con filtros →</a>
+      </footer>
+    </dialog>
+  </div>
+
+  {# Visor de imágenes con zoom: Esc cierra, flechas cambian de imagen, rueda o +/- hacen zoom #}
+  <div x-data="visor" @abrir-visor.window="abrir($event.detail)">
+    <dialog x-ref="dialogo" class="visor" @keydown="teclas($event)" aria-label="Visor de imágenes">
+      <header class="flex items-center gap-3 px-4 py-3">
+        <div class="min-w-0 flex-1">
+          <p class="truncate font-semibold" x-text="actual.titulo"></p>
+          <p class="text-xs text-white/60" x-show="imagenes.length > 1" x-text="`${i + 1} de ${imagenes.length}`"></p>
+        </div>
+        <button type="button" class="rounded-lg p-2 hover:bg-white/10" @click="acercar(1 / 1.4)" title="Alejar (−)" aria-label="Alejar">{{ icono("zoom-out", "size-5") }}</button>
+        <span class="w-12 text-center text-sm tabular-nums" x-text="Math.round(zoom * 100) + '%'"></span>
+        <button type="button" class="rounded-lg p-2 hover:bg-white/10" @click="acercar(1.4)" title="Acercar (+)" aria-label="Acercar">{{ icono("zoom-in", "size-5") }}</button>
+        <a class="rounded-lg p-2 hover:bg-white/10" :href="actual.src" target="_blank" rel="noopener" title="Abrir el archivo original" aria-label="Abrir el original">{{ icono("external-link", "size-5") }}</a>
+        <button type="button" class="rounded-lg p-2 hover:bg-white/10" @click="cerrar()" title="Cerrar (Esc)" aria-label="Cerrar">{{ icono("x", "size-6") }}</button>
+      </header>
+      <div class="relative min-h-0 flex-1 touch-none select-none overflow-hidden"
+           @wheel.prevent="rueda($event)" @pointerdown="inicio($event)" @pointermove="mover($event)" @pointerup="fin()" @pointercancel="fin()"
+           @dblclick="zoom > 1 ? restablecer() : acercar(2.5)" :class="zoom > 1 ? (arrastre ? 'cursor-grabbing' : 'cursor-grab') : 'cursor-zoom-in'">
+        <img :src="actual.src" :alt="actual.titulo" draggable="false"
+             class="absolute inset-0 m-auto max-h-full max-w-full object-contain transition-transform duration-75"
+             :style="`transform: translate(${x}px, ${y}px) scale(${zoom})`">
+        <template x-if="imagenes.length > 1">
+          <div>
+            <button type="button" class="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/40 p-3 hover:bg-black/60" @click.stop="pasar(-1)" aria-label="Imagen anterior">{{ icono("chevron-left", "size-6") }}</button>
+            <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/40 p-3 hover:bg-black/60" @click.stop="pasar(1)" aria-label="Imagen siguiente">{{ icono("chevron-right", "size-6") }}</button>
+          </div>
+        </template>
+      </div>
+      <p class="px-4 py-3 text-center text-sm text-white/80" x-show="actual.pie" x-text="actual.pie"></p>
+    </dialog>
+  </div>
+
+  {# Barra de selección múltiple: lo marcado con casillas (en esta u otras páginas) se agrega de una vez #}
+  <div x-data x-show="$store.seleccion.items.length" x-cloak x-transition.opacity
+       class="fixed inset-x-0 bottom-16 z-40 flex justify-center px-4 lg:bottom-5">
+    <div class="tarjeta flex w-full max-w-2xl flex-col overflow-hidden !shadow-[var(--sombra-alta)]">
+      <ul x-show="$store.seleccion.lista" x-cloak class="max-h-60 divide-y divide-borde overflow-y-auto border-b border-borde text-sm">
+        <template x-for="(e, i) in $store.seleccion.items" :key="$store.seleccion.clave(e)">
+          <li class="flex items-center gap-2 px-4 py-1.5">
+            <span class="chip shrink-0" x-text="{fila: 'Ficha', nota: 'Nota', imagen: 'Imagen', imagen_fila: 'Imagen', pdf: 'Página'}[e.fuente]"></span>
+            <span class="min-w-0 flex-1 truncate" x-text="e.titulo + (e.pagina ? ` (pág. ${e.pagina})` : '')"></span>
+            <button type="button" class="btn-icono p-1" @click="$store.seleccion.quitar(i)" aria-label="Quitar de la selección">{{ icono("x", "size-3.5") }}</button>
+          </li>
+        </template>
+      </ul>
+      <div class="flex flex-wrap items-center gap-2 px-4 py-2.5">
+        <button type="button" class="flex items-center gap-2 text-sm font-medium hover:text-marca" @click="$store.seleccion.lista = !$store.seleccion.lista"
+                :aria-expanded="$store.seleccion.lista">
+          <span class="rounded-full bg-marca px-2 text-xs font-semibold leading-5 text-sobre-marca" x-text="$store.seleccion.items.length"></span>
+          <span x-text="$store.seleccion.items.length === 1 ? 'seleccionado' : 'seleccionados'"></span>
+          <span class="transition-transform" :class="$store.seleccion.lista && 'rotate-180'">{{ icono("chevron-up", "size-4") }}</span>
+        </button>
+        <span class="hidden text-xs text-tenue sm:inline">puedes seguir marcando en otras páginas</span>
+        <button type="button" class="btn-fantasma ml-auto py-1.5 text-sm" @click="$store.seleccion.vaciar()">Quitar selección</button>
+        <button type="button" class="btn-primario py-1.5 text-sm" @click="$store.seleccion.agregar()" :disabled="$store.seleccion.enviando">
+          {{ icono("clipboard-plus") }}Agregar a la recopilación</button>
+      </div>
+    </div>
+  </div>
+
+  <div x-data="avisos" @aviso.window="mostrar($event.detail)" aria-live="polite"
+       class="pointer-events-none fixed bottom-5 right-5 z-[60] flex w-[min(420px,calc(100vw-2.5rem))] flex-col gap-2">
+    <template x-for="a in lista" :key="a.id">
+      <div class="pointer-events-auto flex items-start gap-3 rounded-xl border px-4 py-3 text-sm shadow-lg"
+           :class="{
+             'border-exito/30 bg-exito-suave text-texto': a.tipo === 'exito',
+             'border-peligro/40 bg-peligro-suave text-texto': a.tipo === 'error',
+             'border-alerta/40 bg-alerta-suave text-texto': a.tipo === 'aviso'
+           }" x-transition.opacity>
+        <span :class="{ 'text-exito': a.tipo === 'exito', 'text-peligro': a.tipo === 'error', 'text-alerta': a.tipo === 'aviso' }">
+          <template x-if="a.tipo === 'exito'">{{ icono("circle-check", "size-5") }}</template>
+          <template x-if="a.tipo === 'error'">{{ icono("circle-x", "size-5") }}</template>
+          <template x-if="a.tipo === 'aviso'">{{ icono("triangle-alert", "size-5") }}</template>
+        </span>
+        <p class="flex-1 leading-snug" x-text="a.mensaje"></p>
+        <button type="button" class="-m-1 rounded p-1 text-tenue hover:text-texto" @click="quitar(a.id)" aria-label="Cerrar aviso">{{ icono("x") }}</button>
+      </div>
+    </template>
+  </div>
+  <script type="application/json" id="aviso-inicial">{{ aviso_inicial|default(None)|tojson }}</script>
+</body>
+</html>
