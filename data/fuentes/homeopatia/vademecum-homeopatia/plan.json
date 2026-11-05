@@ -161,6 +161,10 @@
     {
       "celda": "Estudio homeopatia!R33",
       "motivo": "error de fórmula «#REF!» (fórmula de matriz rota =Q33:R33 en el original); en la copia de la tabla queda vacía"
+    },
+    {
+      "celda": "Estudio homeopatia!Q32",
+      "motivo": "el original tiene la fórmula =Q33, que copia en Spongia el texto de Antimonium crudum. Por indicación de la usuaria (2026-11-04) queda vacía en la app; el texto sigue en Antimonium crudum (Q33)"
     }
   ],
   "notas": [
