@@ -75,7 +75,9 @@ Lo que no se cambió por no ser seguro, y algunas correcciones para que confirme
   tabla, «Wei»; se transcribió cada uno como se ve. «Show (Mano)» y «Zu (Pie)» están tal cual (¿«Shou»?). La
   columna derecha (el recorrido del meridiano) se transcribió como «↓ 1 ID cabeza ↓ V 67», «↑ 11 P tórax B1»,
   etc. Los rótulos «Qi» y «Jing» abarcan tres filas cada uno; se escribieron solo en la primera, sin rellenar.
-- **Técnicas (H48)**: punto 4 «Nudos de nudos yang ExH9-VB8-E8»: no se lee con seguridad si dice «ExH9» o
+- **Técnicas (carga del 2026-11-04):** la usuaria reemplazó la imagen H48 por `imagenes/Técnicas 2026-11-04.jpg`. Siguen abiertas para la imagen nueva: «ExH9» (la hoja dice «EXHN9») y «(Crisis HTA, ojos rojos, de resto no)». La nueva se transcribió «da yin vísceras», que es lo que se ve.
+- **13 puntos de Reunión (carga del 2026-11-04):** «Hui de Médula ósea.» no trae punto en la imagen y queda vacío; la nota «HUI - Acupuntura» dice «Hui de M.O. | IG 16». No se rellenó.
+- **Técnicas (H48, imagen anterior, ya reemplazada)**: punto 4 «Nudos de nudos yang ExH9-VB8-E8»: no se lee con seguridad si dice «ExH9» o
   «ExHN9» (en la hoja, Técnica de planos dice «EXHN9»). Punto 5 «(Crisis HTA, ojos rojos, de resto no)» es la
   lectura más probable; confirme. En «MU (uso en exceso de yin vísceras)», el «de» podría ser «da».
 - **Puntos de los 12 meridianos (B87)**: la imagen no tiene título; se le puso uno descriptivo. Se transcribió

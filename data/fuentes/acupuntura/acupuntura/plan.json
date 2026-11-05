@@ -13,6 +13,10 @@
     {
       "celda": "Acupuntura!M46",
       "motivo": "celda con espacios, sin texto"
+    },
+    {
+      "archivo": "imagenes/Acupuntura - H48.jpg",
+      "motivo": "la usuaria la reemplazó el 2026-11-04 por «imagenes/Técnicas 2026-11-04.jpg»; la anterior queda en la Papelera de la app"
     }
   ],
   "notas": [
@@ -228,10 +232,9 @@
       "descripcion": "Puntos llave/Apertura.\nPuntos | Meridiano extra | Indicaciones |\nB4 | Chong | Sangre - Meridianos | Genitourinario (Ginecología)\nPC6 | Yin wei | MD (emociones - neuralgias) | Meridianos Diferentes\nP7 | Ren Mai (VC) | órganos (H-C-B-R-P) | Lumbalgia (interna)\nR6 | Yin qiao | Frío - oscuridad | Insomnio\nID3 | Du Mai (VG) | vísceras (VB-ID-E-IG, V) |\nV62 | Yang qiao | calor - luz | sueño y debilidad\nVB41 | Dai Mai | Equilibrio yang/yin |\nTR5 | Yang wei | MTM. |\n\nMujeres: Abro por la derecha, cierro por la izquierda\nHombres: Abro por la izquierda, cierro por la derecha.\n\nPuntos:\nVejiga 40 - Punto Diclofenaco Región lumbar.\nIntestino Delgado 3 - Punto Diclofenaco Región cervical."
     },
     {
-      "archivo": "imagenes/Acupuntura - H48.jpg",
+      "archivo": "imagenes/Técnicas 2026-11-04.jpg",
       "titulo": "Técnicas - Acupuntura",
-      "celda": "H48",
-      "descripcion": "Técnicas\n\nEnfermedad interna\nÓrganos Zang/Fu\n1 Punto emperador (ID3/P7)\n2 Técnica Shu/MU\n3 Técnica MU/Zi\n4 Técnica Yuan/Luo\n5 Roe (Reunión)\n6 Técnica de planos\n7 Tierra del acoplado\n8 Cierre (V62/R6)\n\nEnfermedad interna\nTécnica de planos\n1 Punto acelerador (fuego) Meridiano que inicia.\n2 Punto arrastre (pozo) del Meridiano con el que termina\n3 Nudos yang V1-VB2-E7 (Emocionales)\nyin VC12-VC17-VC23 (Emocionales)\n4 Nudos de nudos yang ExH9-VB8-E8\n(donde se concentra la energía)\n5 Gran nudo VG20 (Crisis HTA, ojos rojos, de resto no) manejo de mucho exceso.\n6 Puntos Ashi (Puntos dolorosos)\n\nTécnica MU/Zi\nMadre - Hijo\n- En deficiencia tonifico a la madre y en exceso sedo al hijo.\n\nTécnica Shu/MU\nShu (Deficiencia de órgano)\nMU (uso en exceso de yin vísceras)\n\nTécnica Yuan/Luo\nEquilibrar energía y manejo de meridiano afectado y acoplador por relación. Interior/Exterior.\n\nPuntos Zi o Xi\nse utilizan en caso de bloqueo de energía."
+      "descripcion": "Técnicas\n\nEnfermedad interna\nÓrganos Zang/Fu\n1 Punto emperador (P7/ID3)\n2 Técnica Shu/MU\n3 Técnica MU/Zi\n4 Técnica Yuan/Luo\n5 Roe (Reunión)\n6 Tierra del acoplado\n7 Cierre (R6/V62)\n\nEnfermedad Externa\nTécnica de planos\n1 Punto acelerador (fuego) Meridiano que inicia.\n2 Punto arrastre (pozo) del Meridiano con el que termina\n3 Nudos yang V1-VB2-E7 (Emocionales)\nyin VC12-VC17-VC23 (Emocionales)\n4 Nudos de nudos yang ExH9-VB8-E8\n(donde se concentra la energía)\n5 Gran nudo VG20 (Crisis HTA, ojos rojos, de resto no) manejo de mucho exceso.\n6 Puntos Ashi (Puntos dolorosos)\n\nTécnica MU/Zi\nMadre - Hijo\n- En deficiencia tonifico a la madre y en exceso sedo al hijo.\n\nTécnica Shu/MU\nShu (Deficiencia de órgano)\nMU (uso en exceso da yin vísceras)\n\nTécnica Yuan/Luo\nEquilibrar energía y manejo de meridiano afectado y acoplador por relación. Interior/Exterior.\n\nPuntos Zi o Xi\nse utilizan en caso de bloqueo de energía."
     },
     {
       "archivo": "imagenes/Acupuntura - B87.jpg",
@@ -256,6 +259,11 @@
       "titulo": "Shu de espalda - Acupuntura",
       "celda": "H291",
       "descripcion": "Shu de espalda.\nRama externa V | Rama interna V | Zang Fu | Apófisis espinosa | VG | Función\nV42 | V13 | Pulmón | T3 | VG12 | Asma, Tos, Sinusitis\nV44 | V15 | Corazón | T5 | VG11 | Problemas lengua, Pulso - vasos\nV46 | V17 | Diafragma | T7 | VG9 |\nV47 | V18 | Hígado | T9 | VG8 | Patología Hígado, ojo, tendón, articulación\nV48 | V19 | VB | T10 | VG7 |\nV49 | V20 | Bazo | T11 | VG6 | Problemas boca y músculos\nV50 | V21 | Estómago | T12 | | Estreñimiento y vómitos\nV52 | V23 | Riñón | L2 | VG4 | Dificultad micción. oído, Tinnitus, Hueso.\n\nNota: Escojo MU por excesos y acompaña Shu por deficiencia y\n* Bilateral + yang en enfermedad crónica\n* Shu transporte de energía a los órganos.\n* Excesos igual a dolor\n* Dolor con cambios de color o textura desequilibrio órganos relacionados\n* Vacío = Alivio del dolor a la palpación."
+    },
+    {
+      "archivo": "imagenes/13 puntos de Reunión (Hui-Roe).jpg",
+      "titulo": "13 puntos de Reunión (Hui-Roe) - Acupuntura",
+      "descripcion": "13 puntos de Reunión (Hui-Roe)\nPuntos de comando específico\nHui de órganos | H13\nHui de vísceras | VC12\nHui de Qi | VC17\nHui de sangre | V17\nHui músculos y tendones | VB34\nHui de vasos | P9\nHui de huesos | V11\nHui de Médulas | VB39\nHui de Estómago | E36\nHui de Intestino Grueso | E37\nHui de Intestino Delgado | E39\nHui de triple recalentador | V39\nHui de Médula ósea. |"
     }
   ],
   "pdfs": [
