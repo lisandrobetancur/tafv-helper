@@ -20,7 +20,7 @@
             <div class="grid min-w-0 flex-1 gap-1.5 sm:grid-cols-2">
               <input class="campo h-9 sm:col-span-2" required maxlength="120" x-model="p.titulo" :aria-label="'Nombre descriptivo de ' + p.archivo.name"
                      placeholder="Nombre descriptivo (obligatorio), p. ej. «Corte sagital de rodilla»">
-              <input class="campo h-9" maxlength="2000" x-model="p.pie" :aria-label="'Descripción de ' + p.archivo.name" placeholder="Descripción (opcional)">
+              <input class="campo h-9" maxlength="10000" x-model="p.pie" :aria-label="'Descripción de ' + p.archivo.name" placeholder="Descripción (opcional)">
               <input class="campo h-9" maxlength="300" x-model="p.etiquetas" :aria-label="'Etiquetas de ' + p.archivo.name" placeholder="Etiquetas separadas por comas">
             </div>
             <button type="button" class="btn-icono self-start" @click="quitar(i)" aria-label="Quitar">{{ icono("x") }}</button>

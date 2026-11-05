@@ -55,8 +55,8 @@ def test_mostrar_ocultos(cliente, con, monkeypatch) -> None:
     mid = bib.ID_MATERIAS_OCULTAS
     pagina = cliente.get("/").text
     menu = pagina.split('aria-label="Menú principal"')[1]
-    assert "Notas" not in menu and 'href="/6000"' not in menu                      # versión web: ocultos
+    assert "Notas" not in menu and f'href="{config.RUTA_DIAGNOSTICO}"' not in menu   # versión web: ocultos
     monkeypatch.setattr(config, "MOSTRAR_OCULTOS", True)
     pagina = cliente.get("/").text
     menu = pagina.split('aria-label="Menú principal"')[1]
-    assert "Notas" in menu and 'href="/6000"' in menu and f"/materias/{mid}" in menu
+    assert "Notas" in menu and f'href="{config.RUTA_DIAGNOSTICO}"' in menu and f"/materias/{mid}" in menu

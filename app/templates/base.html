@@ -18,6 +18,15 @@
       } catch (e) {}
     })();
   </script>
+  {% if materia_oculta_activa %}
+  <script>
+    // Materia oculta: al recargar (F5) se vuelve al inicio; se abre solo escribiendo su dirección
+    (function () {
+      var n = performance.getEntriesByType && performance.getEntriesByType("navigation")[0];
+      if (n && n.type === "reload") location.replace("/");
+    })();
+  </script>
+  {% endif %}
   {% block cabeza %}{% endblock %}
   <link rel="stylesheet" href="/static/css/app.css?v={{ version_estaticos() }}">
   <script defer src="/static/vendor/htmx.min.js"></script>

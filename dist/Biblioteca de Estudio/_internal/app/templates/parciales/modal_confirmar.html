@@ -1,0 +1,17 @@
+{% from "macros.html" import icono %}
+<dialog class="modal !w-[min(480px,calc(100vw-2rem))]" x-data="modal" role="alertdialog" aria-labelledby="t-confirmar" aria-describedby="d-confirmar">
+  <form hx-post="{{ accion }}" class="flex flex-col">
+    <div class="flex gap-4 px-6 pb-2 pt-6">
+      <span class="grid size-11 shrink-0 place-items-center rounded-full {{ 'bg-peligro-suave text-peligro' if peligro else 'bg-alerta-suave text-alerta' }}">
+        {{ icono("triangle-alert" if peligro else "trash-2", "size-5") }}</span>
+      <div>
+        <h2 id="t-confirmar" class="text-lg font-semibold">{{ titulo }}</h2>
+        <p id="d-confirmar" class="mt-1 text-sm text-tenue">{{ detalle }}</p>
+      </div>
+    </div>
+    <footer class="mt-4 flex justify-end gap-2 border-t border-borde bg-superficie-2/50 px-6 py-4">
+      <button type="button" class="btn-secundario" @click="cerrar()" autofocus>Cancelar</button>
+      <button type="submit" class="{{ 'btn-peligro' if peligro else 'btn-primario' }}">{{ boton }}</button>
+    </footer>
+  </form>
+</dialog>

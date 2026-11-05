@@ -21,7 +21,7 @@ from .imagenes_fila import validar_imagen
 log = logging.getLogger(__name__)
 
 LARGO_TITULO = 120
-LARGO_DESCRIPCION = 2000
+LARGO_DESCRIPCION = 10000
 
 
 @dataclass

@@ -18,7 +18,7 @@
 
 ## Dudas de la tabla que NO se corrigieron (no son solo ortografía)
 6. D36 (Nombre científico de Mejorana) dice «Piel»: en el original era una fórmula y ese es su valor visible.
-   Parece un error de la fórmula. ¿Cuál es el nombre científico?
+   Era un error de la fórmula (=+A69). RESUELTO el 2026-11-04: la usuaria indicó el nombre y la tabla quedó con «Origanum majorana».
 7. D76 «Urticaria urens» (Ortiga blanca): ¿es «Urtica urens»? D65 «Myrciantes leucoxila» (Arrayán): ¿«Myrcianthes
    leucoxyla»?
 8. F16 «Expectotal y mucolitico»: ¿«Expectorante»? · F91 «Inmunolador»: ¿«Inmunomodulador»? · F71 «Dermatitis

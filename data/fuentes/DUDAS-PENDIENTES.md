@@ -75,7 +75,9 @@ Lo que no se cambió por no ser seguro, y algunas correcciones para que confirme
   tabla, «Wei»; se transcribió cada uno como se ve. «Show (Mano)» y «Zu (Pie)» están tal cual (¿«Shou»?). La
   columna derecha (el recorrido del meridiano) se transcribió como «↓ 1 ID cabeza ↓ V 67», «↑ 11 P tórax B1»,
   etc. Los rótulos «Qi» y «Jing» abarcan tres filas cada uno; se escribieron solo en la primera, sin rellenar.
-- **Técnicas (H48)**: punto 4 «Nudos de nudos yang ExH9-VB8-E8»: no se lee con seguridad si dice «ExH9» o
+- **Técnicas (carga del 2026-11-04):** la usuaria reemplazó la imagen H48 por `imagenes/Técnicas 2026-11-04.jpg`. Siguen abiertas para la imagen nueva: «ExH9» (la hoja dice «EXHN9») y «(Crisis HTA, ojos rojos, de resto no)». La nueva se transcribió «da yin vísceras», que es lo que se ve.
+- **13 puntos de Reunión (carga del 2026-11-04):** «Hui de Médula ósea.» no trae punto en la imagen y queda vacío; la nota «HUI - Acupuntura» dice «Hui de M.O. | IG 16». No se rellenó.
+- **Técnicas (H48, imagen anterior, ya reemplazada)**: punto 4 «Nudos de nudos yang ExH9-VB8-E8»: no se lee con seguridad si dice «ExH9» o
   «ExHN9» (en la hoja, Técnica de planos dice «EXHN9»). Punto 5 «(Crisis HTA, ojos rojos, de resto no)» es la
   lectura más probable; confirme. En «MU (uso en exceso de yin vísceras)», el «de» podría ser «da».
 - **Puntos de los 12 meridianos (B87)**: la imagen no tiene título; se le puso uno descriptivo. Se transcribió
@@ -150,7 +152,7 @@ Lo que no se cambió por no ser seguro, y algunas correcciones para que confirme
 
 ## Dudas de la tabla que NO se corrigieron (no son solo ortografía)
 6. D36 (Nombre científico de Mejorana) dice «Piel»: en el original era una fórmula y ese es su valor visible.
-   Parece un error de la fórmula. ¿Cuál es el nombre científico?
+   Era un error de la fórmula (=+A69). RESUELTO el 2026-11-04: la usuaria indicó el nombre y la tabla quedó con «Origanum majorana».
 7. D76 «Urticaria urens» (Ortiga blanca): ¿es «Urtica urens»? D65 «Myrciantes leucoxila» (Arrayán): ¿«Myrcianthes
    leucoxyla»?
 8. F16 «Expectotal y mucolitico»: ¿«Expectorante»? · F91 «Inmunolador»: ¿«Inmunomodulador»? · F71 «Dermatitis
@@ -209,7 +211,7 @@ No se corrigieron, porque no está claro qué decían (¿cómo deben quedar?):
 20. Paréntesis sin cerrar: K2 (Sulfur) «…salir de la cama)» tiene un paréntesis de cierre sin apertura.
 
 Otros avisos:
-21. Q32 (Spongia) repite el texto de Q33 (Antimonium crudum) porque en el original Q32 es la fórmula `=Q33`; se cargó así, como decidiste.
+21. Q32 (Spongia) repite el texto de Q33 (Antimonium crudum) porque en el original Q32 es la fórmula `=Q33`; se cargó así al principio. ACTUALIZADO el 2026-11-04: por indicación de la usuaria, Q32 queda vacía en la app; el texto sigue en Antimonium crudum.
 22. F2 y F3 están guardadas como fechas con formato d-m; la app muestra «6-7» y «4-7», como en Excel.
 23. P38 está dentro de la tabla: es el «Artículo» de la fila 38 (Cantharis Vesicante).
 24. Saltos de línea que solo cortaban una frase (p. ej. H22, H35, I35, J35, K35, L35, I28, K44) se unieron con un espacio; los renglones propios se mantienen.

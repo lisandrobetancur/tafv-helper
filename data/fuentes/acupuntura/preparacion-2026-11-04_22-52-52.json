@@ -1,0 +1,26 @@
+{
+  "materia": "Acupuntura",
+  "fecha": "2026-11-04T22:52:52",
+  "archivos": [
+    {
+      "original": "fuentes/acupuntura/_originales/Técnicas 2026-11-04.jpg",
+      "hojas": [
+        {
+          "componente": "Acupuntura",
+          "archivo": "fuentes/acupuntura/acupuntura/imagenes/Técnicas 2026-11-04.jpg"
+        }
+      ],
+      "sin_asignar": []
+    },
+    {
+      "original": "fuentes/acupuntura/_originales/13 puntos de Reunión (Hui-Roe).jpg",
+      "hojas": [
+        {
+          "componente": "Acupuntura",
+          "archivo": "fuentes/acupuntura/acupuntura/imagenes/13 puntos de Reunión (Hui-Roe).jpg"
+        }
+      ],
+      "sin_asignar": []
+    }
+  ]
+}

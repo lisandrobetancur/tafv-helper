@@ -22,11 +22,12 @@ PROFUNDIDAD_MAXIMA = 4  # niveles de componentes bajo una materia (componente �
 # Casos guardados en Acceso rápido. Deshabilitado a pedido de la usuaria (2026-10-16): no se muestran «Guardar el caso»
 # ni la lista de casos. El código sigue completo: para volver a activarlo basta con poner True.
 CASOS_ACTIVOS = False
-# Acceso rápido, deshabilitado a pedido de la usuaria (2026-11-03): sale del menú y sus direcciones dan 404. El código
-# sigue completo: para volver a activarlo basta con poner True.
-ACCESO_RAPIDO_ACTIVO = False
-# Dirección oculta del módulo Diagnóstico: solo se ve escribiéndola; al recargar la página (F5) desaparece
-RUTA_DIAGNOSTICO = "/6000"
+# Acceso rápido: deshabilitado a pedido de la usuaria (2026-11-03) y habilitado de nuevo a su pedido (2026-11-05).
+# Con False sale del menú y sus direcciones dan 404; el código queda completo en ambos casos.
+ACCESO_RAPIDO_ACTIVO = True
+# Dirección oculta del módulo Diagnóstico: solo se ve escribiéndola; al recargar la página (F5) desaparece.
+# Parece la de una materia oculta, pero no hay ninguna materia 8001: su router va antes que el de materias.
+RUTA_DIAGNOSTICO = "/materias/8001"
 # Versión de escritorio: lo oculto queda siempre a la vista (Diagnóstico en el menú y las materias ocultas,
 # como Notas, en la lista de materias). Lo enciende escritorio.py; en la versión web queda apagado.
 MOSTRAR_OCULTOS = os.environ.get("BIBLIOTECA_MOSTRAR_OCULTOS") == "1"

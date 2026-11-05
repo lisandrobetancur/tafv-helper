@@ -1,0 +1,5 @@
+{# Marca del estado del OCR en la tarjeta de una imagen; mientras se lee, se actualiza sola #}
+{% if img.ocr_estado == "listo" and img.texto_ocr %}<span class="rounded bg-exito-suave px-1.5 text-[10px] text-exito" title="Tiene texto reconocido">texto</span>
+{% elif img.ocr_estado == "pendiente" %}<span class="rounded bg-alerta-suave px-1.5 text-[10px] text-alerta"
+  hx-get="/imagenes/{{ img.id }}/insignia" hx-trigger="every 3s" hx-swap="outerHTML">leyendo…</span>
+{% elif img.ocr_estado == "error" %}<span class="rounded bg-peligro-suave px-1.5 text-[10px] text-peligro">sin leer</span>{% endif %}

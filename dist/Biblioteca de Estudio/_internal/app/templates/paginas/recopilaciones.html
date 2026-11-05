@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% from "macros.html" import icono, vacio, plural, boton_modal %}
+{% block titulo %}Recopilaciones{% endblock %}
+{% block contenido %}
+<div class="mb-6 flex flex-wrap items-end justify-between gap-4">
+  <div>
+    <h1 class="text-2xl font-bold tracking-tight sm:text-3xl">Recopilaciones</h1>
+    <p class="mt-1 max-w-2xl text-tenue">Junta lo que te sirve de cualquier materia (fichas, campos, textos subrayados, imágenes o recortes),
+      ordénalo y descárgalo en PDF o Word. Lo que agregas va a la recopilación <strong class="text-texto">activa</strong>.</p>
+  </div>
+  {{ boton_modal("/recopilaciones/nueva", "Nueva recopilación") }}
+</div>
+
+{% if recopilaciones %}
+<ul class="tarjeta divide-y divide-borde">
+  {% for r in recopilaciones %}
+  <li class="flex flex-wrap items-center gap-4 px-5 py-4">
+    <span class="grid size-10 place-items-center rounded-xl {{ 'bg-marca-suave text-marca' if r.id == activa_id else 'bg-superficie-2 text-tenue' }}">{{ icono("clipboard-list", "size-5") }}</span>
+    <a href="/recopilaciones/{{ r.id }}" class="min-w-0 flex-1 group">
+      <p class="flex items-center gap-2 truncate font-medium group-hover:text-marca">{{ r.titulo }}
+        {% if r.id == activa_id %}<span class="chip border-marca/40 bg-marca-suave text-marca">Activa</span>{% endif %}</p>
+      <p class="text-sm text-tenue">{{ plural(r.num_fragmentos, "fragmento", "fragmentos") }} · modificada el {{ r.actualizado|replace("T", " a las ") }}
+        {% if r.descripcion %}· {{ r.descripcion|truncate(80, true, "…") }}{% endif %}</p>
+    </a>
+    {% if r.id != activa_id %}
+    <form hx-post="/recopilaciones/{{ r.id }}/activar"><button class="btn-secundario" title="Lo que agregues irá a esta recopilación">{{ icono("check") }}Usar como activa</button></form>
+    {% endif %}
+    <a class="btn-secundario" href="/recopilaciones/{{ r.id }}/vista-previa" title="Revisar y descargar">{{ icono("eye") }}<span class="hidden sm:inline">Vista previa</span></a>
+    <button class="btn-fantasma text-peligro hover:bg-peligro-suave hover:text-peligro" hx-get="/recopilaciones/{{ r.id }}/eliminar" hx-target="#modal"
+            title="Eliminar recopilación">{{ icono("trash-2") }}<span class="sr-only">Eliminar</span></button>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+  {% call vacio("clipboard-list", "Aún no tienes recopilaciones", "Mientras consultas, usa los botones «Agregar a la recopilación» (en fichas, notas, imágenes y PDF) o subraya un texto. Se creará una recopilación automáticamente.") %}
+    {{ boton_modal("/recopilaciones/nueva", "Crear una recopilación") }}
+  {% endcall %}
+{% endif %}
+{% endblock %}

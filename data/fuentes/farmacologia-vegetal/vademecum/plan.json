@@ -63,6 +63,10 @@
     {
       "celda": "Farmacologia Vegetal!A2",
       "motivo": "título «FITOTERAPEUTICOS FARMACOLOGIA VEGETAL» (combinado A2:J2) por encima de los encabezados de la tabla; la tabla no tiene dónde guardarlo y se llama «Farmacología vegetal» (ver preguntas.md)"
+    },
+    {
+      "celda": "Farmacologia Vegetal!D36",
+      "motivo": "el original tiene la fórmula =+A69, que muestra «Piel» (rótulo de Sistema de la fila 69), en vez del nombre científico de Mejorana. La usuaria indicó el nombre correcto el 2026-11-04: Origanum majorana"
     }
   ],
   "notas": [

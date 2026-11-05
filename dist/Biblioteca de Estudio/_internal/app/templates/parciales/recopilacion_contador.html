@@ -1,0 +1,9 @@
+{# Acceso a la recopilación activa en la cabecera; se actualiza cada vez que se agrega o quita algo #}
+{% from "macros.html" import icono %}
+<a id="contador-recopilacion" href="{{ '/recopilaciones/' ~ activa.id if activa else '/recopilaciones' }}"
+   hx-get="/recopilacion/contador" hx-trigger="recopilacion-cambio from:body" hx-swap="outerHTML"
+   class="btn-secundario max-w-[16rem] px-2.5 sm:px-3.5" title="{{ 'Recopilación activa: ' ~ activa.titulo if activa else 'Recopilaciones' }}">
+  {{ icono("clipboard-list") }}
+  <span class="hidden truncate lg:inline">{{ activa.titulo if activa else "Recopilaciones" }}</span>
+  {% if activa %}<span class="rounded-full bg-marca px-1.5 text-[11px] font-semibold leading-5 text-sobre-marca">{{ activa.num_fragmentos }}</span>{% endif %}
+</a>

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% from "macros.html" import icono, plural %}
+{% block titulo %}{{ recopilacion.titulo }}{% endblock %}
+{% block contenido %}
+<section class="mb-6 flex flex-wrap items-start gap-4">
+  <div class="min-w-[min(100%,18rem)] flex-1">
+    <p class="flex flex-wrap items-center gap-2 text-sm text-tenue">Recopilación
+      {% if es_activa %}<span class="chip border-marca/40 bg-marca-suave text-marca">Activa: lo que agregues llega aquí</span>{% endif %}</p>
+    <h1 class="text-2xl font-bold tracking-tight sm:text-3xl">{{ recopilacion.titulo }}</h1>
+    {% if recopilacion.descripcion %}<p class="mt-1 max-w-3xl whitespace-pre-wrap text-tenue">{{ recopilacion.descripcion }}</p>{% endif %}
+  </div>
+  <div class="flex flex-wrap items-center gap-2">
+    {% if not es_activa %}
+    <form hx-post="/recopilaciones/{{ recopilacion.id }}/activar"><button class="btn-secundario">{{ icono("check") }}Usar como activa</button></form>
+    {% endif %}
+    <a class="btn-primario" href="/recopilaciones/{{ recopilacion.id }}/vista-previa">{{ icono("eye") }}Vista previa y descarga</a>
+    <div class="relative" x-data="desplegable" @click.outside="cerrar()" @keydown.escape="cerrar()">
+      <button type="button" class="btn-secundario px-2.5" @click="alternar()" aria-label="Más acciones" :aria-expanded="abierto">{{ icono("ellipsis-vertical") }}</button>
+      <div class="menu-flotante w-64" x-show="abierto" x-cloak x-transition.origin.top.right @click="cerrar()">
+        <button class="menu-item" hx-get="/recopilaciones/{{ recopilacion.id }}/editar" hx-target="#modal">{{ icono("pencil") }}Cambiar nombre y descripción</button>
+        <a class="menu-item" href="/recopilaciones/{{ recopilacion.id }}/pdf" hx-boost="false">{{ icono("file-down") }}Descargar PDF</a>
+        <a class="menu-item" href="/recopilaciones/{{ recopilacion.id }}/word" hx-boost="false">{{ icono("file-down") }}Descargar Word</a>
+        <div class="my-1 border-t border-borde"></div>
+        <button class="menu-item-peligro" hx-get="/recopilaciones/{{ recopilacion.id }}/eliminar" hx-target="#modal">{{ icono("trash-2") }}Eliminar recopilación</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="mb-4 flex flex-wrap items-center gap-2">
+  <button class="btn-secundario" hx-get="/recopilaciones/{{ recopilacion.id }}/texto?tipo=seccion" hx-target="#modal">{{ icono("heading") }}Agregar sección</button>
+  <button class="btn-secundario" hx-get="/recopilaciones/{{ recopilacion.id }}/texto" hx-target="#modal">{{ icono("type") }}Agregar texto propio</button>
+  <p class="text-xs text-tenue sm:ml-auto">Ordena con las flechas o arrastrando {{ icono("grip-vertical", "inline size-3.5 -mt-0.5") }}. Con {{ icono("pencil", "inline size-3.5 -mt-0.5") }} agregas tus comentarios a cada fragmento.</p>
+</div>
+
+<div id="fragmentos">{% include "parciales/recopilacion_lista.html" %}</div>
+{% endblock %}

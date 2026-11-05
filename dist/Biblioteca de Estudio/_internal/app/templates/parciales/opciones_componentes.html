@@ -1,0 +1,2 @@
+<option value="">Todos los componentes</option>
+{% for id, nombre in componentes %}<option value="{{ id }}" {{ "selected" if elegido == id }}>{{ nombre }}</option>{% endfor %}

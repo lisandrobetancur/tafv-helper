@@ -31,7 +31,7 @@ No se corrigieron, porque no está claro qué decían (¿cómo deben quedar?):
 20. Paréntesis sin cerrar: K2 (Sulfur) «…salir de la cama)» tiene un paréntesis de cierre sin apertura.
 
 Otros avisos:
-21. Q32 (Spongia) repite el texto de Q33 (Antimonium crudum) porque en el original Q32 es la fórmula `=Q33`; se cargó así, como decidiste.
+21. Q32 (Spongia) repite el texto de Q33 (Antimonium crudum) porque en el original Q32 es la fórmula `=Q33`; se cargó así al principio. ACTUALIZADO el 2026-11-04: por indicación de la usuaria, Q32 queda vacía en la app; el texto sigue en Antimonium crudum.
 22. F2 y F3 están guardadas como fechas con formato d-m; la app muestra «6-7» y «4-7», como en Excel.
 23. P38 está dentro de la tabla: es el «Artículo» de la fila 38 (Cantharis Vesicante).
 24. Saltos de línea que solo cortaban una frase (p. ej. H22, H35, I35, J35, K35, L35, I28, K44) se unieron con un espacio; los renglones propios se mantienen.

@@ -348,6 +348,7 @@ class Resultado:
     paciente: str = ""                                                # «Mujer de 55 años»
     motivo: str = ""                                                  # motivo de consulta tal como viene
     avisos: list[str] = field(default_factory=list)                   # lo que le falta al caso
+    tropismos: dict[str, list[dict]] = field(default_factory=dict)    # clave del diagnóstico -> filas de tablas de tropismos
 
     @property
     def resumen(self) -> str:
@@ -373,6 +374,16 @@ class Resultado:
                     lineas.append(f"Tabla: {i.nota_tabla}")
                 if i.comentario_tabla:
                     lineas.append(f"Comentario de la tabla: {i.comentario_tabla}")
+            lineas.append("")
+        con_tropismos = [d for d in self.diagnosticos if self.tropismos.get(d.clave)]
+        if con_tropismos:
+            lineas.append("TROPISMOS EN HOMEOPATÍA")
+            for d in con_tropismos:
+                for t in self.tropismos[d.clave]:
+                    linea = f"{d.titulo}: {t['medicamento']}" + (f" — {t['potencia']}" if t["potencia"] else "")
+                    if t["aprox"]:
+                        linea += f" — pendiente de evaluar criterio: la tabla solo coincide en {t['aprox']}"
+                    lineas.append(linea)
             lineas.append("")
         return "\n".join(lineas).strip()
 
@@ -402,6 +413,16 @@ class Resultado:
                     partes.append(_md(f"Tabla de jerarquización: {i.nota_tabla}"))
                 if i.comentario_tabla:
                     partes.append(_md(f"Comentario de la tabla: {i.comentario_tabla}"))
+        con_tropismos = [d for d in self.diagnosticos if self.tropismos.get(d.clave)]
+        if con_tropismos:
+            partes.append("## Tropismos en homeopatía")
+            for d in con_tropismos:
+                filas = "\n".join(
+                    f"- {_md(t['medicamento'])} — {_md(t['detalle'])}" + (f" ({_md(t['potencia'])})" if t["potencia"] else "")
+                    + (_md(f" — Pendiente de evaluar criterio: la asociación no es precisa, la tabla solo coincide en {t['aprox']}.")
+                       if t["aprox"] else "")
+                    for t in self.tropismos[d.clave])
+                partes.append(f"**{_md(d.titulo)}**\n{filas}")
         return "\n\n".join(partes)
 
 
@@ -764,6 +785,70 @@ def indicaciones(clave: str, fuentes: Fuentes) -> list[Indicacion]:
 
 
 # ------------------------------------------------------------------ análisis
+def _tablas_tropismo(con: sqlite3.Connection) -> list[tuple]:
+    """Tablas de tropismos cargadas en la biblioteca (p. ej. «Tropismos Homeopatía 1»): tienen una columna
+    «Medicamento», alguna de tropismo y alguna de patologías o cuadros. Las materias ocultas no se miran."""
+    salida = []
+    for tid, nombre, columnas_json in con.execute(
+            f"""SELECT t.id, t.nombre, t.columnas FROM tablas t JOIN componentes k ON k.id = t.componente_id
+                JOIN materias m ON m.id = k.materia_id
+                WHERE t.papelera_id IS NULL AND k.papelera_id IS NULL AND m.papelera_id IS NULL
+                  AND m.id NOT IN ({bib.SQL_OCULTAS_SIN_BUSQUEDA})
+                ORDER BY t.id"""):
+        nombres = {c["clave"]: normalizar(c["nombre"]) for c in json.loads(columnas_json)}
+        medicamento = next((k for k, n in nombres.items() if n == "medicamento"), None)
+        patologia = [k for k, n in nombres.items() if "patolog" in n or "cuadro" in n]
+        if not medicamento or not patologia or not any("tropismo" in n for n in nombres.values()):
+            continue
+        potencia = next((k for k, n in nombres.items() if "potencia" in n), None)
+        salida.append((tid, nombre, medicamento, patologia, potencia))
+    return salida
+
+
+# Palabras que no bastan para asociar un diagnóstico a un tropismo («trastorno de ansiedad» no es cualquier «trastorno»)
+_PALABRAS_GENERICAS = {"enfermedad", "trastorno", "sindrome", "tipo", "cronica", "cronico", "aguda", "agudo", "leve",
+                       "moderada", "severa", "baja", "bajo", "alta", "alto", "dificil", "secuelas", "repeticion"}
+
+
+def _patron(palabras: list[str]) -> re.Pattern:
+    """Las palabras seguidas, enteras y admitiendo el plural: «cefaleas» cuenta para «cefalea»."""
+    return re.compile(r"(?<!\w)" + r"\s+".join(re.escape(p) + r"(?:e?s)?" for p in palabras) + r"(?!\w)")
+
+
+def tropismos_de(con: sqlite3.Connection, diagnosticos: list[Diagnostico]) -> dict[str, list[dict]]:
+    """Filas de las tablas de tropismos cuya columna de patologías nombra un diagnóstico.
+    Primero las que lo nombran tal cual; después, marcadas como imprecisas («aprox»), las que solo
+    coinciden en una palabra no genérica del nombre («Gastritis» para «gastritis crónica»)."""
+    tablas_t = _tablas_tropismo(con) if diagnosticos else []
+    if not tablas_t:
+        return {}
+    patrones: dict[str, tuple[re.Pattern, list[tuple[str, re.Pattern]]]] = {}
+    for d in diagnosticos:
+        palabras = re.findall(r"\w+", normalizar(d.nombre))
+        if not palabras:
+            continue
+        sueltas = [p for p in palabras if len(p) >= 4 and p not in _PALABRAS_GENERICAS] if len(palabras) > 1 else []
+        patrones[d.clave] = (_patron(palabras), [(p, _patron([p])) for p in sueltas])
+    exactos: dict[str, list[dict]] = {}
+    aproximados: dict[str, list[dict]] = {}
+    for tid, nombre_tabla, medicamento, patologia, potencia in tablas_t:
+        for fid, valores in con.execute("SELECT id, valores FROM filas WHERE tabla_id = ? AND huerfana = 0 ORDER BY posicion", (tid,)):
+            v = json.loads(valores)
+            texto = normalizar(" · ".join(str(v.get(k, "")) for k in patologia))
+            for clave, (exacto, sueltas) in patrones.items():
+                coincide = [p for p, patron in sueltas if patron.search(texto)]
+                if not exacto.search(texto) and not coincide:
+                    continue
+                destino = exactos if exacto.search(texto) else aproximados
+                destino.setdefault(clave, []).append(
+                    {"fila": fid, "medicamento": str(v.get(medicamento, "")).strip(),
+                     "detalle": " · ".join(s for k in patologia if (s := str(v.get(k, "")).strip())),
+                     "potencia": str(v.get(potencia, "")).strip() if potencia else "", "tabla": nombre_tabla,
+                     "aprox": "" if exacto.search(texto) else ", ".join(f"«{p}»" for p in coincide)})
+    return {clave: exactos.get(clave, []) + aproximados.get(clave, [])
+            for clave in {**exactos, **aproximados}}
+
+
 def analizar(con: sqlite3.Connection, texto: str, elegidos: list[str] | None = None) -> Resultado:
     """Reconoce los diagnósticos del caso y arma el tratamiento. Con `elegidos` (claves de la tabla), la usuaria
     ya ajustó la lista: se usan esos (con su evidencia, si la hay) y los demás reconocidos quedan como descartados."""
@@ -819,6 +904,7 @@ def analizar(con: sqlite3.Connection, texto: str, elegidos: list[str] | None = N
     reconocidos.sort(key=lambda d: (not d.principal, d.probable and not d.manual, -d.peso))
     resultado.diagnosticos = reconocidos
     resultado.plan = plan_integrado(reconocidos)
+    resultado.tropismos = tropismos_de(con, reconocidos)
     return resultado
 
 
