@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% from "macros.html" import icono %}
-{% block titulo %}Diagnóstico{% endblock %}
+{% block titulo %}Ejercicio{% endblock %}
 {% block cabeza %}
   <script>
     // Al recargar (F5) el módulo desaparece; lo guardado sigue ahí para cuando se vuelva a escribir la dirección
@@ -16,7 +16,7 @@
   <header class="mb-5 flex flex-wrap items-start gap-4">
     <span class="grid size-12 shrink-0 place-items-center rounded-2xl bg-marca-suave text-marca">{{ icono("clipboard-plus", "size-6") }}</span>
     <div class="min-w-0 flex-1">
-      <h1 class="text-2xl font-bold tracking-tight sm:text-3xl">Diagnóstico</h1>
+      <h1 class="text-2xl font-bold tracking-tight sm:text-3xl">Ejercicio</h1>
       <p class="mt-1 text-tenue">Pega un caso clínico, completo o solo con lo que tengas. Al analizarlo verás debajo los
         diagnósticos y la jerarquización del tratamiento con su prescripción, como en los casos de clase, según la
         <strong class="font-medium text-texto">tabla de jerarquización</strong> y el Consolidado.</p>
@@ -26,13 +26,13 @@
   <p class="mb-5 flex gap-2 rounded-xl border border-alerta/30 bg-alerta-suave px-4 py-2.5 text-sm">{{ icono("info", "size-5 shrink-0 text-alerta") }}
     Es una herramienta de estudio: ordena lo que dice tu propio material, con su fuente. No reemplaza el juicio clínico.</p>
 
-  <form id="form-nuevo" method="post" action="/diagnostico/nuevo" hx-confirm="¿Crear un diagnóstico nuevo? Se borrarán el caso y el resultado actuales." data-confirmar-boton="Crear nuevo"></form>
+  <form id="form-nuevo" method="post" action="/diagnostico/nuevo" hx-confirm="¿Crear un ejercicio nuevo? Se borrarán el caso y el resultado actuales." data-confirmar-boton="Crear nuevo"></form>
 
   <form method="post" action="/diagnostico/analizar" class="tarjeta flex flex-col gap-3 p-5" x-data="{ texto: {{ (r.texto if r else '')|tojson|forceescape }}, copiado: false }">
     <div class="flex flex-wrap items-center gap-2">
       <button class="btn-primario" :disabled="!texto.trim()">{{ icono("stethoscope") }}Analizar caso</button>
-      <button type="submit" form="form-nuevo" class="btn-secundario" {% if not r %}disabled{% endif %}>{{ icono("plus") }}Crear nuevo diagnóstico</button>
-      <button type="button" class="btn-secundario" {% if r %}hx-post="/diagnostico/recopilar" hx-swap="none"{% else %}disabled{% endif %}>{{ icono("clipboard-list") }}Recopilar diagnóstico</button>
+      <button type="submit" form="form-nuevo" class="btn-secundario" {% if not r %}disabled{% endif %}>{{ icono("plus") }}Crear nuevo ejercicio</button>
+      <button type="button" class="btn-secundario" {% if r %}hx-post="/diagnostico/recopilar" hx-swap="none"{% else %}disabled{% endif %}>{{ icono("clipboard-list") }}Recopilar ejercicio</button>
       {% if r %}
       <a class="btn-secundario" href="/diagnostico/pdf" hx-boost="false">{{ icono("file-down") }}Exportar en PDF</a>
       <a class="btn-secundario" href="/diagnostico/word" hx-boost="false">{{ icono("file-down") }}Exportar en Word</a>

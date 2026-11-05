@@ -156,7 +156,7 @@ def test_paciente_y_resumen(con, jerarquizacion) -> None:
 
 def test_web(cliente, con, jerarquizacion) -> None:
     # Oculto: fuera de /materias/8001 no hay rastro en el menú y las direcciones de antes no llevan a él
-    assert "Diagnóstico" not in cliente.get("/").text
+    assert "Ejercicio" not in cliente.get("/").text          # el módulo se llama «Ejercicio» desde 2026-11-05
     assert cliente.get("/diagnostico", follow_redirects=False).headers["location"] == "/"
     assert cliente.get("/diagnostico/resultado", follow_redirects=False).headers["location"] == "/"
     assert cliente.get("/5000").status_code == 404       # las direcciones anteriores ya no existen
@@ -175,7 +175,7 @@ def test_web(cliente, con, jerarquizacion) -> None:
         assert "Principal · motivo de consulta" in r.text and "1. Enfermedad varicosa" in r.text and "Bolsa sellada" in r.text
         assert "HTA controlada (TA 135/80)" in r.text and "JERARQUIZACIÓN" in r.text and "úlcera en la pierna" in r.text
         assert 'href="/diagnostico/pdf"' in r.text and 'href="/diagnostico/word"' in r.text and r.headers["cache-control"] == "no-store"
-    assert "Diagnóstico" not in cliente.get("/").text    # otra página: el módulo no aparece, lo guardado sigue
+    assert "Ejercicio" not in cliente.get("/").text    # otra página: el módulo no aparece, lo guardado sigue
 
     # El ajuste de la lista también queda guardado
     r = cliente.post("/diagnostico/ajustar", data={"dx": ["hta", ""]})

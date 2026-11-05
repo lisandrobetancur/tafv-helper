@@ -21,8 +21,8 @@
     </a>
     {# Diagnóstico solo existe mientras la dirección sea la suya #}
     {% if request.url.path == RUTA_DIAGNOSTICO %}
-    <a href="{{ RUTA_DIAGNOSTICO }}" hx-boost="false" title="Diagnóstico de un caso clínico" class="item-menu flex items-center gap-3 rounded-lg bg-marca-suave px-3 py-2 text-sm font-medium text-marca">
-      {{ icono("clipboard-plus", "size-[18px]") }}<span class="solo-desplegado">Diagnóstico</span>
+    <a href="{{ RUTA_DIAGNOSTICO }}" hx-boost="false" title="Ejercicio: análisis de un caso clínico" class="item-menu flex items-center gap-3 rounded-lg bg-marca-suave px-3 py-2 text-sm font-medium text-marca">
+      {{ icono("clipboard-plus", "size-[18px]") }}<span class="solo-desplegado">Ejercicio</span>
     </a>
     {% endif %}
     {% if ACCESO_RAPIDO_ACTIVO %}
@@ -70,7 +70,7 @@
 {# Menú inferior para pantallas pequeñas #}
 <div class="fixed inset-x-0 bottom-0 z-30 flex items-center justify-around border-t border-borde bg-superficie py-2 lg:hidden">
   <a href="/" class="flex flex-col items-center gap-0.5 px-3 text-[11px] text-tenue">{{ icono("house", "size-5") }}Inicio</a>
-  {% if request.url.path == RUTA_DIAGNOSTICO %}<a href="{{ RUTA_DIAGNOSTICO }}" hx-boost="false" class="flex flex-col items-center gap-0.5 px-2 text-[11px] text-marca">{{ icono("clipboard-plus", "size-5") }}Diagnóstico</a>{% endif %}
+  {% if request.url.path == RUTA_DIAGNOSTICO %}<a href="{{ RUTA_DIAGNOSTICO }}" hx-boost="false" class="flex flex-col items-center gap-0.5 px-2 text-[11px] text-marca">{{ icono("clipboard-plus", "size-5") }}Ejercicio</a>{% endif %}
   {% if ACCESO_RAPIDO_ACTIVO %}<a href="/acceso-rapido" class="flex flex-col items-center gap-0.5 px-3 text-[11px] text-tenue">{{ icono("stethoscope", "size-5") }}Acceso rápido</a>{% endif %}
   <a href="/recopilaciones" class="flex flex-col items-center gap-0.5 px-2 text-[11px] text-tenue">{{ icono("clipboard-list", "size-5") }}Recopilar</a>
   <button type="button" class="flex flex-col items-center gap-0.5 px-2 text-[11px] text-tenue" hx-get="/materias/nueva" hx-target="#modal">{{ icono("folder-plus", "size-5") }}Nueva materia</button>

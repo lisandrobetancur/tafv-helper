@@ -1,4 +1,4 @@
-"""Módulo Diagnóstico: caso clínico en texto libre -> diagnósticos y tratamiento según la tabla de jerarquización.
+"""Módulo Ejercicio (antes «Diagnóstico»): caso clínico en texto libre -> diagnósticos y tratamiento según la tabla de jerarquización.
 
 Es un módulo oculto: se ve solo escribiendo /materias/8001 (no es una materia, solo usa esa dirección) y desaparece al recargar (F5), pero el diagnóstico sigue guardado
 hasta que la usuaria lo limpie con «Crear nuevo diagnóstico»: al volver a esa dirección está tal como lo dejó.
@@ -37,13 +37,13 @@ def _guardado(con: sqlite3.Connection) -> dxc.Resultado:
 
 
 def _titulo(r: dxc.Resultado) -> str:
-    return " ".join(f"Diagnóstico {r.paciente or r.motivo}".split())[:100]
+    return " ".join(f"Ejercicio {r.paciente or r.motivo}".split())[:100]
 
 
 @router.get(RUTA)
 def modulo(request: Request, con: sqlite3.Connection = Depends(obtener_db)):
     respuesta = pagina(request, con, "paginas/diagnostico_clinico.html", resultado=_resultado(con),
-                       migas=[{"texto": "Diagnóstico", "icono": "clipboard-plus"}])
+                       migas=[{"texto": "Ejercicio", "icono": "clipboard-plus"}])
     respuesta.headers["Cache-Control"] = "no-store"   # «Atrás» también pide la página: nunca un diagnóstico ya limpiado
     return respuesta
 
@@ -79,7 +79,7 @@ def recopilar(con: sqlite3.Connection = Depends(obtener_db), rcon: sqlite3.Conne
     activa = rec.activa(rcon, crear_si_falta=True)
     rec.agregar_texto_propio(rcon, activa.id, _titulo(r), r.documento)
     n = rec.obtener(rcon, activa.id, False).num_fragmentos
-    return _con_aviso(Response(status_code=204), f"El diagnóstico se agregó a «{activa.titulo}» ({n}).")
+    return _con_aviso(Response(status_code=204), f"El ejercicio se agregó a «{activa.titulo}» ({n}).")
 
 
 @router.get("/diagnostico/pdf")
