@@ -7,7 +7,7 @@
 - **Referencias anatómicas 2 → «Técnica de Terapia Neural».** Igual que «Otras referencias»; «Región Anatómica» se repite (Pelvis, Cadera, Rodilla…).
 
 ## Filas agrupadas (Ganglios)
-- En «Ganglios», «Área anatómica» y «Objetivo Neuralterapéutico» están combinadas por ganglio (A2:A10, A11:A17, A18:A28 y lo mismo en C). No se rellenaron: el texto queda solo en la primera fila de cada grupo. ¿Quieres que se repita en cada fila?
+- En «Ganglios», «Área anatómica» y «Objetivo Neuralterapéutico» están combinadas por ganglio (A2:A10, A11:A17, A18:A28 y lo mismo en C). El Excel se guardó sin rellenar; la app repite el valor de la celda combinada en cada fila al importar (como «Sistema» en el vademécum). La usuaria lo aceptó el 2026-11-06.
 
 ## Ortografía
 - Correcciones hechas en la copia `tablas/Ganglios.xlsx` (solo tildes): Area anatomica → Área anatómica, Neuralterapeutico → Neuralterapéutico, Trigemino → Trigémino (A2, B2), Disfuncion → Disfunción, cronico → crónico, cronica → crónica, parasimpatico → parasimpático, autonomo → autónomo, vertebra → vértebra. Las otras tres hojas no necesitaron correcciones.
