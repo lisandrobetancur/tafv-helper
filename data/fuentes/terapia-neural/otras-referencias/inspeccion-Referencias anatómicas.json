@@ -1,0 +1,823 @@
+{
+  "archivo": "/Users/lisandro/dev/py/tafv-helper/data/fuentes/terapia-neural/otras-referencias/hojas/Referencias anatómicas.xlsx",
+  "hojas": [
+    {
+      "hoja": "Referencias anatómicas",
+      "dimension": "A1:F19",
+      "bloques": [
+        {
+          "rango": "A1:F19",
+          "filas": 19,
+          "columnas": 6,
+          "densidad": 1.0,
+          "fila_encabezado": 1,
+          "registros": 18,
+          "sugerencia": "tabla",
+          "celdas": [
+            {
+              "celda": "A1",
+              "combinada": null,
+              "texto": "Región",
+              "negrita": true,
+              "relleno": "FF1F4E78"
+            },
+            {
+              "celda": "B1",
+              "combinada": null,
+              "texto": "Músculo / Estructura",
+              "negrita": true,
+              "relleno": "FF1F4E78"
+            },
+            {
+              "celda": "C1",
+              "combinada": null,
+              "texto": "Puntos de Terapia Neural",
+              "negrita": true,
+              "relleno": "FF1F4E78"
+            },
+            {
+              "celda": "D1",
+              "combinada": null,
+              "texto": "Acción de la Terapia Neural",
+              "negrita": true,
+              "relleno": "FF1F4E78"
+            },
+            {
+              "celda": "E1",
+              "combinada": null,
+              "texto": "Técnica",
+              "negrita": true,
+              "relleno": "FF1F4E78"
+            },
+            {
+              "celda": "F1",
+              "combinada": null,
+              "texto": "Referencia Anatómica",
+              "negrita": true,
+              "relleno": "FF1F4E78"
+            },
+            {
+              "celda": "A2",
+              "combinada": null,
+              "texto": "Cráneo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B2",
+              "combinada": null,
+              "texto": "Occipitofrontal (vientre frontal)",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C2",
+              "combinada": null,
+              "texto": "Corona de espinas, VG20, agujero estilomastoideo, puntos gatillo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D2",
+              "combinada": null,
+              "texto": "Migraña, cefalea tensional, bruxismo, regulación neurovegetativa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E2",
+              "combinada": null,
+              "texto": "Hackett, puntos gatillo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F2",
+              "combinada": null,
+              "texto": "Epicráneo frontal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A3",
+              "combinada": null,
+              "texto": "Cráneo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B3",
+              "combinada": null,
+              "texto": "Occipitofrontal (vientre occipital)",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C3",
+              "combinada": null,
+              "texto": "Hackett A-B-C-T, protuberancia occipital, VG20",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D3",
+              "combinada": null,
+              "texto": "Dolor occipital, cefalea, cervicalgia refleja",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E3",
+              "combinada": null,
+              "texto": "Hackett, occipital",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F3",
+              "combinada": null,
+              "texto": "Región occipital",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A4",
+              "combinada": null,
+              "texto": "Cara",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B4",
+              "combinada": null,
+              "texto": "Temporal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C4",
+              "combinada": null,
+              "texto": "Fosa temporal, ATM, Gasser, foramen mentoniano",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D4",
+              "combinada": null,
+              "texto": "Bruxismo, migraña, dolor orofacial",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E4",
+              "combinada": null,
+              "texto": "Puntos gatillo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F4",
+              "combinada": null,
+              "texto": "Región temporal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A5",
+              "combinada": null,
+              "texto": "Cara",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B5",
+              "combinada": null,
+              "texto": "Masetero",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C5",
+              "combinada": null,
+              "texto": "Arco cigomático, ángulo mandibular, ATM",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D5",
+              "combinada": null,
+              "texto": "DTM, dolor mandibular, cefalea",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E5",
+              "combinada": null,
+              "texto": "Punto gatillo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F5",
+              "combinada": null,
+              "texto": "Mandíbula",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A6",
+              "combinada": null,
+              "texto": "Cara",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B6",
+              "combinada": null,
+              "texto": "Orbicular ocular",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C6",
+              "combinada": null,
+              "texto": "Supraorbitario, infraorbitario, estilomastoideo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D6",
+              "combinada": null,
+              "texto": "Blefaroespasmo, cefalea frontal, tensión ocular",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E6",
+              "combinada": null,
+              "texto": "Foraminal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F6",
+              "combinada": null,
+              "texto": "Órbita",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A7",
+              "combinada": null,
+              "texto": "Cara",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B7",
+              "combinada": null,
+              "texto": "Prócer y nasal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C7",
+              "combinada": null,
+              "texto": "Glabela, entrecejo, trayecto muscular",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D7",
+              "combinada": null,
+              "texto": "Rinitis, cefalea facial, tensión nasal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E7",
+              "combinada": null,
+              "texto": "Segmentaria facial",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F7",
+              "combinada": null,
+              "texto": "Región nasal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A8",
+              "combinada": null,
+              "texto": "Cuello",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B8",
+              "combinada": null,
+              "texto": "Platisma",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C8",
+              "combinada": null,
+              "texto": "Trayecto cervical, supra e infraclavicular",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D8",
+              "combinada": null,
+              "texto": "Rigidez cervical, dolor cervicofacial",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E8",
+              "combinada": null,
+              "texto": "Trayecto muscular",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F8",
+              "combinada": null,
+              "texto": "Cuello superficial",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A9",
+              "combinada": null,
+              "texto": "Cuello",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B9",
+              "combinada": null,
+              "texto": "Esternocleidomastoideo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C9",
+              "combinada": null,
+              "texto": "Mastoides, clavícula, esternón",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D9",
+              "combinada": null,
+              "texto": "Cervicalgia, cefalea, dolor referido",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E9",
+              "combinada": null,
+              "texto": "Punto gatillo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F9",
+              "combinada": null,
+              "texto": "Región lateral cuello",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A10",
+              "combinada": null,
+              "texto": "Cuello",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B10",
+              "combinada": null,
+              "texto": "Suprahioideos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C10",
+              "combinada": null,
+              "texto": "Submandibular, piso de boca, mentoniano",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D10",
+              "combinada": null,
+              "texto": "Disfagia, ATM, tensión mandibular",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E10",
+              "combinada": null,
+              "texto": "Segmentaria",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F10",
+              "combinada": null,
+              "texto": "Piso de boca",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A11",
+              "combinada": null,
+              "texto": "Región Cervical Posterior",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B11",
+              "combinada": null,
+              "texto": "Escalenos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C11",
+              "combinada": null,
+              "texto": "Paravertebral C3-C6, chaleco",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D11",
+              "combinada": null,
+              "texto": "Cervicobraquialgia, dolor miofascial",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E11",
+              "combinada": null,
+              "texto": "Paravertebral",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F11",
+              "combinada": null,
+              "texto": "Región cervical lateral",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A12",
+              "combinada": null,
+              "texto": "Región Cervical Posterior",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B12",
+              "combinada": null,
+              "texto": "Suboccipitales",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C12",
+              "combinada": null,
+              "texto": "Protuberancia occipital, Hackett, occipital",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D12",
+              "combinada": null,
+              "texto": "Migraña, vértigo, tortícolis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E12",
+              "combinada": null,
+              "texto": "Hackett, occipital",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F12",
+              "combinada": null,
+              "texto": "Triángulo suboccipital",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A13",
+              "combinada": null,
+              "texto": "Hombro",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B13",
+              "combinada": null,
+              "texto": "Trapecio",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C13",
+              "combinada": null,
+              "texto": "Espina escapular, occipital, paravertebral C2-C7",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D13",
+              "combinada": null,
+              "texto": "Dolor interescapular, contractura cervical",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E13",
+              "combinada": null,
+              "texto": "Paravertebral y gatillo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F13",
+              "combinada": null,
+              "texto": "Trapecio",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A14",
+              "combinada": null,
+              "texto": "Hombro",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B14",
+              "combinada": null,
+              "texto": "Deltoides",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C14",
+              "combinada": null,
+              "texto": "Acromion, clavícula, espina escapular",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D14",
+              "combinada": null,
+              "texto": "Dolor hombro, restricción movilidad",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E14",
+              "combinada": null,
+              "texto": "Puntos gatillo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F14",
+              "combinada": null,
+              "texto": "Hombro",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A15",
+              "combinada": null,
+              "texto": "Dorso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B15",
+              "combinada": null,
+              "texto": "Epiespinal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C15",
+              "combinada": null,
+              "texto": "Hackett, sacro, crestas ilíacas, paravertebral",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D15",
+              "combinada": null,
+              "texto": "Dolor dorsal y lumbar, rigidez",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E15",
+              "combinada": null,
+              "texto": "Hackett y segmentaria",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F15",
+              "combinada": null,
+              "texto": "Erectores espinales",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A16",
+              "combinada": null,
+              "texto": "Dorso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B16",
+              "combinada": null,
+              "texto": "Longísimo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C16",
+              "combinada": null,
+              "texto": "Paravertebral, sacro, occipital",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D16",
+              "combinada": null,
+              "texto": "Contractura y dolor vertebral",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E16",
+              "combinada": null,
+              "texto": "Segmentaria",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F16",
+              "combinada": null,
+              "texto": "Plano profundo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A17",
+              "combinada": null,
+              "texto": "Dorso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B17",
+              "combinada": null,
+              "texto": "Iliocostal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C17",
+              "combinada": null,
+              "texto": "Puntos sobre costillas, crestas ilíacas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D17",
+              "combinada": null,
+              "texto": "Dolor paravertebral y postura",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E17",
+              "combinada": null,
+              "texto": "Puntos gatillo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F17",
+              "combinada": null,
+              "texto": "Plano profundo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A18",
+              "combinada": null,
+              "texto": "Dorso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B18",
+              "combinada": null,
+              "texto": "Romboides",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C18",
+              "combinada": null,
+              "texto": "Borde medial escapular, paravertebral T2-T5",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D18",
+              "combinada": null,
+              "texto": "Dolor escapular y dorsal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E18",
+              "combinada": null,
+              "texto": "Punto gatillo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F18",
+              "combinada": null,
+              "texto": "Región escapular",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A19",
+              "combinada": null,
+              "texto": "Dorso",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B19",
+              "combinada": null,
+              "texto": "Elevador escapular",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C19",
+              "combinada": null,
+              "texto": "Paravertebral C1-C5, borde escapular",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D19",
+              "combinada": null,
+              "texto": "Cervicodorsalgia, contractura",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E19",
+              "combinada": null,
+              "texto": "Segmentaria",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F19",
+              "combinada": null,
+              "texto": "Escápula",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        }
+      ],
+      "comentarios": [],
+      "imagenes": [],
+      "imagenes_extraidas": []
+    }
+  ]
+}

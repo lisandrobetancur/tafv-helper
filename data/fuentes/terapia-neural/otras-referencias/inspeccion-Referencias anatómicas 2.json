@@ -1,0 +1,1005 @@
+{
+  "archivo": "/Users/lisandro/dev/py/tafv-helper/data/fuentes/terapia-neural/otras-referencias/hojas/Referencias anatómicas 2.xlsx",
+  "hojas": [
+    {
+      "hoja": "Referencias anatómicas 2",
+      "dimension": "A1:G20",
+      "bloques": [
+        {
+          "rango": "A1:G20",
+          "filas": 20,
+          "columnas": 7,
+          "densidad": 1.0,
+          "fila_encabezado": 1,
+          "registros": 19,
+          "sugerencia": "tabla",
+          "celdas": [
+            {
+              "celda": "A1",
+              "combinada": null,
+              "texto": "Región Anatómica",
+              "negrita": true,
+              "relleno": "FF1F497D"
+            },
+            {
+              "celda": "B1",
+              "combinada": null,
+              "texto": "Técnica de Terapia Neural",
+              "negrita": true,
+              "relleno": "FF1F497D"
+            },
+            {
+              "celda": "C1",
+              "combinada": null,
+              "texto": "Zona / Punto Anatómico",
+              "negrita": true,
+              "relleno": "FF1F497D"
+            },
+            {
+              "celda": "D1",
+              "combinada": null,
+              "texto": "Indicaciones Frecuentes",
+              "negrita": true,
+              "relleno": "FF1F497D"
+            },
+            {
+              "celda": "E1",
+              "combinada": null,
+              "texto": "Objetivo Neuroterapéutico",
+              "negrita": true,
+              "relleno": "FF1F497D"
+            },
+            {
+              "celda": "F1",
+              "combinada": null,
+              "texto": "Tipo de Técnica",
+              "negrita": true,
+              "relleno": "FF1F497D"
+            },
+            {
+              "celda": "G1",
+              "combinada": null,
+              "texto": "Referencia",
+              "negrita": true,
+              "relleno": "FF1F497D"
+            },
+            {
+              "celda": "A2",
+              "combinada": null,
+              "texto": "Lumbosacro",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B2",
+              "combinada": null,
+              "texto": "Troncal lumbosacro",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C2",
+              "combinada": null,
+              "texto": "Plexo lumbosacro y trayecto ciático",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D2",
+              "combinada": null,
+              "texto": "Ciática, dolor irradiado, neuropatía",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E2",
+              "combinada": null,
+              "texto": "Regulación neurosegmentaria",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F2",
+              "combinada": null,
+              "texto": "Segmentaria profunda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G2",
+              "combinada": null,
+              "texto": "Dosch / Huneke / Vynes",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A3",
+              "combinada": null,
+              "texto": "Lumbosacro",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B3",
+              "combinada": null,
+              "texto": "Paravertebral lumbar",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C3",
+              "combinada": null,
+              "texto": "Segmentos L1-L5",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D3",
+              "combinada": null,
+              "texto": "Lumbalgia, contractura, dolor miofascial",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E3",
+              "combinada": null,
+              "texto": "Modulación segmentaria",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F3",
+              "combinada": null,
+              "texto": "Paravertebral",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G3",
+              "combinada": null,
+              "texto": "Dosch / Vynes",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A4",
+              "combinada": null,
+              "texto": "Sacro",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B4",
+              "combinada": null,
+              "texto": "Hiato sacro",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C4",
+              "combinada": null,
+              "texto": "Canal sacro",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D4",
+              "combinada": null,
+              "texto": "Lumbociatalgia, dolor pélvico",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E4",
+              "combinada": null,
+              "texto": "Regulación sacra",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F4",
+              "combinada": null,
+              "texto": "Segmentaria",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G4",
+              "combinada": null,
+              "texto": "Huneke / Vynes",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A5",
+              "combinada": null,
+              "texto": "Glúteo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B5",
+              "combinada": null,
+              "texto": "Punto prohibido nervio ciático",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C5",
+              "combinada": null,
+              "texto": "Región glútea posterolateral",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D5",
+              "combinada": null,
+              "texto": "Dolor glúteo profundo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E5",
+              "combinada": null,
+              "texto": "Evitar lesión nerviosa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F5",
+              "combinada": null,
+              "texto": "Referencia anatómica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G5",
+              "combinada": null,
+              "texto": "Anatomía neuroterapéutica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A6",
+              "combinada": null,
+              "texto": "Pelvis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B6",
+              "combinada": null,
+              "texto": "Cresta ilíaca",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C6",
+              "combinada": null,
+              "texto": "Borde iliaco",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D6",
+              "combinada": null,
+              "texto": "Dolor lumbar y miofascial",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E6",
+              "combinada": null,
+              "texto": "Relajación fascial",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F6",
+              "combinada": null,
+              "texto": "Puntos gatillo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G6",
+              "combinada": null,
+              "texto": "Dosch",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A7",
+              "combinada": null,
+              "texto": "Pelvis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B7",
+              "combinada": null,
+              "texto": "Tuberosidad isquiática",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C7",
+              "combinada": null,
+              "texto": "Inserción isquiotibiales",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D7",
+              "combinada": null,
+              "texto": "Tendinopatía, dolor sentado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E7",
+              "combinada": null,
+              "texto": "Regular inserciones musculares",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F7",
+              "combinada": null,
+              "texto": "Insercional",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G7",
+              "combinada": null,
+              "texto": "Vynes",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A8",
+              "combinada": null,
+              "texto": "Pelvis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B8",
+              "combinada": null,
+              "texto": "Pubis",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C8",
+              "combinada": null,
+              "texto": "Sínfisis púbica y aductores",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D8",
+              "combinada": null,
+              "texto": "Pubalgia, dolor pélvico",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E8",
+              "combinada": null,
+              "texto": "Regulación ligamentaria",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F8",
+              "combinada": null,
+              "texto": "Periostal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G8",
+              "combinada": null,
+              "texto": "Huneke",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A9",
+              "combinada": null,
+              "texto": "Cadera",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B9",
+              "combinada": null,
+              "texto": "Trocánter mayor",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C9",
+              "combinada": null,
+              "texto": "Inserción glútea",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D9",
+              "combinada": null,
+              "texto": "Síndrome trocantérico",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E9",
+              "combinada": null,
+              "texto": "Disminución dolor periarticular",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F9",
+              "combinada": null,
+              "texto": "Periostal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G9",
+              "combinada": null,
+              "texto": "Dosch / Vynes",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A10",
+              "combinada": null,
+              "texto": "Cadera",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B10",
+              "combinada": null,
+              "texto": "Trocánter menor",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C10",
+              "combinada": null,
+              "texto": "Inserción iliopsoas",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D10",
+              "combinada": null,
+              "texto": "Dolor profundo de cadera",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E10",
+              "combinada": null,
+              "texto": "Regular tensión profunda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F10",
+              "combinada": null,
+              "texto": "Insercional",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G10",
+              "combinada": null,
+              "texto": "Vynes",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A11",
+              "combinada": null,
+              "texto": "Cadera",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B11",
+              "combinada": null,
+              "texto": "Intertrocantérica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C11",
+              "combinada": null,
+              "texto": "Línea intertrocantérica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D11",
+              "combinada": null,
+              "texto": "Dolor coxofemoral",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E11",
+              "combinada": null,
+              "texto": "Regulación periarticular",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F11",
+              "combinada": null,
+              "texto": "Periostal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G11",
+              "combinada": null,
+              "texto": "Literatura TN",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A12",
+              "combinada": null,
+              "texto": "Rodilla",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B12",
+              "combinada": null,
+              "texto": "Cóndilo medial",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C12",
+              "combinada": null,
+              "texto": "Inserciones mediales",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D12",
+              "combinada": null,
+              "texto": "Gonalgia medial",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E12",
+              "combinada": null,
+              "texto": "Modular dolor ligamentario",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F12",
+              "combinada": null,
+              "texto": "Insercional",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G12",
+              "combinada": null,
+              "texto": "Dosch",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A13",
+              "combinada": null,
+              "texto": "Rodilla",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B13",
+              "combinada": null,
+              "texto": "Cóndilo lateral",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C13",
+              "combinada": null,
+              "texto": "Inserciones laterales",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D13",
+              "combinada": null,
+              "texto": "Dolor lateral rodilla",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E13",
+              "combinada": null,
+              "texto": "Relajación miofascial",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F13",
+              "combinada": null,
+              "texto": "Insercional",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G13",
+              "combinada": null,
+              "texto": "Vynes",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A14",
+              "combinada": null,
+              "texto": "Rodilla",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B14",
+              "combinada": null,
+              "texto": "Mano en rodilla",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C14",
+              "combinada": null,
+              "texto": "Periarticular rodilla",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D14",
+              "combinada": null,
+              "texto": "Artrosis, gonalgia",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E14",
+              "combinada": null,
+              "texto": "Regulación articular",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F14",
+              "combinada": null,
+              "texto": "Periarticular",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G14",
+              "combinada": null,
+              "texto": "Terapia Neural clásica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A15",
+              "combinada": null,
+              "texto": "Pierna",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B15",
+              "combinada": null,
+              "texto": "Segmentaria miembro inferior",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C15",
+              "combinada": null,
+              "texto": "Trayectos musculares y nerviosos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D15",
+              "combinada": null,
+              "texto": "Dolor irradiado y muscular",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E15",
+              "combinada": null,
+              "texto": "Regulación neurovegetativa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F15",
+              "combinada": null,
+              "texto": "Segmentaria",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G15",
+              "combinada": null,
+              "texto": "Dosch / Huneke",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A16",
+              "combinada": null,
+              "texto": "Tobillo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B16",
+              "combinada": null,
+              "texto": "Maleolo interno",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C16",
+              "combinada": null,
+              "texto": "Región tibial distal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D16",
+              "combinada": null,
+              "texto": "Dolor tibial y tobillo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E16",
+              "combinada": null,
+              "texto": "Regular dolor regional",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F16",
+              "combinada": null,
+              "texto": "Periostal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G16",
+              "combinada": null,
+              "texto": "Vynes",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A17",
+              "combinada": null,
+              "texto": "Tobillo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B17",
+              "combinada": null,
+              "texto": "Maleolo externo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C17",
+              "combinada": null,
+              "texto": "Región peronea distal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D17",
+              "combinada": null,
+              "texto": "Inestabilidad y dolor lateral",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E17",
+              "combinada": null,
+              "texto": "Modulación neural",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F17",
+              "combinada": null,
+              "texto": "Periostal",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G17",
+              "combinada": null,
+              "texto": "Vynes",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A18",
+              "combinada": null,
+              "texto": "Pie",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B18",
+              "combinada": null,
+              "texto": "Tendón de Aquiles",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C18",
+              "combinada": null,
+              "texto": "Inserción calcánea",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D18",
+              "combinada": null,
+              "texto": "Tendinopatía aquílea",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E18",
+              "combinada": null,
+              "texto": "Regular inflamación y dolor",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F18",
+              "combinada": null,
+              "texto": "Insercional",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G18",
+              "combinada": null,
+              "texto": "Dosch",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A19",
+              "combinada": null,
+              "texto": "Miembro Inferior",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B19",
+              "combinada": null,
+              "texto": "Origen e inserción muscular",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C19",
+              "combinada": null,
+              "texto": "Puntos musculotendinosos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D19",
+              "combinada": null,
+              "texto": "Dolor miofascial",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E19",
+              "combinada": null,
+              "texto": "Relajación muscular",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F19",
+              "combinada": null,
+              "texto": "Puntos gatillo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G19",
+              "combinada": null,
+              "texto": "Anatomía funcional",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A20",
+              "combinada": null,
+              "texto": "Miembro Inferior",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B20",
+              "combinada": null,
+              "texto": "Terapia segmentaria",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C20",
+              "combinada": null,
+              "texto": "L2-S2",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D20",
+              "combinada": null,
+              "texto": "Neuropatía y dolor irradiado",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E20",
+              "combinada": null,
+              "texto": "Regulación autonómica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "F20",
+              "combinada": null,
+              "texto": "Segmentaria",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "G20",
+              "combinada": null,
+              "texto": "Huneke / Dosch",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        }
+      ],
+      "comentarios": [],
+      "imagenes": [],
+      "imagenes_extraidas": []
+    }
+  ]
+}

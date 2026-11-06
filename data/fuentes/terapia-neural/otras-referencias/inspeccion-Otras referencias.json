@@ -1,0 +1,270 @@
+{
+  "archivo": "/Users/lisandro/dev/py/tafv-helper/data/fuentes/terapia-neural/otras-referencias/hojas/Otras referencias.xlsx",
+  "hojas": [
+    {
+      "hoja": "Otras referencias",
+      "dimension": "A1:E7",
+      "bloques": [
+        {
+          "rango": "A1:E7",
+          "filas": 7,
+          "columnas": 5,
+          "densidad": 1.0,
+          "fila_encabezado": 1,
+          "registros": 6,
+          "sugerencia": "tabla pequeña",
+          "celdas": [
+            {
+              "celda": "A1",
+              "combinada": null,
+              "texto": "Área Anatómica",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "B1",
+              "combinada": null,
+              "texto": "Técnica de Terapia Neural",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "C1",
+              "combinada": null,
+              "texto": "Zona / Estructura Objetivo",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "D1",
+              "combinada": null,
+              "texto": "Indicaciones Frecuentes",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "E1",
+              "combinada": null,
+              "texto": "Objetivo Terapéutico",
+              "negrita": true,
+              "relleno": null
+            },
+            {
+              "celda": "A2",
+              "combinada": null,
+              "texto": "Región Lumbar",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B2",
+              "combinada": null,
+              "texto": "Paravertebral lumbar",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C2",
+              "combinada": null,
+              "texto": "Músculos paravertebrales lumbares y segmentos lumbares",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D2",
+              "combinada": null,
+              "texto": "Lumbalgia, contractura lumbar, dolor miofascial lumbar",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E2",
+              "combinada": null,
+              "texto": "Regular el sistema nervioso segmentario y disminuir dolor muscular",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A3",
+              "combinada": null,
+              "texto": "Región Lumbosacra",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B3",
+              "combinada": null,
+              "texto": "Paravertebral lumbosacra",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C3",
+              "combinada": null,
+              "texto": "Unión lumbosacra y musculatura profunda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D3",
+              "combinada": null,
+              "texto": "Lumbociatalgia, espasmo muscular, dolor sacrolumbar",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E3",
+              "combinada": null,
+              "texto": "Mejorar regulación neurovegetativa y disminuir irritación segmentaria",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A4",
+              "combinada": null,
+              "texto": "Sacro",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B4",
+              "combinada": null,
+              "texto": "Hiato sacro",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C4",
+              "combinada": null,
+              "texto": "Canal sacro y raíces sacras",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D4",
+              "combinada": null,
+              "texto": "Ciática, dolor pélvico, dolor glúteo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E4",
+              "combinada": null,
+              "texto": "Modulación segmentaria sacra y analgesia refleja",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A5",
+              "combinada": null,
+              "texto": "Región Glútea",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B5",
+              "combinada": null,
+              "texto": "Trocánter mayor",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C5",
+              "combinada": null,
+              "texto": "Inserciones glúteas y periostio trocantérico",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D5",
+              "combinada": null,
+              "texto": "Síndrome trocantérico, tendinopatías glúteas, dolor lateral de cadera",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E5",
+              "combinada": null,
+              "texto": "Disminuir inflamación y dolor periarticular",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A6",
+              "combinada": null,
+              "texto": "Región Glútea Profunda",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B6",
+              "combinada": null,
+              "texto": "Trocánter menor",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C6",
+              "combinada": null,
+              "texto": "Inserción iliopsoas y región profunda de cadera",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D6",
+              "combinada": null,
+              "texto": "Dolor profundo de cadera, limitación funcional",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E6",
+              "combinada": null,
+              "texto": "Regular tensión muscular profunda y dolor referido",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A7",
+              "combinada": null,
+              "texto": "Miembro Inferior",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B7",
+              "combinada": null,
+              "texto": "Troncal lumbosacro",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C7",
+              "combinada": null,
+              "texto": "Trayecto nervioso lumbosacro",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "D7",
+              "combinada": null,
+              "texto": "Ciática, dolor irradiado, alteraciones sensitivas del miembro inferior",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "E7",
+              "combinada": null,
+              "texto": "Regular conducción neural y disminuir dolor neuropático",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        }
+      ],
+      "comentarios": [],
+      "imagenes": [],
+      "imagenes_extraidas": []
+    }
+  ]
+}

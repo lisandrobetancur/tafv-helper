@@ -1,0 +1,277 @@
+{
+  "archivo": "/Users/lisandro/dev/py/tafv-helper/data/fuentes/terapia-neural/otras-referencias/hojas/Ganglios.xlsx",
+  "hojas": [
+    {
+      "hoja": "Ganglios",
+      "dimension": "A1:C28",
+      "bloques": [
+        {
+          "rango": "A1:C28",
+          "filas": 28,
+          "columnas": 3,
+          "densidad": 0.43,
+          "fila_encabezado": 1,
+          "registros": 27,
+          "sugerencia": "tabla",
+          "celdas": [
+            {
+              "celda": "A1",
+              "combinada": null,
+              "texto": "Area anatomica",
+              "negrita": true,
+              "relleno": "FFC1E4F5"
+            },
+            {
+              "celda": "B1",
+              "combinada": null,
+              "texto": "Relacionado",
+              "negrita": true,
+              "relleno": "FFC1E4F5"
+            },
+            {
+              "celda": "C1",
+              "combinada": null,
+              "texto": "Objetivo Neuralterapeutico",
+              "negrita": true,
+              "relleno": "FFC1E4F5"
+            },
+            {
+              "celda": "A2",
+              "combinada": "A2:A10",
+              "texto": "Gasser (Trigemino)",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B2",
+              "combinada": null,
+              "texto": "Neuralgia del Trigemino",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C2",
+              "combinada": "C2:C10",
+              "texto": "Regular sistema trigeminal\nDisminuir hiperexcitabilidad neural\nModular dolor facial\nRegular respuestas simpáticas y sensitivas craneofaciales",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B3",
+              "combinada": null,
+              "texto": "Dolor orofacial",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B4",
+              "combinada": null,
+              "texto": "Bruxismo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B5",
+              "combinada": null,
+              "texto": "Cefalea tensional",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B6",
+              "combinada": null,
+              "texto": "Migraña",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B7",
+              "combinada": null,
+              "texto": "Disfuncion temporomandibular",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B8",
+              "combinada": null,
+              "texto": "Dolor dental funcional",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B9",
+              "combinada": null,
+              "texto": "Dolor facial cronico",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B10",
+              "combinada": null,
+              "texto": "Campos interferentes faciales",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A11",
+              "combinada": "A11:A17",
+              "texto": "Ganglio Pterigopalatino o esfenopalatino (Sistema parasimpatico facial)",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B11",
+              "combinada": null,
+              "texto": "Migraña",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C11",
+              "combinada": "C11:C17",
+              "texto": "Regulación parasimpática craneofacial\nDisminuir congestión neurovascular\nModular dolor autonómico facial\nMejorar regulación mucosa y vascular",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B12",
+              "combinada": null,
+              "texto": "Cefalea en racimos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B13",
+              "combinada": null,
+              "texto": "Rinitis vasomotora",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B14",
+              "combinada": null,
+              "texto": "Sinusitis cronica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B15",
+              "combinada": null,
+              "texto": "Dolor facial autonomo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B16",
+              "combinada": null,
+              "texto": "Neuralgia facial",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B17",
+              "combinada": null,
+              "texto": "Trastorno vasomotores craneales",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "A18",
+              "combinada": "A18:A28",
+              "texto": "Ganglio Estrellado\n(Uno de los ganglios más utilizados en terapia neural y bloqueos simpáticos)\nUbicación al lado de la vertebra C7-T1 ",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B18",
+              "combinada": null,
+              "texto": "Dolor neuropático miembro superior",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "C18",
+              "combinada": "C18:C28",
+              "texto": "Modulación simpática cervicotorácica\nMejorar microcirculación\nDisminuir dolor neuropático\nMejorar regulación autonómica",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B19",
+              "combinada": null,
+              "texto": "Síndrome doloroso regional complejo",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B20",
+              "combinada": null,
+              "texto": "Neuralgia postherpética",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B21",
+              "combinada": null,
+              "texto": "Fenómeno de Raynaud",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B22",
+              "combinada": null,
+              "texto": "Dolor cervical",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B23",
+              "combinada": null,
+              "texto": "Cefalea vascular",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B24",
+              "combinada": null,
+              "texto": "Migraña",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B25",
+              "combinada": null,
+              "texto": "Trastornos vasculares periféricos",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B26",
+              "combinada": null,
+              "texto": "Dolor simpáticamente mantenido",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B27",
+              "combinada": null,
+              "texto": "Ansiedad neurovegetativa",
+              "negrita": false,
+              "relleno": null
+            },
+            {
+              "celda": "B28",
+              "combinada": null,
+              "texto": "Alteraciones vasomotoras",
+              "negrita": false,
+              "relleno": null
+            }
+          ]
+        }
+      ],
+      "comentarios": [],
+      "imagenes": [],
+      "imagenes_extraidas": []
+    }
+  ]
+}

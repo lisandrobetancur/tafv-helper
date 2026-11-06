@@ -1,0 +1,36 @@
+{
+  "materia": "Terapia neural",
+  "fecha": "2026-11-06T12:23:08",
+  "archivos": [
+    {
+      "original": "fuentes/terapia-neural/_originales/Terapia neural otras referencias.xlsx",
+      "hojas": [
+        {
+          "hoja": "Ganglios",
+          "componente": "Otras referencias",
+          "archivo": "fuentes/terapia-neural/otras-referencias/hojas/Ganglios.xlsx",
+          "imagenes": []
+        },
+        {
+          "hoja": "Otras referencias",
+          "componente": "Otras referencias",
+          "archivo": "fuentes/terapia-neural/otras-referencias/hojas/Otras referencias.xlsx",
+          "imagenes": []
+        },
+        {
+          "hoja": "Referencias anatómicas 2",
+          "componente": "Otras referencias",
+          "archivo": "fuentes/terapia-neural/otras-referencias/hojas/Referencias anatómicas 2.xlsx",
+          "imagenes": []
+        },
+        {
+          "hoja": "Referencias anatómicas",
+          "componente": "Otras referencias",
+          "archivo": "fuentes/terapia-neural/otras-referencias/hojas/Referencias anatómicas.xlsx",
+          "imagenes": []
+        }
+      ],
+      "sin_asignar": []
+    }
+  ]
+}

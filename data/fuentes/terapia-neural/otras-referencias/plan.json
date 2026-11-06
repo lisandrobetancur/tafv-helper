@@ -1,0 +1,22 @@
+{
+  "materia": "Terapia neural",
+  "componente": "Otras referencias",
+  "crear_componente": {"tipos": ["excel"], "descripcion": ""},
+  "fuentes": [
+    "hojas/Ganglios.xlsx",
+    "hojas/Otras referencias.xlsx",
+    "hojas/Referencias anatómicas.xlsx",
+    "hojas/Referencias anatómicas 2.xlsx"
+  ],
+  "correcciones": {},
+  "omitidos": [],
+  "notas": [],
+  "tablas": [
+    {"archivo": "tablas/Ganglios.xlsx", "nombre": "Ganglios", "columna_titulo": "Relacionado", "celdas": ["Ganglios!A1:C28"]},
+    {"archivo": "hojas/Otras referencias.xlsx", "nombre": "Otras referencias", "columna_titulo": "Técnica de Terapia Neural", "celdas": ["Otras referencias!A1:E7"]},
+    {"archivo": "hojas/Referencias anatómicas.xlsx", "nombre": "Referencias anatómicas", "columna_titulo": "Músculo / Estructura", "celdas": ["Referencias anatómicas!A1:F19"]},
+    {"archivo": "hojas/Referencias anatómicas 2.xlsx", "nombre": "Referencias anatómicas 2", "columna_titulo": "Técnica de Terapia Neural", "celdas": ["Referencias anatómicas 2!A1:G20"]}
+  ],
+  "imagenes": [],
+  "pdfs": []
+}
